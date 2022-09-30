@@ -1,0 +1,11 @@
+resolveip.exe Ver 2.3, for Win64 (x86_64)
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL license
+
+Get hostname based on IP-address or IP-address based on hostname.
+
+Usage: resolveip.exe [OPTIONS] hostname or IP-address
+  -?, --help          Displays this help and exits.
+  -I, --info          Synonym for --help.
+  -s, --silent        Be more silent.
+  -V, --version       Displays version information and exits.

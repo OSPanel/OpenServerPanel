@@ -1,0 +1,71 @@
+mysql_upgrade.exe  Ver 1.1 Distrib 5.6.51, for Win64 (x86_64)
+Copyright (c) 2000, 2021, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+MySQL utility for upgrading databases to new MySQL versions.
+
+  -?, --help          Display this help message and exit.
+  -b, --basedir=name  Not used by mysql_upgrade. Only for backward
+                      compatibility.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  --compress          Use compression in server/client protocol.
+  -d, --datadir=name  Not used by mysql_upgrade. Only for backward
+                      compatibility.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check       Check memory and open file usage at exit.
+  -T, --debug-info    Print some debug info at exit.
+  --default-character-set=name 
+                      Set the default character set.
+  --default-auth=name Default authentication client-side plugin to use.
+  -f, --force         Force execution of mysqlcheck even if mysql_upgrade has
+                      already been executed for the current version of MySQL.
+  -h, --host=name     Connect to host.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given, it's solicited on the tty.
+  -W, --pipe          Use named pipes to connect to server.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=name     Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  -k, --version-check Run this program only if its 'server version' matches the
+                      version of the server to which it's connecting, (enabled
+                      by default); use --skip-version-check to avoid this
+                      check. Note: the 'server version' of the program is the
+                      version of the MySQL server with which it was
+                      built/distributed.
+                      (Defaults to on; use --skip-version-check to disable.)
+  -S, --socket=name   The socket file to use for connection.
+  --ssl               Enable SSL for connection (automatically enabled with
+                      other flags).
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies
+                      --ssl).
+  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl).
+  --ssl-cert=name     X509 cert in PEM format (implies --ssl).
+  --ssl-cipher=name   SSL cipher to use (implies --ssl).
+  --ssl-key=name      X509 key in PEM format (implies --ssl).
+  --ssl-crl=name      Certificate revocation list (implies --ssl).
+  --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
+  --ssl-verify-server-cert 
+                      Verify server's "Common Name" in its cert against
+                      hostname used when connecting. This option is disabled by
+                      default.
+  --ssl-mode=name     SSL connection mode.
+  -t, --tmpdir=name   Directory for temporary files.
+  -s, --upgrade-system-tables 
+                      Only upgrade the system tables do not try to upgrade the
+                      data.
+  -u, --user=name     User for login if not current user.
+  -v, --verbose       Display more output about the process.
+                      (Defaults to on; use --skip-verbose to disable.)
+  --write-binlog      All commands including mysqlcheck are binlogged. Disabled
+                      by default; use when commands should be sent to
+                      replication slaves.

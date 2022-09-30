@@ -1,0 +1,89 @@
+mysqltest.exe  Ver 3.3 Distrib 5.6.51, for Win64 (x86_64)
+Copyright (c) 2000, 2021, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Runs a test against the mysql server and compares output with a results file.
+
+Usage: mysqltest.exe [OPTIONS] [database] < test_file
+  -?, --help          Display this help and exit.
+  -b, --basedir=name  Basedir for tests.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  -C, --compress      Use the compressed server/client protocol.
+  --cursor-protocol   Use cursors for prepared statements.
+  -D, --database=name Database to use.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit
+  --debug-check       Check memory and open file usage at exit.
+  --debug-info        Print some debug info at exit.
+  -h, --host=name     Connect to host.
+  -i, --include=name  Include SQL before each test case.
+  --logdir=name       Directory for log files
+  --mark-progress     Write line number and elapsed time to
+                      <testname>.progress.
+  --max-connect-retries=# 
+                      Maximum number of attempts to connect to server.
+  --max-connections=# Max number of open connections to server
+  -p, --password[=name] 
+                      Password to use when connecting to server.
+  --protocol=name     The protocol of connection (tcp,socket,pipe,memory).
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --ps-protocol       Use prepared-statement protocol for communication.
+  -s, --quiet         Suppress all normal output.
+  -r, --record        Record output of test_file into result file.
+  -R, --result-file=name 
+                      Read/store result from/in this file.
+  --result-format-version=# 
+                      Version of the result file format to use
+  -A, --server-arg=name 
+                      Send option value to embedded server as a parameter.
+  -F, --server-file=name 
+                      Read embedded server arguments from file.
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  -s, --silent        Suppress all normal output. Synonym for --quiet.
+  -T, --sleep=#       Always sleep this many seconds on sleep commands.
+  -S, --socket=name   The socket file to use for connection.
+  --sp-protocol       Use stored procedures for select.
+  --ssl               Enable SSL for connection (automatically enabled with
+                      other flags).
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies
+                      --ssl).
+  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl).
+  --ssl-cert=name     X509 cert in PEM format (implies --ssl).
+  --ssl-cipher=name   SSL cipher to use (implies --ssl).
+  --ssl-key=name      X509 key in PEM format (implies --ssl).
+  --ssl-crl=name      Certificate revocation list (implies --ssl).
+  --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
+  --ssl-verify-server-cert 
+                      Verify server's "Common Name" in its cert against
+                      hostname used when connecting. This option is disabled by
+                      default.
+  --ssl-mode=name     SSL connection mode.
+  --tail-lines=#      Number of lines of the result to include in a failure
+                      report.
+  -x, --test-file=name 
+                      Read test from/in this file (default stdin).
+  -m, --timer-file=name 
+                      File where the timing in microseconds is stored.
+  -t, --tmpdir=name   Temporary directory where sockets are put.
+  -u, --user=name     User for login.
+  -v, --verbose       Write more.
+  -V, --version       Output version information and exit.
+  --view-protocol     Use views for select.
+  --opt-trace-protocol 
+                      Trace DML statements with optimizer trace
+  --explain-protocol  Explain all SELECT/INSERT/REPLACE/UPDATE/DELETE
+                      statements
+  --json-explain-protocol 
+                      Explain all SELECT/INSERT/REPLACE/UPDATE/DELETE
+                      statements with FORMAT=JSON
+  --connect-timeout=# Number of seconds before connection timeout.
+  --plugin-dir=name   Directory for client-side plugins.
+  --server-public-key-path=name 
+                      File path to the server public RSA key in PEM format.
+  --no-defaults       Don't read default options from any options file.
