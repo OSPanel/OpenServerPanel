@@ -1,0 +1,55 @@
+Export MongoDB data to CSV, TSV or JSON files.
+
+Options:
+  --help                                produce help message
+  -v [ --verbose ]                      be more verbose (include multiple times
+                                        for more verbosity e.g. -vvvvv)
+  --quiet                               silence all non error diagnostic 
+                                        messages
+  --version                             print the program's version and exit
+  -h [ --host ] arg                     mongo host to connect to ( <set 
+                                        name>/s1,s2 for sets)
+  --port arg                            server port. Can also use --host 
+                                        hostname:port
+  --ipv6                                enable IPv6 support (disabled by 
+                                        default)
+  -u [ --username ] arg                 username
+  -p [ --password ] arg                 password
+  --authenticationDatabase arg          user source (defaults to dbname)
+  --authenticationMechanism arg (=MONGODB-CR)
+                                        authentication mechanism
+  --gssapiServiceName arg (=mongodb)    Service name to use when authenticating
+                                        using GSSAPI/Kerberos
+  --gssapiHostName arg                  Remote host name to use for purpose of 
+                                        GSSAPI/Kerberos authentication
+  --dbpath arg                          directly access mongod database files 
+                                        in the given path, instead of 
+                                        connecting to a mongod  server - needs 
+                                        to lock the data directory, so cannot 
+                                        be used if a mongod is currently 
+                                        accessing the same path
+  --directoryperdb                      each db is in a separate directory 
+                                        (relevant only if dbpath specified)
+  --journal                             enable journaling (relevant only if 
+                                        dbpath specified)
+  -d [ --db ] arg                       database to use
+  -c [ --collection ] arg               collection to use (some commands)
+  -f [ --fields ] arg                   comma separated list of field names 
+                                        e.g. -f name,age
+  --fieldFile arg                       file with field names - 1 per line
+  -q [ --query ] arg                    query filter, as a JSON string, e.g., 
+                                        '{x:{$gt:1}}'
+  --csv                                 export to csv instead of json
+  -o [ --out ] arg                      output file; if not specified, stdout 
+                                        is used
+  --jsonArray                           output to a json array rather than one 
+                                        object per line
+  -k [ --slaveOk ] arg (=1)             use secondaries for export if 
+                                        available, default true
+  --forceTableScan                      force a table scan (do not use 
+                                        $snapshot)
+  --skip arg (=0)                       documents to skip, default 0
+  --limit arg (=0)                      limit the numbers of documents 
+                                        returned, default all
+  --sort arg                            sort order, as a JSON string, e.g., 
+                                        '{x:1}'

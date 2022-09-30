@@ -1,0 +1,3 @@
+Import BSON files into MongoDB.
+
+usage: mongorestore.exe [options] [directory or filename to restore from]

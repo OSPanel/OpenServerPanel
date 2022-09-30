@@ -1,0 +1,1864 @@
+NAME
+
+BusyBox - The Swiss Army Knife of Embedded Linux
+
+SYNTAX
+
+busybox applet [arguments...]  # or
+
+applet [arguments...]          # if symlinked
+
+DESCRIPTION
+
+BusyBox combines tiny versions of many common UNIX utilities into a single small executable. It provides minimalist replacements for most of the utilities you usually find in GNU coreutils, util-linux, etc. The utilities in BusyBox generally have fewer options than their full-featured GNU cousins; however, the options that are included provide the expected functionality and behave very much like their GNU counterparts.
+
+USAGE
+
+BusyBox is a multi-call binary. A multi-call binary is an executable program that performs the same job as more than one utility program. That means there is just a single BusyBox binary, but that single binary acts like a large number of utilities. This allows BusyBox to be smaller since all the built-in utility programs (we call them applets) can share code for many common operations.
+
+You can also invoke BusyBox by issuing a command as an argument on the command line. For example, entering
+
+binbusybox ls
+
+will also cause BusyBox to behave as 'ls'.
+
+Of course, adding 'binbusybox' into every command would be painful. So most people will invoke BusyBox using links to the BusyBox binary.
+
+For example, entering
+
+ln -s binbusybox ls
+.ls
+
+will cause BusyBox to behave as 'ls' (if the 'ls' command has been compiled into BusyBox). Generally speaking, you should never need to make all these links yourself, as the BusyBox build system will do this for you when you run the 'make install' command.
+
+If you invoke BusyBox with no arguments, it will provide you with a list of the applets that have been compiled into your BusyBox binary.
+
+COMMON OPTIONS
+
+Most BusyBox applets support the --help argument to provide a terse runtime description of their behavior. If the CONFIG_FEATURE_VERBOSE_USAGE option has been enabled, more detailed usage information will also be available.
+
+COMMANDS
+
+Currently available applets include
+
+[, [[, ar, arch, ascii, ash, awk, base32, base64, basename, bash,
+bc, bunzip2, busybox, bzcat, bzip2, cal, cat, chattr, chmod, cksum,
+clear, cmp, comm, cp, cpio, crc32, cut, date, dc, dd, df, diff,
+dirname, dos2unix, dpkg, dpkg-deb, du, echo, ed, egrep, env, expand,
+expr, factor, false, fgrep, find, fold, free, fsync, ftpget, ftpput,
+getopt, grep, groups, gunzip, gzip, hd, head, hexdump, httpd, iconv,
+id, inotifyd, install, ipcalc, jn, kill, killall, less, link, ln,
+logname, ls, lsattr, lzcat, lzma, lzop, lzopcat, man, md5sum, mkdir,
+mktemp, mv, nc, nl, nproc, od, paste, patch, pgrep, pidof,
+pipe_progress, pkill, printenv, printf, ps, pwd, readlink, realpath,
+reset, rev, rm, rmdir, rpm, rpm2cpio, sed, seq, sh, sha1sum,
+sha256sum, sha3sum, sha512sum, shred, shuf, sleep, sort, split,
+ssl_client, stat, strings, su, sum, sync, tac, tail, tar, tee, test,
+time, timeout, touch, tr, true, truncate, ts, tsort, ttysize, uname,
+uncompress, unexpand, uniq, unix2dos, unlink, unlzma, unlzop, unxz,
+unzip, uptime, usleep, uudecode, uuencode, vi, watch, wc, wget,
+which, whoami, whois, xargs, xxd, xz, xzcat, yes, zcat
+
+COMMAND DESCRIPTIONS
+
+ar
+ar xptr [-ov] ARCHIVE [FILE]...
+
+Extract or list FILEs from an ar archive, or create it
+
+x       Extract
+p       Extract to stdout
+t       List
+r       Create
+-o      Restore mtime
+-v      Verbose
+
+arch
+
+arch
+
+Print system architecture
+
+ash
+
+ash [-il] [-+Cabefmnuvx] [-+o OPT]... [-c 'SCRIPT' [ARG0 ARGS]  FILE ARGS  -s ARGS]
+
+Unix shell interpreter
+
+awk
+
+awk [OPTIONS] [AWK_PROGRAM] [FILE]...
+
+-v VAR=VAL      Set variable
+-F SEP          Use SEP as field separator
+-f FILE         Read program from FILE
+-e AWK_PROGRAM
+
+base32
+
+base32 [-d] [-w COL] [FILE]
+
+Base32 encode or decode FILE to standard output
+
+-d      Decode data
+-w COL  Wrap lines at COL (default 76, 0 disables)
+
+base64
+
+base64 [-d] [-w COL] [FILE]
+
+Base64 encode or decode FILE to standard output
+
+-d      Decode data
+-w COL  Wrap lines at COL (default 76, 0 disables)
+
+basename
+
+basename FILE [SUFFIX]  -a FILE...  -s SUFFIX FILE...
+
+Strip directory path and SUFFIX from FILE
+
+-a              All arguments are FILEs
+-s SUFFIX       Remove SUFFIX (implies -a)
+
+bash
+
+bash [-il] [-+Cabefmnuvx] [-+o OPT]... [-c 'SCRIPT' [ARG0 ARGS]  FILE ARGS  -s ARGS]
+
+Unix shell interpreter
+
+bc
+
+bc [-sqlw] [FILE]...
+
+Arbitrary precision calculator
+
+-q      Quiet
+-l      Load standard library
+-s      Be POSIX compatible
+-w      Warn if extensions are used
+
+$BC_LINE_LENGTH changes output width
+
+bunzip2
+
+bunzip2 [-cfk] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+bzcat
+
+bzcat [FILE]...
+
+Decompress to stdout
+
+bzip2
+
+bzip2 [-cfkdt123456789] [FILE]...
+
+Compress FILEs (or stdin) with bzip2 algorithm
+
+-1..9   Compression level
+-d      Decompress
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+cal
+
+cal [-jmy] [[MONTH] YEAR]
+
+Display a calendar
+
+-j      Use julian dates
+-m      Week starts on Monday
+-y      Display the entire year
+
+cat
+
+cat [-nbvteA] [FILE]...
+
+Print FILEs to stdout
+
+-n      Number output lines
+-b      Number nonempty lines
+-v      Show nonprinting characters as ^x or M-x
+-t      ...and tabs as ^I
+-e      ...and end lines with $
+-A      Same as -vte
+
+chattr
+
+chattr [-R] [-+rhsatn] FILE...
+
+Change file attributes
+
+-R      Recurse
+-,+     Removeadd attributes
+r       Read only
+h       Hidden
+s       System
+a       Archive
+t       Temporary
+n       Not indexed
+
+chmod
+
+chmod [-Rcvf] MODE[,MODE]... FILE...
+
+MODE is octal number (bit pattern sstrwxrwxrwx) or [ugoa]{+-=}[rwxXst]
+
+-R      Recurse
+-c      List changed files
+-v      Verbose
+-f      Hide errors
+
+cksum
+
+cksum FILE...
+
+Calculate CRC32 checksum of FILEs
+
+clear
+
+clear
+
+Clear screen
+
+cmp
+
+cmp [-ls] [-n NUM] FILE1 [FILE2 [SKIP1 [SKIP2]]]
+
+Compare FILE1 with FILE2 (or stdin)
+
+-l      Write the byte numbers (decimal) and values (octal)
+        for all differing bytes
+-s      Quiet
+-n NUM  Compare at most NUM bytes
+
+comm
+
+comm [-123] FILE1 FILE2
+
+Compare FILE1 with FILE2
+
+-1      Suppress lines unique to FILE1
+-2      Suppress lines unique to FILE2
+-3      Suppress lines common to both files
+
+cp
+
+cp [-arPLHpfinlsTu] SOURCE DEST or cp [-arPLHpfinlsu] SOURCE... { -t DIRECTORY  DIRECTORY }
+
+Copy SOURCEs to DEST
+
+-a      Same as -dpR
+-R,-r   Recurse
+-d,-P   Preserve symlinks (default if -R)
+-L      Follow all symlinks
+-H      Follow symlinks on command line
+-p      Preserve file attributes if possible
+-f      Overwrite
+-i      Prompt before overwrite
+-n      Don't overwrite
+-l,-s   Create (sym)links
+-T      Refuse to copy if DEST is a directory
+-t DIR  Copy all SOURCEs into DIR
+-u      Copy only newer files
+
+cpio
+
+cpio [-dmvu] [-F FILE] [-R USER[GRP]] [-H newc] [-tio] [EXTR_FILE]...
+
+Extract (-i) or list (-t) files from a cpio archive, or take file list from stdin and create an archive (-o)
+
+Main operation mode
+
+        -t      List
+        -i      Extract EXTR_FILEs (or all)
+        -o      Create (requires -H newc)
+Options
+
+        -H newc Archive format
+        -d      Make leading directories
+        -m      Restore mtime
+        -v      Verbose
+        -u      Overwrite
+        -F FILE Input (-t,-i,-p) or output (-o) file
+        -R USER[GRP]   Set owner of created files
+        -L      Dereference symlinks
+        -0      NUL terminated input
+        --ignore-devno
+        --renumber-inodes
+
+crc32
+
+crc32 FILE...
+
+Calculate CRC32 checksum of FILEs
+
+cut
+
+cut [OPTIONS] [FILE]...
+
+Print selected fields from FILEs to stdout
+
+-b LIST Output only bytes from LIST
+-c LIST Output only characters from LIST
+-d SEP  Field delimiter for input (default -f TAB, -F run of whitespace)
+-O SEP  Field delimeter for output (default = -d for -f, one space for -F)
+-D      Don't sortcollate sections or match -fF lines without delimeter
+-f LIST Print only these fields (-d is single char)
+-F LIST Print only these fields (-d is regex)
+-s      Output only lines containing delimiter
+-n      Ignored
+
+date
+
+date [OPTIONS] [+FMT] [[-s] TIME]
+
+Display time (using +FMT), or set time
+
+-u              Work in UTC (don't convert to local time)
+-d TIME         Display TIME, not 'now'
+-D FMT          FMT (strptime format) for -s-d TIME conversion
+-r FILE         Display last modification time of FILE
+-R              Output RFC-2822 date
+-I[SPEC]        Output ISO-8601 date
+                SPEC=date (default), hours, minutes, seconds or ns
+
+Recognized TIME formats
+
+@seconds_since_1970
+hhmm[ss]
+[YYYY.]MM.DD-hhmm[ss]
+YYYY-MM-DD hhmm[ss]
+[[[[[YY]YY]MM]DD]hh]mm[.ss]
+'date TIME' form accepts MMDDhhmm[[YY]YY][.ss] instead
+
+dc
+
+dc [-x] [-eSCRIPT]... [-fFILE]... [FILE]...
+
+Tiny RPN calculator. Operations Arithmetic + -   % ^ ~ - divide with remainder  - modular exponentiation v - square root p - print top of the stack without popping f - print entire stack k - pop the value and set precision i - pop the value and set input radix o - pop the value and set output radix Examples dc -e'2 2 + p' - 4, dc -e'8 8  2 2 +  p' - 16
+
+dd
+
+dd [if=FILE] [of=FILE] [ibs=N obs=Nbs=N] [count=N] [skip=N] [seek=N] [conv=notruncnoerrorsyncfsync] [iflag=skip_bytescount_bytesfullblockdirect] [oflag=seek_bytesappenddirect]
+
+Copy a file with converting and formatting
+
+if=FILE         Read from FILE instead of stdin
+of=FILE         Write to FILE instead of stdout
+bs=N            Read and write N bytes at a time
+ibs=N           Read N bytes at a time
+obs=N           Write N bytes at a time
+count=N         Copy only N input blocks
+skip=N          Skip N input blocks
+seek=N          Skip N output blocks
+conv=notrunc    Don't truncate output file
+conv=noerror    Continue after read errors
+conv=sync       Pad blocks with zeros
+conv=fsync      Physically write data out before finishing
+conv=swab       Swap every pair of bytes
+iflag=skip_bytes        skip=N is in bytes
+iflag=count_bytes       count=N is in bytes
+oflag=seek_bytes        seek=N is in bytes
+iflag=direct    O_DIRECT input
+oflag=direct    O_DIRECT output
+iflag=fullblock Read full blocks
+oflag=append    Open output in append mode
+status=noxfer   Suppress rate output
+status=none     Suppress all output
+
+if=devzero and if=devurandom are supported N may be suffixed by c (1), w (2), b (512), kB (1000), k (1024), MB, M, GB, G
+
+df
+
+df [-PkmhT] [-t TYPE] [FILESYSTEM]...
+
+Print filesystem usage statistics
+
+-P      POSIX output format
+-k      1024-byte blocks (default)
+-m      1M-byte blocks
+-h      Human readable (e.g. 1K 243M 2G)
+-T      Print filesystem type
+-t TYPE Print only mounts of this type
+
+diff
+
+diff [-abBdiNqrTstw] [-L LABEL] [-S FILE] [-U LINES] FILE1 FILE2
+
+Compare files line by line and output the differences between them. This implementation supports unified diffs only.
+
+-a      Treat all files as text
+-b      Ignore changes in the amount of whitespace
+-B      Ignore changes whose lines are all blank
+-d      Try hard to find a smaller set of changes
+-i      Ignore case differences
+-L      Use LABEL instead of the filename in the unified header
+-N      Treat absent files as empty
+-q      Output only whether files differ
+-r      Recurse
+-S      Start with FILE when comparing directories
+-T      Make tabs line up by prefixing a tab when necessary
+-s      Report when two files are the same
+-t      Expand tabs to spaces in output
+-U      Output LINES lines of context
+-w      Ignore all whitespace
+
+dirname
+
+dirname FILENAME
+
+Strip non-directory suffix from FILENAME
+
+dos2unix
+
+dos2unix [-ud] [FILE]
+
+Convert FILE in-place from DOS to Unix format. When no file is given, use stdinstdout.
+
+-u      dos2unix
+-d      unix2dos
+
+dpkg
+
+dpkg [-ilCPru] [-F OPT] PACKAGE
+
+Install, remove and manage Debian packages
+
+-i,--install    Install the package
+-l,--list       List of installed packages
+--configure     Configure an unpackaged package
+-P,--purge      Purge all files of a package
+-r,--remove     Remove all but the configuration files for a package
+--unpack        Unpack a package, but don't configure it
+--force-depends Ignore dependency problems
+--force-confnew Overwrite existing config files when installing
+--force-confold Keep old config files when installing
+
+dpkg-deb
+
+dpkg-deb [-cefxX] FILE [DIR]
+
+Perform actions on Debian packages (.deb)
+
+-c      List files
+-f      Print control fields
+-e      Extract control files to DIR (default .DEBIAN)
+-x      Extract files to DIR (no default)
+-X      Verbose extract
+
+du
+
+du [-aHLdclsxhmk] [FILE]...
+
+Summarize disk space used for FILEs (or directories)
+
+-a      Show file sizes too
+-b      Apparent size (including holes)
+-L      Follow all symlinks
+-H      Follow symlinks on command line
+-d N    Limit output to directories (and files with -a) of depth  N
+-c      Show grand total
+-l      Count sizes many times if hard linked
+-s      Display only a total for each argument
+-x      Skip directories on different filesystems
+-h      Sizes in human readable format (e.g., 1K 243M 2G)
+-m      Sizes in megabytes
+-k      Sizes in kilobytes (default)
+
+echo
+
+echo [-neE] [ARG]...
+
+Print ARGs to stdout
+
+-n      No trailing newline
+-e      Interpret backslash escapes (t=tab etc)
+-E      Don't interpret backslash escapes (default)
+
+ed
+
+ed [-p PROMPT] [-s] [FILE]
+
+env
+
+env [-i0] [-u NAME]... [-] [NAME=VALUE]... [PROG ARGS]
+
+Print current environment or run PROG after setting up environment
+
+-, -i   Start with empty environment
+-0      NUL terminated output
+-u NAME Remove variable from environment
+
+expand
+
+expand [-i] [-t N] [FILE]...
+
+Convert tabs to spaces, writing to stdout
+
+-i      Don't convert tabs after non blanks
+-t      Tabstops every N chars
+
+expr
+
+expr EXPRESSION
+
+Print the value of EXPRESSION
+
+EXPRESSION may be
+
+ARG1  ARG2     ARG1 if it is neither null nor 0, otherwise ARG2
+ARG1 & ARG2     ARG1 if neither argument is null or 0, otherwise 0
+ARG1  ARG2     1 if ARG1 is less than ARG2, else 0. Similarly
+ARG1 = ARG2
+ARG1 = ARG2
+ARG1 != ARG2
+ARG1 = ARG2
+ARG1  ARG2
+ARG1 + ARG2     Sum of ARG1 and ARG2. Similarly
+ARG1 - ARG2
+ARG1  ARG2
+ARG1  ARG2
+ARG1 % ARG2
+STRING  REGEXP         Anchored pattern match of REGEXP in STRING
+match STRING REGEXP     Same as STRING  REGEXP
+substr STRING POS LEN   Substring of STRING, POS counts from 1
+index STRING CHARS      Index in STRING where any CHARS is found, or 0
+length STRING           Length of STRING
+quote TOKEN             Interpret TOKEN as a string, even if
+                        it is a keyword like 'match' or an
+                        operator like ''
+(EXPRESSION)            Value of EXPRESSION
+Beware that many operators need to be escaped or quoted for shells. Comparisons are arithmetic if both ARGs are numbers, else lexicographical. Pattern matches return the string matched between ( and ) or null; if ( and ) are not used, they return the number of characters matched or 0.
+
+factor
+
+factor [NUMBER]...
+
+Print prime factors
+
+find
+
+find [-HL] [PATH]... [OPTIONS] [ACTIONS]
+
+Search for files and perform actions on them. First failed action stops processing of current file. Defaults PATH is current directory, action is '-print'
+
+-L,-follow      Follow symlinks
+-H              ...on command line only
+-xdev           Don't descend directories on other filesystems
+-maxdepth N     Descend at most N levels. -maxdepth 0 applies
+                actions to command line arguments only
+-mindepth N     Don't act on first N levels
+-depth          Act on directory after traversing it
+
+Actions
+
+        ( ACTIONS )     Group actions for -o  -a
+        ! ACT           Invert ACT's successfailure
+        ACT1 [-a] ACT2  If ACT1 fails, stop, else do ACT2
+        ACT1 -o ACT2    If ACT1 succeeds, stop, else do ACT2
+                        Note -a has higher priority than -o
+        -name PATTERN   Match file name (wo directory name) to PATTERN
+        -iname PATTERN  Case insensitive -name
+        -path PATTERN   Match path to PATTERN
+        -ipath PATTERN  Case insensitive -path
+        -regex PATTERN  Match path to regex PATTERN
+        -type X         File type is X (one of f,d,l,b,c,s,p)
+        -executable     File is executable
+        -perm MASK      At least one mask bit (+MASK), all bits (-MASK),
+                        or exactly MASK bits are set in file's mode
+        -mtime DAYS     mtime is greater than (+N), less than (-N),
+                        or exactly N days in the past
+        -atime DAYS     atime +N-NN days in the past
+        -ctime DAYS     ctime +N-NN days in the past
+        -mmin MINS      mtime is greater than (+N), less than (-N),
+                        or exactly N minutes in the past
+        -amin MINS      atime +N-NN minutes in the past
+        -cmin MINS      ctime +N-NN minutes in the past
+        -newer FILE     mtime is more recent than FILE's
+        -inum N         File has inode number N
+        -samefile FILE  File is same as FILE
+        -size N[bck]    File size is N (cbytes,kkbytes,b512 bytes(def.))
+                        +-N file size is biggersmaller than N
+        -links N        Number of links is greater than (+N), less than (-N),
+                        or exactly N
+        -empty          Match empty filedirectory
+        -prune          If current file is directory, don't descend into it
+If none of the following actions is specified, -print is assumed
+        -print          Print file name
+        -print0         Print file name, NUL terminated
+        -exec CMD ARG ; Run CMD with all instances of {} replaced by
+                        file name. Fails if CMD exits with nonzero
+        -exec CMD ARG + Run CMD with {} replaced by list of file names
+        -delete         Delete current filedirectory. Turns on -depth option
+        -quit           Exit
+
+fold
+
+fold [-bs] [-w WIDTH] [FILE]...
+
+Wrap input lines in FILEs (or stdin), writing to stdout
+
+-b      Count bytes rather than columns
+-s      Break at spaces
+-w      Use WIDTH columns instead of 80
+
+free
+
+free [-bkmgh]
+
+Display free and used memory
+
+fsync
+
+fsync [-d] FILE...
+
+Write all buffered blocks in FILEs to disk
+
+-d      Avoid syncing metadata
+
+ftpget
+
+ftpget [OPTIONS] HOST [LOCAL_FILE] REMOTE_FILE
+
+Download a file via FTP
+
+-c      Continue previous transfer
+-v      Verbose
+-u USER Username
+-p PASS Password
+-P PORT
+
+ftpput
+
+ftpput [OPTIONS] HOST [REMOTE_FILE] LOCAL_FILE
+
+Upload a file to a FTP server
+
+-v      Verbose
+-u USER Username
+-p PASS Password
+-P PORT
+
+getopt
+
+getopt [OPTIONS] [--] OPTSTRING PARAMS
+
+-a              Allow long options starting with single -
+-l LOPT[,...]   Long options to recognize
+-n PROGNAME     The name under which errors are reported
+-o OPTSTRING    Short options to recognize
+-q              No error messages on unrecognized options
+-Q              No normal output
+-s SHELL        Set shell quoting conventions
+-T              Version test (exits with 4)
+-u              Don't quote output
+
+Example
+
+O=`getopt -l bb -- abc $@`  exit 1 eval set -- $O while true; do case $1 in -a) echo A; shift;; -b--bb) echo B'$2'; shift 2;; -c) case $2 in ) echo C; shift 2;; ) echo C'$2'; shift 2;; esac;; --) shift; break;; ) echo Error; exit 1;; esac done
+
+grep
+
+grep [-HhnlLoqvsrRiwFE] [-m N] [-ABC N] { PATTERN  -e PATTERN...  -f FILE... } [FILE]...
+
+Search for PATTERN in FILEs (or stdin)
+
+-H      Add 'filename' prefix
+-h      Do not add 'filename' prefix
+-n      Add 'line_no' prefix
+-l      Show only names of files that match
+-L      Show only names of files that don't match
+-c      Show only count of matching lines
+-o      Show only the matching part of line
+-q      Quiet. Return 0 if PATTERN is found, 1 otherwise
+-v      Select non-matching lines
+-s      Suppress open and read errors
+-r      Recurse
+-R      Recurse and dereference symlinks
+-i      Ignore case
+-w      Match whole words only
+-x      Match whole lines only
+-F      PATTERN is a literal (not regexp)
+-E      PATTERN is an extended regexp
+-m N    Match up to N times per file
+-A N    Print N lines of trailing context
+-B N    Print N lines of leading context
+-C N    Same as '-A N -B N'
+-e PTRN Pattern to match
+-f FILE Read pattern from file
+
+groups
+
+groups [USER]
+
+Print the groups USER is in
+
+gunzip
+
+gunzip [-cfkt] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+gzip
+
+gzip [-cfkdt123456789] [FILE]...
+
+Compress FILEs (or stdin)
+
+-1..9   Compression level
+-d      Decompress
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+hd
+
+hd FILE...
+
+hd is an alias for hexdump -C
+
+head
+
+head [OPTIONS] [FILE]...
+
+Print first 10 lines of FILEs (or stdin). With more than one FILE, precede each with a filename header.
+
+-n N[bkm]       Print first N lines
+-n -N[bkm]      Print all except N last lines
+-c [-]N[bkm]    Print first N bytes
+                (b512 k1024 m1024^2)
+-q              Never print headers
+-v              Always print headers
+
+hexdump
+
+hexdump [-bcdoxCv] [-e FMT] [-f FMT_FILE] [-n LEN] [-s OFS] [FILE]...
+
+Display FILEs (or stdin) in a user specified format
+
+-b              1-byte octal display
+-c              1-byte character display
+-d              2-byte decimal display
+-o              2-byte octal display
+-x              2-byte hex display
+-C              hex+ASCII 16 bytes per line
+-v              Show all (no dup folding)
+-e FORMAT_STR   Example '161 %02xn'
+-f FORMAT_FILE
+-n LENGTH       Show only first LENGTH bytes
+-s OFFSET       Skip OFFSET bytes
+
+iconv
+
+iconv [-lc] [-o outfile] [-f from-enc] [-t to-enc] [FILE]...
+
+Convert text between character encodings
+
+-l  List all known character encodings
+-c  Silently discard characters that cannot be converted
+-o  Use outfile for output
+-f  Use from-enc for input characters
+-t  Use to-enc for output characters
+
+id
+
+id [-ugGnr] [USER]
+
+Print information about USER or the current user
+
+-u      User ID
+-g      Group ID
+-G      Supplementary group IDs
+-n      Print names instead of numbers
+-r      Print real ID instead of effective ID
+
+inotifyd
+
+inotifyd PROG FILE1[MASK]...
+
+Run PROG on filesystem changes. When a filesystem event matching MASK occurs on FILEn, PROG ACTUAL_EVENTS FILEn [SUBFILE] is run. If PROG is -, events are sent to stdout. Events
+
+c       File is modified
+x       File can't be watched anymore
+y       Subfile is moved into dir
+m       Subfile is moved out of dir
+n       Subfile is created
+d       Subfile is deleted
+
+inotifyd waits for PROG to exit. When x event happens for all FILEs, inotifyd exits.
+
+install
+
+install [-cdDsp] [-o USER] [-g GRP] [-m MODE] [-t DIR] [SOURCE]... DEST
+
+Copy files and set attributes
+
+-c      Just copy (default)
+-d      Create directories
+-D      Create leading target directories
+-s      Strip symbol table
+-p      Preserve date
+-o USER Set ownership
+-g GRP  Set group ownership
+-m MODE Set permissions
+-t DIR  Install to DIR
+
+ipcalc
+
+ipcalc [-bnmphs] ADDRESS[PREFIX] [NETMASK]
+
+Calculate and display network settings from IP address
+
+-b      Broadcast address
+-n      Network address
+-m      Default netmask for IP
+-p      Prefix for IPNETMASK
+-h      Resolved host name
+-s      No error messages
+
+jn
+
+jn DIR JUNC
+
+Create directory junction JUNC to DIR
+
+kill
+
+kill [-l] [-SIG] PID...
+
+Send a signal (default TERM) to given PIDs
+
+-l      List all signal names and numbers
+
+killall
+
+killall [-lq] [-SIG] PROCESS_NAME...
+
+Send a signal (default TERM) to given processes
+
+-l      List all signal names and numbers
+-q      Don't complain if no processes were killed
+
+less
+
+less [-EFIMmNSRh~] [FILE]...
+
+View FILE (or stdin) one screenful at a time
+
+-E      Quit once the end of a file is reached
+-F      Quit if entire file fits on first screen
+-I      Ignore case in all searches
+-M,-m   Display status line with line numbers
+        and percentage through the file
+-N      Prefix line number to each line
+-S      Truncate long lines
+-R      Remove color escape codes in input
+-~      Suppress ~s displayed past EOF
+
+link
+
+link FILE LINK
+
+Create hard LINK to FILE
+
+ln
+
+ln [-sfnbtv] [-S SUF] TARGET... LINKDIR
+
+Create a link LINK or DIRTARGET to the specified TARGET(s)
+
+-s      Make symlinks instead of hardlinks
+-f      Remove existing destinations
+-n      Don't dereference symlinks - treat like normal file
+-b      Make a backup of the target (if exists) before link operation
+-S SUF  Use suffix instead of ~ when making backup files
+-T      Treat LINK as a file, not DIR
+-v      Verbose
+
+logname
+
+logname
+
+Print the name of the current user
+
+ls
+
+ls [-1AaCxdLHRFplinshrSXvctu] [-w WIDTH] [FILE]...
+
+List directory contents
+
+-1      One column output
+-a      Include names starting with .
+-A      Like -a, but exclude . and ..
+-x      List by lines
+-d      List directory names, not contents
+-L      Follow symlinks
+-H      Follow symlinks on command line
+-R      Recurse
+-p      Append  to directory names
+-F      Append indicator (one of =@) to names
+-l      Long format
+-i      List inode numbers
+-n      List numeric UIDs and GIDs instead of names
+-s      List allocated blocks
+-lc     List ctime
+-lu     List atime
+--full-time     List full datetime
+-h      Human readable sizes (1K 243M 2G)
+--group-directories-first
+-S      Sort by size
+-X      Sort by extension
+-v      Sort by version
+-t      Sort by mtime
+-tc     Sort by ctime
+-tu     Sort by atime
+-r      Reverse sort order
+-w N    Format N columns wide
+--color[={always,never,auto}]
+
+lsattr
+
+lsattr [-Radl] [FILE]...
+
+List file attributes
+
+-R      Recurse
+-a      Include names starting with .
+-d      List directory names, not contents
+-l      List long flag names
+
+Attributes
+
+j       Junction
+l       Symbolic link
+R       Reparse point
+o       Offline
+e       Encrypted
+c       Compressed
+S       Sparse
+r       Read only
+h       Hidden
+s       System
+a       Archive
+t       Temporary
+n       Not indexed
+
+lzcat
+
+lzcat [FILE]...
+
+Decompress to stdout
+
+lzma
+
+lzma -d [-cfk] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-d      Decompress
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+lzop
+
+lzop [-cfUvd123456789CF] [FILE]...
+
+-1..9   Compression level
+-d      Decompress
+-c      Write to stdout
+-f      Force
+-U      Delete input files
+-v      Verbose
+-F      Don't store or verify checksum
+-C      Also write checksum of compressed block
+
+lzopcat
+
+lzopcat [-vF] [FILE]...
+
+-v      Verbose
+-F      Don't verify checksum
+
+man
+
+man [-aw] [SECTION] MANPAGE[.SECTION]...
+
+Display manual page
+
+-a      Display all pages
+-w      Show page locations
+
+$COLUMNS overrides output width
+
+md5sum
+
+md5sum [-c[sw]] [FILE]...
+
+Print or check MD5 checksums
+
+-c      Check sums against list in FILEs
+-s      Don't output anything, status code shows success
+-w      Warn about improperly formatted checksum lines
+
+mkdir
+
+mkdir [-m MODE] [-p] DIRECTORY...
+
+Create DIRECTORY
+
+-m MODE Mode
+-p      No error if exists; make parent directories as needed
+
+mktemp
+
+mktemp [-dt] [-p DIR] [TEMPLATE]
+
+Create a temporary file with name based on TEMPLATE and print its name. TEMPLATE must end with XXXXXX (e.g. [dir]nameXXXXXX). Without TEMPLATE, -t tmp.XXXXXX is assumed.
+
+-d      Make directory, not file
+-q      Fail silently on errors
+-t      Prepend base directory name to TEMPLATE
+-p DIR  Use DIR as a base directory (implies -t)
+-u      Do not create anything; print a name
+
+Base directory is -p DIR, else $TMPDIR, else tmp
+
+mv
+
+mv [-finT] SOURCE DEST or mv [-fin] SOURCE... { -t DIRECTORY  DIRECTORY }
+
+Rename SOURCE to DEST, or move SOURCEs to DIRECTORY
+
+-f      Don't prompt before overwriting
+-i      Interactive, prompt before overwrite
+-n      Don't overwrite an existing file
+-T      Refuse to move if DEST is a directory
+-t DIR  Move all SOURCEs into DIR
+
+nc
+
+nc [-l] [-p PORT] [IPADDR PORT]
+
+Open a pipe to IPPORT
+
+-l      Listen mode, for inbound connects
+-p PORT Local port
+
+nl
+
+nl [OPTIONS] [FILE]...
+
+Write FILEs to standard output with line numbers added
+
+-b STYLE        Which lines to number - a all, t nonempty, n none
+-i N            Line number increment
+-s STRING       Use STRING as line number separator
+-v N            Start from N
+-w N            Width of line numbers
+
+nproc
+
+nproc [--all] [--ignore=N]
+
+Print number of available CPUs
+
+--all           Number of installed CPUs
+--ignore=N      Exclude N CPUs
+
+od
+
+od [-abcdfhilovxs] [-t TYPE] [-A RADIX] [-N SIZE] [-j SKIP] [-S MINSTR] [-w WIDTH] [FILE]...
+
+Print FILEs (or stdin) unambiguously, as octal bytes by default
+
+paste
+
+paste [-d LIST] [-s] [FILE]...
+
+Paste lines from each input file, separated with tab
+
+-d LIST Use delimiters from LIST, not tab
+-s      Serial one file at a time
+
+patch
+
+patch [-RNE] [-p N] [-i DIFF] [ORIGFILE [PATCHFILE]]
+
+-p N    Strip N leading components from file names
+-i DIFF Read DIFF instead of stdin
+-R      Reverse patch
+-N      Ignore already applied patches
+-E      Remove output files if they become empty
+--dry-run       Don't actually change files
+
+pgrep
+
+pgrep [-flanovx] [-s SID-P PPIDPATTERN]
+
+Display process(es) selected by regex PATTERN
+
+-l      Show command name too
+-a      Show command line too
+-f      Match against entire command line
+-n      Show the newest process only
+-o      Show the oldest process only
+-v      Negate the match
+-x      Match whole name (not substring)
+-s      Match session ID (0 for current)
+-P      Match parent process ID
+
+pidof
+
+pidof [-s] [-o PID] [NAME]...
+
+List PIDs of all processes with names that match NAMEs
+
+-s      Show only one PID
+-o PID  Omit given pid
+        Use %PPID to omit pid of pidof's parent
+
+pipe_progress
+
+pipe_progress
+
+Display a dot to indicate pipe activity
+
+pkill
+
+pkill [-l-SIGNAL] [-xfvno] [-s SID-P PPIDPATTERN]
+
+Send signal to processes selected by regex PATTERN
+
+-l      List all signals
+-x      Match whole name (not substring)
+-f      Match against entire command line
+-s SID  Match session ID (0 for current)
+-P PPID Match parent process ID
+-v      Negate the match
+-n      Signal the newest process only
+-o      Signal the oldest process only
+
+printenv
+
+printenv [VARIABLE]...
+
+Print environment VARIABLEs. If no VARIABLE specified, print all.
+
+printf
+
+printf FORMAT [ARG]...
+
+Format and print ARG(s) according to FORMAT (a-la C printf)
+
+ps
+
+ps [-o COL1,COL2=HEADER]
+
+Show list of processes
+
+-o COL1,COL2=HEADER     Select columns for display
+
+pwd
+
+pwd
+
+Print the full filename of the current working directory
+
+readlink
+
+readlink [-fnv] FILE
+
+Display the value of a symlink
+
+-f      Canonicalize by following all symlinks
+-n      Don't add newline
+-v      Verbose
+
+realpath
+
+realpath FILE...
+
+Print absolute pathnames of FILEs
+
+reset
+
+reset
+
+Reset terminal (ESC codes) and termios (signals, buffering, echo)
+
+rev
+
+rev [FILE]...
+
+Reverse lines of FILE
+
+rm
+
+rm [-irf] FILE...
+
+Remove (unlink) FILEs
+
+-i      Always prompt before removing
+-f      Never prompt
+-R,-r   Recurse
+
+rmdir
+
+rmdir [-p] DIRECTORY...
+
+Remove DIRECTORY if it is empty
+
+-p      Include parents
+--ignore-fail-on-non-empty
+
+rpm
+
+rpm -i PACKAGE.rpm; rpm -qp[ildc] PACKAGE.rpm
+
+Manipulate RPM packages
+
+Commands
+
+-i      Install package
+-qp     Query package
+-qpi    Show information
+-qpl    List contents
+-qpd    List documents
+-qpc    List config files
+
+rpm2cpio
+
+rpm2cpio PACKAGE.rpm
+
+Output a cpio archive of the rpm file
+
+sed
+
+sed [-i[SFX]] [-nrE] [-f FILE]... [-e CMD]... [FILE]... or sed [-i[SFX]] [-nrE] CMD [FILE]...
+
+-e CMD  Add CMD to sed commands to be executed
+-f FILE Add FILE contents to sed commands to be executed
+-i[SFX] Edit files in-place (otherwise write to stdout)
+        Optionally back files up, appending SFX
+-n      Suppress automatic printing of pattern space
+-r,-E   Use extended regex syntax
+-b      Keep CRLF (Windows-only)
+
+If no -e or -f, the first non-option argument is the sed command string. Remaining arguments are input files (stdin if none).
+
+seq
+
+seq [-w] [-s SEP] [FIRST [INC]] LAST
+
+Print numbers from FIRST to LAST, in steps of INC. FIRST, INC default to 1.
+
+-w      Pad to last with leading zeros
+-s SEP  String separator
+
+sh
+
+sh [-il] [-+Cabefmnuvx] [-+o OPT]... [-c 'SCRIPT' [ARG0 ARGS]  FILE ARGS  -s ARGS]
+
+Unix shell interpreter
+
+sha1sum
+
+sha1sum [-c[sw]] [FILE]...
+
+Print or check SHA1 checksums
+
+-c      Check sums against list in FILEs
+-s      Don't output anything, status code shows success
+-w      Warn about improperly formatted checksum lines
+
+sha256sum
+
+sha256sum [-c[sw]] [FILE]...
+
+Print or check SHA256 checksums
+
+-c      Check sums against list in FILEs
+-s      Don't output anything, status code shows success
+-w      Warn about improperly formatted checksum lines
+
+sha3sum
+
+sha3sum [-c[sw]] [-a BITS] [FILE]...
+
+Print or check SHA3 checksums
+
+-c      Check sums against list in FILEs
+-s      Don't output anything, status code shows success
+-w      Warn about improperly formatted checksum lines
+-a BITS 224 (default), 256, 384, 512
+
+sha512sum
+
+sha512sum [-c[sw]] [FILE]...
+
+Print or check SHA512 checksums
+
+-c      Check sums against list in FILEs
+-s      Don't output anything, status code shows success
+-w      Warn about improperly formatted checksum lines
+
+shred
+
+shred [-fuz] [-n N] [-s SIZE] FILE...
+
+Overwritedelete FILEs
+
+-f      Chmod to ensure writability
+-s SIZE Size to write
+-n N    Overwrite N times (default 3)
+-z      Final overwrite with zeros
+-u      Remove file
+
+shuf
+
+shuf [-n NUM] [-o FILE] [-z] [FILE  -e [ARG...]  -i L-H]
+
+Randomly permute lines
+
+-n NUM  Output at most NUM lines
+-o FILE Write to FILE, not standard output
+-z      NUL terminated output
+-e      Treat ARGs as lines
+-i L-H  Treat numbers L-H as lines
+
+sleep
+
+sleep [N]...
+
+Pause for a time equal to the total of the args given, where each arg can have an optional suffix of (s)econds, (m)inutes, (h)ours, or (d)ays
+
+sort
+
+sort [-nrughMcszbdfiokt] [-o FILE] [-k START[.OFS][OPTS][,END[.OFS][OPTS]] [-t CHAR] [FILE]...
+
+Sort lines of text
+
+-o FILE Output to FILE
+-c      Check whether input is sorted
+-b      Ignore leading blanks
+-f      Ignore case
+-i      Ignore unprintable characters
+-d      Dictionary order (blank or alphanumeric only)
+-n      Sort numbers
+-g      General numerical sort
+-h      Sort human readable numbers (2K 1G)
+-M      Sort month
+-V      Sort version
+-t CHAR Field separator
+-k N[,M] Sort by Nth field
+-r      Reverse sort order
+-s      Stable (don't sort ties alphabetically)
+-u      Suppress duplicate lines
+-z      NUL terminated input and output
+
+split
+
+split [OPTIONS] [INPUT [PREFIX]]
+
+-b N[km]       Split by N (kilomega)bytes
+-l N            Split by N lines
+-a N            Use N letters as suffix
+
+ssl_client
+
+ssl_client [-e] -h handle [-n SNI]
+
+stat
+
+stat [-ltf] [-c FMT] FILE...
+
+Display file (default) or filesystem status
+
+-c FMT  Use the specified format
+-f      Display filesystem status
+-L      Follow links
+-t      Terse display
+
+FMT sequences for files
+
+%a     Access rights in octal
+%A     Access rights in human readable form
+%b     Number of blocks allocated (see %B)
+%B     Size in bytes of each block reported by %b
+%d     Device number in decimal
+%D     Device number in hex
+%f     Raw mode in hex
+%F     File type
+%g     Group ID
+%G     Group name
+%h     Number of hard links
+%i     Inode number
+%n     File name
+%N     File name, with - TARGET if symlink
+%o     IO block size
+%s     Total size in bytes
+%t     Major device type in hex
+%T     Minor device type in hex
+%u     User ID
+%U     User name
+%x     Time of last access
+%X     Time of last access as seconds since Epoch
+%y     Time of last modification
+%Y     Time of last modification as seconds since Epoch
+%z     Time of last change
+%Z     Time of last change as seconds since Epoch
+
+FMT sequences for file systems
+
+%a     Free blocks available to non-superuser
+%b     Total data blocks
+%c     Total file nodes
+%d     Free file nodes
+%f     Free blocks
+%i     File System ID in hex
+%l     Maximum length of filenames
+%n     File name
+%s     Block size (for faster transfer)
+%S     Fundamental block size (for block counts)
+%t     Type in hex
+%T     Type in human readable form
+
+strings
+
+strings [-fo] [-t odx] [-n LEN] [FILE]...
+
+Display printable strings in a binary file
+
+-f              Precede strings with filenames
+-o              Precede strings with octal offsets
+-t odx        Precede strings with offsets in base 81016
+-n LEN          At least LEN characters form a string (default 4)
+
+su
+
+su [-c CMD]
+
+Run shell with elevated privileges
+
+-c CMD  Command to pass to 'sh -c'
+
+sum
+
+sum [-rs] [FILE]...
+
+Checksum and count the blocks in a file
+
+-r      Use BSD sum algorithm (1K blocks)
+-s      Use System V sum algorithm (512byte blocks)
+sync
+sync
+
+Write all buffered blocks to disk
+
+tac
+
+tac [FILE]...
+
+Concatenate FILEs and print them in reverse
+
+tail
+
+tail [OPTIONS] [FILE]...
+
+Print last 10 lines of FILEs (or stdin) to. With more than one FILE, precede each with a filename header.
+
+-c [+]N[bkm]    Print last N bytes
+-n N[bkm]       Print last N lines
+-n +N[bkm]      Start on Nth line and print the rest
+                (b512 k1024 m1024^2)
+-q              Never print headers
+-v              Always print headers
+-f              Print data as file grows
+-F              Same as -f, but keep retrying
+-s SECONDS      Wait SECONDS between reads with -f
+
+tar
+
+tar cxt [-ZzJjahmvokO] [-f TARFILE] [-C DIR] [-T FILE] [-X FILE] [LONGOPT]... [FILE]...
+
+Create, extract, or list files from a tar file
+
+c       Create
+x       Extract
+t       List
+-f FILE Name of TARFILE ('-' for stdinout)
+-C DIR  Change to DIR before operation
+-v      Verbose
+-O      Extract to stdout
+-m      Don't restore mtime
+-o      Don't restore usergroup
+-k      Don't replace existing files
+-Z      (De)compress using compress
+-z      (De)compress using gzip
+-J      (De)compress using xz
+-j      (De)compress using bzip2
+--lzma  (De)compress using lzma
+-a      (De)compress based on extension
+-h      Follow symlinks
+-T FILE File with names to include
+-X FILE File with glob patterns to exclude
+--exclude PATTERN       Glob pattern to exclude
+--overwrite             Replace existing files
+--strip-components NUM  NUM of leading components to strip
+--no-recursion          Don't descend in directories
+--numeric-owner         Use numeric usergroup
+--no-same-permissions   Don't restore access permissions
+
+tee
+
+tee [-ai] [FILE]...
+
+Copy stdin to each FILE, and also to stdout
+
+-a      Append to the given FILEs, don't overwrite
+-i      Ignore interrupt signals (SIGINT)
+
+time
+
+time [-pa] [-o FILE] PROG ARGS
+
+Run PROG, display resource usage when it exits
+
+-p      POSIX output format
+-o FILE Write result to FILE
+-a      Append (else overwrite)
+
+timeout
+
+timeout [-s SIG] [-k KILL_SECS] SECS PROG ARGS
+
+Run PROG. Send SIG to it if it is not gone in SECS seconds. Default SIG TERM. If it still exists in KILL_SECS seconds, send KILL.
+
+touch
+
+touch [-cham] [-d DATE] [-t DATE] [-r FILE] FILE...
+
+Update mtime of FILEs
+
+-c      Don't create files
+-h      Don't follow links
+-a      Change only atime
+-m      Change only mtime
+-d DT   Datetime to use
+-t DT   Datetime to use
+-r FILE Use FILE's datetime
+
+tr
+
+tr [-cds] STRING1 [STRING2]
+
+Translate, squeeze, or delete characters from stdin, writing to stdout
+
+-c      Take complement of STRING1
+-d      Delete input characters coded STRING1
+-s      Squeeze multiple output characters of STRING2 into one character
+
+truncate
+
+truncate [-c] -s SIZE FILE...
+
+Truncate FILEs to SIZE
+
+-c      Do not create files
+-s SIZE
+
+ts
+
+ts [-is] [STRFTIME]
+
+Pipe stdin to stdout, add timestamp to each line
+
+-s      Time since start
+-i      Time since previous line
+
+tsort
+
+tsort [FILE]
+
+Topological sort
+
+ttysize
+
+ttysize [w] [h]
+
+Print dimensions of stdin tty, or 80x24
+
+uname
+
+uname [-amnrspvio]
+
+Print system information
+
+-a      Print all
+-m      Machine (hardware) type
+-n      Hostname
+-r      Kernel release
+-s      Kernel name (default)
+-p      Processor type
+-v      Kernel version
+-i      Hardware platform
+-o      OS name
+
+uncompress
+
+uncompress [-cf] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-c      Write to stdout
+-f      Overwrite
+
+unexpand
+
+unexpand [-fa][-t N] [FILE]...
+
+Convert spaces to tabs, writing to stdout
+
+-a      Convert all blanks
+-f      Convert only leading blanks
+-t N    Tabstops every N chars
+
+uniq
+
+uniq [-cduiz] [-f,s,w N] [FILE [OUTFILE]]
+
+Discard duplicate lines
+
+-c      Prefix lines by the number of occurrences
+-d      Only print duplicate lines
+-u      Only print unique lines
+-i      Ignore case
+-z      NUL terminated output
+-f N    Skip first N fields
+-s N    Skip first N chars (after any skipped fields)
+-w N    Compare N characters in line
+
+unix2dos
+
+unix2dos [-ud] [FILE]
+
+Convert FILE in-place from Unix to DOS format. When no file is given, use stdinstdout.
+
+-u      dos2unix
+-d      unix2dos
+
+unlink
+
+unlink FILE
+
+Delete FILE by calling unlink()
+
+unlzma
+
+unlzma [-cfk] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+unlzop
+
+unlzop [-cfUvF] [FILE]...
+
+-c      Write to stdout
+-f      Force
+-U      Delete input files
+-t      Test integrity
+-v      Verbose
+-F      Don't verify checksum
+
+unxz
+
+unxz [-cfk] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+unzip
+
+unzip [-lnojpq] FILE[.zip] [FILE]... [-x FILE]... [-d DIR]
+
+Extract FILEs from ZIP archive
+
+-l      List contents (with -q for short form)
+-n      Never overwrite files (default ask)
+-o      Overwrite
+-j      Do not restore paths
+-p      Write to stdout
+-t      Test
+-q      Quiet
+-x FILE Exclude FILEs
+-d DIR  Extract into DIR
+
+uptime
+
+uptime
+
+Display the time since the last boot
+
+usleep
+
+usleep N
+
+Pause for N microseconds
+
+uudecode
+
+uudecode [-o OUTFILE] [INFILE]
+
+Uudecode a file Finds OUTFILE in uuencoded source unless -o is given
+
+uuencode
+
+uuencode [-m] [FILE] STORED_FILENAME
+
+Uuencode FILE (or stdin) to stdout
+
+-m      Use base64 encoding per RFC1521
+
+vi
+
+vi [-c CMD] [-R] [-H] [FILE]...
+
+Edit FILE
+
+-c CMD  Initial command to run ($EXINIT and ~.exrc also available)
+-R      Read-only
+-H      List available features
+
+watch
+
+watch [-n SEC] [-t] PROG ARGS
+
+Run PROG periodically
+
+-n SEC  Period (default 2)
+-t      Don't print header
+
+wc
+
+wc [-clwL] [FILE]...
+
+Count lines, words, and bytes for FILEs (or stdin)
+
+-c      Count bytes
+-l      Count newlines
+-w      Count words
+-L      Print longest line length
+
+which
+
+which [-a] COMMAND...
+
+Locate COMMAND
+
+-a      Show all matches
+
+whoami
+
+whoami
+
+Print the user name associated with the current effective user id
+
+whois
+
+whois [-i] [-h SERVER] [-p PORT] NAME...
+
+Query WHOIS info about NAME
+
+-i      Show redirect results too
+-h,-p   Server to query
+
+xargs
+
+xargs [OPTIONS] [PROG ARGS]
+
+Run PROG on every item given by stdin
+
+-0      NUL terminated input
+-a FILE Read from FILE instead of stdin
+-r      Don't run command if input is empty
+-t      Print the command on stderr before execution
+-p      Ask user whether to run each command
+-E STR,-e[STR]  STR stops input processing
+-I STR  Replace STR within PROG ARGS with input line
+-n N    Pass no more than N args to PROG
+-s N    Pass command line of no more than N bytes
+-P N    Run up to N PROGs in parallel
+-x      Exit if size is exceeded
+
+xxd
+
+xxd [-pri] [-g N] [-c N] [-n LEN] [-s OFS] [-o OFS] [FILE]
+
+Hex dump FILE (or stdin)
+
+-g N            Bytes per group
+-c N            Bytes per line
+-p              Show only hex bytes, assumes -c30
+-i              C include file style
+-l LENGTH       Show only first LENGTH bytes
+-s OFFSET       Skip OFFSET bytes
+-o OFFSET       Add OFFSET to displayed offset
+-r              Reverse (with -p, assumes no offsets in input)
+
+xz
+
+xz -d [-cfk] [FILE]...
+
+Decompress FILEs (or stdin)
+
+-d      Decompress
+-c      Write to stdout
+-f      Force
+-k      Keep input files
+-t      Test integrity
+
+xzcat
+
+xzcat [FILE]...
+
+Decompress to stdout
+
+yes
+
+yes [STRING]
+
+Repeatedly print a line with STRING, or 'y'
+
+zcat
+
+zcat [FILE]...
+
+Decompress to stdout

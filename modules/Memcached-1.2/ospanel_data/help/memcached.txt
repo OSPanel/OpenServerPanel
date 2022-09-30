@@ -1,0 +1,29 @@
+-p <num>      TCP port number to listen on (default: 11211)
+-U <num>      UDP port number to listen on (default: 0, off)
+-s <file>     unix socket path to listen on (disables network support)
+-a <mask>     access mask for unix socket, in octal (default 0700)
+-l <ip_addr>  interface to listen on, default is INDRR_ANY
+-d start          tell memcached to start
+-d restart        tell running memcached to do a graceful restart
+-d stop|shutdown  tell running memcached to shutdown
+-d install        install memcached service
+-d uninstall      uninstall memcached service
+-r            maximize core file limit
+-u <username> assume identity of <username> (only when run as root)
+-m <num>      max memory to use for items in megabytes, default is 64 MB
+-M            return error on memory exhausted (rather than removing items)
+-c <num>      max simultaneous connections, default is 1024
+-k            lock down all paged memory.  Note that there is a
+              limit on how much memory you may lock.  Trying to
+              allocate more than that would fail, so be sure you
+              set the limit correctly for the user you started
+              the daemon with (not for -u <username> user;
+              under sh this is done with 'ulimit -S -l NUM_KB').
+-v            verbose (print errors/warnings while in event loop)
+-vv           very verbose (also print client commands/reponses)
+-h            print this help and exit
+-i            print memcached and libevent license
+-b            run a managed instanced (mnemonic: buckets)
+-P <file>     save PID in <file>, only used with -d option
+-f <factor>   chunk size growth factor, default 1.25
+-n <bytes>    minimum space allocated for key+value+flags, default 48

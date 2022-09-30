@@ -1,0 +1,8 @@
+mariadbd.exe  Ver 10.8.4-MariaDB for Win64 on AMD64 (mariadb.org binary distribution)
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Starts the MariaDB database server.
+
+Usage: mariadbd.exe [OPTIONS]
+
+For more help options (several pages), use mysqld --verbose --help.

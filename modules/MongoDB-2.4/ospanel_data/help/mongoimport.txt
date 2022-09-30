@@ -1,0 +1,6 @@
+Import CSV, TSV or JSON data into MongoDB.
+
+When importing JSON documents, each document must be a separate line of the input file.
+
+Example:
+  mongoimport --host myhost --db my_cms --collection docs < mydocfile.json

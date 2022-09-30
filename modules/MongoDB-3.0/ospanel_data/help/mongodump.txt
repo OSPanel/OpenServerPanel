@@ -1,0 +1,57 @@
+Usage:
+  mongodump <options>
+
+Export the content of a running server into .bson files.
+
+Specify a database with -d and a collection with -c to only dump that database or collection.
+
+See http://docs.mongodb.org/manual/reference/program/mongodump/ for more information.
+
+general options:
+      /help                           print usage
+      /version                        print the tool version and exit
+
+verbosity options:
+  /v, /verbose                        more detailed log output (include
+                                      multiple times for more verbosity, e.g.
+                                      -vvvvv)
+      /quiet                          hide all log output
+
+connection options:
+  /h, /host:                          mongodb host to connect to
+                                      (setname/host1,host2 for replica sets)
+      /port:                          server port (can also use --host
+                                      hostname:port)
+
+authentication options:
+  /u, /username:                      username for authentication
+  /p, /password:                      password for authentication
+      /authenticationDatabase:        database that holds the user's credentials
+      /authenticationMechanism:       authentication mechanism to use
+
+namespace options:
+  /d, /db:                            database to use
+  /c, /collection:                    collection to use
+
+query options:
+  /q, /query:                         query filter, as a JSON string, e.g.,
+                                      '{x:{$gt:1}}'
+      /forceTableScan                 force a table scan
+
+output options:
+  /o, /out:                           output directory, or '-' for stdout
+                                      (defaults to 'dump')
+      /repair                         try to recover documents from damaged
+                                      data files (not supported by all storage
+                                      engines)
+      /oplog                          use oplog for taking a point-in-time
+                                      snapshot
+      /dumpDbUsersAndRoles            dump user and role definitions for the
+                                      specified database
+      /excludeCollection:             collection to exclude from the dump (may
+                                      be specified multiple times to exclude
+                                      additional collections)
+      /excludeCollectionsWithPrefix:  exclude all collections from the dump
+                                      that have the given prefix (may be
+                                      specified multiple times to exclude
+                                      additional prefixes)

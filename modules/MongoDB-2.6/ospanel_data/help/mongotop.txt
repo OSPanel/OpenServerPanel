@@ -1,0 +1,25 @@
+View live MongoDB collection statistics.
+
+Options:
+  --help                                produce help message
+  -v [ --verbose ]                      be more verbose (include multiple times
+                                        for more verbosity e.g. -vvvvv)
+  --quiet                               silence all non error diagnostic 
+                                        messages
+  --version                             print the program's version and exit
+  -h [ --host ] arg                     mongo host to connect to ( <set 
+                                        name>/s1,s2 for sets)
+  --port arg                            server port. Can also use --host 
+                                        hostname:port
+  --ipv6                                enable IPv6 support (disabled by 
+                                        default)
+  -u [ --username ] arg                 username
+  -p [ --password ] arg                 password
+  --authenticationDatabase arg          user source (defaults to dbname)
+  --authenticationMechanism arg (=MONGODB-CR)
+                                        authentication mechanism
+  --gssapiServiceName arg (=mongodb)    Service name to use when authenticating
+                                        using GSSAPI/Kerberos
+  --gssapiHostName arg                  Remote host name to use for purpose of 
+                                        GSSAPI/Kerberos authentication
+  --locks                               use db lock info instead of top

@@ -1,0 +1,13 @@
+Display BSON objects in a data file.
+
+usage: bsondump [options] <bson filename>
+Options:
+  --help                produce help message
+  -v [ --verbose ]      be more verbose (include multiple times for more 
+                        verbosity e.g. -vvvvv)
+  --quiet               silence all non error diagnostic messages
+  --version             print the program's version and exit
+  --objcheck            validate object before inserting (default)
+  --noobjcheck          don't validate object before inserting
+  --filter arg          filter to apply before inserting
+  --type arg (=json)    type of output: json,debug

@@ -1,0 +1,58 @@
+Usage:
+  mongoimport <options> <file>
+
+Import CSV, TSV or JSON data into MongoDB. If no file is provided, mongoimport reads from stdin.
+
+See http://docs.mongodb.org/manual/reference/program/mongoimport/ for more information.
+
+general options:
+      /help                      print usage
+      /version                   print the tool version and exit
+
+verbosity options:
+  /v, /verbose                   more detailed log output (include multiple
+                                 times for more verbosity, e.g. -vvvvv)
+      /quiet                     hide all log output
+
+connection options:
+  /h, /host:                     mongodb host to connect to
+                                 (setname/host1,host2 for replica sets)
+      /port:                     server port (can also use --host hostname:port)
+
+authentication options:
+  /u, /username:                 username for authentication
+  /p, /password:                 password for authentication
+      /authenticationDatabase:   database that holds the user's credentials
+      /authenticationMechanism:  authentication mechanism to use
+
+namespace options:
+  /d, /db:                       database to use
+  /c, /collection:               collection to use
+
+input options:
+  /f, /fields:                   comma separated list of field names, e.g. -f
+                                 name,age
+      /fieldFile:                file with field names - 1 per line
+      /file:                     file to import from; if not specified, stdin
+                                 is used
+      /headerline                use first line in input source as the field
+                                 list (CSV and TSV only)
+      /jsonArray                 treat input source as a JSON array
+      /type:                     input format to import: json, csv, or tsv
+                                 (defaults to 'json')
+
+ingest options:
+      /drop                      drop collection before inserting documents
+      /ignoreBlanks              ignore fields with empty values in CSV and TSV
+      /maintainInsertionOrder    insert documents in the order of their
+                                 appearance in the input source
+  /j, /numInsertionWorkers:      number of insert operations to run
+                                 concurrently (defaults to 1)
+      /stopOnError               stop importing at first insert/upsert error
+      /upsert                    insert or update objects that already exist
+      /upsertFields:             comma-separated fields for the query part of
+                                 the upsert
+      /writeConcern:             write concern options e.g. --writeConcern
+                                 majority, --writeConcern '{w: 3, wtimeout:
+                                 500, fsync: true, j: true}' (defaults to
+                                 'majority')

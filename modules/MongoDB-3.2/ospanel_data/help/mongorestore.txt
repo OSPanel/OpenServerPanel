@@ -1,0 +1,105 @@
+Usage:
+  mongorestore <options> <directory or file to restore>
+
+Restore backups generated with mongodump to a running server.
+
+Specify a database with -d to restore a single database from the target directory,
+or use -d and -c to restore a single collection from a single .bson file.
+
+See http://docs.mongodb.org/manual/reference/program/mongorestore/ for more information.
+
+general options:
+      /help                                       print usage
+      /version                                    print the tool version and
+                                                  exit
+
+verbosity options:
+  /v, /verbose:<level>                            more detailed log output
+                                                  (include multiple times for
+                                                  more verbosity, e.g. -vvvvv,
+                                                  or specify a numeric value,
+                                                  e.g. --verbose=N)
+      /quiet                                      hide all log output
+
+connection options:
+  /h, /host:<hostname>                            mongodb host to connect to
+                                                  (setname/host1,host2 for
+                                                  replica sets)
+      /port:<port>                                server port (can also use
+                                                  --host hostname:port)
+
+ssl options:
+      /ssl                                        connect to a mongod or mongos
+                                                  that has ssl enabled
+      /sslCAFile:<filename>                       the .pem file containing the
+                                                  root certificate chain from
+                                                  the certificate authority
+      /sslPEMKeyFile:<filename>                   the .pem file containing the
+                                                  certificate and key
+      /sslPEMKeyPassword:<password>               the password to decrypt the
+                                                  sslPEMKeyFile, if necessary
+      /sslCRLFile:<filename>                      the .pem file containing the
+                                                  certificate revocation list
+      /sslAllowInvalidCertificates                bypass the validation for
+                                                  server certificates
+      /sslAllowInvalidHostnames                   bypass the validation for
+                                                  server name
+      /sslFIPSMode                                use FIPS mode of the
+                                                  installed openssl library
+
+authentication options:
+  /u, /username:<username>                        username for authentication
+  /p, /password:<password>                        password for authentication
+      /authenticationDatabase:<database-name>     database that holds the
+                                                  user's credentials
+      /authenticationMechanism:<mechanism>        authentication mechanism to
+                                                  use
+
+namespace options:
+  /d, /db:<database-name>                         database to use
+  /c, /collection:<collection-name>               collection to use
+
+input options:
+      /objcheck                                   validate all objects before
+                                                  inserting
+      /oplogReplay                                replay oplog for
+                                                  point-in-time restore
+      /oplogLimit:<seconds>[:ordinal]             only include oplog entries
+                                                  before the provided Timestamp
+      /archive:<filename>                         restore dump from the
+                                                  specified archive file.  If
+                                                  flag is specified without a
+                                                  value, archive is read from
+                                                  stdin
+      /restoreDbUsersAndRoles                     restore user and role
+                                                  definitions for the given
+                                                  database
+      /dir:<directory-name>                       input directory, use '-' for
+                                                  stdin
+      /gzip                                       decompress gzipped input
+
+restore options:
+      /drop                                       drop each collection before
+                                                  import
+      /writeConcern:<write-concern>               write concern options e.g.
+                                                  --writeConcern majority,
+                                                  --writeConcern '{w: 3,
+                                                  wtimeout: 500, fsync: true,
+                                                  j: true}' (defaults to
+                                                  'majority')
+      /noIndexRestore                             don't restore indexes
+      /noOptionsRestore                           don't restore collection
+                                                  options
+      /keepIndexVersion                           don't update index version
+      /maintainInsertionOrder                     preserve order of documents
+                                                  during restoration
+  /j, /numParallelCollections:                    number of collections to
+                                                  restore in parallel (4 by
+                                                  default)
+      /numInsertionWorkersPerCollection:          number of insert operations
+                                                  to run concurrently per
+                                                  collection (1 by default)
+      /stopOnError                                stop restoring if an error is
+                                                  encountered on insert (off by
+                                                  default)
+      /bypassDocumentValidation                   bypass document validation

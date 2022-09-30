@@ -1,0 +1,7 @@
+mysql_upgrade_service.exe  Ver 1.00 for Windows
+Copyright (C) 2010-2011 Monty Program Ab & Vladislav VaintroubThis software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+Usage: mysql_upgrade_service.exe [OPTIONS]
+OPTIONS:
+  -?, --help          Display this help message and exit.
+  -S, --service=name  Name of the existing Windows service
