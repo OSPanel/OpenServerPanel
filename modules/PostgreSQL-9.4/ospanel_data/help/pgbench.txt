@@ -1,0 +1,49 @@
+pgbench is a benchmarking tool for PostgreSQL.
+
+Usage:
+  pgbench [OPTION]... [DBNAME]
+
+Initialization options:
+  -i, --initialize         invokes initialization mode
+  -F, --fillfactor=NUM     set fill factor
+  -n, --no-vacuum          do not run VACUUM after initialization
+  -q, --quiet              quiet logging (one message each 5 seconds)
+  -s, --scale=NUM          scaling factor
+  --foreign-keys           create foreign key constraints between tables
+  --index-tablespace=TABLESPACE
+                           create indexes in the specified tablespace
+  --tablespace=TABLESPACE  create tables in the specified tablespace
+  --unlogged-tables        create tables as unlogged tables
+
+Benchmarking options:
+  -c, --client=NUM         number of concurrent database clients (default: 1)
+  -C, --connect            establish new connection for each transaction
+  -D, --define=VARNAME=VALUE
+                           define variable for use by custom script
+  -f, --file=FILENAME      read transaction script from FILENAME
+  -j, --jobs=NUM           number of threads (default: 1)
+  -l, --log                write transaction times to log file
+  -M, --protocol=simple|extended|prepared
+                           protocol for submitting queries (default: simple)
+  -n, --no-vacuum          do not run VACUUM before tests
+  -N, --skip-some-updates  skip updates of pgbench_tellers and pgbench_branches
+  -P, --progress=NUM       show thread progress report every NUM seconds
+  -r, --report-latencies   report average latency per command
+  -R, --rate=NUM           target rate in transactions per second
+  -s, --scale=NUM          report this scale factor in output
+  -S, --select-only        perform SELECT-only transactions
+  -t, --transactions=NUM   number of transactions each client runs (default: 10)
+  -T, --time=NUM           duration of benchmark test in seconds
+  -v, --vacuum-all         vacuum all four standard tables before tests
+  --aggregate-interval=NUM aggregate data over NUM seconds
+  --sampling-rate=NUM      fraction of transactions to log (e.g. 0.01 for 1%)
+
+Common options:
+  -d, --debug              print debugging output
+  -h, --host=HOSTNAME      database server host or socket directory
+  -p, --port=PORT          database server port number
+  -U, --username=USERNAME  connect as specified database user
+  -V, --version            output version information, then exit
+  -?, --help               show this help, then exit
+
+Report bugs to <pgsql-bugs@postgresql.org>.

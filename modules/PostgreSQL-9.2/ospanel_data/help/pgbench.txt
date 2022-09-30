@@ -1,0 +1,44 @@
+pgbench is a benchmarking tool for PostgreSQL.
+
+Usage:
+  pgbench [OPTION]... [DBNAME]
+
+Initialization options:
+  -i           invokes initialization mode
+  -F NUM       fill factor
+  -s NUM       scaling factor
+  --index-tablespace=TABLESPACE
+               create indexes in the specified tablespace
+  --tablespace=TABLESPACE
+               create tables in the specified tablespace
+  --unlogged-tables
+               create tables as unlogged tables
+
+Benchmarking options:
+  -c NUM       number of concurrent database clients (default: 1)
+  -C           establish new connection for each transaction
+  -D VARNAME=VALUE
+               define variable for use by custom script
+  -f FILENAME  read transaction script from FILENAME
+  -j NUM       number of threads (default: 1)
+  -l           write transaction times to log file
+  -M simple|extended|prepared
+               protocol for submitting queries to server (default: simple)
+  -n           do not run VACUUM before tests
+  -N           do not update tables "pgbench_tellers" and "pgbench_branches"
+  -r           report average latency per command
+  -s NUM       report this scale factor in output
+  -S           perform SELECT-only transactions
+  -t NUM       number of transactions each client runs (default: 10)
+  -T NUM       duration of benchmark test in seconds
+  -v           vacuum all four standard tables before tests
+
+Common options:
+  -d             print debugging output
+  -h HOSTNAME    database server host or socket directory
+  -p PORT        database server port number
+  -U USERNAME    connect as specified database user
+  -V, --version  output version information, then exit
+  -?, --help     show this help, then exit
+
+Report bugs to <pgsql-bugs@postgresql.org>.

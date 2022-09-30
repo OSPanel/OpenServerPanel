@@ -1,0 +1,23 @@
+pg_receivexlog receives PostgreSQL streaming transaction logs.
+
+Usage:
+  pg_receivexlog [OPTION]...
+
+Options:
+  -D, --directory=DIR    receive transaction log files into this directory
+  -n, --no-loop          do not loop on connection lost
+  -v, --verbose          output verbose messages
+  -V, --version          output version information, then exit
+  -?, --help             show this help, then exit
+
+Connection options:
+  -d, --dbname=CONNSTR   connection string
+  -h, --host=HOSTNAME    database server host or socket directory
+  -p, --port=PORT        database server port number
+  -s, --status-interval=INTERVAL
+                         time between status packets sent to server (in seconds)
+  -U, --username=NAME    connect as specified database user
+  -w, --no-password      never prompt for password
+  -W, --password         force password prompt (should happen automatically)
+
+Report bugs to <pgsql-bugs@postgresql.org>.

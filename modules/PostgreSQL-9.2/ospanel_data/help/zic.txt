@@ -1,0 +1,5 @@
+zic.exe: usage is zic.exe [ --version ] [ --help ] [ -v ] [ -P ] \
+	[ -l localtime ] [ -p posixrules ] [ -d directory ] \
+	[ -L leapseconds ] [ filename ... ]
+
+Report bugs to pgsql-bugs@postgresql.org.

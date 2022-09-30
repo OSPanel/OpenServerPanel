@@ -1,0 +1,38 @@
+initdb initializes a PostgreSQL database cluster.
+
+Usage:
+  initdb [OPTION]... [DATADIR]
+
+Options:
+  -A, --auth=METHOD         default authentication method for local connections
+      --auth-host=METHOD    default authentication method for local TCP/IP connections
+      --auth-local=METHOD   default authentication method for local-socket connections
+ [-D, --pgdata=]DATADIR     location for this database cluster
+  -E, --encoding=ENCODING   set default encoding for new databases
+      --locale=LOCALE       set default locale for new databases
+      --lc-collate=, --lc-ctype=, --lc-messages=LOCALE
+      --lc-monetary=, --lc-numeric=, --lc-time=LOCALE
+                            set default locale in the respective category for
+                            new databases (default taken from environment)
+      --no-locale           equivalent to --locale=C
+      --pwfile=FILE         read password for the new superuser from file
+  -T, --text-search-config=CFG
+                            default text search configuration
+  -U, --username=NAME       database superuser name
+  -W, --pwprompt            prompt for a password for the new superuser
+  -X, --xlogdir=XLOGDIR     location for the transaction log directory
+
+Less commonly used options:
+  -d, --debug               generate lots of debugging output
+  -L DIRECTORY              where to find the input files
+  -n, --noclean             do not clean up after errors
+  -s, --show                show internal settings
+
+Other options:
+  -V, --version             output version information, then exit
+  -?, --help                show this help, then exit
+
+If the data directory is not specified, the environment variable PGDATA
+is used.
+
+Report bugs to <pgsql-bugs@postgresql.org>.

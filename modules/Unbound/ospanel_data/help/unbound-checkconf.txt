@@ -1,0 +1,6 @@
+Usage:  unbound-checkconf [file]
+        Checks unbound configuration file for errors.
+file    if omitted C:\Program Files\Unbound\service.conf is used.
+-o option       print value of option to stdout.
+-f              output full pathname with chroot applied, eg. with -o pidfile.
+-h              show this usage help.
