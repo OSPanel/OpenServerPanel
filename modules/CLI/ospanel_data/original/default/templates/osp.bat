@@ -148,11 +148,11 @@ if "%2"=="" goto eargument
 call :strfind "{args}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 echo:
-if not exist "{root_dir}\data\cli\shell_%2.bat" echo  {lang_105} & goto end
+if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo  {lang_105} & goto end
 setlocal
 call :env_reset
-if exist "{root_dir}\data\cli\env_%2.bat" call "{root_dir}\data\cli\env_%2.bat" shell
-call "{root_dir}\data\cli\shell_%2.bat"
+if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" shell
+call "{root_dir}\data\{module_name}\shell_%2.bat"
 endlocal
 goto end
 :: -----------------------------------------------------------------------------------
@@ -165,8 +165,8 @@ if not defined OSP_TMPVAL goto invalid
 if /i "%OSP_ACTIVE_ENV%"=="Default" goto env_set
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_34}: {lang_107}" & goto error
-if not exist "{root_dir}\data\cli\env_%2.bat" echo: & echo  {lang_106} & goto end
-call "{root_dir}\data\cli\env_%2.bat" add
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  {lang_106} & goto end
+call "{root_dir}\data\{module_name}\env_%2.bat" add
 goto end
 :: -----------------------------------------------------------------------------------
 :: SET ENVIRONMENT
@@ -180,8 +180,8 @@ if /i "%2"=="default" set "OSP_ACTIVE_ENV=Default" & set "OSP_TERMINAL_CODEPAGE=
 if /i "%2"=="default" if /i "%3"=="cli" call :logo
 if /i "%2"=="default" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
 if /i "%2"=="default" goto end
-if not exist "{root_dir}\data\cli\env_%2.bat" echo: & echo  {lang_106} & goto end
-call "{root_dir}\data\cli\env_%2.bat"
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  {lang_106} & goto end
+call "{root_dir}\data\{module_name}\env_%2.bat"
 goto end
 :: -----------------------------------------------------------------------------------
 :: WINDOWS ENVIRONMENT
