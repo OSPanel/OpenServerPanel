@@ -196,7 +196,7 @@ TMP                   = {root_dir}\temp
 
 Помимо шаблонных переменных вы можете использовать любые переменные среды окружения Windows, например: `%SYSTEMDRIVE%`, `%USERNAME%`, `%PATH%` и т.д.
 
-Консоль
+Интерфейс командной строки
 ----------
 ![Open Server Panel Console](./resources/cli.png)
 
