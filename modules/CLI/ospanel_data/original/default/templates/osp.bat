@@ -176,7 +176,7 @@ if "%2"=="" goto eargument
 call :strfind "{args}default:" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :env_reset
-if /i "%2"=="default" set "OSP_ACTIVE_ENV=Default" & set "OSP_TERMINAL_CODEPAGE={codepage}"
+if /i "%2"=="default" set "OSP_ACTIVE_ENV=Default" & set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
 if /i "%2"=="default" if /i "%3"=="cli" call :logo
 if /i "%2"=="default" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
 if /i "%2"=="default" goto end
