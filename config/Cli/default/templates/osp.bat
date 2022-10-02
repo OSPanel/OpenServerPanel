@@ -232,7 +232,7 @@ echo %OSP_ECHO_STATE%
 @exit /b 0
 :canceled
 @echo: & @echo  {lang_34}: {root_dir}\temp {lang_71} {lang_33}.
-@chcp %OSP_TERMINAL_CODEPAGE% > nul
+if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
 :end
