@@ -56,9 +56,9 @@ echo  {lang_69}: osp help ^| {lang_20}: {version} ^| © 2010-2022 ^«OSPanel.io^
 :help
 call :logo
 echo:
-echo  {lang_73} osp ^<{lang_74}^> [^<{lang_75}^>]
+echo  {lang_73}: osp ^<{lang_74}^> [^<{lang_75}^>]
 echo:
-echo  {lang_76}
+echo  {lang_76}:
 echo:
 echo  add     ^<module^> [append]  {lang_77}
 echo                             {lang_67}
@@ -71,7 +71,7 @@ echo  info                       {lang_84}
 echo  reset                      {lang_88}
 echo  set     ^<module^>           {lang_89}
 echo:
-echo  {lang_116}
+echo  {lang_116}:
 echo:
 echo  list                       {lang_86}
 echo  on      ^<module^> [profile] {lang_87}
@@ -81,7 +81,7 @@ echo  profile ^<module^>           {lang_120}
 echo  shell   ^<module^>           {lang_90}
 echo  status  ^<module^>           {lang_91}
 echo:
-echo  {lang_117}
+echo  {lang_117}:
 echo:
 echo  exit                       {lang_82}
 echo  help                       {lang_83}
@@ -95,7 +95,7 @@ echo                             {lang_97}
 echo                             {lang_98}
 echo  version                    {lang_99}
 echo:
-echo  {lang_100}
+echo  {lang_100}:
 echo:
 echo  osp set PostgreSQL-9.6     {lang_101}
 echo  osp on bind myprofile      {lang_119}
@@ -132,7 +132,7 @@ echo:
 if not exist "{root_dir}\logs\%OSP_TMPVAL%.log" echo  {lang_111} & goto end
 for %%S in ("{root_dir}\logs\%OSP_TMPVAL%.log") do if %%~zS==0 echo  {lang_111} & goto end
 if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log"
-if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log" -n %3
+if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log" %3
 goto end
 :: -----------------------------------------------------------------------------------
 :: ON/OFF/RESTART/STATUS/LIST
