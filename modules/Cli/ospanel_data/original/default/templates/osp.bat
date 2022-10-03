@@ -60,39 +60,46 @@ echo  {lang_73} osp ^<{lang_74}^> [^<{lang_75}^>]
 echo:
 echo  {lang_76}
 echo:
-echo  add            ^<module^> [append] {lang_77}
-echo                                   {lang_67}
-echo                                   {lang_68}
-echo                                   {lang_78}
-echo                                   {lang_79}
-echo                                   {lang_80}
-echo                                   {lang_81}
-echo  exit                             {lang_82}
-echo  help                             {lang_83}
-echo  info                             {lang_84}
-echo  log            ^<module^|main^> [n] {lang_85}
-echo  list                             {lang_86}
-echo  on^|off^|restart ^<module^> [fast]   {lang_87}
-echo                                   {lang_70}
-echo  reset                            {lang_88}
-echo  set            ^<module^|default^>  {lang_89}
-echo  shell          ^<module^>          {lang_90}
-echo  status         ^<module^>          {lang_91}
-echo  sysprep        [silent^|ssd]      {lang_92}
-echo                                   {lang_93}
-echo                                   {lang_94}
-echo                                   {lang_95}
-echo                                   {lang_96}
-echo                                   {lang_97}
-echo                                   {lang_98}
-echo  version                          {lang_99}
+echo  add        ^<module^> [append] {lang_77}
+echo                               {lang_67}
+echo                               {lang_68}
+echo                               {lang_78}
+echo                               {lang_79}
+echo                               {lang_80}
+echo                               {lang_81}
+echo  info                         {lang_84}
+echo  reset                        {lang_88}
+echo  set        ^<module^>          {lang_89}
+echo:
+echo  {lang_116}
+echo:
+echo  list                         {lang_86}
+echo  on^|restart ^<module^> [fast]   {lang_87}
+echo                               {lang_118}
+echo  off        ^<module^>          {lang_70}
+echo  shell      ^<module^>          {lang_90}
+echo  status     ^<module^>          {lang_91}
+echo:
+echo  {lang_117}
+echo:
+echo  exit                         {lang_82}
+echo  help                         {lang_83}
+echo  log        ^<module^|main^> [n] {lang_85}
+echo  sysprep    [silent^|ssd]      {lang_92}
+echo                               {lang_93}
+echo                               {lang_94}
+echo                               {lang_95}
+echo                               {lang_96}
+echo                               {lang_97}
+echo                               {lang_98}
+echo  version                      {lang_99}
 echo:
 echo  {lang_100}
 echo:
-echo  osp set PostgreSQL-9.6           {lang_101}
-echo  osp restart mysql-8.0            {lang_102}
-echo  osp log main 20                  {lang_103}
-echo  osp reset ^& osp add mongodb-5.0  {lang_104}
+echo  osp set PostgreSQL-9.6       {lang_101}
+echo  osp restart mysql-8.0        {lang_102}
+echo  osp log main 20              {lang_103}
+echo  osp reset ^& osp add git      {lang_104}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHUTTING DOWN THE APPLICATION
@@ -162,7 +169,7 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{args}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-if /i "%OSP_ACTIVE_ENV%"=="Default" goto env_set
+if /i "%OSP_ACTIVE_ENV%"=="Cli" goto env_set
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_34}: {lang_107}" & goto error
 if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
@@ -173,13 +180,13 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_set
 if "%2"=="" goto eargument
-call :strfind "{args}default:" ":%2:"
+call :strfind "{args}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :env_reset
-if /i "%2"=="default" set "OSP_ACTIVE_ENV=Default" & set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
-if /i "%2"=="default" if /i "%3"=="cli" call :logo
-if /i "%2"=="default" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
-if /i "%2"=="default" goto end
+if /i "%2"=="cli" set "OSP_ACTIVE_ENV=Cli" & set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
+if /i "%2"=="cli" if /i "%3"=="cli" call :logo
+if /i "%2"=="cli" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
+if /i "%2"=="cli" goto end
 if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
 call "{root_dir}\data\Cli\env_%2.bat"
 goto end
@@ -232,7 +239,7 @@ echo %OSP_ECHO_STATE%
 @exit /b 0
 :canceled
 @echo: & @echo  {lang_34}: {root_dir}\temp {lang_71} {lang_33}.
-if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
+@if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
 :end
