@@ -77,14 +77,12 @@ echo  list                       {lang_86}
 echo  on      ^<module^> [profile] {lang_87}
 echo  restart ^<module^> [profile] {lang_118}
 echo  off     ^<module^>           {lang_70}
-echo  profile ^<module^>           {lang_120}
 echo  shell   ^<module^>           {lang_90}
 echo  status  ^<module^>           {lang_91}
 echo:
 echo  {lang_117}:
 echo:
 echo  exit                       {lang_82}
-echo  help                       {lang_83}
 echo  log     ^<module^|main^> [n]  {lang_85}
 echo  sysprep [silent^|ssd]       {lang_92}
 echo                             {lang_93}
@@ -98,7 +96,7 @@ echo:
 echo  {lang_100}:
 echo:
 echo  osp set PostgreSQL-9.6     {lang_101}
-echo  osp on bind myprofile      {lang_119}
+echo  osp on bind myprofile      {lang_83}
 echo  osp restart mysql-8.0      {lang_102}
 echo  osp log main 20            {lang_103}
 echo  osp reset ^& osp add git    {lang_104}
