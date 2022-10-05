@@ -1,4 +1,4 @@
-Open Server Panel 6 <sup>([Beta](https://ru.wikipedia.org/wiki/Бета-тестирование))</sup>
+Open Server Panel 6 <sup>[Beta](https://ru.wikipedia.org/wiki/Бета-тестирование)</sup>
 =======================================
 | :information_source: Уважаемые пользователи, проект в процессе публикации на GitHub!<br>Это сообщение исчезнет, когда мы завершим публикацию [Beta](https://ru.wikipedia.org/wiki/Бета-тестирование)-версии. |
 | :--- |
