@@ -60,7 +60,7 @@ echo  {lang_73}: osp ^<{lang_74}^> [^<{lang_75}^>]
 echo:
 echo  {lang_76}:
 echo:
-echo  add     ^<module^>  [append]  {lang_77}
+echo  add     ^<MODULE^>  [append]  {lang_77}
 echo                              {lang_67}
 echo                              {lang_68}
 echo                              {lang_78}
@@ -69,21 +69,21 @@ echo                              {lang_80}
 echo                              {lang_81}
 echo  info                        {lang_84}
 echo  reset                       {lang_88}
-echo  set     ^<module^>            {lang_89}
+echo  set     ^<MODULE^>            {lang_89}
 echo:
 echo  {lang_116}:
 echo:
 echo  list                        {lang_86}
-echo  off     ^<module^>            {lang_70}
-echo  on      ^<module^> [profile]  {lang_87}
-echo  restart ^<module^> [profile]  {lang_58}
-echo  shell   ^<module^>            {lang_90}
-echo  status  ^<module^>            {lang_91}
+echo  off     ^<MODULE^>            {lang_70}
+echo  on      ^<MODULE^> [PROFILE]  {lang_87}
+echo  restart ^<MODULE^> [PROFILE]  {lang_58}
+echo  shell   ^<MODULE^>            {lang_90}
+echo  status  ^<MODULE^>            {lang_91}
 echo:
 echo  {lang_117}:
 echo:
 echo  exit                        {lang_82}
-echo  log     ^<module^|main^>  [n]  {lang_85}
+echo  log     ^<MODULE^|main^>  [N]  {lang_85}
 echo  sysprep [silent^|ssd]        {lang_92}
 echo                              {lang_93}
 echo                              {lang_94}
