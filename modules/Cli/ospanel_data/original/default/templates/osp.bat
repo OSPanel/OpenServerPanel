@@ -22,6 +22,7 @@ if not exist "{root_dir}\system\SystemPreparationTool.exe" set "OSP_ERR_MSG={lan
 :router
 if /i "%1"=="add"         goto env_add
 if /i "%1"=="exit"        goto shutdown
+if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
 if /i "%1"=="info"        echo: & echo  {lang_108}: %OSP_ACTIVE_ENV% & goto end
 if /i "%1"=="list"        goto mod_cmd
@@ -34,6 +35,7 @@ if /i "%1"=="set"         goto env_set
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
+if /i "%1"=="-v"          echo: & echo  {lang_20}: {version} & goto end
 if /i "%1"=="version"     echo: & echo  {lang_20}: {version} & goto end
 if "%1"==""               goto help
 set "OSP_ERR_MSG={lang_34}: {lang_72}" & goto error
