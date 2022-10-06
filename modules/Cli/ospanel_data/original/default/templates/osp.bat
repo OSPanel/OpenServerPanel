@@ -76,7 +76,7 @@ echo:
 echo  list                        {lang_86}
 echo  off     ^<module^>            {lang_70}
 echo  on      ^<module^> [profile]  {lang_87}
-echo  restart ^<module^> [profile]  {lang_118}
+echo  restart ^<module^> [profile]  {lang_58}
 echo  shell   ^<module^>            {lang_90}
 echo  status  ^<module^>            {lang_91}
 echo:
@@ -105,7 +105,7 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-"{root_dir}\bin\wget.exe" --no-config --timeout=15 --tries=1 --spider -qO- {api_url}/exit
+"{root_dir}\bin\wget.exe" --no-config --timeout=15 --tries=1 -qO- {api_url}/exit
 if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_34}: {lang_59}" & goto error
 goto end
 :: -----------------------------------------------------------------------------------
@@ -139,7 +139,7 @@ goto end
 if /i not "%1"=="list" if "%2"=="" goto eargument
 if /i not "%1"=="list" call :strfind "{args}" ":%2:"
 if /i not "%1"=="list" if not defined OSP_TMPVAL goto invalid
-"{root_dir}\bin\wget.exe" --no-config --timeout=15 --tries=1 --spider -qO- {api_url}/mod/%1/%2/%3
+"{root_dir}\bin\wget.exe" --no-config --timeout=15 --tries=1 -qO- {api_url}/mod/%1/%2/%3
 if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_34}: {lang_59}" & goto error
 if /i not "%1"=="status" goto end
 if not exist "{root_dir}\logs\%2.log" goto end
