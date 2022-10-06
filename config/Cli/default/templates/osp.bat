@@ -74,9 +74,9 @@ echo:
 echo  {lang_116}:
 echo:
 echo  list                       {lang_86}
+echo  off     ^<module^>           {lang_70}
 echo  on      ^<module^> [profile] {lang_87}
 echo  restart ^<module^> [profile] {lang_118}
-echo  off     ^<module^>           {lang_70}
 echo  shell   ^<module^>           {lang_90}
 echo  status  ^<module^>           {lang_91}
 echo:
