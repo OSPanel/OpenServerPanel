@@ -60,46 +60,46 @@ echo  {lang_73}: osp ^<{lang_74}^> [^<{lang_75}^>]
 echo:
 echo  {lang_76}:
 echo:
-echo  add     ^<module^> [append]  {lang_77}
-echo                             {lang_67}
-echo                             {lang_68}
-echo                             {lang_78}
-echo                             {lang_79}
-echo                             {lang_80}
-echo                             {lang_81}
-echo  info                       {lang_84}
-echo  reset                      {lang_88}
-echo  set     ^<module^>           {lang_89}
+echo  add     ^<module^>  [append]  {lang_77}
+echo                              {lang_67}
+echo                              {lang_68}
+echo                              {lang_78}
+echo                              {lang_79}
+echo                              {lang_80}
+echo                              {lang_81}
+echo  info                        {lang_84}
+echo  reset                       {lang_88}
+echo  set     ^<module^>            {lang_89}
 echo:
 echo  {lang_116}:
 echo:
-echo  list                       {lang_86}
-echo  off     ^<module^>           {lang_70}
-echo  on      ^<module^> [profile] {lang_87}
-echo  restart ^<module^> [profile] {lang_118}
-echo  shell   ^<module^>           {lang_90}
-echo  status  ^<module^>           {lang_91}
+echo  list                        {lang_86}
+echo  off     ^<module^>            {lang_70}
+echo  on      ^<module^> [profile]  {lang_87}
+echo  restart ^<module^> [profile]  {lang_118}
+echo  shell   ^<module^>            {lang_90}
+echo  status  ^<module^>            {lang_91}
 echo:
 echo  {lang_117}:
 echo:
-echo  exit                       {lang_82}
-echo  log     ^<module^|main^> [n]  {lang_85}
-echo  sysprep [silent^|ssd]       {lang_92}
-echo                             {lang_93}
-echo                             {lang_94}
-echo                             {lang_95}
-echo                             {lang_96}
-echo                             {lang_97}
-echo                             {lang_98}
-echo  version                    {lang_99}
+echo  exit                        {lang_82}
+echo  log     ^<module^|main^>  [n]  {lang_85}
+echo  sysprep [silent^|ssd]        {lang_92}
+echo                              {lang_93}
+echo                              {lang_94}
+echo                              {lang_95}
+echo                              {lang_96}
+echo                              {lang_97}
+echo                              {lang_98}
+echo  version                     {lang_99}
 echo:
 echo  {lang_100}:
 echo:
-echo  osp set PostgreSQL-9.6     {lang_101}
-echo  osp on bind myprofile      {lang_83}
-echo  osp restart mysql-8.0      {lang_102}
-echo  osp log main 20            {lang_103}
-echo  osp reset ^& osp add git    {lang_104}
+echo  osp set PostgreSQL-9.6      {lang_101}
+echo  osp on bind myprofile       {lang_83}
+echo  osp restart mysql-8.0       {lang_102}
+echo  osp log main 20             {lang_103}
+echo  osp reset ^& osp add git     {lang_104}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHUTTING DOWN THE APPLICATION
