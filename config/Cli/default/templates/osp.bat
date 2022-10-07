@@ -194,10 +194,10 @@ goto end
 for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL if /i not %%a==OSP_ECHO_STATE if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
 {windows_environment}
 set "OSP_ACTIVE_ENV=Windows"
-if /i "%3"=="init" call :logo
-if /i "%3"=="init" TITLE Open Server Panel
-if /i not "%3"=="init" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV% & TITLE Open Server Panel ^| %OSP_ACTIVE_ENV%
-set "OSP_TERMINAL_CODEPAGE={oem_codepage}"
+if /i "%2"=="init" if /i not "%3"=="silent" call :logo
+if /i "%2"=="init" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
+if /i "%2"=="init" set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
+TITLE Open Server Panel ^| %OSP_ACTIVE_ENV%
 goto end
 :: -----------------------------------------------------------------------------------
 :: DEFAULT ENVIRONMENT
