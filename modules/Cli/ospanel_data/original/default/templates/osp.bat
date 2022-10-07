@@ -171,7 +171,6 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{args}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-if /i "%OSP_ACTIVE_ENV%"=="Cli" goto env_set
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_34}: {lang_107}" & goto error
 if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
@@ -184,12 +183,8 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{args}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-call :env_reset
-if /i "%2"=="cli" set "OSP_ACTIVE_ENV=Cli" & set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
-if /i "%2"=="cli" if /i "%3"=="cli" call :logo
-if /i "%2"=="cli" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
-if /i "%2"=="cli" goto end
 if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
+call :env_reset
 call "{root_dir}\data\Cli\env_%2.bat"
 goto end
 :: -----------------------------------------------------------------------------------
@@ -199,7 +194,9 @@ goto end
 for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL if /i not %%a==OSP_ECHO_STATE if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
 {windows_environment}
 set "OSP_ACTIVE_ENV=Windows"
-echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
+if /i "%3"=="init" call :logo
+if /i "%3"=="init" TITLE Open Server Panel
+if /i not "%3"=="init" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV% & TITLE Open Server Panel ^| %OSP_ACTIVE_ENV%
 set "OSP_TERMINAL_CODEPAGE={oem_codepage}"
 goto end
 :: -----------------------------------------------------------------------------------
