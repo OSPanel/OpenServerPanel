@@ -1,4 +1,3 @@
-:: -----------------------------------------------------------------------------------
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_TERMINAL_CODEPAGE=%%a"
@@ -13,7 +12,7 @@
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=Windows"
-if not exist "{root_dir}\bin\wget.exe"   set "OSP_ERR_MSG={lang_34}: {root_dir}\bin\wget.exe {lang_71}"   & goto error
+if not exist "{root_dir}\bin\curl.exe"   set "OSP_ERR_MSG={lang_34}: {root_dir}\bin\curl.exe {lang_71}"   & goto error
 if not exist "{root_dir}\bin\tail.exe"   set "OSP_ERR_MSG={lang_34}: {root_dir}\bin\tail.exe {lang_71}"   & goto error
 if not exist "{root_dir}\system\SystemPreparationTool.exe" set "OSP_ERR_MSG={lang_34}: {root_dir}\system\SystemPreparationTool.exe {lang_71}" & goto error
 :: -----------------------------------------------------------------------------------
@@ -35,8 +34,8 @@ if /i "%1"=="set"         goto env_set
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
-if /i "%1"=="-v"          echo: & echo  {lang_20}: {version} & goto end
-if /i "%1"=="version"     echo: & echo  {lang_20}: {version} & goto end
+if /i "%1"=="-v"          echo: & echo  {lang_20}: {osp_version} & goto end
+if /i "%1"=="version"     echo: & echo  {lang_20}: {osp_version} & goto end
 if "%1"==""               goto help
 set "OSP_ERR_MSG={lang_34}: {lang_72}" & goto error
 :: -----------------------------------------------------------------------------------
@@ -50,7 +49,7 @@ echo  ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  
 echo   \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
 echo        ^|_^|
 echo:
-echo  {lang_69}: osp help ^| {lang_20}: {version} ^| © 2010-2022 ^«OSPanel.io^»
+echo  {lang_69}: osp help ^| {lang_20}: {osp_version} ^| © 2010-2022 ^«OSPanel.io^»
 @exit /b 0
 :: -----------------------------------------------------------------------------------
 :: HELP
@@ -107,7 +106,7 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-"{root_dir}\bin\wget.exe" --no-config --timeout=15 --tries=1 -qO- {api_url}/exit
+"{root_dir}\bin\curl.exe" -s -o nul {api_url}/exit
 if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_34}: {lang_59}" & goto error
 goto end
 :: -----------------------------------------------------------------------------------
@@ -124,7 +123,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :log
 if "%2"=="" goto eargument
-call :strfind "{args}main:" ":%2:"
+call :strfind "{modules_list}main:" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL=OpenServerPanel"
 if /i not "%2"=="main" set "OSP_TMPVAL=%2"
@@ -139,9 +138,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :mod_cmd
 if /i not "%1"=="list" if "%2"=="" goto eargument
-if /i not "%1"=="list" call :strfind "{args}" ":%2:"
+if /i not "%1"=="list" call :strfind "{modules_list}" ":%2:"
 if /i not "%1"=="list" if not defined OSP_TMPVAL goto invalid
-"{root_dir}\bin\wget.exe" --no-config --timeout=15 --tries=1 -qO- {api_url}/mod/%1/%2/%3
+"{root_dir}\bin\curl.exe" -s -o nul {api_url}/mod/%1/%2/%3
 if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_34}: {lang_59}" & goto error
 if /i not "%1"=="status" goto end
 if not exist "{root_dir}\logs\%2.log" goto end
@@ -154,7 +153,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :mod_shell
 if "%2"=="" goto eargument
-call :strfind "{args}" ":%2:"
+call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 echo:
 if not exist "{root_dir}\data\Cli\shell_%2.bat" echo  {lang_105} & goto end
@@ -169,7 +168,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_add
 if "%2"=="" goto eargument
-call :strfind "{args}" ":%2:"
+call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_34}: {lang_107}" & goto error
@@ -181,7 +180,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_set
 if "%2"=="" goto eargument
-call :strfind "{args}" ":%2:"
+call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
 call :env_reset
