@@ -61,7 +61,7 @@ echo  {lang_84}: osp ^<{lang_85}^> [^<{lang_86}^>]
 echo:
 echo  {lang_87}:
 echo:
-echo  add     ^<MODULE^>          {lang_88}
+echo  add     ^<MODULE^>            {lang_88}
 echo                              {lang_89}
 echo                              {lang_90}
 echo                              {lang_91}
@@ -72,6 +72,8 @@ echo  set     ^<MODULE^>            {lang_95}
 echo:
 echo  {lang_96}:
 echo:
+echo  init    ^<MODULE^> [PROFILE]  {lang_127}
+echo                              {lang_128}
 echo  list                        {lang_97}
 echo  off     ^<MODULE^>            {lang_98}
 echo  on      ^<MODULE^> [PROFILE]  {lang_99}
