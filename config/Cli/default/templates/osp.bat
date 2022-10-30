@@ -12,9 +12,9 @@
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=Windows"
-if not exist "{root_dir}\bin\curl.exe"   set "OSP_ERR_MSG={lang_34}: {root_dir}\bin\curl.exe {lang_71}"   & goto error
-if not exist "{root_dir}\bin\tail.exe"   set "OSP_ERR_MSG={lang_34}: {root_dir}\bin\tail.exe {lang_71}"   & goto error
-if not exist "{root_dir}\system\SystemPreparationTool.exe" set "OSP_ERR_MSG={lang_34}: {root_dir}\system\SystemPreparationTool.exe {lang_71}" & goto error
+if not exist "{root_dir}\bin\curl.exe"   set "OSP_ERR_MSG={lang_16}: {root_dir}\bin\curl.exe {lang_79}"   & goto error
+if not exist "{root_dir}\bin\tail.exe"   set "OSP_ERR_MSG={lang_16}: {root_dir}\bin\tail.exe {lang_79}"   & goto error
+if not exist "{root_dir}\system\SystemPreparationTool.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\system\SystemPreparationTool.exe {lang_79}" & goto error
 :: -----------------------------------------------------------------------------------
 :: ROUTER
 :: -----------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ if /i "%1"=="add"         goto env_add
 if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
-if /i "%1"=="info"        echo: & echo  {lang_108}: %OSP_ACTIVE_ENV% & goto end
+if /i "%1"=="info"        echo: & echo  {lang_52}: %OSP_ACTIVE_ENV% & goto end
 if /i "%1"=="list"        goto mod_cmd
 if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
@@ -34,10 +34,10 @@ if /i "%1"=="set"         goto env_set
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
-if /i "%1"=="-v"          echo: & echo  {lang_20}: {osp_version} & goto end
-if /i "%1"=="version"     echo: & echo  {lang_20}: {osp_version} & goto end
+if /i "%1"=="-v"          echo: & echo  {lang_81}: {osp_version} & goto end
+if /i "%1"=="version"     echo: & echo  {lang_81}: {osp_version} & goto end
 if "%1"==""               goto help
-set "OSP_ERR_MSG={lang_34}: {lang_72}" & goto error
+set "OSP_ERR_MSG={lang_16}: {lang_82}" & goto error
 :: -----------------------------------------------------------------------------------
 :: LOGO
 :: -----------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ echo  ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  
 echo   \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
 echo        ^|_^|
 echo:
-echo  {lang_69}: osp help ^| {lang_20}: {osp_version} ^| © 2010-2022 ^«OSPanel.io^»
+echo  {lang_83}: osp help ^| {lang_81}: {osp_version} ^| © 2010-2022 ^«OSPanel.io^»
 @exit /b 0
 :: -----------------------------------------------------------------------------------
 :: HELP
@@ -57,57 +57,55 @@ echo  {lang_69}: osp help ^| {lang_20}: {osp_version} ^| © 2010-2022 ^«OSPanel
 :help
 call :logo
 echo:
-echo  {lang_73}: osp ^<{lang_74}^> [^<{lang_75}^>]
+echo  {lang_84}: osp ^<{lang_85}^> [^<{lang_86}^>]
 echo:
-echo  {lang_76}:
+echo  {lang_87}:
 echo:
-echo  add     ^<MODULE^>  [append]  {lang_77}
-echo                              {lang_67}
-echo                              {lang_68}
-echo                              {lang_78}
-echo                              {lang_79}
-echo                              {lang_80}
-echo                              {lang_81}
-echo  info                        {lang_84}
-echo  reset                       {lang_88}
-echo  set     ^<MODULE^>            {lang_89}
+echo  add     ^<MODULE^>          {lang_88}
+echo                              {lang_89}
+echo                              {lang_90}
+echo                              {lang_91}
+echo                              {lang_92}
+echo  info                        {lang_93}
+echo  reset                       {lang_94}
+echo  set     ^<MODULE^>            {lang_95}
 echo:
-echo  {lang_116}:
+echo  {lang_96}:
 echo:
-echo  list                        {lang_86}
-echo  off     ^<MODULE^>            {lang_70}
-echo  on      ^<MODULE^> [PROFILE]  {lang_87}
-echo  restart ^<MODULE^> [PROFILE]  {lang_58}
-echo  shell   ^<MODULE^>            {lang_90}
-echo  status  ^<MODULE^>            {lang_91}
+echo  list                        {lang_97}
+echo  off     ^<MODULE^>            {lang_98}
+echo  on      ^<MODULE^> [PROFILE]  {lang_99}
+echo  restart ^<MODULE^> [PROFILE]  {lang_100}
+echo  shell   ^<MODULE^>            {lang_101}
+echo  status  ^<MODULE^>            {lang_102}
 echo:
-echo  {lang_117}:
+echo  {lang_103}:
 echo:
-echo  exit                        {lang_82}
-echo  log     ^<MODULE^|main^>  [N]  {lang_85}
-echo  sysprep [silent^|ssd]        {lang_92}
-echo                              {lang_93}
-echo                              {lang_94}
-echo                              {lang_95}
-echo                              {lang_96}
-echo                              {lang_97}
-echo                              {lang_98}
-echo  version                     {lang_99}
+echo  exit                        {lang_104}
+echo  log     ^<MODULE^|main^>  [N]  {lang_105}
+echo  sysprep [silent^|ssd]        {lang_106}
+echo                              {lang_107}
+echo                              {lang_108}
+echo                              {lang_109}
+echo                              {lang_110}
+echo                              {lang_111}
+echo                              {lang_112}
+echo  version                     {lang_113}
 echo:
-echo  {lang_100}:
+echo  {lang_114}:
 echo:
-echo  osp set PostgreSQL-9.6      {lang_101}
-echo  osp on bind myprofile       {lang_83}
-echo  osp restart mysql-8.0       {lang_102}
-echo  osp log main 20             {lang_103}
-echo  osp reset ^& osp add git     {lang_104}
+echo  osp set PostgreSQL-9.6      {lang_115}
+echo  osp on bind myprofile       {lang_116}
+echo  osp restart mysql-8.0       {lang_117}
+echo  osp log main 20             {lang_118}
+echo  osp reset ^& osp add git     {lang_119}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
 "{root_dir}\bin\curl.exe" -s -o nul {api_url}/exit
-if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_34}: {lang_59}" & goto error
+if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
@@ -128,8 +126,8 @@ if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL=OpenServerPanel"
 if /i not "%2"=="main" set "OSP_TMPVAL=%2"
 echo:
-if not exist "{root_dir}\logs\%OSP_TMPVAL%.log" echo  {lang_111} & goto end
-for %%S in ("{root_dir}\logs\%OSP_TMPVAL%.log") do if %%~zS==0 echo  {lang_111} & goto end
+if not exist "{root_dir}\logs\%OSP_TMPVAL%.log" echo  {lang_121} & goto end
+for %%S in ("{root_dir}\logs\%OSP_TMPVAL%.log") do if %%~zS==0 echo  {lang_121} & goto end
 if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log"
 if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log" %3
 goto end
@@ -141,7 +139,7 @@ if /i not "%1"=="list" if "%2"=="" goto eargument
 if /i not "%1"=="list" call :strfind "{modules_list}" ":%2:"
 if /i not "%1"=="list" if not defined OSP_TMPVAL goto invalid
 "{root_dir}\bin\curl.exe" -s -o nul {api_url}/mod/%1/%2/%3
-if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_34}: {lang_59}" & goto error
+if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 if /i not "%1"=="status" goto end
 if not exist "{root_dir}\logs\%2.log" goto end
 for %%S in ("{root_dir}\logs\%2.log") do if %%~zS==0 goto end
@@ -156,7 +154,7 @@ if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 echo:
-if not exist "{root_dir}\data\Cli\shell_%2.bat" echo  {lang_105} & goto end
+if not exist "{root_dir}\data\Cli\shell_%2.bat" echo  {lang_122} & goto end
 setlocal
 call :env_reset
 if exist "{root_dir}\data\Cli\env_%2.bat" call "{root_dir}\data\Cli\env_%2.bat" shell
@@ -171,8 +169,8 @@ if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
-if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_34}: {lang_107}" & goto error
-if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
+if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_16}: {lang_123}" & goto error
+if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_124} & goto end
 call "{root_dir}\data\Cli\env_%2.bat" add
 goto end
 :: -----------------------------------------------------------------------------------
@@ -182,7 +180,7 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_106} & goto end
+if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_124} & goto end
 call :env_reset
 call "{root_dir}\data\Cli\env_%2.bat"
 goto end
@@ -194,7 +192,7 @@ for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if 
 {windows_environment}
 set "OSP_ACTIVE_ENV=Windows"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
-if /i "%2"=="init" if /i not "%3"=="silent" echo: & echo  {lang_108}: %OSP_ACTIVE_ENV%
+if /i "%2"=="init" if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
 if /i "%2"=="init" set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
 TITLE Open Server Panel ^| %OSP_ACTIVE_ENV%
 goto end
@@ -209,9 +207,9 @@ exit /b 0
 :: MISCELLANEOUS FUNCTIONS
 :: -----------------------------------------------------------------------------------
 :invalid
-set "OSP_ERR_MSG={lang_34}: {lang_109}" & goto error
+set "OSP_ERR_MSG={lang_16}: {lang_125}" & goto error
 :eargument
-set "OSP_ERR_MSG={lang_34}: {lang_110}" & goto error
+set "OSP_ERR_MSG={lang_16}: {lang_126}" & goto error
 :strfind
 setlocal
 set "pos="
@@ -236,7 +234,7 @@ echo %OSP_ECHO_STATE%
 @set "OSP_TMPVAL="
 @exit /b 0
 :canceled
-@echo: & @echo  {lang_34}: {root_dir}\temp {lang_71} {lang_33}.
+@echo: & @echo  {lang_16}: {root_dir}\temp {lang_79} {lang_19}.
 @if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
