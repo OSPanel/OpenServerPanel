@@ -3,6 +3,7 @@
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_TERMINAL_CODEPAGE=%%a"
 @call :trim %OSP_TERMINAL_CODEPAGE% OSP_TERMINAL_CODEPAGE
 @chcp 65001 > nul
+@if not exist "{root_dir}\temp\OSPanel.pid" goto notrunning
 @if not exist "{root_dir}\temp\" goto canceled
 :gettempname
 @set "OSP_TMPVAL=~OSP_%RANDOM%.tmp"
@@ -24,6 +25,7 @@ if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
 if /i "%1"=="info"        echo: & echo  {lang_52}: %OSP_ACTIVE_ENV% & goto end
+if /i "%1"=="init"     goto mod_cmd
 if /i "%1"=="list"        goto mod_cmd
 if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
@@ -80,6 +82,7 @@ echo  on      ^<MODULE^> [PROFILE]  {lang_99}
 echo  restart ^<MODULE^> [PROFILE]  {lang_100}
 echo  shell   ^<MODULE^>            {lang_101}
 echo  status  ^<MODULE^>            {lang_102}
+echo                              {lang_60}
 echo:
 echo  {lang_103}:
 echo:
@@ -106,8 +109,9 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-"{root_dir}\bin\curl.exe" -s -o nul {api_url}/exit
-if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
+"{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/exit
+if exist "{root_dir}\temp\OSPanel.pid" if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
+echo: & echo  {lang_63}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
@@ -134,13 +138,16 @@ if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log"
 if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log" %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: ON/OFF/RESTART/STATUS/LIST
+:: INIT/ON/OFF/RESTART/STATUS/LIST
 :: -----------------------------------------------------------------------------------
 :mod_cmd
 if /i not "%1"=="list" if "%2"=="" goto eargument
 if /i not "%1"=="list" call :strfind "{modules_list}" ":%2:"
 if /i not "%1"=="list" if not defined OSP_TMPVAL goto invalid
-"{root_dir}\bin\curl.exe" -s -o nul {api_url}/mod/%1/%2/%3
+if /i "%1"=="restart" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/off/%2/%3
+if /i "%1"=="restart" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/on/%2/%3
+if /i "%1"=="list" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/list/all/
+if /i not "%1"=="restart" if /i not "%1"=="list" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/%1/%2/%3
 if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 if /i not "%1"=="status" goto end
 if not exist "{root_dir}\logs\%2.log" goto end
@@ -237,6 +244,11 @@ echo %OSP_ECHO_STATE%
 @exit /b 0
 :canceled
 @echo: & @echo  {lang_16}: {root_dir}\temp {lang_79} {lang_19}.
+@if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
+@set "OSP_TERMINAL_CODEPAGE="
+@exit /b 1
+:notrunning
+@echo: & @echo  {lang_16}: {lang_56}
 @if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
