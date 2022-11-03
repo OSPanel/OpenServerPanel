@@ -109,7 +109,7 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-"{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/exit
+"{root_dir}\bin\curl" -f -s {api_url}/exit
 if exist "{root_dir}\temp\OSPanel.pid" if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 echo: & echo  {lang_63}
 goto end
@@ -144,10 +144,10 @@ goto end
 if /i not "%1"=="list" if "%2"=="" goto eargument
 if /i not "%1"=="list" call :strfind "{modules_list}" ":%2:"
 if /i not "%1"=="list" if not defined OSP_TMPVAL goto invalid
-if /i "%1"=="restart" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/off/%2/%3
-if /i "%1"=="restart" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/on/%2/%3
-if /i "%1"=="list" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/list/all/
-if /i not "%1"=="restart" if /i not "%1"=="list" "{root_dir}\bin\wget.exe" --no-config --tries=1 -qO- {api_url}/mod/%1/%2/%3
+if /i "%1"=="restart" "{root_dir}\bin\curl" -f -s {api_url}/mod/off/%2/%3
+if /i "%1"=="restart" "{root_dir}\bin\curl" -f -s {api_url}/mod/on/%2/%3
+if /i "%1"=="list" "{root_dir}\bin\curl" -f -s {api_url}/mod/list/all/
+if /i not "%1"=="restart" if /i not "%1"=="list" "{root_dir}\bin\curl" -f -s {api_url}/mod/%1/%2/%3
 if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 if /i not "%1"=="status" goto end
 if not exist "{root_dir}\logs\%2.log" goto end
