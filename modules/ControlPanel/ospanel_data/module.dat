@@ -11,7 +11,7 @@ license            = https://ospanel.io/license/
 license_type       = Freeware
 min_windows_ver    = 6.1.7601
 timestamp          = 1651770000
-version            = 1.0.0.0
+version            = 6.0.0.0
 
 [docs]
 

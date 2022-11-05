@@ -4,7 +4,6 @@
 @call :trim %OSP_TERMINAL_CODEPAGE% OSP_TERMINAL_CODEPAGE
 @chcp 65001 > nul
 @if not exist "{root_dir}\temp\OSPanel.pid" goto notrunning
-@if not exist "{root_dir}\temp\" goto canceled
 :gettempname
 @set "OSP_TMPVAL=~OSP_%RANDOM%.tmp"
 @if exist "{root_dir}\temp\%OSP_TMPVAL%" goto gettempname
@@ -25,7 +24,7 @@ if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
 if /i "%1"=="info"        echo: & echo  {lang_52}: %OSP_ACTIVE_ENV% & goto end
-if /i "%1"=="init"     goto mod_cmd
+if /i "%1"=="init"        goto mod_cmd
 if /i "%1"=="list"        goto mod_cmd
 if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
@@ -163,11 +162,11 @@ if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 echo:
-if not exist "{root_dir}\data\Cli\shell_%2.bat" echo  {lang_122} & goto end
+if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo  {lang_122} & goto end
 setlocal
 call :env_reset
-if exist "{root_dir}\data\Cli\env_%2.bat" call "{root_dir}\data\Cli\env_%2.bat" shell
-call "{root_dir}\data\Cli\shell_%2.bat"
+if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" shell
+call "{root_dir}\data\{module_name}\shell_%2.bat"
 endlocal
 goto end
 :: -----------------------------------------------------------------------------------
@@ -179,8 +178,8 @@ call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_16}: {lang_123}" & goto error
-if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_124} & goto end
-call "{root_dir}\data\Cli\env_%2.bat" add
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  {lang_124} & goto end
+call "{root_dir}\data\{module_name}\env_%2.bat" add
 goto end
 :: -----------------------------------------------------------------------------------
 :: SET ENVIRONMENT
@@ -189,9 +188,9 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-if not exist "{root_dir}\data\Cli\env_%2.bat" echo: & echo  {lang_124} & goto end
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  {lang_124} & goto end
 call :env_reset
-call "{root_dir}\data\Cli\env_%2.bat"
+call "{root_dir}\data\{module_name}\env_%2.bat"
 goto end
 :: -----------------------------------------------------------------------------------
 :: WINDOWS ENVIRONMENT
@@ -242,11 +241,6 @@ echo %OSP_ECHO_STATE%
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
 @exit /b 0
-:canceled
-@echo: & @echo  {lang_16}: {root_dir}\temp {lang_79} {lang_19}.
-@if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
-@set "OSP_TERMINAL_CODEPAGE="
-@exit /b 1
 :notrunning
 @echo: & @echo  {lang_16}: {lang_56}
 @if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
