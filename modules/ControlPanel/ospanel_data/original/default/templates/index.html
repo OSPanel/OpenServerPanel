@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Server Panel</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" type="image/png" href="dist/img/x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="dist/img/x32.png" sizes="32x32">
+    <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+    <style>
+    html {
+        box-sizing: border-box;
+        font-size: 1px !important;
+    }
+
+    body {
+        font: normal 14rem/21rem Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+        background-color: #E5EEF5;
+        color: #000;
+    }
+
+    .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 570rem;
+        min-width: 360rem;
+        padding: 20rem;
+        text-align: center;
+    }
+
+    h1 {
+        line-height: 48rem;
+        font-size: 48rem;
+    }
+
+    h2 {
+        margin-top: 15rem;
+        line-height: 26rem;
+        font-size: 26rem;
+        margin-bottom: 45rem;
+    }
+
+    .button-4 {
+        appearance: none;
+        background-color: #FAFBFC;
+        border: 1rem solid rgba(27, 31, 35, 0.15);
+        border-radius: 6rem;
+        box-shadow: rgba(27, 31, 35, 0.04) 0 1rem 0, rgba(255, 255, 255, 0.25) 0 1rem 0 inset;
+        box-sizing: border-box;
+        color: #24292E;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        font-size: 14rem;
+        font-weight: 500;
+        line-height: 20rem;
+        list-style: none;
+        padding: 6rem 16rem;
+        position: relative;
+        transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: middle;
+        white-space: nowrap;
+        word-wrap: break-word;
+        min-width: 210rem;
+    }
+
+    .button-4:hover {
+        background-color: #F3F4F6;
+        text-decoration: none;
+        transition-duration: 0.1s;
+    }
+
+    .button-4:disabled {
+        background-color: #FAFBFC;
+        border-color: rgba(27, 31, 35, 0.15);
+        color: #959DA5;
+        cursor: default;
+    }
+
+    .button-4:active {
+        background-color: #EDEFF2;
+        box-shadow: rgba(225, 228, 232, 0.2) 0 1rem 0 inset;
+        transition: none 0s;
+    }
+
+    .button-4:focus {
+        outline: 1rem transparent;
+    }
+
+    .button-4:before {
+        display: none;
+    }
+
+    .button-4:-webkit-details-marker {
+        display: none;
+    }
+
+    .left-30 {
+        margin-left: 30rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='outer'>
+        <div class='middle'>
+            <div class='inner'>
+                <h1 id='t1'>Open Server Panel</h1>
+                <h2 id='t2'>Веб-интерфейс находится в разработке</h2>
+                <br>
+                <button class='button-4' id='clibtn'>Запустить CLI-интерфейс</button>
+                <button class='button-4 left-30' id='exitbtn'>Закрыть программу</button>
+            </div>
+        </div>
+    </div>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/toastr/toastr.min.js"></script>
+    <script src="dist/js/fix.js"></script>
+    <script src="dist/js/es6-promise.min.js"></script>
+    <script src="dist/js/es6-promise.auto.min.js"></script>
+    <script src="dist/js/axios.min.js"></script>
+    <script>
+    $('#exitbtn').on('click', function() {
+        axios.get('{api_url}/exit').then(function(response) {
+            if(response.data != '') {
+                toastr.success(response.data);
+            }
+        }).catch(function(error) {
+            toastr.error('{lang_59}');
+        });
+    });
+    $('#exitbtn').on('click', function() {
+        axios.get('{api_url}/cli').then(function(response) {
+        }).catch(function(error) {
+            toastr.error('{lang_59}');
+        });
+    });
+    </script>
+</body>
+
+</html>
