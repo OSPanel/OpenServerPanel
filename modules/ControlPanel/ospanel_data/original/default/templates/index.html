@@ -10,6 +10,11 @@
     <link rel="icon" type="image/png" href="dist/img/x32.png" sizes="32x32">
     <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
     <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
     html {
         box-sizing: border-box;
         font-size: 1px !important;
@@ -53,7 +58,9 @@
         margin-top: 15rem;
         line-height: 26rem;
         font-size: 26rem;
-        margin-bottom: 45rem;
+        font-weight:  normal;
+        margin-bottom: 20rem;
+        display: block;
     }
 
     .button-4 {
@@ -71,7 +78,7 @@
         font-weight: 500;
         line-height: 20rem;
         list-style: none;
-        padding: 6rem 16rem;
+        padding: 8rem 16rem;
         position: relative;
         transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
         user-select: none;
@@ -81,6 +88,7 @@
         white-space: nowrap;
         word-wrap: break-word;
         min-width: 210rem;
+        margin: 20rem 15rem 0 15rem;
     }
 
     .button-4:hover {
@@ -113,10 +121,6 @@
     .button-4:-webkit-details-marker {
         display: none;
     }
-
-    .left-30 {
-        margin-left: 30rem;
-    }
     </style>
 </head>
 
@@ -124,11 +128,10 @@
     <div class='outer'>
         <div class='middle'>
             <div class='inner'>
-                <h1 id='t1'>Open Server Panel</h1>
-                <h2 id='t2'>Веб-интерфейс находится в разработке</h2>
-                <br>
-                <button class='button-4' id='clibtn'>Запустить CLI-интерфейс</button>
-                <button class='button-4 left-30' id='exitbtn'>Закрыть программу</button>
+                <img src='dist/img/preloader.png' style='margin-bottom: 20rem'>
+                <h1>Open Server Panel</h1>
+                <h2>{lang_159}</h2>
+                <button class='button-4' id='clibtn'>{lang_60}</button><button class='button-4' id='exitbtn'>{lang_61}</button>
             </div>
         </div>
     </div>
@@ -149,7 +152,7 @@
             toastr.error('{lang_59}');
         });
     });
-    $('#exitbtn').on('click', function() {
+    $('#clibtn').on('click', function() {
         axios.get('{api_url}/cli').then(function(response) {
         }).catch(function(error) {
             toastr.error('{lang_59}');
