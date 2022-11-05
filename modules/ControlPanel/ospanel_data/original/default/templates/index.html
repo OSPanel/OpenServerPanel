@@ -56,8 +56,8 @@
     }
 
     h2 {
-        margin: 30rem 0;
-        font-size: 32rem;
+        margin: 15rem 0;
+        font-size: 23rem;
         font-weight: normal;
         display: block;
     }
@@ -142,6 +142,7 @@
     <script src="dist/js/es6-promise.auto.min.js"></script>
     <script src="dist/js/axios.min.js"></script>
     <script>
+    $(document).ready(function() {
     $('#exitbtn').on('click', function() {
         axios.get('{api_url}/exit').then(function(response) {
             if(response.data != '') {
@@ -156,6 +157,7 @@
         }).catch(function(error) {
             toastr.error('{lang_59}');
         });
+    });
     });
     </script>
 </body>
