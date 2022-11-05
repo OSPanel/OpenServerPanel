@@ -21,7 +21,9 @@
     }
 
     body {
-        font: normal 14rem/21rem Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+        font-family: Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+        font-weight: normal;
+        font-size:  14rem;
         background-color: #E5EEF5;
         color: #000;
     }
@@ -43,23 +45,20 @@
     .inner {
         margin-left: auto;
         margin-right: auto;
-        max-width: 570rem;
+        max-width: 670rem;
         min-width: 360rem;
         padding: 20rem;
         text-align: center;
     }
 
     h1 {
-        line-height: 48rem;
         font-size: 48rem;
     }
 
     h2 {
-        margin-top: 15rem;
-        line-height: 26rem;
-        font-size: 26rem;
-        font-weight:  normal;
-        margin-bottom: 20rem;
+        margin: 30rem 0;
+        font-size: 32rem;
+        font-weight: normal;
         display: block;
     }
 
@@ -87,7 +86,7 @@
         vertical-align: middle;
         white-space: nowrap;
         word-wrap: break-word;
-        min-width: 210rem;
+        min-width: 200rem;
         margin: 20rem 15rem 0 15rem;
     }
 
@@ -128,7 +127,7 @@
     <div class='outer'>
         <div class='middle'>
             <div class='inner'>
-                <img src='dist/img/preloader.png' style='margin-bottom: 20rem'>
+                <img src='dist/img/preloader.png' style='margin: -10rem 0 15rem 0'>
                 <h1>Open Server Panel</h1>
                 <h2>{lang_159}</h2>
                 <button class='button-4' id='clibtn'>{lang_60}</button><button class='button-4' id='exitbtn'>{lang_61}</button>
