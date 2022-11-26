@@ -108,8 +108,8 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-"{root_dir}\bin\curl" -f -s {api_url}/exit
-if exist "{root_dir}\temp\OSPanel.pid" if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
+"{root_dir}\bin\curl" -f -s {api_url}/exit > nul
+if exist "{root_dir}\temp\OSPanel.pid" set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 echo: & echo  {lang_63}
 goto end
 :: -----------------------------------------------------------------------------------
