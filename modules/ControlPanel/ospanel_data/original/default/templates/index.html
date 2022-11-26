@@ -86,7 +86,7 @@
         vertical-align: middle;
         white-space: nowrap;
         word-wrap: break-word;
-        min-width: 200rem;
+        min-width: 400rem;
         margin: 20rem 15rem 0 15rem;
     }
 
@@ -130,7 +130,7 @@
                 <img src='dist/img/preloader.png' style='margin: -10rem 0 10rem 0'>
                 <h1>Open Server Panel</h1>
                 <h2>{lang_159}</h2>
-                <button class='button-4' id='clibtn'>{lang_60}</button><button class='button-4' id='exitbtn'>{lang_61}</button>
+                <button class='button-4' id='clibtn'>{lang_60}</button>
             </div>
         </div>
     </div>
@@ -143,15 +143,6 @@
     <script src="dist/js/axios.min.js"></script>
     <script>
     $(document).ready(function() {
-    $('#exitbtn').on('click', function() {
-        axios.get('{api_url}/exit').then(function(response) {
-            if(response.data != '') {
-                toastr.success(response.data);
-            }
-        }).catch(function(error) {
-            toastr.error('{lang_59}');
-        });
-    });
     $('#clibtn').on('click', function() {
         axios.get('{api_url}/cli').then(function(response) {
         }).catch(function(error) {
