@@ -14,7 +14,7 @@ del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=Windows"
 if not exist "{root_dir}\bin\curl.exe"   set "OSP_ERR_MSG={lang_16}: {root_dir}\bin\curl.exe {lang_79}"   & goto error
 if not exist "{root_dir}\bin\tail.exe"   set "OSP_ERR_MSG={lang_16}: {root_dir}\bin\tail.exe {lang_79}"   & goto error
-if not exist "{root_dir}\system\SystemPreparationTool.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\system\SystemPreparationTool.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\System Preparation Tool.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\system\System Preparation Tool.exe {lang_79}" & goto error
 :: -----------------------------------------------------------------------------------
 :: ROUTER
 :: -----------------------------------------------------------------------------------
@@ -117,9 +117,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :sysprep
 if /i not "%2"=="silent" if /i not "%2"=="ssd" if not "%2"=="" goto invalid
-if /i "%2"=="silent" start "" /WAIT "{root_dir}\system\SystemPreparationTool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
-if /i "%2"=="ssd" start "" /WAIT "{root_dir}\system\SystemPreparationTool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
-if "%2"=="" start "" "{root_dir}\system\SystemPreparationTool.exe"
+if /i "%2"=="silent" start "" /WAIT "{root_dir}\system\System Preparation Tool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
+if /i "%2"=="ssd" start "" /WAIT "{root_dir}\system\System Preparation Tool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
+if "%2"=="" start "" "{root_dir}\system\System Preparation Tool.exe"
 goto end
 :: -----------------------------------------------------------------------------------
 :: LOG VIEW
