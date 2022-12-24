@@ -3,7 +3,7 @@
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_TERMINAL_CODEPAGE=%%a"
 @call :trim %OSP_TERMINAL_CODEPAGE% OSP_TERMINAL_CODEPAGE
 @chcp 65001 > nul
-@if not exist "{root_dir}\temp\OSPanel.pid" goto notrunning
+@if not exist "{root_dir}\temp\OSPanel.lock" goto notrunning
 :gettempname
 @set "OSP_TMPVAL=~OSP_%RANDOM%.tmp"
 @if exist "{root_dir}\temp\%OSP_TMPVAL%" goto gettempname
@@ -109,7 +109,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :shutdown
 "{root_dir}\bin\curl" -f -s {api_url}/exit > nul
-if exist "{root_dir}\temp\OSPanel.pid" set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
+if exist "{root_dir}\temp\OSPanel.lock" set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
 echo: & echo  {lang_63}
 goto end
 :: -----------------------------------------------------------------------------------
