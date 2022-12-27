@@ -1,4 +1,0 @@
-View live MongoDB performance statistics.
-
-usage: mongostat.exe [options] [sleep time]
-sleep time: time to wait (in seconds) between calls

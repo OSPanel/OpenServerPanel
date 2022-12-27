@@ -1,1 +1,0 @@
-Usage: pg_test_fsync [-f FILENAME] [-s SECS-PER-TEST]

@@ -1,3 +1,0 @@
-Display BSON objects in a data file.
-
-usage: bsondump.exe [options] <bson filename>
