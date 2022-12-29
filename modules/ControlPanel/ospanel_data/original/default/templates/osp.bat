@@ -70,20 +70,26 @@ echo                              {lang_90}
 echo                              {lang_91}
 echo                              {lang_92}
 echo  info                        {lang_93}
-echo  reset                       {lang_94}
+echo  reset   [init]    [silent]  {lang_94}
+echo                              {lang_167}
+echo                              {lang_168}
 echo  set     ^<MODULE^>            {lang_95}
+echo                              {lang_165}
+echo                              {lang_166}
 echo:
 echo  {lang_96}:
 echo:
 echo  init    ^<MODULE^> [PROFILE]  {lang_127}
+echo                              {lang_169}
 echo                              {lang_128}
+echo                              {lang_170}
+echo                              {lang_171}
 echo  list                        {lang_97}
 echo  off     ^<MODULE^>            {lang_98}
 echo  on      ^<MODULE^> [PROFILE]  {lang_99}
 echo  restart ^<MODULE^> [PROFILE]  {lang_100}
 echo  shell   ^<MODULE^>            {lang_101}
 echo  status  ^<MODULE^>            {lang_102}
-echo                              {lang_60}
 echo:
 echo  {lang_103}:
 echo:
