@@ -5,6 +5,7 @@
 architecture       = x64
 category           = Web
 class              = Web
+fast_stop          = yes
 ipv6_support       = yes
 ip_separator       =
 license            =
