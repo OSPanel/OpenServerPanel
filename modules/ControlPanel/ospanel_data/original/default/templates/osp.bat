@@ -170,6 +170,8 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
+call :strfind "{psv_modules_list}" ":%2:"
+if defined OSP_TMPVAL set "OSP_PSV=1"
 if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo: & echo  %ESC%[93m{lang_122}%ESC%[0m & goto end
 setlocal
 call :env_reset
@@ -184,6 +186,8 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
+call :strfind "{psv_modules_list}" ":%2:"
+if defined OSP_TMPVAL set "OSP_PSV=1"
 call :strfind "%OSP_ACTIVE_ENV_T%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
@@ -196,6 +200,8 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
+call :strfind "{psv_modules_list}" ":%2:"
+if defined OSP_TMPVAL set "OSP_PSV=1"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
 call :env_reset
 call "{root_dir}\data\{module_name}\env_%2.bat"
@@ -250,6 +256,7 @@ if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 @set "OSP_ECHO_STATE="
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
+@set "OSP_PSV="
 @exit /b 0
 :notrunning
 @echo: & @echo  %ESC%[91m{lang_16}: {lang_56}%ESC%[0m
