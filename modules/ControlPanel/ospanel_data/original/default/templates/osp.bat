@@ -1,5 +1,7 @@
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
+@set "ESC="
+@if exist "{root_dir}\system\ansicon\ansicon.exe" "{root_dir}\system\ansicon\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_TERMINAL_CODEPAGE=%%a"
 @call :trim %OSP_TERMINAL_CODEPAGE% OSP_TERMINAL_CODEPAGE
 @chcp 65001 > nul
@@ -11,12 +13,11 @@
 @for %%S in ("{root_dir}\temp\%OSP_TMPVAL%") do @if %%~zS==0 (set "OSP_ECHO_STATE=OFF") else (set "OSP_ECHO_STATE=ON")
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
-if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=Windows"
-if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\bin\curl.exe {lang_79}" & goto error
-if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\bin\tail.exe {lang_79}" & goto error
-if not exist "{root_dir}\system\ansicon\ansicon.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\system\ansicon\ansicon.exe {lang_79}" & goto error
-if not exist "{root_dir}\system\System Preparation Tool.exe" set "OSP_ERR_MSG={lang_16}: {root_dir}\system\System Preparation Tool.exe {lang_79}" & goto error
-"{root_dir}\system\ansicon\ansicon.exe" -p >nul 2>nul
+if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=%ESC%[94mWindows%ESC%[0m" & set "OSP_ACTIVE_ENV_T=Windows"
+if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
+if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\bin\tail.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\ansicon\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\ansicon\ansicon.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\System Preparation Tool.exe" set "OSP_ERR_MSG={root_dir}\system\System Preparation Tool.exe {lang_79}" & goto error
 :: -----------------------------------------------------------------------------------
 :: ROUTER
 :: -----------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ if /i "%1"=="sysprep"     goto sysprep
 if /i "%1"=="-v"          echo: & echo  {lang_81}: {osp_version} & goto end
 if /i "%1"=="version"     echo: & echo  {lang_81}: {osp_version} & goto end
 if "%1"==""               goto help
-set "OSP_ERR_MSG={lang_16}: {lang_82}" & goto error
+set "OSP_ERR_MSG={lang_82}" & goto error
 :: -----------------------------------------------------------------------------------
 :: LOGO
 :: -----------------------------------------------------------------------------------
@@ -117,7 +118,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :shutdown
 "{root_dir}\bin\curl" -f -s {api_url}/exit > nul
-if exist "{root_dir}\temp\OSPanel.lock" set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
+if exist "{root_dir}\temp\OSPanel.lock" set "OSP_ERR_MSG={lang_120}" & goto error
 echo: & echo  {lang_63}
 goto end
 :: -----------------------------------------------------------------------------------
@@ -139,8 +140,8 @@ if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL=OpenServerPanel"
 if /i not "%2"=="main" set "OSP_TMPVAL=%2"
 echo:
-if not exist "{root_dir}\logs\%OSP_TMPVAL%.log" echo  {lang_121} & goto end
-for %%S in ("{root_dir}\logs\%OSP_TMPVAL%.log") do if %%~zS==0 echo  {lang_121} & goto end
+if not exist "{root_dir}\logs\%OSP_TMPVAL%.log" echo  %ESC%[90m{lang_121}%ESC%[0m & goto end
+for %%S in ("{root_dir}\logs\%OSP_TMPVAL%.log") do if %%~zS==0 echo  %ESC%[90m{lang_121}%ESC%[0m & goto end
 if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log"
 if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%OSP_TMPVAL%.log" %3
 goto end
@@ -155,7 +156,7 @@ if /i "%1"=="restart" "{root_dir}\bin\curl" -f -s {api_url}/mod/off/%2/%3
 if /i "%1"=="restart" "{root_dir}\bin\curl" -f -s {api_url}/mod/on/%2/%3
 if /i "%1"=="list" "{root_dir}\bin\curl" -f -s {api_url}/mod/list/all/
 if /i not "%1"=="restart" if /i not "%1"=="list" "{root_dir}\bin\curl" -f -s {api_url}/mod/%1/%2/%3
-if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_16}: {lang_120}" & goto error
+if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_120}" & goto error
 if /i not "%1"=="status" goto end
 if not exist "{root_dir}\logs\%2.log" goto end
 for %%S in ("{root_dir}\logs\%2.log") do if %%~zS==0 goto end
@@ -169,8 +170,7 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-echo:
-if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo  {lang_122} & goto end
+if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo: & echo  %ESC%[93m{lang_122}%ESC%[0m & goto end
 setlocal
 call :env_reset
 if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" shell
@@ -184,9 +184,9 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-call :strfind "%OSP_ACTIVE_ENV%" "%2"
-if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_16}: {lang_123}" & goto error
-if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  {lang_124} & goto end
+call :strfind "%OSP_ACTIVE_ENV_T%" "%2"
+if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
 call "{root_dir}\data\{module_name}\env_%2.bat" add
 goto end
 :: -----------------------------------------------------------------------------------
@@ -196,7 +196,7 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "{modules_list}" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  {lang_124} & goto end
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
 call :env_reset
 call "{root_dir}\data\{module_name}\env_%2.bat"
 goto end
@@ -206,11 +206,12 @@ goto end
 :env_windows
 for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL if /i not %%a==OSP_ECHO_STATE if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
 {windows_environment}
-set "OSP_ACTIVE_ENV=Windows"
+set "ESC="
+set "OSP_ACTIVE_ENV=%ESC%[94mWindows%ESC%[0m" & set "OSP_ACTIVE_ENV_T=Windows"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
-TITLE Open Server Panel ^| %OSP_ACTIVE_ENV%
+TITLE Open Server Panel ^| %OSP_ACTIVE_ENV_T%
 goto end
 :: -----------------------------------------------------------------------------------
 :: DEFAULT ENVIRONMENT
@@ -218,14 +219,15 @@ goto end
 :env_reset
 for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL if /i not %%a==OSP_TERMINAL_CODEPAGE if /i not %%a==OSP_ECHO_STATE if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
 {default_environment}
+set "ESC="
 exit /b 0
 :: -----------------------------------------------------------------------------------
 :: MISCELLANEOUS FUNCTIONS
 :: -----------------------------------------------------------------------------------
 :invalid
-set "OSP_ERR_MSG={lang_16}: {lang_125}" & goto error
+set "OSP_ERR_MSG={lang_125}" & goto error
 :eargument
-set "OSP_ERR_MSG={lang_16}: {lang_126}" & goto error
+set "OSP_ERR_MSG={lang_126}" & goto error
 :strfind
 setlocal
 set "pos="
@@ -242,15 +244,15 @@ exit /b 0
 :: EXIT
 :: -----------------------------------------------------------------------------------
 :before_exit
-chcp %OSP_TERMINAL_CODEPAGE% > nul
-echo %OSP_ECHO_STATE%
+if defined OSP_TERMINAL_CODEPAGE chcp %OSP_TERMINAL_CODEPAGE% > nul
+if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 @set "OSP_TERMINAL_CODEPAGE="
 @set "OSP_ECHO_STATE="
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
 @exit /b 0
 :notrunning
-@echo: & @echo  {lang_16}: {lang_56}
+@echo: & @echo  %ESC%[91m{lang_16}: {lang_56}%ESC%[0m
 @if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
@@ -258,6 +260,6 @@ echo %OSP_ECHO_STATE%
 call :before_exit
 @exit /b 0
 :error
-echo: & echo  %OSP_ERR_MSG%
+if defined OSP_ERR_MSG echo: & echo  %ESC%[91m{lang_16}: %OSP_ERR_MSG%%ESC%[0m
 call :before_exit
 @exit /b 1
