@@ -169,6 +169,13 @@ if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="off" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="restart" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 setlocal EnableDelayedExpansion
+if /i "%2"=="all" (
+    echo: & echo  {lang_175}
+    echo  {lang_176}
+    echo  {lang_177}
+    %SystemRoot%\System32\choice.exe /C YN /N >nul
+    if not !errorlevel!==1 endlocal & goto end
+)
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/off/%%a/%3
