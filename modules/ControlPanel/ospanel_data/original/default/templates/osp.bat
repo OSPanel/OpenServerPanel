@@ -204,8 +204,8 @@ if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo: & echo  %ESC%[93m{lang_122}%ESC%[0m & goto end
 setlocal
 call :env_reset
-if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" shell
-call "{root_dir}\data\{module_name}\shell_%2.bat"
+if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
+call "{root_dir}\data\{module_name}\shell_%2.bat" %3
 endlocal
 goto end
 :: -----------------------------------------------------------------------------------
@@ -220,7 +220,7 @@ if defined OSP_TMPVAL set "OSP_PSV=yes"
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
-call "{root_dir}\data\{module_name}\env_%2.bat" add
+call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
 :: SET ENVIRONMENT
@@ -233,13 +233,13 @@ call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
 call :env_reset
-call "{root_dir}\data\{module_name}\env_%2.bat"
+call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
 :: WINDOWS ENVIRONMENT
 :: -----------------------------------------------------------------------------------
 :env_windows
-for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL if /i not %%a==OSP_ECHO_STATE if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
+for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
 {windows_environment}
 set "ESC="
 set "OSP_ACTIVE_ENV=Windows"
@@ -252,7 +252,7 @@ goto end
 :: DEFAULT ENVIRONMENT
 :: -----------------------------------------------------------------------------------
 :env_reset
-for /f "tokens=1* delims==" %%a in ('set') do ( call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL if /i not %%a==OSP_TERMINAL_CODEPAGE if /i not %%a==OSP_ECHO_STATE if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
+for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL if /i not %%a==ANSICON if /i not %%a==ANSICON_DEF if /i not %%a==PROMPT set %%a=)
 {default_environment}
 set "ESC="
 exit /b 0
