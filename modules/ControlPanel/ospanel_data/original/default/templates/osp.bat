@@ -21,6 +21,9 @@ if not exist "{root_dir}\system\System Preparation Tool.exe" set "OSP_ERR_MSG={r
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_ACTIVE_MODULES_LIST={active_modules_list}"
 set "OSP_PASSIVE_MODULES_LIST={passive_modules_list}"
+set "OSP_MODULES_LIST_=:%OSP_MODULES_LIST: =:%:"
+set "OSP_ACTIVE_MODULES_LIST_=:%OSP_ACTIVE_MODULES_LIST: =:%:"
+set "OSP_PASSIVE_MODULES_LIST_=:%OSP_PASSIVE_MODULES_LIST: =:%:"
 :: -----------------------------------------------------------------------------------
 :: ROUTER
 :: -----------------------------------------------------------------------------------
@@ -138,7 +141,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :log
 if "%2"=="" goto eargument
-call :strfind "%OSP_MODULES_LIST% main all" "%2"
+call :strfind "%OSP_MODULES_LIST_%main:all:" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL=OpenServerPanel"
 if /i not "%2"=="main" set "OSP_TMPVAL=%2"
@@ -161,7 +164,7 @@ if /i "%1"=="list" "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/list/all/
 if /i "%1"=="list" if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_120}" & goto error
 if /i "%1"=="list" goto end
 if "%2"=="" goto eargument
-call :strfind "%OSP_MODULES_LIST% all" "%2"
+call :strfind "%OSP_MODULES_LIST_%all:" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL=%2"
 if /i "%2"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
@@ -194,9 +197,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :mod_shell
 if "%2"=="" goto eargument
-call :strfind "%OSP_MODULES_LIST%" "%2"
+call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-call :strfind "%OSP_PASSIVE_MODULES_LIST%" "%2"
+call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo: & echo  %ESC%[93m{lang_122}%ESC%[0m & goto end
 setlocal
@@ -210,9 +213,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_add
 if "%2"=="" goto eargument
-call :strfind "%OSP_MODULES_LIST%" "%2"
+call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-call :strfind "%OSP_PASSIVE_MODULES_LIST%" "%2"
+call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
@@ -224,9 +227,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_set
 if "%2"=="" goto eargument
-call :strfind "%OSP_MODULES_LIST%" "%2"
+call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
-call :strfind "%OSP_PASSIVE_MODULES_LIST%" "%2"
+call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
 call :env_reset
@@ -282,6 +285,9 @@ if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 @set "OSP_MODULES_LIST="
 @set "OSP_ACTIVE_MODULES_LIST="
 @set "OSP_PASSIVE_MODULES_LIST="
+@set "OSP_MODULES_LIST_="
+@set "OSP_ACTIVE_MODULES_LIST_="
+@set "OSP_PASSIVE_MODULES_LIST_="
 @set "OSP_ECHO_STATE="
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
