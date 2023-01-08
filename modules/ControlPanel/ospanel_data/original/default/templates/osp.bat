@@ -168,21 +168,23 @@ if /i "%2"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="off" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="restart" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
+setlocal EnableDelayedExpansion
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/off/%%a/%3
-        if %ERRORLEVEL% gtr 0 (
+        if !errorlevel! gtr 0 (
             echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
         ) else (
             "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/on/%%a/%3
-            if %ERRORLEVEL% gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
+            if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
         )
     ) else (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/%1/%%a/%3
-        if %ERRORLEVEL% gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
+        if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
     )
-    if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
+    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
 )
+endlocal
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHELL
