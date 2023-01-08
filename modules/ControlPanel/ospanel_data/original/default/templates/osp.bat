@@ -163,6 +163,7 @@ if /i "%1"=="list" goto end
 if "%2"=="" goto eargument
 call :strfind "%OSP_MODULES_LIST% all" "%2"
 if not defined OSP_TMPVAL goto invalid
+set "OSP_TMPVAL=%2"
 if /i "%2"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="off" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
