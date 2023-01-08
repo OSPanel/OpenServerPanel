@@ -164,6 +164,9 @@ if "%2"=="" goto eargument
 call :strfind "%OSP_MODULES_LIST% all" "%2"
 if not defined OSP_TMPVAL goto invalid
 if /i "%2"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
+if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
+if /i "%2"=="all" if /i "%1"=="off" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
+if /i "%2"=="all" if /i "%1"=="restart" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/off/%%a/%3
