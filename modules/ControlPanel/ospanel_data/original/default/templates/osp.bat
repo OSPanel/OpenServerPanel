@@ -1,7 +1,7 @@
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
 @set "ESC="
-@if exist "{root_dir}\system\ansicon\ansicon.exe" "{root_dir}\system\ansicon\ansicon.exe" -p >nul 2>nul
+@if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\system\ansicon\ansicon.exe" "{root_dir}\system\ansicon\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_TERMINAL_CODEPAGE=%%a"
 @call :trim %OSP_TERMINAL_CODEPAGE% OSP_TERMINAL_CODEPAGE
 @chcp 65001 > nul
