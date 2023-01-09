@@ -166,6 +166,11 @@ if /i "%1"=="list" goto end
 if "%2"=="" goto eargument
 call :strfind "%OSP_MODULES_LIST_%all:" ":%2:"
 if not defined OSP_TMPVAL goto invalid
+call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
+if defined OSP_TMPVAL set "OSP_PSV=yes"
+if /i "%1"=="on" if defined OSP_PSV set "OSP_ERR_MSG={lang_22}" & goto error
+if /i "%1"=="off" if defined OSP_PSV set "OSP_ERR_MSG={lang_22}" & goto error
+if /i "%1"=="restart" if defined OSP_PSV set "OSP_ERR_MSG={lang_22}" & goto error
 set "OSP_TMPVAL=%2"
 if /i "%2"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
