@@ -44,8 +44,8 @@ if /i "%1"=="set"         goto env_set
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
-if /i "%1"=="-v"          echo: & echo  {lang_81}: {osp_version} & goto end
-if /i "%1"=="version"     echo: & echo  {lang_81}: {osp_version} & goto end
+if /i "%1"=="-v"          echo: & echo  {lang_178}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
+if /i "%1"=="version"     echo: & echo  {lang_178}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
 if "%1"==""               goto help
 set "OSP_ERR_MSG={lang_82}" & goto error
 :: -----------------------------------------------------------------------------------
