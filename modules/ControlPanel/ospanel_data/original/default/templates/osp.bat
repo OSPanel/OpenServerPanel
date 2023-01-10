@@ -147,7 +147,7 @@ set "OSP_TMPVAL=OpenServerPanel"
 if /i not "%2"=="main" set "OSP_TMPVAL=%2"
 if /i "%2"=="all" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 for %%a in (%OSP_TMPVAL%) do (
-    if /i "%2"=="all" echo: & echo  {lang_150} %%a: & echo:
+    if /i "%2"=="all" echo: & echo  {lang_150} %%a & echo:
     if /i not "%2"=="all" echo:
     if not exist "{root_dir}\logs\%%a.log" echo  %ESC%[90m{lang_121}%ESC%[0m
     if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo  %ESC%[90m{lang_121}%ESC%[0m) else (
