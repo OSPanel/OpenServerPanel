@@ -22,8 +22,8 @@ Open Server Panel 6 <sup><sup>[Beta](https://ru.wikipedia.org/wiki/Бета-те
 
 Интерфейс командной строки
 ----------
-![Open Server Panel Console](./resources/cli.png)
+![Open Server Panel Console](./resources/screenshots/cli.png)
 
 Веб-интерфейс
 ----------
-![Open Server Panel Web Interface](./resources/web.png)
+![Open Server Panel Web Interface](./resources/screenshots/web.png)
