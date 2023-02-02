@@ -2,25 +2,25 @@
 
 [main]
 
-architecture       = x64
-category           = Web
-class              = Web
-fast_stop          = yes
-ipv6_support       = yes
-ip_separator       =
-license            = https://www.php.net/license/3_01.txt
-license_type       = PHP License 3.01
-license_apache     = https://www.apache.org/licenses/LICENSE-2.0
-license_type_apache= Apache License 2.0
-min_windows_ver    = 6.1.7601
-timestamp          = 1651770000
-version            = 7.4.33 / 2.4.54
+architecture            = x64
+category                = Web
+class                   = Web
+fast_stop               = yes
+ipv6_support            = yes
+ip_separator            =
+license                 = https://www.php.net/license/3_01.txt
+license_type            = PHP License 3.01
+license_additional      = https://www.apache.org/licenses/LICENSE-2.0
+license_type_additional = Apache License 2.0
+min_windows_ver         = 6.1.7601
+timestamp               = 1651770000
+version                 = 7.4.33 / 2.4.54
 
 [docs]
 
-English            = https://www.php.net/manual/en/
-Russian            = https://www.php.net/manual/ru/
+English                 = https://www.php.net/manual/en/
+Russian                 = https://www.php.net/manual/ru/
 
-[docs_apache]
+[docs_additional]
 
-English            = https://httpd.apache.org/docs/2.4/
+English                 = https://httpd.apache.org/docs/2.4/
