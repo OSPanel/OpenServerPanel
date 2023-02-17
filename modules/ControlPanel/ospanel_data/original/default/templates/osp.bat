@@ -38,6 +38,7 @@ if /i "%1"=="list"        goto mod_cmd
 if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
+if /i "%1"=="project"     goto project
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="set"         goto env_set
@@ -196,6 +197,15 @@ for %%a in (%OSP_TMPVAL%) do (
     if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
 )
 endlocal
+goto end
+:: -----------------------------------------------------------------------------------
+:: PROJECT
+:: -----------------------------------------------------------------------------------
+:project
+if "%2"=="" goto eargument
+if not exist "{root_dir}\data\{module_name}\project_%2.bat" echo: & echo  %ESC%[93m{lang_185}%ESC%[0m & goto end
+call :env_reset
+if exist "{root_dir}\data\{module_name}\project_%2.bat" call "{root_dir}\data\{module_name}\project_%2.bat" %2
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHELL
