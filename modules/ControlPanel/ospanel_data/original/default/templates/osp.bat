@@ -185,14 +185,14 @@ for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/off/%%a/%3
         if !errorlevel! gtr 0 (
-            echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
+            echo: & echo  %ESC%[91m{lang_16}: {lang_186} %%a^^!%ESC%[0m
         ) else (
             "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/on/%%a/%3
-            if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
+            if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_186} %%a^^!%ESC%[0m
         )
     ) else (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/%1/%%a/%3
-        if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_120}%ESC%[0m
+        if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_186} %%a^^!%ESC%[0m
     )
     if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
 )
@@ -203,9 +203,10 @@ goto end
 :: -----------------------------------------------------------------------------------
 :project
 if "%2"=="" goto eargument
-if not exist "{root_dir}\data\{module_name}\project_%2.bat" echo: & echo  %ESC%[93m{lang_185}%ESC%[0m & goto end
+if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_122} %2!" & goto error
 call :env_reset
 if exist "{root_dir}\data\{module_name}\project_%2.bat" call "{root_dir}\data\{module_name}\project_%2.bat" %2
+if %ERRORLEVEL% gtr 0 goto error
 set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
 if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
 TITLE OSPanel ^| %OSP_ACTIVE_ENV%
@@ -219,7 +220,7 @@ call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
-if not exist "{root_dir}\data\{module_name}\shell_%2.bat" echo: & echo  %ESC%[93m{lang_122}%ESC%[0m & goto end
+if not exist "{root_dir}\data\{module_name}\shell_%2.bat" set "OSP_ERR_MSG={lang_122} {module_name}!" & goto error
 setlocal
 call :env_reset
 if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
@@ -237,7 +238,7 @@ call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
-if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}!" & goto error
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
@@ -249,7 +250,7 @@ call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
-if not exist "{root_dir}\data\{module_name}\env_%2.bat" echo: & echo  %ESC%[93m{lang_124}%ESC%[0m & goto end
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}!" & goto error
 call :env_reset
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
