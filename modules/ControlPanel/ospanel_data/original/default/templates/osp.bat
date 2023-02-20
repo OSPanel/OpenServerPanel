@@ -206,6 +206,9 @@ if "%2"=="" goto eargument
 if not exist "{root_dir}\data\{module_name}\project_%2.bat" echo: & echo  %ESC%[93m{lang_185}%ESC%[0m & goto end
 call :env_reset
 if exist "{root_dir}\data\{module_name}\project_%2.bat" call "{root_dir}\data\{module_name}\project_%2.bat" %2
+set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
+if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
+TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHELL
@@ -261,7 +264,7 @@ set "OSP_ACTIVE_ENV=Windows"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
-TITLE Open Server Panel ^| %OSP_ACTIVE_ENV%
+TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 goto end
 :: -----------------------------------------------------------------------------------
 :: DEFAULT ENVIRONMENT
