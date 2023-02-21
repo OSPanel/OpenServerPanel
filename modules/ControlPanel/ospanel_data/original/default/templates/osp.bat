@@ -224,6 +224,7 @@ if not exist "{root_dir}\data\{module_name}\shell_%2.bat" set "OSP_ERR_MSG={lang
 setlocal
 call :env_reset
 if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
+echo:
 call "{root_dir}\data\{module_name}\shell_%2.bat" %3
 endlocal
 goto end
