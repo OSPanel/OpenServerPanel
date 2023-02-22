@@ -210,13 +210,16 @@ if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={la
 call :env_reset
 set "OSP_ACTIVE_ENV=Default"
 TITLE OSPanel ^| %OSP_ACTIVE_ENV%
-@set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
-@call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
+set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
+set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
+call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
 @if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
-@chcp 65001 > nul
-@if defined OSP_TMP_TERMINAL_CODEPAGE @set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%" & @set "OSP_TMP_TERMINAL_CODEPAGE="
-@if defined OSP_ERR_STATE @set "OSP_ERR_STATE=" & goto error
-@goto end
+@echo off
+chcp 65001 > nul
+if defined OSP_TMP_TERMINAL_CODEPAGE set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%" & set "OSP_TMP_TERMINAL_CODEPAGE="
+if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
+if defined OSP_ERR_STATE set "OSP_ERR_STATE=" & goto error
+goto end
 :: -----------------------------------------------------------------------------------
 :: IDN CONVERTER
 :: -----------------------------------------------------------------------------------
