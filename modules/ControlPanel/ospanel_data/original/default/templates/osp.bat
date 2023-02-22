@@ -208,15 +208,14 @@ goto end
 if "%2"=="" goto eargument
 if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
-@if defined OSP_TERMINAL_CODEPAGE @set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
-@call "{root_dir}\data\{module_name}\project_%2.bat"
+set "OSP_ACTIVE_ENV=Default"
+TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+@set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
+@call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
 @if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
 @chcp 65001 > nul
 @if defined OSP_TMP_TERMINAL_CODEPAGE @set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%" & @set "OSP_TMP_TERMINAL_CODEPAGE="
 @if defined OSP_ERR_STATE @set "OSP_ERR_STATE=" & goto error
-@set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
-@if /i not "%3"=="silent" @echo: & @echo  {lang_52}: %OSP_ACTIVE_ENV%
-@TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 @goto end
 :: -----------------------------------------------------------------------------------
 :: IDN CONVERTER
@@ -240,8 +239,10 @@ setlocal
 call :env_reset
 if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 echo:
-call "{root_dir}\data\{module_name}\shell_%2.bat" %3
+TITLE OSPanel ^| %2 Shell
+call "{root_dir}\data\{module_name}\shell_%2.bat"
 endlocal
+TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 goto end
 :: -----------------------------------------------------------------------------------
 :: ADD ENVIRONMENT
@@ -268,6 +269,8 @@ call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}" & goto error
 call :env_reset
+set "OSP_ACTIVE_ENV=Default"
+TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
