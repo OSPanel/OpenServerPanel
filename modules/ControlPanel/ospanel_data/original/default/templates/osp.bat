@@ -203,7 +203,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :project
 if "%2"=="" goto eargument
-if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_122} %2" & goto error
+if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
 @if defined OSP_TERMINAL_CODEPAGE @set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
 @call "{root_dir}\data\{module_name}\project_%2.bat"
