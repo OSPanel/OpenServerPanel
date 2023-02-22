@@ -205,12 +205,16 @@ goto end
 if "%2"=="" goto eargument
 if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_122} %2" & goto error
 call :env_reset
-if exist "{root_dir}\data\{module_name}\project_%2.bat" call "{root_dir}\data\{module_name}\project_%2.bat" %2
-if %ERRORLEVEL% gtr 0 goto error
-set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
-if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
-TITLE OSPanel ^| %OSP_ACTIVE_ENV%
-goto end
+@if defined OSP_TERMINAL_CODEPAGE @set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
+@call "{root_dir}\data\{module_name}\project_%2.bat"
+@if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
+@chcp 65001 > nul
+@if defined OSP_TMP_TERMINAL_CODEPAGE @set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%"
+@if defined OSP_ERR_STATE @set "OSP_ERR_STATE=" & goto error
+@set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
+@if /i not "%3"=="silent" @echo: & @echo  {lang_52}: %OSP_ACTIVE_ENV%
+@TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+@goto end
 :: -----------------------------------------------------------------------------------
 :: SHELL
 :: -----------------------------------------------------------------------------------
@@ -299,8 +303,8 @@ exit /b 0
 :: EXIT
 :: -----------------------------------------------------------------------------------
 :before_exit
-if defined OSP_TERMINAL_CODEPAGE chcp %OSP_TERMINAL_CODEPAGE% > nul
-if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
+@if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
+@if defined OSP_ECHO_STATE @echo %OSP_ECHO_STATE%
 @set "OSP_TERMINAL_CODEPAGE="
 @set "OSP_MODULES_LIST="
 @set "OSP_ACTIVE_MODULES_LIST="
@@ -324,14 +328,14 @@ if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
 :end
-call :before_exit
+@call :before_exit
 @exit /b 0
 :error
-echo:
-echo  %ESC%[91m{lang_16}
-echo  ————————————————————————————————————————————————————
-echo  {lang_26}: osp %1 %2 %3
-if defined OSP_ERR_MSG echo  {lang_30}: %OSP_ERR_MSG%
-echo  {lang_31}: {lang_120}%ESC%[0m
-call :before_exit
+@echo:
+@echo  %ESC%[91m{lang_16}
+@echo  ————————————————————————————————————————————————————
+@echo  {lang_26}: osp %1 %2 %3
+@if defined OSP_ERR_MSG @echo  {lang_30}: %OSP_ERR_MSG%
+@echo  {lang_31}: {lang_120}%ESC%[0m
+@call :before_exit
 @exit /b 1
