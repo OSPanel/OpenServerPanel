@@ -320,8 +320,6 @@ if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 @echo  {lang_26}: osp %1 %2 %3
 @echo  {lang_30}: {lang_56}
 @echo  {lang_31}: {lang_120}%ESC%[0m
-
-
 @if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
