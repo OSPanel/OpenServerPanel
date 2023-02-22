@@ -79,7 +79,7 @@ echo                              {lang_90}
 echo                              {lang_91}
 echo                              {lang_92}
 echo  info                        {lang_93}
-echo  project ^<DOMAIN^>            {lang_189}
+echo  project ^<DOMAIN^>            {lang_186}
 echo  reset   [init]    [silent]  {lang_94}
 echo                              {lang_167}
 echo                              {lang_168}
@@ -188,14 +188,14 @@ for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/off/%%a/%3
         if !errorlevel! gtr 0 (
-            echo: & echo  %ESC%[91m{lang_16}: {lang_186} %%a^^!%ESC%[0m
+            call :echo_error %1 %2 %3
         ) else (
             "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/on/%%a/%3
-            if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_186} %%a^^!%ESC%[0m
+            if !errorlevel! gtr 0 call :echo_error %1 %2 %3
         )
     ) else (
         "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/%1/%%a/%3
-        if !errorlevel! gtr 0 echo: & echo  %ESC%[91m{lang_16}: {lang_186} %%a^^!%ESC%[0m
+        if !errorlevel! gtr 0 call :echo_error %1 %2 %3
     )
     if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
 )
@@ -341,6 +341,13 @@ exit /b 0
 :end
 @call :before_exit
 @exit /b 0
+:echo_error
+@echo:
+@echo  %ESC%[91m{lang_16}
+@echo  ————————————————————————————————————————————————————
+@echo  {lang_26}: osp %1 %2 %3
+@echo  {lang_31}: {lang_120}%ESC%[0m
+@exit /b 1
 :error
 @echo:
 @echo  %ESC%[91m{lang_16}
