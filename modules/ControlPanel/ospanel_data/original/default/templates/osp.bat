@@ -39,6 +39,7 @@ if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
 if /i "%1"=="project"     goto project
+if /i "%1"=="convert"     goto convert
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="set"         goto env_set
@@ -78,6 +79,7 @@ echo                              {lang_90}
 echo                              {lang_91}
 echo                              {lang_92}
 echo  info                        {lang_93}
+echo  project ^<DOMAIN^>            {lang_189}
 echo  reset   [init]    [silent]  {lang_94}
 echo                              {lang_167}
 echo                              {lang_168}
@@ -101,6 +103,7 @@ echo  status  ^<MODULE^>            {lang_102}
 echo:
 echo  {lang_103}:
 echo:
+echo  convert ^<DOMAIN^>            {lang_188}
 echo  exit                        {lang_104}
 echo  log     ^<MODULE^|main^>  [N]  {lang_105}
 echo  sysprep [silent^|ssd]        {lang_106}
@@ -125,7 +128,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :shutdown
 "{root_dir}\bin\curl.exe" -f -s {api_url}/exit > nul
-if exist "{root_dir}\temp\OSPanel.lock" set "OSP_ERR_MSG={lang_120}" & goto error
+if exist "{root_dir}\temp\OSPanel.lock" goto error
 echo: & echo  {lang_63}
 goto end
 :: -----------------------------------------------------------------------------------
@@ -162,7 +165,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :mod_cmd
 if /i "%1"=="list" "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/list/all/
-if /i "%1"=="list" if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_120}" & goto error
+if /i "%1"=="list" if %ERRORLEVEL% gtr 0 goto error
 if /i "%1"=="list" goto end
 if "%2"=="" goto eargument
 call :strfind "%OSP_MODULES_LIST_%all:" ":%2:"
@@ -214,6 +217,14 @@ call :env_reset
 @set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
 @if /i not "%3"=="silent" @echo: & @echo  {lang_52}: %OSP_ACTIVE_ENV%
 @TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+@goto end
+:: -----------------------------------------------------------------------------------
+:: IDN CONVERTER
+:: -----------------------------------------------------------------------------------
+:convert
+if "%2"=="" goto eargument
+"{root_dir}\bin\curl.exe" -f -s {api_url}/convert/%2
+if %ERRORLEVEL% gtr 0 goto error
 @goto end
 :: -----------------------------------------------------------------------------------
 :: SHELL
