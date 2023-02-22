@@ -209,7 +209,7 @@ call :env_reset
 @call "{root_dir}\data\{module_name}\project_%2.bat"
 @if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
 @chcp 65001 > nul
-@if defined OSP_TMP_TERMINAL_CODEPAGE @set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%"
+@if defined OSP_TMP_TERMINAL_CODEPAGE @set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%" & @set "OSP_TMP_TERMINAL_CODEPAGE="
 @if defined OSP_ERR_STATE @set "OSP_ERR_STATE=" & goto error
 @set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
 @if /i not "%3"=="silent" @echo: & @echo  {lang_52}: %OSP_ACTIVE_ENV%
