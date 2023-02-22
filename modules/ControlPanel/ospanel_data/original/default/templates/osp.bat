@@ -203,7 +203,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :project
 if "%2"=="" goto eargument
-if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_122} %2!" & goto error
+if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_122} %2" & goto error
 call :env_reset
 if exist "{root_dir}\data\{module_name}\project_%2.bat" call "{root_dir}\data\{module_name}\project_%2.bat" %2
 if %ERRORLEVEL% gtr 0 goto error
@@ -220,7 +220,7 @@ call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
-if not exist "{root_dir}\data\{module_name}\shell_%2.bat" set "OSP_ERR_MSG={lang_122} {module_name}!" & goto error
+if not exist "{root_dir}\data\{module_name}\shell_%2.bat" set "OSP_ERR_MSG={lang_122} {module_name}" & goto error
 setlocal
 call :env_reset
 if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
@@ -239,7 +239,7 @@ call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 call :strfind "%OSP_ACTIVE_ENV%" "%2"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
-if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}!" & goto error
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}" & goto error
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
@@ -251,7 +251,7 @@ call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
-if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}!" & goto error
+if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} {module_name}" & goto error
 call :env_reset
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
@@ -314,7 +314,14 @@ if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 @set "OSP_PSV="
 @exit /b 0
 :notrunning
-@echo: & @echo  %ESC%[91m{lang_16}: {lang_56}%ESC%[0m
+@echo:
+@echo  %ESC%[91m{lang_16}
+@echo  ————————————————————————————————————————————————————
+@echo  {lang_26}: osp %1 %2 %3
+@echo  {lang_30}: {lang_56}
+@echo  {lang_31}: {lang_120}%ESC%[0m
+
+
 @if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
 @set "OSP_TERMINAL_CODEPAGE="
 @exit /b 1
@@ -322,6 +329,11 @@ if defined OSP_ECHO_STATE echo %OSP_ECHO_STATE%
 call :before_exit
 @exit /b 0
 :error
-if defined OSP_ERR_MSG echo: & echo  %ESC%[91m{lang_16}: %OSP_ERR_MSG%%ESC%[0m
+echo:
+echo  %ESC%[91m{lang_16}
+echo  ————————————————————————————————————————————————————
+echo  {lang_26}: osp %1 %2 %3
+if defined OSP_ERR_MSG echo  {lang_30}: %OSP_ERR_MSG%
+echo  {lang_31}: {lang_120}%ESC%[0m
 call :before_exit
 @exit /b 1
