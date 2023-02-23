@@ -2,8 +2,8 @@
 :: -----------------------------------------------------------------------------------
 @set "ESC="
 @if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\system\ansicon\ansicon.exe" "{root_dir}\system\ansicon\ansicon.exe" -p >nul 2>nul
-@for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_TERMINAL_CODEPAGE=%%a"
-@call :trim %OSP_TERMINAL_CODEPAGE% OSP_TERMINAL_CODEPAGE
+@for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
+@call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
 @if not exist "{root_dir}\temp\OSPanel.lock" goto notrunning
 :gettempname
@@ -210,13 +210,13 @@ if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={la
 call :env_reset
 set "OSP_ACTIVE_ENV=Default"
 TITLE OSPanel ^| %OSP_ACTIVE_ENV%
-set "OSP_TMP_TERMINAL_CODEPAGE=%OSP_TERMINAL_CODEPAGE%"
+set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
 set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
 call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
 @if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
 @echo off
 chcp 65001 > nul
-if defined OSP_TMP_TERMINAL_CODEPAGE set "OSP_TERMINAL_CODEPAGE=%OSP_TMP_TERMINAL_CODEPAGE%" & set "OSP_TMP_TERMINAL_CODEPAGE="
+if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
 if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
 if defined OSP_ERR_STATE set "OSP_ERR_STATE=" & goto error
 goto end
@@ -284,7 +284,7 @@ for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if n
 {windows_environment}
 set "ESC="
 set "OSP_ACTIVE_ENV=Windows"
-if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_TERMINAL_CODEPAGE={terminal_codepage}"
+if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
 TITLE OSPanel ^| %OSP_ACTIVE_ENV%
@@ -320,9 +320,9 @@ exit /b 0
 :: EXIT
 :: -----------------------------------------------------------------------------------
 :before_exit
-@if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
+@if defined OSP_CODEPAGE @chcp %OSP_CODEPAGE% > nul
 @if defined OSP_ECHO_STATE @echo %OSP_ECHO_STATE%
-@set "OSP_TERMINAL_CODEPAGE="
+@set "OSP_CODEPAGE="
 @set "OSP_MODULES_LIST="
 @set "OSP_ACTIVE_MODULES_LIST="
 @set "OSP_PASSIVE_MODULES_LIST="
@@ -341,8 +341,8 @@ exit /b 0
 @echo  {lang_26}: osp %1 %2 %3
 @echo  {lang_30}: {lang_56}
 @echo  {lang_31}: {lang_120}%ESC%[0m
-@if defined OSP_TERMINAL_CODEPAGE @chcp %OSP_TERMINAL_CODEPAGE% > nul
-@set "OSP_TERMINAL_CODEPAGE="
+@if defined OSP_CODEPAGE @chcp %OSP_CODEPAGE% > nul
+@set "OSP_CODEPAGE="
 @exit /b 1
 :end
 @call :before_exit
