@@ -8,7 +8,7 @@ OR     mysqldump.exe [OPTIONS] --all-databases
 OR     mysqldump.exe [OPTIONS] --system=[SYSTEMOPTIONS]]
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 The following groups are read: mysqldump mariadb-dump client client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

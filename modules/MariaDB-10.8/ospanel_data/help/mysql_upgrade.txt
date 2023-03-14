@@ -4,7 +4,7 @@ Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 MariaDB utility for upgrading databases to new MariaDB versions.
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 The following groups are read: client mysql_upgrade mariadb-upgrade client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

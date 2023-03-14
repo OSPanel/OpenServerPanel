@@ -12,7 +12,7 @@ Usage: my_print_defaults.exe [OPTIONS] [groups]
   -V, --version       Output version information and exit.
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 
 Example usage:
 my_print_defaults.exe --defaults-file=example.cnf client client-server mysql

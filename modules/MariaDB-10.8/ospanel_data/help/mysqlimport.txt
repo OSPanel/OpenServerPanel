@@ -13,7 +13,7 @@ file. The SQL command 'LOAD DATA INFILE' is used to import the rows.
 Usage: mysqlimport.exe [OPTIONS] database textfile...
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 The following groups are read: mysqlimport mariadb-import client client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

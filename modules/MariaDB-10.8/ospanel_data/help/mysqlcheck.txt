@@ -21,7 +21,7 @@ https://mariadb.com/kb/en/mysqlcheck for latest information about
 this program.
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 The following groups are read: mysqlcheck mariadb-check client client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

@@ -1,9 +1,9 @@
-mariadb-slap.exe  Ver 1.0 Distrib 10.8.4-MariaDB, for Win64 (AMD64)
+mysqlslap.exe  Ver 1.0 Distrib 10.8.4-MariaDB, for Win64 (AMD64)
 Copyright (c) 2005, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Run a query multiple times against the server.
 
-Usage: mariadb-slap.exe [OPTIONS]
+Usage: mysqlslap.exe [OPTIONS]
 
 Default options are read from the following files in the given order:
 C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini

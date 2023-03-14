@@ -18,7 +18,7 @@ You can download full text of the license on http://www.gnu.org/licenses/gpl-2.0
 Usage: mariadb-backup.exe [--defaults-file=#] [--backup | --prepare | --copy-back | --move-back] [OPTIONS]
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 The following groups are read: mysqld server mysqld-10.8 mariadb mariadb-10.8 mariadbd mariadbd-10.8 client-server
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

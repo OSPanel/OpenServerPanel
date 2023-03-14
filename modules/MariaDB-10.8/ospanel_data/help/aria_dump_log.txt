@@ -15,7 +15,7 @@ Usage: aria_dump_log.exe OPTIONS aria_log_file
   -V, --version       Print version and exit.
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf     
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini
 The following groups are read: aria_dump_log
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

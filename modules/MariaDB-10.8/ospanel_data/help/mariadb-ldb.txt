@@ -34,14 +34,14 @@ Data Access Commands:
   deleterange <begin key> <end key>
   query [--ttl]
     Starts a REPL shell.  Type help for list of available commands.
-  approxsize [--from] [--to] 
+  approxsize [--from] [--to]
   checkconsistency
   list_file_range_deletes [--max_keys=<N>] : print tombstones in SST files.
 
 
 Admin Commands:
-  dump_wal --walfile=<write_ahead_log_file_path> [--header]  [--print_value]  [--write_committed=true|false] 
-  compact [--from] [--to] 
+  dump_wal --walfile=<write_ahead_log_file_path> [--header]  [--print_value]  [--write_committed=true|false]
+  compact [--from] [--to]
   reduce_levels --new_levels=<New number of levels> [--print_old_levels]
   change_compaction_style --old_compaction_style=<Old compaction style: 0 for level compaction, 1 for universal compaction> --new_compaction_style=<New compaction style: 0 for level compaction, 1 for universal compaction>
   dump [--from] [--to]  [--ttl] [--max_keys=<N>] [--timestamp] [--count_only] [--count_delim=<char>] [--stats] [--bucket=<N>] [--start_time=<N>:- is inclusive] [--end_time=<N>:- is exclusive] [--path=<path_to_a_file>]
@@ -54,8 +54,8 @@ Admin Commands:
   dump_live_files
   idump [--from] [--to]  [--input_key_hex] [--max_keys=<N>] [--count_only] [--count_delim=<char>] [--stats]
   repair
-  backup [--backup_env_uri]  [--backup_dir]  [--num_threads]  [--stderr_log_level=<int (InfoLogLevel)>] 
-  restore [--backup_env_uri]  [--backup_dir]  [--num_threads]  [--stderr_log_level=<int (InfoLogLevel)>] 
-  checkpoint [--checkpoint_dir] 
+  backup [--backup_env_uri]  [--backup_dir]  [--num_threads]  [--stderr_log_level=<int (InfoLogLevel)>]
+  restore [--backup_env_uri]  [--backup_dir]  [--num_threads]  [--stderr_log_level=<int (InfoLogLevel)>]
+  checkpoint [--checkpoint_dir]
   write_extern_sst <output_sst_path>
   ingest_extern_sst <input_sst_path> [--move_files]  [--snapshot_consistency]  [--allow_global_seqno]  [--allow_blocking_flush]  [--ingest_behind]  [--write_global_seqno]
