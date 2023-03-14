@@ -1,0 +1,49 @@
+pg_upgrade upgrades a PostgreSQL cluster to a different major version.
+
+Usage:
+  pg_upgrade [OPTION]...
+
+Options:
+  -b, --old-bindir=BINDIR       old cluster executable directory
+  -B, --new-bindir=BINDIR       new cluster executable directory (default
+                                same directory as pg_upgrade)
+  -c, --check                   check clusters only, don't change any data
+  -d, --old-datadir=DATADIR     old cluster data directory
+  -D, --new-datadir=DATADIR     new cluster data directory
+  -j, --jobs=NUM                number of simultaneous processes or threads to use
+  -k, --link                    link instead of copying files to new cluster
+  -N, --no-sync                 do not wait for changes to be written safely to disk
+  -o, --old-options=OPTIONS     old cluster options to pass to the server
+  -O, --new-options=OPTIONS     new cluster options to pass to the server
+  -p, --old-port=PORT           old cluster port number (default 50432)
+  -P, --new-port=PORT           new cluster port number (default 50432)
+  -r, --retain                  retain SQL and log files after success
+  -s, --socketdir=DIR           socket directory to use (default current dir.)
+  -U, --username=NAME           cluster superuser (default "postgres")
+  -v, --verbose                 enable verbose internal logging
+  -V, --version                 display version information, then exit
+  --clone                       clone instead of copying files to new cluster
+  -?, --help                    show this help, then exit
+
+Before running pg_upgrade you must:
+  create a new database cluster (using the new version of initdb)
+  shutdown the postmaster servicing the old cluster
+  shutdown the postmaster servicing the new cluster
+
+When you run pg_upgrade, you must provide the following information:
+  the data directory for the old cluster  (-d DATADIR)
+  the data directory for the new cluster  (-D DATADIR)
+  the "bin" directory for the old version (-b BINDIR)
+  the "bin" directory for the new version (-B BINDIR)
+
+For example:
+  pg_upgrade -d oldCluster/data -D newCluster/data -b oldCluster/bin -B newCluster/bin
+or
+  C:\> set PGDATAOLD=oldCluster/data
+  C:\> set PGDATANEW=newCluster/data
+  C:\> set PGBINOLD=oldCluster/bin
+  C:\> set PGBINNEW=newCluster/bin
+  C:\> pg_upgrade
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

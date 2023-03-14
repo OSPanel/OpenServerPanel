@@ -1,0 +1,35 @@
+pg_receivewal receives PostgreSQL streaming write-ahead logs.
+
+Usage:
+  pg_receivewal [OPTION]...
+
+Options:
+  -D, --directory=DIR    receive write-ahead log files into this directory
+  -E, --endpos=LSN       exit after receiving the specified LSN
+      --if-not-exists    do not error if slot already exists when creating a slot
+  -n, --no-loop          do not loop on connection lost
+      --no-sync          do not wait for changes to be written safely to disk
+  -s, --status-interval=SECS
+                         time between status packets sent to server (default: 10)
+  -S, --slot=SLOTNAME    replication slot to use
+      --synchronous      flush write-ahead log immediately after writing
+  -v, --verbose          output verbose messages
+  -V, --version          output version information, then exit
+  -Z, --compress=METHOD[:DETAIL]
+                         compress as specified
+  -?, --help             show this help, then exit
+
+Connection options:
+  -d, --dbname=CONNSTR   connection string
+  -h, --host=HOSTNAME    database server host or socket directory
+  -p, --port=PORT        database server port number
+  -U, --username=NAME    connect as specified database user
+  -w, --no-password      never prompt for password
+  -W, --password         force password prompt (should happen automatically)
+
+Optional actions:
+      --create-slot      create a new replication slot (for the slot's name see --slot)
+      --drop-slot        drop the replication slot (for the slot's name see --slot)
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

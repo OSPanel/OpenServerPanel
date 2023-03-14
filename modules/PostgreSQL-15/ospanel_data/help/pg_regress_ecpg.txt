@@ -1,0 +1,45 @@
+PostgreSQL regression test driver
+
+Usage:
+  pg_regress_ecpg [OPTION]... [EXTRA-TEST]...
+
+Options:
+      --bindir=BINPATH          use BINPATH for programs that are run;
+                                if empty, use PATH from the environment
+      --config-auth=DATADIR     update authentication settings for DATADIR
+      --create-role=ROLE        create the specified role before testing
+      --dbname=DB               use database DB (default "regression")
+      --debug                   turn on debug mode in programs that are run
+      --dlpath=DIR              look for dynamic libraries in DIR
+      --encoding=ENCODING       use ENCODING as the encoding
+  -h, --help                    show this help, then exit
+      --inputdir=DIR            take input files from DIR (default ".")
+      --launcher=CMD            use CMD as launcher of psql
+      --load-extension=EXT      load the named extension before running the
+                                tests; can appear multiple times
+      --max-connections=N       maximum number of concurrent connections
+                                (default is 0, meaning unlimited)
+      --max-concurrent-tests=N  maximum number of concurrent tests in schedule
+                                (default is 0, meaning unlimited)
+      --outputdir=DIR           place output files in DIR (default ".")
+      --schedule=FILE           use test ordering schedule from FILE
+                                (can be used multiple times to concatenate)
+      --temp-instance=DIR       create a temporary instance in DIR
+      --use-existing            use an existing installation
+  -V, --version                 output version information, then exit
+
+Options for "temp-instance" mode:
+      --no-locale               use C locale
+      --port=PORT               start postmaster on PORT
+      --temp-config=FILE        append contents of FILE to temporary config
+
+Options for using an existing installation:
+      --host=HOST               use postmaster running on HOST
+      --port=PORT               use postmaster running at PORT
+      --user=USER               connect as USER
+
+The exit status is 0 if all tests passed, 1 if some tests failed, and 2
+if the tests could not be run for some reason.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

@@ -1,0 +1,37 @@
+createuser creates a new PostgreSQL role.
+
+Usage:
+  createuser [OPTION]... [ROLENAME]
+
+Options:
+  -c, --connection-limit=N  connection limit for role (default: no limit)
+  -d, --createdb            role can create new databases
+  -D, --no-createdb         role cannot create databases (default)
+  -e, --echo                show the commands being sent to the server
+  -g, --role=ROLE           new role will be a member of this role
+  -i, --inherit             role inherits privileges of roles it is a
+                            member of (default)
+  -I, --no-inherit          role does not inherit privileges
+  -l, --login               role can login (default)
+  -L, --no-login            role cannot login
+  -P, --pwprompt            assign a password to new role
+  -r, --createrole          role can create new roles
+  -R, --no-createrole       role cannot create roles (default)
+  -s, --superuser           role will be superuser
+  -S, --no-superuser        role will not be superuser (default)
+  -V, --version             output version information, then exit
+  --interactive             prompt for missing role name and attributes rather
+                            than using defaults
+  --replication             role can initiate replication
+  --no-replication          role cannot initiate replication
+  -?, --help                show this help, then exit
+
+Connection options:
+  -h, --host=HOSTNAME       database server host or socket directory
+  -p, --port=PORT           database server port
+  -U, --username=USERNAME   user name to connect as (not the one to create)
+  -w, --no-password         never prompt for password
+  -W, --password            force password prompt
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

@@ -1,0 +1,18 @@
+pg_verifybackup verifies a backup against the backup manifest.
+
+Usage:
+  pg_verifybackup [OPTION]... BACKUPDIR
+
+Options:
+  -e, --exit-on-error         exit immediately on error
+  -i, --ignore=RELATIVE_PATH  ignore indicated path
+  -m, --manifest-path=PATH    use specified path for manifest
+  -n, --no-parse-wal          do not try to parse WAL files
+  -q, --quiet                 do not print any output, except for errors
+  -s, --skip-checksums        skip checksum verification
+  -w, --wal-directory=PATH    use specified path for WAL files
+  -V, --version               output version information, then exit
+  -?, --help                  show this help, then exit
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>
