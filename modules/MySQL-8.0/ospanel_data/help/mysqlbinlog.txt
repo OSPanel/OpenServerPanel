@@ -1,5 +1,5 @@
-mysqlbinlog.exe  Ver 8.0.30 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+mysqlbinlog.exe  Ver 8.0.32 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -189,7 +189,7 @@ Usage: mysqlbinlog.exe [options] log-files
                       or the creation/deletion of temporary tables.
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf   
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf
 The following groups are read: mysqlbinlog client
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.

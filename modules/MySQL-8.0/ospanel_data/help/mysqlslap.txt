@@ -1,20 +1,17 @@
-mysqlimport.exe  Ver 8.0.32 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+mysqlslap.exe  Ver 8.0.32 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2005, 2023, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
 owners.
 
-Loads tables from text files in various formats.  The base name of the
-text file must be the name of the table that should be used.
-If one uses sockets to connect to the MySQL server, the server will open and
-read the text file directly. In other cases the client will open the text
-file. The SQL command 'LOAD DATA INFILE' is used to import the rows.
+Run a query multiple times against the server.
 
-Usage: mysqlimport.exe [OPTIONS] database textfile...
+Usage: mysqlslap.exe [OPTIONS]
+
 Default options are read from the following files in the given order:
 C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf
-The following groups are read: mysqlimport client
+The following groups are read: mysqlslap client
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.
 --no-defaults           Don't read default options from any option file,
@@ -24,45 +21,65 @@ The following options may be given as the first argument:
 --defaults-group-suffix=#
                         Also read groups with concat(group, suffix)
 --login-path=#          Read this path from the login file.
-  --bind-address=name IP address to bind to.
-  --character-sets-dir=name 
-                      Directory for character set files.
-  --default-character-set=name 
-                      Set the default character set.
-  -c, --columns=name  Use only these columns to import the data to. Give the
-                      column names in a comma separated list. This is same as
-                      giving columns to LOAD DATA INFILE.
+  -?, --help          Display this help and exit.
+  -a, --auto-generate-sql 
+                      Generate SQL where not supplied by file or command line.
+  --auto-generate-sql-add-autoincrement 
+                      Add an AUTO_INCREMENT column to auto-generated tables.
+  --auto-generate-sql-execute-number=# 
+                      Set this number to generate a set number of queries to
+                      run.
+  --auto-generate-sql-guid-primary 
+                      Add GUID based primary keys to auto-generated tables.
+  --auto-generate-sql-load-type=name 
+                      Specify test load type: mixed, update, write, key, or
+                      read; default is mixed.
+  --auto-generate-sql-secondary-indexes=# 
+                      Number of secondary indexes to add to auto-generated
+                      tables.
+  --auto-generate-sql-unique-query-number=# 
+                      Number of unique queries to generate for automatic tests.
+  --auto-generate-sql-unique-write-number=# 
+                      Number of unique queries to generate for
+                      auto-generate-sql-write-number.
+  --auto-generate-sql-write-number=# 
+                      Number of row inserts to perform for each thread (default
+                      is 100).
+  --commit=#          Commit records every X number of statements.
   -C, --compress      Use compression in server/client protocol.
+  -c, --concurrency=name 
+                      Number of clients to simulate for query to run.
+  --create=name       File or string to use create tables.
+  --create-schema=name 
+                      Schema to run tests in.
+  --csv[=name]        Generate CSV output to named file or to stdout if no file
+                      is named.
   -#, --debug[=#]     This is a non-debug version. Catch this and exit.
   --debug-check       This is a non-debug version. Catch this and exit.
-  --debug-info        This is a non-debug version. Catch this and exit.
+  -T, --debug-info    This is a non-debug version. Catch this and exit.
   --default-auth=name Default authentication client-side plugin to use.
-  -d, --delete        First delete all rows from table.
+  -F, --delimiter=name 
+                      Delimiter to use in SQL statements supplied in file or
+                      command line.
+  --detach=#          Detach (close and reopen) connections after X number of
+                      requests.
   --enable-cleartext-plugin 
                       Enable/disable the clear text authentication plugin.
-  --fields-terminated-by=name 
-                      Fields in the input file are terminated by the given
-                      string.
-  --fields-enclosed-by=name 
-                      Fields in the import file are enclosed by the given
-                      character.
-  --fields-optionally-enclosed-by=name 
-                      Fields in the input file are optionally enclosed by the
-                      given character.
-  --fields-escaped-by=name 
-                      Fields in the input file are escaped by the given
-                      character.
-  -f, --force         Continue even if we get an SQL error.
-  -?, --help          Displays this help and exits.
+  -e, --engine=name   Storage engine to use for creating the table.
   -h, --host=name     Connect to host.
-  -i, --ignore        If duplicate unique key was found, keep old row.
-  --ignore-lines=#    Ignore first n lines of data infile.
-  --lines-terminated-by=name 
-                      Lines in the input file are terminated by the given
-                      string.
-  -L, --local         Read all files through the client.
-  -l, --lock-tables   Lock all tables for write (this disables threads).
-  --low-priority      Use LOW_PRIORITY when updating the table.
+  -i, --iterations=#  Number of times to run the tests.
+  --no-drop           Do not drop the schema after the test.
+  -x, --number-char-cols=name 
+                      Number of VARCHAR columns to create in table if
+                      specifying --auto-generate-sql.
+  -y, --number-int-cols=name 
+                      Number of INT columns to create in table if specifying
+                      --auto-generate-sql.
+  --number-of-queries=# 
+                      Limit each client to this number of queries (this is not
+                      exact).
+  --only-print        Do not connect to the databases, but instead print out
+                      what would have been done.
   -p, --password[=name] 
                       Password to use when connecting to server. If password is
                       not given it's asked from the tty.
@@ -74,16 +91,21 @@ The following options may be given as the first argument:
                       Password for third factor authentication plugin.
   -W, --pipe          Use named pipes to connect to server.
   --plugin-dir=name   Directory for client-side plugins.
-  -P, --port=#        Port number to use for connection or 0 for default to, in
-                      order of preference, my.cnf, $MYSQL_TCP_PORT,
-                      /etc/services, built-in default (3306).
+  -P, --port=#        Port number to use for connection.
+  --post-query=name   Query to run or file containing query to execute after
+                      tests have completed.
+  --post-system=name  system() string to execute after tests have completed.
+  --pre-query=name    Query to run or file containing query to execute before
+                      running tests.
+  --pre-system=name   system() string to execute before running tests.
   --protocol=name     The protocol to use for connection (tcp, socket, pipe,
                       memory).
-  -r, --replace       If duplicate unique key was found, replace old row.
+  -q, --query=name    Query to run or file containing query to run.
   --shared-memory-base-name=name 
                       Base name of shared memory.
-  -s, --silent        Be more silent.
+  -s, --silent        Run program in silent mode - no output.
   -S, --socket=name   The socket file to use for connection.
+  --sql-mode=name     Specify sql-mode to run mysqlslap tool.
   --server-public-key-path=name 
                       File path to the server public RSA key in PEM format.
   --get-server-public-key 
@@ -108,10 +130,9 @@ The following options may be given as the first argument:
   --ssl-session-data-continue-on-failed-reuse 
                       If set to ON, this option will allow connection to
                       succeed even if session data cannot be reused.
-  --use-threads=#     Load files in parallel. The argument is the number of
-                      threads to use for loading data.
   -u, --user=name     User for login if not current user.
-  -v, --verbose       Print info about the various stages.
+  -v, --verbose       More verbose output; you can use this multiple times to
+                      get even more verbose output.
   -V, --version       Output version information and exit.
   --compression-algorithms=name 
                       Use compression algorithm in server/client protocol.

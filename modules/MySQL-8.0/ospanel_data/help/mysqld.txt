@@ -1,5 +1,5 @@
-mysqld.exe  Ver 8.0.30 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+mysqld.exe  Ver 8.0.32 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -20,8 +20,8 @@ NT and Win32 specific options:
 
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf   
-The following groups are read: mysqld server mysqld-8.0
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf
+The following groups are read: mysql_cluster mysqld server mysqld-8.0
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.
 --no-defaults           Don't read default options from any option file,
@@ -431,6 +431,12 @@ The following options may be given as the first argument:
                       options are set to nonzero values,
                       binlog-expire-logs-seconds takes priority. Possible
                       purges happen at startup and at binary log rotation.
+  --explain-format[=name] 
+                      The default format in which the EXPLAIN statement
+                      displays information. Valid values are TRADITIONAL
+                      (default), TREE, JSON and TRADITIONAL_STRICT.
+                      TRADITIONAL_STRICT is only used internally by the mtr
+                      test suite, and is not meant to be used anywhere else.
   --explicit-defaults-for-timestamp 
                       This option causes CREATE TABLE to create all TIMESTAMP
                       columns as NULL with DEFAULT NULL attribute, Without this
@@ -1373,6 +1379,241 @@ The following options may be given as the first argument:
   --named-pipe-full-access-group=name 
                       Name of Windows group granted full access to the named
                       pipe
+  --ndb-allow-copying-alter-table 
+                      Specifies if implicit copying alter table is allowed. Can
+                      be overridden by using ALGORITHM=COPY in the alter table
+                      command.
+                      (Defaults to on; use --skip-ndb-allow-copying-alter-table to disable.)
+  --ndb-applier-allow-skip-epoch 
+                      Should replication applier be allowed to skip epochs
+  --ndb-applier-conflict-role=name 
+                      Role for applier to play in asymmetric conflict
+                      algorithms.
+  --ndb-autoincrement-prefetch-sz=# 
+                      Specify number of autoincrement values that are
+                      prefetched.
+  --ndb-batch-size=#  Batch size in bytes.
+  --ndb-blob-read-batch-bytes=# 
+                      Specifies the bytesize large Blob reads should be batched
+                      into.  0 == No limit.
+  --ndb-blob-write-batch-bytes=# 
+                      Specifies the bytesize large Blob writes should be
+                      batched into.  0 == No limit.
+  --ndb-clear-apply-status 
+                      Whether RESET REPLICA will clear all entries in
+                      ndb_apply_status
+                      (Defaults to on; use --skip-ndb-clear-apply-status to disable.)
+  --ndb-cluster-connection-pool=# 
+                      Pool of cluster connections to be used by mysql server.
+  --ndb-cluster-connection-pool-nodeids=name 
+                      Comma separated list of nodeids to use for the cluster
+                      connection pool. Overrides node id specified in
+                      --ndb-connectstring. First nodeid must be equal to
+                      --ndb-nodeid(if specified).
+  --ndb-connectstring=name 
+                      Connect string for ndbcluster.
+  --ndb-data-node-neighbour[=#] 
+                      My closest data node, if 0 no closest neighbour, used to
+                      select an appropriate data node to contact to run a
+                      transaction at.
+  --ndb-default-column-format=name 
+                      Change COLUMN_FORMAT default value (fixed or dynamic) for
+                      backward compatibility. Also affects the default value of
+                      ROW_FORMAT.
+  --ndb-deferred-constraints=# 
+                      Specified that constraints should be checked deferred
+                      (when supported)
+  --ndb-distribution=name 
+                      Default distribution for new tables in NDB
+  --ndb-eventbuffer-free-percent=# 
+                      Percentage of free memory that should be available in
+                      event buffer before resuming buffering after the
+                      max_alloc limit is hit.
+  --ndb-eventbuffer-max-alloc=# 
+                      Maximum amount of memory (in bytes) that can be allocated
+                      for buffering events by the NdbApi.
+  --ndb-extra-logging[=#] 
+                      Turn on more logging in the error log.
+  --ndb-force-send    Force send of buffers to ndb immediately without waiting
+                      for other threads.
+                      (Defaults to on; use --skip-ndb-force-send to disable.)
+  --ndb-fully-replicated 
+                      Create tables that are fully replicated by default. This
+                      enables reading from any data node when using
+                      ReadCommitted. This is great for read scalability but
+                      hampers write scalability
+  --ndb-index-stat-enable 
+                      Use ndb index statistics in query optimization.
+                      (Defaults to on; use --skip-ndb-index-stat-enable to disable.)
+  --ndb-index-stat-option=name 
+                      Comma-separated tunable options for ndb index statistics
+  --ndb-join-pushdown Enable pushing down of join to datanodes
+                      (Defaults to on; use --skip-ndb-join-pushdown to disable.)
+  --ndb-log-apply-status 
+                      Log ndb_apply_status updates from Master in the Binlog
+  --ndb-log-bin       Log ndb tables in the binary log. Option only has meaning
+                      if the binary log has been turned on for the server.
+  --ndb-log-binlog-index 
+                      Insert mapping between epochs and binlog positions into
+                      the ndb_binlog_index table.
+                      (Defaults to on; use --skip-ndb-log-binlog-index to disable.)
+  --ndb-log-empty-epochs 
+  --ndb-log-empty-update 
+                      Normally empty updates are filtered away before they are
+                      logged. However, for read tracking in conflict resolution
+                      a hidden pesudo attribute is set which will result in an
+                      empty update along with special flags set. For this to
+                      work empty updates have to be allowed.
+  --ndb-log-exclusive-reads 
+                      Log primary key reads with exclusive locks to allow
+                      conflict resolution based on read conflicts
+  --ndb-log-fail-terminate 
+                      Terminate mysqld if complete logging of all found row
+                      events is not possible
+  --ndb-log-orig      Log originating server id and epoch in ndb_binlog_index.
+                      Each epoch may in this case have multiple rows in
+                      ndb_binlog_index, one for each originating epoch.
+  --ndb-log-transaction-compression 
+                      Compress the Ndb Binlog
+  --ndb-log-transaction-compression-level-zstd[=#] 
+                      Compression level for ZSTD transaction compression in the
+                      NDB Binlog.
+  --ndb-log-transaction-id 
+                      Log Ndb transaction identities per row in the Binlog
+  --ndb-log-update-as-write 
+                      For efficiency log only after image as a write event.
+                      Ignore before image. This may cause compatibility
+                      problems if replicating to other storage engines than
+                      ndbcluster.
+                      (Defaults to on; use --skip-ndb-log-update-as-write to disable.)
+  --ndb-log-update-minimal 
+                      For efficiency, log updates in a minimal formatLog only
+                      the primary key value(s) in the before image. Log only
+                      the changed columns in the after image. This may cause
+                      compatibility problems if replicating to other storage
+                      engines than ndbcluster.
+  --ndb-log-updated-only 
+                      For efficiency log only updated columns. Columns are
+                      considered as "updated" even if they are updated with the
+                      same value. This may cause compatibility problems if
+                      replicating to other storage engines than ndbcluster.
+                      (Defaults to on; use --skip-ndb-log-updated-only to disable.)
+  --ndb-metadata-check 
+                      Enable the automatic detection of NDB metadata changes to
+                      be synchronized with the DD
+                      (Defaults to on; use --skip-ndb-metadata-check to disable.)
+  --ndb-metadata-check-interval=# 
+                      Interval of time (in seconds) at which a check is done to
+                      see if there are NDB metadata changes to be synchronized
+  --ndb-metadata-sync Triggers immediate synchronization of all changes between
+                      NDB Dictionary and MySQL server. Setting this option
+                      results in the values of ndb_metadata_check and
+                      ndb_metadata_check_interval being ignored. Automatically
+                      resets to false when the synchronization has completed
+  --ndb-mgmd-host=name 
+                      Same as --ndb-connectstring
+  --ndb-nodeid=#      Set nodeid for this node. Overrides node id specified in
+                      --ndb-connectstring.
+  --ndb-optimization-delay=# 
+                      For optimize table, specifies the delay in milliseconds
+                      for each batch of rows sent.
+  --ndb-optimized-node-selection[=#] 
+                      Select nodes for transactions in a more optimal way.
+  --ndb-read-backup   Create tables with Read Backup flag set. Enables those
+                      tables to be read from backup replicas as well as from
+                      primary replicas. Delays commit acknowledge of write
+                      transactions to accomplish this.
+                      (Defaults to on; use --skip-ndb-read-backup to disable.)
+  --ndb-recv-thread-activation-threshold=# 
+                      Activation threshold when receive thread takes over the
+                      polling of the cluster connection (measured in
+                      concurrently active threads)
+  --ndb-recv-thread-cpu-mask=name 
+                      CPU mask for locking receiver threads to specific CPU,
+                      specified  as hexadecimal as e.g. 0x33, one CPU is used
+                      per receiver thread.
+  --ndb-replica-batch-size[=#] 
+                      Batch size in bytes for the replica applier.
+  --ndb-replica-blob-write-batch-bytes[=#] 
+                      Specifies the byte size of batched blob writes for the
+                      replica applier. 0 == No limit.
+  --ndb-report-thresh-binlog-epoch-slip=# 
+                      Threshold for Binlog injector thread consumption lag,
+                      before reporting the Event buffer status' message with
+                      reason BUFFERED_EPOCHS_OVER_THRESHOLD. The lag is defined
+                      as the number of epochs completely buffered in the event
+                      buffer, but not consumed by the Binlog injector thread
+                      yet.
+  --ndb-report-thresh-binlog-mem-usage=# 
+                      Threshold on percentage of free memory before reporting
+                      binlog status. E.g. 10 means that if amount of available
+                      memory for receiving binlog data from the storage nodes
+                      goes below 10%, a status message will be sent to the
+                      cluster log.
+  --ndb-row-checksum[=#] 
+                      Create tables with a row checksum, this checks for HW
+                      issues at theexpense of performance
+  --ndb-schema-dist-lock-wait-timeout=# 
+                      Time (in seconds) during schema distribution to wait for
+                      a lock before returning an error. This setting allows
+                      avoiding that the binlog injector thread waits too long
+                      while handling schema operations.
+  --ndb-schema-dist-timeout[=#] 
+                      Controls how many seconds it takes before timeout is
+                      detected during schema distribution. Timeout might
+                      indicate that activity on the other MySQL Server(s) are
+                      high or are somehow prevented from acquiring the
+                      necessary resources at this time.
+  --ndb-schema-dist-upgrade-allowed 
+                      Allow schema distribution table upgrade when connecting
+                      to NDB. Use this variable to defer this change until all
+                      MySQL Servers connected to the cluster have been upgrade
+                      to same version. NOTE! The schema distribution
+                      functionality might be slightly degraded until the change
+                      has been performed.
+                      (Defaults to on; use --skip-ndb-schema-dist-upgrade-allowed to disable.)
+  --ndb-show-foreign-key-mock-tables 
+                      Show the mock tables which is used to support
+                      foreign_key_checks= 0. Extra info warnings are shown when
+                      creating and dropping the tables. The real table name is
+                      show in SHOW CREATE TABLE
+  --ndb-slave-conflict-role=name 
+                      Role for applier to play in asymmetric conflict
+                      algorithms. This variable is deprecated and will be
+                      removed in a future release. Use
+                      ndb_applier_conflict_role instead
+  --ndb-table-no-logging 
+  --ndb-table-temporary 
+  --ndb-transid-mysql-connection-map[=name] 
+                      Enable or disable ndb_transid_mysql_connection_map
+                      plugin. Possible values are ON, OFF, FORCE (don't start
+                      if the plugin fails to load).
+  --ndb-use-copying-alter-table 
+                      Force ndbcluster to always copy tables at alter table
+                      (should only be used if online alter table fails).
+  --ndb-use-exact-count 
+                      Use exact records count during query planning and for
+                      fast select count(*), disable for faster queries.
+  --ndb-use-transactions 
+                      Use transactions for large inserts, if enabled then large
+                      inserts will be split into several smaller transactions
+                      (Defaults to on; use --skip-ndb-use-transactions to disable.)
+  --ndb-wait-connected=# 
+                      Time (in seconds) to wait for connection to cluster.
+  --ndb-wait-setup=#  Time (in seconds) to wait for setup to complete (0 = no
+                      wait)
+  --ndbcluster[=name] Enable or disable ndbcluster plugin. Possible values are
+                      ON, OFF, FORCE (don't start if the plugin fails to load).
+  --ndbinfo[=name]    Enable or disable ndbinfo plugin. Possible values are ON,
+                      OFF, FORCE (don't start if the plugin fails to load).
+  --ndbinfo-max-bytes=# 
+                      Specify approx. max number of bytes to fetch per
+                      roundtrip to cluster
+  --ndbinfo-max-rows=# 
+                      Specify max number of rows to fetch per roundtrip to
+                      cluster
+  --ndbinfo-show-hidden 
+                      Control if tables should be visible or not
   --net-buffer-length=# 
                       Buffer length for TCP/IP and socket communication
   --net-read-timeout=# 

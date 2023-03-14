@@ -1,5 +1,5 @@
-mysqlcheck.exe  Ver 8.0.30 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+mysqlcheck.exe  Ver 8.0.32 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -24,7 +24,7 @@ OR     mysqlcheck.exe [OPTIONS] --databases DB1 [DB2 DB3...]
 OR     mysqlcheck.exe [OPTIONS] --all-databases
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf   
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf
 The following groups are read: mysqlcheck client
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.
@@ -78,9 +78,8 @@ The following options may be given as the first argument:
   -h, --host=name     Connect to host.
   -m, --medium-check  Faster than extended-check, but only finds 99.99 percent
                       of all errors. Should be good enough for most cases.
-  --write-binlog      Log ANALYZE, OPTIMIZE and REPAIR TABLE commands. Use
-                      --skip-write-binlog when commands should not be sent to
-                      replication slaves.
+  --write-binlog      Write ANALYZE, OPTIMIZE and REPAIR TABLE commands to the
+                      binary log. Use --skip-write-binlog to omit this.
                       (Defaults to on; use --skip-write-binlog to disable.)
   -o, --optimize      Optimize table.
   -p, --password[=name] 

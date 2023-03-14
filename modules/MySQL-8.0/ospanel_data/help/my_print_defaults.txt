@@ -1,5 +1,5 @@
-my_print_defaults.exe  Ver 8.0.30 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+my_print_defaults.exe  Ver 8.0.32 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -35,7 +35,7 @@ Usage: my_print_defaults.exe [OPTIONS] groups
   -V, --version       Output version information and exit.
 
 Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf   
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf
 
 Example usage:
 my_print_defaults.exe --defaults-file=example.cnf client mysql
