@@ -14,6 +14,9 @@ xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.5\ospanel_data\ori
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.6\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.7\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.8\ospanel_data\original\default\templates" /y
+xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.9\ospanel_data\original\default\templates" /y
+xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.10\ospanel_data\original\default\templates" /y
+xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.11\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MongoDB-3.0\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MongoDB-3.2\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MongoDB-3.4\ospanel_data\original\default\templates" /y
@@ -34,6 +37,7 @@ xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\PostgreSQL-11\ospanel_data\or
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\PostgreSQL-12\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\PostgreSQL-13\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\PostgreSQL-14\ospanel_data\original\default\templates" /y
+xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\PostgreSQL-15\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\Redis-3.0\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\Redis-3.2\ospanel_data\original\default\templates" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\Redis-4.0\ospanel_data\original\default\templates" /y
