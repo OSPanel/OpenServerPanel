@@ -1,0 +1,25 @@
+mysql_install_db.exe  Ver 1.00 for Windows
+Copyright (C) 2010-2011 Monty Program Ab & Vladislav Vaintroub
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+Usage: mysql_install_db.exe [OPTIONS]
+OPTIONS:
+  -?, --help          Display this help message and exit.
+  -d, --datadir=name  Data directory of the new database
+  -S, --service=name  Name of the Windows service
+  -p, --password=name Root password
+  -P, --port=#        mysql port
+  -W, --socket=name   named pipe name (if missing, it will be set the same as
+                      service)
+  -D, --default-user  Create default user
+  -R, --allow-remote-root-access 
+                      Allows remote access from network for user root
+  -N, --skip-networking 
+                      Do not use TCP connections, use pipe instead
+  -i, --innodb-page-size=# 
+                      Page size for innodb
+  -s, --silent        Print less information
+  -o, --verbose-bootstrap 
+                      Include mysqld bootstrap output
+  -l, --large-pages   Use large pages
+  -c, --config=name   my.ini config template file
