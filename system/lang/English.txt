@@ -1,0 +1,188 @@
+English:en
+yyyy-mm-dd hh:nn:ss
+Software Environment Control Panel for Web developers
+Failed to delete log file
+The module's PID file could not be deleted
+The module's launch command is not set
+The module's start directory is not set
+The module's start directory was not found
+Failed to create/open the module log file
+Failed to add an entry to the module log file
+Failed to start tracking the module workflow
+The module workflow could not be started
+The module workflow does not respond for a long time, forced termination of the process...
+Unknown process descriptor
+Module workflow failure when shutting down
+ERROR
+WARNING
+Command processing has stopped (the program is shutting down)
+Command execution has been canceled
+Activation is not possible (the module is already enabled)
+Module settings profile not found
+Invalid command for this module
+Failed to make changes to the module settings file
+The module workflow has been successfully launched
+Module initialization has been successfully completed
+Command
+Module
+Оbject
+Exit/Error code
+Reason
+Message
+The module is not compatible with your version of Windows
+Shutdown is not possible (the module is already turned off)
+The module workflow has been successfully stopped
+The module workflow unexpectedly terminated its work
+Automatic restart of the module workflow...
+The module is suspended
+Failed to make changes to the HOSTS file
+DNS cache could not be cleared
+Failed to create the required directory
+Failed to delete temporary file
+Failed to save temporary file
+Failed to rename temporary file
+Initializing the process manager
+Initializing and launching modules
+Failed to initialize the module
+Invalid module name
+The module's descriptive file could not be found
+The module settings file could not be found
+The module's descriptive file could not be read
+Invalid settings profile name
+Current environment
+Invalid logging level value
+Invalid value of the request logging level
+The program cannot work in the current directory (valid path characters are: A-Za-z0-9.+-\:_)
+Open Server Panel must be started
+Such a module does not exist!
+Invalid file system type for root directory location
+API request failed
+Launch the CLI
+Close the program
+Checking the system configuration
+Exiting the program
+Invalid disk type for the root directory location
+Failed to create/open the log file
+Starting the
+Failed to make a system call
+Do not turn off the computer, data loss is possible!
+Wait until the program finishes its work...
+There is not enough free disk space
+Not enough free RAM
+Initialization of environment variables
+Failed to set environment variable
+Object deletion failed
+Launching the embedded web server
+The embedded web server could not be started
+Couldn't find the MIME file
+The root directory of the embedded web server could not be found
+not found
+It is not possible to execute the command while the module is enabled
+Program version
+Unknown command
+Calling Help
+Using
+command
+arguments
+Environment management
+Merge the environment of the module with the current environment of the console
+Attention! Creating a common environment for several modules from the
+same group can lead to unpredictable errors in their work!
+Attention! Combining the environment of the module(s) with the Windows
+environment may lead to conflicts with similar modules in the system!
+Show information about the current environment
+Reset the current environment to the original Windows environment
+Apply the module environment
+Module management
+Show information about modules
+Disable the module
+Enable the module (if necessary, specify a new active profile)
+Restart the module (if necessary, specify a new active profile)
+Launch the shell or command line interface of the module (if available)
+Show module status information
+Other commands
+Shutting down the program
+Show module/program log (last N lines, by default: 10)
+Launch the Operating System Preparation tool
+Add the "silent" flag to start the system preparation in silent mode
+The "ssd" flag is similar to "silent" (but with SSD settings optimized)
+Preparation in silent mode occurs automatically and without tracking
+progress, and after the procedure is completed, a reboot will be performed!
+To start the silent preparation process without a confirmation request
+from Windows, the console must be started with Administrator rights
+Show information about the program version
+Usage examples
+Using the PostgreSQL-9.6 module environment in the console
+Enabling the Bind module with changing the settings profile to MyProfile
+Restarting the MySQL-8.0 module (the module name is accepted in any case)
+Output to the console of the last 20 lines from the program log
+Combining the Windows environment with the Git environment
+Failed to execute command
+There are no entries in this log
+There is no shell configuration for
+Such an environment is already active
+There is no environment configuration for
+Unknown command argument
+Required command argument is not specified
+Re-read the module settings and recreate temporary files (configs)
+This command is not available for enabled (running) modules!
+MODULE
+STATUS
+VERSION
+TYPE
+MIN. COMPATIBILITY
+LICENSE
+Enabled
+Disabled
+Starting
+Shutdown
+Initialized
+Not initialized
+Initialization
+from
+Module
+Launch Command
+Directory
+Status
+PID of the main process
+Number of processes
+Memory
+Journal
+Network
+child processes
+B
+KB
+MB
+GB
+TB
+PB
+The web interface is under development
+Failed to delete an object
+&Web interface
+&Command line interface
+&Root directory
+&Exit
+If the module is disabled, then working with some of its utilities/commands,
+including working with data (databases), may not be available!
+Use the "init" flag to initialize the command line interface
+Add the "silent" flag to suppress the greeting during initialization
+If necessary, specify a new active module settings profile
+Apply the module environment again (the "set" or "add" command)
+if it is currently active and the settings or the settings profile have changed!
+is not currently enabled!
+Failed to read the domain configuration file
+Error
+The command will be sent to all modules!
+The execution of the command may take some time...
+Continue
+Version information
+&Restart
+&Debugging Interface
+The program is running with Administrator rights
+This is potentially unsafe and makes it easier to compromise your system.
+The inactive profile settings file could not be found
+The inactive profile settings file could not be read
+The project activation command is not set for
+Activate the project environment and go to its root directory
+Conversion result
+Convert domain name from/to Punycode
