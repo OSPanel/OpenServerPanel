@@ -11,7 +11,7 @@ license            = https://github.com/NLnetLabs/unbound/blob/master/LICENSE
 license_type       = BSD License 2.0
 min_windows_ver    = 6.1.7601
 timestamp          = 1651770000
-version            = 1.16.3
+version            = 1.17.1
 
 [docs]
 
