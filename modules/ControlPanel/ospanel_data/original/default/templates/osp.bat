@@ -32,7 +32,7 @@ if /i "%1"=="add"         goto env_add
 if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
-if /i "%1"=="info"        echo: & echo  {lang_52}: %OSP_ACTIVE_ENV% & goto end
+if /i "%1"=="info"        echo: & echo {lang_52}: %OSP_ACTIVE_ENV% & goto end
 if /i "%1"=="init"        goto mod_cmd
 if /i "%1"=="list"        goto mod_cmd
 if /i "%1"=="log"         goto log
@@ -46,22 +46,22 @@ if /i "%1"=="set"         goto env_set
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
-if /i "%1"=="-v"          echo: & echo  {lang_178}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
-if /i "%1"=="version"     echo: & echo  {lang_178}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
+if /i "%1"=="-v"          echo: & echo {lang_178}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
+if /i "%1"=="version"     echo: & echo {lang_178}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
 if "%1"==""               goto help
 set "OSP_ERR_MSG={lang_82}" & goto error
 :: -----------------------------------------------------------------------------------
 :: LOGO
 :: -----------------------------------------------------------------------------------
 :logo
-echo    ___                     ____                             ____                  _
-echo   / _ \ _ __   ___ _ __   / ___^|  ___ _ ____   _____ _ __  ^|  _ \ __ _ _ __   ___^| ^|
-echo  ^| ^| ^| ^| '_ \ / _ \ '_ \  \___ \ / _ \ '__\ \ / / _ \ '__^| ^| ^|_) / _` ^| '_ \ / _ \ ^|
-echo  ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  __/ (_^| ^| ^| ^| ^|  __/ ^|
-echo   \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
-echo        ^|_^|
+echo   ___                     ____                             ____                  _
+echo  / _ \ _ __   ___ _ __   / ___^|  ___ _ ____   _____ _ __  ^|  _ \ __ _ _ __   ___^| ^|
+echo ^| ^| ^| ^| '_ \ / _ \ '_ \  \___ \ / _ \ '__\ \ / / _ \ '__^| ^| ^|_) / _` ^| '_ \ / _ \ ^|
+echo ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  __/ (_^| ^| ^| ^| ^|  __/ ^|
+echo  \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
+echo       ^|_^|
 echo:
-echo  {lang_83}: osp help ^| {lang_81}: {osp_version} ^| © 2010-2023 ^«OSPanel.io^»
+echo {lang_83}: osp help ^| {lang_81}: {osp_version} ^| © 2010-2023 ^«OSPanel.io^»
 @exit /b 0
 :: -----------------------------------------------------------------------------------
 :: HELP
@@ -69,59 +69,59 @@ echo  {lang_83}: osp help ^| {lang_81}: {osp_version} ^| © 2010-2023 ^«OSPanel
 :help
 call :logo
 echo:
-echo  {lang_84}: osp ^<{lang_85}^> [^<{lang_86}^>]
+echo {lang_84}: osp ^<{lang_85}^> [^<{lang_86}^>]
 echo:
-echo  {lang_87}:
+echo {lang_87}:
 echo:
-echo  add     ^<MODULE^>            {lang_88}
-echo                              {lang_89}
-echo                              {lang_90}
-echo                              {lang_91}
-echo                              {lang_92}
-echo  info                        {lang_93}
-echo  project ^<DOMAIN^>            {lang_186}
-echo  reset   [init]    [silent]  {lang_94}
-echo                              {lang_167}
-echo                              {lang_168}
-echo  set     ^<MODULE^>            {lang_95}
-echo                              {lang_165}
-echo                              {lang_166}
+echo add     ^<MODULE^>            {lang_88}
+echo                             {lang_89}
+echo                             {lang_90}
+echo                             {lang_91}
+echo                             {lang_92}
+echo info                        {lang_93}
+echo project ^<DOMAIN^>            {lang_186}
+echo reset   [init]    [silent]  {lang_94}
+echo                             {lang_167}
+echo                             {lang_168}
+echo set     ^<MODULE^>            {lang_95}
+echo                             {lang_165}
+echo                             {lang_166}
 echo:
-echo  {lang_96}:
+echo {lang_96}:
 echo:
-echo  init    ^<MODULE^> [PROFILE]  {lang_127}
-echo                              {lang_169}
-echo                              {lang_128}
-echo                              {lang_170}
-echo                              {lang_171}
-echo  list                        {lang_97}
-echo  off     ^<MODULE^>            {lang_98}
-echo  on      ^<MODULE^> [PROFILE]  {lang_99}
-echo  restart ^<MODULE^> [PROFILE]  {lang_100}
-echo  shell   ^<MODULE^>            {lang_101}
-echo  status  ^<MODULE^>            {lang_102}
+echo init    ^<MODULE^> [PROFILE]  {lang_127}
+echo                             {lang_169}
+echo                             {lang_128}
+echo                             {lang_170}
+echo                             {lang_171}
+echo list                        {lang_97}
+echo off     ^<MODULE^>            {lang_98}
+echo on      ^<MODULE^> [PROFILE]  {lang_99}
+echo restart ^<MODULE^> [PROFILE]  {lang_100}
+echo shell   ^<MODULE^>            {lang_101}
+echo status  ^<MODULE^>            {lang_102}
 echo:
-echo  {lang_103}:
+echo {lang_103}:
 echo:
-echo  convert ^<DOMAIN^>            {lang_188}
-echo  exit                        {lang_104}
-echo  log     ^<MODULE^|main^>  [N]  {lang_105}
-echo  sysprep [silent^|ssd]        {lang_106}
-echo                              {lang_107}
-echo                              {lang_108}
-echo                              {lang_109}
-echo                              {lang_110}
-echo                              {lang_111}
-echo                              {lang_112}
-echo  version                     {lang_113}
+echo convert ^<DOMAIN^>            {lang_188}
+echo exit                        {lang_104}
+echo log     ^<MODULE^|main^>  [N]  {lang_105}
+echo sysprep [silent^|ssd]        {lang_106}
+echo                             {lang_107}
+echo                             {lang_108}
+echo                             {lang_109}
+echo                             {lang_110}
+echo                             {lang_111}
+echo                             {lang_112}
+echo version                     {lang_113}
 echo:
-echo  {lang_114}:
+echo {lang_114}:
 echo:
-echo  osp set PostgreSQL-9.6      {lang_115}
-echo  osp on bind myprofile       {lang_116}
-echo  osp restart mysql-8.0       {lang_117}
-echo  osp log main 20             {lang_118}
-echo  osp reset ^& osp add git     {lang_119}
+echo osp set PostgreSQL-9.6      {lang_115}
+echo osp on bind myprofile       {lang_116}
+echo osp restart mysql-8.0       {lang_117}
+echo osp log main 20             {lang_118}
+echo osp reset ^& osp add git     {lang_119}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHUTTING DOWN THE APPLICATION
@@ -129,7 +129,7 @@ goto end
 :shutdown
 "{root_dir}\bin\curl.exe" -f -s {api_url}/exit > nul
 if exist "{root_dir}\temp\OSPanel.lock" goto error
-echo: & echo  {lang_63}
+echo: & echo {lang_63}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
@@ -151,10 +151,10 @@ set "OSP_TMPVAL=OpenServerPanel"
 if /i not "%2"=="main" set "OSP_TMPVAL=%2"
 if /i "%2"=="all" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 for %%a in (%OSP_TMPVAL%) do (
-    if /i "%2"=="all" echo: & echo  {lang_150} %%a & echo:
+    if /i "%2"=="all" echo: & echo {lang_150} %%a & echo:
     if /i not "%2"=="all" echo:
-    if not exist "{root_dir}\logs\%%a.log" echo  %ESC%[90m{lang_121}%ESC%[0m
-    if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo  %ESC%[90m{lang_121}%ESC%[0m) else (
+    if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_121}%ESC%[0m
+    if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_121}%ESC%[0m) else (
         if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
         if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
     )
@@ -180,7 +180,7 @@ if /i "%2"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="off" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="restart" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
-if /i "%2"=="all" echo: & echo  {lang_175} & echo  {lang_176}
+if /i "%2"=="all" echo: & echo {lang_175} & echo {lang_176}
 if /i "%2"=="all" %SystemRoot%\System32\choice.exe /C YN /N /M "->{lang_177} (Y/N)?"
 if /i "%2"=="all" if not %ERRORLEVEL%==1 goto end
 setlocal EnableDelayedExpansion
@@ -286,7 +286,7 @@ set "ESC="
 set "OSP_ACTIVE_ENV=Windows"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
-if /i not "%3"=="silent" echo: & echo  {lang_52}: %OSP_ACTIVE_ENV%
+if /i not "%3"=="silent" echo: & echo {lang_52}: %OSP_ACTIVE_ENV%
 TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 goto end
 :: -----------------------------------------------------------------------------------
@@ -336,11 +336,11 @@ exit /b 0
 @exit /b 0
 :notrunning
 @echo:
-@echo  %ESC%[91m{lang_16}
-@echo  ————————————————————————————————————————————————————
-@echo  {lang_26}: osp %1 %2 %3
-@echo  {lang_30}: {lang_56}
-@echo  {lang_31}: {lang_120}%ESC%[0m
+@echo %ESC%[91m{lang_16}
+@echo ————————————————————————————————————————————————————
+@echo {lang_26}: osp %1 %2 %3
+@echo {lang_30}: {lang_56}
+@echo {lang_31}: {lang_120}%ESC%[0m
 @if defined OSP_CODEPAGE @chcp %OSP_CODEPAGE% > nul
 @set "OSP_CODEPAGE="
 @exit /b 1
@@ -349,17 +349,17 @@ exit /b 0
 @exit /b 0
 :echo_error
 @echo:
-@echo  %ESC%[91m{lang_16}
-@echo  ————————————————————————————————————————————————————
-@echo  {lang_26}: osp %1 %2 %3
-@echo  {lang_31}: {lang_120}%ESC%[0m
+@echo %ESC%[91m{lang_16}
+@echo ————————————————————————————————————————————————————
+@echo {lang_26}: osp %1 %2 %3
+@echo {lang_31}: {lang_120}%ESC%[0m
 @exit /b 1
 :error
 @echo:
-@echo  %ESC%[91m{lang_16}
-@echo  ————————————————————————————————————————————————————
-@echo  {lang_26}: osp %1 %2 %3
-@if defined OSP_ERR_MSG @echo  {lang_30}: %OSP_ERR_MSG%
-@echo  {lang_31}: {lang_120}%ESC%[0m
+@echo %ESC%[91m{lang_16}
+@echo ————————————————————————————————————————————————————
+@echo {lang_26}: osp %1 %2 %3
+@if defined OSP_ERR_MSG @echo {lang_30}: %OSP_ERR_MSG%
+@echo {lang_31}: {lang_120}%ESC%[0m
 @call :before_exit
 @exit /b 1
