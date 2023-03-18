@@ -85,7 +85,7 @@ Using
 command
 arguments
 Environment management
-Merge the environment of the module with the current environment of the console
+Merge the environment of the module with the current environment
 Attention! Creating a common environment for several modules from the
 same group can lead to unpredictable errors in their work!
 Attention! Combining the environment of the module(s) with the Windows
@@ -162,13 +162,13 @@ Failed to delete an object
 &Command line interface
 &Root directory
 &Exit
-If the module is disabled, then working with some of its utilities/commands,
-including working with data (databases), may not be available!
+If the module is disabled, then working with some of its utilities or
+commands, including working with data (databases), may not be available!
 Use the "init" flag to initialize the command line interface
 Add the "silent" flag to suppress the greeting during initialization
 If necessary, specify a new active module settings profile
 Apply the module environment again (the "set" or "add" command)
-if it is currently active and the settings or the settings profile have changed!
+if it is currently active and the settings/profile have changed!
 is not currently enabled!
 Failed to read the domain configuration file
 Error
