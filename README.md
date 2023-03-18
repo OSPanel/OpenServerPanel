@@ -20,6 +20,8 @@ Open Server Panel 6 <sup><sup>[Beta](https://ru.wikipedia.org/wiki/Бета-те
 
 Смотрите документацию по новой версии в нашей [Wiki](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
 
+_Принимаются любые денежные пожертвования на содержание серверов и развитие проекта.<br>Мы будем очень признательны за поддержку!_ :white_heart:
+
 Интерфейс командной строки
 ----------
 ![Open Server Panel Console](./resources/screenshots/cli.png)
