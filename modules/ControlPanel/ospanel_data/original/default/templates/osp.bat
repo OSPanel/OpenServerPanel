@@ -80,10 +80,10 @@ echo                             {lang_91}
 echo                             {lang_92}
 echo info                        {lang_93}
 echo project ^<DOMAIN^>  [silent]  {lang_186}
+echo                             {lang_168}
 echo                             {lang_189}
 echo reset   [init]              {lang_94}
 echo                             {lang_167}
-echo                             {lang_168}
 echo set     ^<MODULE^>            {lang_95}
 echo                             {lang_165}
 echo                             {lang_166}
