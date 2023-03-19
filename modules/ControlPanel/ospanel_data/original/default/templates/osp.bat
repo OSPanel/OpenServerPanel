@@ -73,7 +73,7 @@ echo {lang_84}: osp ^<{lang_85}^> [^<{lang_86}^>]
 echo:
 echo {lang_87}:
 echo:
-echo add     ^<MODULE^>            {lang_88}
+echo add     ^<MODULE^>  [silent]  {lang_88}
 echo                             {lang_89}
 echo                             {lang_90}
 echo                             {lang_91}
@@ -82,9 +82,9 @@ echo info                        {lang_93}
 echo project ^<DOMAIN^>  [silent]  {lang_186}
 echo                             {lang_168}
 echo                             {lang_189}
-echo reset   [init]              {lang_94}
+echo reset   [init]    [silent]  {lang_94}
 echo                             {lang_167}
-echo set     ^<MODULE^>            {lang_95}
+echo set     ^<MODULE^>  [silent]  {lang_95}
 echo                             {lang_165}
 echo                             {lang_166}
 echo:
