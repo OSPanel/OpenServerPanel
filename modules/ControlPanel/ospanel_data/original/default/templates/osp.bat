@@ -287,7 +287,7 @@ set "ESC="
 set "OSP_ACTIVE_ENV=Windows"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
-if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_52}: %OSP_ACTIVE_ENV%
+if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_52}: %OSP_ACTIVE_ENV%
 TITLE OSPanel ^| %OSP_ACTIVE_ENV%
 goto end
 :: -----------------------------------------------------------------------------------
