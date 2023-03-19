@@ -165,7 +165,7 @@ Failed to delete an object
 If the module is disabled, then working with some of its utilities or
 commands, including working with data (databases), may not be available!
 Use the "init" flag to initialize the command line interface
-Add the "silent" flag to suppress the greeting during initialization
+Add the "silent" flag to suppress the output of informational messages
 If necessary, specify a new active module settings profile
 Apply the module environment again (the "set" or "add" command)
 if it is currently active and the settings/profile have changed!
@@ -186,3 +186,4 @@ The project activation command is not set for
 Activate the project environment and go to its root directory
 Conversion result
 Convert domain name from/to Punycode
+The "silent" flag can also be used for commands: add reset set
