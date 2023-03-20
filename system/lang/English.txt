@@ -187,3 +187,4 @@ Activate the project environment and go to its root directory
 Conversion result
 Convert domain name from/to Punycode
 The "silent" flag can also be used for commands: add reset set
+&System Preparation Tool
