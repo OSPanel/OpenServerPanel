@@ -5,27 +5,27 @@
 set "OSP_ROOT_DIR=%~dp0"
 rd "%OSP_ROOT_DIR%generate\new_data" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%generate\new_data" 2>nul
-:: call :posgresql PostgreSQL-9.5
-:: call :posgresql PostgreSQL-9.6
-:: call :posgresql PostgreSQL-10
-:: call :posgresql PostgreSQL-11
-:: call :posgresql PostgreSQL-12
-:: call :posgresql PostgreSQL-13
-:: call :posgresql PostgreSQL-14
-:: call :posgresql PostgreSQL-15
-:: call :mariadb MariaDB-10.1
-:: call :mariadb MariaDB-10.2
-:: call :mariadb MariaDB-10.3
-:: call :mariadb MariaDB-10.4
-:: call :mariadb MariaDB-10.5
-:: call :mariadb MariaDB-10.6
-:: call :mariadb MariaDB-10.7
-:: call :mariadb MariaDB-10.8
-:: call :mariadb MariaDB-10.9
-:: call :mariadb MariaDB-10.10
-:: call :mariadb MariaDB-10.11
-:: call :mysql MySQL-5.5
-:: call :mysql MySQL-5.6
+call :posgresql PostgreSQL-9.5
+call :posgresql PostgreSQL-9.6
+call :posgresql PostgreSQL-10
+call :posgresql PostgreSQL-11
+call :posgresql PostgreSQL-12
+call :posgresql PostgreSQL-13
+call :posgresql PostgreSQL-14
+call :posgresql PostgreSQL-15
+call :mariadb MariaDB-10.1
+call :mariadb MariaDB-10.2
+call :mariadb MariaDB-10.3
+call :mariadb MariaDB-10.4
+call :mariadb MariaDB-10.5
+call :mariadb MariaDB-10.6
+call :mariadb MariaDB-10.7
+call :mariadb MariaDB-10.8
+call :mariadb MariaDB-10.9
+call :mariadb MariaDB-10.10
+call :mariadb MariaDB-10.11
+call :mysql MySQL-5.5
+call :mysql MySQL-5.6
 call :mysql MySQL-5.7
 call :mysql MySQL-8.0
 goto :end
