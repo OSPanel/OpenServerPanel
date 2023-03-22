@@ -208,7 +208,7 @@ if "%2"=="" goto eargument
 if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
 set "OSP_ACTIVE_ENV=Default"
-TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
 set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
 call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
@@ -241,10 +241,10 @@ setlocal
 call :env_reset
 if exist "{root_dir}\data\{module_name}\env_%2.bat" call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 echo:
-TITLE OSPanel ^| %2 Shell
+TITLE %2 Shell ^| Open Server Panel
 call "{root_dir}\data\{module_name}\shell_%2.bat"
 endlocal
-TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 goto end
 :: -----------------------------------------------------------------------------------
 :: ADD ENVIRONMENT
@@ -272,7 +272,7 @@ if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
 set "OSP_ACTIVE_ENV=Default"
-TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
@@ -286,7 +286,7 @@ set "OSP_ACTIVE_ENV=Windows"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_52}: %OSP_ACTIVE_ENV%
-TITLE OSPanel ^| %OSP_ACTIVE_ENV%
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 goto end
 :: -----------------------------------------------------------------------------------
 :: DEFAULT ENVIRONMENT
