@@ -8,7 +8,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Abidjan', @time_
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -18,7 +18,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Accra', @time_zo
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -32,7 +32,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -78,7 +78,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 341802000, 4)
 ,(@time_zone_id, 357523200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 732, 0, 'LMT')
 ,(@time_zone_id, 1, 561, 0, 'PMT')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -98,7 +98,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -115,7 +115,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -128,7 +128,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Bamako', @time_z
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -141,7 +141,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -153,7 +153,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Banjul', @time_z
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -164,7 +164,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1830380400, 1)
 ,(@time_zone_id, 157770000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -3740, 0, 'LMT')
 ,(@time_zone_id, 1, -3600, 0, '-01')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -175,7 +175,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Blantyre', @time
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -188,7 +188,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -200,7 +200,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Bujumbura', @tim
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -336,7 +336,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1406844000, 1)
 ,(@time_zone_id, 1411678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7509, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -442,7 +442,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2138234400, 4)
 ,(@time_zone_id, 2141863200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1820, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, '+01')
 ,(@time_zone_id, 2, 0, 0, '+00')
@@ -580,7 +580,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1276, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'WET')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -595,7 +595,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Conakry', @time_
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -605,7 +605,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Dakar', @time_zo
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -619,7 +619,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -636,7 +636,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -652,7 +652,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -747,7 +747,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2138234400, 4)
 ,(@time_zone_id, 2141863200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -3168, 0, 'LMT')
 ,(@time_zone_id, 1, -3600, 0, '-01')
 ,(@time_zone_id, 2, 3600, 1, '+01')
@@ -761,7 +761,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Freetown', @time
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -771,7 +771,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Gaborone', @time
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -781,7 +781,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Harare', @time_z
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -796,7 +796,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -829526400, 2)
 ,(@time_zone_id, -813805200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6720, 0, 'LMT')
 ,(@time_zone_id, 1, 5400, 0, 'SAST')
 ,(@time_zone_id, 2, 10800, 1, 'SAST')
@@ -842,7 +842,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 947930400, 3)
 ,(@time_zone_id, 1612126800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7588, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'CAST')
 ,(@time_zone_id, 2, 7200, 0, 'CAT')
@@ -859,7 +859,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -906,7 +906,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 947930400, 3)
 ,(@time_zone_id, 1509483600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7808, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'CAST')
 ,(@time_zone_id, 2, 7200, 0, 'CAT')
@@ -919,7 +919,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Kigali', @time_z
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -932,7 +932,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -947,7 +947,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -962,7 +962,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -974,7 +974,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Lome', @time_zon
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -987,7 +987,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -999,7 +999,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Lubumbashi', @ti
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -1009,7 +1009,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Lusaka', @time_z
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -1022,7 +1022,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -1034,7 +1034,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Maputo', @time_z
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -2109291020, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7820, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'CAT')
 ;
@@ -1049,7 +1049,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -829526400, 2)
 ,(@time_zone_id, -813805200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6720, 0, 'LMT')
 ,(@time_zone_id, 1, 5400, 0, 'SAST')
 ,(@time_zone_id, 2, 10800, 1, 'SAST')
@@ -1066,7 +1066,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -829526400, 2)
 ,(@time_zone_id, -813805200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6720, 0, 'LMT')
 ,(@time_zone_id, 1, 5400, 0, 'SAST')
 ,(@time_zone_id, 2, 10800, 1, 'SAST')
@@ -1082,7 +1082,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -1097,7 +1097,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1604359012, 2)
 ,(@time_zone_id, 63593070, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -2588, 0, 'LMT')
 ,(@time_zone_id, 1, -2588, 0, 'MMT')
 ,(@time_zone_id, 2, -2670, 0, 'MMT')
@@ -1113,7 +1113,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -1128,7 +1128,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 308703600, 2)
 ,(@time_zone_id, 321314400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3612, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'WAT')
 ,(@time_zone_id, 2, 7200, 1, 'WAST')
@@ -1142,7 +1142,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -1154,7 +1154,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Nouakchott', @ti
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -1164,7 +1164,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Ouagadougou', @t
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -1177,7 +1177,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1767226415, 2)
 ,(@time_zone_id, -1588465800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 815, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ,(@time_zone_id, 2, 1800, 0, '+0030')
@@ -1192,7 +1192,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1514768400, 3)
 ,(@time_zone_id, 1546304400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 1616, 0, 'LMT')
 ,(@time_zone_id, 1, -2205, 0, 'LMT')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -1205,7 +1205,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Africa/Timbuktu', @time
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -1246,7 +1246,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1364515200, 1)
 ,(@time_zone_id, 1382659200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3164, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -1291,7 +1291,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1206838800, 2)
 ,(@time_zone_id, 1224982800, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2444, 0, 'LMT')
 ,(@time_zone_id, 1, 561, 0, 'PMT')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -1357,7 +1357,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1491091200, 4)
 ,(@time_zone_id, 1504400400, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4104, 0, 'LMT')
 ,(@time_zone_id, 1, 5400, 0, '+0130')
 ,(@time_zone_id, 2, 7200, 0, 'SAST')
@@ -1514,7 +1514,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120126400, 7)
 ,(@time_zone_id, 2140686000, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44002, 0, 'LMT')
 ,(@time_zone_id, 1, -39600, 0, 'NST')
 ,(@time_zone_id, 2, -36000, 1, 'NWT')
@@ -1674,7 +1674,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 7)
 ,(@time_zone_id, 2140682400, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 50424, 0, 'LMT')
 ,(@time_zone_id, 1, -36000, 0, 'AST')
 ,(@time_zone_id, 2, -32400, 1, 'AWT')
@@ -1694,7 +1694,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -1709,7 +1709,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -1772,7 +1772,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1361066400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -11568, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -1844,7 +1844,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1237082400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14028, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -1919,7 +1919,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15788, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -1994,7 +1994,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15788, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2069,7 +2069,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1237082400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15408, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2142,7 +2142,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15672, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2218,7 +2218,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16044, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2293,7 +2293,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16516, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2368,7 +2368,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16612, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2441,7 +2441,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15700, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2517,7 +2517,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16444, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2593,7 +2593,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1255233600, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15924, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2671,7 +2671,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1237082400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15652, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2746,7 +2746,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16392, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2763,7 +2763,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -2904,7 +2904,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2138241600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13840, 0, 'LMT')
 ,(@time_zone_id, 1, -13840, 0, 'AMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -2919,7 +2919,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1946918424, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19088, 0, 'LMT')
 ,(@time_zone_id, 1, -19176, 0, 'CMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -3073,7 +3073,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120126400, 7)
 ,(@time_zone_id, 2140686000, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44002, 0, 'LMT')
 ,(@time_zone_id, 1, -39600, 0, 'NST')
 ,(@time_zone_id, 2, -36000, 1, 'NWT')
@@ -3151,7 +3151,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1330221600, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -9244, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -3254,7 +3254,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122531200, 5)
 ,(@time_zone_id, 2140066800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25260, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -3283,7 +3283,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 325058400, 5)
 ,(@time_zone_id, 338706000, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14309, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, 'ADT')
 ,(@time_zone_id, 2, -14400, 0, 'AST')
@@ -3326,7 +3326,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 571197600, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -11636, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -3434,7 +3434,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 409039200, 5)
 ,(@time_zone_id, 413874000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21168, 0, 'LMT')
 ,(@time_zone_id, 1, -19800, 1, '-0530')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -3451,7 +3451,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -3496,7 +3496,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 971578800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14560, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -3511,7 +3511,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 733896000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -17776, 0, 'LMT')
 ,(@time_zone_id, 1, -17776, 0, 'BMT')
 ,(@time_zone_id, 2, -14400, 1, '-04')
@@ -3673,7 +3673,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 6)
 ,(@time_zone_id, 2140675200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -27889, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -3749,7 +3749,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1237082400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14028, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -3885,7 +3885,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 5)
 ,(@time_zone_id, 2140675200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -21600, 1, 'MWT')
 ,(@time_zone_id, 2, -21600, 1, 'MPT')
@@ -3995,7 +3995,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1550372400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13108, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -4047,7 +4047,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414306800, 1)
 ,(@time_zone_id, 1422777600, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20824, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -14400, 1, 'EDT')
@@ -4065,7 +4065,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1462086000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16064, 0, 'LMT')
 ,(@time_zone_id, 1, -16060, 0, 'CMT')
 ,(@time_zone_id, 2, -16200, 0, '-0430')
@@ -4138,7 +4138,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15788, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -4154,7 +4154,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -71092800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -12560, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, '-04')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -4166,7 +4166,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1946918424, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19088, 0, 'LMT')
 ,(@time_zone_id, 1, -19176, 0, 'CMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -4412,7 +4412,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21036, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -4516,7 +4516,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122534800, 4)
 ,(@time_zone_id, 2140070400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25460, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -4531,7 +4531,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1946918424, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19088, 0, 'LMT')
 ,(@time_zone_id, 1, -19176, 0, 'CMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -4603,7 +4603,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1237082400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15408, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -4626,7 +4626,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 695714400, 2)
 ,(@time_zone_id, 700635600, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20173, 0, 'LMT')
 ,(@time_zone_id, 1, -20173, 0, 'SJMT')
 ,(@time_zone_id, 2, -18000, 1, 'CDT')
@@ -4648,7 +4648,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -84380400, 1)
 ,(@time_zone_id, -68659200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -26898, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -4749,7 +4749,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1550372400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13460, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -4763,7 +4763,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -4808,7 +4808,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 811904400, 2)
 ,(@time_zone_id, 820465200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -4480, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 0, '-03')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -4914,7 +4914,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1583661600, 7)
 ,(@time_zone_id, 1604214000, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -33460, 0, 'LMT')
 ,(@time_zone_id, 1, -28800, 1, 'YDT')
 ,(@time_zone_id, 2, -32400, 0, 'YST')
@@ -4988,7 +4988,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 73476000, 1)
 ,(@time_zone_id, 84013200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28856, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -5159,7 +5159,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25196, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -5312,7 +5312,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 5)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19931, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -5329,7 +5329,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -5490,7 +5490,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -27232, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -5536,7 +5536,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1384056000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16768, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, '-04')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -5553,7 +5553,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 578469600, 1)
 ,(@time_zone_id, 591166800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21408, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -5712,7 +5712,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 3)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28084, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -5868,7 +5868,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414918800, 2)
 ,(@time_zone_id, 1425808800, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -29447, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -5980,7 +5980,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20678, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -6034,7 +6034,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1013911200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -9240, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -6184,7 +6184,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 1)
 ,(@time_zone_id, 2140664400, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14388, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, 'ADT')
 ,(@time_zone_id, 2, -14400, 0, 'AST')
@@ -6314,7 +6314,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2140045200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -12416, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 0, '-03')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -6530,7 +6530,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 7)
 ,(@time_zone_id, 2140664400, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14500, 0, 'LMT')
 ,(@time_zone_id, 1, -12652, 0, 'NST')
 ,(@time_zone_id, 2, -9052, 1, 'NDT')
@@ -6663,7 +6663,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 3)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -17072, 0, 'LMT')
 ,(@time_zone_id, 1, -18430, 0, 'KMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -6680,7 +6680,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -6695,7 +6695,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -6715,7 +6715,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1146376800, 1)
 ,(@time_zone_id, 1159678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21724, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -6730,7 +6730,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 728884800, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19160, 0, 'LMT')
 ,(@time_zone_id, 1, -18840, 0, 'QMT')
 ,(@time_zone_id, 2, -14400, 1, '-04')
@@ -6746,7 +6746,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 701841600, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13959, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, '-04')
 ,(@time_zone_id, 2, -13500, 0, '-0345')
@@ -6986,7 +6986,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 1)
 ,(@time_zone_id, 2140664400, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15264, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, 'ADT')
 ,(@time_zone_id, 2, -14400, 0, 'AST')
@@ -7154,7 +7154,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120101200, 5)
 ,(@time_zone_id, 2140664400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19768, 0, 'LMT')
 ,(@time_zone_id, 1, -19776, 0, 'HMT')
 ,(@time_zone_id, 2, -14400, 1, 'CDT')
@@ -7182,7 +7182,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 891766800, 4)
 ,(@time_zone_id, 909302400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -26632, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -7294,7 +7294,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20678, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -7462,7 +7462,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20790, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -7579,7 +7579,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20723, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -7709,7 +7709,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20947, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -7821,7 +7821,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20823, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -7918,7 +7918,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20416, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -8033,7 +8033,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21007, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -8154,7 +8154,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20785, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -8267,7 +8267,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20678, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -8401,7 +8401,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 4)
 ,(@time_zone_id, 2140675200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -21600, 1, 'PDDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -8534,7 +8534,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 4)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -14400, 1, 'EPT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -8573,7 +8573,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 420015600, 3)
 ,(@time_zone_id, 436341600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -18430, 0, 'LMT')
 ,(@time_zone_id, 1, -18430, 0, 'KMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -8644,7 +8644,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15672, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -8800,7 +8800,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 7)
 ,(@time_zone_id, 2140682400, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 54139, 0, 'LMT')
 ,(@time_zone_id, 1, -28800, 0, 'PST')
 ,(@time_zone_id, 2, -25200, 1, 'PWT')
@@ -8994,7 +8994,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20582, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -9156,7 +9156,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 5)
 ,(@time_zone_id, 2140668000, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20364, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -9324,7 +9324,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20790, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -9342,7 +9342,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -9357,7 +9357,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1192307244, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16356, 0, 'LMT')
 ,(@time_zone_id, 1, -16356, 0, 'CMT')
 ,(@time_zone_id, 2, -12756, 1, 'BST')
@@ -9385,7 +9385,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 765172800, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -18492, 0, 'LMT')
 ,(@time_zone_id, 1, -18516, 0, 'LMT')
 ,(@time_zone_id, 2, -14400, 1, '-04')
@@ -9582,7 +9582,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 1)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28378, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -9772,7 +9772,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20582, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -9790,7 +9790,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -9843,7 +9843,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1013911200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -8572, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -9869,7 +9869,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1146384000, 4)
 ,(@time_zone_id, 1159682400, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20708, 0, 'LMT')
 ,(@time_zone_id, 1, -20712, 0, 'MMT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -9914,7 +9914,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 761713200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14404, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -9928,7 +9928,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -9943,7 +9943,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 323841600, 3)
 ,(@time_zone_id, 338958000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14660, 0, 'LMT')
 ,(@time_zone_id, 1, -14660, 0, 'FFMT')
 ,(@time_zone_id, 2, -14400, 0, 'AST')
@@ -10041,7 +10041,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 2)
 ,(@time_zone_id, 2140671600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -24000, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -18000, 1, 'CDT')
@@ -10144,7 +10144,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122534800, 4)
 ,(@time_zone_id, 2140070400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25540, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -10219,7 +10219,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1205632800, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16516, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -10375,7 +10375,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21027, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -10476,7 +10476,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122531200, 3)
 ,(@time_zone_id, 2140066800, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21508, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -10568,7 +10568,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 6)
 ,(@time_zone_id, 2140682400, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 54822, 0, 'LMT')
 ,(@time_zone_id, 1, -28800, 0, 'PST')
 ,(@time_zone_id, 2, -25200, 1, 'PWT')
@@ -10680,7 +10680,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122531200, 3)
 ,(@time_zone_id, 2140066800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -23796, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -10797,7 +10797,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2140660800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13480, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -11015,7 +11015,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 2)
 ,(@time_zone_id, 2140664400, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15548, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 0, 'EST')
 ,(@time_zone_id, 2, -10800, 1, 'ADT')
@@ -11115,7 +11115,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122531200, 2)
 ,(@time_zone_id, 2140066800, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -24076, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -18000, 1, 'CDT')
@@ -11212,7 +11212,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1425787200, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13491, 0, 'LMT')
 ,(@time_zone_id, 1, -13491, 0, 'MMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -11462,7 +11462,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19052, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -11478,7 +11478,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -11722,7 +11722,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19052, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -11970,7 +11970,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -17762, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -12117,7 +12117,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21184, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -12273,7 +12273,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 7)
 ,(@time_zone_id, 2140682400, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 46702, 0, 'LMT')
 ,(@time_zone_id, 1, -39600, 0, 'NST')
 ,(@time_zone_id, 2, -36000, 1, 'NWT')
@@ -12329,7 +12329,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1013907600, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -7780, 0, 'LMT')
 ,(@time_zone_id, 1, -3600, 1, '-01')
 ,(@time_zone_id, 2, -7200, 0, '-02')
@@ -12489,7 +12489,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 5)
 ,(@time_zone_id, 2140671600, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -24427, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -12653,7 +12653,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 5)
 ,(@time_zone_id, 2140671600, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -24312, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -12817,7 +12817,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 5)
 ,(@time_zone_id, 2140671600, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -24339, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -12949,7 +12949,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2140045200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -12416, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 0, '-03')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -13051,7 +13051,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 4)
 ,(@time_zone_id, 2140675200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25060, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -13066,7 +13066,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1946918424, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19088, 0, 'LMT')
 ,(@time_zone_id, 1, -19176, 0, 'CMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -13198,7 +13198,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -10800, 1, 'AWT')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -13222,7 +13222,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 465449400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13240, 0, 'LMT')
 ,(@time_zone_id, 1, -13252, 0, 'PMT')
 ,(@time_zone_id, 2, -13236, 0, 'PMT')
@@ -13245,7 +13245,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -84380400, 1)
 ,(@time_zone_id, -68659200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -26898, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -13342,7 +13342,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 2)
 ,(@time_zone_id, 2140668000, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -17360, 0, 'LMT')
 ,(@time_zone_id, 1, -17340, 0, 'PPMT')
 ,(@time_zone_id, 2, -14400, 1, 'EDT')
@@ -13359,7 +13359,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -13402,7 +13402,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1384056000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16272, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, '-04')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -13444,7 +13444,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 571201200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15336, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -13458,7 +13458,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -13586,7 +13586,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1480820400, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -17020, 0, 'LMT')
 ,(@time_zone_id, 1, -16965, 0, 'SMT')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -13736,7 +13736,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -22696, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -13867,7 +13867,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 3)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -14400, 1, 'CDDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -13920,7 +13920,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1013911200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -8376, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -13983,7 +13983,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -321465600, 2)
 ,(@time_zone_id, -305737200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25116, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -14115,7 +14115,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 3)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -14400, 1, 'CDDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -14160,7 +14160,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1384056000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16272, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, '-04')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -14234,7 +14234,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1237082400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15408, 0, 'LMT')
 ,(@time_zone_id, 1, -15408, 0, 'CMT')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -14396,7 +14396,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 3)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28084, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -14440,7 +14440,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1214280000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13128, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -14611,7 +14611,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2135822400, 6)
 ,(@time_zone_id, 2147483647, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16965, 0, 'LMT')
 ,(@time_zone_id, 1, -16965, 0, 'SMT')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -14643,7 +14643,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 972799200, 3)
 ,(@time_zone_id, 975823200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16776, 0, 'LMT')
 ,(@time_zone_id, 1, -16800, 0, 'SDMT')
 ,(@time_zone_id, 2, -14400, 1, 'EDT')
@@ -14748,7 +14748,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1550368800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -11188, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -14876,7 +14876,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2140045200, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -5272, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 0, '-02')
 ,(@time_zone_id, 2, -3600, 1, '-01')
@@ -15048,7 +15048,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25196, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -15203,7 +15203,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 6)
 ,(@time_zone_id, 2140682400, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 53927, 0, 'LMT')
 ,(@time_zone_id, 1, -28800, 0, 'PST')
 ,(@time_zone_id, 2, -25200, 1, 'PWT')
@@ -15222,7 +15222,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -15472,7 +15472,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120103000, 3)
 ,(@time_zone_id, 2140662600, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -12652, 0, 'LMT')
 ,(@time_zone_id, 1, -9052, 1, 'NDT')
 ,(@time_zone_id, 2, -12652, 0, 'NST')
@@ -15492,7 +15492,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -15507,7 +15507,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -15522,7 +15522,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -15537,7 +15537,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -15571,7 +15571,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -260985600, 2)
 ,(@time_zone_id, 73472400, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25880, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -15591,7 +15591,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1146981600, 1)
 ,(@time_zone_id, 1154926800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20932, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -15696,7 +15696,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 1)
 ,(@time_zone_id, 2140664400, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16508, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, 'ADT')
 ,(@time_zone_id, 2, -14400, 0, 'AST')
@@ -15845,7 +15845,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 5)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21420, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -16007,7 +16007,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 3)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28084, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -16253,7 +16253,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19052, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -16269,7 +16269,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -16470,7 +16470,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 1)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -29548, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -16486,7 +16486,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -769395600, 2)
 ,(@time_zone_id, -765399600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15865, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 0, 'AST')
 ,(@time_zone_id, 2, -10800, 1, 'APT')
@@ -16590,7 +16590,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1583661600, 7)
 ,(@time_zone_id, 1604214000, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -32412, 0, 'LMT')
 ,(@time_zone_id, 1, -28800, 1, 'YDT')
 ,(@time_zone_id, 2, -32400, 0, 'YST')
@@ -16792,7 +16792,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -23316, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -16949,7 +16949,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 5)
 ,(@time_zone_id, 2140682400, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 52865, 0, 'LMT')
 ,(@time_zone_id, 1, -32400, 0, 'YST')
 ,(@time_zone_id, 2, -28800, 1, 'YWT')
@@ -17085,7 +17085,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 5)
 ,(@time_zone_id, 2140675200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -21600, 1, 'MWT')
 ,(@time_zone_id, 2, -21600, 1, 'MPT')
@@ -17111,7 +17111,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1601740860, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 28800, 0, '+08')
 ,(@time_zone_id, 2, 39600, 0, '+11')
@@ -17131,7 +17131,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1329854400, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 25200, 0, '+07')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -17144,7 +17144,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 35320, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ;
@@ -17297,7 +17297,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 3)
 ,(@time_zone_id, 2138198400, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 36000, 0, 'AEST')
 ,(@time_zone_id, 2, 39600, 1, 'AEDT')
@@ -17314,7 +17314,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1255809600, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -17480,7 +17480,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122466400, 5)
 ,(@time_zone_id, 2137586400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 41944, 0, 'LMT')
 ,(@time_zone_id, 1, 45000, 1, 'NZST')
 ,(@time_zone_id, 2, 41400, 0, 'NZMT')
@@ -17577,7 +17577,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1480820400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -14400, 0, '-04')
 ,(@time_zone_id, 2, -10800, 1, '-03')
@@ -17594,7 +17594,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, 218246400, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -10800, 0, '-03')
 ;
@@ -17759,7 +17759,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122466400, 5)
 ,(@time_zone_id, 2137586400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 41944, 0, 'LMT')
 ,(@time_zone_id, 1, 45000, 1, 'NZST')
 ,(@time_zone_id, 2, 41400, 0, 'NZMT')
@@ -17775,7 +17775,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -719636812, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11212, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ;
@@ -17852,7 +17852,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2140045200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 7200, 1, '+02')
 ,(@time_zone_id, 2, 0, 0, '+00')
@@ -17865,7 +17865,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -380073600, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ;
@@ -18015,7 +18015,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2580, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -18031,7 +18031,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -719636812, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11212, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ;
@@ -18092,7 +18092,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1099166400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 18468, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ,(@time_zone_id, 2, 25200, 1, '+07')
@@ -18226,7 +18226,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2119298400, 1)
 ,(@time_zone_id, 2140466400, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8624, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -18303,7 +18303,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301151600, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 42596, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 0, '+12')
 ,(@time_zone_id, 2, 50400, 1, '+14')
@@ -18371,7 +18371,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1099173600, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12064, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -18440,7 +18440,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1099170000, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 13720, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -18484,7 +18484,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 695772000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 14012, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 21600, 1, '+06')
@@ -18526,7 +18526,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 695772000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 14012, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 21600, 1, '+06')
@@ -18593,7 +18593,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1099173600, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12464, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -18665,7 +18665,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1191196800, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 10660, 0, 'LMT')
 ,(@time_zone_id, 1, 10656, 0, 'BMT')
 ,(@time_zone_id, 2, 10800, 0, '+03')
@@ -18681,7 +18681,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 76190400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12368, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 10800, 0, '+03')
@@ -18758,7 +18758,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1445731200, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11964, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 1, '+05')
@@ -18778,7 +18778,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1570084924, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 24124, 0, 'LMT')
 ,(@time_zone_id, 1, 24124, 0, 'BMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -18856,7 +18856,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1459022400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 20100, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 28800, 1, '+08')
@@ -19014,7 +19014,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121890400, 1)
 ,(@time_zone_id, 2140030800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8520, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -19077,7 +19077,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1123783200, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 17904, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ,(@time_zone_id, 2, 25200, 1, '+07')
@@ -19095,7 +19095,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1167636600, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27580, 0, 'LMT')
 ,(@time_zone_id, 1, 27000, 0, '+0730')
 ,(@time_zone_id, 2, 28800, 0, '+08')
@@ -19111,7 +19111,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -862637400, 3)
 ,(@time_zone_id, -764145000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21208, 0, 'LMT')
 ,(@time_zone_id, 1, 19270, 0, 'MMT')
 ,(@time_zone_id, 2, 19800, 0, 'IST')
@@ -19189,7 +19189,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1459015200, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27232, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, '+08')
 ,(@time_zone_id, 2, 36000, 1, '+10')
@@ -19259,7 +19259,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1474642800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27480, 0, 'LMT')
 ,(@time_zone_id, 1, 25200, 0, '+07')
 ,(@time_zone_id, 2, 28800, 0, '+08')
@@ -19302,7 +19302,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 671565600, 1)
 ,(@time_zone_id, 684867600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29143, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'CDT')
 ,(@time_zone_id, 2, 28800, 0, 'CST')
@@ -19341,7 +19341,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 671565600, 1)
 ,(@time_zone_id, 684867600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29143, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'CDT')
 ,(@time_zone_id, 2, 28800, 0, 'CST')
@@ -19360,7 +19360,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1145039400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 19164, 0, 'LMT')
 ,(@time_zone_id, 1, 19172, 0, 'MMT')
 ,(@time_zone_id, 2, 19800, 0, '+0530')
@@ -19383,7 +19383,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1262278800, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21700, 0, 'LMT')
 ,(@time_zone_id, 1, 21200, 0, 'HMT')
 ,(@time_zone_id, 2, 23400, 0, '+0630')
@@ -19547,7 +19547,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121717600, 1)
 ,(@time_zone_id, 2140462800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8712, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -19565,7 +19565,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1262278800, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21700, 0, 'LMT')
 ,(@time_zone_id, 1, 21200, 0, 'HMT')
 ,(@time_zone_id, 2, 23400, 0, '+0630')
@@ -19583,7 +19583,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 969120000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 30140, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, '+08')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -19595,7 +19595,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1577936472, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 13272, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ;
@@ -19629,7 +19629,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 684363600, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 16512, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ,(@time_zone_id, 2, 25200, 1, '+07')
@@ -19770,7 +19770,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 4)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8148, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -19934,7 +19934,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121890400, 4)
 ,(@time_zone_id, 2139861600, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8272, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -19980,7 +19980,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 671565600, 1)
 ,(@time_zone_id, 684867600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29143, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'CDT')
 ,(@time_zone_id, 2, 28800, 0, 'CST')
@@ -20142,7 +20142,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121890400, 4)
 ,(@time_zone_id, 2139861600, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8423, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -20169,7 +20169,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 171820800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25600, 0, 'LMT')
 ,(@time_zone_id, 1, 25590, 0, 'PLMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -20251,7 +20251,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 295385400, 2)
 ,(@time_zone_id, 309292200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27402, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, 'HKT')
 ,(@time_zone_id, 2, 32400, 1, 'HKST')
@@ -20316,7 +20316,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1474646400, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21996, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 28800, 1, '+08')
@@ -20394,7 +20394,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414256400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25025, 0, 'LMT')
 ,(@time_zone_id, 1, 25025, 0, 'IMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -20529,7 +20529,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1473195600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6952, 0, 'LMT')
 ,(@time_zone_id, 1, 7016, 0, 'IMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -20555,7 +20555,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -620812800, 3)
 ,(@time_zone_id, -189415800, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25632, 0, 'LMT')
 ,(@time_zone_id, 1, 25632, 0, 'BMT')
 ,(@time_zone_id, 2, 26400, 0, '+0720')
@@ -20572,7 +20572,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -799491600, 2)
 ,(@time_zone_id, -189423000, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33768, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 0, '+09')
 ,(@time_zone_id, 2, 34200, 0, '+0930')
@@ -20732,7 +20732,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121724800, 5)
 ,(@time_zone_id, 2140038000, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8454, 0, 'LMT')
 ,(@time_zone_id, 1, 8440, 0, 'JMT')
 ,(@time_zone_id, 2, 10800, 1, 'IDT')
@@ -20751,7 +20751,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -788932800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 16608, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 16200, 0, '+0430')
@@ -20826,7 +20826,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301151600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 38076, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 46800, 1, '+13')
@@ -20853,7 +20853,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1239735600, 4)
 ,(@time_zone_id, 1257012000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 16092, 0, 'LMT')
 ,(@time_zone_id, 1, 19800, 0, '+0530')
 ,(@time_zone_id, 2, 23400, 1, '+0630')
@@ -20868,7 +20868,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1325483420, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21020, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ;
@@ -20880,7 +20880,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 504901800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 20476, 0, 'LMT')
 ,(@time_zone_id, 1, 19800, 0, '+0530')
 ,(@time_zone_id, 2, 20700, 0, '+0545')
@@ -20893,7 +20893,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 504901800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 20476, 0, 'LMT')
 ,(@time_zone_id, 1, 19800, 0, '+0530')
 ,(@time_zone_id, 2, 20700, 0, '+0545')
@@ -20971,7 +20971,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414252800, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 32533, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, '+08')
 ,(@time_zone_id, 2, 36000, 1, '+10')
@@ -20997,7 +20997,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -862637400, 3)
 ,(@time_zone_id, -764145000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21208, 0, 'LMT')
 ,(@time_zone_id, 1, 19270, 0, 'MMT')
 ,(@time_zone_id, 2, 19800, 0, 'IST')
@@ -21074,7 +21074,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414260000, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 22286, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 28800, 1, '+08')
@@ -21101,7 +21101,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 378664200, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 24406, 0, 'LMT')
 ,(@time_zone_id, 1, 24925, 0, 'SMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -21135,7 +21135,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -767005200, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 26480, 0, 'LMT')
 ,(@time_zone_id, 1, 27000, 0, '+0730')
 ,(@time_zone_id, 2, 30000, 1, '+0820')
@@ -21150,7 +21150,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -719636812, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11212, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ;
@@ -21230,7 +21230,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 295385400, 6)
 ,(@time_zone_id, 309292200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27250, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, 'CST')
 ,(@time_zone_id, 2, 36000, 1, '+10')
@@ -21315,7 +21315,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 295385400, 6)
 ,(@time_zone_id, 309292200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27250, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, 'CST')
 ,(@time_zone_id, 2, 36000, 1, '+10')
@@ -21396,7 +21396,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1461427200, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36192, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ,(@time_zone_id, 2, 43200, 1, '+12')
@@ -21418,7 +21418,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -880272000, 3)
 ,(@time_zone_id, -766054800, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 28656, 0, 'LMT')
 ,(@time_zone_id, 1, 28656, 0, 'MMT')
 ,(@time_zone_id, 2, 28800, 0, '+08')
@@ -21439,7 +21439,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 259344000, 1)
 ,(@time_zone_id, 275151600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -57360, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'PDT')
 ,(@time_zone_id, 2, 28800, 0, 'PST')
@@ -21453,7 +21453,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1577936472, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 13272, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ;
@@ -21589,7 +21589,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 4)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8008, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -21666,7 +21666,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301169600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 20928, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 28800, 1, '+08')
@@ -21750,7 +21750,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1469304000, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 19900, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 28800, 1, '+08')
@@ -21833,7 +21833,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414263600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 17610, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ,(@time_zone_id, 2, 25200, 1, '+07')
@@ -21903,7 +21903,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1099173600, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12324, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -21923,7 +21923,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1570084924, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 24124, 0, 'LMT')
 ,(@time_zone_id, 1, 24124, 0, 'BMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -21941,7 +21941,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -189415800, 5)
 ,(@time_zone_id, 567964800, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 26240, 0, 'LMT')
 ,(@time_zone_id, 1, 26240, 0, 'PMT')
 ,(@time_zone_id, 2, 27000, 0, '+0730')
@@ -21960,7 +21960,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1439564400, 1)
 ,(@time_zone_id, 1525446000, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 30180, 0, 'LMT')
 ,(@time_zone_id, 1, 30600, 0, 'KST')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -21974,7 +21974,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 76190400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12368, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 10800, 0, '+03')
@@ -22036,7 +22036,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1099170000, 9)
 ,(@time_zone_id, 2147483647, 9)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 15268, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -22107,7 +22107,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1545328800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 15712, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -22130,7 +22130,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -778410000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 23087, 0, 'LMT')
 ,(@time_zone_id, 1, 23087, 0, 'RMT')
 ,(@time_zone_id, 2, 23400, 0, '+0630')
@@ -22144,7 +22144,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -719636812, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11212, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ;
@@ -22163,7 +22163,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 171820800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25600, 0, 'LMT')
 ,(@time_zone_id, 1, 25590, 0, 'PLMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -22243,7 +22243,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1459008000, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 34248, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 0, '+09')
 ,(@time_zone_id, 2, 43200, 1, '+12')
@@ -22284,7 +22284,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 686091600, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 16073, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -22327,7 +22327,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 579027600, 3)
 ,(@time_zone_id, 592333200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 30472, 0, 'LMT')
 ,(@time_zone_id, 1, 30600, 0, 'KST')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -22370,7 +22370,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 671565600, 1)
 ,(@time_zone_id, 684867600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29143, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'CDT')
 ,(@time_zone_id, 2, 28800, 0, 'CST')
@@ -22389,7 +22389,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 378664200, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 24925, 0, 'LMT')
 ,(@time_zone_id, 1, 24925, 0, 'SMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -22470,7 +22470,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414245600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36892, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ,(@time_zone_id, 2, 43200, 1, '+12')
@@ -22529,7 +22529,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 299606400, 3)
 ,(@time_zone_id, 307551600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29160, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, 'CST')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -22566,7 +22566,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 686091600, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 16631, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ,(@time_zone_id, 2, 25200, 1, '+07')
@@ -22634,7 +22634,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1111878000, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 10751, 0, 'LMT')
 ,(@time_zone_id, 1, 10751, 0, 'TBMT')
 ,(@time_zone_id, 2, 10800, 0, '+03')
@@ -22752,7 +22752,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121193800, 5)
 ,(@time_zone_id, 2137087800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12344, 0, 'LMT')
 ,(@time_zone_id, 1, 12344, 0, 'TMT')
 ,(@time_zone_id, 2, 12600, 0, '+0330')
@@ -22915,7 +22915,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121724800, 5)
 ,(@time_zone_id, 2140038000, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8454, 0, 'LMT')
 ,(@time_zone_id, 1, 8440, 0, 'JMT')
 ,(@time_zone_id, 2, 10800, 1, 'IDT')
@@ -22934,7 +22934,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 560025000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21516, 0, 'LMT')
 ,(@time_zone_id, 1, 19800, 0, '+0530')
 ,(@time_zone_id, 2, 21600, 0, '+06')
@@ -22947,7 +22947,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 560025000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21516, 0, 'LMT')
 ,(@time_zone_id, 1, 19800, 0, '+0530')
 ,(@time_zone_id, 2, 21600, 0, '+06')
@@ -22966,7 +22966,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -588848400, 1)
 ,(@time_zone_id, -577962000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33539, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 1, 'JDT')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -23045,7 +23045,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1464465600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 20391, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ,(@time_zone_id, 2, 28800, 1, '+08')
@@ -23066,7 +23066,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -880272000, 3)
 ,(@time_zone_id, -766054800, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 28656, 0, 'LMT')
 ,(@time_zone_id, 1, 28656, 0, 'MMT')
 ,(@time_zone_id, 2, 28800, 0, '+08')
@@ -23129,7 +23129,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1474642800, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25652, 0, 'LMT')
 ,(@time_zone_id, 1, 25200, 0, '+07')
 ,(@time_zone_id, 2, 32400, 1, '+09')
@@ -23191,7 +23191,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1474642800, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25652, 0, 'LMT')
 ,(@time_zone_id, 1, 25200, 0, '+07')
 ,(@time_zone_id, 2, 32400, 1, '+09')
@@ -23204,7 +23204,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1325483420, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21020, 0, 'LMT')
 ,(@time_zone_id, 1, 21600, 0, '+06')
 ;
@@ -23280,7 +23280,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414249200, 8)
 ,(@time_zone_id, 2147483647, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 34374, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, '+08')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -23302,7 +23302,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1570084924, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 24124, 0, 'LMT')
 ,(@time_zone_id, 1, 24124, 0, 'BMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -23378,7 +23378,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414249200, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 31651, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 0, '+09')
 ,(@time_zone_id, 2, 39600, 1, '+11')
@@ -23462,7 +23462,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414252800, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 31138, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, '+08')
 ,(@time_zone_id, 2, 36000, 1, '+10')
@@ -23485,7 +23485,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -778410000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 23087, 0, 'LMT')
 ,(@time_zone_id, 1, 23087, 0, 'RMT')
 ,(@time_zone_id, 2, 23400, 0, '+0630')
@@ -23564,7 +23564,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414267200, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 14553, 0, 'LMT')
 ,(@time_zone_id, 1, 13505, 0, 'PMT')
 ,(@time_zone_id, 2, 14400, 0, '+04')
@@ -23646,7 +23646,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1319925600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 10680, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 1, '+05')
@@ -23887,7 +23887,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2140045200, 12)
 ,(@time_zone_id, 2147483647, 12)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -6160, 0, 'LMT')
 ,(@time_zone_id, 1, -6872, 0, 'HMT')
 ,(@time_zone_id, 2, -3600, 1, '-01')
@@ -24063,7 +24063,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 3)
 ,(@time_zone_id, 2140664400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15558, 0, 'LMT')
 ,(@time_zone_id, 1, -11958, 1, 'BST')
 ,(@time_zone_id, 2, -15558, 0, 'BMT')
@@ -24193,7 +24193,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -3696, 0, 'LMT')
 ,(@time_zone_id, 1, -3600, 0, '-01')
 ,(@time_zone_id, 2, 0, 0, 'WET')
@@ -24211,7 +24211,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 186120000, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -5644, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 0, '-02')
 ,(@time_zone_id, 2, -3600, 1, '-01')
@@ -24338,7 +24338,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 2)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1624, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'WET')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -24464,7 +24464,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 2)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1624, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'WET')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -24616,7 +24616,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2580, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -24853,7 +24853,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 12)
 ,(@time_zone_id, 2140045200, 11)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -4056, 0, 'LMT')
 ,(@time_zone_id, 1, -4056, 0, 'FMT')
 ,(@time_zone_id, 2, 0, 1, '+00')
@@ -24941,7 +24941,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -68680800, 3)
 ,(@time_zone_id, -54770400, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -5280, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 1, '+00')
 ,(@time_zone_id, 2, -3600, 0, '-01')
@@ -24956,7 +24956,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -8768, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 0, '-02')
 ;
@@ -24966,7 +24966,7 @@ INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Atlantic/St_Helena', @t
 INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type_id) VALUES
  (@time_zone_id, -1830383032, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -968, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'GMT')
 ;
@@ -25046,7 +25046,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1283666400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -13884, 0, 'LMT')
 ,(@time_zone_id, 1, -13884, 0, 'SMT')
 ,(@time_zone_id, 2, -10800, 1, '-03')
@@ -25202,7 +25202,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36292, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -25355,7 +25355,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122475400, 2)
 ,(@time_zone_id, 2138200200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33260, 0, 'LMT')
 ,(@time_zone_id, 1, 37800, 1, 'ACDT')
 ,(@time_zone_id, 2, 34200, 0, 'ACST')
@@ -25383,7 +25383,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 688492800, 1)
 ,(@time_zone_id, 699379200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36728, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -25536,7 +25536,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122475400, 2)
 ,(@time_zone_id, 2138200200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33948, 0, 'LMT')
 ,(@time_zone_id, 1, 37800, 1, 'ACDT')
 ,(@time_zone_id, 2, 34200, 0, 'ACST')
@@ -25689,7 +25689,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36292, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -25854,7 +25854,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 35356, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -25874,7 +25874,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -828343800, 1)
 ,(@time_zone_id, -813223800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 31400, 0, 'LMT')
 ,(@time_zone_id, 1, 37800, 1, 'ACDT')
 ,(@time_zone_id, 2, 34200, 0, 'ACST')
@@ -25905,7 +25905,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1238260500, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 30928, 0, 'LMT')
 ,(@time_zone_id, 1, 35100, 1, '+0945')
 ,(@time_zone_id, 2, 31500, 0, '+0845')
@@ -26070,7 +26070,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 35356, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -26197,7 +26197,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2138196600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 38180, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, 'AEST')
 ,(@time_zone_id, 2, 41400, 1, '+1130')
@@ -26230,7 +26230,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 751996800, 1)
 ,(@time_zone_id, 762883200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 35756, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -26357,7 +26357,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2138196600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 38180, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, 'AEST')
 ,(@time_zone_id, 2, 41400, 1, '+1130')
@@ -26511,7 +26511,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 34792, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -26664,7 +26664,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36292, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -26684,7 +26684,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -828343800, 1)
 ,(@time_zone_id, -813223800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 31400, 0, 'LMT')
 ,(@time_zone_id, 1, 37800, 1, 'ACDT')
 ,(@time_zone_id, 2, 34200, 0, 'ACST')
@@ -26714,7 +26714,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1224957600, 1)
 ,(@time_zone_id, 1238263200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27804, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'AWDT')
 ,(@time_zone_id, 2, 28800, 0, 'AWST')
@@ -26742,7 +26742,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 688492800, 1)
 ,(@time_zone_id, 699379200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36728, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -26895,7 +26895,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122475400, 2)
 ,(@time_zone_id, 2138200200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33260, 0, 'LMT')
 ,(@time_zone_id, 1, 37800, 1, 'ACDT')
 ,(@time_zone_id, 2, 34200, 0, 'ACST')
@@ -27048,7 +27048,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36292, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -27213,7 +27213,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 35356, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -27366,7 +27366,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122473600, 2)
 ,(@time_zone_id, 2138198400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 34792, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 1, 'AEDT')
 ,(@time_zone_id, 2, 36000, 0, 'AEST')
@@ -27396,7 +27396,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1224957600, 1)
 ,(@time_zone_id, 1238263200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27804, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'AWDT')
 ,(@time_zone_id, 2, 28800, 0, 'AWST')
@@ -27549,7 +27549,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122475400, 2)
 ,(@time_zone_id, 2138200200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33948, 0, 'LMT')
 ,(@time_zone_id, 1, 37800, 1, 'ACDT')
 ,(@time_zone_id, 2, 34200, 0, 'ACST')
@@ -27592,7 +27592,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1384056000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16272, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, '-04')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -27644,7 +27644,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1013907600, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -7780, 0, 'LMT')
 ,(@time_zone_id, 1, -3600, 1, '-01')
 ,(@time_zone_id, 2, -7200, 0, '-02')
@@ -27746,7 +27746,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1550368800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -11188, 0, 'LMT')
 ,(@time_zone_id, 1, -7200, 1, '-02')
 ,(@time_zone_id, 2, -10800, 0, '-03')
@@ -27788,7 +27788,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 761713200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14404, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, '-03')
 ,(@time_zone_id, 2, -14400, 0, '-04')
@@ -27934,7 +27934,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 2)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3600, 0, 'CET')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -28094,7 +28094,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 0)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21600, 0, 'CST')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -18000, 1, 'CWT')
@@ -28334,7 +28334,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120104800, 1)
 ,(@time_zone_id, 2140664400, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -15264, 0, 'LMT')
 ,(@time_zone_id, 1, -10800, 1, 'ADT')
 ,(@time_zone_id, 2, -14400, 0, 'AST')
@@ -28532,7 +28532,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -23316, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -28779,7 +28779,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19052, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -28941,7 +28941,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -27232, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -29192,7 +29192,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120103000, 3)
 ,(@time_zone_id, 2140662600, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -12652, 0, 'LMT')
 ,(@time_zone_id, 1, -9052, 1, 'NDT')
 ,(@time_zone_id, 2, -12652, 0, 'NST')
@@ -29398,7 +29398,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 1)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -29548, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -29463,7 +29463,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -321465600, 2)
 ,(@time_zone_id, -305737200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25116, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -29569,7 +29569,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1583661600, 7)
 ,(@time_zone_id, 1604214000, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -32412, 0, 'LMT')
 ,(@time_zone_id, 1, -28800, 1, 'YDT')
 ,(@time_zone_id, 2, -32400, 0, 'YST')
@@ -29745,7 +29745,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2135822400, 6)
 ,(@time_zone_id, 2147483647, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -16965, 0, 'LMT')
 ,(@time_zone_id, 1, -16965, 0, 'SMT')
 ,(@time_zone_id, 2, -18000, 0, '-05')
@@ -29900,7 +29900,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2135822400, 6)
 ,(@time_zone_id, 2147483647, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -26248, 0, 'LMT')
 ,(@time_zone_id, 1, -26248, 0, 'EMT')
 ,(@time_zone_id, 2, -21600, 1, '-06')
@@ -30070,7 +30070,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120101200, 5)
 ,(@time_zone_id, 2140664400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19768, 0, 'LMT')
 ,(@time_zone_id, 1, -19776, 0, 'HMT')
 ,(@time_zone_id, 2, -14400, 1, 'CDT')
@@ -30205,7 +30205,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 1)
 ,(@time_zone_id, 2140045200, 0)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7200, 0, 'EET')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -30214,7 +30214,7 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('EST', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -18000, 0, 'EST')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -30371,7 +30371,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 0)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -18000, 0, 'EST')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -14400, 1, 'EWT')
@@ -30510,7 +30510,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1406844000, 1)
 ,(@time_zone_id, 1411678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7509, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -30749,7 +30749,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 7)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1500, 0, 'LMT')
 ,(@time_zone_id, 1, -1521, 0, 'DMT')
 ,(@time_zone_id, 2, 2079, 1, 'IST')
@@ -30763,211 +30763,211 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+0', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+1', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -3600, 0, '-01')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+10', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -36000, 0, '-10')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+11', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -39600, 0, '-11')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+12', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -43200, 0, '-12')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+2', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -7200, 0, '-02')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+3', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -10800, 0, '-03')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+4', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -14400, 0, '-04')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+5', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -18000, 0, '-05')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+6', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21600, 0, '-06')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+7', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25200, 0, '-07')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+8', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28800, 0, '-08')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT+9', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -32400, 0, '-09')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-0', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-1', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3600, 0, '+01')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-10', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 36000, 0, '+10')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-11', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 39600, 0, '+11')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-12', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 43200, 0, '+12')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-13', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 46800, 0, '+13')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-14', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 50400, 0, '+14')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-2', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7200, 0, '+02')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-3', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 10800, 0, '+03')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-4', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 14400, 0, '+04')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-5', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 18000, 0, '+05')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-6', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 21600, 0, '+06')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-7', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25200, 0, '+07')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-8', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 28800, 0, '+08')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT-9', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 32400, 0, '+09')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/GMT0', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/Greenwich', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/UCT', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/UTC', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/Universal', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Etc/Zulu', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -31155,7 +31155,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 11)
 ,(@time_zone_id, 2140045200, 12)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 1172, 0, 'LMT')
 ,(@time_zone_id, 1, 4772, 1, 'NST')
 ,(@time_zone_id, 2, 1172, 0, 'AMT')
@@ -31283,7 +31283,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 3)
 ,(@time_zone_id, 2140045200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 364, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'WET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -31360,7 +31360,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1459033200, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11532, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 1, '+05')
@@ -31514,7 +31514,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 8)
 ,(@time_zone_id, 2140045200, 9)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5692, 0, 'LMT')
 ,(@time_zone_id, 1, 5692, 0, 'AMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -31773,7 +31773,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -31906,7 +31906,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -32063,7 +32063,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 7)
 ,(@time_zone_id, 2140045200, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3208, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -32222,7 +32222,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 6)
 ,(@time_zone_id, 2140045200, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3464, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -32421,7 +32421,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 9)
 ,(@time_zone_id, 2140045200, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 1050, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 0, 'WET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -32575,7 +32575,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 6)
 ,(@time_zone_id, 2140045200, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6264, 0, 'LMT')
 ,(@time_zone_id, 1, 6264, 0, 'BMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -32741,7 +32741,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4580, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -32874,7 +32874,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 3)
 ,(@time_zone_id, 2140045200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2048, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -33027,7 +33027,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121897600, 6)
 ,(@time_zone_id, 2140041600, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6920, 0, 'LMT')
 ,(@time_zone_id, 1, 6900, 0, 'CMT')
 ,(@time_zone_id, 2, 6264, 0, 'BMT')
@@ -33183,7 +33183,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3020, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -33425,7 +33425,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 7)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1500, 0, 'LMT')
 ,(@time_zone_id, 1, -1521, 0, 'DMT')
 ,(@time_zone_id, 2, 2079, 1, 'IST')
@@ -33639,7 +33639,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -1284, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -33895,7 +33895,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -34027,7 +34027,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 4)
 ,(@time_zone_id, 2140045200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5989, 0, 'LMT')
 ,(@time_zone_id, 1, 5989, 0, 'HMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -34282,7 +34282,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -34412,7 +34412,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1473195600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6952, 0, 'LMT')
 ,(@time_zone_id, 1, 7016, 0, 'IMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -34672,7 +34672,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -34766,7 +34766,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301184000, 13)
 ,(@time_zone_id, 1414278000, 12)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -34909,7 +34909,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 14)
 ,(@time_zone_id, 2140045200, 13)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 7324, 0, 'LMT')
 ,(@time_zone_id, 1, 7324, 0, 'KMT')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -34995,7 +34995,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1414274400, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11928, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 1, '+05')
@@ -35234,7 +35234,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 10)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -2205, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'WEST')
 ,(@time_zone_id, 2, 0, 0, 'WET')
@@ -35372,7 +35372,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -35628,7 +35628,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -35825,7 +35825,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 12)
 ,(@time_zone_id, 2140045200, 13)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 1476, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -36008,7 +36008,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 9)
 ,(@time_zone_id, 2140045200, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -884, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'WEST')
 ,(@time_zone_id, 2, 0, 0, 'WET')
@@ -36195,7 +36195,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3484, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -36327,7 +36327,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 4)
 ,(@time_zone_id, 2140045200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5989, 0, 'LMT')
 ,(@time_zone_id, 1, 5989, 0, 'HMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -36409,7 +36409,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301184000, 12)
 ,(@time_zone_id, 2147483647, 12)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6616, 0, 'LMT')
 ,(@time_zone_id, 1, 6600, 0, 'MMT')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -36614,7 +36614,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 9)
 ,(@time_zone_id, 2140045200, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 1772, 0, 'LMT')
 ,(@time_zone_id, 1, 561, 0, 'PMT')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -36710,7 +36710,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301180400, 14)
 ,(@time_zone_id, 1414274400, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 9017, 0, 'LMT')
 ,(@time_zone_id, 1, 9017, 0, 'MMT')
 ,(@time_zone_id, 2, 12679, 1, 'MST')
@@ -36861,7 +36861,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 4)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8008, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 1, 'EEST')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -37014,7 +37014,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2580, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -37212,7 +37212,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 11)
 ,(@time_zone_id, 2140045200, 12)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 561, 0, 'LMT')
 ,(@time_zone_id, 1, 561, 0, 'PMT')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -37351,7 +37351,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -37508,7 +37508,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 6)
 ,(@time_zone_id, 2140045200, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3464, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -37649,7 +37649,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 13)
 ,(@time_zone_id, 2140045200, 14)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5794, 0, 'LMT')
 ,(@time_zone_id, 1, 5794, 0, 'RMT')
 ,(@time_zone_id, 2, 9394, 1, 'LST')
@@ -37840,7 +37840,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2996, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -37919,7 +37919,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301180400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12020, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 14400, 0, '+04')
@@ -38106,7 +38106,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2996, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -38239,7 +38239,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -38318,7 +38318,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1480806000, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11058, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 1, '+05')
@@ -38409,7 +38409,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1396137600, 14)
 ,(@time_zone_id, 1414274400, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8184, 0, 'LMT')
 ,(@time_zone_id, 1, 8160, 0, 'SMT')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -38551,7 +38551,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -38690,7 +38690,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 7)
 ,(@time_zone_id, 2140045200, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5596, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 0, 'EET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -38825,7 +38825,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 3)
 ,(@time_zone_id, 2140045200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4332, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -38960,7 +38960,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 14)
 ,(@time_zone_id, 2140045200, 13)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5940, 0, 'LMT')
 ,(@time_zone_id, 1, 5940, 0, 'TMT')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -39115,7 +39115,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 4)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4760, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -39268,7 +39268,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121897600, 6)
 ,(@time_zone_id, 2140041600, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6920, 0, 'LMT')
 ,(@time_zone_id, 1, 6900, 0, 'CMT')
 ,(@time_zone_id, 2, 6264, 0, 'BMT')
@@ -39358,7 +39358,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1459033200, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 11616, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 18000, 1, '+05')
@@ -39497,7 +39497,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 12)
 ,(@time_zone_id, 2140045200, 11)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5352, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -39636,7 +39636,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 3)
 ,(@time_zone_id, 2140045200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2048, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -39817,7 +39817,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2996, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -39970,7 +39970,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3921, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -40104,7 +40104,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 17)
 ,(@time_zone_id, 2140045200, 16)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6076, 0, 'LMT')
 ,(@time_zone_id, 1, 5040, 0, 'WMT')
 ,(@time_zone_id, 2, 5736, 0, 'KMT')
@@ -40195,7 +40195,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1609020000, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 10660, 0, 'LMT')
 ,(@time_zone_id, 1, 10800, 0, '+03')
 ,(@time_zone_id, 2, 14400, 0, '+04')
@@ -40375,7 +40375,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 9)
 ,(@time_zone_id, 2140045200, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5040, 0, 'LMT')
 ,(@time_zone_id, 1, 5040, 0, 'WMT')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -40512,7 +40512,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 4920, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 0, 'CET')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -40648,7 +40648,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 14)
 ,(@time_zone_id, 2140045200, 13)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8440, 0, 'LMT')
 ,(@time_zone_id, 1, 8400, 0, '+0220')
 ,(@time_zone_id, 2, 7200, 0, 'EET')
@@ -40789,7 +40789,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 3)
 ,(@time_zone_id, 2140045200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 2048, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -40799,7 +40799,7 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Factory', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -41049,7 +41049,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -41305,7 +41305,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 5)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -75, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'BST')
 ,(@time_zone_id, 2, 0, 0, 'GMT')
@@ -41317,37 +41317,37 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('GMT', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('GMT+0', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('GMT-0', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('GMT0', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Greenwich', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'GMT')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('HST', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -36000, 0, 'HST')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -41424,7 +41424,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 295385400, 2)
 ,(@time_zone_id, 309292200, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 27402, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, 'HKT')
 ,(@time_zone_id, 2, 32400, 1, 'HKST')
@@ -41506,7 +41506,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -68680800, 3)
 ,(@time_zone_id, -54770400, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -5280, 0, 'LMT')
 ,(@time_zone_id, 1, 0, 1, '+00')
 ,(@time_zone_id, 2, -3600, 0, '-01')
@@ -41524,7 +41524,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -41539,7 +41539,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 820436400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 17380, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ,(@time_zone_id, 2, 21600, 0, '+06')
@@ -41551,7 +41551,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 25372, 0, 'LMT')
 ,(@time_zone_id, 1, 25200, 0, '+07')
 ;
@@ -41562,7 +41562,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 23260, 0, 'LMT')
 ,(@time_zone_id, 1, 23400, 0, '+0630')
 ;
@@ -41576,7 +41576,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -41590,7 +41590,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -631152000, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, 18000, 0, '+05')
 ;
@@ -41601,7 +41601,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1988163708, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 13308, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ;
@@ -41613,7 +41613,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -315636840, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 17640, 0, 'LMT')
 ,(@time_zone_id, 1, 17640, 0, 'MMT')
 ,(@time_zone_id, 2, 18000, 0, '+05')
@@ -41629,7 +41629,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1238274000, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 13800, 0, 'LMT')
 ,(@time_zone_id, 1, 18000, 1, '+05')
 ,(@time_zone_id, 2, 14400, 0, '+04')
@@ -41644,7 +41644,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -1041388200, 3)
 ,(@time_zone_id, -865305900, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8836, 0, 'LMT')
 ,(@time_zone_id, 1, 9000, 0, '+0230')
 ,(@time_zone_id, 2, 10800, 0, 'EAT')
@@ -41658,7 +41658,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1848886912, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 13312, 0, 'LMT')
 ,(@time_zone_id, 1, 14400, 0, '+04')
 ;
@@ -41767,7 +41767,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121193800, 5)
 ,(@time_zone_id, 2137087800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 12344, 0, 'LMT')
 ,(@time_zone_id, 1, 12344, 0, 'TMT')
 ,(@time_zone_id, 2, 12600, 0, '+0330')
@@ -41930,7 +41930,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121724800, 5)
 ,(@time_zone_id, 2140038000, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 8454, 0, 'LMT')
 ,(@time_zone_id, 1, 8440, 0, 'JMT')
 ,(@time_zone_id, 2, 10800, 1, 'IDT')
@@ -41968,7 +41968,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 420015600, 3)
 ,(@time_zone_id, 436341600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -18430, 0, 'LMT')
 ,(@time_zone_id, 1, -18430, 0, 'KMT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -41988,7 +41988,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -588848400, 1)
 ,(@time_zone_id, -577962000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 33539, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 1, 'JDT')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -42006,7 +42006,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 745934400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 40160, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 36000, 0, '+10')
@@ -42051,7 +42051,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1364515200, 1)
 ,(@time_zone_id, 1382659200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3164, 0, 'LMT')
 ,(@time_zone_id, 1, 7200, 1, 'CEST')
 ,(@time_zone_id, 2, 3600, 0, 'CET')
@@ -42198,7 +42198,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 2)
 ,(@time_zone_id, 2140045200, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 3600, 0, 'MET')
 ,(@time_zone_id, 1, 7200, 1, 'MEST')
 ,(@time_zone_id, 2, 7200, 1, 'MEST')
@@ -42207,7 +42207,7 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('MST', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25200, 0, 'MST')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -42364,7 +42364,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 0)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25200, 0, 'MST')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -21600, 1, 'MWT')
@@ -42525,7 +42525,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 3)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28084, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -42631,7 +42631,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122534800, 4)
 ,(@time_zone_id, 2140070400, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25540, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -42742,7 +42742,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122531200, 3)
 ,(@time_zone_id, 2140066800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -23796, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 0, 'MST')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -42910,7 +42910,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122466400, 5)
 ,(@time_zone_id, 2137586400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 41944, 0, 'LMT')
 ,(@time_zone_id, 1, 45000, 1, 'NZST')
 ,(@time_zone_id, 2, 41400, 0, 'NZMT')
@@ -43054,7 +43054,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2137586400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44028, 0, 'LMT')
 ,(@time_zone_id, 1, 44100, 0, '+1215')
 ,(@time_zone_id, 2, 49500, 1, '+1345')
@@ -43224,7 +43224,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25196, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -43265,7 +43265,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 671565600, 1)
 ,(@time_zone_id, 684867600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29143, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 1, 'CDT')
 ,(@time_zone_id, 2, 28800, 0, 'CST')
@@ -43424,7 +43424,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 1)
 ,(@time_zone_id, 2140678800, 0)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28800, 0, 'PST')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -25200, 1, 'PWT')
@@ -43463,7 +43463,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1617458400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 45184, 0, 'LMT')
 ,(@time_zone_id, 1, -41216, 0, 'LMT')
 ,(@time_zone_id, 2, -41400, 0, '-1130')
@@ -43633,7 +43633,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2122466400, 5)
 ,(@time_zone_id, 2137586400, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 41944, 0, 'LMT')
 ,(@time_zone_id, 1, 45000, 1, 'NZST')
 ,(@time_zone_id, 2, 41400, 0, 'NZMT')
@@ -43652,7 +43652,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1419696000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 37336, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -43793,7 +43793,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2137586400, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44028, 0, 'LMT')
 ,(@time_zone_id, 1, 44100, 0, '+1215')
 ,(@time_zone_id, 2, 49500, 1, '+1345')
@@ -43811,7 +43811,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -770634000, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -49972, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -43962,7 +43962,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2135822400, 6)
 ,(@time_zone_id, 2147483647, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -26248, 0, 'LMT')
 ,(@time_zone_id, 1, -26248, 0, 'EMT')
 ,(@time_zone_id, 2, -21600, 1, '-06')
@@ -44000,7 +44000,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 727790400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 40396, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 1, '+12')
 ,(@time_zone_id, 2, 39600, 0, '+11')
@@ -44016,7 +44016,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 788871600, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -43200, 0, '-12')
 ,(@time_zone_id, 2, -39600, 0, '-11')
@@ -44030,7 +44030,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1325242800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -41096, 0, 'LMT')
 ,(@time_zone_id, 1, -39600, 0, '-11')
 ,(@time_zone_id, 2, 46800, 0, '+13')
@@ -44102,7 +44102,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2147263200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 42944, 0, 'LMT')
 ,(@time_zone_id, 1, 46800, 1, '+13')
 ,(@time_zone_id, 2, 43200, 0, '+12')
@@ -44114,7 +44114,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 43012, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 0, '+12')
 ;
@@ -44128,7 +44128,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 728888400, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21504, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 0, '-05')
 ,(@time_zone_id, 2, -18000, 1, '-05')
@@ -44141,7 +44141,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1806678012, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -32388, 0, 'LMT')
 ,(@time_zone_id, 1, -32400, 0, '-09')
 ;
@@ -44152,7 +44152,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1806748788, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 38388, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ;
@@ -44181,7 +44181,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 241542000, 1)
 ,(@time_zone_id, 977493600, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -51660, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, 'GST')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44200,7 +44200,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -765376200, 1)
 ,(@time_zone_id, -712150200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -37886, 0, 'LMT')
 ,(@time_zone_id, 1, -37800, 0, 'HST')
 ,(@time_zone_id, 2, -34200, 1, 'HDT')
@@ -44220,7 +44220,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -765376200, 1)
 ,(@time_zone_id, -712150200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -37886, 0, 'LMT')
 ,(@time_zone_id, 1, -37800, 0, 'HST')
 ,(@time_zone_id, 2, -34200, 1, 'HDT')
@@ -44237,7 +44237,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 788871600, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, '-00')
 ,(@time_zone_id, 1, -43200, 0, '-12')
 ,(@time_zone_id, 2, -39600, 0, '-11')
@@ -44252,7 +44252,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 788868000, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -37760, 0, 'LMT')
 ,(@time_zone_id, 1, -38400, 0, '-1040')
 ,(@time_zone_id, 2, -36000, 0, '-10')
@@ -44272,7 +44272,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 915105600, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -47284, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44292,7 +44292,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 745934400, 5)
 ,(@time_zone_id, 2147483647, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 40160, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 36000, 0, '+10')
@@ -44313,7 +44313,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -7988400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 41088, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44327,7 +44327,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1806676920, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -33480, 0, 'LMT')
 ,(@time_zone_id, 1, -34200, 0, '-0930')
 ;
@@ -44338,7 +44338,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1861879032, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 45432, 0, 'LMT')
 ,(@time_zone_id, 1, -40968, 0, 'LMT')
 ,(@time_zone_id, 2, -39600, 0, 'SST')
@@ -44353,7 +44353,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 287418600, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 40060, 0, 'LMT')
 ,(@time_zone_id, 1, 41400, 0, '+1130')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44367,7 +44367,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -173623200, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -40780, 0, 'LMT')
 ,(@time_zone_id, 1, -40800, 0, '-1120')
 ,(@time_zone_id, 2, -39600, 0, '-11')
@@ -44420,7 +44420,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2138194800, 6)
 ,(@time_zone_id, 2147483647, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 40312, 0, 'LMT')
 ,(@time_zone_id, 1, 40320, 0, '+1112')
 ,(@time_zone_id, 2, 41400, 0, '+1130')
@@ -44442,7 +44442,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 857228400, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 39948, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 1, '+12')
 ,(@time_zone_id, 2, 39600, 0, '+11')
@@ -44456,7 +44456,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1861879032, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 45432, 0, 'LMT')
 ,(@time_zone_id, 1, -40968, 0, 'LMT')
 ,(@time_zone_id, 2, -39600, 0, 'SST')
@@ -44468,7 +44468,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -54124, 0, 'LMT')
 ,(@time_zone_id, 1, 32400, 0, '+09')
 ;
@@ -44480,7 +44480,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 893665800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -31220, 0, 'LMT')
 ,(@time_zone_id, 1, -30600, 0, '-0830')
 ,(@time_zone_id, 2, -28800, 0, '-08')
@@ -44497,7 +44497,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -770634000, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -48428, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44516,7 +44516,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -770634000, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -48428, 0, 'LMT')
 ,(@time_zone_id, 1, 39600, 0, '+11')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44530,7 +44530,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 35320, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ;
@@ -44568,7 +44568,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 667992600, 3)
 ,(@time_zone_id, 2147483647, 3)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 48056, 0, 'LMT')
 ,(@time_zone_id, 1, -38344, 0, 'LMT')
 ,(@time_zone_id, 2, -37800, 0, '-1030')
@@ -44600,7 +44600,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 241542000, 1)
 ,(@time_zone_id, 977493600, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -51660, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, 'GST')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44614,7 +44614,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1861879032, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 45432, 0, 'LMT')
 ,(@time_zone_id, 1, -40968, 0, 'LMT')
 ,(@time_zone_id, 2, -39600, 0, 'SST')
@@ -44626,7 +44626,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -1806674504, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -35896, 0, 'LMT')
 ,(@time_zone_id, 1, -36000, 0, '-10')
 ;
@@ -44637,7 +44637,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 41524, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 0, '+12')
 ;
@@ -44657,7 +44657,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1484398800, 2)
 ,(@time_zone_id, 2147483647, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44352, 0, 'LMT')
 ,(@time_zone_id, 1, 44400, 0, '+1220')
 ,(@time_zone_id, 2, 46800, 0, '+13')
@@ -44676,7 +44676,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -770634000, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -49972, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44689,7 +44689,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 39988, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 0, '+12')
 ;
@@ -44700,7 +44700,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44120, 0, 'LMT')
 ,(@time_zone_id, 1, 43200, 0, '+12')
 ;
@@ -44715,7 +44715,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -770634000, 1)
 ,(@time_zone_id, 2147483647, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -49972, 0, 'LMT')
 ,(@time_zone_id, 1, 36000, 0, '+10')
 ,(@time_zone_id, 2, 32400, 0, '+09')
@@ -44891,7 +44891,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 9)
 ,(@time_zone_id, 2140045200, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 5040, 0, 'LMT')
 ,(@time_zone_id, 1, 5040, 0, 'WMT')
 ,(@time_zone_id, 2, 7200, 1, 'CEST')
@@ -45133,7 +45133,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 10)
 ,(@time_zone_id, 2140045200, 6)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -2205, 0, 'LMT')
 ,(@time_zone_id, 1, 3600, 1, 'WEST')
 ,(@time_zone_id, 2, 0, 0, 'WET')
@@ -45193,7 +45193,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 299606400, 3)
 ,(@time_zone_id, 307551600, 1)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 29160, 0, 'LMT')
 ,(@time_zone_id, 1, 28800, 0, 'CST')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -45234,7 +45234,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 579027600, 3)
 ,(@time_zone_id, 592333200, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 30472, 0, 'LMT')
 ,(@time_zone_id, 1, 30600, 0, 'KST')
 ,(@time_zone_id, 2, 32400, 0, 'JST')
@@ -45257,7 +45257,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 378664200, 7)
 ,(@time_zone_id, 2147483647, 7)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 24925, 0, 'LMT')
 ,(@time_zone_id, 1, 24925, 0, 'SMT')
 ,(@time_zone_id, 2, 25200, 0, '+07')
@@ -45388,7 +45388,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1473195600, 4)
 ,(@time_zone_id, 2147483647, 4)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 6952, 0, 'LMT')
 ,(@time_zone_id, 1, 7016, 0, 'IMT')
 ,(@time_zone_id, 2, 10800, 1, 'EEST')
@@ -45404,7 +45404,7 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('UCT', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -45556,7 +45556,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120122800, 7)
 ,(@time_zone_id, 2140682400, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 50424, 0, 'LMT')
 ,(@time_zone_id, 1, -36000, 0, 'AST')
 ,(@time_zone_id, 2, -32400, 1, 'AWT')
@@ -45716,7 +45716,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120126400, 7)
 ,(@time_zone_id, 2140686000, 8)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 44002, 0, 'LMT')
 ,(@time_zone_id, 1, -39600, 0, 'NST')
 ,(@time_zone_id, 2, -36000, 1, 'NWT')
@@ -45743,7 +45743,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -84380400, 1)
 ,(@time_zone_id, -68659200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -26898, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -45990,7 +45990,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -21036, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -46103,7 +46103,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 6)
 ,(@time_zone_id, 2140668000, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20678, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -46353,7 +46353,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 1)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -17762, 0, 'LMT')
 ,(@time_zone_id, 1, -14400, 1, 'EDT')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -46372,7 +46372,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, -765376200, 1)
 ,(@time_zone_id, -712150200, 5)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -37886, 0, 'LMT')
 ,(@time_zone_id, 1, -37800, 0, 'HST')
 ,(@time_zone_id, 2, -34200, 1, 'HDT')
@@ -46539,7 +46539,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120112000, 1)
 ,(@time_zone_id, 2140671600, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -20790, 0, 'LMT')
 ,(@time_zone_id, 1, -18000, 1, 'CDT')
 ,(@time_zone_id, 2, -21600, 0, 'CST')
@@ -46694,7 +46694,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120108400, 5)
 ,(@time_zone_id, 2140668000, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -19931, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 0, 'CST')
 ,(@time_zone_id, 2, -18000, 0, 'EST')
@@ -46865,7 +46865,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120115600, 1)
 ,(@time_zone_id, 2140675200, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -25196, 0, 'LMT')
 ,(@time_zone_id, 1, -21600, 1, 'MDT')
 ,(@time_zone_id, 2, -25200, 0, 'MST')
@@ -47063,7 +47063,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2120119200, 1)
 ,(@time_zone_id, 2140678800, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, -28378, 0, 'LMT')
 ,(@time_zone_id, 1, -25200, 1, 'PDT')
 ,(@time_zone_id, 2, -28800, 0, 'PST')
@@ -47077,7 +47077,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
  (@time_zone_id, -2147483648, 1)
 ,(@time_zone_id, -1861879032, 2)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 45432, 0, 'LMT')
 ,(@time_zone_id, 1, -40968, 0, 'LMT')
 ,(@time_zone_id, 2, -39600, 0, 'SST')
@@ -47085,13 +47085,13 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('UTC', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Universal', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
@@ -47177,7 +47177,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 1301180400, 14)
 ,(@time_zone_id, 1414274400, 10)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 9017, 0, 'LMT')
 ,(@time_zone_id, 1, 9017, 0, 'MMT')
 ,(@time_zone_id, 2, 12679, 1, 'MST')
@@ -47323,7 +47323,7 @@ INSERT INTO time_zone_transition (Time_zone_id, Transition_time, Transition_type
 ,(@time_zone_id, 2121901200, 1)
 ,(@time_zone_id, 2140045200, 0)
 ;
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'WET')
 ,(@time_zone_id, 1, 3600, 1, 'WEST')
 ,(@time_zone_id, 2, 3600, 1, 'WEST')
@@ -47332,7 +47332,7 @@ INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset,
 INSERT INTO time_zone (Use_leap_seconds) VALUES ('N');
 SET @time_zone_id= LAST_INSERT_ID();
 INSERT INTO time_zone_name (Name, Time_zone_id) VALUES ('Zulu', @time_zone_id);
-INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, Offset, Is_DST, Abbreviation) VALUES
+INSERT INTO time_zone_transition_type (Time_zone_id, Transition_type_id, `Offset`, Is_DST, Abbreviation) VALUES
  (@time_zone_id, 0, 0, 0, 'UTC')
 ;
 ALTER TABLE time_zone_transition ORDER BY Time_zone_id, Transition_time;
