@@ -201,33 +201,6 @@ for %%a in (%OSP_TMPVAL%) do (
 endlocal
 goto end
 :: -----------------------------------------------------------------------------------
-:: PROJECT
-:: -----------------------------------------------------------------------------------
-:project
-if "%2"=="" goto eargument
-if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
-call :env_reset
-set "OSP_ACTIVE_ENV=Default" & set "OSP_ACTIVE_ENV_VAL=:Default:"
-TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
-set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
-set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
-call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
-@if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
-@echo off
-chcp 65001 > nul
-if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
-if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
-if defined OSP_ERR_STATE set "OSP_ERR_STATE=" & goto error
-goto end
-:: -----------------------------------------------------------------------------------
-:: IDN CONVERTER
-:: -----------------------------------------------------------------------------------
-:convert
-if "%2"=="" goto eargument
-"{root_dir}\bin\curl.exe" -f -s {api_url}/convert/%2
-if %ERRORLEVEL% gtr 0 goto error
-@goto end
-:: -----------------------------------------------------------------------------------
 :: SHELL
 :: -----------------------------------------------------------------------------------
 :mod_shell
@@ -245,6 +218,33 @@ TITLE %2 Shell ^| Open Server Panel
 call "{root_dir}\data\{module_name}\shell_%2.bat"
 endlocal
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+goto end
+:: -----------------------------------------------------------------------------------
+:: IDN CONVERTER
+:: -----------------------------------------------------------------------------------
+:convert
+if "%2"=="" goto eargument
+"{root_dir}\bin\curl.exe" -f -s {api_url}/convert/%2
+if %ERRORLEVEL% gtr 0 goto error
+@goto end
+:: -----------------------------------------------------------------------------------
+:: PROJECT
+:: -----------------------------------------------------------------------------------
+:project
+if "%2"=="" goto eargument
+if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
+call :env_reset
+set "OSP_ACTIVE_ENV=Default" & set "OSP_ACTIVE_ENV_VAL=:Default:"
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
+set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
+call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
+@if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
+@echo off
+chcp 65001 > nul
+if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
+if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
+if defined OSP_ERR_STATE set "OSP_ERR_STATE=" & goto error
 goto end
 :: -----------------------------------------------------------------------------------
 :: ADD ENVIRONMENT
