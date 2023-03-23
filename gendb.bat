@@ -39,8 +39,8 @@ xcopy "%~dp0resources\cmd\env.bat"   "%~dp0config\MySQL-8.0\initdb\templates\" /
 rd    "%OSP_ROOT_DIR%generate\new_data" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%generate\new_data" 2>nul
 TITLE DB Generator
-start "MariaDB Generator" "%OSP_ROOT_DIR%genmariadb.bat"
-start "MySQL Generator" "%OSP_ROOT_DIR%genmysql.bat"
+start "MariaDB Generator" "%OSP_ROOT_DIR%generate\genmariadb.bat"
+start "MySQL Generator" "%OSP_ROOT_DIR%generate\genmysql.bat"
 call :posgresql PostgreSQL-9.5
 call :posgresql PostgreSQL-9.6
 call :posgresql PostgreSQL-10

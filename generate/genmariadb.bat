@@ -2,7 +2,7 @@
 :: OPEN SERVER PANEL | DB INIT SCRIPT
 :: --------------------------------------------------------------------------------
 @echo off
-set "OSP_ROOT_DIR=%~dp0"
+set "OSP_ROOT_DIR=%~dp0..\"
 if exist "%OSP_ROOT_DIR%system\ansicon\ansicon.exe" "%OSP_ROOT_DIR%system\ansicon\ansicon.exe" -p >nul 2>nul
 chcp 65001 > nul
 call :mariadb MariaDB-10.1
