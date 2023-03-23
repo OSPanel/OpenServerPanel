@@ -13,7 +13,7 @@
 @for %%S in ("{root_dir}\temp\%OSP_TMPVAL%") do @if %%~zS==0 (set "OSP_ECHO_STATE=OFF") else (set "OSP_ECHO_STATE=ON")
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
-if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System"
+if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\bin\tail.exe {lang_79}" & goto error
 if not exist "{root_dir}\system\ansicon\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\ansicon\ansicon.exe {lang_79}" & goto error
@@ -207,7 +207,7 @@ goto end
 if "%2"=="" goto eargument
 if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
-set "OSP_ACTIVE_ENV=Default"
+set "OSP_ACTIVE_ENV=Default" & set "OSP_ACTIVE_ENV_VAL=:Default:"
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
 set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
@@ -255,7 +255,7 @@ call :strfind "%OSP_MODULES_LIST_%" ":%2:"
 if not defined OSP_TMPVAL goto invalid
 call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
-call :strfind "%OSP_ACTIVE_ENV%" "%2"
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%2:"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_123}" & goto error
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
@@ -271,7 +271,7 @@ call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
-set "OSP_ACTIVE_ENV=Default"
+set "OSP_ACTIVE_ENV=Default" & set "OSP_ACTIVE_ENV_VAL=:Default:"
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
@@ -282,7 +282,7 @@ goto end
 for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
 {windows_environment}
 set "ESC="
-set "OSP_ACTIVE_ENV=System"
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_52}: %OSP_ACTIVE_ENV%
