@@ -247,7 +247,7 @@ if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "O
 if defined OSP_ERR_STATE set "OSP_ERR_STATE=" & goto error
 goto end
 :: -----------------------------------------------------------------------------------
-:: ADD ENVIRONMENT
+:: MODULE ENVIRONMENT (ADD)
 :: -----------------------------------------------------------------------------------
 :env_add
 if "%2"=="" goto eargument
@@ -261,7 +261,7 @@ if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_1
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: SET ENVIRONMENT
+:: MODULE ENVIRONMENT (SET)
 :: -----------------------------------------------------------------------------------
 :env_set
 if "%2"=="" goto eargument
@@ -276,7 +276,7 @@ TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: WINDOWS ENVIRONMENT
+:: DEFAULT WINDOWS ENVIRONMENT
 :: -----------------------------------------------------------------------------------
 :env_windows
 for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
@@ -289,7 +289,7 @@ if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 goto end
 :: -----------------------------------------------------------------------------------
-:: DEFAULT ENVIRONMENT
+:: DEFAULT PROGRAM ENVIRONMENT
 :: -----------------------------------------------------------------------------------
 :env_reset
 for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
