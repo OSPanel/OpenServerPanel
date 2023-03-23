@@ -13,7 +13,7 @@
 @for %%S in ("{root_dir}\temp\%OSP_TMPVAL%") do @if %%~zS==0 (set "OSP_ECHO_STATE=OFF") else (set "OSP_ECHO_STATE=ON")
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
-if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=Windows"
+if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System"
 if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\bin\tail.exe {lang_79}" & goto error
 if not exist "{root_dir}\system\ansicon\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\ansicon\ansicon.exe {lang_79}" & goto error
@@ -282,7 +282,7 @@ goto end
 for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
 {windows_environment}
 set "ESC="
-set "OSP_ACTIVE_ENV=Windows"
+set "OSP_ACTIVE_ENV=System"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_52}: %OSP_ACTIVE_ENV%
