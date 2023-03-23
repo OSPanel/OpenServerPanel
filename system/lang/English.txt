@@ -91,7 +91,7 @@ same group can lead to unpredictable errors in their work!
 Attention! Combining the environment of the module(s) with the Windows
 environment may lead to conflicts with similar modules in the system!
 Show information about the current environment
-Reset the current environment to the original Windows environment
+Reset the current environment (original system environment)
 Apply the module environment
 Module management
 Show information about modules
@@ -116,7 +116,7 @@ Using the PostgreSQL-9.6 module environment in the console
 Enabling the Bind module with changing the settings profile to MyProfile
 Restarting the MySQL-8.0 module (the module name is accepted in any case)
 Output to the console of the last 20 lines from the program log
-Combining the Windows environment with the Git environment
+Combining the system environment with the Git environment
 Failed to execute command
 There are no entries in this log
 There is no shell configuration for
