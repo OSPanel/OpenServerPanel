@@ -5,7 +5,7 @@
 set "OSP_ROOT_DIR=%~dp0"
 if exist "%OSP_ROOT_DIR%system\ansicon\ansicon.exe" "%OSP_ROOT_DIR%system\ansicon\ansicon.exe" -p >nul 2>nul
 chcp 65001 > nul
-for /d %%D in ("%~dp0generate\config\*") do robocopy "%%D" "%~dp0config\%%~nxD" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /E /J /ETA /IM /MT:32 /R:3 /W:3
+for /d %%D in ("%~dp0generate\config\*") do robocopy "%%D" "%~dp0config\%%~nxD" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /E /J /ETA /IM /MT:32 /R:3 /W:3 >nul 2>nul
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MariaDB-10.1\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MariaDB-10.2\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MariaDB-10.3\initdb\templates\" /y
@@ -56,13 +56,14 @@ goto end
 :: --------------------------------------------------------------------------------
 :posgresql
 call osp off %1
+call osp init %1 default
 call osp set %1
 rd "%OSP_ROOT_DIR%data\%1" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1"
 call initdb --data-checksums --no-locale -U postgres --encoding=UTF8 -D "%OSP_ROOT_DIR%data\%1"
 del "%OSP_ROOT_DIR%data\%1\pg_hba.conf" "%OSP_ROOT_DIR%data\%1\postgresql.conf"
-robocopy "%OSP_ROOT_DIR%data\%1" "%OSP_ROOT_DIR%generate\new_data\%1" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /MIR /J /ETA /IM /MT:32 /R:3 /W:3
+robocopy "%OSP_ROOT_DIR%data\%1" "%OSP_ROOT_DIR%generate\new_data\%1" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /MIR /J /ETA /IM /MT:32 /R:3 /W:3 >nul 2>nul
 exit /b 0
 :end
 echo on
