@@ -131,7 +131,7 @@ STATUS
 VERSION
 TYPE
 MIN. COMPATIBILITY
-LICENSE
+PROFILE
 Enabled
 Disabled
 Starting
@@ -186,3 +186,4 @@ The project activation command is not set for
 Activate the project environment and go to its root directory
 Conversion result
 Convert domain name from/to Punycode
+Profile
