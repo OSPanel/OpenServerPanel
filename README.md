@@ -1,8 +1,8 @@
 Open Server Panel 6 <sup><sup>[Beta](https://ru.wikipedia.org/wiki/Бета-тестирование)</sup></sup>
 =======================================
-Простой инструмент для локальной разработки веб-сайтов и веб-сервисов на платформе Windows.
+![](https://img.shields.io/badge/Apache-2.4-blue) ![](https://img.shields.io/badge/Bind-9.16-blue) ![](https://img.shields.io/badge/Git-2.40-blue) ![](https://img.shields.io/badge/MariaDB-10.1--10.11-blue) ![](https://img.shields.io/badge/Memcached-1.4--1.6-blue) ![](https://img.shields.io/badge/MongoDB-3.0--6.0-blue) ![](https://img.shields.io/badge/MySQL-5.5--8.0-blue) ![](https://img.shields.io/badge/Perl-5.32-blue) ![](https://img.shields.io/badge/PHP-7.1--8.2-blue) ![](https://img.shields.io/badge/PostgreSQL-9.5--15-blue) ![](https://img.shields.io/badge/Redis-3.0--7.0-blue) ![](https://img.shields.io/badge/Unbound-1.17-blue)
 
-**ВСЁ УЖЕ НАСТРОЕНО, ПРОСТО ПОДГОТОВЬ СИСТЕМУ И ЗАПУСТИ!**
+Простой инструмент для локальной разработки веб-сайтов и веб-сервисов на платформе Windows.
 
 Представляем вашему вниманию программный [WAMP](https://ru.wikipedia.org/wiki/WAMP)-комплекс, включающий в себя набор серверного программного обеспечения для веб-разработчиков, а также простую и удобную панель управления в двух вариантах: [веб-интерфейс](https://github.com/OSPanel/OpenServerPanel#веб-интерфейс) и [интерфейс командной строки](https://github.com/OSPanel/OpenServerPanel#интерфейс-командной-строки) (CLI).
 
