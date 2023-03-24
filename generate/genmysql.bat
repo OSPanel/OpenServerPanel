@@ -15,14 +15,14 @@ goto end
 :: --------------------------------------------------------------------------------
 :mysql
 call osp off %1
-call osp set %1
-call osp add Perl
+call osp init %1 initdb
+call osp set Perl
+call osp add %1
 rd    "%OSP_ROOT_DIR%data\%1" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1"
 cd /d "%OSP_ROOT_DIR%modules\%1"
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
-call osp init %1 initdb
 copy my.ini my-default.ini
 copy my.ini my_print_defaults.ini
 if not "%1"=="MySQL-5.7" if not "%1"=="MySQL-8.0" call perl scripts/mysql_install_db.pl --basedir="%OSP_ROOT_DIR%modules\%1" --datadir="%OSP_ROOT_DIR%data\%1" --skip-name-resolve --windows --verbose
@@ -40,12 +40,13 @@ if "%1"=="MySQL-5.7" call mysql --protocol=PIPE --socket=%1 --host="" -u root my
 call mysql --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
 timeout /t 3 /nobreak > nul
 call osp restart %1 default
+call osp set %1
 timeout /t 5 /nobreak > nul
 call mysql --force --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\install.sql"
 call osp off %1
 timeout /t 3 /nobreak > nul
 del "%OSP_ROOT_DIR%data\%1\*.err" /q 2>nul
-robocopy "%OSP_ROOT_DIR%data\%1" "%OSP_ROOT_DIR%generate\new_data\%1" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /MIR /J /ETA /IM /MT:32 /R:3 /W:3
+robocopy "%OSP_ROOT_DIR%data\%1" "%OSP_ROOT_DIR%generate\new_data\%1" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /MIR /J /ETA /IM /MT:32 /R:3 /W:3 >nul 2>nul
 exit /b 0
 :end
 exit /b 0
