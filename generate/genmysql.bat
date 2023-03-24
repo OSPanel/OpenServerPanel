@@ -15,6 +15,7 @@ goto end
 :: --------------------------------------------------------------------------------
 :mysql
 call osp off %1
+del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 call osp init %1 initdb
 call osp set Perl
 call osp add %1
@@ -22,7 +23,6 @@ rd    "%OSP_ROOT_DIR%data\%1" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1"
 cd /d "%OSP_ROOT_DIR%modules\%1"
-del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 copy my.ini my-default.ini
 copy my.ini my_print_defaults.ini
 if not "%1"=="MySQL-5.7" if not "%1"=="MySQL-8.0" call perl scripts/mysql_install_db.pl --basedir="%OSP_ROOT_DIR%modules\%1" --datadir="%OSP_ROOT_DIR%data\%1" --skip-name-resolve --windows --verbose

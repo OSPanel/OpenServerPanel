@@ -17,13 +17,13 @@ goto end
 :: --------------------------------------------------------------------------------
 :mariadb
 call osp off %1
+del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 call osp init %1 initdb
 call osp set %1
 rd    "%OSP_ROOT_DIR%data\%1" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1"
 cd /d "%OSP_ROOT_DIR%modules\%1"
-del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 copy my.ini my-default.ini
 copy my.ini my_print_defaults.ini
 call mysql_install_db --datadir="%OSP_ROOT_DIR%data\%1" --allow-remote-root-access -o
