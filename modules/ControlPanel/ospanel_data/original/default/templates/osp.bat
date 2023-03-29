@@ -34,12 +34,13 @@ if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
 if /i "%1"=="info"        echo: & echo {lang_52}: %OSP_ACTIVE_ENV% & goto end
 if /i "%1"=="init"        goto mod_cmd
-if /i "%1"=="list"        goto mod_cmd
+if /i "%1"=="modules"     goto modules
 if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
 if /i "%1"=="project"     goto project
 if /i "%1"=="convert"     goto convert
+if /i "%1"=="domains"     goto domains
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="set"         goto env_set
@@ -93,7 +94,6 @@ echo                             {lang_169}
 echo                             {lang_128}
 echo                             {lang_170}
 echo                             {lang_171}
-echo list                        {lang_97}
 echo off     ^<MODULE^>            {lang_98}
 echo on      ^<MODULE^> [PROFILE]  {lang_99}
 echo restart ^<MODULE^> [PROFILE]  {lang_100}
@@ -103,8 +103,10 @@ echo:
 echo {lang_103}:
 echo:
 echo convert ^<DOMAIN^>            {lang_188}
+echo domains                     {lang_197}
 echo exit                        {lang_104}
 echo log     ^<MODULE^|main^>  [N]  {lang_105}
+echo modules                     {lang_97}
 echo sysprep [silent^|ssd]        {lang_106}
 echo                             {lang_107}
 echo                             {lang_108}
@@ -160,12 +162,20 @@ for %%a in (%OSP_TMPVAL%) do (
 )
 goto end
 :: -----------------------------------------------------------------------------------
-:: INIT/ON/OFF/RESTART/STATUS/LIST
+:: DOMAINS/MODULES
+:: -----------------------------------------------------------------------------------
+:domains
+"{root_dir}\bin\curl.exe" -f -s {api_url}/domains/list/all/
+if %ERRORLEVEL% gtr 0 goto error
+goto end
+:modules
+"{root_dir}\bin\curl.exe" -f -s {api_url}/mod/list/all/
+if %ERRORLEVEL% gtr 0 goto error
+goto end
+:: -----------------------------------------------------------------------------------
+:: INIT/ON/OFF/RESTART/STATUS
 :: -----------------------------------------------------------------------------------
 :mod_cmd
-if /i "%1"=="list" "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/list/all/
-if /i "%1"=="list" if %ERRORLEVEL% gtr 0 goto error
-if /i "%1"=="list" goto end
 if "%2"=="" goto eargument
 call :strfind "%OSP_MODULES_LIST_%all:" ":%2:"
 if not defined OSP_TMPVAL goto invalid
