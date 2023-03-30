@@ -177,7 +177,7 @@ The execution of the command may take some time...
 Continue
 Version information
 &Restart
-&Debugging Interface
+&My projects
 The program is running with Administrator rights
 This is potentially unsafe and makes it easier to compromise your system.
 The inactive profile settings file could not be found
