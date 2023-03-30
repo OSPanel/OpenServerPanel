@@ -1,0 +1,18 @@
+igbinary is written for IRC-Galleria by Sulake Dynamoid Oy and its employees.
+
+Author
+* Oleg Grenrus <oleg.grenrus@iki.fi>
+
+Contributors
+* Teddy Grenman <tricky.github@luuseri.com> (fixes, tests, docs)
+* Kari Lavikka <kari.lavikka@sulake.com> (docs)
+* Pierre Joye (Windows support)
+* Mikko Koppanen (PECL and RPM spec files)
+* Tyson Andre <tysonandre775@hotmail.com> (fixes, tests, docs, php 7.x support)
+
+Other
+* Original hash functions - Bob Jenkins <bob_jenkins@burtleburtle.net>
+
+---
+
+http://irc-galleria.net/ - a finnish social networking site

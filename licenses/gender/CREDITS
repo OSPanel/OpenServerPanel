@@ -1,0 +1,23 @@
+Gender PHP Extension
+
+Author: Anatoliy Belsky
+
+Original program:
+Project "gender" from www.heise.de/ct, soft-link 0717182
+or   http://www.heise.de/ct/07/17/182
+Program "gender.c" and dictionary file "nam_dict.txt":
+(c) by Jörg MICHAEL, Hannover, Germany, 2007-2008
+
+Project "gender.c":
+ This file is subject to the GNU Lesser General Public License (LGPL)
+ (formerly known as GNU Library General Public Licence)
+ as published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+
+Dictionary file "nam_dict.txt":
+ This file is subject to the GNU Free Documentation License.
+ Permission is granted to copy, distribute and/or modify
+ this document under the terms of the GNU Free Documentation
+ License, Version 1.2 or any later version published by the
+ Free Software Foundation; with no Invariant Sections,
+ no Front-Cover Texts, and no Back-Cover Texts.

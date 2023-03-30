@@ -1,0 +1,4 @@
+Package: gdbm-1.18
+Sources: http://ftp.gnu.org/gnu/gdbm/gdbm-1.18.tar.gz
+Patch: gdbm-1.18.diff
+Homepage: http://www.gnu.org/software/gdbm/

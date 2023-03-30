@@ -1,0 +1,4 @@
+Package: freetype-2.10.0
+Sources: http://mirror.lihnidos.org/GNU/savannah/freetype/freetype-2.10.0.tar.gz
+Patch: freetype-2.10.0.diff
+Homepage: http://www.freetype.org/

@@ -1,0 +1,6 @@
+lzf extension
+Marcin Gibula, Remi Collet
+
+LZF compression library has been written by 
+Marc Alexander Lehmann <pcg@goof.com> and is
+available for download from http://liblzf.plan9.de/

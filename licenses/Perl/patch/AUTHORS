@@ -1,0 +1,9 @@
+Larry Wall wrote the original version of `patch'.
+
+Paul Eggert removed arbitrary limits; added support for binary
+files, setting file times, and deleting files; and made it conform
+better to POSIX.
+
+Wayne Davison added unidiff support.
+
+David MacKenzie added configuration and backup support.

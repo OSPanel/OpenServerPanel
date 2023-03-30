@@ -1,0 +1,16 @@
+diff -r -u --strip-trailing-cr expat-2.2.6.original/run.sh.in expat-2.2.6/run.sh.in
+--- expat-2.2.6.original/run.sh.in	2019-05-22 01:41:40.206269700 +0200
++++ expat-2.2.6/run.sh.in	2019-05-22 01:41:30.203253000 +0200
+@@ -4,7 +4,11 @@
+ 
+ case "@host@" in
+ *-mingw*)
+-    exec wine "$@"
++    if [ "$(uname -o)"=="Msys" ]; then
++      exec "$@"
++    else
++      exec wine "$@"
++    fi
+     ;;
+ *)
+     exec "$@"

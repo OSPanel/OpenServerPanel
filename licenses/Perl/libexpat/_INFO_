@@ -1,0 +1,4 @@
+Package: expat-2.2.6
+Sources: http://downloads.sourceforge.net/expat/expat-2.2.6.tar.bz2
+Patch: expat-2.2.6.diff
+Homepage: http://expat.sourceforge.net/

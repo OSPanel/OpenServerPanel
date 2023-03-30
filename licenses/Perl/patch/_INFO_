@@ -1,0 +1,5 @@
+Package: patch-2.5.9-7
+Homepage: http://savannah.gnu.org/projects/patch
+Homepage: http://gnuwin32.sourceforge.net/packages/patch.htm
+Sources: http://downloads.sourceforge.net/gnuwin32/patch-2.5.9-7-src.zip
+Comment: modified source codes from gnuwin32 project were used

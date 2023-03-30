@@ -1,0 +1,462 @@
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/CMakeLists.txt libgd-2.2.5/CMakeLists.txt
+--- libgd-2.2.5.original/CMakeLists.txt	2019-05-22 02:15:31.327764000 +0200
++++ libgd-2.2.5/CMakeLists.txt	2019-05-22 02:15:27.467677000 +0200
+@@ -31,6 +31,10 @@
+ IF(CMAKE_COMPILER_IS_GNUCC)
+   SET(CMAKE_C_FLAGS_DEBUG "-g -Wall -Wextra -O0") # will be added to CMAKE_C_FLAGS when CMAKE_BUILD_TYPE is "Debug"
+ ENDIF(CMAKE_COMPILER_IS_GNUCC)
++
++# Pre-defines standard install locations on *nix systems.
++include(GNUInstallDirs)
++
+ SET (CMAKE_LIBRARY_OUTPUT_DIRECTORY 
+   ${PROJECT_BINARY_DIR}/Bin 
+   CACHE PATH 
+@@ -74,7 +78,7 @@
+ 	SET(GD_VERSION_PATCH "5")
+ 	SET(GD_VERSION_EXTRA "")
+ 	SET(GD_VERSION "${GD_VERSION_MAJOR}.${GD_VERSION_MINOR}.${GD_VERSION_PATCH}${GD_VERSION_EXTRA}")
+-	SET(GD_VERSION_STRING "${GD_VERSION}")
++	SET(GD_VERSION_STRING "${GD_VERSION_MAJOR}.${GD_VERSION_MINOR}")
+ 
+ 	SET(GD_VERSION_INT "2020555")
+ 
+@@ -204,6 +208,7 @@
+ 			ADD_DEFINITIONS("/D_CRT_SECURE_NO_DEPRECATE")
+ 		endif(NOT MINGW AND MSVC_VERSION GREATER 1399)
+ 		if (MINGW OR MSYS)
++			SET(GD_LIB gd)
+ 			ADD_DEFINITIONS("-mms-bitfields") # -m32
+ 		endif (MINGW OR MSYS)
+ 	else (WIN32)
+@@ -246,28 +251,27 @@
+     ADD_DEPENDENCIES(${GD_LIB_STATIC} libimagequant)
+ ENDIF(ENABLE_LIQ AND LIQ_BUILD)
+ 
+-
+-INSTALL(FILES docs/INSTALL DESTINATION share/docs)
+-INSTALL(FILES docs/README.JPN DESTINATION share/docs)
+-INSTALL(FILES docs/README.CMAKE DESTINATION share/docs)
+-INSTALL(FILES docs/README.TESTING DESTINATION share/docs)
+-INSTALL(FILES docs/README.TXT DESTINATION share/docs)
+-
+-
+-INSTALL(FILES examples/arc.c DESTINATION share/docs)
+-INSTALL(FILES examples/copyrotated.c DESTINATION share/docs)
+-INSTALL(FILES examples/crop.c DESTINATION share/docs)
+-INSTALL(FILES examples/flip.c DESTINATION share/docs)
+-INSTALL(FILES examples/gif.c DESTINATION share/docs)
+-INSTALL(FILES examples/nnquant.c DESTINATION share/docs)
+-INSTALL(FILES examples/noIcon.pic DESTINATION share/docs)
+-INSTALL(FILES examples/noIcon.sgi DESTINATION share/docs)
+-INSTALL(FILES examples/noIcon.tga DESTINATION share/docs)
+-INSTALL(FILES examples/noIconAlpha.tga DESTINATION share/docs)
+-INSTALL(FILES examples/test_crop_threshold.png DESTINATION share/docs)
+-INSTALL(FILES examples/tgaread.c DESTINATION share/docs)
+-INSTALL(FILES examples/tiffread.c DESTINATION share/docs)
+-INSTALL(FILES examples/windows.c DESTINATION share/docs)
++INSTALL(FILES docs/INSTALL DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES docs/README.JPN DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES docs/README.CMAKE DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES docs/README.TESTING DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES docs/README.TXT DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++
++
++INSTALL(FILES examples/arc.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/copyrotated.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/crop.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/flip.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/gif.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/nnquant.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/noIcon.pic DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/noIcon.sgi DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/noIcon.tga DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/noIconAlpha.tga DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/test_crop_threshold.png DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/tgaread.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/tiffread.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
++INSTALL(FILES examples/windows.c DESTINATION share/doc/libgd-${GD_VERSION_STRING})
+ 
+ 
+ set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
+@@ -281,6 +285,6 @@
+ "^${PROJECT_SOURCE_DIR}/old/"
+ "^${PROJECT_SOURCE_DIR}/bld/"
+ )
+-install(FILES ${top_level_DOCFILES} DESTINATION ${DOC_DIR})
++# install(FILES ${top_level_DOCFILES} DESTINATION ${DOC_DIR})
+ INCLUDE(CPack)
+ 
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/config/gdlib.pc.in libgd-2.2.5/config/gdlib.pc.in
+--- libgd-2.2.5.original/config/gdlib.pc.in	2019-05-22 02:15:32.319712200 +0200
++++ libgd-2.2.5/config/gdlib.pc.in	2019-05-22 02:15:27.498939500 +0200
+@@ -1,11 +1,11 @@
+-prefix=@prefix@
+-exec_prefix=@exec_prefix@
+-libdir=@libdir@
+-includedir=@includedir@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${prefix}/lib
++includedir=${prefix}/include/
+ 
+ Name: gd
+ Description: GD graphics library
+-Version: @VERSION@
++Version: @GD_VERSION_STRING@
+ Cflags: -I${includedir}
+-Libs.private: @LIBS@ @LIBICONV@
++Libs.private: @PRIVLIBLIST@
+ Libs: -L${libdir} -lgd
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/config/gdlib-config.in libgd-2.2.5/config/gdlib-config.in
+--- libgd-2.2.5.original/config/gdlib-config.in	2019-05-22 02:15:32.210840300 +0200
++++ libgd-2.2.5/config/gdlib-config.in	2019-05-22 02:15:27.561416300 +0200
+@@ -8,11 +8,11 @@
+      "please use the pkg-config file instead." >&2
+ 
+ # installation directories
+-prefix=@prefix@
+-exec_prefix=@exec_prefix@
+-libdir=@libdir@
+-includedir=@includedir@
+-bindir=@bindir@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${prefix}/lib
++includedir=${prefix}/include
++bindir=${prefix}/bin
+ 
+ usage()
+ {
+@@ -31,7 +31,7 @@
+ 	--cflags          # options required for compiling GD library apps
+ 	--includes        # same as --cflags
+ 	--features        # lists features compiled into gd, separated by spaces.
+-                          # Currently (as of @VERSION@) the optional features
++                          # Currently (as of @GD_VERSION_STRING@) the optional features
+                           # are GD_PNG, GD_JPEG, GD_XPM, GD_FREETYPE, and 
+                           # GD_FONTCONFIG. When these features are reported by
+                           # --features, it is safe to include calls to the
+@@ -59,35 +59,35 @@
+ 	echo $includedir
+ 	;;
+     --version)
+-	echo @VERSION@
++	echo @GD_VERSION_STRING@
+ 	;;
+     --majorversion)
+-	echo @GDLIB_MAJOR@
++	echo @GD_VERSION_MAJOR@
+ 	;;
+     --minorversion)
+-	echo @GDLIB_MINOR@
++	echo @GD_VERSION_MINOR@
+ 	;;
+     --revision)
+-	echo @GDLIB_REVISION@
++	echo @GD_VERSION_PATCH@
+ 	;;
+     --ldflags)
+-	echo @LDFLAGS@
++	echo @CMAKE_MODULE_LINKER_FLAGS@
+ 	;;
+     --libs)
+-	echo -lgd @LIBS@ @LIBICONV@
++	echo -lgd @PRIVLIBLIST@
+ 	;;
+     --cflags|--includes)
+-	echo -I@includedir@
++	echo -I${prefix}/include
+ 	;;
+     --features)
+ 	echo @FEATURES@
+ 	;;
+     --all)
+-	echo "GD library  @VERSION@"
++	echo "GD library  @GD_VERSION_STRING@"
+ 	echo "includedir: $includedir"
+-	echo "cflags:     -I@includedir@"
+-	echo "ldflags:    @LDFLAGS@"
+-	echo "libs:       @LIBS@ @LIBICONV@"
++	echo "cflags:     -I${prefix}/include"
++	echo "ldflags:    @CMAKE_MODULE_LINKER_FLAGS@"
++	echo "libs:       @PRIVLIBLIST@"
+ 	echo "libdir:     $libdir"
+ 	echo "features:   @FEATURES@"
+ 	;;
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/gdlib-config.bat.win-gcc libgd-2.2.5/gdlib-config.bat.win-gcc
+--- libgd-2.2.5.original/gdlib-config.bat.win-gcc	2019-05-22 02:15:50.315016500 +0200
++++ libgd-2.2.5/gdlib-config.bat.win-gcc	2019-05-22 02:15:27.217692200 +0200
+@@ -0,0 +1,31 @@
++@echo off
++rem simplified replacement for the original shell script
++set ROOT=%~dp0
++
++set XLIBDIR=%ROOT%..\lib
++set XINCLUDEDIR=%ROOT%..\include
++set XVERSION=2.2.5
++set XCFLAGS=-I"%XINCLUDEDIR%"
++set XLIBS=-ljpeg -lpng -lfreetype -lXpm -ltiff -lz -liconv
++set XLDFLAGS=-L"%XLIBDIR%"
++
++for %%p in (%*) do (
++  if x%%p == x--libdir     echo %XLIBDIR%
++  if x%%p == x--includedir echo %XINCLUDEDIR%
++  if x%%p == x--version    echo %XVERSION%
++  if x%%p == x--cflags     echo %XCFLAGS%
++  if x%%p == x--libs       echo %XLIBS%
++  if x%%p == x--all        goto ALL
++) 
++goto END
++
++:ALL
++echo GD library  %XVERSION%
++echo includedir: %XINCLUDEDIR%
++echo cflags:     %XCFLAGS%
++echo ldflags:    %XLDFLAGS%
++echo libs:       %XLIBS%
++echo libdir:     %XLIBDIR%
++echo features:   GD_TIFF GD_XPM GD_JPEG GD_FREETYPE GD_PNG GD_GIF GD_GIFANIM GD_OPENPOLYGON
++
++:END
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/src/CMakeLists.txt libgd-2.2.5/src/CMakeLists.txt
+--- libgd-2.2.5.original/src/CMakeLists.txt	2019-05-22 02:15:53.197775300 +0200
++++ libgd-2.2.5/src/CMakeLists.txt	2019-05-22 02:15:27.498939500 +0200
+@@ -92,10 +92,10 @@
+ 	endif()
+ endif()
+ 
+-if (WIN32 AND NOT MINGW AND NOT MSYS)
++if (WIN32)
+   #	SET_TARGET_PROPERTIES(${GD_LIB} PROPERTIES LINK_FLAGS "/NODEFAULTLIB:msvcrt.lib")
+   SET_PROPERTY(TARGET ${GD_LIB_STATIC} APPEND PROPERTY COMPILE_DEFINITIONS NONDLL=1)
+-ENDIF(WIN32 AND NOT MINGW AND NOT MSYS)
++ENDIF(WIN32)
+ 
+ if (MINGW OR MSYS)
+ 	ADD_DEFINITIONS("-mms-bitfields")
+@@ -158,7 +158,7 @@
+ endif()
+ 
+ install(TARGETS ${GD_INSTALL_TARGETS}
+-        RUNTIME DESTINATION bin
++        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ install(PROGRAMS bdftogd DESTINATION bin)
+@@ -176,4 +176,56 @@
+ 	gdfontt.h
+ 	gdfx.h
+ 	gdpp.h
+-	DESTINATION include)
++	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
++
++#get a list of features and libraries that have been linked in for pkg_config
++set(FEATURES "GD_GIF GD_GIFANIM GD_OPENPOLYGON")
++set(PRIVLIBLIST "-L${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR} ")
++IF(ZLIB_FOUND)
++set(FEATURES "${FEATURES} GD_ZLIB") 
++set(PRIVLIBLIST "${PRIVLIBLIST} -lz")
++ENDIF(ZLIB_FOUND)
++IF(PNG_FOUND)
++set(FEATURES "${FEATURES} GD_PNG")
++set(PRIVLIBLIST "${PRIVLIBLIST} -lpng")
++ENDIF(PNG_FOUND)
++if (FREETYPE_FOUND)
++set(FEATURES "${FEATURES} GD_FREETYPE") 
++set(PRIVLIBLIST "${PRIVLIBLIST} -lfreetype")
++ENDIF(FREETYPE_FOUND)
++IF(FONTCONFIG_FOUND)
++set(FEATURES "${FEATURES} GD_FONTCONFIG")
++set(PRIVLIBLIST "${PRIVLIBLIST} -lfontconfig")
++ENDIF(FONTCONFIG_FOUND)
++IF(ICONV_FOUND)
++set(PRIVLIBLIST "${PRIVLIBLIST} -liconv")
++ENDIF(ICONV_FOUND)
++IF(JPEG_FOUND)
++set(FEATURES "${FEATURES} GD_JPEG")
++set(PRIVLIBLIST "${PRIVLIBLIST} -ljpeg")
++ENDIF(JPEG_FOUND)
++IF(LIQ_FOUND)
++set(FEATURES "${FEATURES} GD_LIQ")
++set(PRIVLIBLIST "${PRIVLIBLIST} ${LIQ_LIBRARIES}")
++ENDIF(LIQ_FOUND)
++IF(XPM_FOUND)
++set(FEATURES "${FEATURES} GD_XPM")
++set(PRIVLIBLIST "${PRIVLIBLIST} -lXpm")
++ENDIF(XPM_FOUND)
++IF(TIFF_FOUND)
++set(FEATURES "${FEATURES} GD_TIFF")
++set(PRIVLIBLIST "${PRIVLIBLIST} -ltiff")
++ENDIF(TIFF_FOUND)
++IF(WEBP_FOUND)
++set(FEATURES "${FEATURES} GD_WEBP")
++set(PRIVLIBLIST "${PRIVLIBLIST} -lwebp")
++ENDIF(WEBP_FOUND)
++
++configure_file(../config/gdlib.pc.in ${PROJECT_BINARY_DIR}/gdlib.pc @ONLY)
++install(FILES ${PROJECT_BINARY_DIR}/gdlib.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
++
++#configure gdlib-config for any build/config scripts that need it
++
++configure_file(../config/gdlib-config.in ${PROJECT_BINARY_DIR}/gdlib-config @ONLY)
++install(FILES ${PROJECT_BINARY_DIR}/gdlib-config DESTINATION bin)
++
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/src/gd.h libgd-2.2.5/src/gd.h
+--- libgd-2.2.5.original/src/gd.h	2019-05-22 02:15:54.680535700 +0200
++++ libgd-2.2.5/src/gd.h	2019-05-22 02:15:27.608306900 +0200
+@@ -46,34 +46,31 @@
+ 
+ /* http://gcc.gnu.org/wiki/Visibility */
+ #if defined(_WIN32) || defined(CYGWIN) || defined(_WIN32_WCE)
+-# ifdef BGDWIN32
+-#  ifdef NONDLL
+-#   define BGD_EXPORT_DATA_PROT
+-#  else
+-#   ifdef __GNUC__
+-#    define BGD_EXPORT_DATA_PROT __attribute__ ((dllexport))
+-#   else
+-#    define BGD_EXPORT_DATA_PROT __declspec(dllexport)
+-#   endif
+-#  endif
+-# else
+-#  ifdef __GNUC__
+-#   define BGD_EXPORT_DATA_PROT __attribute__ ((dllimport))
+-#  else
+-#   define BGD_EXPORT_DATA_PROT __declspec(dllimport)
+-#  endif
+-# endif
+-# define BGD_STDCALL __stdcall
+-# define BGD_EXPORT_DATA_IMPL
++  #ifdef NONDLL // static build
++    #define BGD_EXPORT_DATA_PROT
++    #define BGD_STDCALL
++  #else
++    #ifdef BGDWIN32 // defined if we are building the GD DLL (instead of using it)
++      #define BGD_EXPORT_DATA_PROT __attribute__ ((dllexport))
++    #else
++      #define BGD_EXPORT_DATA_PROT __attribute__ ((dllimport))
++    #endif
++    #ifdef __MINGW32__
++      #define BGD_STDCALL
++    #else
++      #define BGD_STDCALL __stdcall
++    #endif
++  #endif
++  #define BGD_EXPORT_DATA_IMPL
+ #else
+-# if defined(__GNUC__) || defined(__clang__)
+-#  define BGD_EXPORT_DATA_PROT __attribute__ ((visibility ("default")))
+-#  define BGD_EXPORT_DATA_IMPL __attribute__ ((visibility ("hidden")))
+-# else
+-#  define BGD_EXPORT_DATA_PROT
+-#  define BGD_EXPORT_DATA_IMPL
+-# endif
+-# define BGD_STDCALL
++  #if defined(__GNUC__) || defined(__clang__)
++    #define BGD_EXPORT_DATA_PROT __attribute__ ((visibility ("default")))
++    #define BGD_EXPORT_DATA_IMPL __attribute__ ((visibility ("hidden")))
++  #else
++    #define BGD_EXPORT_DATA_PROT
++    #define BGD_EXPORT_DATA_IMPL
++  #endif
++  #define BGD_STDCALL
+ #endif
+ 
+ #define BGD_DECLARE(rt) BGD_EXPORT_DATA_PROT rt BGD_STDCALL
+diff -r -u --strip-trailing-cr libgd-2.2.5.original/src/webpng.c libgd-2.2.5/src/webpng.c
+--- libgd-2.2.5.original/src/webpng.c	2019-05-22 02:16:05.095329200 +0200
++++ libgd-2.2.5/src/webpng.c	2019-05-22 02:15:27.530187000 +0200
+@@ -18,6 +18,25 @@
+ #include <unistd.h>
+ #endif
+ 
++#if defined (_WIN32)
++int     opterr = 1,             /* if error message should be printed */
++  optind = 1,             /* index into parent argv vector */
++  optopt,                 /* character checked for validity */
++  optreset;               /* reset getopt */
++char    *optarg;                /* argument associated with option */
++
++#define BADCH   (int)'?'
++#define BADARG  (int)':'
++#define EMSG    ""
++
++/*
++* getopt --
++*      Parse argc/argv argument vector.
++*/
++int getopt(int nargc, char * const nargv[], const char *ostr);
++
++#endif // defined (_WIN32)
++
+ #ifdef __clang__
+ /* Workaround broken clang behavior: https://llvm.org/bugs/show_bug.cgi?id=20144 */
+ #undef strcmp
+@@ -297,3 +316,66 @@
+ 	/* All's well that ends well. */
+ 	return 0;
+ }
++
++#if defined (_WIN32)
++/*
++* getopt --
++*      Parse argc/argv argument vector.
++*/
++int
++  getopt(int nargc, char * const nargv[], const char *ostr)
++{
++  static char *place = EMSG;              /* option letter processing */
++  const char *oli;                        /* option letter list index */
++
++  if (optreset || !*place) {              /* update scanning pointer */
++    optreset = 0;
++    if (optind >= nargc || *(place = nargv[optind]) != '-') {
++      place = EMSG;
++      return (-1);
++    }
++    if (place[1] && *++place == '-') {      /* found "--" */
++      ++optind;
++      place = EMSG;
++      return (-1);
++    }
++  }                                       /* option letter okay? */
++  if ((optopt = (int)*place++) == (int)':' ||
++    !(oli = strchr(ostr, optopt))) {
++      /*
++      * if the user didn't specify '-' as an option,
++      * assume it means -1.
++      */
++      if (optopt == (int)'-')
++        return (-1);
++      if (!*place)
++        ++optind;
++      if (opterr && *ostr != ':')
++        (void)printf("illegal option -- %c\n", optopt);
++      return (BADCH);
++  }
++  if (*++oli != ':') {                    /* don't need argument */
++    optarg = NULL;
++    if (!*place)
++      ++optind;
++  }
++  else {                                  /* need an argument */
++    if (*place)                     /* no white space */
++      optarg = place;
++    else if (nargc <= ++optind) {   /* no arg */
++      place = EMSG;
++      if (*ostr == ':')
++        return (BADARG);
++      if (opterr)
++        (void)printf("option requires an argument -- %c\n", optopt);
++      return (BADCH);
++    }
++    else                            /* white space */
++      optarg = nargv[optind];
++    place = EMSG;
++    ++optind;
++  }
++  return (optopt);                        /* dump back option letter */
++}
++#endif //defined (_WIN32)
++

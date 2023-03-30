@@ -1,0 +1,50 @@
+diff -r -u --strip-trailing-cr freetype-2.10.0.original/freetype-config.bat.win-gcc freetype-2.10.0/freetype-config.bat.win-gcc
+--- freetype-2.10.0.original/freetype-config.bat.win-gcc	2019-05-22 02:11:50.947890400 +0200
++++ freetype-2.10.0/freetype-config.bat.win-gcc	2019-05-22 02:11:15.063372400 +0200
+@@ -0,0 +1,12 @@
++@echo off
++rem simplified replacement for the original shell script
++
++for %%p in (%*) do (
++  if x%%p == x--version  echo 2.10.0&                        goto END
++  if x%%p == x--cflags   echo -I"%~dp0..\include\freetype2"& goto END
++  if x%%p == x--libs     echo -L"%~dp0..\lib" -lfreetype&    goto END
++)
++
++echo Usage: %~n0 --version or --cflags or --libs
++
++:END
+\ No newline at end of file
+diff -r -u --strip-trailing-cr freetype-2.10.0.original/include/freetype/config/ftoption.h freetype-2.10.0/include/freetype/config/ftoption.h
+--- freetype-2.10.0.original/include/freetype/config/ftoption.h	2019-05-22 02:11:51.347727200 +0200
++++ freetype-2.10.0/include/freetype/config/ftoption.h	2019-05-22 02:11:16.516415100 +0200
+@@ -126,7 +126,7 @@
+    * macro is not defined, FreeType offers alternative LCD rendering
+    * technology that produces excellent output without LCD filtering.
+    */
+-/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */
++#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING
+ 
+ 
+   /**************************************************************************
+diff -r -u --strip-trailing-cr freetype-2.10.0.original/modules.cfg freetype-2.10.0/modules.cfg
+--- freetype-2.10.0.original/modules.cfg	2019-05-22 02:12:01.454526200 +0200
++++ freetype-2.10.0/modules.cfg	2019-05-22 02:11:17.516326400 +0200
+@@ -111,7 +111,7 @@
+ 
+ # TrueType GX/AAT table validation.  Needs `ftgxval.c' below.
+ #
+-# AUX_MODULES += gxvalid
++AUX_MODULES += gxvalid
+ 
+ # Support for streams compressed with gzip (files with suffix .gz).
+ #
+@@ -130,7 +130,7 @@
+ 
+ # OpenType table validation.  Needs `ftotval.c' below.
+ #
+-# AUX_MODULES += otvalid
++AUX_MODULES += otvalid
+ 
+ # Auxiliary PostScript driver component to share common code.
+ #

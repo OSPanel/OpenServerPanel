@@ -1,0 +1,18 @@
+
+The wrapper code for this extension was written by:
+ Jay Smith    <jay@php.net>
+ Olivier Hill <ohill@php.net>
+
+The actual stemmers were all the result of C code spit out
+by Dr. M.F. Porter's Snowball string processor. Snowball
+essentially takes a file containing a stemmer definition
+written in the Snowball language and outputs the equivalent
+in ANSI C. Very cool.
+
+Check out Snowball at
+
+  http://snowball.tartarus.org
+
+J Smith
+<dark_panda@hushmail.com>
+19 Apr 2002

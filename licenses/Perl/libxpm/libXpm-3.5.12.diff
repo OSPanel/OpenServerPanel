@@ -1,0 +1,281 @@
+diff -r -u --strip-trailing-cr libXpm-3.5.12.original/config.h.win-gcc libXpm-3.5.12/config.h.win-gcc
+--- libXpm-3.5.12.original/config.h.win-gcc	2019-05-22 02:07:43.236319500 +0200
++++ libXpm-3.5.12/config.h.win-gcc	2019-05-22 02:07:41.562629900 +0200
+@@ -0,0 +1,76 @@
++/* config.h.in.  Generated from configure.ac by autoheader.  */
++
++/* Define to 1 if you have the <dlfcn.h> header file. */
++#undef HAVE_DLFCN_H
++
++/* Define to 1 if you have the <inttypes.h> header file. */
++#define HAVE_INTTYPES_H 1
++
++/* Define to 1 if you have the <memory.h> header file. */
++#define HAVE_MEMORY_H 1
++
++/* Define to 1 if you have the <stdint.h> header file. */
++#define HAVE_STDINT_H 1
++
++/* Define to 1 if you have the <stdlib.h> header file. */
++#define HAVE_STDLIB_H 1
++
++/* Define to 1 if you have the <strings.h> header file. */
++#define HAVE_STRINGS_H 1
++
++/* Define to 1 if you have the <string.h> header file. */
++#define HAVE_STRING_H 1
++
++/* Define to 1 if you have the `strlcat' function. */
++#undef HAVE_STRLCAT
++
++/* Define to 1 if you have the <sys/stat.h> header file. */
++#define HAVE_SYS_STAT_H 1
++
++/* Define to 1 if you have the <sys/types.h> header file. */
++#define HAVE_SYS_TYPES_H 1
++
++/* Define to 1 if you have the <unistd.h> header file. */
++#define HAVE_UNISTD_H 1
++
++/* Location of translated messages */
++#undef LOCALEDIR
++
++/* Name of package */
++#undef PACKAGE
++
++/* Define to the address where bug reports for this package should be sent. */
++#undef PACKAGE_BUGREPORT
++
++/* Define to the full name of this package. */
++#undef PACKAGE_NAME
++
++/* Define to the full name and version of this package. */
++#undef PACKAGE_STRING
++
++/* Define to the one symbol short name of this package. */
++#undef PACKAGE_TARNAME
++
++/* Define to the version of this package. */
++#undef PACKAGE_VERSION
++
++/* Major version of this package */
++#undef PACKAGE_VERSION_MAJOR
++
++/* Minor version of this package */
++#undef PACKAGE_VERSION_MINOR
++
++/* Patch version of this package */
++#undef PACKAGE_VERSION_PATCHLEVEL
++
++/* Define to 1 to automatically look for files with .Z & .gz extensions */
++#undef STAT_ZFILE
++
++/* Define to 1 if you have the ANSI C header files. */
++#define STDC_HEADERS 1
++
++/* Define to 1 if you want to use the gettext() function. */
++#undef USE_GETTEXT
++
++/* Version number of package */
++#undef VERSION
+diff -r -u --strip-trailing-cr libXpm-3.5.12.original/dll_version.c.win-gcc libXpm-3.5.12/dll_version.c.win-gcc
+--- libXpm-3.5.12.original/dll_version.c.win-gcc	2019-05-22 02:07:44.389060800 +0200
++++ libXpm-3.5.12/dll_version.c.win-gcc	2019-05-22 02:07:41.625116500 +0200
+@@ -0,0 +1,22 @@
++#include <windows.h>
++#include <shlwapi.h>
++
++#define xMAJ 3
++#define xMIN 5
++#define xBLD 11
++#define xREV 0
++
++__declspec(dllexport) HRESULT DllGetVersion (DLLVERSIONINFO2 *pdvi);
++
++HRESULT DllGetVersion (DLLVERSIONINFO2 *pdvi)
++{
++  if(!pdvi || (pdvi->info1.cbSize != sizeof(*pdvi))) 
++    return(E_INVALIDARG);
++  pdvi->info1.dwMajorVersion = xMAJ;
++  pdvi->info1.dwMinorVersion = xMIN;
++  pdvi->info1.dwBuildNumber = xBLD;
++  pdvi->info1.dwPlatformID = DLLVER_PLATFORM_WINDOWS;
++  if(pdvi->info1.cbSize == sizeof(DLLVERSIONINFO2))
++    pdvi->ullVersion = MAKEDLLVERULL(xMAJ, xMIN, xBLD, xREV);
++  return(S_OK);
++}
+diff -r -u --strip-trailing-cr libXpm-3.5.12.original/dll_version_res.rc.win-gcc libXpm-3.5.12/dll_version_res.rc.win-gcc
+--- libXpm-3.5.12.original/dll_version_res.rc.win-gcc	2019-05-22 02:07:44.518975600 +0200
++++ libXpm-3.5.12/dll_version_res.rc.win-gcc	2019-05-22 02:07:41.687623600 +0200
+@@ -0,0 +1,30 @@
++#include <windows.h>
++
++// see http://msdn.microsoft.com/en-us/library/aa381058%28VS.85%29.aspx
++
++VS_VERSION_INFO		VERSIONINFO
++  FILEVERSION		3,5,11,0
++  PRODUCTVERSION	3,5,11,0
++  FILEFLAGSMASK		VS_FFI_FILEFLAGSMASK
++  FILEFLAGS		VS_FF_PRIVATEBUILD
++  FILEOS		VOS__WINDOWS32
++  FILETYPE		VFT_DLL
++BEGIN
++  BLOCK "StringFileInfo"
++  BEGIN
++    BLOCK "040904E4"
++    //language ID = U.S. English, char set = Windows, Multilingual
++    BEGIN
++      VALUE "ProductName",     "XPM library\0"
++      VALUE "ProductVersion",  "3.5.12\0"
++      VALUE "FileVersion",     "libXpm-3.5.12\0"
++      VALUE "FileDescription", "libXpm-3.5.12 @buildinfo@\0"
++      VALUE "Comments",        "Source code: http://ftp.x.org/pub/individual/lib/libXpm-3.5.12.tar.gz\0"
++      VALUE "PrivateBuild",    "Built by www.strawberryperl.com project\0"
++    END
++  END
++  BLOCK "VarFileInfo"
++  BEGIN
++    VALUE "Translation", 0x0409, 1252
++  END
++END
+diff -r -u --strip-trailing-cr libXpm-3.5.12.original/include/X11/xpm.h libXpm-3.5.12/include/X11/xpm.h
+--- libXpm-3.5.12.original/include/X11/xpm.h	2019-05-22 02:07:45.974364300 +0200
++++ libXpm-3.5.12/include/X11/xpm.h	2019-05-22 02:07:41.750119600 +0200
+@@ -64,6 +64,13 @@
+ 
+ #ifndef XPM_NUMBERS
+ 
++/* xxx kmx hack */
++#ifdef __MINGW32__
++#ifndef FOR_MSW
++#define FOR_MSW
++#endif
++#endif
++
+ #ifdef FOR_MSW
+ # define SYSV			/* uses memcpy string.h etc. */
+ # include <malloc.h>
+diff -r -u --strip-trailing-cr libXpm-3.5.12.original/Makefile.win-gcc libXpm-3.5.12/Makefile.win-gcc
+--- libXpm-3.5.12.original/Makefile.win-gcc	2019-05-22 02:07:47.318830800 +0200
++++ libXpm-3.5.12/Makefile.win-gcc	2019-05-22 02:07:41.828238700 +0200
+@@ -0,0 +1,105 @@
++#BEWARE: this Makefile was designed for GNU make and uses some specific syntax
++#        that can be incompatible with other make tools
++
++#### the following is package-specific ####
++
++BASENAME =libXpm
++DLLBASE  =$(BASENAME)
++CFLAGS   =-DFOR_MSW -I. -I./src -I./include -I./include/X11 -O2 -I$(INCDIR) -mms-bitfields
++LIBS     =-L$(LIBDIR) -lgdi32
++CXXFLAGS =
++OBJS     =src/Attrib.o src/CrBufFrI.o src/CrDatFrI.o src/create.o src/CrIFrBuf.o src/CrIFrDat.o src/data.o src/hashtab.o src/Image.o src/Info.o src/misc.o src/parse.o src/RdFToBuf.o src/RdFToDat.o src/RdFToI.o src/rgb.o src/scan.o src/simx.o src/WrFFrBuf.o src/WrFFrDat.o src/WrFFrI.o
++VEROBJ   =dll_version_res.o dll_version.o
++CONFIG_H =config.h
++PCFILE   =xpm.pc
++CFFILE   =
++
++#### end of packcage-specific ####
++
++ifeq ($(NOPERL), 1)
++  ECHO   = @echo
++  CP     = cp
++  MV     = mv
++  RM_F   = rm -f
++  RM_RF  = rm -rf
++  MKPATH = mkdir -p
++  SED    = sed
++else
++  ECHO   = @perl -l -e "print qq{@ARGV}" --
++  CP     = perl -MExtUtils::Command -e "cp" --
++  MV     = perl -MExtUtils::Command -e "mv" --
++  RM_F   = perl -MExtUtils::Command -e "rm_f" --
++  RM_RF  = perl -MExtUtils::Command -e "rm_rf" --
++  MKPATH = perl -MExtUtils::Command -e "mkpath" --
++  SED    = perl -pe
++endif
++
++RANLIB  = ranlib
++CC      = gcc
++CXX     = g++
++STRIP   = strip
++AR      = ar
++ARFLAGS = csr
++
++#by default we assume 32-bit target platform
++BITS=32
++
++PREFIX =./_output_
++BINDIR =$(PREFIX)/bin
++INCDIR =$(PREFIX)/include
++LIBDIR =$(PREFIX)/lib
++
++STATIC_LIB=$(BASENAME).a
++IMPORT_LIB=$(BASENAME).dll.a
++SHARED_LIB=$(DLLBASE)$(DLLSUFFIX).dll
++
++#BEWARE: all you put into TARGETS will be deleted by 'make clean'
++TARGETS = $(PCFILE) $(CFFILE) $(CONFIG_H) $(STATIC_LIB) $(SHARED_LIB) $(EXEOBJS) $(EXES)
++
++all: $(TARGETS)
++
++clean:
++	$(RM_F) $(OBJS) $(VEROBJ) $(TARGETS)
++
++$(STATIC_LIB): $(OBJS)
++	$(AR) $(ARFLAGS) $@ $^
++	$(RANLIB) $@
++
++$(SHARED_LIB): $(VEROBJ) $(OBJS)
++	$(CC) -s -shared -o $@ $^ -Wl,--enable-auto-import,--export-all -Wl,--out-implib=$(IMPORT_LIB) $(LIBS)
++	$(STRIP) -S $(SHARED_LIB)
++
++%.o : %.c ; $(CC) $(CFLAGS) -c $< -o $@
++
++%.o : %.cpp ; $(CXX) $(CXXFLAGS) -c $< -o $@
++
++%.o : %.cc ; $(CXX) $(CXXFLAGS) -c $< -o $@
++
++%.o : %.rc ; windres --define GCC_WINDRES $< -o $@
++
++%.rc: %.rc.win-gcc ; $(SED) "s~\@buildinfo\@~$(BUILDINFO)~" $< > $@
++
++%.h: %.h.win-gcc$(BITS) ; $(CP) $< $@
++
++%.h: %.h.win-gcc ; $(CP) $< $@
++
++%.c: %.c.win-gcc ; $(CP) $< $@
++ 
++%-config: %-config.win-gcc ; $(CP) $< $@ 
++
++%-config.bat: %-config.bat.win-gcc ; $(CP) $< $@ 
++
++%.pc: %.pc.win-gcc ; $(SED) "s~\@prefix\@~$(PREFIX)~" $< > $@
++
++#### the rest of the makefile is package-specific ####
++
++install: all
++	$(MKPATH) $(BINDIR)
++	$(MKPATH) $(LIBDIR)
++	$(MKPATH) $(LIBDIR)/pkgconfig
++	$(MKPATH) $(INCDIR)/X11
++	$(CP) "include/X11/xpm.h" "$(INCDIR)/X11/xpm.h"
++	$(CP) "src/simx.h" "$(INCDIR)/X11/simx.h"
++	$(CP) "$(PCFILE)" "$(LIBDIR)/pkgconfig"
++	$(CP) $(STATIC_LIB) $(IMPORT_LIB) "$(LIBDIR)"
++	$(CP) $(SHARED_LIB) "$(BINDIR)"
+diff -r -u --strip-trailing-cr libXpm-3.5.12.original/xpm.pc.win-gcc libXpm-3.5.12/xpm.pc.win-gcc
+--- libXpm-3.5.12.original/xpm.pc.win-gcc	2019-05-22 02:07:53.210222800 +0200
++++ libXpm-3.5.12/xpm.pc.win-gcc	2019-05-22 02:07:41.875110500 +0200
+@@ -0,0 +1,11 @@
++prefix=@prefix@
++exec_prefix=${prefix}
++libdir=${exec_prefix}/lib
++includedir=${prefix}/include 
++
++Name: Xpm
++Description: X Pixmap Library
++Version: 3.5.12
++Requires:
++Cflags: -I${includedir}
++Libs: -L${libdir} -lXpm

@@ -1,0 +1,206 @@
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/configure.ac libxslt-1.1.33/configure.ac
+--- libxslt-1.1.33.original/configure.ac	2019-05-22 01:52:58.226809600 +0200
++++ libxslt-1.1.33/configure.ac	2019-05-22 01:52:56.436713600 +0200
+@@ -9,6 +9,7 @@
+ AC_CONFIG_SRCDIR([libxslt/xslt.c])
+ AC_CONFIG_HEADERS(config.h)
+ AC_CANONICAL_HOST
++AC_LIBTOOL_WIN32_DLL
+ AC_USE_SYSTEM_EXTENSIONS
+ 
+ dnl
+@@ -586,15 +587,17 @@
+  WIN32_EXTRA_LDFLAGS="-no-undefined"
+  ;;
+  *-*-mingw*)
+- WIN32_EXTRA_LIBADD="-lwsock32"
++ WIN32_EXTRA_LIBADD="-lws2_32 -lmswsock"
+  WIN32_EXTRA_LDFLAGS="-no-undefined"
+- AC_DEFINE([_WINSOCKAPI_],1,[Using the Win32 Socket implementation])
+- AC_DEFINE([snprintf],[_snprintf],[Win32 Std C name mangling work-around])
+- AC_DEFINE([vsnprintf],[_vsnprintf],[Win32 Std C name mangling work-around])
++ if test "x${PYTHON}" != "x"
++ then
++   WIN32_EXTRA_PYTHON_LIBADD="-shrext .pyd " #-L${pythondir}/../../libs -lpython$(echo ${PYTHON_VERSION} | tr -d .)
++ fi
+  ;;
+ esac
+ AC_SUBST(WIN32_EXTRA_LIBADD)
+ AC_SUBST(WIN32_EXTRA_LDFLAGS)
++AC_SUBST(WIN32_EXTRA_PYTHON_LIBADD)
+ 
+ 
+ AC_SUBST(XSLTPROCDV)
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/libexslt/crypto.c libxslt-1.1.33/libexslt/crypto.c
+--- libxslt-1.1.33.original/libexslt/crypto.c	2019-05-22 01:53:14.525498500 +0200
++++ libxslt-1.1.33/libexslt/crypto.c	2019-05-22 01:52:56.639831000 +0200
+@@ -230,8 +230,13 @@
+     }
+ 
+     hHash = exsltCryptoCryptoApiCreateHash (ctxt, hCryptProv,
++#ifdef __MINGW32__
++					    CALG_SHA1, (LPVOID) key,
++					    RC4_KEY_LENGTH, (LPVOID) hash,
++#else
+ 					    CALG_SHA1, key,
+ 					    RC4_KEY_LENGTH, hash,
++#endif
+ 					    HASH_DIGEST_LENGTH);
+ 
+     if (!CryptDeriveKey
+@@ -281,8 +286,13 @@
+     }
+ 
+     hHash = exsltCryptoCryptoApiCreateHash (ctxt, hCryptProv,
++#ifdef __MINGW32__
++					    CALG_SHA1, (LPVOID) key,
++					    RC4_KEY_LENGTH, (LPVOID) hash,
++#else
+ 					    CALG_SHA1, key,
+ 					    RC4_KEY_LENGTH, hash,
++#endif
+ 					    HASH_DIGEST_LENGTH);
+ 
+     if (!CryptDeriveKey
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/libexslt/date.c libxslt-1.1.33/libexslt/date.c
+--- libxslt-1.1.33.original/libexslt/date.c	2019-05-22 01:53:14.629631700 +0200
++++ libxslt-1.1.33/libexslt/date.c	2019-05-22 01:52:56.686723100 +0200
+@@ -749,6 +749,14 @@
+     time_t secs;
+     int local_s, gm_s;
+     exsltDateValPtr ret;
++#ifdef __MINGW32__
++    gmTm.tm_year = 0;
++    gmTm.tm_mon = 0;
++    gmTm.tm_mday = 0;
++    gmTm.tm_hour = 0;
++    gmTm.tm_min = 0;
++    gmTm.tm_sec = 0;
++#endif
+ #ifdef HAVE_ERRNO_H
+     char *source_date_epoch;
+ #endif /* HAVE_ERRNO_H */
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/libxslt/security.c libxslt-1.1.33/libxslt/security.c
+--- libxslt-1.1.33.original/libxslt/security.c	2019-05-22 01:53:19.519802300 +0200
++++ libxslt-1.1.33/libxslt/security.c	2019-05-22 01:52:56.749180200 +0200
+@@ -342,8 +342,16 @@
+ 		}
+ 	    }
+ 	    ret = xsltCheckWritePath(sec, ctxt, directory);
+-	    if (ret == 1)
++	    if (ret == 1) {
+ 		ret = mkdir(directory, 0755);
++		if (ret == -1 && errno == EEXIST) {
++		    struct stat buf;
++                    ret = stat(directory, &buf);
++                    if (ret == 0) {
++                        ret = S_ISDIR(buf.st_mode) ? 0 : -1;
++                    }
++		}
++	    }
+ 	}
+ 	xmlFree(directory);
+ 	if (ret < 0)
+@@ -387,14 +395,16 @@
+ #if defined(_WIN32) && !defined(__CYGWIN__)
+     if ((uri->path)&&(uri->path[0]=='/')&&
+         (uri->path[1]!='\0')&&(uri->path[2]==':'))
+-    ret = xsltCheckWritePath(sec, ctxt, uri->path+1);
++        ret = xsltCheckWritePath(sec, ctxt, uri->path+1);
+     else
+-#endif
++        ret = xsltCheckWritePath(sec, ctxt, uri->path);
++#else
+ 
+ 	/*
+ 	 * Check if we are allowed to write this file
+ 	 */
+ 	ret = xsltCheckWritePath(sec, ctxt, uri->path);
++#endif
+ 	if (ret <= 0) {
+ 	    xmlFreeURI(uri);
+ 	    return(ret);
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/libxslt.m4 libxslt-1.1.33/libxslt.m4
+--- libxslt-1.1.33.original/libxslt.m4	2019-05-22 01:53:21.852951400 +0200
++++ libxslt-1.1.33/libxslt.m4	2019-05-22 01:52:55.593024600 +0200
+@@ -52,8 +52,10 @@
+            sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
+     if test "x$enable_xslttest" = "xyes" ; then
+       ac_save_CFLAGS="$CFLAGS"
++      ac_save_CXXFLAGS="$CXXFLAGS"
+       ac_save_LIBS="$LIBS"
+       CFLAGS="$CFLAGS $XSLT_CFLAGS"
++      CXXFLAGS="$CXXFLAGS $XSLT_CFLAGS"
+       LIBS="$XSLT_LIBS $LIBS"
+ dnl
+ dnl Now check if the installed libxslt is sufficiently new.
+@@ -138,6 +140,7 @@
+ }
+ ],, no_xslt=yes,[echo $ac_n "cross compiling; assumed OK... $ac_c"])
+        CFLAGS="$ac_save_CFLAGS"
++       CXXFLAGS="$ac_save_CXXFLAGS"
+        LIBS="$ac_save_LIBS"
+      fi
+   fi
+@@ -158,6 +161,7 @@
+        else
+           echo "*** Could not run libxslt test program, checking why..."
+           CFLAGS="$CFLAGS $XSLT_CFLAGS"
++          CXXFLAGS="$CXXFLAGS $XSLT_CFLAGS"
+           LIBS="$LIBS $XSLT_LIBS"
+           AC_TRY_LINK([
+ #include <libxslt/xslt.h>
+@@ -177,6 +181,7 @@
+           echo "*** or that you have moved LIBXSLT since it was installed. In the latter case, you"
+           echo "*** may want to edit the xslt-config script: $XSLT_CONFIG" ])
+           CFLAGS="$ac_save_CFLAGS"
++          CXXFLAGS="$ac_save_CXXFLAGS"
+           LIBS="$ac_save_LIBS"
+        fi
+      fi
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/python/libxslt.c libxslt-1.1.33/python/libxslt.c
+--- libxslt-1.1.33.original/python/libxslt.c	2019-05-22 01:53:23.275002600 +0200
++++ libxslt-1.1.33/python/libxslt.c	2019-05-22 01:52:56.483572700 +0200
+@@ -23,9 +23,7 @@
+ #include <stdio.h>
+ #include <stddef.h>
+ 
+-#if (defined(_MSC_VER) || defined(__MINGW32__)) && !defined(vsnprintf)
+-#define vsnprintf(b,c,f,a) _vsnprintf(b,c,f,a)
+-#elif defined(XSLT_NEED_TRIO)
++#if defined(XSLT_NEED_TRIO)
+ #include "trio.h"
+ #define vsnprintf trio_vsnprintf
+ #endif
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/python/libxslt_wrap.h libxslt-1.1.33/python/libxslt_wrap.h
+--- libxslt-1.1.33.original/python/libxslt_wrap.h	2019-05-22 01:53:23.383043300 +0200
++++ libxslt-1.1.33/python/libxslt_wrap.h	2019-05-22 01:52:56.296105000 +0200
+@@ -17,6 +17,7 @@
+ #include <libxslt/transform.h>
+ #include <libxslt/variables.h>
+ #include <libxslt/xsltconfig.h>
++#include <libxslt/xsltlocale.h>
+ 
+ #define Pystylesheet_Get(v) (((v) == Py_None) ? NULL : \
+         (((Pystylesheet_Object *)(v))->obj))
+diff -r -u --strip-trailing-cr libxslt-1.1.33.original/python/Makefile.am libxslt-1.1.33/python/Makefile.am
+--- libxslt-1.1.33.original/python/Makefile.am	2019-05-22 01:53:23.490887400 +0200
++++ libxslt-1.1.33/python/Makefile.am	2019-05-22 01:52:55.921130500 +0200
+@@ -19,7 +19,7 @@
+ 	libxslt-python-api.xml	\
+ 	$(DOCS)
+ 
+-libxsltmod_la_LDFLAGS =  $(WIN32_EXTRA_LDFLAGS) -module -avoid-version
++libxsltmod_la_LDFLAGS = $(WIN32_EXTRA_LDFLAGS) -module -avoid-version -shared
+ 
+ if WITH_PYTHON
+ mylibs = \
+@@ -37,7 +37,7 @@
+ 	-I../libexslt
+ libxsltmod_la_SOURCES = libxslt.c types.c
+ nodist_libxsltmod_la_SOURCES = libxslt-py.c
+-libxsltmod_la_LIBADD = $(mylibs) $(PYTHON_LIBS)
++libxsltmod_la_LIBADD = $(mylibs) $(PYTHON_LIBS) @WIN32_EXTRA_PYTHON_LIBADD@
+ 
+ libxslt.py: $(srcdir)/libxsl.py libxsltclass.py
+ 	cat $(srcdir)/libxsl.py libxsltclass.py > $@

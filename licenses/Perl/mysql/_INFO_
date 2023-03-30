@@ -1,0 +1,7 @@
+Package: mysql-5.7.16
+Homepage: http://www.mysql.com/
+Sources: http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.16.tar.gz
+Comment: 64bit libmysql.dll from http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.16-winx64.zip
+Comment: 32bit libmysql.dll from http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.16-win32.zip
+
+

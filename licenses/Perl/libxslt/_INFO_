@@ -1,0 +1,4 @@
+Package: libxslt-1.1.33
+Sources: ftp://xmlsoft.org/libxslt/libxslt-1.1.33.tar.gz
+Patch: libxslt-1.1.33.diff
+Homepage: http://xmlsoft.org/XSLT/

@@ -1,0 +1,4 @@
+Package: zlib-1.2.11
+Sources: http://www.zlib.net/zlib-1.2.11.tar.gz
+Patch: zlib-1.2.11.diff
+Homepage: http://www.zlib.net/

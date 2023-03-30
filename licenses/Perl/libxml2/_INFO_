@@ -1,0 +1,4 @@
+Package: libxml2-2.9.9
+Sources: ftp://xmlsoft.org/libxslt/libxml2-2.9.9.tar.gz
+Patch: libxml2-2.9.9.diff
+Homepage: http://xmlsoft.org/

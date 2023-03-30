@@ -1,0 +1,4 @@
+Package: libXpm-3.5.12
+Sources: http://ftp.x.org/pub/individual/lib/libXpm-3.5.12.tar.gz
+Patch: libXpm-3.5.12.diff
+Homepage: http://www.freedesktop.org/wiki/Software/xlibs

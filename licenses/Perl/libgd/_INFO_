@@ -1,0 +1,4 @@
+Package: libgd-2.2.5
+Sources: https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.gz
+Patch: libgd-2.2.5.diff
+Homepage: http://www.libgd.org/

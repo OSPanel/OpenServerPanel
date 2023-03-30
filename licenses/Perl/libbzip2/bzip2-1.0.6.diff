@@ -1,0 +1,1243 @@
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/aclocal.m4 bzip2-1.0.6/aclocal.m4
+--- bzip2-1.0.6.original/aclocal.m4	2019-05-22 01:39:57.961388400 +0200
++++ bzip2-1.0.6/aclocal.m4	2019-05-22 01:39:56.709763100 +0200
+@@ -0,0 +1,115 @@
++# aclocal.m4 -*- Autoconf -*- vim: filetype=config
++# ------------------------------------------------------------------
++# This file is part of bzip2/libbzip2, a program and library for
++# lossless, block-sorting data compression.
++#
++# bzip2/libbzip2 version 1.0.5 of 10 December 2007
++# Copyright (C) 1996-2007 Julian Seward <jseward@bzip.org>
++#
++# File: aclocal.m4 for autoconf configuration
++# Contributed by Keith Marshall <keithmarshall@users.sourceforge.net>
++#
++# Please read the WARNING, DISCLAIMER and PATENTS sections in the 
++# README file.
++#
++# This program is released under the terms of the license contained
++# in the file LICENSE.
++# ------------------------------------------------------------------
++
++# BZIP2_AC_WINDOWS_HOST
++# ---------------------
++# Check if the runtime platform is a native MS-Windows host.
++# FIXME: is checking _WIN64 an appropriate choice, for 64-bit Windows?
++# Because we only need to know whether the host is (native) win32
++# or not, we can avoid the expensive AC_CANONICAL_HOST checks.
++#
++AC_DEFUN([BZIP2_AC_WINDOWS_HOST],
++[AC_CACHE_CHECK([whether we are building for an MS-Windows host],
++ [bzip2_cv_windows_host],
++ AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
++@%:@if defined _WIN32 || defined _WIN64
++ choke me
++@%:@endif]])],
++[bzip2_cv_windows_host=no], [bzip2_cv_windows_host=yes]))dnl
++])# BZIP2_AC_WINDOWS_HOST
++
++# BZIP2_AC_CYGWIN_HOST
++# ---------------------
++# Check if the runtime platform is a cygwin host.
++# Because we only need to know whether the host is cygwin
++# or not, we can avoid the expensive AC_CANONICAL_HOST checks.
++#
++AC_DEFUN([BZIP2_AC_CYGWIN_HOST],
++[AC_CACHE_CHECK([whether we are building for a cygwin host],
++ [bzip2_cv_cygwin_host],
++ AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
++@%:@if defined __CYGWIN__
++ choke me
++@%:@endif]])],
++[bzip2_cv_cygwin_host=no], [bzip2_cv_cygwin_host=yes]))dnl
++])# BZIP2_AC_CYGWIN_HOST
++
++# BZIP2_AC_ENABLE_SHARED
++# ----------------------
++# Check if the user is configuring with `--enable-shared';
++# if yes, activate shared library build support as appropriate,
++# for the host on which this build is to be deployed.
++#
++AC_DEFUN([BZIP2_AC_ENABLE_SHARED],
++[AC_REQUIRE([BZIP2_AC_WINDOWS_HOST])dnl
++ AC_REQUIRE([BZIP2_AC_CYGWIN_HOST])dnl
++ AC_MSG_CHECKING([for make goal to build shared libraries])
++ AC_ARG_ENABLE([shared],
++ [AS_HELP_STRING([--enable-shared],
++  [enable building as a shared library @<:@default=no@:>@])],
++ [if test "x$enable_shared" = xyes
++  then
++    if test "x${bzip2_cv_windows_host}" = xyes ||
++       test "x${bzip2_cv_cygwin_host}" = xyes
++    then
++      enable_shared="all-dll-shared"
++    else
++      enable_shared="all-bzip2-shared"
++    fi
++  else
++    enable_shared="none"
++  fi
++ ], [enable_shared="none"])dnl
++ AC_MSG_RESULT([${enable_shared}])
++ [test "x$enable_shared" = xnone && enable_shared=""]
++ AC_SUBST([enable_shared])dnl
++])# BZIP2_AC_ENABLE_SHARED
++
++# BZIP2_AC_SUBST_DLLVER
++# ---------------------
++# Establish the ABI version number for MS-Windows shared libraries;
++# this is derived from the universal SO_VER and SO_AGE properties, as
++# specified in `Makefile.in'; (nominally, it is SO_VER - SO_AGE, but
++# see the note in `Makefile.in', explaining why, in this instance,
++# we use one more than that nominal value for $host = mingw32)
++#
++AC_DEFUN([BZIP2_AC_SUBST_DLLVER],
++[AC_REQUIRE([BZIP2_AC_WINDOWS_HOST])dnl
++ AC_MSG_CHECKING([for API version of DLL shared libraries])
++ [SO_VER=`FS=' 	';sed -n "/^[$FS]*SO_VER[$FS]*=[$FS]*/s///p" ${srcdir}/Makefile.in`]
++ [SO_AGE=`FS=' 	';sed -n "/^[$FS]*SO_AGE[$FS]*=[$FS]*/s///p" ${srcdir}/Makefile.in`]
++ [dllver=`expr ${SO_VER} - ${SO_AGE}`
++  test "x$bzip2_cv_windows_host" = xyes && dllver=`expr ${SO_VER} - ${SO_AGE}`]
++ AC_SUBST([DLLVER], [${dllver}])
++ AC_MSG_RESULT([${dllver}])dnl
++])# BZIP2_AC_SUBST_DLLVER
++
++# BZIP2_AC_SUBST_DLLNAME
++# ----------------------
++# Establish the base name MS-Windows or cygwin shared libraries;
++#
++AC_DEFUN([BZIP2_AC_SUBST_DLLNAME],
++[AC_REQUIRE([BZIP2_AC_WINDOWS_HOST])dnl
++ AC_MSG_CHECKING([for base name of DLL shared libraries])
++ [dllname=cygbz2
++  test "x$bzip2_cv_windows_host" = xyes && dllname=libbz2]
++ AC_SUBST([DLLNAME], [${dllname}])
++ AC_MSG_RESULT([${dllname}])dnl
++])# BZIP2_AC_SUBST_DLLNAME
++
++# aclocal.m4: end of file
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzgrep bzip2-1.0.6/bzgrep
+--- bzip2-1.0.6.original/bzgrep	2019-05-22 01:39:58.998284600 +0200
++++ bzip2-1.0.6/bzgrep	2019-05-22 01:39:54.709885500 +0200
+@@ -1,27 +1,75 @@
+ #!/bin/sh
+ 
+-# Bzgrep wrapped for bzip2, 
+-# adapted from zgrep by Philippe Troin <phil@fifi.org> for Debian GNU/Linux.
+-## zgrep notice:
+-## zgrep -- a wrapper around a grep program that decompresses files as needed
+-## Adapted from a version sent by Charles Levert <charles@comm.polymtl.ca>
++# bzgrep -- a wrapper around a grep program that decompresses files as needed
++# Adapted from zgrep of the Debian gzip package by Anibal Monsalve Salazar. 
++# Adapted from a version sent by Charles Levert <charles@comm.polymtl.ca>
++
++# Copyright (C) 1998, 2001, 2002 Free Software Foundation
++# Copyright (C) 1993 Jean-loup Gailly
++
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2, or (at your option)
++# any later version.
++
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
++# 02111-1307, USA.
+ 
+ PATH="/usr/bin:$PATH"; export PATH
+ 
+-prog=`echo $0 | sed 's|.*/||'`
++prog=`echo "$0" | sed 's|.*/||'`
+ case "$prog" in
+ 	*egrep)	grep=${EGREP-egrep}	;;
+ 	*fgrep)	grep=${FGREP-fgrep}	;;
+ 	*)	grep=${GREP-grep}	;;
+ esac
++
+ pat=""
++after_dash_dash=""
++files_with_matches=0
++files_without_matches=0
++no_filename=0
++with_filename=0
++
+ while test $# -ne 0; do
+-  case "$1" in
+-  -e | -f) opt="$opt $1"; shift; pat="$1"
++  case "$after_dash_dash$1" in
++  --d* | --rec*)	echo >&2 "$0: $1: option not supported"; exit 2;;
++  --files-with-*)	files_with_matches=1;;
++  --files-witho*)	files_without_matches=1;;
++  --no-f*)	no_filename=1;;
++  --wi*)	with_filename=1;;
++  --*)	;;
++  -*)
++	case "$1" in
++	-*[dr]*) echo >&2 "$0: $1: option not supported"; exit 2;;
++	esac
++	case "$1" in
++	-*H*)	with_filename=1;;
++	esac
++	case "$1" in
++	-*h*)	no_filename=1;;
++	esac
++	case "$1" in
++	-*L*)	files_without_matches=1;;
++	esac
++	case "$1" in
++	-*l*)	files_with_matches=1;;
++	esac;;
++  esac
++  case "$after_dash_dash$1" in
++  -[ef])   opt="$opt $1"; shift; pat="$1"
+            if test "$grep" = grep; then  # grep is buggy with -e on SVR4
+              grep=egrep
+            fi;;
+-  -A | -B) opt="$opt $1 $2"; shift;;
++  -[ABCdm])opt="$opt $1 $2"; shift;;
++  --)      opt="$opt $1"; after_dash_dash=1;;
+   -*)	   opt="$opt $1";;
+    *)      if test -z "$pat"; then
+ 	     pat="$1"
+@@ -35,19 +83,9 @@
+ if test -z "$pat"; then
+   echo "grep through bzip2 files"
+   echo "usage: $prog [grep_options] pattern [files]"
+-  exit 1
++  exit 2
+ fi
+ 
+-list=0
+-silent=0
+-op=`echo "$opt" | sed -e 's/ //g' -e 's/-//g'`
+-case "$op" in
+-  *l*) list=1
+-esac
+-case "$op" in
+-  *h*) silent=1
+-esac
+-
+ if test $# -eq 0; then
+   bzip2 -cdfq | $grep $opt "$pat"
+   exit $?
+@@ -55,21 +93,40 @@
+ 
+ res=0
+ for i do
+-  if test -f "$i"; then :; else if test -f "$i.bz2"; then i="$i.bz2"; fi; fi
+-  if test $list -eq 1; then
+-    bzip2 -cdfq "$i" | $grep $opt "$pat" 2>&1 > /dev/null && echo $i
+-    r=$?
+-  elif test $# -eq 1 -o $silent -eq 1; then
+-    bzip2 -cdfq "$i" | $grep $opt "$pat"
+-    r=$?
+-  else
+-    j=${i//\\/\\\\}
+-    j=${j//|/\\|}
+-    j=${j//&/\\&}
+-    j=`printf "%s" "$j" | tr '\n' ' '`
+-    bzip2 -cdfq "$i" | $grep $opt "$pat" | sed "s|^|${j}:|"
+-    r=$?
+-  fi
+-  test "$r" -ne 0 && res="$r"
++  bzip2 -cdfq -- "$i" |
++    if test $files_with_matches -eq 1; then
++      $grep $opt "$pat" > /dev/null && printf "%s\n" "$i"
++    elif test $files_without_matches -eq 1; then
++      $grep $opt "$pat" > /dev/null || printf "%s\n" "$i"
++    elif test $with_filename -eq 0 && { test $# -eq 1 || test $no_filename -eq 1; }; then
++      $grep $opt "$pat"
++    else
++      i=$(echo "$i" | sed -e 's/[\\|&]/\\&/g')
++      if test $with_filename -eq 1; then
++	sed_script="s|^[^:]*:|${i}:|"
++      else
++	sed_script="s|^|${i}:|"
++      fi
++      # Hack adapted from GPLed code at
++      # http://home.comcast.net/~j.p.h/cus-faq-2
++      # Has the same effect as the following two lines of bash:
++      #
++      # $grep $opt "$pat" | sed "$sed_script"
++      # exit ${PIPESTATUS[0]}
++      #
++      # Inside the `...`, fd4 goes to the pipe whose other end is read
++      # and passed to eval; fd1 is the normal standard output
++      # preserved the line before with exec 3>&1
++      exec 3>&1
++      eval `
++      exec 4>&1 >&3 3>&-
++      {
++       $grep $opt "$pat" 4>&-; echo "r=$?;" >&4
++      } | sed "$sed_script"
++      `
++      exit $r
++    fi
++  r=$?
++  test $res -lt $r && res=$r
+ done
+ exit $res
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzip2.1 bzip2-1.0.6/bzip2.1
+--- bzip2-1.0.6.original/bzip2.1	2019-05-22 01:39:59.366161000 +0200
++++ bzip2-1.0.6/bzip2.1	2019-05-22 01:39:55.959814600 +0200
+@@ -235,6 +235,10 @@
+ Suppress non-essential warning messages.  Messages pertaining to
+ I/O errors and other critical events will not be suppressed.
+ .TP
++.B \-p \-\-show\-progress
++Show percentage of input\-file done and while compressing show the percentage
++of the original file the new file is.
++.TP
+ .B \-v --verbose
+ Verbose mode -- show the compression ratio for each file processed.
+ Further \-v's increase the verbosity level, spewing out lots of
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzip2.c bzip2-1.0.6/bzip2.c
+--- bzip2-1.0.6.original/bzip2.c	2019-05-22 01:39:59.773693200 +0200
++++ bzip2-1.0.6/bzip2.c	2019-05-22 01:39:57.084719400 +0200
+@@ -53,6 +53,7 @@
+ #include <signal.h>
+ #include <math.h>
+ #include <errno.h>
++#include <time.h>
+ #include <ctype.h>
+ #include "bzlib.h"
+ 
+@@ -128,7 +129,7 @@
+ #if BZ_LCCWIN32
+ #   include <io.h>
+ #   include <fcntl.h>
+-#   include <sys\stat.h>
++#   include <sys/stat.h>
+ 
+ #   define NORETURN       /**/
+ #   define PATH_SEP       '\\'
+@@ -209,6 +210,7 @@
+ Char    progNameReally[FILE_NAME_LEN];
+ FILE    *outputHandleJustInCase;
+ Int32   workFactor;
++Char    showProgress;
+ 
+ static void    panic                 ( const Char* ) NORETURN;
+ static void    ioError               ( void )        NORETURN;
+@@ -334,6 +336,12 @@
+    UInt32  nbytes_in_lo32, nbytes_in_hi32;
+    UInt32  nbytes_out_lo32, nbytes_out_hi32;
+    Int32   bzerr, bzerr_dummy, ret;
++   double  fileSize = 0; /* initialized to make the compiler stop crying */
++                         /* double because big files might otherwhise give
++                          * overflows. not long long since not all compilers
++                          * support that one
++                          */
++   time_t  startTime, currentTime;
+ 
+    SET_BINARY_MODE(stream);
+    SET_BINARY_MODE(zStream);
+@@ -341,12 +349,21 @@
+    if (ferror(stream)) goto errhandler_io;
+    if (ferror(zStream)) goto errhandler_io;
+ 
++   if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
++      (void)fseek(stream, 0, SEEK_END);
++      fileSize = ftello(stream);
++      rewind(stream);
++      if (verbosity >= 1)
++         fprintf(stderr, "Input-file size: %ld\n", (long)fileSize);
++   }
++
+    bzf = BZ2_bzWriteOpen ( &bzerr, zStream, 
+                            blockSize100k, verbosity, workFactor );   
+    if (bzerr != BZ_OK) goto errhandler;
+ 
+    if (verbosity >= 2) fprintf ( stderr, "\n" );
+ 
++   time(&startTime);
+    while (True) {
+ 
+       if (myfeof(stream)) break;
+@@ -355,6 +372,22 @@
+       if (nIbuf > 0) BZ2_bzWrite ( &bzerr, bzf, (void*)ibuf, nIbuf );
+       if (bzerr != BZ_OK) goto errhandler;
+ 
++      if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
++         time(&currentTime);
++
++         if ((currentTime - startTime) > 1) { /* show progress every 2 seconds */
++            double curInPos = ftello(stream);
++            double curOutPos = ftello(zStream);
++
++            startTime = currentTime;
++
++            fprintf(stderr, "%.2f%% done", (curInPos * 100.0) / fileSize);
++            if (srcMode == SM_F2F)
++               fprintf(stderr, ", new size: %.2f%%", (curOutPos * 100.0) / curInPos);
++
++            fprintf(stderr, "    \r");
++         }
++      }
+    }
+ 
+    BZ2_bzWriteClose64 ( &bzerr, bzf, 0, 
+@@ -439,6 +472,8 @@
+    Int32   nUnused;
+    void*   unusedTmpV;
+    UChar*  unusedTmp;
++   double  fileSize = 0; /* initialized to make the compiler stop crying */
++   time_t  startTime, currentTime;
+ 
+    nUnused = 0;
+    streamNo = 0;
+@@ -446,9 +481,19 @@
+    SET_BINARY_MODE(stream);
+    SET_BINARY_MODE(zStream);
+ 
++   if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
++      off_t dummy = ftello(zStream);
++      (void)fseeko(zStream, 0, SEEK_END);
++      fileSize = ftello(zStream);
++      (void)fseeko(zStream, dummy, SEEK_SET);
++      if (verbosity >= 1)
++         fprintf(stderr, "Input-file size: %ld\n", (long)fileSize);
++   }
++
+    if (ferror(stream)) goto errhandler_io;
+    if (ferror(zStream)) goto errhandler_io;
+ 
++   time(&startTime);
+    while (True) {
+ 
+       bzf = BZ2_bzReadOpen ( 
+@@ -464,6 +509,16 @@
+          if ((bzerr == BZ_OK || bzerr == BZ_STREAM_END) && nread > 0)
+             fwrite ( obuf, sizeof(UChar), nread, stream );
+          if (ferror(stream)) goto errhandler_io;
++
++         if ((srcMode == SM_F2F || srcMode == SM_F2O) && showProgress == True) {
++            time(&currentTime);
++            if ((currentTime - startTime) >= 2) {
++               double curInPos = ftello(zStream);
++               startTime = currentTime;
++
++               fprintf(stderr, "%.2f%% done\r", (curInPos * 100.0) / fileSize);
++            }
++         }
+       }
+       if (bzerr != BZ_STREAM_END) goto errhandler;
+ 
+@@ -1132,8 +1187,8 @@
+ static 
+ void compress ( Char *name )
+ {
+-   FILE  *inStr;
+-   FILE  *outStr;
++   FILE  *inStr = NULL;
++   FILE  *outStr = NULL;
+    Int32 n, i;
+    struct MY_STAT statBuf;
+ 
+@@ -1313,8 +1368,8 @@
+ static 
+ void uncompress ( Char *name )
+ {
+-   FILE  *inStr;
+-   FILE  *outStr;
++   FILE  *inStr = NULL;
++   FILE  *outStr = NULL;
+    Int32 n, i;
+    Bool  magicNumberOK;
+    Bool  cantGuess;
+@@ -1511,7 +1566,7 @@
+ static 
+ void testf ( Char *name )
+ {
+-   FILE *inStr;
++   FILE *inStr = NULL;
+    Bool allOK;
+    struct MY_STAT statBuf;
+ 
+@@ -1803,6 +1858,7 @@
+    deleteOutputOnInterrupt = False;
+    exitValue               = 0;
+    i = j = 0; /* avoid bogus warning from egcs-1.1.X */
++   showProgress            = False;
+ 
+    /*-- Set up signal handlers for mem access errors --*/
+    signal (SIGSEGV, mySIGSEGVorSIGBUScatcher);
+@@ -1880,6 +1936,7 @@
+                case 'k': keepInputFiles   = True; break;
+                case 's': smallMode        = True; break;
+                case 'q': noisy            = False; break;
++               case 'p': showProgress     = True; break;
+                case '1': blockSize100k    = 1; break;
+                case '2': blockSize100k    = 2; break;
+                case '3': blockSize100k    = 3; break;
+@@ -1916,6 +1973,7 @@
+       if (ISFLAG("--keep"))              keepInputFiles   = True;    else
+       if (ISFLAG("--small"))             smallMode        = True;    else
+       if (ISFLAG("--quiet"))             noisy            = False;   else
++      if (ISFLAG("--show-progress"))     showProgress     = True;    else
+       if (ISFLAG("--version"))           license();                  else
+       if (ISFLAG("--license"))           license();                  else
+       if (ISFLAG("--exponential"))       workFactor = 1;             else 
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzip2.pc.in bzip2-1.0.6/bzip2.pc.in
+--- bzip2-1.0.6.original/bzip2.pc.in	2019-05-22 01:40:00.068780400 +0200
++++ bzip2-1.0.6/bzip2.pc.in	2019-05-22 01:39:56.850371600 +0200
+@@ -0,0 +1,11 @@
++prefix=@prefix@
++exec_prefix=@exec_prefix@
++bindir=@bindir@
++libdir=@libdir@
++includedir=@includedir@
++
++Name: bzip2
++Description: Lossless, block-sorting data compression
++Version: @PACKAGE_VERSION@
++Libs: -L${libdir} -lbz2
++Cflags: -I${includedir}
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzip2recover.c bzip2-1.0.6/bzip2recover.c
+--- bzip2-1.0.6.original/bzip2recover.c	2019-05-22 01:40:00.494225400 +0200
++++ bzip2-1.0.6/bzip2recover.c	2019-05-22 01:39:57.147233800 +0200
+@@ -24,6 +24,8 @@
+ #include <errno.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <fcntl.h>
++#include <unistd.h>
+ 
+ 
+ /* This program records bit locations in the file to be recovered.
+@@ -269,6 +271,19 @@
+        name[n-1] == '2');
+ }
+ 
++/*---------------------------------------------*/
++/* Open an output file safely with O_EXCL and good permissions */
++FILE* fopen_output( Char* name, const char* mode )
++{
++  FILE *fp;
++  int   fh;
++   
++  fh = open(name, O_WRONLY|O_CREAT|O_EXCL, 0600);
++  if (fh == -1) return NULL;
++  fp = fdopen(fh, mode);
++  if (fp == NULL) close(fh);
++  return fp;
++}
+ 
+ /*---------------------------------------------------*/
+ /*---                                             ---*/
+@@ -306,10 +321,12 @@
+    Int32       b, wrBlock, currBlock, rbCtr;
+    MaybeUInt64 bitsRead;
+ 
++
+    UInt32      buffHi, buffLo, blockCRC;
+    Char*       p;
+ 
+-   strcpy ( progName, argv[0] );
++   strncpy ( progName, argv[0], BZ_MAX_FILENAME-1);
++   progName[BZ_MAX_FILENAME-1]='\0';
+    inFileName[0] = outFileName[0] = 0;
+ 
+    fprintf ( stderr, 
+@@ -486,7 +503,7 @@
+          fprintf ( stderr, "   writing block %d to `%s' ...\n",
+                            wrBlock+1, outFileName );
+ 
+-         outFile = fopen ( outFileName, "wb" );
++         outFile = fopen_output ( outFileName, "wb" );
+          if (outFile == NULL) {
+             fprintf ( stderr, "%s: can't write `%s'\n",
+                       progName, outFileName );
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzlib.c bzip2-1.0.6/bzlib.c
+--- bzip2-1.0.6.original/bzlib.c	2019-05-22 01:40:00.702393300 +0200
++++ bzip2-1.0.6/bzlib.c	2019-05-22 01:39:57.225351600 +0200
+@@ -1372,7 +1372,7 @@
+ #ifndef BZ_NO_STDIO
+ /*---------------------------------------------------*/
+ 
+-#if defined(_WIN32) || defined(OS2) || defined(MSDOS)
++#if defined(_WIN32) || defined(OS2) || defined(MSDOS) || defined(__CYGWIN__)
+ #   include <fcntl.h>
+ #   include <io.h>
+ #   define SET_BINARY_MODE(file) setmode(fileno(file),O_BINARY)
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzlib.h bzip2-1.0.6/bzlib.h
+--- bzip2-1.0.6.original/bzlib.h	2019-05-22 01:40:00.877112100 +0200
++++ bzip2-1.0.6/bzlib.h	2019-05-22 01:39:57.350343300 +0200
+@@ -75,21 +75,39 @@
+ #include <stdio.h>
+ #endif
+ 
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #   include <windows.h>
+ #   ifdef small
+       /* windows.h define small to char */
+ #      undef small
+ #   endif
+-#   ifdef BZ_EXPORT
+-#   define BZ_API(func) WINAPI func
+-#   define BZ_EXTERN extern
++#   ifndef __GNUC__
++       /* Use these rules only for non-gcc native win32 */
++#      ifdef BZ_EXPORT
++#      define BZ_API(func) WINAPI func
++#      define BZ_EXTERN extern
++#      else
++       /* import windows dll dynamically */
++#      define BZ_API(func) (WINAPI * func)
++#      define BZ_EXTERN
++#      endif
+ #   else
+-   /* import windows dll dynamically */
+-#   define BZ_API(func) (WINAPI * func)
+-#   define BZ_EXTERN
++       /* For gcc on native win32, use import library trampoline       */
++       /* functions on DLL import.  This avoids requiring clients to   */
++       /* use special compilation flags depending on whether eventual  */
++       /* link will be against static libbz2 or against DLL, at the    */
++       /* expense of a small loss of efficiency. */
++
++       /* Because libbz2 does not export any DATA items, GNU ld's      */
++       /* "auto-import" is not a factor; the MinGW-built DLL can be    */
++       /* used by other compilers, provided an import library suitable */
++       /* for that compiler is (manually) constructed using the .def   */
++       /* file and the appropriate tool. */
++#      define BZ_API(func) func
++#      define BZ_EXTERN extern
+ #   endif
+ #else
++    /* non-win32 platforms, and cygwin */
+ #   define BZ_API(func) func
+ #   define BZ_EXTERN extern
+ #endif
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/bzmore bzip2-1.0.6/bzmore
+--- bzip2-1.0.6.original/bzmore	2019-05-22 01:40:01.106328000 +0200
++++ bzip2-1.0.6/bzmore	2019-05-22 01:39:57.412832100 +0200
+@@ -24,10 +24,10 @@
+   # 'stty min 1' resets eof to ^a on both SunOS and SysV!
+   cb='min 1 -icanon'; ncb='icanon eof ^d'
+ fi
+-if test $? -eq 0 -a -n "$oldtty"; then
+-   trap 'stty $oldtty 2>/dev/null; exit' 0 2 3 5 10 13 15
++if test $? -eq 0 && test -n "$oldtty"; then
++   trap 'stty $oldtty 2>/dev/null; exit' 0 INT QUIT TRAP USR1 PIPE TERM
+ else
+-   trap 'stty $ncb echo 2>/dev/null; exit' 0 2 3 5 10 13 15
++   trap 'stty $ncb echo 2>/dev/null; exit' 0 INT QUIT TRAP USR1 PIPE TERM
+ fi
+ 
+ if test $# = 0; then
+@@ -46,7 +46,7 @@
+ 		ANS=`dd bs=1 count=1 2>/dev/null` 
+ 		stty $ncb echo 2>/dev/null
+ 		echo " "
+-		if test "$ANS" = 'e' -o "$ANS" = 'q'; then
++		if test "$ANS" = 'e' || test "$ANS" = 'q'; then
+ 			exit
+ 		fi
+ 	fi
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/configure.ac bzip2-1.0.6/configure.ac
+--- bzip2-1.0.6.original/configure.ac	2019-05-22 01:40:01.564893800 +0200
++++ bzip2-1.0.6/configure.ac	2019-05-22 01:39:56.772259400 +0200
+@@ -0,0 +1,39 @@
++AC_INIT([bzip2],[1.0.6])
++# ------------------------------------------------------------------
++# This file is part of bzip2/libbzip2, a program and library for
++# lossless, block-sorting data compression.
++#
++# bzip2/libbzip2 version 1.0.6 of 6 September 2010
++# Copyright (C) 1996-2010 Julian Seward <jseward@bzip.org>
++#
++# File: configure.ac for autoconf configuration
++# Contributed by Keith Marshall <keithmarshall@users.sourceforge.net>
++#
++# Please read the WARNING, DISCLAIMER and PATENTS sections in the 
++# README file.
++#
++# This program is released under the terms of the license contained
++# in the file LICENSE.
++# ------------------------------------------------------------------
++AC_PROG_CC
++AC_PROG_LN_S
++
++BZIP2_AC_ENABLE_SHARED
++BZIP2_AC_SUBST_DLLVER
++BZIP2_AC_SUBST_DLLNAME
++
++AC_ARG_VAR([AR],[Archive librarian command])
++AC_ARG_VAR([ARFLAGS],[Archive librarian control flags, e.g. cq])
++AC_ARG_VAR([RANLIB],[Archive library indexing command])
++
++AC_CHECK_TOOL([AR],[ar],[ar])
++AC_CHECK_TOOL([RANLIB],[ranlib],[true])
++
++AC_MSG_CHECKING([for flags to pass to ${AR}])
++AC_SUBST([ARFLAGS],[${ARFLAGS-cq}])
++AC_MSG_RESULT([${ARFLAGS}])
++
++AC_CONFIG_FILES([Makefile bzip2.pc])
++AC_OUTPUT
++
++# configure.ac: end of file
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/libbz2.def.in bzip2-1.0.6/libbz2.def.in
+--- bzip2-1.0.6.original/libbz2.def.in	2019-05-22 01:40:02.551967800 +0200
++++ bzip2-1.0.6/libbz2.def.in	2019-05-22 01:39:56.834754100 +0200
+@@ -0,0 +1,27 @@
++LIBRARY			%DLLNAME%-%DLLVER%
++DESCRIPTION		"libbzip2: library for data compression"
++EXPORTS
++	BZ2_bzCompressInit
++	BZ2_bzCompress
++	BZ2_bzCompressEnd
++	BZ2_bzDecompressInit
++	BZ2_bzDecompress
++	BZ2_bzDecompressEnd
++	BZ2_bzReadOpen
++	BZ2_bzReadClose
++	BZ2_bzReadGetUnused
++	BZ2_bzRead
++	BZ2_bzWriteOpen
++	BZ2_bzWrite
++	BZ2_bzWriteClose
++	BZ2_bzWriteClose64
++	BZ2_bzBuffToBuffCompress
++	BZ2_bzBuffToBuffDecompress
++	BZ2_bzlibVersion
++	BZ2_bzopen
++	BZ2_bzdopen
++	BZ2_bzread
++	BZ2_bzwrite
++	BZ2_bzflush
++	BZ2_bzclose
++	BZ2_bzerror
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/Makefile.in bzip2-1.0.6/Makefile.in
+--- bzip2-1.0.6.original/Makefile.in	2019-05-22 01:40:03.098157600 +0200
++++ bzip2-1.0.6/Makefile.in	2019-05-22 01:39:56.600377100 +0200
+@@ -0,0 +1,386 @@
++# @configure_input@
++# ------------------------------------------------------------------
++# This file is part of bzip2/libbzip2, a program and library for
++# lossless, block-sorting data compression.
++#
++# bzip2/libbzip2 version 1.0.6 of 6 September 2010
++# Copyright (C) 1996-2010 Julian Seward <jseward@bzip.org>
++#
++# File: Makefile.in for autoconf configuration
++# Contributed by Keith Marshall <keithmarshall@users.sourceforge.net>
++#
++# Please read the WARNING, DISCLAIMER and PATENTS sections in the 
++# README file.
++#
++# This program is released under the terms of the license contained
++# in the file LICENSE.
++# ------------------------------------------------------------------
++
++PACKAGE	   =	@PACKAGE_TARNAME@
++VERSION	   =	@PACKAGE_VERSION@
++
++# If building libbz2 as a shared library, we use these version tags,
++SO_VER	   =	1
++SO_AGE	   =    0
++SO_REV	   =	6
++#
++# This yields a shared object library name below, following the
++# normal naming rules -- most linux distributions patch Julian's
++# original makefile to do something similar.
++#
++SO_MAJOR   :=   $(shell expr $(SO_VER) - $(SO_AGE))
++SONAME	   =	libbz2.so.$(SO_MAJOR)
++SOFULL     =    $(SONAME).$(SO_AGE).$(SO_REV)
++
++# For MS-Windows hosts, Julian's original build strategy, (and that
++# still adopted for building with MSVC), creates an unversioned DLL,
++# exporting functions using the __stdcall (WINAPI) calling convention.
++# Conversly, MinGW developers have chosen to sanitise the libbz2 ABI,
++# avoiding the use of the __stdcall calling convention, in favour of
++# the more GNU/Linux-alike __cdecl convention.
++#
++# To permit MinGW builds of libbz2.dll to co-exist, in the developer
++# universe, with MSVC builds, the MinGW Project has specified a scheme
++# for distribution of versioned DLLs, unambiguously named libbz2-N.dll,
++# where N is an ABI version number, nominally computed as:
++#
++#   SO_VER - SO_AGE	(ignoring SO_REV)
++#
++# Unfortunately, at an early stage in the evolution of the MinGW
++# versioned libbz2-N.dll, at a time when this version paradigm would
++# have yielded N = 1, a libbz2-1.dll was released, which employed the
++# __stdcall calling convention.  Thus, to avoid potential confusion
++# with this early release, and specific to the case of libbz2-N.dll,
++# the DLLVER for the __cdecl releases, as computed by the configure
++# script will lead the nominal value by one, becoming effectively:
++#
++#   1 + SO_VER - SO_AGE
++#
++# Note that for cygwin, a similar scheme (SO_VER - SO_AGE) is used,
++# but on that platform the extra +1 is not needed.
++DLLVER     =    @DLLVER@
++DLLNAME    =    @DLLNAME@
++LIBNAME    =    libbz2
++
++
++# Shell used by make...
++#
++SHELL     =    @SHELL@
++
++# Where to find the sources...
++#
++VPATH     =    ${srcdir}
++srcdir    =    @srcdir@
++
++# To assist in cross-compiling...
++#
++CC    =    @CC@
++AR    =    @AR@
++RANLIB    =    @RANLIB@
++LN_S      =    @LN_S@
++
++OBJEXT    =    @OBJEXT@
++EXEEXT    =    @EXEEXT@
++
++BIGFILES  =    -D_FILE_OFFSET_BITS=64
++CFLAGS    =    @CFLAGS@ $(BIGFILES)
++LDFLAGS   =    @LDFLAGS@
++ARFLAGS   =    @ARFLAGS@
++
++# Where you want it installed when you do 'make install'
++#
++PREFIX    =    @prefix@
++
++OBJS= blocksort.$(OBJEXT)  \
++      huffman.$(OBJEXT)    \
++      crctable.$(OBJEXT)   \
++      randtable.$(OBJEXT)  \
++      compress.$(OBJEXT)   \
++      decompress.$(OBJEXT) \
++      bzlib.$(OBJEXT)
++
++# Default build goals...
++#
++all: all-libs bzip2$(EXEEXT) bzip2recover$(EXEEXT)
++all-libs: libbz2.a @enable_shared@
++
++bzip2$(EXEEXT): libbz2.a bzip2.$(OBJEXT)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ bzip2.$(OBJEXT) -L. -lbz2
++
++bzip2recover$(EXEEXT): bzip2recover.$(OBJEXT)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
++
++libbz2.a: $(OBJS)
++	rm -f $@
++	$(AR) $(ARFLAGS) $@ $(OBJS)
++	$(RANLIB) $@
++
++blocksort.$(OBJEXT): blocksort.c
++	@cat ${srcdir}/words0
++	$(CC) $(CFLAGS) -c -o $@ $^
++
++%.$(OBJEXT): %.c
++	$(CC) $(CFLAGS) -c -o$@ $<
++
++# Building using a shared library, for dynamic linking on GNU/Linux...
++# (Invoked when configured with `--enable-shared' for a non-Win32 host).
++#
++# This is incorporated from Julian's original Makefile-libbz2_so.
++# It is reported to work successfully on x86-Linux (Red Hat 7.2), with
++# gcc-2.96 20000731 (Red Hat Linux 7.1 2.96-98); YMMV.
++#
++# Please refer to README, for important information regarding building
++# libbz2 as a shared library, in this manner.
++#
++PICFLAGS = -fpic -fPIC -Wall -Winline $(CFLAGS)
++
++all-bzip2-shared: bzip2-shared$(EXEEXT)
++bzip2-shared$(EXEEXT): bzip2.c $(SOFULL)
++	$(CC) $(PICFLAGS) -o $@ $^
++	
++$(SOFULL): $(OBJS:.$(OBJEXT)=-pic.$(OBJEXT))
++	$(CC) -shared -Wl,-soname -Wl,$(SONAME) -o $@ $^
++	rm -f $(SONAME); $(LN_S) $@ $(SONAME)
++	rm -f $(SONAME).$(SO_AGE); $(LN_S) $@ $(SONAME).$(SO_AGE)
++
++%-pic.$(OBJEXT): %.c
++	$(CC) $(PICFLAGS) -c -o $@ $<
++
++# Building using a shared library, for dynamic linking on MS-Windows
++# and cygwin...
++# (Invoked when configured with `--enable-shared' for a Win32/cygwin host)
++
++all-dll-shared: $(LIBNAME).dll.a
++
++$(LIBNAME).dll.a: $(DLLNAME)-$(DLLVER).dll
++
++$(DLLNAME)-$(DLLVER).dll: libbz2.def $(OBJS)
++	$(CC) -shared -o $@ $(LDFLAGS) -Wl,--out-implib=$(LIBNAME).dll.a $(OBJS)
++
++libbz2.def: libbz2.def.in
++	sed -e s,%DLLNAME%,$(DLLNAME), -e s,%DLLVER%,$(DLLVER), $^ > $@
++
++# Build validation...
++#
++check: test
++test: bzip2$(EXEEXT)
++	@cat ${srcdir}/words1
++	./bzip2$(EXEEXT) -1  < ${srcdir}/sample1.ref > sample1.rb2
++	./bzip2$(EXEEXT) -2  < ${srcdir}/sample2.ref > sample2.rb2
++	./bzip2$(EXEEXT) -3  < ${srcdir}/sample3.ref > sample3.rb2
++	./bzip2$(EXEEXT) -d  < ${srcdir}/sample1.bz2 > sample1.tst
++	./bzip2$(EXEEXT) -d  < ${srcdir}/sample2.bz2 > sample2.tst
++	./bzip2$(EXEEXT) -ds < ${srcdir}/sample3.bz2 > sample3.tst
++	cmp ${srcdir}/sample1.bz2 sample1.rb2 
++	cmp ${srcdir}/sample2.bz2 sample2.rb2
++	cmp ${srcdir}/sample3.bz2 sample3.rb2
++	cmp sample1.tst ${srcdir}/sample1.ref
++	cmp sample2.tst ${srcdir}/sample2.ref
++	cmp sample3.tst ${srcdir}/sample3.ref
++	@cat ${srcdir}/words3
++
++# GNU Standard Specifications for Installation Directories...
++#
++prefix = $(PREFIX)
++exec_prefix = @exec_prefix@
++
++bindir = @bindir@
++datarootdir = @datarootdir@
++includedir = @includedir@
++libdir = @libdir@
++
++# `man' Documentation Hierarchy, in Terms of GNU Standards...
++#
++# FIXME: Julian's original distribution wasn't fully compliant
++# with current GNU Standards; to achieve compliance, we must use
++# this autotool standard definition:
++#
++#   mandir = @mandir@
++#
++# in place of:
++#
++#   mandir = $(PREFIX)/man
++#
++# which preserves Julian's original configuration.
++#
++mandir = $(PREFIX)/share/man
++man1dir = ${mandir}/man1
++
++pkgconfigdir = $(libdir)/pkgconfig
++pkgconfig_DATA = bzip2.pc
++
++# Installation...
++#
++FORCE:
++${bindir} ${includedir} ${libdir} ${man1dir} ${pkgconfigdir}: FORCE
++	test -d ${DESTDIR}$@ || mkdir -p ${DESTDIR}$@
++
++install: all ${bindir} ${includedir} ${libdir} ${man1dir} ${pkgconfigdir}
++	cp -f ${pkgconfig_DATA} ${DESTDIR}${pkgconfigdir}/${pkgconfig_DATA}
++	cp -f bzip2$(EXEEXT) ${DESTDIR}${bindir}/bzip2$(EXEEXT)
++	cp -f bzip2$(EXEEXT) ${DESTDIR}${bindir}/bunzip2$(EXEEXT)
++	cp -f bzip2$(EXEEXT) ${DESTDIR}${bindir}/bzcat$(EXEEXT)
++	cp -f bzip2recover$(EXEEXT) ${DESTDIR}${bindir}/bzip2recover$(EXEEXT)
++	if test -f $(DLLNAME)-$(DLLVER).dll; \
++	then \
++	  cp -f $(DLLNAME)-$(DLLVER).dll ${DESTDIR}${bindir}/$(DLLNAME)-$(DLLVER).dll; \
++	  chmod a+rx ${DESTDIR}${bindir}/$(DLLNAME)-$(DLLVER).dll; \
++	fi
++	chmod a+x ${DESTDIR}${bindir}/bzip2$(EXEEXT)
++	chmod a+x ${DESTDIR}${bindir}/bunzip2$(EXEEXT)
++	chmod a+x ${DESTDIR}${bindir}/bzcat$(EXEEXT)
++	chmod a+x ${DESTDIR}${bindir}/bzip2recover$(EXEEXT)
++	cp -f ${srcdir}/bzlib.h ${DESTDIR}${includedir}
++	chmod a+r ${DESTDIR}${includedir}/bzlib.h
++	cp -f libbz2.a ${DESTDIR}${libdir}
++	if test -f $(LIBNAME).dll.a; \
++	then \
++	  cp -f $(LIBNAME).dll.a ${DESTDIR}${libdir}/$(LIBNAME).dll.a; \
++	  chmod a+r ${DESTDIR}${libdir}/$(LIBNAME).dll.a; \
++	fi
++	chmod a+r ${DESTDIR}${libdir}/libbz2.a
++	if test -f $(SOFULL); \
++	then \
++	  cp -f $(SOFULL) ${DESTDIR}${libdir}; \
++	  cd ${DESTDIR}${libdir}; rm -f $(SO_NAME).$(SO_AGE) $(SONAME); \
++	  $(LN_S) $(SOFULL) $(SONAME).$(SO_AGE); \
++	  $(LN_S) $(SOFULL) $(SONAME); \
++	  chmod a+r $(SOFULL); \
++	fi
++	cp -f ${srcdir}/bzgrep ${DESTDIR}${bindir}/bzgrep
++	cd ${DESTDIR}${bindir}; $(LN_S) -f bzgrep bzegrep
++	cd ${DESTDIR}${bindir}; $(LN_S) -f bzgrep bzfgrep
++	chmod a+x ${DESTDIR}${bindir}/bzgrep
++	cp -f ${srcdir}/bzmore ${DESTDIR}${bindir}/bzmore
++	cd ${DESTDIR}${bindir}; $(LN_S) -f bzmore bzless
++	chmod a+x ${DESTDIR}${bindir}/bzmore
++	cp -f ${srcdir}/bzdiff ${DESTDIR}${bindir}/bzdiff
++	cd ${DESTDIR}${bindir}; $(LN_S) -f bzdiff bzcmp
++	chmod a+x ${DESTDIR}${bindir}/bzdiff
++	cd ${srcdir}; cp -f bzip2.1 bzgrep.1 bzmore.1 bzdiff.1 ${DESTDIR}${man1dir}
++	chmod a+r ${DESTDIR}${man1dir}/bzip2.1
++	chmod a+r ${DESTDIR}${man1dir}/bzgrep.1
++	chmod a+r ${DESTDIR}${man1dir}/bzmore.1
++	chmod a+r ${DESTDIR}${man1dir}/bzdiff.1
++	echo ".so man1/bzgrep.1" > ${DESTDIR}${man1dir}/bzegrep.1
++	echo ".so man1/bzgrep.1" > ${DESTDIR}${man1dir}/bzfgrep.1
++	echo ".so man1/bzmore.1" > ${DESTDIR}${man1dir}/bzless.1
++	echo ".so man1/bzdiff.1" > ${DESTDIR}${man1dir}/bzcmp.1
++
++ldconfig:
++	ldconfig -n ${DESTDIR}${libdir}
++
++# Housekeeping...
++#
++clean: 
++	cmp > /dev/null 2>&1 ${srcdir}/libbz2.def libbz2.def \
++	  || rm -f libbz2.def
++	rm -f *.$(OBJEXT) libbz2*.a $(DLLNAME)*.dll  \
++	bzip2$(EXEEXT) bzip2recover$(EXEEXT) \
++	sample1.rb2 sample2.rb2 sample3.rb2 \
++	sample1.tst sample2.tst sample3.tst
++
++distclean: clean
++	rm -f config.status config.log Makefile
++
++# NOTE: Julian's original Makefile had these in `distclean'.
++# Since they are `distributables', that might have surprised
++# users expecting GNU standard behaviour; they rightfully
++# belong in `maintainer-clean'.
++#
++maintainer-clean: clean
++	rm -f manual.ps manual.html manual.pdf
++
++# Distribution...
++#
++DISTNAME = $(PACKAGE)-$(VERSION)
++#
++# FIXME: this method of creating a source distribution works fine
++# on systems which fully support symbolic links between directories;
++# it cannot be used reliably, on MS-Windows hosts running MSYS.
++#
++dist: manual
++	rm -f $(DISTNAME) $(DISTNAME)$(SNAPSHOT).*
++	$(LN_S) -f ${srcdir} $(DISTNAME)
++	tar cvf $(DISTNAME)$(SNAPSHOT).tar \
++	   $(DISTNAME)/aclocal.m4 \
++	   $(DISTNAME)/configure \
++	   $(DISTNAME)/configure.ac \
++	   $(DISTNAME)/Makefile.in \
++	   $(DISTNAME)/blocksort.c \
++	   $(DISTNAME)/huffman.c \
++	   $(DISTNAME)/crctable.c \
++	   $(DISTNAME)/randtable.c \
++	   $(DISTNAME)/compress.c \
++	   $(DISTNAME)/decompress.c \
++	   $(DISTNAME)/bzlib.c \
++	   $(DISTNAME)/bzip2.c \
++	   $(DISTNAME)/bzip2recover.c \
++	   $(DISTNAME)/bzlib.h \
++	   $(DISTNAME)/bzlib_private.h \
++	   $(DISTNAME)/LICENSE \
++	   $(DISTNAME)/bzip2.1 \
++	   $(DISTNAME)/bzip2.1.preformatted \
++	   $(DISTNAME)/bzip2.pc.in \
++	   $(DISTNAME)/bzip2.txt \
++	   $(DISTNAME)/words0 \
++	   $(DISTNAME)/words1 \
++	   $(DISTNAME)/words2 \
++	   $(DISTNAME)/words3 \
++	   $(DISTNAME)/sample1.ref \
++	   $(DISTNAME)/sample2.ref \
++	   $(DISTNAME)/sample3.ref \
++	   $(DISTNAME)/sample1.bz2 \
++	   $(DISTNAME)/sample2.bz2 \
++	   $(DISTNAME)/sample3.bz2 \
++	   $(DISTNAME)/dlltest.c \
++	   $(DISTNAME)/manual.html \
++	   $(DISTNAME)/manual.pdf \
++	   $(DISTNAME)/manual.ps \
++	   $(DISTNAME)/README \
++	   $(DISTNAME)/README.COMPILATION.PROBLEMS \
++	   $(DISTNAME)/README.XML.STUFF \
++	   $(DISTNAME)/CHANGES \
++	   $(DISTNAME)/libbz2.def \
++	   $(DISTNAME)/libbz2.def.in \
++	   $(DISTNAME)/libbz2.dsp \
++	   $(DISTNAME)/dlltest.dsp \
++	   $(DISTNAME)/makefile.msc \
++	   $(DISTNAME)/unzcrash.c \
++	   $(DISTNAME)/spewG.c \
++	   $(DISTNAME)/mk251.c \
++	   $(DISTNAME)/bzdiff \
++	   $(DISTNAME)/bzdiff.1 \
++	   $(DISTNAME)/bzmore \
++	   $(DISTNAME)/bzmore.1 \
++	   $(DISTNAME)/bzgrep \
++	   $(DISTNAME)/bzgrep.1 \
++	   $(DISTNAME)/Makefile-libbz2_so \
++	   $(DISTNAME)/bz-common.xsl \
++	   $(DISTNAME)/bz-fo.xsl \
++	   $(DISTNAME)/bz-html.xsl \
++	   $(DISTNAME)/bzip.css \
++	   $(DISTNAME)/entities.xml \
++	   $(DISTNAME)/manual.xml \
++	   $(DISTNAME)/format.pl \
++	   $(DISTNAME)/xmlproc.sh
++	gzip -v $(DISTNAME)$(SNAPSHOT).tar
++	rm -f $(DISTNAME)
++
++# For rebuilding the manual from sources on Julian's SuSE 9.1 box
++#
++MANUAL_SRCS  =  bz-common.xsl bz-fo.xsl bz-html.xsl bzip.css \
++		entities.xml manual.xml 
++
++manual: manual.html manual.ps manual.pdf
++
++manual.ps: $(MANUAL_SRCS)
++	${srcdir}/xmlproc.sh -ps manual.xml
++
++manual.pdf: $(MANUAL_SRCS)
++	${srcdir}/xmlproc.sh -pdf manual.xml
++
++manual.html: $(MANUAL_SRCS)
++	${srcdir}/xmlproc.sh -html manual.xml
++
++# Makefile: end of file
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/Makefile.win-gcc bzip2-1.0.6/Makefile.win-gcc
+--- bzip2-1.0.6.original/Makefile.win-gcc	2019-05-22 01:40:03.351865800 +0200
++++ bzip2-1.0.6/Makefile.win-gcc	2019-05-22 01:39:54.225555100 +0200
+@@ -0,0 +1,77 @@
++#BEWARE: this Makefile was designed for GNU make and uses some specific syntax
++#        that can be incompatible with other make tools
++
++#### the following is package-specific ####
++
++BASENAME =libbz2
++DLLBASE  =$(BASENAME)
++CFLAGS   =-Wall -O2 -D_FILE_OFFSET_BITS=64
++LIBS     =-L$(LIBDIR)
++OBJS     =blocksort.o huffman.o crctable.o randtable.o compress.o decompress.o bzlib.o
++
++#### end of packcage-specific ####
++
++ifeq ($(NOPERL), 1)
++  ECHO   = @echo
++  CP     = cp
++  MV     = mv
++  RM_F   = rm -f
++  RM_RF  = rm -rf
++  MKPATH = mkdir -p
++  SED    = sed
++else
++  ECHO   = @perl -l -e "print qq{@ARGV}" --
++  CP     = perl -MExtUtils::Command -e "cp" --
++  MV     = perl -MExtUtils::Command -e "mv" --
++  RM_F   = perl -MExtUtils::Command -e "rm_f" --
++  RM_RF  = perl -MExtUtils::Command -e "rm_rf" --
++  MKPATH = perl -MExtUtils::Command -e "mkpath" --
++  SED    = perl -pe
++endif
++
++RANLIB  = ranlib
++CC      = gcc
++CXX     = g++
++STRIP   = strip
++AR      = ar
++ARFLAGS = csr
++
++#by default we assume 32-bit target platform
++BITS=32
++
++PREFIX =./_output_
++BINDIR =$(PREFIX)/bin
++INCDIR =$(PREFIX)/include
++LIBDIR =$(PREFIX)/lib
++
++STATIC_LIB=$(BASENAME).a
++IMPORT_LIB=$(BASENAME).dll.a
++SHARED_LIB=$(DLLBASE)$(DLLSUFFIX).dll
++
++#BEWARE: all you put into TARGETS will be deleted by 'make clean'
++TARGETS = $(STATIC_LIB) $(SHARED_LIB)
++
++all: $(TARGETS)
++
++clean:
++	$(RM_F) $(OBJS) $( $(TARGETS)
++
++$(STATIC_LIB): $(OBJS)
++	$(AR) $(ARFLAGS) $@ $^
++	$(RANLIB) $@
++
++$(SHARED_LIB): $(OBJS)
++	$(CC) -s -shared -o $@ $^ -Wl,--enable-auto-import,--export-all -Wl,--out-implib=$(IMPORT_LIB) $(LIBS)
++	$(STRIP) -S $(SHARED_LIB)
++
++%.o : %.c ; $(CC) $(CFLAGS) -c $< -o $@
++
++#### the rest of the makefile is package-specific ####
++
++install: all
++	$(MKPATH) $(BINDIR)
++	$(MKPATH) $(LIBDIR)
++	$(MKPATH) $(INCDIR)
++	$(CP) "bzlib.h" "$(INCDIR)"
++	$(CP) $(IMPORT_LIB) $(STATIC_LIB) "$(LIBDIR)"
++	$(CP) $(SHARED_LIB) "$(BINDIR)"
+\ No newline at end of file
+diff -r -u --strip-trailing-cr bzip2-1.0.6.original/README.CYGMING bzip2-1.0.6/README.CYGMING
+--- bzip2-1.0.6.original/README.CYGMING	2019-05-22 01:40:04.564355800 +0200
++++ bzip2-1.0.6/README.CYGMING	2019-05-22 01:39:56.678515400 +0200
+@@ -0,0 +1,49 @@
++This distribution was built using an alternate build system. The original
++distribution used a simple Makefile, which had to be heavily customized to
++meet the needs of modern cygwin and MinGW systems.  Furthermore, it was
++wholly unsuited for building the distribution in a cross-hosted environment.
++
++Keith Marshall <keithmarshall@users.sf.net> implemented an autoconf-based
++build system, to facilitate cross-hosted building for use with MinGW.  This
++build system consists of the following original files:
++	configure.ac
++	Makefile.in
++	aclocal.m4
++	libbz2.def.in
++found in the 'cygming-autotools-buildfiles.tar.gz' tarball included within
++the bzip2-$VER-$REL-mingw-src tarball.
++
++The source preparation phase of the build runs autoconf, which creates the
++following file(s):
++	configure
++In addition, the source preparation phase explicitly removes the original
++Makefile from the $srcdir, as a new Makefile will be generated in the
++$builddir by the configure phase of the build.
++
++This configure script is NOT distributed in this package; it is assumed that
++the 'autoconf' tool is available.  The proper (non-automated) procedure is:
++
++	unpack bzip2-$VER-$REL-mingw-src.tar.gz
++
++This will create a number of new files, included several additional
++tarballs and patches.
++
++	unpack the upstream source tarball bzip2-$VER.tar.gz
++	unpack the extra 'cygming-autotools-buildfiles.tar.gz' tarball
++	cd bzip2-$VER
++	autoconf
++	mkdir ../build
++	cd ../build
++	../bzip2-$VER/configure [various options]
++	make
++
++However, the automated procedure, which can be used to exactly reproduce
++the official mingw package, is:
++
++	mgwport bzip2-${VER}-${REL}.mgwport all
++
++which performs all of the above steps, as well as applying various additional
++patches (from Debian and elsewhere), installing into a local staging area,
++and generating the mingw-get compatible installation packages.  See
++MINGW-PATCHES/bzip2.README for more information.
++
