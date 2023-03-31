@@ -158,9 +158,9 @@ TB
 PB
 The web interface is under development
 Failed to delete an object
-&Web interface
-&Command line interface
-&Root directory
+&Control panel
+C&ommand line interface
+Root &directory
 &Exit
 If the module is disabled, then working with some of its utilities or
 commands, including working with data (databases), may not be available!
