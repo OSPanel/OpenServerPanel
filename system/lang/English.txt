@@ -195,3 +195,4 @@ LOG FORMAT
 Enabled
 Disabled
 Show information about domains
+Domain root directory not found
