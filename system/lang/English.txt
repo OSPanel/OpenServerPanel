@@ -158,14 +158,14 @@ TB
 PB
 The web interface is under development
 Failed to delete an object
-&Control panel
-C&ommand line interface
-Root &directory
-&Exit
+Control panel
+Command line interface
+Root directory
+Exit
 If the module is disabled, then working with some of its utilities or
 commands, including working with data (databases), may not be available!
 Use the "init" flag to initialize the command line interface
-&System Preparation Tool
+System Preparation Tool
 If necessary, specify a new active module settings profile
 Apply the module environment again (the "set" or "add" command)
 if it is currently active and the settings/profile have changed!
@@ -176,8 +176,8 @@ The command will be sent to all modules!
 The execution of the command may take some time...
 Continue
 Version information
-&Restart
-&My projects
+Restart
+My projects
 The program is running with Administrator rights
 This is potentially unsafe and makes it easier to compromise your system.
 The inactive profile settings file could not be found
