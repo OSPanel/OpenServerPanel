@@ -118,6 +118,7 @@ echo version                     {lang_113}
 echo:
 echo {lang_114}:
 echo:
+echo osp exit ^& ospanel          {lang_202}
 echo osp set PostgreSQL-9.6      {lang_115}
 echo osp on bind myprofile       {lang_116}
 echo osp restart mysql-8.0       {lang_117}
