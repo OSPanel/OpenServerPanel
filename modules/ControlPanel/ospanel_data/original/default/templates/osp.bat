@@ -1,7 +1,7 @@
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
 @set "ESC="
-@if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\system\ansicon\ansicon.exe" "{root_dir}\system\ansicon\ansicon.exe" -p >nul 2>nul
+@if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
@@ -16,8 +16,8 @@ del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\bin\tail.exe {lang_79}" & goto error
-if not exist "{root_dir}\system\ansicon\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\ansicon\ansicon.exe {lang_79}" & goto error
-if not exist "{root_dir}\system\System Preparation Tool.exe" set "OSP_ERR_MSG={root_dir}\system\System Preparation Tool.exe {lang_79}" & goto error
+if not exist "{root_dir}\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\bin\ansicon.exe {lang_79}" & goto error
+if not exist "{root_dir}\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\bin\syspreptool.exe {lang_79}" & goto error
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_ACTIVE_MODULES_LIST={active_modules_list}"
 set "OSP_PASSIVE_MODULES_LIST={passive_modules_list}"
@@ -138,9 +138,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :sysprep
 if /i not "%2"=="silent" if /i not "%2"=="ssd" if not "%2"=="" goto invalid
-if /i "%2"=="silent" start "" /WAIT "{root_dir}\system\System Preparation Tool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
-if /i "%2"=="ssd" start "" /WAIT "{root_dir}\system\System Preparation Tool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
-if "%2"=="" start "" "{root_dir}\system\System Preparation Tool.exe"
+if /i "%2"=="silent" start "" /WAIT "{root_dir}\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
+if /i "%2"=="ssd" start "" /WAIT "{root_dir}\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
+if "%2"=="" start "" "{root_dir}\bin\syspreptool.exe"
 goto end
 :: -----------------------------------------------------------------------------------
 :: LOG VIEW
