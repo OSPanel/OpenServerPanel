@@ -3,7 +3,7 @@
 :: --------------------------------------------------------------------------------
 @echo off
 set "OSP_ROOT_DIR=%~dp0"
-if exist "%OSP_ROOT_DIR%system\ansicon\ansicon.exe" "%OSP_ROOT_DIR%system\ansicon\ansicon.exe" -p >nul 2>nul
+if exist "%OSP_ROOT_DIR%bin\ansicon.exe" "%OSP_ROOT_DIR%bin\ansicon.exe" -p >nul 2>nul
 chcp 65001 > nul
 for /d %%D in ("%~dp0generate\config\*") do robocopy "%%D" "%~dp0config\%%~nxD" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /E /J /ETA /IM /MT:32 /R:3 /W:3 >nul 2>nul
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MariaDB-10.1\initdb\templates\" /y
