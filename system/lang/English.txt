@@ -199,3 +199,4 @@ Domain root directory not found
 Open in browser
 Open in console
 Open in explorer
+Restarting the program
