@@ -1,0 +1,7 @@
+﻿INSTALLATION RECOMMENDATIONS:
+
+DO NOT INSTALL the program on top of the existing version, it can destroy all existing databases, customized configs and other important information.
+
+DO NOT INSTALL the program on USB flash drives (fast wear and extremely slow operation) and on external storage media with an old USB 2.0 interface (extremely slow operation).
+
+IT IS RECOMMENDED to install the program on an SSD drive (if available), this will significantly increase the speed of operation of all modules of the software package.
