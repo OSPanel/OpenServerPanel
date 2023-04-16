@@ -25,7 +25,7 @@ mkdir "%OSP_ROOT_DIR%generate\new_data\%1"
 cd /d "%OSP_ROOT_DIR%modules\%1"
 copy my.ini my-default.ini
 copy my.ini my_print_defaults.ini
-if not "%1"=="MySQL-5.7" if not "%1"=="MySQL-8.0" call perl scripts/mysql_install_db.pl --basedir="%OSP_ROOT_DIR%modules\%1" --datadir="%OSP_ROOT_DIR%data\%1" --skip-name-resolve --windows --verbose
+if not "%1"=="MySQL-5.7" if not "%1"=="MySQL-8.0" call perl scripts\mysql_install_db.pl --basedir="%OSP_ROOT_DIR%modules\%1" --datadir="%OSP_ROOT_DIR%data\%1" --skip-name-resolve --windows --verbose
 if not "%1"=="MySQL-5.5" if not "%1"=="MySQL-5.6" start "" "%OSP_ROOT_DIR%modules\%1\bin\mysqld.exe" --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --initialize-insecure --console --standalone
 timeout /t 3 /nobreak > nul
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
