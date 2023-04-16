@@ -191,7 +191,7 @@ if /i "%2"=="all" if /i "%1"=="on" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="off" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" if /i "%1"=="restart" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 if /i "%2"=="all" echo: & echo {lang_175} & echo {lang_176}
-if /i "%2"=="all" %SystemRoot%\System32\choice.exe /C YN /N /M "->{lang_177} (Y/N)?"
+if /i "%2"=="all" "%SystemRoot%\System32\choice.exe" /C YN /N /M "->{lang_177} (Y/N)?"
 if /i "%2"=="all" if not %ERRORLEVEL%==1 goto end
 setlocal EnableDelayedExpansion
 for %%a in (%OSP_TMPVAL%) do (
