@@ -74,7 +74,7 @@ Name: "ua";             MessagesFile: "resources\lang\ua.isl";    LicenseFile: "
 
 [Tasks]
 
-Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}"
+Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";   Components: core\panel
 Name: "add_to_path";    Description:  "{cm:AddToPath}";           Components: core\panel
 
 [Icons]
@@ -83,7 +83,7 @@ Name: "{group}\Open Server Panel";         Filename: "{app}\bin\ospanel.exe";   
 Name: "{group}\System Preparation Tool";   Filename: "{app}\bin\syspreptool.exe";    WorkingDir: "{app}";    Components: core\panel; Flags: createonlyiffileexists
 Name: "{group}\{cm:RunManual}";            Filename: "https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F"; Components: core\panel
 Name: "{group}\{cm:RunDonate}";            Filename: "https://ospanel.io/donate/";                           Components: core\panel
-Name: "{autodesktop}\Open Server Panel";   Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";    Components: core\panel; Flags: createonlyiffileexists; Tasks: desktop_icon
+Name: "{autodesktop}\Open Server Panel";   Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";    Flags: createonlyiffileexists; Tasks: desktop_icon
 
 [Components]
 
