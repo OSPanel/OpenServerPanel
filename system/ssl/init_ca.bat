@@ -1,0 +1,7 @@
+DEL /Q "%~dp0root.key"
+DEL /Q "%~dp0root.crt"
+set "OPENSSL_CONF=%~dp0openssl.cnf"
+"%~dp0openssl.exe" ecparam -genkey -name prime256v1 -out "%~dp0rootCA.key"
+"%~dp0openssl.exe" req -x509 -new -SHA256 -key "%~dp0rootCA.key" -days 3650 -out "%~dp0rootCA.crt" -subj /emailAddress="root\@ospanel\.local"/C=EU/stateOrProvinceName="Local Network"/O="Open Server Panel"/CN="Open Server Panel Root CA"
+move "%~dp0rootCA.crt" "%~dp0..\..\user\ssl\root"
+move "%~dp0rootCA.key" "%~dp0..\..\user\ssl\root"
