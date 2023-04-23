@@ -331,6 +331,7 @@ Source: "{app}\modules\Unbound\ospanel_data\original\*";          DestDir: "{app
 
 [Run]
 
+Filename: "{app}\system\ssl\init.bat"; WorkingDir: "{app}\system\ssl"; StatusMsg: "{cm:GenCerts}"; Flags: runhidden waituntilterminated skipifdoesntexist skipifsilent; Components: core\panel
 Filename: "{app}\bin\syspreptool.exe"; Description: "{cm:RunSysPrep}"; Flags: postinstall nowait skipifdoesntexist skipifsilent; Components: core\panel
 
 [Code]
