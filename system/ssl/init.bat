@@ -7,10 +7,10 @@ mkdir "%~dp0..\..\user\ssl\root"
 mkdir "%~dp0..\..\user\ssl\default"
 set "OPENSSL_CONF=%~dp0openssl.cnf"
 "%~dp0openssl.exe" ecparam -genkey -name prime256v1 -out "%~dp0rootCA.key"
-"%~dp0openssl.exe" req -x509 -new -sha256 -key "%~dp0rootCA.key" -days 3650 -out "%~dp0rootCA.crt" -subj /emailAddress="root\@ospanel\.local"/C=EU/stateOrProvinceName="Local Network"/O="Open Server Panel"/CN="Open Server Panel Root CA"
+"%~dp0openssl.exe" req -x509 -new -sha256 -key "%~dp0rootCA.key" -days 3650 -out "%~dp0rootCA.crt" -subj "/emailAddress=root@ospanel.local/C=EU/stateOrProvinceName=Local Network/O=Open Server Panel/CN=Open Server Panel Root CA"
 "%~dp0openssl.exe" ecparam -genkey -name prime256v1 -out "%~dp0cert.key"
-"%~dp0openssl.exe" req -new -sha256 -key "%~dp0cert.key" -days 3650 -out "%~dp0cert.csr" -subj /emailAddress="root\@ospanel\.local"/C=EU/stateOrProvinceName="Local Network"/O="Open Server Panel"/CN="Default Certificate"
-"%~dp0openssl.exe" x509 -sha256 -req -days 3650 -in cert.csr -signkey cert.key -out cert.crt
+"%~dp0openssl.exe" req -new -sha256 -key "%~dp0cert.key" -out "%~dp0cert.csr" -subj "/emailAddress=root@ospanel.local/C=EU/stateOrProvinceName=Local Network/O=Open Server Panel/CN=Default Certificate"
+"%~dp0openssl.exe" x509 -req -sha256 -days 3650 -in cert.csr -signkey cert.key -out cert.crt
 move "%~dp0rootCA.crt" "%~dp0..\..\user\ssl\root"
 move "%~dp0rootCA.key" "%~dp0..\..\user\ssl\root"
 move "%~dp0cert.csr" "%~dp0..\..\user\ssl\default"
