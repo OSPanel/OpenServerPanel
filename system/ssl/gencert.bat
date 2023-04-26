@@ -1,5 +1,7 @@
 @echo off
 if not exist "%~dp0..\..\temp\%1_v3.txt" exit /b 1
+if not exist "%~dp0..\..\user\ssl\root\root.crt" exit /b 1
+if not exist "%~dp0..\..\user\ssl\root\root.key" exit /b 1
 mkdir "%~dp0..\..\user\ssl\modules\%1"
 del /Q "%~dp0..\..\user\ssl\modules\%1\cert.key"
 del /Q "%~dp0..\..\user\ssl\modules\%1\cert.csr"
