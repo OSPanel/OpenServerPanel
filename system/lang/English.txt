@@ -201,3 +201,4 @@ Open in console
 Open in explorer
 Restarting the program
 Failed to generate key/certificate
+Generate and install a Root certificate (CA)
