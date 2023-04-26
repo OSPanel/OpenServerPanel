@@ -141,6 +141,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :initssl
 if exist "{root_dir}\user\ssl\root\cert.crt" del /Q "{root_dir}\user\ssl\root\cert.crt"
+call "{root_dir}\system\ssl\init.bat"
 if not exist "{root_dir}\user\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
 certutil.exe -user -addstore "Root" "{root_dir}\user\ssl\root\cert.crt"
 goto end
