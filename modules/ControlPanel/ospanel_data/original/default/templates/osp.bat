@@ -45,6 +45,7 @@ if /i "%1"=="domains"     goto domains
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="set"         goto env_set
+if /i "%1"=="initssl"     goto initssl
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
@@ -106,6 +107,7 @@ echo:
 echo convert ^<DOMAIN^>            {lang_188}
 echo domains                     {lang_197}
 echo exit                        {lang_104}
+echo initssl                     {lang_204}
 echo log     ^<MODULE^|main^>  [N]  {lang_105}
 echo modules                     {lang_97}
 echo sysprep [silent^|ssd]        {lang_106}
@@ -133,6 +135,14 @@ goto end
 "{root_dir}\bin\curl.exe" -f -s {api_url}/exit > nul
 if exist "{root_dir}\temp\OSPanel.lock" goto error
 echo: & echo {lang_63}
+goto end
+:: -----------------------------------------------------------------------------------
+:: INIT SSL
+:: -----------------------------------------------------------------------------------
+:initssl
+if exist "{root_dir}\user\ssl\root\cert.crt" del /Q "{root_dir}\user\ssl\root\cert.crt"
+if not exist "{root_dir}\user\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
+certutil.exe -user -addstore "Root" "{root_dir}\user\ssl\root\cert.crt"
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
