@@ -20,7 +20,7 @@ Command execution has been canceled
 Activation is not possible (the module is already enabled)
 Module settings profile not found
 Invalid command for this module
-Failed to make changes to the module settings file
+Failed to make changes to the settings file
 The module workflow has been successfully launched
 Module initialization has been successfully completed
 Command
@@ -200,3 +200,4 @@ Open in browser
 Open in console
 Open in explorer
 Restarting the program
+Failed to generate key/certificate
