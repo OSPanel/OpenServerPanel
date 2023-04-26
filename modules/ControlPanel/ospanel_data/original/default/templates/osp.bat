@@ -140,6 +140,7 @@ goto end
 :: INIT SSL
 :: -----------------------------------------------------------------------------------
 :initssl
+if not exist "{root_dir}\system\ssl\init.bat" set "OSP_ERR_MSG={root_dir}\system\ssl\init.bat {lang_79}" & goto error
 if exist "{root_dir}\user\ssl\root\cert.crt" del /Q "{root_dir}\user\ssl\root\cert.crt"
 call "{root_dir}\system\ssl\init.bat"
 if not exist "{root_dir}\user\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
