@@ -8,9 +8,7 @@ We present to your attention a software environment for web developers, which in
 
 Today, Open Server Panel is widely used for the development, debugging and testing of web projects, as well as for providing web services in local networks. The project has gained great popularity among novice web developers, as it allows you to quickly deploy a working environment and immediately begin learning web technologies without complex manipulations for installing and configuring a large number of unfamiliar software.
 
-See the documentation for the new version in our [Wiki](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
-
-Discussion and consultations in our group [Telegram](https://t.me/ospanel_chat)
+[Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) (please use an online translator) | [Telegram](https://t.me/ospanel_chat)
 
 ***
 
@@ -20,6 +18,4 @@ Discussion and consultations in our group [Telegram](https://t.me/ospanel_chat)
 
 На сегодняшний день Open Server Panel широко используется с целью разработки, отладки и тестирования веб-проектов, а также для предоставления веб-сервисов в локальных сетях. Проект завоевал большую популярность у начинающих веб-разработчиков, так как позволяет быстро развернуть рабочую среду и сразу начать изучение веб-технологий без сложных манипуляций по установке и настройке большого количества незнакомого программного обеспечения.
 
-Смотрите документацию по новой версии в нашей [Wiki](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
-
-Обсуждение и консультации в нашей группе [Telegram](https://t.me/ospanel_chat)
+[Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) | [Telegram](https://t.me/ospanel_chat)
