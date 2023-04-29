@@ -1,4 +1,4 @@
-English:en
+﻿English:en
 yyyy-mm-dd hh:nn:ss
 Software Environment Control Panel for Web developers
 Failed to delete log file
@@ -12,7 +12,7 @@ Failed to start tracking the module workflow
 The module workflow could not be started
 The module workflow does not respond for a long time, forced termination of the process...
 Unknown process descriptor
-Module workflow failure when shutting down
+The module workflow could not be stopped
 ERROR
 WARNING
 Command processing has stopped (the program is shutting down)
@@ -141,7 +141,7 @@ Not initialized
 Initialization
 from
 Module
-Launch Command
+Launch command
 Directory
 Status
 PID of the main process
