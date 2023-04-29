@@ -203,3 +203,4 @@ Restarting the program
 Failed to generate key/certificate
 Generate and install a root certificate (CA)
 Failed to generate root certificate
+Auto-generation of SSL certificates is disabled due to the absence of a root certificate on the disk
