@@ -204,3 +204,6 @@ Failed to generate key/certificate
 Generate and install a root certificate (CA)
 Failed to generate root certificate
 Auto-generation of SSL certificates is disabled due to the absence of a root certificate on the disk
+Error in the module settings
+This module does not support the use of multiple IP addresses
+This module does not support IPv6
