@@ -9,3 +9,5 @@ data/PostgreSQL-*/
 data/MySQL-*/
 data/MariaDB-*/
 data/PHP-*/composer/composer.phar
+modules/Unbound/
+!modules/Unbound/ospanel_data
