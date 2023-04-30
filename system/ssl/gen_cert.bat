@@ -1,3 +1,4 @@
+@echo off
 setlocal
 set "OPENSSL_CONF=%~dp0openssl.cnf"
 if not exist "%~dp0..\..\temp\%1_%2_v3.txt" exit /b 1
