@@ -140,11 +140,11 @@ goto end
 :: INIT SSL
 :: -----------------------------------------------------------------------------------
 :initssl
-if not exist "{root_dir}\system\ssl\init.bat" set "OSP_ERR_MSG={root_dir}\system\ssl\init.bat {lang_79}" & goto error
-if exist "{root_dir}\user\ssl\root\cert.crt" del /Q "{root_dir}\user\ssl\root\cert.crt"
-call "{root_dir}\system\ssl\init.bat"
-if not exist "{root_dir}\user\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
-certutil.exe -user -addstore "Root" "{root_dir}\user\ssl\root\cert.crt"
+if not exist "{root_dir}\system\ssl\gen_root_cert.bat" set "OSP_ERR_MSG={root_dir}\system\ssl\gen_root_cert.bat {lang_79}" & goto error
+if exist "{root_dir}\data\ssl\root\cert.crt" del /Q "{root_dir}\data\ssl\root\cert.crt"
+call "{root_dir}\system\ssl\gen_root_cert.bat"
+if not exist "{root_dir}\data\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
+certutil.exe -user -addstore "Root" "{root_dir}\data\ssl\root\cert.crt"
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
