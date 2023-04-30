@@ -1,3 +1,4 @@
+@echo off
 echo:
 setlocal
 set "OPENSSL_CONF=%~dp0openssl.cnf"
