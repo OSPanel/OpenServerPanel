@@ -207,3 +207,5 @@ Auto-generation of SSL certificates is disabled due to the absence of a root cer
 Error in the module settings
 This module does not support the use of multiple IP addresses
 This module does not support IPv6
+Invalid domain name
+The domain name must not contain characters other than letters, numbers, hyphens and dots (allowed length: from 2 to 63 characters).
