@@ -1,0 +1,11 @@
+bin/
+licenses/
+system/public_html/dist/
+system/public_html/plugins/
+user/browscap/
+user/geo/
+data/PostgreSQL-*/
+data/PostgreSQL-*/
+data/MySQL-*/
+data/MariaDB-*/
+data/PHP-*/composer/composer.phar
