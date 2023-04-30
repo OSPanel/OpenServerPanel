@@ -145,6 +145,7 @@ if exist "{root_dir}\data\ssl\root\cert.crt" del /Q "{root_dir}\data\ssl\root\ce
 call "{root_dir}\system\ssl\gen_root_cert.bat"
 if not exist "{root_dir}\data\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
 certutil.exe -user -addstore "Root" "{root_dir}\data\ssl\root\cert.crt"
+certutil.exe -urlcache * delete > nul 2> nul
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
