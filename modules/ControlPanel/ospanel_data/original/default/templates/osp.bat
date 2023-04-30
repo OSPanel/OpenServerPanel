@@ -3,7 +3,7 @@
 :: -----------------------------------------------------------------------------------
 @set "ESC="
 @if exist "{root_dir}\bin\ospcolortest.exe" "{root_dir}\bin\ospcolortest.exe"
-@if %ERRORLEVEL% gtr 0 @if exist "{root_dir}\bin\ospcolortest.exe" @if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
+@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
