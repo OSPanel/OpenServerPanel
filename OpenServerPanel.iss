@@ -333,7 +333,7 @@ Source: "{app}\modules\Unbound\ospanel_data\original\*";          DestDir: "{app
 
 [Run]
 
-Filename: "{app}\system\ssl\init.bat"; WorkingDir: "{app}\system\ssl"; StatusMsg: "{cm:GenCerts}";  Flags: runhidden waituntilterminated skipifdoesntexist; Components: core\panel
+Filename: "{app}\system\ssl\gen_root_cert.bat"; WorkingDir: "{app}\system\ssl"; StatusMsg: "{cm:GenCerts}";  Flags: runhidden waituntilterminated skipifdoesntexist; Components: core\panel
 Filename: "{app}\system\ssl\add_root_to_certstore.bat"; WorkingDir: "{app}\system\ssl"; StatusMsg: "{cm:ImportingCert}"; Flags: runhidden waituntilterminated skipifdoesntexist skipifsilent; Tasks: import_cert
 Filename: "{app}\bin\syspreptool.exe"; Description: "{cm:RunSysPrep}"; Flags: postinstall nowait skipifdoesntexist skipifsilent; Components: core\panel
 
