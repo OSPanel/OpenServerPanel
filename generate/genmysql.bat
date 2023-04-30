@@ -31,9 +31,6 @@ timeout /t 3 /nobreak > nul
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 if not "%1"=="MySQL-5.5" copy "%OSP_ROOT_DIR%generate\setup\private_key.pem" "%OSP_ROOT_DIR%data\%1\private_key.pem"
 if not "%1"=="MySQL-5.5" copy "%OSP_ROOT_DIR%generate\setup\public_key.pem" "%OSP_ROOT_DIR%data\%1\public_key.pem"
-if not "%1"=="MySQL-5.5" if not "%1"=="MySQL-5.6" copy "%OSP_ROOT_DIR%generate\setup\ca.pem" "%OSP_ROOT_DIR%data\%1\ca.pem"
-if not "%1"=="MySQL-5.5" if not "%1"=="MySQL-5.6" copy "%OSP_ROOT_DIR%generate\setup\server-cert.pem" "%OSP_ROOT_DIR%data\%1\server-cert.pem"
-if not "%1"=="MySQL-5.5" if not "%1"=="MySQL-5.6" copy "%OSP_ROOT_DIR%generate\setup\server-key.pem" "%OSP_ROOT_DIR%data\%1\server-key.pem"
 call osp on %1
 timeout /t 5 /nobreak > nul
 if "%1"=="MySQL-5.7" call mysql --protocol=PIPE --socket=%1 --host="" -u root mysql -e "INSTALL PLUGIN mysqlx SONAME 'mysqlx.dll';"
