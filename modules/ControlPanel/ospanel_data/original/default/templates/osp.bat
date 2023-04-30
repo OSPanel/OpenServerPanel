@@ -2,7 +2,8 @@
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
 @set "ESC="
-@if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
+@if exist "{root_dir}\bin\ospcterminal.exe" "{root_dir}\bin\ospcterminal.exe"
+@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
@@ -18,6 +19,7 @@ if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=
 if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\bin\tail.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\bin\ansicon.exe {lang_79}" & goto error
+if not exist "{root_dir}\bin\ospcterminal.exe" set "OSP_ERR_MSG={root_dir}\bin\ospcterminal.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\bin\syspreptool.exe {lang_79}" & goto error
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_ACTIVE_MODULES_LIST={active_modules_list}"
