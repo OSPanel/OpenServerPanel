@@ -61,3 +61,7 @@ Download and try it right now!
 Скачай и попробуй прямо сейчас!
 
 [Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) | [Telegram](https://t.me/ospanel_chat)
+
+Интерфейс командной строки
+----------
+![Open Server Panel Console](./resources/screenshots/cli.png)
