@@ -27,7 +27,7 @@ Today, Open Server Panel is widely used for the development, debugging and testi
 - Punycode domain name converter
 - and much more...
 
-Download and try it right now!
+You can download and try it right now!
 
 [Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home)
 
@@ -62,7 +62,7 @@ Command Line Interface
 - Punycode конвертер доменных имён
 - и многое другое...
 
-Скачай и попробуй прямо сейчас!
+Вы можете скачать и попробовать это прямо сейчас!
 
 [Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) | [Telegram](https://t.me/ospanel_chat)
 
