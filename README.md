@@ -31,6 +31,10 @@ Download and try it right now!
 
 [Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home) | [Telegram](https://t.me/ospanel_chat)
 
+Command Line Interface
+----------
+![Open Server Panel Console](./resources/screenshots/cli.png)
+
 ***
 
 Лучший инструмент для локальной разработки веб-сайтов и веб-сервисов на платформе Windows.
@@ -61,3 +65,7 @@ Download and try it right now!
 Скачай и попробуй прямо сейчас!
 
 [Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) | [Telegram](https://t.me/ospanel_chat)
+
+Интерфейс командной строки
+----------
+![Open Server Panel Console](./resources/screenshots/cli.png)
