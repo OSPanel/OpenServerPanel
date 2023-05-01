@@ -29,7 +29,7 @@ Today, Open Server Panel is widely used for the development, debugging and testi
 
 Download and try it right now!
 
-[Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home) | [Telegram](https://t.me/ospanel_chat)
+[Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home)
 
 Command Line Interface
 ----------
