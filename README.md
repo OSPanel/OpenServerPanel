@@ -4,7 +4,7 @@ Open Server Panel 6 <sup><sup>Beta</sup></sup>
 
 The best tool for local development of websites and web services on the Windows platform.
 
-We present to you a software environment for web developers, which includes a set of server software ([WAMP](https://ru.wikipedia.org/wiki/WAMP )-stack), as well as a simple and convenient control panel in two versions: a web interface and a command line interface (CLI).
+We present to you a software environment for web developers, which includes a set of server software (WAMP-stack), as well as a simple and convenient control panel in two versions: a web interface and a command line interface (CLI).
 
 Today, Open Server Panel is widely used for the development, debugging and testing of web projects, as well as for providing web services in local networks. The project has gained great popularity among novice web developers, as it allows you to quickly deploy a working environment and immediately begin learning web technologies without complex manipulations for installing and configuring a large number of various programs.
 
