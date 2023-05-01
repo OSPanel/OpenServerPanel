@@ -8,7 +8,7 @@ We present to you a software environment for web developers, which includes a se
 
 Today, Open Server Panel is widely used for the development, debugging and testing of web projects, as well as for providing web services in local networks. The project has gained great popularity among novice web developers, as it allows you to quickly deploy a working environment and immediately begin learning web technologies without complex manipulations for installing and configuring a large number of various programs.
 
-[Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) (please use an online translator) | [Telegram](https://t.me/ospanel_chat)
+[Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home) | [Telegram](https://t.me/ospanel_chat)
 
 ***
 
