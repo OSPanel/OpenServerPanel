@@ -107,7 +107,7 @@ Launch the Operating System Preparation tool
 Add the "silent" flag to start the system preparation in silent mode
 The "ssd" flag is similar to "silent" (but with SSD settings optimized)
 Preparation in silent mode occurs automatically and without tracking
-progress, and after the procedure is completed, a reboot will be performed!
+progress, and after its completion, a reboot will be performed!
 To start the silent preparation process without a confirmation request
 from Windows, the console must be started with Administrator rights
 Show information about the program version
