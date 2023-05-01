@@ -33,7 +33,7 @@ Download and try it right now!
 
 Command Line Interface
 ----------
-![Open Server Panel Console](./resources/screenshots/cli.png)
+![Open Server Panel Console](./resources/screenshots/cli-en.png)
 
 ***
 
