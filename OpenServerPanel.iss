@@ -83,7 +83,8 @@ Name: "import_cert";    Description:  "{cm:ImportCert}";                        
 
 Name: "{group}\{#AppTitle}";               Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";    Components: core\panel; Flags: createonlyiffileexists
 Name: "{group}\System Preparation Tool";   Filename: "{app}\bin\syspreptool.exe";    WorkingDir: "{app}";    Components: core\panel; Flags: createonlyiffileexists
-Name: "{group}\{cm:RunManual}";            Filename: "https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F"; Components: core\panel
+Name: "{group}\{cm:RunManual}";            Filename: "https://github.com/OSPanel/OpenServerPanel/wiki";      Components: core\panel; Languages: en
+Name: "{group}\{cm:RunManual}";            Filename: "https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F"; Components: core\panel; Languages: ru ua be
 Name: "{group}\{cm:RunDonate}";            Filename: "https://ospanel.io/donate/";                           Components: core\panel
 Name: "{autodesktop}\{#AppTitle}";         Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";    Flags: createonlyiffileexists; Tasks: desktop_icon
 Name: "{userstartup}\{#AppTitle}";         Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";    Flags: createonlyiffileexists; Tasks: autostarticon
