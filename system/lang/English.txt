@@ -114,7 +114,7 @@ Show information about the program version
 Usage examples
 Using the PostgreSQL-9.6 module environment in the console
 Enabling the Bind module with changing the settings profile to MyProfile
-Restarting the MySQL-8.0 module (the module name is accepted in any case)
+Restarting the MySQL-8.0 module (module name is accepted in any case)
 Output to the console of the last 20 lines from the program log
 Combining the system environment with the Git environment
 Failed to execute command
