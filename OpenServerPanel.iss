@@ -344,7 +344,7 @@ function IsPathValid(Path: string): Boolean;
 var
   I: Integer;
 begin
-  Path := Uppercase(Path);
+  Path := AnsiUppercase(Path);
   Result :=
     (Length(Path) >= 3) and
     (Path[1] >= 'A') and (Path[1] <= 'Z') and
@@ -356,7 +356,7 @@ begin
     for I := 3 to Length(Path) do
     begin
       case Path[I] of
-        '0'..'9', 'A'..'Z', '\', ' ', '.', '-', '_', '+', '(', ')':
+        '0'..'9', 'A'..'Z', '\', '.', '-', '_', '+':
           else 
         begin
           Result := False;
