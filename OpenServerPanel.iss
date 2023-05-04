@@ -346,7 +346,7 @@ var
 begin
   Path := AnsiUppercase(Path);
   Result :=
-    (Length(Path) >= 3) and
+    (Length(Path) >= 3) and (Length(Path) <= 100) and
     (Path[1] >= 'A') and (Path[1] <= 'Z') and
     (Path[2] = ':') and
     (Path[3] = '\');

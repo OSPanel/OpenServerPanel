@@ -395,4 +395,4 @@ GeneralData=Basic components
 Geobases=Geographical databases (GeoIP, etc.)
 Browscap=Advanced Browscap databases
 AddToPath=Add the program directory to the PATH variable
-PathCheckError=Valid path characters: A-Z,a-z,0-9,.,+,-,\,:,_
+PathCheckError=Valid path characters (maximum of 100 characters): A-Z,a-z,0-9,.,+,-,\,:,_

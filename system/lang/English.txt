@@ -52,7 +52,7 @@ Invalid settings profile name
 Current environment
 Invalid logging level value
 Invalid value of the request logging level
-The program cannot work in the current directory (valid path characters are: A-Za-z0-9.+-\:_)
+The program cannot work in the current directory, allowed characters (no more than 100 characters): A-Za-z0-9.+-\:_
 Open Server Panel must be started
 Such a module does not exist!
 Invalid file system type for root directory location
