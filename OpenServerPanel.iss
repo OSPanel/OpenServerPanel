@@ -74,7 +74,7 @@ Name: "be";             MessagesFile: "resources\lang\be.isl";    LicenseFile: "
 
 [Tasks]
 
-Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";                      Components: core\panel
+Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";                      Components: core\panel; GroupDescription: "{cm:AdditionalIcons}"
 Name: "autostarticon";  Description:  "{cm:AutoStartProgram,{#AppTitle}}";           Components: core\panel
 Name: "add_to_path";    Description:  "{cm:AddToPath}";                              Components: core\panel
 Name: "import_cert";    Description:  "{cm:ImportCert}";                             Components: core\panel
@@ -94,7 +94,7 @@ Name: "{userstartup}\{#AppTitle}";         Filename: "{app}\bin\ospanel.exe";   
 Name: "core";                  Description: "{cm:GeneralData}";                                              Flags: disablenouninstallwarning
 Name: "core\panel";            Description: "{cm:CoreData}";      Types: full compact;                       Flags: disablenouninstallwarning
 Name: "core\browscap";         Description: "{cm:Browscap}";      Types: full;                               Flags: disablenouninstallwarning
-Name: "core\geobases";         Description: "{cm:Geobases}";      Types: full compact;                       Flags: disablenouninstallwarning
+Name: "core\geobases";         Description: "{cm:Geobases}";      Types: full;                               Flags: disablenouninstallwarning
  
 Name: "dns";                   Description: "DNS";                                                           Flags: disablenouninstallwarning
 Name: "dns\bind";              Description: "Bind";               Types: full;                               Flags: disablenouninstallwarning; check: IsWindows10OrNewer;  
@@ -116,8 +116,8 @@ Name: "mdb\mariadb1010";       Description: "MariaDB 10.10";      Types: full;  
 Name: "mdb\mariadb1011";       Description: "MariaDB 10.11";      Types: full;                               Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
 
 Name: "mem";                   Description: "Memcached";                                                     Flags: disablenouninstallwarning
-Name: "mem\memcached14";       Description: "Memcached 1.4";      Types: full compact;                       Flags: disablenouninstallwarning
-Name: "mem\memcached16";       Description: "Memcached 1.6";      Types: full compact;                       Flags: disablenouninstallwarning
+Name: "mem\memcached14";       Description: "Memcached 1.4";      Types: full;                               Flags: disablenouninstallwarning
+Name: "mem\memcached16";       Description: "Memcached 1.6";      Types: full;                               Flags: disablenouninstallwarning
 
 Name: "mongo";                 Description: "MongoDB";                                                       Flags: disablenouninstallwarning
 Name: "mongo\mongodb30";       Description: "MongoDB 3.0";        Types: full;                               Flags: disablenouninstallwarning
@@ -159,8 +159,8 @@ Name: "redis";                 Description: "Redis";                            
 Name: "redis\redis30";         Description: "Redis 3.0";          Types: full;                               Flags: disablenouninstallwarning
 Name: "redis\redis32";         Description: "Redis 3.2";          Types: full;                               Flags: disablenouninstallwarning
 Name: "redis\redis40";         Description: "Redis 4.0";          Types: full;                               Flags: disablenouninstallwarning
-Name: "redis\redis50";         Description: "Redis 5.0";          Types: full compact;                       Flags: disablenouninstallwarning
-Name: "redis\redis70";         Description: "Redis 7.0";          Types: full compact;                       Flags: disablenouninstallwarning 
+Name: "redis\redis50";         Description: "Redis 5.0";          Types: full;                               Flags: disablenouninstallwarning
+Name: "redis\redis70";         Description: "Redis 7.0";          Types: full;                               Flags: disablenouninstallwarning 
 
 [Files]
 
@@ -340,6 +340,19 @@ Filename: "{app}\bin\syspreptool.exe"; Description: "{cm:RunSysPrep}"; Flags: po
 
 [Code]
 
+function GetDriveType(lpRootPathName: string): UInt;
+  external 'GetDriveTypeW@kernel32.dll stdcall';
+
+function GetVolumeInformation(
+  lpRootPathName: string; lpVolumeNameBuffer: string; nVolumeNameSize: DWORD;
+  var lpVolumeSerialNumber: DWORD; var lpMaximumComponentLength: DWORD;
+  var lpFileSystemFlags: DWORD; lpFileSystemNameBuffer: string;
+  nFileSystemNameSize: DWORD): BOOL;
+  external 'GetVolumeInformationW@kernel32.dll stdcall';
+
+const
+  MAX_LEN = 32;
+
 function IsPathValid(Path: string): Boolean;
 var
   I: Integer;
@@ -412,7 +425,37 @@ begin
 		final_path := add_path + ';' + final_path;
 
 	RegWriteStringValue(reg_root, reg_path, 'Path', final_path);
-end;  
+end; 
+
+function IO_GetDiskType( const s : String ) : Cardinal;
+begin
+  // 0 - DRIVE_UNKNOWN The drive type cannot be determined.
+  // 1 - DRIVE_NO_ROOT_DIR The root path is invalid; for example, there is no volume mounted at the specified Path.
+  // 2 - DRIVE_REMOVABLE The drive has removable media; for example, a floppy drive, thumb drive, or flash card reader.
+  // 3 - DRIVE_FIXED The drive has fixed media; for example, a hard disk drive or flash drive.
+  // 4 - DRIVE_REMOTE The drive is a remote (network) drive.
+  // 5 - DRIVE_CDROM The drive is a CD-ROM drive.
+  // 6 - DRIVE_RAMDISK The drive is a RAM disk.
+  Result := GetDriveType( PAnsiChar( String( s )[ 1 ] + ':\' ) );
+end;
+
+function IO_GetPartitionType( const s : String ) : string;
+// FAT
+// NTFS
+var
+  NotUsed            : DWORD;
+  VolumeFlags        : DWORD;
+  VolumeInfo         : String;
+  VolumeSerialNumber : DWORD;
+  PartitionType      : String;
+begin
+  SetLength(Result, MAX_LEN);
+  if GetVolumeInformation( PAnsiChar( String( s )[ 1 ] + ':\' ), '', 0, VolumeSerialNumber, NotUsed, VolumeFlags, Result, Length(Result)) then 
+    begin
+      SetLength(Result, Pos(#0, Result) - 1);
+      Result := trim(AnsiLowerCase( Result ));
+    end else Result := '';
+end; 
 
 procedure InitializeWizard();
 begin
@@ -431,6 +474,7 @@ function NextButtonClick(CurPageID: Integer): Boolean;
 var
   Dir: string;
   Msg: string;
+  dtype: Cardinal;
 begin
   Result := True;
   if CurPageID = wpSelectDir then
@@ -439,6 +483,21 @@ begin
     if not IsPathValid(Dir) then
     begin
       Msg := ExpandConstant('{cm:PathCheckError}');
+      if WizardSilent then Log(Msg)
+        else MsgBox(Msg, mbError, MB_OK);
+      Result := False;
+    end;
+    if IO_GetPartitionType(Dir) <> 'ntfs' then
+    begin
+      Msg := ExpandConstant('{cm:PartitionTypeError}');
+      if WizardSilent then Log(Msg)
+        else MsgBox(Msg, mbError, MB_OK);
+      Result := False;
+    end;
+    dtype := IO_GetDiskType(Dir);
+    if ( dtype <> 2 ) and ( dtype <> 3 ) and ( dtype <> 6 ) then
+    begin
+      Msg := ExpandConstant('{cm:DiskTypeError}');
       if WizardSilent then Log(Msg)
         else MsgBox(Msg, mbError, MB_OK);
       Result := False;
