@@ -134,7 +134,7 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-"{root_dir}\bin\curl.exe" -f -s {api_url}/exit > nul
+"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
 if exist "{root_dir}\temp\OSPanel.lock" goto error
 echo: & echo {lang_63}
 goto end
@@ -182,11 +182,11 @@ goto end
 :: DOMAINS/MODULES
 :: -----------------------------------------------------------------------------------
 :domains
-"{root_dir}\bin\curl.exe" -f -s {api_url}/domains/list/all/
+"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/domains/list
 if %ERRORLEVEL% gtr 0 goto error
 goto end
 :modules
-"{root_dir}\bin\curl.exe" -f -s {api_url}/mod/list/all/
+"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/list
 if %ERRORLEVEL% gtr 0 goto error
 goto end
 :: -----------------------------------------------------------------------------------
@@ -212,15 +212,15 @@ if /i "%2"=="all" if not %ERRORLEVEL%==1 goto end
 setlocal EnableDelayedExpansion
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
-        "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/off/%%a/%3
+        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/off/%%a/%3
         if !errorlevel! gtr 0 (
             call :echo_error %1 %2 %3
         ) else (
-            "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/on/%%a/%3
+            "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/on/%%a/%3
             if !errorlevel! gtr 0 call :echo_error %1 %2 %3
         )
     ) else (
-        "{root_dir}\bin\curl.exe" -f -s {api_url}/mod/%1/%%a/%3
+        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %2 %3
     )
     if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
@@ -251,7 +251,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :convert
 if "%2"=="" goto eargument
-"{root_dir}\bin\curl.exe" -f -s {api_url}/convert/%2
+"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/convert/%2
 if %ERRORLEVEL% gtr 0 goto error
 @goto end
 :: -----------------------------------------------------------------------------------
