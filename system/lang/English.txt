@@ -1,6 +1,6 @@
 ﻿English:en
 yyyy-mm-dd hh:nn:ss
-Software Environment Control Panel for Web developers
+Software environment for web development
 Failed to delete log file
 The module's PID file could not be deleted
 The module's launch command is not set
