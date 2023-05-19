@@ -37,13 +37,13 @@ if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
 if /i "%1"=="info"        echo: & echo {lang_52}: %OSP_ACTIVE_ENV% & goto end
 if /i "%1"=="init"        goto mod_cmd
-if /i "%1"=="modules"     goto modules
+if /i "%1"=="modules"     goto request
 if /i "%1"=="log"         goto log
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
 if /i "%1"=="project"     goto project
 if /i "%1"=="convert"     goto convert
-if /i "%1"=="domains"     goto domains
+if /i "%1"=="domains"     goto request
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="set"         goto env_set
@@ -179,14 +179,10 @@ for %%a in (%OSP_TMPVAL%) do (
 )
 goto end
 :: -----------------------------------------------------------------------------------
-:: DOMAINS/MODULES
+:: DOMAINS/MODULES LIST
 :: -----------------------------------------------------------------------------------
-:domains
-"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/domains/list
-if %ERRORLEVEL% gtr 0 goto error
-goto end
-:modules
-"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/list
+:request
+"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/%1
 if %ERRORLEVEL% gtr 0 goto error
 goto end
 :: -----------------------------------------------------------------------------------
@@ -212,15 +208,15 @@ if /i "%2"=="all" if not %ERRORLEVEL%==1 goto end
 setlocal EnableDelayedExpansion
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
-        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/off/%%a/%3
+        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/off/%%a/%3
         if !errorlevel! gtr 0 (
             call :echo_error %1 %2 %3
         ) else (
-            "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/on/%%a/%3
+            "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/on/%%a/%3
             if !errorlevel! gtr 0 call :echo_error %1 %2 %3
         )
     ) else (
-        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/modules/%1/%%a/%3
+        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %2 %3
     )
     if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
