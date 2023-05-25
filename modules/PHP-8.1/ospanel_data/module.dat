@@ -3,7 +3,7 @@
 [main]
 
 architecture            = x64
-category                = Web
+category                = PHP
 class                   = Web
 fast_stop               = yes
 ipv6_support            = yes
