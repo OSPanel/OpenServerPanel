@@ -177,7 +177,7 @@ The execution of the command may take some time...
 Continue
 Version information
 Restart
-My projects
+Projects
 The program is running with Administrator rights
 This is potentially unsafe and makes it easier to compromise your system.
 The inactive profile settings file could not be found
@@ -211,4 +211,15 @@ Invalid domain name
 The domain name must not contain characters other than letters, numbers, hyphens and dots (allowed length: from 2 to 63 characters).
 Automatic generation of SSL certificates is not available due to the absence of the root certificate key on the disk. Run the "sslinit" command.
 Automatic generation of SSL certificates is not available due to the absence of a CA certificate store file on disk.
-Choose the PHP version
+Select PHP version
+Modules
+Open in console
+Launch Shell/CLI shell
+Open in explorer (data)
+Open in explorer (settings profile)
+Open in explorer (main directory)
+Initialize
+Turn on
+Restart
+Switch off
+Select profile
