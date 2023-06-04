@@ -6,7 +6,7 @@ The module's PID file could not be deleted
 The module's launch command is not set
 The module's start directory is not set
 The module's start directory was not found
-Failed to create/open the module log file
+Failed to create module settings file
 Failed to add an entry to the module log file
 Failed to start tracking the module workflow
 The module workflow could not be started
