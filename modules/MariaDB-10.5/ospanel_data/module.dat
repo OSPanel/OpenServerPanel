@@ -11,7 +11,7 @@ license            = https://mariadb.com/kb/en/mariadb-license/
 license_type       = GNU GPLv2
 min_windows_ver    = 10.0.10240
 timestamp          = 1651770000
-version            = 10.5.19
+version            = 10.5.21
 
 [docs]
 

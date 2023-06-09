@@ -11,7 +11,7 @@ license            = https://downloads.mysql.com/docs/licenses/mysqld-8.0-gpl-en
 license_type       = GNU GPLv2
 min_windows_ver    = 10.0.10240
 timestamp          = 1651770000
-version            = 8.0.32
+version            = 8.0.33
 
 [docs]
 

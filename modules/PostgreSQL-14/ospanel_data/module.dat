@@ -11,7 +11,7 @@ license            = https://www.postgresql.org/about/licence/
 license_type       = PostgreSQL License
 min_windows_ver    = 10.0.10240
 timestamp          = 1651770000
-version            = 14.7
+version            = 14.8
 
 [docs]
 
