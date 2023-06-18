@@ -1,5 +1,5 @@
-#define AppVersion      "6.0.0.418"
-#define AppVersion_     "6_0_0_418"
+#define AppVersion      "6.0.0.450"
+#define AppVersion_     "6_0_0_450"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -114,6 +114,7 @@ Name: "mdb\mariadb108";        Description: "MariaDB 10.8";       Types: full;  
 Name: "mdb\mariadb109";        Description: "MariaDB 10.9";       Types: full;                               Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
 Name: "mdb\mariadb1010";       Description: "MariaDB 10.10";      Types: full;                               Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
 Name: "mdb\mariadb1011";       Description: "MariaDB 10.11";      Types: full;                               Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
+Name: "mdb\mariadb110";        Description: "MariaDB 11.0";       Types: full;                               Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
 
 Name: "mem";                   Description: "Memcached";                                                     Flags: disablenouninstallwarning
 Name: "mem\memcached14";       Description: "Memcached 1.4";      Types: full;                               Flags: disablenouninstallwarning
@@ -203,6 +204,7 @@ Source: "modules\MariaDB-10.8\*";                                 DestDir: "{app
 Source: "modules\MariaDB-10.9\*";                                 DestDir: "{app}\modules\MariaDB-10.9";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb109;               Permissions: users-full
 Source: "modules\MariaDB-10.10\*";                                DestDir: "{app}\modules\MariaDB-10.10";    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb1010;              Permissions: users-full
 Source: "modules\MariaDB-10.11\*";                                DestDir: "{app}\modules\MariaDB-10.11";    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb1011;              Permissions: users-full
+Source: "modules\MariaDB-11.0\*";                                 DestDir: "{app}\modules\MariaDB-11.0";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb110;               Permissions: users-full
 
 Source: "modules\PostgreSQL-9.5\*";                               DestDir: "{app}\modules\PostgreSQL-9.5";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: psql\postgresql95; Permissions: users-full
 Source: "modules\PostgreSQL-9.6\*";                               DestDir: "{app}\modules\PostgreSQL-9.6";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: psql\postgresql96;            Permissions: users-full
@@ -263,6 +265,7 @@ Source: "data\MariaDB-10.8\*";                                    DestDir: "{app
 Source: "data\MariaDB-10.9\*";                                    DestDir: "{app}\data\MariaDB-10.9";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb109;               Permissions: users-full
 Source: "data\MariaDB-10.10\*";                                   DestDir: "{app}\data\MariaDB-10.10";       Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb1010;              Permissions: users-full
 Source: "data\MariaDB-10.11\*";                                   DestDir: "{app}\data\MariaDB-10.11";       Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb1011;              Permissions: users-full
+Source: "data\MariaDB-11.0\*";                                    DestDir: "{app}\data\MariaDB-11.0";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: mdb\mariadb110;               Permissions: users-full
 
 Source: "data\PostgreSQL-9.5\*";                                  DestDir: "{app}\data\PostgreSQL-9.5";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: psql\postgresql95; Permissions: users-full
 Source: "data\PostgreSQL-9.6\*";                                  DestDir: "{app}\data\PostgreSQL-9.6";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: psql\postgresql96;            Permissions: users-full
@@ -302,6 +305,7 @@ Source: "{app}\modules\MariaDB-10.8\ospanel_data\original\*";     DestDir: "{app
 Source: "{app}\modules\MariaDB-10.9\ospanel_data\original\*";     DestDir: "{app}\config\MariaDB-10.9";      Flags: external ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mdb\mariadb109;     Permissions: users-full
 Source: "{app}\modules\MariaDB-10.10\ospanel_data\original\*";    DestDir: "{app}\config\MariaDB-10.10";     Flags: external ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mdb\mariadb1010;    Permissions: users-full
 Source: "{app}\modules\MariaDB-10.11\ospanel_data\original\*";    DestDir: "{app}\config\MariaDB-10.11";     Flags: external ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mdb\mariadb1011;    Permissions: users-full
+Source: "{app}\modules\MariaDB-11.0\ospanel_data\original\*";     DestDir: "{app}\config\MariaDB-11.0";      Flags: external ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mdb\mariadb110;     Permissions: users-full
 
 Source: "{app}\modules\Memcached-1.4\ospanel_data\original\*";    DestDir: "{app}\config\Memcached-1.4";     Flags: external ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mem\memcached14;    Permissions: users-full
 Source: "{app}\modules\Memcached-1.6\ospanel_data\original\*";    DestDir: "{app}\config\Memcached-1.6";     Flags: external ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mem\memcached16;    Permissions: users-full
