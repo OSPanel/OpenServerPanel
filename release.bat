@@ -17,6 +17,7 @@ xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.8\ospanel_data\ori
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.9\ospanel_data\original\default\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.10\ospanel_data\original\default\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-10.11\ospanel_data\original\default\templates\" /y
+xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MariaDB-11.0\ospanel_data\original\default\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MongoDB-3.0\ospanel_data\original\default\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MongoDB-3.2\ospanel_data\original\default\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\MongoDB-3.4\ospanel_data\original\default\templates\" /y
