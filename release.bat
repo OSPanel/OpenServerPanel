@@ -1,3 +1,6 @@
+:: --------------------------------------------------------------------------------
+:: OPEN SERVER PANEL | RELEASE SCRIPT
+:: --------------------------------------------------------------------------------
 @echo off
 xcopy "%~dp0resources\cmd\*.bat" "%~dp0modules\PHP-7.1\ospanel_data\original\default\templates\" /y
 xcopy "%~dp0resources\cmd\*.bat" "%~dp0modules\PHP-7.2\ospanel_data\original\default\templates\" /y
@@ -47,5 +50,5 @@ xcopy "%~dp0resources\cmd\shell.bat" "%~dp0modules\Redis-7.0\ospanel_data\origin
 for /d %%D in ("%~dp0modules\*") do xcopy "%~dp0resources\cmd\env.bat" "%%D\ospanel_data\original\default\templates\" /y
 del "%~dp0modules\ControlPanel\ospanel_data\original\default\templates\env.bat"
 for /d %%D in ("%~dp0modules\*") do robocopy "%%D\ospanel_data\original" "%~dp0config\%%~nxD" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /MIR /J /ETA /IM /MT:32 /R:3 /W:3
-PAUSE
 echo on
+@PAUSE
