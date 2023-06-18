@@ -69,3 +69,4 @@ robocopy "%OSP_ROOT_DIR%data\%1" "%OSP_ROOT_DIR%generate\new_data\%1" /UNICODE /
 exit /b 0
 :end
 echo on
+@PAUSE
