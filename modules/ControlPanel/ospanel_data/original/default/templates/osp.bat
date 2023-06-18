@@ -9,7 +9,7 @@
 @chcp 65001 > nul
 @if not exist "{root_dir}\temp\OSPanel.lock" goto notrunning
 :gettempname
-@set "OSP_TMPVAL=~OSP_%RANDOM%.tmp"
+@set "OSP_TMPVAL=~OSP_%RANDOM%%RANDOM%%RANDOM%%RANDOM%%RANDOM%.tmp"
 @if exist "{root_dir}\temp\%OSP_TMPVAL%" goto gettempname
 @(for /f %%N in ("1") do call,) > "{root_dir}\temp\%OSP_TMPVAL%"
 @for %%S in ("{root_dir}\temp\%OSP_TMPVAL%") do @if %%~zS==0 (set "OSP_ECHO_STATE=OFF") else (set "OSP_ECHO_STATE=ON")
