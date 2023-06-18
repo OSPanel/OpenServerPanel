@@ -11,6 +11,7 @@ call :mariadb MariaDB-10.8
 call :mariadb MariaDB-10.9
 call :mariadb MariaDB-10.10
 call :mariadb MariaDB-10.11
+call :mariadb MariaDB-11.0
 goto end
 :: --------------------------------------------------------------------------------
 :: INIT MariaDB
