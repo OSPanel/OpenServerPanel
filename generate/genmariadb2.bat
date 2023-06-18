@@ -32,12 +32,12 @@ timeout /t 3 /nobreak > nul
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 call osp on %1
 timeout /t 5 /nobreak > nul
-call mysql --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
+call mysql --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
 timeout /t 3 /nobreak > nul
 call osp restart %1 default
 call osp set %1
 timeout /t 5 /nobreak > nul
-call mysql --force --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\install.sql"
+call mysql --force --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\install.sql"
 call osp off %1
 timeout /t 3 /nobreak > nul
 del "%OSP_ROOT_DIR%data\%1\*.ini" /q 2>nul
