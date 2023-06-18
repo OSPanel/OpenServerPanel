@@ -28,6 +28,7 @@ xcopy "%~dp0resources\cmd\env.bat"   "%~dp0config\MariaDB-10.8\initdb\templates\
 xcopy "%~dp0resources\cmd\env.bat"   "%~dp0config\MariaDB-10.9\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\env.bat"   "%~dp0config\MariaDB-10.10\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\env.bat"   "%~dp0config\MariaDB-10.11\initdb\templates\" /y
+xcopy "%~dp0resources\cmd\env.bat"   "%~dp0config\MariaDB-11.0\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MySQL-5.5\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MySQL-5.6\initdb\templates\" /y
 xcopy "%~dp0resources\cmd\shell.bat" "%~dp0config\MySQL-5.7\initdb\templates\" /y
