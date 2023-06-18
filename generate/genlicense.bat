@@ -1,6 +1,6 @@
 @echo off
 set "TMP_FILE=%~dp0tmp_license.txt"
-set "HEAD_FILE=%~dp0LICENSE_HEAD"
+set "HEAD_FILE=%~dp0..\resources\LICENSE_HEAD"
 set "RESULT_FILE=%~dp0..\licenses\licenses\Open Server Panel\LICENSE"
 set "MASTER_FILE=%~dp0..\LICENSE"
 cd ..\licenses
