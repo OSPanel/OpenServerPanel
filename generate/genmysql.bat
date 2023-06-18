@@ -47,4 +47,5 @@ del "%OSP_ROOT_DIR%data\%1\*.err" /q 2>nul
 robocopy "%OSP_ROOT_DIR%data\%1" "%OSP_ROOT_DIR%generate\new_data\%1" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /MIR /J /ETA /IM /MT:32 /R:3 /W:3 >nul 2>nul
 exit /b 0
 :end
-exit /b 0
+echo on
+@PAUSE
