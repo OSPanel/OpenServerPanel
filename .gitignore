@@ -9,6 +9,6 @@ data/PostgreSQL-*/
 data/MySQL-*/
 data/MariaDB-*/
 data/PHP-*/composer/composer.phar
+!modules/*/ospanel_data
 modules/
 !modules/*/ospanel_data
-!modules/*/ospanel_data/default
