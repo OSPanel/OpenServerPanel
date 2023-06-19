@@ -4,7 +4,7 @@
 
 architecture       = x64
 category           = Perl
-class              = Addons
+class              = Other
 ipv6_support       = yes
 ip_separator       = no
 license            = https://dev.perl.org/licenses/gpl1.html
