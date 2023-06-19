@@ -4,7 +4,7 @@
 
 architecture       = x64
 category           = Git
-class              = Addons
+class              = Other
 ipv6_support       = no
 ip_separator       = no
 license            = https://opensource.org/licenses/GPL-2.0
