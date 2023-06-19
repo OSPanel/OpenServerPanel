@@ -11,3 +11,4 @@ data/MariaDB-*/
 data/PHP-*/composer/composer.phar
 modules/
 !modules/*/ospanel_data
+!modules/MariaDB-*/ospanel_data
