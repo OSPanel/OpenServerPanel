@@ -34,7 +34,8 @@ if not "%1"=="MySQL-5.5" copy "%OSP_ROOT_DIR%generate\setup\public_key.pem" "%OS
 call osp on %1
 timeout /t 5 /nobreak > nul
 if "%1"=="MySQL-5.7" call mysql --protocol=PIPE --socket=%1 --host="" -u root mysql -e "INSTALL PLUGIN mysqlx SONAME 'mysqlx.dll';"
-call mysql --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
+if "%1"=="MySQL-8.0" call mysql --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
+if not "%1"=="MySQL-8.0" call mysql --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
 timeout /t 3 /nobreak > nul
 call osp restart %1 default
 call osp set %1
