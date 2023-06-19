@@ -1,0 +1,10 @@
+Usage: mysql_config.pl [OPTIONS]
+Options:
+        --cflags
+        --include
+        --libs
+        --libs_r
+        --socket
+        --port
+        --version
+        --libmysqld-libs
