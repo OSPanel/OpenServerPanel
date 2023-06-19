@@ -10,4 +10,3 @@ data/MySQL-*/
 data/MariaDB-*/
 data/PHP-*/composer/composer.phar
 modules/
-!modules/*/ospanel_data
