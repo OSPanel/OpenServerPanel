@@ -1,4 +1,3 @@
-
 mysql_client_test.exe  Ver 2.1 Distrib 5.6.51, for Win64 (x86_64)
 By Monty, Venu, Kent and others
 
@@ -51,21 +50,3 @@ The following options may be given as the first argument:
 --defaults-group-suffix=#
                         Also read groups with concat(group, suffix)
 --login-path=#          Read this path from the login file.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-basedir                           ./
-count                             1
-database                          (No default value)
-debug                             d:t:o,/tmp/mysql_client_test.trace
-host                              MySQL-5.6
-port                              3306
-shared-memory-base-name           (No default value)
-socket                            MySQL-5.6
-user                              root
-vardir                            mysql-test/var
-getopt-ll-test                    0
-plugin-dir                        C:/OSPanel/modules/MySQL-5.6/lib/plugin
-default-auth                      (No default value)
-secure-auth                       TRUE

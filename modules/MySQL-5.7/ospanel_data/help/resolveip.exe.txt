@@ -10,8 +10,3 @@ Usage: resolveip.exe [OPTIONS] hostname or IP-address
   -I, --info          Synonym for --help.
   -s, --silent        Be more silent.
   -V, --version       Displays version information and exits.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-silent                            FALSE

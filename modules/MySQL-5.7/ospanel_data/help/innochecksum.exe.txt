@@ -27,19 +27,3 @@ See http://dev.mysql.com/doc/refman/5.7/en/innochecksum.html for usage hints.
   -D, --page-type-dump=name 
                       Dump the page type info for each page in a tablespace.
   -l, --log=name      log output.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-verbose                           FALSE
-count                             FALSE
-start-page                        0
-end-page                          0
-page                              0
-strict-check                      crc32
-no-check                          FALSE
-allow-mismatches                  0
-write                             crc32
-page-type-summary                 FALSE
-page-type-dump                    (No default value)
-log                               (No default value)
