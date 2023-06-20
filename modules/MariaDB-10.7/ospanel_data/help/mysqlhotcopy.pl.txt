@@ -1,4 +1,3 @@
-
 mysqlhotcopy.pl Ver 1.23
 
 Usage: mysqlhotcopy.pl db_name[./table_regex/] [new_db_name | directory]

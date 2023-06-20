@@ -1,4 +1,3 @@
-mariadb-conv.exe: unknown option '-?'
 mariadb-conv.exe Ver 1.0 Distrib 10.6.14-MariaDB for Win64 on AMD64
 Character set conversion utility for MariaDB
 Usage:

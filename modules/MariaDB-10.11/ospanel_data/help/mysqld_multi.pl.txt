@@ -1,7 +1,3 @@
-WARNING: my_print_defaults command not found.
-Please make sure you have this command available and
-in your path. The command is available from the latest
-MariaDB distribution.
 mysqld_multi.pl version 3.0 by Jani Tolonen
 
 Description:

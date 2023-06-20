@@ -24,13 +24,5 @@ Usage: my_print_defaults.exe [OPTIONS] [groups]
 Default options are read from the following files in the given order:
 C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-10.7\data\my.ini C:\OSPanel\modules\MariaDB-10.7\data\my.cnf C:\OSPanel\modules\MariaDB-10.7\my.ini C:\OSPanel\modules\MariaDB-10.7\my.cnf 
 
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-defaults-file                     my
-defaults-extra-file               (No default value)
-defaults-group-suffix             (No default value)
-mysqld                            FALSE
-
 Example usage:
 my_print_defaults.exe --defaults-file=example.cnf client client-server mysql

@@ -30,10 +30,3 @@ The following specify which files/extra groups are read (specified before remain
   -S, --skip-write-binlog 
                       Do not replicate changes to time zone tables to the
                       binary log, or to other nodes in a Galera cluster.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-leap                              FALSE
-verbose                           FALSE
-skip-write-binlog                 FALSE
