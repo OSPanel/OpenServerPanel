@@ -1,0 +1,87 @@
+Usage:	unbound-control [options] command
+	Remote control utility for unbound server.
+Options:
+  -c file	config file, default is C:\Program Files\Unbound\service.conf
+  -s ip[@port]	server address, if omitted config is used.
+  -q		quiet (don't print anything if it works ok).
+  -h		show this usage help.
+Commands:
+  start				start server; runs unbound(8)
+  stop				stops the server
+  reload			reloads the server
+  				(this flushes data, stats, requestlist)
+  reload_keep_cache		reloads the server but tries to
+  				keep the RRset and message cache
+  				if (re)configuration allows for it.
+  				That means the caches sizes and
+  				the number of threads must not
+  				change between reloads.
+  stats				print statistics
+  stats_noreset			peek at statistics
+  status			display status of server
+  verbosity <number>		change logging detail
+  log_reopen			close and open the logfile
+  local_zone <name> <type>	add new local zone
+  local_zone_remove <name>	remove local zone and its contents
+  local_data <RR data...>	add local data, for example
+				local_data www.example.com A 192.0.2.1
+  local_data_remove <name>	remove local RR data from name
+  local_zones, local_zones_remove, local_datas, local_datas_remove
+  				same, but read list from stdin
+  				(one entry per line).
+  dump_cache			print cache to stdout
+  load_cache			load cache from stdin
+  lookup <name>			print nameservers for name
+  flush <name>			flushes common types for name from cache
+  				types:  A, AAAA, MX, PTR, NS,
+					SOA, CNAME, DNAME, SRV, NAPTR
+  flush_type <name> <type>	flush name, type from cache
+  flush_zone <name>		flush everything at or under name
+  				from rr and dnssec caches
+  flush_bogus			flush all bogus data
+  flush_negative		flush all negative data
+  flush_stats 			flush statistics, make zero
+  flush_requestlist 		drop queries that are worked on
+  dump_requestlist		show what is worked on by first thread
+  flush_infra [all | ip] 	remove ping, edns for one IP or all
+  dump_infra			show ping and edns entries
+  set_option opt: val		set option to value, no reload
+  get_option opt		get option value
+  list_stubs			list stub-zones and root hints in use
+  list_forwards			list forward-zones in use
+  list_insecure			list domain-insecure zones
+  list_local_zones		list local-zones in use
+  list_local_data		list local-data RRs in use
+  insecure_add zone 		add domain-insecure zone
+  insecure_remove zone		remove domain-insecure zone
+  forward_add [+i] zone addr..	add forward-zone with servers
+  forward_remove [+i] zone	remove forward zone
+  stub_add [+ip] zone addr..	add stub-zone with servers
+  stub_remove [+i] zone		remove stub zone
+		+i		also do dnssec insecure point
+		+p		set stub to use priming
+  forward [off | addr ...]	without arg show forward setup
+				or off to turn off root forwarding
+				or give list of ip addresses
+  ratelimit_list [+a]		list ratelimited domains
+  ip_ratelimit_list [+a]	list ratelimited ip addresses
+		+a		list all, also not ratelimited
+  list_auth_zones		list auth zones (includes RPZ zones)
+  auth_zone_reload zone		reload auth zone (or RPZ zone) from zonefile
+  auth_zone_transfer zone	transfer auth zone (or RPZ zone) from master
+  view_list_local_zones	view	list local-zones in view
+  view_list_local_data	view	list local-data RRs in view
+  view_local_zone view name type  	add local-zone in view
+  view_local_zone_remove view name  	remove local-zone in view
+  view_local_data view RR...		add local-data in view
+  view_local_datas view 		add list of local-data to view
+  					one entry per line read from stdin
+  view_local_data_remove view name  	remove local-data in view
+  view_local_datas_remove view 		remove list of local-data from view
+  					one entry per line read from stdin
+  rpz_enable zone		Enable the RPZ zone if it had previously
+  				been disabled
+  rpz_disable zone		Disable the RPZ zone
+Version 1.17.1
+BSD licensed, see LICENSE in source package for details.
+Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues

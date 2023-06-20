@@ -1,0 +1,31 @@
+Usage:	unbound-anchor [opts]
+	Setup or update root anchor. Most options have defaults.
+	Run this program before you start the validator.
+
+	The anchor and cert have default builtin content
+	if the file does not exist or is empty.
+
+-a file		root key file, default C:\Program Files\Unbound\root.key
+		The key is input and output for this tool.
+-c file		cert file, default C:\Program Files\Unbound\icannbundle.pem
+-l		list builtin key and cert on stdout
+-u name		server in https url, default data.iana.org
+-S		do not use SNI for the https connection
+-x path		pathname to xml in url, default root-anchors/root-anchors.xml
+-s path		pathname to p7s in url, default root-anchors/root-anchors.p7s
+-n name		signer's subject emailAddress, default dnssec@iana.org
+-b address	source address to bind to
+-4		work using IPv4 only
+-6		work using IPv6 only
+-f resolv.conf	use given resolv.conf
+-r root.hints	use given root.hints
+		builtin root hints are used by default
+-R		fallback from -f to root query on error
+-v		more verbose
+-C conf		debug, read config
+-P port		use port for https connect, default 443
+-F 		debug, force update with cert
+-h		show this usage help
+Version 1.17.1
+BSD licensed, see LICENSE in source package for details.
+Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues
