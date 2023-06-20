@@ -93,8 +93,8 @@ forfiles /S /M *.exe /C "cmd /c if /i not @fname==\"pgAdmin3\" if /i not @fname=
 exit /b 0
 :end
 call osp set git
-call git --help > %OSP_ROOT_DIR%modules\git\ospanel_data\help\git.txt 2>&1
+call git --help > %OSP_ROOT_DIR%modules\git\ospanel_data\help\git.exe.txt 2>&1
 call osp set perl
-call perl --help > %OSP_ROOT_DIR%modules\perl\ospanel_data\help\perl.txt 2>&1
+call perl --help > %OSP_ROOT_DIR%modules\perl\ospanel_data\help\perl.exe.txt 2>&1
 echo on
 @PAUSE
