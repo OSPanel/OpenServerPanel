@@ -74,7 +74,7 @@ Name: "be";             MessagesFile: "resources\lang\be.isl";    LicenseFile: "
 
 [Tasks]
 
-Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";                      Components: core\panel; GroupDescription: "{cm:AdditionalIcons}"
+Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";                      Components: core\panel
 Name: "autostarticon";  Description:  "{cm:AutoStartProgram,{#AppTitle}}";           Components: core\panel
 Name: "add_to_path";    Description:  "{cm:AddToPath}";                              Components: core\panel
 Name: "import_cert";    Description:  "{cm:ImportCert}";                             Components: core\panel
@@ -165,8 +165,7 @@ Name: "redis\redis70";         Description: "Redis 7.0";          Types: full;  
 
 [Files]
 
-Source: "config\domains.ini";                                     DestDir: "{app}\config";                   Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                 Components: core\panel;                   Permissions: users-full
-Source: "config\program.ini";                                     DestDir: "{app}\config";                   Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                 Components: core\panel;                   Permissions: users-full
+Source: "config\*";                                               DestDir: "{app}\config";                   Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                 Components: core\panel;                   Permissions: users-full
 Source: "licenses\*";                                             DestDir: "{app}\licenses";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: core\panel;                   Permissions: users-full
 Source: "bin\*";                                                  DestDir: "{app}\bin";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: core\panel;                   Permissions: users-full
 Source: "home\*";                                                 DestDir: "{app}\home";                     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite; Components: core\panel;                   Permissions: users-full
