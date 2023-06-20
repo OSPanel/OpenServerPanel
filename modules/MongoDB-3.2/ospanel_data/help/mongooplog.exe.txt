@@ -1,0 +1,66 @@
+2023-06-20T03:56:30.329+0300	warning: mongooplog is deprecated, and will be removed completely in a future release
+Usage:
+  mongooplog --from <remote host> <options>
+
+Poll operations from the replication oplog of one server, and apply them to another.
+
+See http://docs.mongodb.org/manual/reference/program/mongooplog/ for more information.
+
+general options:
+      /help                                       print usage
+      /version                                    print the tool version and
+                                                  exit
+
+verbosity options:
+  /v, /verbose:<level>                            more detailed log output
+                                                  (include multiple times for
+                                                  more verbosity, e.g. -vvvvv,
+                                                  or specify a numeric value,
+                                                  e.g. --verbose=N)
+      /quiet                                      hide all log output
+
+connection options:
+  /h, /host:<hostname>                            mongodb host to connect to
+                                                  (setname/host1,host2 for
+                                                  replica sets)
+      /port:<port>                                server port (can also use
+                                                  --host hostname:port)
+
+ssl options:
+      /ssl                                        connect to a mongod or mongos
+                                                  that has ssl enabled
+      /sslCAFile:<filename>                       the .pem file containing the
+                                                  root certificate chain from
+                                                  the certificate authority
+      /sslPEMKeyFile:<filename>                   the .pem file containing the
+                                                  certificate and key
+      /sslPEMKeyPassword:<password>               the password to decrypt the
+                                                  sslPEMKeyFile, if necessary
+      /sslCRLFile:<filename>                      the .pem file containing the
+                                                  certificate revocation list
+      /sslAllowInvalidCertificates                bypass the validation for
+                                                  server certificates
+      /sslAllowInvalidHostnames                   bypass the validation for
+                                                  server name
+      /sslFIPSMode                                use FIPS mode of the
+                                                  installed openssl library
+
+authentication options:
+  /u, /username:<username>                        username for authentication
+  /p, /password:<password>                        password for authentication
+      /authenticationDatabase:<database-name>     database that holds the
+                                                  user's credentials
+      /authenticationMechanism:<mechanism>        authentication mechanism to
+                                                  use
+
+source options:
+      /from:<hostname>                            specify the host for
+                                                  mongooplog to retrive
+                                                  operations from
+      /oplogns:<namespace>                        specify the namespace in the
+                                                  --from host where the oplog
+                                                  lives (default
+                                                  'local.oplog.rs')
+  /s, /seconds:<seconds>                          specify a number of seconds
+                                                  for mongooplog to pull from
+                                                  the remote host

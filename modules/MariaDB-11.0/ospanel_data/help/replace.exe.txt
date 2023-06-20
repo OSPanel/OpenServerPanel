@@ -1,0 +1,24 @@
+replace.exe from 11.0.2-MariaDB, client 1.4 for Win64 (AMD64)
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL license
+
+This program replaces strings in files or from stdin to stdout.
+It accepts a list of from-string/to-string pairs and replaces
+each occurrence of a from-string with the corresponding to-string.
+The first occurrence of a found string is matched. If there is
+more than one possibility for the string to replace, longer
+matches are preferred before shorter matches.
+
+A from-string can contain these special characters:
+  \^      Match start of line.
+  \$      Match end of line.
+  \b      Match space-character, start of line or end of line.
+          For a end \b the next replace starts locking at the end
+          space-character. A \b alone in a string matches only a
+          space-character.
+
+Usage: replace.exe [-?svIV] from to from to ... -- [files]
+or
+Usage: replace.exe [-?svIV] from to from to ... < fromfile > tofile
+
+Options: -? or -I "Info"  -s "silent"      -v "verbose"

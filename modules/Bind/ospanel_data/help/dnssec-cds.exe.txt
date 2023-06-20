@@ -1,0 +1,15 @@
+Usage:
+    dnssec-cds options [options] -f <file> -d <path> <domain>
+Version: 9.16.32
+Options:
+    -a <algorithm>     digest algorithm (SHA-1 / SHA-256 / SHA-384)
+    -c <class>         of domain (default IN)
+    -D                 prefer CDNSKEY records instead of CDS
+    -d <file|dir>      where to find parent dsset- file
+    -f <file>          child DNSKEY+CDNSKEY+CDS+RRSIG records
+    -i[extension]      update dsset- file in place
+    -s <start-time>    oldest permitted child signatures
+    -u                 emit nsupdate script
+    -T <ttl>           TTL of DS records
+    -V                 print version
+    -v <verbosity>

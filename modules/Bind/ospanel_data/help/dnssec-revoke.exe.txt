@@ -1,0 +1,13 @@
+Usage:
+    dnssec-revoke [options] keyfile
+
+Version: 9.16.32
+    -E engine:    specify OpenSSL engine
+    -f:           force overwrite
+    -h:           help
+    -K directory: use directory for key files
+    -r:           remove old keyfiles after creating revoked version
+    -v level:     set level of verbosity
+    -V:           print version information
+Output:
+     K<name>+<alg>+<new id>.key, K<name>+<alg>+<new id>.private

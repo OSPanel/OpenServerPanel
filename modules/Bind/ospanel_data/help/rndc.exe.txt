@@ -1,0 +1,129 @@
+Usage: rndc [-b address] [-c config] [-s server] [-p port]
+	[-k key-file ] [-y key] [-r] [-V] [-4 | -6] command
+
+command is one of the following:
+
+  addzone zone [class [view]] { zone-options }
+		Add zone to given view. Requires allow-new-zones option.
+  delzone [-clean] zone [class [view]]
+		Removes zone from given view.
+  dnssec -checkds [-key id [-alg algorithm]] [-when time] (published|withdrawn) zone [class [view]]
+		Mark the DS record for the KSK of the given zone as seen
+		in the parent.  If the zone has multiple KSKs, select a
+		specific key by providing the keytag with -key id and
+		optionally the key's algorithm with -alg algorithm.
+		Requires the zone to have a dnssec-policy.
+  dnssec -rollover -key id [-alg algorithm] [-when time] zone [class [view]]
+		Rollover key with id of the given zone. Requires the zone
+		to have a dnssec-policy.
+  dnssec -status zone [class [view]]
+		Show the DNSSEC signing state for the specified zone.
+		Requires the zone to have a dnssec-policy.
+  dnstap -reopen
+		Close, truncate and re-open the DNSTAP output file.
+  dnstap -roll count
+		Close, rename and re-open the DNSTAP output file(s).
+  dumpdb [-all|-cache|-zones|-adb|-bad|-expired|-fail] [view ...]
+		Dump cache(s) to the dump file (named_dump.db).
+  flush 	Flushes all of the server's caches.
+  flush [view]	Flushes the server's cache for a view.
+  flushname name [view]
+		Flush the given name from the server's cache(s)
+  flushtree name [view]
+		Flush all names under the given name from the server's cache(s)
+  freeze	Suspend updates to all dynamic zones.
+  freeze zone [class [view]]
+		Suspend updates to a dynamic zone.
+  halt		Stop the server without saving pending updates.
+  halt -p	Stop the server without saving pending updates reporting
+		process id.
+  loadkeys zone [class [view]]
+		Update keys without signing immediately.
+  managed-keys refresh [class [view]]
+		Check trust anchor for RFC 5011 key changes
+  managed-keys status [class [view]]
+		Display RFC 5011 managed keys information
+  managed-keys sync [class [view]]
+		Write RFC 5011 managed keys to disk
+  modzone zone [class [view]] { zone-options }
+		Modify a zone's configuration.
+		Requires allow-new-zones option.
+  notify zone [class [view]]
+		Resend NOTIFY messages for the zone.
+  notrace	Set debugging level to 0.
+  nta -dump
+		List all negative trust anchors.
+  nta [-lifetime duration] [-force] domain [view]
+		Set a negative trust anchor, disabling DNSSEC validation
+		for the given domain.
+		Using -lifetime specifies the duration of the NTA, up
+		to one week.
+		Using -force prevents the NTA from expiring before its
+		full lifetime, even if the domain can validate sooner.
+  nta -remove domain [view]
+		Remove a negative trust anchor, re-enabling validation
+		for the given domain.
+  querylog [ on | off ]
+		Enable / disable query logging.
+  reconfig	Reload configuration file and new zones only.
+  recursing	Dump the queries that are currently recursing (named.recursing)
+  refresh zone [class [view]]
+		Schedule immediate maintenance for a zone.
+  reload	Reload configuration file and zones.
+  reload zone [class [view]]
+		Reload a single zone.
+  retransfer zone [class [view]]
+		Retransfer a single zone without checking serial number.
+  scan		Scan available network interfaces for changes.
+  secroots [view ...]
+		Write security roots to the secroots file.
+  serve-stale [ on | off | reset | status ] [class [view]]
+		Control whether stale answers are returned
+  showzone zone [class [view]]
+		Print a zone's configuration.
+  sign zone [class [view]]
+		Update zone keys, and sign as needed.
+  signing -clear all zone [class [view]]
+		Remove the private records for all keys that have
+		finished signing the given zone.
+  signing -clear <keyid>/<algorithm> zone [class [view]]
+		Remove the private record that indicating the given key
+		has finished signing the given zone.
+  signing -list zone [class [view]]
+		List the private records showing the state of DNSSEC
+		signing in the given zone.
+  signing -nsec3param hash flags iterations salt zone [class [view]]
+		Add NSEC3 chain to zone if already signed.
+		Prime zone with NSEC3 chain if not yet signed.
+  signing -nsec3param none zone [class [view]]
+		Remove NSEC3 chains from zone.
+  signing -serial <value> zone [class [view]]
+		Set the zones's serial to <value>.
+  stats		Write server statistics to the statistics file.
+  status	Display status of the server.
+  stop		Save pending updates to master files and stop the server.
+  stop -p	Save pending updates to master files and stop the server
+		reporting process id.
+  sync [-clean]	Dump changes to all dynamic zones to disk, and optionally
+		remove their journal files.
+  sync [-clean] zone [class [view]]
+		Dump a single zone's changes to disk, and optionally
+		remove its journal file.
+  tcp-timeouts	Display the tcp-*-timeout option values
+  tcp-timeouts initial idle keepalive advertised
+		Update the tcp-*-timeout option values
+  thaw		Enable updates to all dynamic zones and reload them.
+  thaw zone [class [view]]
+		Enable updates to a frozen dynamic zone and reload it.
+  trace		Increment debugging level by one.
+  trace level	Change the debugging level.
+  tsig-delete keyname [view]
+		Delete a TKEY-negotiated TSIG key.
+  tsig-list	List all currently active TSIG keys, including both statically
+		configured and TKEY-negotiated keys.
+  validation [ on | off | status ] [view]
+		Enable / disable DNSSEC validation.
+  zonestatus zone [class [view]]
+		Display the current status of a zone.
+
+Version: 9.16.32

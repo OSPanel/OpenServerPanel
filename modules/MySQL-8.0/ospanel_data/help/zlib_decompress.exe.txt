@@ -1,0 +1,9 @@
+zlib_decompress.exe  Ver 8.0.33 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2015, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Decompress data compressed by mysqlpump using zlib compression algorithm by reading from input file and writing uncompressed data to output file
+Usage: zlib_decompress input_file output_file

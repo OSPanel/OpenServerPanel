@@ -1,0 +1,9 @@
+RRDtool 1.4.5  Copyright by Tobi Oetiker, 1997-2010
+
+Usage: rrdupdate <filename>
+			[--template|-t ds-name[:ds-name]...]
+			time|N:value[:value...]
+
+			at-time@value[:value...]
+
+			[ time:value[:value...] ..]

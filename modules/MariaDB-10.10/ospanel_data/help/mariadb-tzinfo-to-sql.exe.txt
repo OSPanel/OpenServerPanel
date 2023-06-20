@@ -1,0 +1,39 @@
+mariadb-tzinfo-to-sql.exe  Ver 1.1 Distrib 10.10.5-MariaDB, for Win64 (AMD64)
+
+Create SQL commands for loading system timezeone data for MariaDB
+
+Usage:
+ mariadb-tzinfo-to-sql.exe [options] timezonedir
+or
+ mariadb-tzinfo-to-sql.exe [options] timezonefile timezonename
+
+A typical place for the system timezone directory is "/usr/share/zoneinfo/"
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-10.10\data\my.ini C:\OSPanel\modules\MariaDB-10.10\data\my.cnf C:\OSPanel\modules\MariaDB-10.10\my.ini C:\OSPanel\modules\MariaDB-10.10\my.cnf 
+The following groups are read: mysql_tzinfo_to_sql
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.
+
+  -?, --help          Display this help and exit.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  -l, --leap          Print the leap second information from the given time
+                      zone file. By convention, when --leap is used the next
+                      argument is the timezonefile.
+  -v, --verbose       Write non critical warnings.
+  -V, --version       Output version information and exit.
+  -S, --skip-write-binlog 
+                      Do not replicate changes to time zone tables to the
+                      binary log, or to other nodes in a Galera cluster.
+
+Variables (--variable-name=value)
+and boolean options {FALSE|TRUE}  Value (after reading options)
+--------------------------------- ----------------------------------------
+leap                              FALSE
+verbose                           FALSE
+skip-write-binlog                 FALSE

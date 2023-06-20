@@ -1,0 +1,36 @@
+Usage:
+    dnssec-settime [options] keyfile
+
+Version: 9.16.32
+General options:
+    -E engine:          specify OpenSSL engine
+    -f:                 force update of old-style keys
+    -K directory:       set key file location
+    -L ttl:             set default key TTL
+    -v level:           set level of verbosity
+    -V:                 print version information
+    -h:                 help
+Timing options:
+    -P date/[+-]offset/none: set/unset key publication date
+    -P ds date/[+-]offset/none: set/unset DS publication date
+    -P sync date/[+-]offset/none: set/unset CDS and CDNSKEY publication date
+    -A date/[+-]offset/none: set/unset key activation date
+    -R date/[+-]offset/none: set/unset key revocation date
+    -I date/[+-]offset/none: set/unset key inactivation date
+    -D date/[+-]offset/none: set/unset key deletion date
+    -D ds date/[+-]offset/none: set/unset DS deletion date
+    -D sync date/[+-]offset/none: set/unset CDS and CDNSKEY deletion date
+    -S <key>: generate a successor to an existing key
+    -i <interval>: prepublication interval for successor key (default: 30 days)
+Key state options:
+    -s: update key state file (default no)
+    -g state: set the goal state for this key
+    -d state date/[+-]offset: set the DS state
+    -k state date/[+-]offset: set the DNSKEY state
+    -r state date/[+-]offset: set the RRSIG (KSK) state
+    -z state date/[+-]offset: set the RRSIG (ZSK) state
+Printing options:
+    -p C/P/Psync/A/R/I/D/Dsync/all: print a particular time value or values
+    -u:                 print times in unix epoch format
+Output:
+     K<name>+<alg>+<new id>.key, K<name>+<alg>+<new id>.private

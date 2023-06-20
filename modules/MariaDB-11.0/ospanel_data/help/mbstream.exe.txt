@@ -1,0 +1,21 @@
+mbstream.exe from 11.0.2-MariaDB, client 1.0 for Win64 (AMD64)
+Copyright (C) 2011-2013 Percona LLC and/or its affiliates.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL license.
+
+Serialize/deserialize files in the XBSTREAM format.
+
+Usage: 
+  mbstream.exe -c [OPTIONS...] FILES...	# stream specified files to standard output.
+  mbstream.exe -x [OPTIONS...]		# extract files from the streamon the standard input.
+
+Options:
+  -?, --help          Display this help and exit.
+  -c, --create        Stream the specified files to the standard output.
+  -x, --extract       Extract to disk files from the stream on the standard
+                      input.
+  -C, --directory=name 
+                      Change the current directory to the specified one before
+                      streaming or extracting.
+  -v, --verbose       Print verbose output.
+  -p, --parallel=#    Number of worker threads for reading / writing.

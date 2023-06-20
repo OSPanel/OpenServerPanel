@@ -1,0 +1,11 @@
+mariadb-conv.exe: unknown option '-?'
+mariadb-conv.exe from 11.0.2-MariaDB, client 1.0 for Win64 (AMD64)
+Character set conversion utility for MariaDB
+Usage:
+mariadb-conv.exe [OPTION...] [FILE...]
+  -f, --from=name     Specifies the encoding of the input.
+  -t, --to=name       Specifies the encoding of the output.
+  -c, --continue      Silently ignore conversion errors.
+  --delimiter=name    Treat the specified characters as delimiters.
+  --character-sets-dir=name 
+                      Directory for character set files.

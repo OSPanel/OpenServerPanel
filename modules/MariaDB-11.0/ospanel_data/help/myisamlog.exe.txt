@@ -1,0 +1,21 @@
+myisamlog.exe from 11.0.2-MariaDB, client 1.4 for Win64 (AMD64)
+By Monty, for your professional use
+
+Write info about whats in a MyISAM log file.
+If no file name is given myisam.log is used
+
+Usage: myisamlog.exe [-?iruvDIV] [-c #] [-f #] [-F filepath/] [-o #] [-R file recordpos] [-w write_file] [log-filename [table ...]] 
+
+Options: -? or -I "Info"     -V "version"   -c "do only # commands"
+         -f "max open files" -F "filepath"  -i "extra info"
+         -o "offset"         -p # "remove # components from path"
+         -r "recover"        -R "file recordposition"
+         -u "update"         -v "verbose"   -w "write file"
+         -D "myisam compiled with DBUG"   -P "processes"
+
+One can give a second and a third '-v' for more verbose.
+Normally one does a update (-u).
+If a recover is done all writes and all possibly updates and deletes is done
+and errors are only counted.
+If one gives table names as arguments only these tables will be updated
+

@@ -1,0 +1,25 @@
+Usage:
+    dnssec-dsfromkey [options] keyfile
+
+    dnssec-dsfromkey [options] -f zonefile [zonename]
+
+    dnssec-dsfromkey [options] -s dnsname
+
+    dnssec-dsfromkey [-h|-V]
+
+Version: 9.16.32
+Options:
+    -1: digest algorithm SHA-1
+    -2: digest algorithm SHA-256
+    -a algorithm: digest algorithm (SHA-1, SHA-256 or SHA-384)
+    -A: include all keys in DS set, not just KSKs (-f only)
+    -c class: rdata class for DS set (default IN) (-f or -s only)
+    -C: print CDS records
+    -f zonefile: read keys from a zone file
+    -h: print help information
+    -K directory: where to find key or keyset files
+    -s: read keys from keyset-<dnsname> file
+    -T: TTL of output records (omitted by default)
+    -v level: verbosity
+    -V: print version information
+Output: DS or CDS RRs

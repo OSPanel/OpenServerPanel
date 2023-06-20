@@ -1,0 +1,41 @@
+Usage:  delv [@server] {q-opt} {d-opt} [domain] [q-type] [q-class]
+Where:  domain	  is in the Domain Name System
+        q-class  is one of (in,hs,ch,...) [default: in]
+        q-type   is one of (a,any,mx,ns,soa,hinfo,axfr,txt,...) [default:a]
+        q-opt    is one of:
+                 -4                  (use IPv4 query transport only)
+                 -6                  (use IPv6 query transport only)
+                 -a anchor-file      (specify root trust anchor)
+                 -b address[#port]   (bind to source address/port)
+                 -c class            (option included for compatibility;
+                 -d level            (set debugging level)
+                 -h                  (print help and exit)
+                 -i                  (disable DNSSEC validation)
+                 -m                  (enable memory usage debugging)
+                 -p port             (specify port number)
+                 -q name             (specify query name)
+                 -t type             (specify query type)
+                                      only IN is supported)
+                 -v                  (print version and exit)
+                 -x dot-notation     (shortcut for reverse lookups)
+        d-opt    is of the form +keyword[=value], where keyword is:
+                 +[no]all            (Set or clear all display flags)
+                 +[no]class          (Control display of class)
+                 +[no]comments       (Control display of comment lines)
+                 +[no]crypto         (Control display of cryptographic
+                                      fields in records)
+                 +[no]dlv            (Obsolete)
+                 +[no]dnssec         (Display DNSSEC records)
+                 +[no]mtrace         (Trace messages received)
+                 +[no]multiline      (Print records in an expanded format)
+                 +[no]root           (DNSSEC validation trust anchor)
+                 +[no]rrcomments     (Control display of per-record comments)
+                 +[no]rtrace         (Trace resolver fetches)
+                 +[no]short          (Short form answer)
+                 +[no]split=##       (Split hex/base64 fields into chunks)
+                 +[no]tcp            (TCP mode)
+                 +[no]ttl            (Control display of ttls in records)
+                 +[no]trust          (Control display of trust level)
+                 +[no]unknownformat  (Print RDATA in RFC 3597 "unknown" format)
+                 +[no]vtrace         (Trace validation process)
+                 +[no]yaml           (Present the results as YAML)

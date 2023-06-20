@@ -1,0 +1,18 @@
+Usage:
+    dnssec-importkey options [-K dir] keyfile
+
+    dnssec-importkey options -f file [keyname]
+
+Version: 9.16.32
+Options:
+    -f file: read key from zone file
+    -K <directory>: directory in which to store the key files
+    -L ttl:             set default key TTL
+    -v <verbose level>
+    -V: print version information
+    -h: print usage and exit
+Timing options:
+    -P date/[+-]offset/none: set/unset key publication date
+    -P sync date/[+-]offset/none: set/unset CDS and CDNSKEY publication date
+    -D date/[+-]offset/none: set/unset key deletion date
+    -D sync date/[+-]offset/none: set/unset CDS and CDNSKEY deletion date

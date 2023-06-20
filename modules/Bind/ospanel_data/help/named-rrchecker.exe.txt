@@ -1,0 +1,8 @@
+usage: named-rrchecker [-o origin] [-hpCPTu]
+	-h: print this help message
+	-o origin: set origin to be used when interpreting the record
+	-p: print the record in canonical format
+	-C: list the supported class names
+	-P: list the supported private type names
+	-T: list the supported standard type names
+	-u: print the record in unknown record format

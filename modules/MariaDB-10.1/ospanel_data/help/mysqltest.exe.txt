@@ -1,0 +1,142 @@
+mysqltest.exe  Ver 3.5 Distrib 10.1.48-MariaDB, for Win64 (AMD64)
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Runs a test against the mysql server and compares output with a results file.
+
+Usage: mysqltest.exe [OPTIONS] [database] < test_file
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-10.1\data\my.ini C:\OSPanel\modules\MariaDB-10.1\data\my.cnf C:\OSPanel\modules\MariaDB-10.1\my.ini C:\OSPanel\modules\MariaDB-10.1\my.cnf 
+The following groups are read: mysqltest client client-server client-mariadb
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.
+
+  -?, --help          Display this help and exit.
+  -b, --basedir=name  Basedir for tests.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  -C, --compress      Use the compressed server/client protocol.
+  --continue-on-error Continue test even if we got an error. This is mostly
+                      useful when testing a storage engine to see what from a
+                      test file it can execute, or to find all syntax errors in
+                      a newly created big test file
+  --cursor-protocol   Use cursors for prepared statements.
+  -D, --database=name Database to use.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit
+  --debug-check       Check memory and open file usage at exit.
+  --debug-info        Print some debug info at exit.
+  -h, --host=name     Connect to host.
+  --prologue=name     Include SQL before each test case.
+  --logdir=name       Directory for log files
+  --mark-progress     Write line number and elapsed time to
+                      <testname>.progress.
+  --max-connect-retries=# 
+                      Maximum number of attempts to connect to server.
+  --max-connections=# Max number of open connections to server
+  -p, --password[=name] 
+                      Password to use when connecting to server.
+  --protocol=name     The protocol of connection (tcp,socket,pipe,memory).
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --ps-protocol       Use prepared-statement protocol for communication.
+  --non-blocking-api  Use the non-blocking client API for communication.
+  -s, --quiet         Suppress all normal output.
+  -r, --record        Record output of test_file into result file.
+  -R, --result-file=name 
+                      Read/store result from/in this file.
+  --result-format-version=# 
+                      Version of the result file format to use
+  -A, --server-arg=name 
+                      Send option value to embedded server as a parameter.
+  -F, --server-file=name 
+                      Read embedded server arguments from file.
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  -s, --silent        Suppress all normal output. Synonym for --quiet.
+  -T, --sleep=#       Always sleep this many seconds on sleep commands.
+  -S, --socket=name   The socket file to use for connection.
+  --sp-protocol       Use stored procedures for select.
+  --ssl               Enable SSL for connection (automatically enabled with
+                      other flags).
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies
+                      --ssl).
+  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl).
+  --ssl-cert=name     X509 cert in PEM format (implies --ssl).
+  --ssl-cipher=name   SSL cipher to use (implies --ssl).
+  --ssl-key=name      X509 key in PEM format (implies --ssl).
+  --ssl-crl=name      Certificate revocation list (implies --ssl).
+  --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
+  --ssl-verify-server-cert 
+                      Verify server's "Common Name" in its cert against
+                      hostname used when connecting. This option is disabled by
+                      default.
+  --tail-lines=#      Number of lines of the result to include in a failure
+                      report.
+  -x, --test-file=name 
+                      Read test from/in this file (default stdin).
+  -m, --timer-file=name 
+                      File where the timing in microseconds is stored.
+  -t, --tmpdir=name   Temporary directory where sockets are put.
+  -u, --user=name     User for login.
+  -v, --verbose       Write more.
+  -V, --version       Output version information and exit.
+  --view-protocol     Use views for select.
+  --connect-timeout=# Number of seconds before connection timeout.
+  --wait-for-pos-timeout=# 
+                      Number of seconds to wait for master_pos_wait
+  --plugin-dir=name   Directory for client-side plugins.
+  --overlay-dir=name  Overlay directory.
+  --suite-dir=name    Suite directory.
+
+Variables (--variable-name=value)
+and boolean options {FALSE|TRUE}  Value (after reading options)
+--------------------------------- ----------------------------------------
+basedir                           ./
+character-sets-dir                (No default value)
+compress                          FALSE
+continue-on-error                 FALSE
+cursor-protocol                   FALSE
+database                          (No default value)
+debug-check                       FALSE
+debug-info                        FALSE
+host                              MariaDB-10.1
+prologue                          (No default value)
+logdir                            
+mark-progress                     FALSE
+max-connect-retries               500
+max-connections                   64
+port                              3306
+ps-protocol                       FALSE
+non-blocking-api                  FALSE
+quiet                             FALSE
+result-file                       (No default value)
+result-format-version             1
+shared-memory-base-name           (No default value)
+silent                            FALSE
+sleep                             -1
+socket                            MariaDB-10.1
+sp-protocol                       FALSE
+ssl                               FALSE
+ssl-ca                            (No default value)
+ssl-capath                        (No default value)
+ssl-cert                          (No default value)
+ssl-cipher                        (No default value)
+ssl-key                           (No default value)
+ssl-crl                           (No default value)
+ssl-crlpath                       (No default value)
+ssl-verify-server-cert            FALSE
+tail-lines                        0
+user                              root
+verbose                           FALSE
+view-protocol                     FALSE
+connect-timeout                   120
+wait-for-pos-timeout              300
+plugin-dir                        C:/OSPanel/modules/MariaDB-10.1/lib/plugin
+overlay-dir                       (No default value)
+suite-dir                         (No default value)

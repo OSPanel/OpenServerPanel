@@ -1,0 +1,59 @@
+Usage:
+	dnssec-signzone [options] zonefile [keys]
+
+Version: 9.16.32
+Options: (default value in parenthesis) 
+	-S:	smart signing: automatically finds key files
+		for the zone and determines how they are to be used
+	-K directory:
+		directory to find key files (.)
+	-d directory:
+		directory to find dsset-* files (.)
+	-g:	update DS records based on child zones' dsset-* files
+	-s [YYYYMMDDHHMMSS|+offset]:
+		RRSIG start time - absolute|offset (now - 1 hour)
+	-e [YYYYMMDDHHMMSS|+offset|"now"+offset]:
+		RRSIG end time - absolute|from start|from now (now + 30 days)
+	-X [YYYYMMDDHHMMSS|+offset|"now"+offset]:
+		DNSKEY RRSIG end - absolute|from start|from now (matches -e)
+	-i interval:
+		cycle interval - resign if < interval from end ( (end-start)/4 )
+	-j jitter:
+		randomize signature end time up to jitter seconds
+	-v debuglevel (0)
+	-q quiet
+	-V:	print version information
+	-o origin:
+		zone origin (name of zonefile)
+	-f outfile:
+		file the signed zone is written in (zonefile + .signed)
+	-I format:
+		file format of input zonefile (text)
+	-O format:
+		file format of signed zone file (text)
+	-N format:
+		soa serial format of signed zone file (keep)
+	-D:
+		output only DNSSEC-related records
+	-a:	verify generated signatures
+	-c class (IN)
+	-E engine:
+		name of an OpenSSL engine to use
+	-P:	disable post-sign verification
+	-Q:	remove signatures from keys that are no longer active
+	-R:	remove signatures from keys that no longer exist
+	-T TTL:	TTL for newly added DNSKEYs
+	-t:	print statistics
+	-u:	update or replace an existing NSEC/NSEC3 chain
+	-x:	sign DNSKEY record with KSKs only, not ZSKs
+	-z:	sign all records with KSKs
+	-C:	generate a keyset file, for compatibility
+		with older versions of dnssec-signzone -g
+	-n ncpus (number of cpus present)
+	-k key_signing_key
+	-3 NSEC3 salt
+	-H NSEC3 iterations (10)
+	-A NSEC3 optout
+
+Signing Keys: (default: all zone keys that have private keys)
+	keyfile (Kname+alg+tag)

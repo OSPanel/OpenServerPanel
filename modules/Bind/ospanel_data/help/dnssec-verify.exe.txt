@@ -1,0 +1,17 @@
+Usage:
+	dnssec-verify [options] zonefile [keys]
+
+Version: 9.16.32
+Options: (default value in parenthesis) 
+	-v debuglevel (0)
+	-q quiet
+	-V:	print version information
+	-o origin:
+		zone origin (name of zonefile)
+	-I format:
+		file format of input zonefile (text)
+	-c class (IN)
+	-E engine:
+		name of an OpenSSL engine to use
+	-x:	DNSKEY record signed with KSKs only, not ZSKs
+	-z:	All records signed with KSKs

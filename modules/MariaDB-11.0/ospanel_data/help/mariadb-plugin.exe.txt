@@ -1,0 +1,30 @@
+mariadb-plugin.exe from 11.0.2-MariaDB, client 1.0 for Win64 (AMD64)
+Copyright (c) 2011, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Enable or disable plugins.
+
+Usage: mariadb-plugin.exe [options] <plugin> ENABLE|DISABLE
+
+Options:
+  -?, --help          Display this help and exit.
+  -b, --basedir=name  The basedir for the server.
+  -d, --datadir=name  The datadir for the server.
+  -p, --plugin-dir=name 
+                      The plugin dir for the server.
+  -i, --plugin-ini=name 
+                      Read plugin information from configuration file specified
+                      instead of from <plugin-dir>/<plugin_name>.ini.
+  -n, --no-defaults   Do not read values from configuration file.
+  -P, --print-defaults 
+                      Show default values from configuration file.
+  -m, --mysqld=name   Path to mysqld executable. Example: /sbin/temp1/mysql/bin
+  -f, --my-print-defaults=name 
+                      Path to my_print_defaults executable. Example:
+                      /source/temp11/extra
+  -l, --lc-messages-dir=name 
+                      The error messages dir for the server. 
+  -v, --verbose       More verbose output; you can use this multiple times to
+                      get even more verbose output.
+  -V, --version       Output version information and exit.
+
+

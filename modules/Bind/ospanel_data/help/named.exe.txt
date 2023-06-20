@@ -1,0 +1,7 @@
+usage: named [-4|-6] [-c conffile] [-d debuglevel] [-D comment] [-E engine]
+             [-f|-g] [-L logfile] [-n number_of_cpus] [-p port] [-s]
+             [-S sockets] [-t chrootdir] [-u username] [-U listeners]
+             [-X lockfile] [-m {usage|trace|record|size|mctx}]
+             [-M external|internal|fill|nofill]
+usage: named [-v|-V|-C]
+named: extra command line arguments

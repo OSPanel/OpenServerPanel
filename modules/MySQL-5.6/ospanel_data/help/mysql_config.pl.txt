@@ -1,0 +1,12 @@
+Unknown option: help
+Usage: mysql_config.pl [OPTIONS]
+Options:
+        --cflags         ["-IC:/Program Files/MySQL/include" "/MD" "/Z7" "/O2" "/Ob1" "/D" "NDEBUG" "/EHsc" "-DDBUG_OFF"]
+        --cxxflags       ["-IC:/Program Files/MySQL/include" "/MD" "/Z7" "/O2" "/Ob1" "/D" "NDEBUG" "/EHsc" "-DDBUG_OFF"]
+        --include        ["-IC:/Program Files/MySQL/include"]
+        --libs           ["C:\OSPanel\modules\MySQL-5.6/lib/mysqlclient.lib" "wsock32.lib" "advapi32.lib" "user32.lib" "ws2_32 crypt32 Secur32 "]
+        --libs_r         ["C:\OSPanel\modules\MySQL-5.6/lib/mysqlclient.lib" "wsock32.lib" "advapi32.lib" "user32.lib" "ws2_32 crypt32 "]
+        --socket         [/tmp/mysql.sock]
+        --port           [0]
+        --version        [5.6.51]
+        --libmysqld-libs ["C:\OSPanel\modules\MySQL-5.6/lib/mysqlserver.lib" "wsock32.lib" "advapi32.lib" "user32.lib" "ws2_32 crypt32 "]

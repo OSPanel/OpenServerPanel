@@ -1,0 +1,2 @@
+Usage: nsec3hash salt algorithm iterations domain
+       nsec3hash -r algorithm flags iterations salt domain
