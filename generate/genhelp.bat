@@ -59,8 +59,8 @@ set LC_MESSAGES=English
 cd /d %OSP_ROOT_DIR%modules\%1
 rd "%OSP_ROOT_DIR%modules\%1\ospanel_data\help" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%modules\%1\ospanel_data\help" 2>nul
-if /i not %1=="Bind" if not exist bin\isolationtester.exe call :reader %1 %2
-if /i %1=="Bind" if not exist bin\isolationtester.exe call :reader2 %1 %2
+if not exist named.exe if not exist bin\isolationtester.exe call :reader %1 %2
+if exist named.exe if not exist bin\isolationtester.exe call :reader2 %1 %2
 if exist bin\isolationtester.exe call :reader3 %1 %2
 forfiles /S /M *.pl /C "cmd /c call perl @file --help > %OSP_ROOT_DIR%modules\%1\ospanel_data\help\@file.txt 2>&1"
 if exist bin\ibd2sdi.exe call ibd2sdi.exe --help > %OSP_ROOT_DIR%modules\%1\ospanel_data\help\ibd2sdi.exe.txt 2>&1
