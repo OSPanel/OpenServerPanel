@@ -24,14 +24,3 @@ See http://dev.mysql.com/doc/refman/8.0/en/ibd2sdi.html for usage hints.
   -p, --pretty        Pretty format the SDI output.If false, SDI would be not
                       human readable but it will be of less size
                       (Defaults to on; use --skip-pretty to disable.)
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-dump-file                         (No default value)
-skip-data                         FALSE
-id                                0
-type                              0
-strict-check                      crc32
-no-check                          FALSE
-pretty                            TRUE

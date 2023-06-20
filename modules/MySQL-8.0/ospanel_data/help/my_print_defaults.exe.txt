@@ -37,16 +37,5 @@ Usage: my_print_defaults.exe [OPTIONS] groups
 Default options are read from the following files in the given order:
 C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.0\my.ini C:\OSPanel\modules\MySQL-8.0\my.cnf 
 
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-config-file                       my
-defaults-file                     my
-defaults-extra-file               (No default value)
-defaults-group-suffix             (No default value)
-extra-file                        (No default value)
-login-path                        (No default value)
-show                              FALSE
-
 Example usage:
 my_print_defaults.exe --defaults-file=example.cnf client mysql

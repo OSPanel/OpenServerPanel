@@ -12,11 +12,6 @@ Usage: mysql_config_editor.exe [program options] [command [command options]]
   -v, --verbose       Write more information.
   -V, --version       Output version information and exit.
 
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-verbose                           FALSE
-
 Where command can be any one of the following :
        set [command options]     Sets user name/password/host name/socket/port
                                  for a given login path (section).

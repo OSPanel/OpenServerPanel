@@ -40,11 +40,3 @@ The following options may be given as the first argument:
 --defaults-group-suffix=#
                         Also read groups with concat(group, suffix)
 --login-path=#          Read this path from the login file.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-backup                            FALSE
-character-sets-dir                (No default value)
-join                              (No default value)
-wait                              FALSE

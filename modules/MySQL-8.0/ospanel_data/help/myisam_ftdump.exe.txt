@@ -13,8 +13,3 @@ Use: myisam_ftdump <table_name> <index_num>
   -l, --length        Report length distribution.
   -s, --stats         Report global stats.
   -v, --verbose       Be verbose.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-verbose                           FALSE

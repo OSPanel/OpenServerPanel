@@ -16,8 +16,3 @@ Usage: perror.exe [OPTIONS] [ERRORCODE [ERRORCODE...]]
   -v, --verbose       Print error code and message (default).
                       (Defaults to on; use --skip-verbose to disable.)
   -V, --version       Displays version information and exits.
-
-Variables (--variable-name=value)
-and boolean options {FALSE|TRUE}  Value (after reading options)
---------------------------------- ----------------------------------------
-verbose                           TRUE
