@@ -2,5 +2,6 @@
 @%~dp0..\..\bin\osp.bat %*
 @exit /b 0
 :notrunning
+@echo:
 @echo First you need to run the Open Server Panel!
 @exit /b 1
