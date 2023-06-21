@@ -1,5 +1,5 @@
-#define AppVersion      "6.0.0.461"
-#define AppVersion_     "6_0_0_461"
+#define AppVersion      "6.0.0.462"
+#define AppVersion_     "6_0_0_462"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -336,7 +336,7 @@ var
 begin
 	reg_root := HKEY_CURRENT_USER;
 	reg_path := 'Environment';
-	add_path := ExpandConstant('{app}') + '\bin';
+	add_path := ExpandConstant('{app}') + '\system\cmd';
 	RegQueryStringValue(reg_root, reg_path, 'Path', old_path);
 	old_path := old_path + ';';
 
