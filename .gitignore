@@ -10,4 +10,4 @@
 /data/MariaDB-*/
 /data/PHP-*/composer/composer.phar
 /modules/*/*
-!modules/*/ospanel_data/
+!/modules/*/ospanel_data/
