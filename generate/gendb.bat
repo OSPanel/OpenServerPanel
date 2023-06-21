@@ -27,7 +27,7 @@ goto end
 :posgresql
 call osp off %1
 call osp init %1 default
-call osp set %1
+call osp use %1
 rd "%OSP_ROOT_DIR%data\%1" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1"

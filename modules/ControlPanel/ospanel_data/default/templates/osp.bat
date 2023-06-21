@@ -46,7 +46,7 @@ if /i "%1"=="convert"     goto convert
 if /i "%1"=="domains"     goto request
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
-if /i "%1"=="set"         goto env_set
+if /i "%1"=="use"         goto env_set
 if /i "%1"=="initssl"     goto initssl
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
@@ -87,7 +87,7 @@ echo info                        {lang_93}
 echo project ^<DOMAIN^>            {lang_186}
 echo reset   [init]              {lang_94}
 echo                             {lang_167}
-echo set     ^<MODULE^>            {lang_95}
+echo use     ^<MODULE^>            {lang_95}
 echo                             {lang_165}
 echo                             {lang_166}
 echo:
@@ -124,7 +124,7 @@ echo:
 echo {lang_114}:
 echo:
 echo osp exit ^& ospanel          {lang_202}
-echo osp set PostgreSQL-9.6      {lang_115}
+echo osp use PostgreSQL-9.6      {lang_115}
 echo osp on bind myprofile       {lang_116}
 echo osp restart mysql-8.0       {lang_117}
 echo osp log main 20             {lang_118}
@@ -284,7 +284,7 @@ if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_1
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: MODULE ENVIRONMENT (SET)
+:: MODULE ENVIRONMENT (USE)
 :: -----------------------------------------------------------------------------------
 :env_set
 if "%2"=="" goto eargument

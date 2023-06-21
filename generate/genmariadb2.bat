@@ -20,7 +20,7 @@ goto end
 call osp off %1
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 call osp init %1 initdb
-call osp set %1
+call osp use %1
 rd    "%OSP_ROOT_DIR%data\%1" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1"
@@ -36,7 +36,7 @@ if "%1"=="MariaDB-10.7" call mysql --protocol=PIPE --socket=%1 --host="" -u root
 if not "%1"=="MariaDB-10.7" call mysql --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
 timeout /t 3 /nobreak > nul
 call osp restart %1 default
-call osp set %1
+call osp use %1
 timeout /t 5 /nobreak > nul
 if "%1"=="MariaDB-10.7" call mysql --force --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\install.sql"
 if not "%1"=="MariaDB-10.7" call mysql --force --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\install.sql"
