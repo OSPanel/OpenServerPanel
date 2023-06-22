@@ -10,4 +10,6 @@
 /data/MariaDB-*/
 /data/PHP-*/composer/composer.phar
 /modules/*/*
+/resources/php_addons/*
+/resources/php_bundle/*
 !/modules/*/ospanel_data/
