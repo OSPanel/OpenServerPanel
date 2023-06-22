@@ -167,8 +167,8 @@ commands, including working with data (databases), may not be available!
 Use the "init" flag to initialize the command line interface
 System Preparation Tool
 If necessary, specify a new active module settings profile
-Apply the module environment again (the "use" or "add" command)
-if it is currently active and the settings/profile have changed!
+Apply the module environment again (the "use" or "add" command) if it
+is currently active and the settings/profile have changed!
 is not currently enabled!
 Failed to read the domain configuration file
 Error
