@@ -1,7 +1,7 @@
 :: -----------------------------------------------------------------------------------
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
-@set "_ESC_="
+@set "ESC="
 @if "{terminal_ansi_fix}"=="on" @if not defined OSP_FIXED @if exist "{root_dir}\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
 @if exist "{root_dir}\bin\ospcolortest.exe" "{root_dir}\bin\ospcolortest.exe"
 @if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "{root_dir}\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
@@ -305,7 +305,7 @@ goto end
 :env_windows
 for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "WSLENV" & if not defined OSP_TMPVAL call :strfind %%a "WT_" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
 {windows_environment}
-set "_ESC_="
+set "ESC="
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
@@ -318,7 +318,7 @@ goto end
 :env_reset
 for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "WSLENV" & if not defined OSP_TMPVAL call :strfind %%a "WT_" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
 {default_environment}
-set "_ESC_="
+set "ESC="
 exit /b 0
 :: -----------------------------------------------------------------------------------
 :: MISCELLANEOUS FUNCTIONS
