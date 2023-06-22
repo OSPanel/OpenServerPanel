@@ -87,12 +87,12 @@ arguments
 Environment management
 Merge the environment of the module with the current environment
 Attention! Creating a common environment for several modules from the
-same group can lead to unpredictable errors in their work!
-Attention! Combining the environment of the module(s) with the Windows
-environment may lead to conflicts with similar modules in the system!
+same category can lead to unpredictable errors in their work!
+CLASS
+CATEGORY
 Show information about the current environment
 Reset the current environment (original system environment)
-Apply the module environment
+Apply the environment of the specified module
 Module management
 Show information about modules
 Disable the module
@@ -223,6 +223,4 @@ Turn on
 Restart
 Switch off
 Select profile
-CLASS
-CATEGORY
 AUTOSERTIFICATE
