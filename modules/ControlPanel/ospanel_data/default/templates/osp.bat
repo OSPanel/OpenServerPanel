@@ -82,8 +82,6 @@ echo:
 echo add     ^<MODULE^>            {lang_88}
 echo                             {lang_89}
 echo                             {lang_90}
-echo                             {lang_91}
-echo                             {lang_92}
 echo info                        {lang_93}
 echo project ^<DOMAIN^>            {lang_186}
 echo reset   [init]              {lang_94}
