@@ -2,9 +2,9 @@
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
 @set "ESC="
-@if "{terminal_ansi_fix}"=="on" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
+@if "{terminal_ansi_fix}"=="on" @if not defined OSP_FIXED @if exist "{root_dir}\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
 @if exist "{root_dir}\bin\ospcolortest.exe" "{root_dir}\bin\ospcolortest.exe"
-@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if exist "{root_dir}\bin\ansicon.exe" "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
+@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "{root_dir}\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
@@ -147,8 +147,8 @@ if not exist "{root_dir}\system\ssl\gen_root_cert.bat" set "OSP_ERR_MSG={root_di
 if exist "{root_dir}\data\ssl\root\cert.crt" del /Q "{root_dir}\data\ssl\root\cert.crt"
 call "{root_dir}\system\ssl\gen_root_cert.bat"
 if not exist "{root_dir}\data\ssl\root\cert.crt" set "OSP_ERR_MSG={lang_205}" & goto error
-certutil.exe -user -addstore "Root" "{root_dir}\data\ssl\root\cert.crt"
-certutil.exe -urlcache * delete > nul 2> nul
+"%SystemRoot%\System32\certutil.exe" -user -addstore "Root" "{root_dir}\data\ssl\root\cert.crt"
+"%SystemRoot%\System32\certutil.exe" -urlcache * delete > nul 2> nul
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
