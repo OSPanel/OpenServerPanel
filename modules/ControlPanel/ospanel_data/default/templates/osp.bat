@@ -295,17 +295,16 @@ call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%2:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 if not exist "{root_dir}\data\{module_name}\env_%2.bat" set "OSP_ERR_MSG={lang_124} %2" & goto error
 call :env_reset
-set "OSP_ACTIVE_ENV=Default" & set "OSP_ACTIVE_ENV_VAL=:Default:"
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: DEFAULT WINDOWS ENVIRONMENT
+:: DEFAULT SYSTEM ENVIRONMENT
 :: -----------------------------------------------------------------------------------
 :env_windows
-for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "WSLENV" & if not defined OSP_TMPVAL call :strfind %%a "WT_" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
+call :env_reset
 {windows_environment}
-set "ESC="
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
@@ -313,11 +312,13 @@ if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 goto end
 :: -----------------------------------------------------------------------------------
-:: DEFAULT PROGRAM ENVIRONMENT
+:: RESET ENVIRONMENT
 :: -----------------------------------------------------------------------------------
 :env_reset
-for /f "tokens=1* delims==" %%a in ('set') do (call :strfind %%a "ConEmu" & if not defined OSP_TMPVAL call :strfind %%a "WSLENV" & if not defined OSP_TMPVAL call :strfind %%a "WT_" & if not defined OSP_TMPVAL call :strfind %%a "OSP_" & if not defined OSP_TMPVAL call :strfind %%a "ANSICON" & if not defined OSP_TMPVAL if /i not %%a==PROMPT set %%a=)
-{default_environment}
+{windows_environment}
+if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
+if exist "{root_dir}\data\{module_name}\env_%%a.bat" call "{root_dir}\data\{module_name}\env_%%a.bat" resetenv
+)
 set "ESC="
 exit /b 0
 :: -----------------------------------------------------------------------------------
