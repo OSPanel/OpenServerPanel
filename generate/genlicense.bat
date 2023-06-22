@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 set "TMP_FILE=%~dp0tmp_license.txt"
 set "HEAD_FILE=%~dp0..\resources\LICENSE_HEAD"
 set "RESULT_FILE=%~dp0..\licenses\licenses\Open Server Panel\LICENSE"

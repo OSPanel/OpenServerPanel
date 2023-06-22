@@ -3,7 +3,6 @@
 :: --------------------------------------------------------------------------------
 @echo off
 set "OSP_ROOT_DIR=%~dp0..\"
-if exist "%OSP_ROOT_DIR%bin\ansicon.exe" "%OSP_ROOT_DIR%bin\ansicon.exe" -p >nul 2>nul
 chcp 65001 > nul
 for /d %%D in ("%OSP_ROOT_DIR%generate\config\*") do robocopy "%%D" "%OSP_ROOT_DIR%config\%%~nxD" /UNICODE /DCOPY:DAT /COPY:DAT /TIMFIX /E /J /ETA /IM /MT:32 /R:3 /W:3 >nul 2>nul
 rd    "%OSP_ROOT_DIR%generate\new_data" /s /q 2>nul

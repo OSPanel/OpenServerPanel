@@ -3,7 +3,6 @@
 :: --------------------------------------------------------------------------------
 @echo off
 set "OSP_ROOT_DIR=%~dp0..\"
-if exist "%OSP_ROOT_DIR%bin\ansicon.exe" "%OSP_ROOT_DIR%bin\ansicon.exe" -p >nul 2>nul
 chcp 65001 > nul
 call :mysql MySQL-5.5
 call :mysql MySQL-5.6
