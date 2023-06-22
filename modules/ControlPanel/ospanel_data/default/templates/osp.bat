@@ -172,8 +172,8 @@ if /i "%2"=="all" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%2"=="all" echo: & echo {lang_150} %%a & echo:
     if /i not "%2"=="all" echo:
-    if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_121}%ESC%[0m
-    if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_121}%ESC%[0m) else (
+    if not exist "{root_dir}\logs\%%a.log" echo %_ESC_%[90m{lang_121}%_ESC_%[0m
+    if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %_ESC_%[90m{lang_121}%_ESC_%[0m) else (
         if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
         if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
     )
@@ -359,11 +359,11 @@ exit /b 0
 @exit /b 0
 :notrunning
 @echo:
-@echo %ESC%[91m{lang_16}
+@echo %_ESC_%[91m{lang_16}
 @echo ————————————————————————————————————————————————————
 @echo {lang_26}: osp %1 %2 %3
 @echo {lang_30}: {lang_56}
-@echo {lang_31}: {lang_120}%ESC%[0m
+@echo {lang_31}: {lang_120}%_ESC_%[0m
 @if defined OSP_CODEPAGE @chcp %OSP_CODEPAGE% > nul
 @set "OSP_CODEPAGE="
 @exit /b 1
@@ -372,17 +372,17 @@ exit /b 0
 @exit /b 0
 :echo_error
 @echo:
-@echo %ESC%[91m{lang_16}
+@echo %_ESC_%[91m{lang_16}
 @echo ————————————————————————————————————————————————————
 @echo {lang_26}: osp %1 %2 %3
-@echo {lang_31}: {lang_120}%ESC%[0m
+@echo {lang_31}: {lang_120}%_ESC_%[0m
 @exit /b 1
 :error
 @echo:
-@echo %ESC%[91m{lang_16}
+@echo %_ESC_%[91m{lang_16}
 @echo ————————————————————————————————————————————————————
 @echo {lang_26}: osp %1 %2 %3
 @if defined OSP_ERR_MSG @echo {lang_30}: %OSP_ERR_MSG%
-@echo {lang_31}: {lang_120}%ESC%[0m
+@echo {lang_31}: {lang_120}%_ESC_%[0m
 @call :before_exit
 @exit /b 1
