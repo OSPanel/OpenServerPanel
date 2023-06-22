@@ -223,6 +223,6 @@ Turn on
 Restart
 Switch off
 Select profile
-Class
-Category
+CLASS
+CATEGORY
 AUTOSERTIFICATE
