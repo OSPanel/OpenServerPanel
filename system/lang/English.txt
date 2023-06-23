@@ -125,7 +125,7 @@ There is no environment configuration for
 Unknown command argument
 Required command argument is not specified
 Re-read the module settings and recreate temporary files (configs)
-This command is not available for enabled (running) modules!
+This command is not available for modules in the active state!
 MODULE
 STATUS
 VERSION
