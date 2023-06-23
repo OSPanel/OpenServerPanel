@@ -237,7 +237,7 @@ setlocal
 call :env_reset
 call "{root_dir}\data\{module_name}\env_%2.bat" %1 %2 %3 & call :post_env %1 %2 %3
 echo:
-TITLE %2 Shell ^| Open Server Panel
+TITLE %2 shell ^| Open Server Panel
 call "{root_dir}\data\{module_name}\shell_%2.bat"
 endlocal
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
