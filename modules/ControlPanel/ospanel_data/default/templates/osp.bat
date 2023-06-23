@@ -2,9 +2,9 @@
 :: OPEN SERVER PANEL | COMMAND LINE INTERFACE
 :: -----------------------------------------------------------------------------------
 @set "ESC="
-@if "{terminal_ansi_fix}"=="on" @if not defined OSP_FIXED @if exist "{root_dir}\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
-@if exist "{root_dir}\bin\ospcolortest.exe" "{root_dir}\bin\ospcolortest.exe"
-@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "{root_dir}\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\bin\ansicon.exe" -p >nul 2>nul
+@if "{terminal_ansi_fix}"=="on" @if not defined OSP_FIXED @if exist "{root_dir}\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\system\bin\ansicon.exe" -p >nul 2>nul
+@if exist "{root_dir}\system\bin\ospcolortest.exe" "{root_dir}\system\bin\ospcolortest.exe"
+@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "{root_dir}\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\system\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
@@ -17,11 +17,11 @@
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
-if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
-if not exist "{root_dir}\bin\osptail.exe" set "OSP_ERR_MSG={root_dir}\bin\osptail.exe {lang_79}" & goto error
-if not exist "{root_dir}\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\bin\ansicon.exe {lang_79}" & goto error
-if not exist "{root_dir}\bin\ospcolortest.exe" set "OSP_ERR_MSG={root_dir}\bin\ospcolortest.exe {lang_79}" & goto error
-if not exist "{root_dir}\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\bin\syspreptool.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\system\bin\curl.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\osptail.exe" set "OSP_ERR_MSG={root_dir}\system\bin\osptail.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\bin\ansicon.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\ospcolortest.exe" set "OSP_ERR_MSG={root_dir}\system\bin\ospcolortest.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\system\bin\syspreptool.exe {lang_79}" & goto error
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_ACTIVE_MODULES_LIST={active_modules_list}"
 set "OSP_PASSIVE_MODULES_LIST={passive_modules_list}"
@@ -134,7 +134,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :shutdown
 call :env_windows reset init silent
-"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
+"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
 if exist "{root_dir}\temp\OSPanel.lock" goto error
 echo: & echo {lang_63}
 goto end
@@ -154,9 +154,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :sysprep
 if /i not "%2"=="silent" if /i not "%2"=="ssd" if not "%2"=="" goto invalid
-if /i "%2"=="silent" start "" /WAIT "{root_dir}\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
-if /i "%2"=="ssd" start "" /WAIT "{root_dir}\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
-if "%2"=="" start "" "{root_dir}\bin\syspreptool.exe"
+if /i "%2"=="silent" start "" /WAIT "{root_dir}\system\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
+if /i "%2"=="ssd" start "" /WAIT "{root_dir}\system\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
+if "%2"=="" start "" "{root_dir}\system\bin\syspreptool.exe"
 goto end
 :: -----------------------------------------------------------------------------------
 :: LOG VIEW
@@ -177,8 +177,8 @@ for %%a in (%OSP_TMPVAL%) do (
     if /i not "%OSP_TMP_NAME%"=="all" echo:
     if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_121}%ESC%[0m
     if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_121}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log"
-        if not "%3"=="" "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log" %3
+        if "%3"=="" "{root_dir}\system\bin\osptail.exe" "{root_dir}\logs\%%a.log"
+        if not "%3"=="" "{root_dir}\system\bin\osptail.exe" "{root_dir}\logs\%%a.log" %3
     )
 )
 goto end
@@ -186,7 +186,7 @@ goto end
 :: DOMAINS/MODULES LIST
 :: -----------------------------------------------------------------------------------
 :request
-"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/%1
+"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1
 if %ERRORLEVEL% gtr 0 goto error
 goto end
 :: -----------------------------------------------------------------------------------
@@ -216,15 +216,15 @@ if /i "%OSP_TMP_NAME%"=="all" if not %ERRORLEVEL%==1 goto end
 setlocal EnableDelayedExpansion
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
-        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/off/%%a/%3
+        "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/off/%%a/%3
         if !errorlevel! gtr 0 (
             call :echo_error %1 %OSP_TMP_NAME% %3
         ) else (
-            "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/on/%%a/%3
+            "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/on/%%a/%3
             if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
         )
     ) else (
-        "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
+        "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
     )
     if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log"
@@ -259,7 +259,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :convert
 if "%2"=="" goto eargument
-"{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/convert/%2
+"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/convert/%2
 if %ERRORLEVEL% gtr 0 goto error
 @goto end
 :: -----------------------------------------------------------------------------------
