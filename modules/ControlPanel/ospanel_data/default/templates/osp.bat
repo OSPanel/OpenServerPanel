@@ -133,6 +133,7 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
+call :env_windows reset init silent
 "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
 if exist "{root_dir}\temp\OSPanel.lock" goto error
 echo: & echo {lang_63}
