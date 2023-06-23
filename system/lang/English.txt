@@ -101,7 +101,7 @@ Restart the module (if necessary, specify a new active profile)
 Launch the shell or command line interface of the module (if available)
 Show module status information
 Other commands
-Shutting down the program
+Shutting down the program (the current environment will be reset)
 Show module/program log (last N lines, by default: 10)
 Launch the Operating System Preparation tool
 Add the "silent" flag to start the system preparation in silent mode
