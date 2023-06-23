@@ -1,5 +1,5 @@
-#define AppVersion      "6.0.0.479"
-#define AppVersion_     "6_0_0_479"
+#define AppVersion      "6.0.0.485"
+#define AppVersion_     "6_0_0_485"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -396,9 +396,7 @@ function IO_GetPartitionType( const s : String ) : string;
 var
   NotUsed            : DWORD;
   VolumeFlags        : DWORD;
-  VolumeInfo         : String;
   VolumeSerialNumber : DWORD;
-  PartitionType      : String;
 begin
   SetLength(Result, MAX_LEN);
   if GetVolumeInformation( PAnsiChar( String( s )[ 1 ] + ':\' ), '', 0, VolumeSerialNumber, NotUsed, VolumeFlags, Result, Length(Result)) then 
