@@ -18,7 +18,7 @@
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if not exist "{root_dir}\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\bin\curl.exe {lang_79}" & goto error
-if not exist "{root_dir}\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\bin\tail.exe {lang_79}" & goto error
+if not exist "{root_dir}\bin\osptail.exe" set "OSP_ERR_MSG={root_dir}\bin\osptail.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\bin\ansicon.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\ospcolortest.exe" set "OSP_ERR_MSG={root_dir}\bin\ospcolortest.exe {lang_79}" & goto error
 if not exist "{root_dir}\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\bin\syspreptool.exe {lang_79}" & goto error
@@ -177,8 +177,8 @@ for %%a in (%OSP_TMPVAL%) do (
     if /i not "%OSP_TMP_NAME%"=="all" echo:
     if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_121}%ESC%[0m
     if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_121}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
-        if not "%3"=="" "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
+        if "%3"=="" "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log"
+        if not "%3"=="" "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log" %3
     )
 )
 goto end
@@ -227,7 +227,7 @@ for %%a in (%OSP_TMPVAL%) do (
         "{root_dir}\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
     )
-    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\tail.exe" "{root_dir}\logs\%%a.log"
+    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log"
 )
 endlocal
 goto end
