@@ -3,7 +3,7 @@
 :: -----------------------------------------------------------------------------------
 @set "ESC="
 @if "{terminal_ansi_fix}"=="on" @if not defined OSP_FIXED @if exist "{root_dir}\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\system\bin\ansicon.exe" -p >nul 2>nul
-@if exist "{root_dir}\system\bin\ospcolortest.exe" "{root_dir}\system\bin\ospcolortest.exe"
+@if exist "{root_dir}\system\bin\colortest.exe" "{root_dir}\system\bin\colortest.exe"
 @if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "{root_dir}\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "{root_dir}\system\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
@@ -18,9 +18,9 @@
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if not exist "{root_dir}\system\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\system\bin\curl.exe {lang_79}" & goto error
-if not exist "{root_dir}\system\bin\osptail.exe" set "OSP_ERR_MSG={root_dir}\system\bin\osptail.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\system\bin\tail.exe {lang_79}" & goto error
 if not exist "{root_dir}\system\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\bin\ansicon.exe {lang_79}" & goto error
-if not exist "{root_dir}\system\bin\ospcolortest.exe" set "OSP_ERR_MSG={root_dir}\system\bin\ospcolortest.exe {lang_79}" & goto error
+if not exist "{root_dir}\system\bin\colortest.exe" set "OSP_ERR_MSG={root_dir}\system\bin\colortest.exe {lang_79}" & goto error
 if not exist "{root_dir}\system\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\system\bin\syspreptool.exe {lang_79}" & goto error
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_ACTIVE_MODULES_LIST={active_modules_list}"
@@ -177,8 +177,9 @@ for %%a in (%OSP_TMPVAL%) do (
     if /i not "%OSP_TMP_NAME%"=="all" echo:
     if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_121}%ESC%[0m
     if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_121}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\system\bin\osptail.exe" "{root_dir}\logs\%%a.log"
-        if not "%3"=="" "{root_dir}\system\bin\osptail.exe" "{root_dir}\logs\%%a.log" %3
+        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log"
+        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
+        echo %ESC%[0m
     )
 )
 goto end
@@ -227,7 +228,7 @@ for %%a in (%OSP_TMPVAL%) do (
         "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
     )
-    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\system\bin\osptail.exe" "{root_dir}\logs\%%a.log"
+    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" & echo %ESC%[0m
 )
 endlocal
 goto end
