@@ -227,7 +227,7 @@ for %%a in (%OSP_TMPVAL%) do (
         "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
     )
-    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\bin\osptail.exe" "{root_dir}\logs\%%a.log"
+    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\system\bin\osptail.exe" "{root_dir}\logs\%%a.log"
 )
 endlocal
 goto end
