@@ -130,7 +130,7 @@ MODULE
 STATUS
 VERSION
 TYPE
-MIN. COMPATIBILITY
+MIN. OS VERSION
 PROFILE
 Enabled
 Disabled
@@ -214,13 +214,14 @@ Automatic generation of SSL certificates is not available due to the absence of 
 Select PHP version
 Modules
 Open in console
-Launch Shell/CLI shell
-Open in explorer (data)
-Open in explorer (settings profile)
-Open in explorer (main directory)
+Launch shell/cli
+Open in explorer: data
+Open in explorer: settings profile
+Open in explorer: main directory
 Initialize
 Turn on
 Restart
 Switch off
 Select profile
 AUTOSERTIFICATE
+Unknown module
