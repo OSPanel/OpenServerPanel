@@ -144,7 +144,8 @@
         box-sizing: border-box;
         color: #fff;
         cursor: pointer;
-        display: inline-block;
+        /* display: inline-block; */
+        display: none;
         font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         font-size: 14rem;
         font-weight: 600;
@@ -212,7 +213,7 @@
     <script>
     $(document).ready(function() {
     $('#clibtn').on('click', function() {
-        axios.get('{api_url}/cli').then(function(response) {
+        axios.get('{web_api_url}/cli').then(function(response) {
         }).catch(function(error) {
             toastr.error('{lang_59}');
         });
