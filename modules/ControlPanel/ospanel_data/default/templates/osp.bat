@@ -133,7 +133,12 @@ goto end
 :: SHUTTING DOWN THE APPLICATION
 :: -----------------------------------------------------------------------------------
 :shutdown
-call :env_windows reset init silent
+if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
+if exist "{root_dir}\data\{module_name}\env_%%a.bat" call "{root_dir}\data\{module_name}\env_%%a.bat" resetenv
+)
+{system_environment}
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
 "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
 if exist "{root_dir}\temp\OSPanel.lock" goto error
 echo: & echo {lang_63}
