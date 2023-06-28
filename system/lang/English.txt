@@ -223,5 +223,5 @@ Turn on
 Restart
 Switch off
 Select profile
-AUTOSERTIFICATE
+AUTOCERTIFICATE
 Unknown module
