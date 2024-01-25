@@ -1,0 +1,98 @@
+Usage:
+  mongoimport <options> <file>
+
+Import CSV, TSV or JSON data into MongoDB. If no file is provided, mongoimport reads from stdin.
+
+See http://docs.mongodb.org/manual/reference/program/mongoimport/ for more information.
+
+general options:
+      /help                                       print usage
+      /version                                    print the tool version and
+                                                  exit
+
+verbosity options:
+  /v, /verbose:<level>                            more detailed log output
+                                                  (include multiple times for
+                                                  more verbosity, e.g. -vvvvv,
+                                                  or specify a numeric value,
+                                                  e.g. --verbose=N)
+      /quiet                                      hide all log output
+
+connection options:
+  /h, /host:<hostname>                            mongodb host to connect to
+                                                  (setname/host1,host2 for
+                                                  replica sets)
+      /port:<port>                                server port (can also use
+                                                  --host hostname:port)
+
+ssl options:
+      /ssl                                        connect to a mongod or mongos
+                                                  that has ssl enabled
+      /sslCAFile:<filename>                       the .pem file containing the
+                                                  root certificate chain from
+                                                  the certificate authority
+      /sslPEMKeyFile:<filename>                   the .pem file containing the
+                                                  certificate and key
+      /sslPEMKeyPassword:<password>               the password to decrypt the
+                                                  sslPEMKeyFile, if necessary
+      /sslCRLFile:<filename>                      the .pem file containing the
+                                                  certificate revocation list
+      /sslAllowInvalidCertificates                bypass the validation for
+                                                  server certificates
+      /sslAllowInvalidHostnames                   bypass the validation for
+                                                  server name
+      /sslFIPSMode                                use FIPS mode of the
+                                                  installed openssl library
+
+authentication options:
+  /u, /username:<username>                        username for authentication
+  /p, /password:<password>                        password for authentication
+      /authenticationDatabase:<database-name>     database that holds the
+                                                  user's credentials
+      /authenticationMechanism:<mechanism>        authentication mechanism to
+                                                  use
+
+namespace options:
+  /d, /db:<database-name>                         database to use
+  /c, /collection:<collection-name>               collection to use
+
+input options:
+  /f, /fields:<field>[,<field>]*                  comma separated list of field
+                                                  names, e.g. -f name,age
+      /fieldFile:<filename>                       file with field names - 1 per
+                                                  line
+      /file:<filename>                            file to import from; if not
+                                                  specified, stdin is used
+      /headerline                                 use first line in input
+                                                  source as the field list (CSV
+                                                  and TSV only)
+      /jsonArray                                  treat input source as a JSON
+                                                  array
+      /type:<type>                                input format to import: json,
+                                                  csv, or tsv (defaults to
+                                                  'json')
+
+ingest options:
+      /drop                                       drop collection before
+                                                  inserting documents
+      /ignoreBlanks                               ignore fields with empty
+                                                  values in CSV and TSV
+      /maintainInsertionOrder                     insert documents in the order
+                                                  of their appearance in the
+                                                  input source
+  /j, /numInsertionWorkers:<number>               number of insert operations
+                                                  to run concurrently (defaults
+                                                  to 1)
+      /stopOnError                                stop importing at first
+                                                  insert/upsert error
+      /upsert                                     insert or update objects that
+                                                  already exist
+      /upsertFields:<field>[,<field>]*            comma-separated fields for
+                                                  the query part of the upsert
+      /writeConcern:<write-concern-specifier>     write concern options e.g.
+                                                  --writeConcern majority,
+                                                  --writeConcern '{w: 3,
+                                                  wtimeout: 500, fsync: true,
+                                                  j: true}' (defaults to
+                                                  'majority')
+      /bypassDocumentValidation                   bypass document validation

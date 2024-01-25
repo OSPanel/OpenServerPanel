@@ -1,0 +1,52 @@
+mysql_client_test.exe  Ver 2.1 Distrib 5.6.51, for Win64 (x86_64)
+By Monty, Venu, Kent and others
+
+Copyright (C) 2002-2004 MySQL AB
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL license
+Usage: mysql_client_test.exe [OPTIONS] [TESTNAME1 TESTNAME2...]
+  -b, --basedir=name  Basedir for tests.
+  -t, --count=#       Number of times test to be executed
+  -D, --database=name Database to use
+  -d, --do-not-drop-database 
+                      Do not drop database while disconnecting
+  -#, --debug[=name]  Output debug log
+  -?, --help          Display this help and exit
+  -h, --host=name     Connect to host
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given it's asked from the tty.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  -A, --server-arg=name 
+                      Send embedded server this as a parameter.
+  -T, --show-tests    Show all tests' names
+  -s, --silent        Be more silent
+  -m, --shared-memory-base-name=name 
+                      Base name of shared memory.
+  -S, --socket=name   Socket file to use for connection
+  -c, --testcase      May disable some code when runs as mysql-test-run
+                      testcase.
+  -u, --user=name     User for login if not current user
+  -v, --vardir=name   Data dir for tests.
+  -g, --getopt-ll-test=# 
+                      Option for testing bug in getopt library
+  --plugin-dir=name   Directory for client-side plugins.
+  --default-auth=name Default authentication client-side plugin to use.
+  --secure-auth       Refuse client connecting to server if it uses old
+                      (pre-4.1.1) protocol.
+                      (Defaults to on; use --skip-secure-auth to disable.)
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-5.6\my.ini C:\OSPanel\modules\MySQL-5.6\my.cnf 
+The following groups are read: client
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.

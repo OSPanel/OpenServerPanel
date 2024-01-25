@@ -1,0 +1,11 @@
+Usage:
+ rndc-confgen [-a] [-b bits] [-c keyfile] [-k keyname] [-p port] [-s addr] [-t chrootdir] [-u user]
+  -a:		 generate just the key clause and write it to keyfile (C:\Windows\system32\etc\rndc.key)
+  -A alg:	 algorithm (default hmac-sha256)
+  -b bits:	 from 1 through 512, default 256; total length of the secret
+  -c keyfile:	 specify an alternate key file (requires -a)
+  -k keyname:	 the name as it will be used  in named.conf and rndc.conf
+  -p port:	 the port named will listen on and rndc will connect to
+  -s addr:	 the address to which rndc should connect
+  -t chrootdir:	 write a keyfile in chrootdir as well (requires -a)
+  -u user:	 set the keyfile owner to "user" (requires -a)

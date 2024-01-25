@@ -1,0 +1,87 @@
+mysqlshow.exe  Ver 9.10 Distrib 5.7.44, for Win64 (x86_64)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Shows the structure of a MySQL database (databases, tables, and columns).
+
+Usage: mysqlshow.exe [OPTIONS] [database [table [column]]]
+
+If last argument contains a shell or SQL wildcard (*,?,% or _) then only
+what's matched by the wildcard is shown.
+If no database is given then all matching databases are shown.
+If no table is given, then all matching tables in database are shown.
+If no column is given, then all matching columns and column types in table
+are shown.
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-5.7\my.ini C:\OSPanel\modules\MySQL-5.7\my.cnf 
+The following groups are read: mysqlshow client
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+  --bind-address=name IP address to bind to.
+  -c, --character-sets-dir=name 
+                      Directory for character set files.
+  --default-character-set=name 
+                      Set the default character set.
+  --count             Show number of rows per table (may be slow for non-MyISAM
+                      tables).
+  -C, --compress      Use compression in server/client protocol.
+  -#, --debug[=name]  Output debug log. Often this is 'd:t:o,filename'.
+  --debug-check       Check memory and open file usage at exit.
+  --debug-info        Print some debug info at exit.
+  --default-auth=name Default authentication client-side plugin to use.
+  --enable-cleartext-plugin 
+                      Enable/disable the clear text authentication plugin.
+  -?, --help          Display this help and exit.
+  -h, --host=name     Connect to host.
+  -i, --status        Shows a lot of extra information about each table.
+  -k, --keys          Show keys for table.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given, it's solicited on the tty.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  -W, --pipe          Use named pipes to connect to server.
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  --secure-auth       Refuse client connecting to server if it uses old
+                      (pre-4.1.1) protocol. Deprecated. Always TRUE
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  -t, --show-table-type 
+                      Show table type column.
+  -S, --socket=name   The socket file to use for connection.
+  --ssl-mode=name     SSL connection mode.
+  --ssl               Deprecated. Use --ssl-mode instead.
+                      (Defaults to on; use --skip-ssl to disable.)
+  --ssl-verify-server-cert 
+                      Deprecated. Use --ssl-mode=VERIFY_IDENTITY instead.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --tls-version=name  TLS version to use, permitted values are: TLSv1, TLSv1.1,
+                      TLSv1.2
+  --server-public-key-path=name 
+                      File path to the server public RSA key in PEM format.
+  --get-server-public-key 
+                      Get server public key
+  -u, --user=name     User for login if not current user.
+  -v, --verbose       More verbose output; you can use this multiple times to
+                      get even more verbose output.
+  -V, --version       Output version information and exit.

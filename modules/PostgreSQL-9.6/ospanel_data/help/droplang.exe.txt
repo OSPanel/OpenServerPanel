@@ -1,0 +1,20 @@
+droplang removes a procedural language from a database.
+
+Usage:
+  droplang [OPTION]... LANGNAME [DBNAME]
+
+Options:
+  -d, --dbname=DBNAME       database from which to remove the language
+  -e, --echo                show the commands being sent to the server
+  -l, --list                show a list of currently installed languages
+  -V, --version             output version information, then exit
+  -?, --help                show this help, then exit
+
+Connection options:
+  -h, --host=HOSTNAME       database server host or socket directory
+  -p, --port=PORT           database server port
+  -U, --username=USERNAME   user name to connect as
+  -w, --no-password         never prompt for password
+  -W, --password            force password prompt
+
+Report bugs to <pgsql-bugs@postgresql.org>.

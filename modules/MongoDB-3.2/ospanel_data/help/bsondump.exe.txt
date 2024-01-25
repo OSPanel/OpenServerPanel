@@ -1,0 +1,21 @@
+Usage:
+  bsondump <options> <file>
+
+View and debug .bson files.
+
+See http://docs.mongodb.org/manual/reference/program/bsondump/ for more information.
+
+general options:
+      /help                print usage
+      /version             print the tool version and exit
+
+verbosity options:
+  /v, /verbose:<level>     more detailed log output (include multiple times for
+                           more verbosity, e.g. -vvvvv, or specify a numeric
+                           value, e.g. --verbose=N)
+      /quiet               hide all log output
+
+output options:
+      /type:<type>         type of output: debug, json (default 'json')
+      /objcheck            validate BSON during processing
+      /pretty              output JSON formatted to be human-readable

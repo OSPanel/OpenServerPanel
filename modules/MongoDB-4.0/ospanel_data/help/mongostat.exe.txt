@@ -1,0 +1,86 @@
+Usage:
+  mongostat <options> <polling interval in seconds>
+
+Monitor basic MongoDB server statistics.
+
+See http://docs.mongodb.org/manual/reference/program/mongostat/ for more information.
+
+general options:
+      /help                                       print usage
+      /version                                    print the tool version and
+                                                  exit
+
+verbosity options:
+  /v, /verbose:<level>                            more detailed log output
+                                                  (include multiple times for
+                                                  more verbosity, e.g. -vvvvv,
+                                                  or specify a numeric value,
+                                                  e.g. --verbose=N)
+      /quiet                                      hide all log output
+
+connection options:
+  /h, /host:<hostname>                            mongodb host(s) to connect to
+                                                  (use commas to delimit hosts)
+      /port:<port>                                server port (can also use
+                                                  --host hostname:port)
+
+ssl options:
+      /ssl                                        connect to a mongod or mongos
+                                                  that has ssl enabled
+      /sslCAFile:<filename>                       the .pem file containing the
+                                                  root certificate chain from
+                                                  the certificate authority
+      /sslPEMKeyFile:<filename>                   the .pem file containing the
+                                                  certificate and key
+      /sslPEMKeyPassword:<password>               the password to decrypt the
+                                                  sslPEMKeyFile, if necessary
+      /sslCRLFile:<filename>                      the .pem file containing the
+                                                  certificate revocation list
+      /sslFIPSMode                                use FIPS mode of the
+                                                  installed openssl library
+      /tlsInsecure                                bypass the validation for
+                                                  server's certificate chain
+                                                  and host name
+
+authentication options:
+  /u, /username:<username>                        username for authentication
+  /p, /password:<password>                        password for authentication
+      /authenticationDatabase:<database-name>     database that holds the
+                                                  user's credentials
+      /authenticationMechanism:<mechanism>        authentication mechanism to
+                                                  use
+
+uri options:
+      /uri:mongodb-uri                            mongodb uri connection string
+
+stat options:
+  /o:<field>[,<field>]*                           fields to show. For custom
+                                                  fields, use dot-syntax to
+                                                  index into serverStatus
+                                                  output, and optional methods
+                                                  .diff() and .rate() e.g.
+                                                  metrics.record.moves.diff()
+  /O:<field>[,<field>]*                           like -o, but preloaded with
+                                                  default fields. Specified
+                                                  fields inserted after default
+                                                  output
+      /humanReadable:                             print sizes and time in human
+                                                  readable format (e.g. 1K 234M
+                                                  2G). To use the more precise
+                                                  machine readable format, use
+                                                  --humanReadable=false
+                                                  (default: true)
+      /noheaders                                  don't output column names
+  /n, /rowcount:<count>                           number of stats lines to
+                                                  print (0 for indefinite)
+      /discover                                   discover nodes and display
+                                                  stats for all
+      /http                                       use HTTP instead of raw db
+                                                  connection
+      /all                                        all optional fields
+      /json                                       output as JSON rather than a
+                                                  formatted table
+      /useDeprecatedJsonKeys                      use old key names; only valid
+                                                  with the json output option.
+  /i, /interactive                                display stats in a
+                                                  non-scrolling interface

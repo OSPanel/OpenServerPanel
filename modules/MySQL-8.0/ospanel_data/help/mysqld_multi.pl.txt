@@ -1,0 +1,73 @@
+mysqld_multi.pl version 2.16 by Jani Tolonen
+
+Description:
+mysqld_multi.pl can be used to start, reload, or stop any number of separate
+mysqld processes running in different TCP/IP ports and UNIX sockets.
+
+mysqld_multi.pl can read group [mysqld_multi] from my.cnf file. You may
+want to put options mysqld=... and mysqladmin=... there.  Since
+version 2.10 these options can also be given under groups [mysqld#],
+which gives more control over different versions.  One can have the
+default mysqld and mysqladmin under group [mysqld_multi], but this is
+not mandatory. Please note that if mysqld or mysqladmin is missing
+from both [mysqld_multi] and [mysqld#], a group that is tried to be
+used, mysqld_multi.pl will abort with an error.
+
+mysqld_multi.pl will search for groups named [mysqld#] from my.cnf (or
+the given --defaults-extra-file=...), where '#' can be any positive 
+integer starting from 1. These groups should be the same as the regular
+[mysqld] group, but with those port, socket and any other options
+that are to be used with each separate mysqld process. The number
+in the group name has another function; it can be used for starting,
+reloading, stopping, or reporting any specific mysqld server.
+
+Usage: mysqld_multi.pl [OPTIONS] {start|reload|stop|report} [GNR,GNR,GNR...]
+or     mysqld_multi.pl [OPTIONS] {start|reload|stop|report} [GNR-GNR,GNR,GNR-GNR,...]
+
+The GNR means the group number. You can start, reload, stop or report any GNR,
+or several of them at the same time. (See --example) The GNRs list can
+be comma separated or a dash combined. The latter means that all the
+GNRs between GNR1-GNR2 will be affected. Without GNR argument all the
+groups found will either be started, reloaded, stopped, or reported. Note that
+syntax for specifying GNRs must appear without spaces.
+
+Options:
+
+These options must be given before any others:
+--no-defaults      Do not read any defaults file
+--defaults-file=...  Read only this configuration file, do not read the
+                   standard system-wide and user-specific files
+--defaults-extra-file=...  Read this configuration file in addition to the
+                   standard system-wide and user-specific files
+Using:  
+
+--example          Give an example of a config file with extra information.
+--help             Print this help and exit.
+--log=...          Log file. Full path to and the name for the log file. NOTE:
+                   If the file exists, everything will be appended.
+                   Using: 
+--mysqladmin=...   mysqladmin binary to be used for a server shutdown.
+                   Since version 2.10 this can be given within groups [mysqld#]
+                   Using: 
+--mysqld=...       mysqld binary to be used. Note that you can give mysqld_safe
+                   to this option also. The options are passed to mysqld. Just
+                   make sure you have mysqld in your PATH or fix mysqld_safe.
+                   Using: 
+                   Please note: Since mysqld_multi version 2.3 you can also
+                   give this option inside groups [mysqld#] in ~/.my.cnf,
+                   where '#' stands for an integer (number) of the group in
+                   question. This will be recognised as a special option and
+                   will not be passed to the mysqld. This will allow one to
+                   start different mysqld versions with mysqld_multi.
+--no-log           Print to stdout instead of the log file. By default the log
+                   file is turned on.
+--password=...     Password for mysqladmin user.
+--silent           Disable warnings.
+--tcp-ip           Connect to the MySQL server(s) via the TCP/IP port instead
+                   of the UNIX socket. This affects stopping and reporting.
+                   If a socket file is missing, the server may still be
+                   running, but can be accessed only via the TCP/IP port.
+                   By default connecting is done via the UNIX socket.
+--user=...         mysqladmin user. Using: root
+--verbose          Be more verbose.
+--version          Print the version number and exit.

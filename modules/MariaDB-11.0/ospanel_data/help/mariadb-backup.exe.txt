@@ -1,0 +1,372 @@
+Open source backup tool for InnoDB and XtraDB
+
+Copyright (C) 2009-2015 Percona LLC and/or its affiliates.
+Portions Copyright (C) 2000, 2011, MySQL AB & Innobase Oy. All Rights Reserved.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation version 2
+of the License.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You can download full text of the license on http://www.gnu.org/licenses/gpl-2.0.txt
+
+Usage: mariadb-backup.exe [--defaults-file=#] [--backup | --prepare | --copy-back | --move-back] [OPTIONS]
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.0\data\my.ini C:\OSPanel\modules\MariaDB-11.0\data\my.cnf C:\OSPanel\modules\MariaDB-11.0\my.ini C:\OSPanel\modules\MariaDB-11.0\my.cnf 
+The following groups are read: xtrabackup mariabackup mariadb-backup mysqld server mysqld-11.0 mariadb mariadb-11.0 mariadbd mariadbd-11.0 client-server
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.
+  -V, --verbose       display verbose output
+  -v, --version       print version information
+  --target-dir=name   destination directory
+  --backup            take backup to target-dir
+  --prepare           prepare a backup for starting mysql server on the backup.
+  --export            create files to import to another database when prepare.
+  --print-param       print parameter of mysqld needed for copyback.
+  --use-memory=#      The value is used in place of innodb_buffer_pool_size.
+                      This option is only relevant when the --prepare option is
+                      specified.
+  --throttle=#        limit count of IO operations (pairs of read&write) per
+                      second to IOS values (for '--backup')
+  --log[=name]        Ignored option for MySQL option compatibility
+  --log-copy-interval=# 
+                      time interval between checks done by log copying thread
+                      in milliseconds (default is 1 second).
+  --extra-lsndir=name (for --backup): save an extra copy of the
+                      xtrabackup_checkpoints file in this directory.
+  --incremental-lsn=name 
+                      (for --backup): copy only .ibd pages newer than specified
+                      LSN 'high:low'. ##ATTENTION##: If a wrong LSN value is
+                      specified, it is impossible to diagnose this, causing the
+                      backup to be unusable. Be careful!
+  --incremental-basedir=name 
+                      (for --backup): copy only .ibd pages newer than backup at
+                      specified directory.
+  --incremental-dir=name 
+                      (for --prepare): apply .delta files and logfile in the
+                      specified directory.
+  --tables=name       filtering by regexp for table names.
+  --tables-file=name  filtering by list of the exact database.table name in the
+                      file.
+  --databases=name    filtering by list of databases.
+  --databases-file=name 
+                      filtering by list of databases in the file.
+  --tables-exclude=name 
+                      filtering by regexp for table names. Operates the same
+                      way as --tables, but matched names are excluded from
+                      backup. Note that this option has a higher priority than
+                      --tables.
+  --databases-exclude=name 
+                      Excluding databases based on name, Operates the same way
+                      as --databases, but matched names are excluded from
+                      backup. Note that this option has a higher priority than
+                      --databases.
+  --stream=name       Stream all backup files to the standard output in the
+                      specified format.Supported format is 'mbstream' or
+                      'xbstream'.
+  --compress[=name]   Compress individual backup files using the specified
+                      compression algorithm. Currently the only supported
+                      algorithm is 'quicklz'. It is also the default algorithm,
+                      i.e. the one used when --compress is used without an
+                      argument.
+  --compress-threads=# 
+                      Number of threads for parallel data compression. The
+                      default value is 1.
+  --compress-chunk-size=# 
+                      Size of working buffer(s) for compression threads in
+                      bytes. The default value is 64K.
+  --incremental-force-scan 
+                      Perform a full-scan incremental backup even in the
+                      presence of changed page bitmap data
+  --close-files       do not keep files opened. Use at your own risk.
+  --core-file         Write core on fatal signals
+  --copy-back         Copy all the files in a previously made backup from the
+                      backup directory to their original locations.
+  --move-back         Move all the files in a previously made backup from the
+                      backup directory to the actual datadir location. Use with
+                      caution, as it removes backup files.
+  --galera-info       This options creates the xtrabackup_galera_info file
+                      which contains the local node state at the time of the
+                      backup. Option should be used when performing the backup
+                      of MariaDB Galera Cluster. Has no effect when backup
+                      locks are used to create the backup.
+  --slave-info        This option is useful when backing up a replication slave
+                      server. It prints the binary log position and name of the
+                      master server. It also writes this information to the
+                      "xtrabackup_slave_info" file as a "CHANGE MASTER"
+                      command. A new slave for this master can be set up by
+                      starting a slave server on this backup and issuing a
+                      "CHANGE MASTER" command with the binary log position
+                      saved in the "xtrabackup_slave_info" file.
+  --no-lock           Use this option to disable table lock with "FLUSH TABLES
+                      WITH READ LOCK". Use it only if ALL your tables are
+                      InnoDB and you DO NOT CARE about the binary log position
+                      of the backup. This option shouldn't be used if there are
+                      any DDL statements being executed or if any updates are
+                      happening on non-InnoDB tables (this includes the system
+                      MyISAM tables in the mysql database), otherwise it could
+                      lead to an inconsistent backup. If you are considering to
+                      use --no-lock because your backups are failing to acquire
+                      the lock, this could be because of incoming replication
+                      events preventing the lock from succeeding. Please try
+                      using --safe-slave-backup to momentarily stop the
+                      replication slave thread, this may help the backup to
+                      succeed and you then don't need to resort to using this
+                      option.
+  --safe-slave-backup Stop slave SQL thread and wait to start backup until
+                      Slave_open_temp_tables in "SHOW STATUS" is zero. If there
+                      are no open temporary tables, the backup will take place,
+                      otherwise the SQL thread will be started and stopped
+                      until there are no open temporary tables. The backup will
+                      fail if Slave_open_temp_tables does not become zero after
+                      --safe-slave-backup-timeout seconds. The slave SQL thread
+                      will be restarted when the backup finishes.
+  --rsync             Uses the rsync utility to optimize local file transfers.
+                      When this option is specified, mariadb-backup uses rsync
+                      to copy all non-InnoDB files instead of spawning a
+                      separate cp for each file, which can be much faster for
+                      servers with a large number of databases or tables.  This
+                      option cannot be used together with --stream.
+  --force-non-empty-directories 
+                      This option, when specified, makes --copy-back or
+                      --move-back transfer files to non-empty directories. Note
+                      that no existing files will be overwritten. If
+                      --copy-back or --move-back has to copy a file from the
+                      backup directory which already exists in the destination
+                      directory, it will still fail with an error.
+  --no-version-check  This option disables the version check which is enabled
+                      by the --version-check option.
+  --no-backup-locks   This option controls if backup locks should be used
+                      instead of FLUSH TABLES WITH READ LOCK on the backup
+                      stage. The option has no effect when backup locks are not
+                      supported by the server. This option is enabled by
+                      default, disable with --no-backup-locks.
+  --decompress        Decompresses all files with the .qp extension in a backup
+                      previously made with the --compress option.
+  -u, --user=name     This option specifies the MySQL username used when
+                      connecting to the server, if that's not the current user.
+                      The option accepts a string argument. See mysql --help
+                      for details.
+  -H, --host=name     This option specifies the host to use when connecting to
+                      the database server with TCP/IP.  The option accepts a
+                      string argument. See mysql --help for details.
+  -P, --port=#        This option specifies the port to use when connecting to
+                      the database server with TCP/IP.  The option accepts a
+                      string argument. See mysql --help for details.
+  -p, --password=name This option specifies the password to use when connecting
+                      to the database. It accepts a string argument.  See mysql
+                      --help for details.
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  -S, --socket=name   This option specifies the socket to use when connecting
+                      to the local database server with a UNIX domain socket. 
+                      The option accepts a string argument. See mysql --help
+                      for details.
+  --incremental-history-name=name 
+                      This option specifies the name of the backup series
+                      stored in the mysql.mariadb_backup_history history record
+                      to base an incremental backup on. Xtrabackup will search
+                      the history table looking for the most recent (highest
+                      innodb_to_lsn), successful backup in the series and take
+                      the to_lsn value to use as the starting lsn for the
+                      incremental backup. This will be mutually exclusive with
+                      --incremental-history-uuid, --incremental-basedir and
+                      --incremental-lsn. If no valid lsn can be found (no
+                      series by that name, no successful backups by that name),
+                      an error will be returned. It is used with the
+                      --incremental option.
+  --incremental-history-uuid=name 
+                      This option specifies the UUID of the specific history
+                      record stored in the mysql.mariadb_backup_history table
+                      to base an incremental backup on.
+                      --incremental-history-name, --incremental-basedir and
+                      --incremental-lsn. If no valid lsn can be found (no
+                      success record with that uuid), an error will be
+                      returned. It is used with the --incremental option.
+  --remove-original   Remove .qp files after decompression.
+  --ftwrl-wait-query-type=name 
+                      This option specifies which types of queries are allowed
+                      to complete before mariadb-backup will issue the global
+                      lock. Default is all.. One of: ALL, UPDATE, SELECT
+  --kill-long-query-type=name 
+                      This option specifies which types of queries should be
+                      killed to unblock the global lock. Default is "all".. One
+                      of: ALL, UPDATE, SELECT
+  --history[=name]    This option enables the tracking of backup history in the
+                      mysql.mariadb_backup_history table. An optional history
+                      series name may be specified that will be placed with the
+                      history record for the current backup being taken.
+  --kill-long-queries-timeout=# 
+                      This option specifies the number of seconds
+                      mariadb-backup waits between starting FLUSH TABLES WITH
+                      READ LOCK and killing those queries that block it.
+                      Default is 0 seconds, which means mariadb-backup will not
+                      attempt to kill any queries.
+  --ftwrl-wait-timeout=# 
+                      This option specifies time in seconds that mariadb-backup
+                      should wait for queries that would block FTWRL before
+                      running it. If there are still such queries when the
+                      timeout expires, mariadb-backup terminates with an error.
+                      Default is 0, in which case mariadb-backup does not wait
+                      for queries to complete and starts FTWRL immediately.
+  --ftwrl-wait-threshold=# 
+                      This option specifies the query run time threshold which
+                      is used by mariadb-backup to detect long-running queries
+                      with a non-zero value of --ftwrl-wait-timeout. FTWRL is
+                      not started until such long-running queries exist. This
+                      option has no effect if --ftwrl-wait-timeout is 0.
+                      Default value is 60 seconds.
+  --safe-slave-backup-timeout=# 
+                      How many seconds --safe-slave-backup should wait for
+                      Slave_open_temp_tables to become zero. (default 300)
+  --binlog-info[=name] 
+                      This option controls how backup should retrieve server's
+                      binary log coordinates corresponding to the backup.
+                      Possible values are OFF, ON, LOCKLESS and AUTO.. One of: 
+                      off, lockless, on, auto
+  --secure-auth       Refuse client connecting to server if it uses old
+                      (pre-4.1.1) protocol.
+                      (Defaults to on; use --skip-secure-auth to disable.)
+  --log-innodb-page-corruption 
+                      Continue backup if innodb corrupted pages are found. The
+                      pages are logged in innodb_corrupted_pages and backup is
+                      finished with error. --prepare will try to fix corrupted
+                      pages. If innodb_corrupted_pages exists after --prepare
+                      in base backup directory, backup still contains corrupted
+                      pages and can not be considered as consistent.
+  --ssl               Enable SSL for connection (automatically enabled with
+                      other flags).
+                      (Defaults to on; use --skip-ssl to disable.)
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies
+                      --ssl).
+  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl).
+  --ssl-cert=name     X509 cert in PEM format (implies --ssl).
+  --ssl-cipher=name   SSL cipher to use (implies --ssl).
+  --ssl-key=name      X509 key in PEM format (implies --ssl).
+  --ssl-crl=name      Certificate revocation list (implies --ssl).
+  --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
+  --tls-version=name  TLS protocol version for secure connection.
+  --ssl-verify-server-cert 
+                      Verify server's "Common Name" in its cert against
+                      hostname used when connecting. This option is disabled by
+                      default.
+  -h, --datadir=name  Path to the database root.
+  -t, --tmpdir=name   Path for temporary files. Several paths may be specified,
+                      separated by a semicolon (;), in this case they are used
+                      in a round-robin fashion.
+  --parallel=#        Number of threads to use for parallel datafiles transfer.
+                      The default value is 1.
+  --extended-validation 
+                      Enable extended validation for Innodb data pages during
+                      backup phase. Will slow down backup considerably, in case
+                      encryption is used. May fail if tables are created during
+                      the backup.
+  --encrypted-backup  In --backup, assume that nonzero key_version implies that
+                      the page is encrypted. Use --backup
+                      --skip-encrypted-backup to allow copying unencrypted that
+                      were originally created before MySQL 5.1.48.
+                      (Defaults to on; use --skip-encrypted-backup to disable.)
+  --log[=name]        Ignored option for MySQL option compatibility
+  --log-bin[=name]    Base name for the log sequence
+  --innodb[=name]     Ignored option for MySQL option compatibility
+  --innodb-adaptive-hash-index 
+                      Enable InnoDB adaptive hash index (disabled by default).
+  --innodb-autoextend-increment=# 
+                      Data file autoextend increment in megabytes
+  --innodb-data-file-path=name 
+                      Path to individual files and their sizes.
+  --innodb-data-home-dir=name 
+                      The common part for InnoDB table spaces.
+  --innodb-doublewrite 
+                      Enable InnoDB doublewrite buffer during --prepare.
+  --innodb-io-capacity[=#] 
+                      Number of IOPs the server can do. Tunes the background IO
+                      rate
+  --innodb-file-io-threads=# 
+                      Number of file I/O threads in InnoDB.
+  --innodb-read-io-threads=# 
+                      Number of background read I/O threads in InnoDB.
+  --innodb-write-io-threads=# 
+                      Number of background write I/O threads in InnoDB.
+  --innodb-file-per-table 
+                      Stores each InnoDB table to an .ibd file in the database
+                      dir.
+  --innodb-flush-method=name 
+                      Ignored parameter with no effect. One of: fsync, O_DSYNC,
+                      littlesync, nosync, O_DIRECT, O_DIRECT_NO_FSYNC, 
+                      unbuffered, async_unbuffered, normal
+  --innodb-log-buffer-size=# 
+                      Redo log buffer size in bytes.
+  --innodb-log-file-buffering 
+                      Whether the file system cache for ib_logfile0 is enabled
+                      during --backup
+                      (Defaults to on; use --skip-innodb-log-file-buffering to disable.)
+  --innodb-data-file-buffering 
+                      Whether the file system cache for data files is enabled
+                      during --backup
+  --innodb-data-file-write-through 
+                      Whether each write to data files writes through
+  --innodb-log-file-size=# 
+                      Ignored for mysqld option compatibility
+  --innodb-log-group-home-dir=name 
+                      Path to InnoDB log files.
+  --innodb-max-dirty-pages-pct=# 
+                      Percentage of dirty pages allowed in bufferpool.
+  --innodb-use-native-aio 
+                      Use native AIO if supported on this platform.
+                      (Defaults to on; use --skip-innodb-use-native-aio to disable.)
+  --innodb-page-size=# 
+                      The universal page size of the database.
+  --innodb-buffer-pool-filename=name 
+                      Ignored for mysqld option compatibility
+  --innodb-checksum-algorithm=name 
+                      The algorithm InnoDB uses for page checksumming. [CRC32,
+                      STRICT_CRC32, FULL_CRC32, STRICT_FULL_CRC32]. One of: 
+                      crc32, strict_crc32, full_crc32, strict_full_crc32
+  --innodb-undo-directory=name 
+                      Directory where undo tablespace files live, this path can
+                      be absolute.
+  --innodb-undo-tablespaces=# 
+                      Number of undo tablespaces to use.
+  --innodb-compression-level=# 
+                      Compression level used for zlib compression.
+  --defaults-group=name 
+                      defaults group in config file (default "mysqld").
+  --plugin-dir=name   Server plugin directory. Used to load plugins during
+                      'prepare' phase.Has no effect in the 'backup' phase
+                      (plugin directory during backup is the same as server's)
+  --aria-log-dir-path=name 
+                      Path to individual files and their sizes.
+  --open-files-limit=# 
+                      the maximum number of file descriptors to reserve with
+                      setrlimit().
+  --lock-ddl-per-table 
+                      Lock DDL for each table before backup starts to copy it
+                      and until the backup is completed.
+  --rocksdb-datadir=name 
+                      RocksDB data directory.This option is only  used with
+                      --copy-back or --move-back option
+  --rocksdb-backup    Backup rocksdb data, if rocksdb plugin is installed.Used
+                      only with --backup option. Can be useful for partial
+                      backups, to exclude all rocksdb data
+                      (Defaults to on; use --skip-rocksdb-backup to disable.)
+  --check-privileges  Check database user privileges fro the backup user
+                      (Defaults to on; use --skip-check-privileges to disable.)
+  --innodb-force-recovery[=#] 
+                      (for --prepare): Crash recovery mode (ignores page
+                      corruption; for emergencies only).
+  --mysqld-args       All arguments that follow this argument are considered as
+                      server options, and if some of them are not supported by
+                      mariabackup, they will be ignored.
+  -?, --help          Display this help and exit.

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+    <title>Добро пожаловать!</title>
+    <style>
+    a {
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects
+    }
+
+    a:active,
+    a:hover {
+        outline-width: 0
+    }
+
+    *,
+    *:after,
+    *:before {
+        box-sizing: inherit;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        box-sizing: border-box;
+        font-size: 1px !important;
+    }
+
+    body {
+        font-family: Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+        font-weight: normal;
+        font-size:  14rem;
+        background-color: #E5EEF5;
+        color: #000;
+    }
+
+    .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 670rem;
+        min-width: 360rem;
+        padding: 20rem;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 48rem;
+    }
+
+    h2 {
+        margin: 15rem 0;
+        font-size: 23rem;
+        font-weight: normal;
+        display: block;
+    }
+
+    .button {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        background-color: #F93545;
+        color: #fff;
+        padding: 8rem 16rem;
+        border-radius: 5rem;
+        overflow: hidden;
+        font-size: 16rem;
+        font-weight: bold;
+        text-shadow: 0px 0px 2px #aa0014;
+    }
+
+    i {
+        border: solid #fff;
+        border-width: 0 3rem 3rem 0;
+        display: inline-block;
+        padding: 3rem;
+    }
+
+    .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    .button-3 {
+        appearance: none;
+        background-color: #2ea44f;
+        border: 1px solid rgba(27, 31, 35, .15);
+        border-radius: 6px;
+        box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        font-size: 14rem;
+        font-weight: 600;
+        line-height: 20rem;
+        padding: 8rem 16rem;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: middle;
+        white-space: nowrap;
+        word-wrap: break-word;
+        min-width: 250rem;
+        margin: 20rem 15rem 0 15rem;
+    }
+
+    .button-3:focus:not(:focus-visible):not(.focus-visible) {
+        box-shadow: none;
+        outline: none;
+    }
+
+    .button-3:hover {
+        background-color: #2c974b;
+    }
+
+    .button-3:focus {
+        box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+        outline: none;
+    }
+
+    .button-3:disabled {
+        background-color: #94d3a2;
+        border-color: rgba(27, 31, 35, .1);
+        color: rgba(255, 255, 255, .8);
+        cursor: default;
+    }
+
+    .button-3:active {
+        background-color: #298e46;
+        box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='outer'>
+        <div class='middle'>
+            <div class='inner'>
+                <h1 id='t1'>Добро пожаловать!</h1>
+                <h2 id='t2'>Open Server Panel работает ;-)</h2><a href='https://github.com/OSPanel/OpenServerPanel/wiki/Документация' class='button-3' id='t3'>Руководство пользователя <i class="right"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+    var userLang = navigator.language || navigator.userLanguage;
+    var userLang_detected = userLang.toLowerCase();
+    if (userLang_detected != 'ru-ru' && userLang_detected != 'ru') {
+        document.title = 'Welcome!';
+        document.getElementById('t1').innerHTML = 'Welcome!';
+        document.getElementById('t2').innerHTML = 'Open Server Panel is running ;-)';
+        document.getElementById('t3').innerHTML = 'User\'s manual <i class="right"></i>';
+        document.getElementById('t3').href      = 'https://github.com/OSPanel/OpenServerPanel/wiki';
+    }
+    </script>
+</body>
+
+</html>

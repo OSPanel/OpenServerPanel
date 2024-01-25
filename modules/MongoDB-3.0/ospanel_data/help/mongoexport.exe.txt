@@ -1,0 +1,53 @@
+Usage:
+  mongoexport <options>
+
+Export data from MongoDB in CSV or JSON format.
+
+See http://docs.mongodb.org/manual/reference/program/mongoexport/ for more information.
+
+general options:
+      /help                      print usage
+      /version                   print the tool version and exit
+
+verbosity options:
+  /v, /verbose                   more detailed log output (include multiple
+                                 times for more verbosity, e.g. -vvvvv)
+      /quiet                     hide all log output
+
+connection options:
+  /h, /host:                     mongodb host to connect to
+                                 (setname/host1,host2 for replica sets)
+      /port:                     server port (can also use --host hostname:port)
+
+authentication options:
+  /u, /username:                 username for authentication
+  /p, /password:                 password for authentication
+      /authenticationDatabase:   database that holds the user's credentials
+      /authenticationMechanism:  authentication mechanism to use
+
+namespace options:
+  /d, /db:                       database to use
+  /c, /collection:               collection to use
+
+output options:
+  /f, /fields:                   comma separated list of field names (required
+                                 for exporting CSV) e.g. -f "name,age"
+      /fieldFile:                file with field names - 1 per line
+      /type:                     the output format, either json or csv
+                                 (defaults to 'json')
+  /o, /out:                      output file; if not specified, stdout is used
+      /jsonArray                 output to a JSON array rather than one object
+                                 per line
+      /pretty                    output JSON formatted to be human-readable
+
+querying options:
+  /q, /query:                    query filter, as a JSON string, e.g.,
+                                 '{x:{$gt:1}}'
+  /k, /slaveOk                   allow secondary reads if available (default
+                                 true)
+      /forceTableScan            force a table scan (do not use $snapshot)
+      /skip:                     number of documents to skip
+      /limit:                    limit the number of documents to export
+      /sort:                     sort order, as a JSON string, e.g. '{x:1}'
+      /assertExists              if specified, export fails if the collection
+                                 does not exist (false)

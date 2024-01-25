@@ -1,0 +1,89 @@
+mysql_upgrade  Ver 2.0 Distrib 5.7.44, for Win64 (x86_64)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+MySQL utility for upgrading databases to new MySQL versions.
+Usage: mysql_upgrade [OPTIONS]
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-5.7\my.ini C:\OSPanel\modules\MySQL-5.7\my.cnf 
+The following groups are read: client mysql_upgrade
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+  -?, --help          Display this help message and exit.
+  --bind-address=name IP address to bind to.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  -C, --compress      Use compression in server/client protocol.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check[=#]   This is a non-debug version. Catch this and exit.
+  --debug-info[=#]    This is a non-debug version. Catch this and exit.
+  --default-character-set=name 
+                      Set the default character set.
+  --default-auth=name Default authentication client-side plugin to use.
+  -f, --force         Force execution of SQL statements even if mysql_upgrade
+                      has already been executed for the current version of
+                      MySQL.
+  --get-server-public-key 
+                      Get public key from server
+  -h, --host=name     Connect to host.
+  --max-allowed-packet=# 
+                      The maximum packet length to send to or receive from
+                      server.
+  --net-buffer-length=# 
+                      The buffer size for TCP/IP and socket communication.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given, it's solicited on the tty.
+  -W, --pipe          Use named pipes to connect to server.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=#        Port number to use for connection.
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  --secure-auth       Refuse client connecting to server if it uses old
+                      (pre-4.1.1) protocol. Deprecated. Always TRUE
+  --server-public-key-path=name 
+                      Path to file containing server public key
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  --skip-sys-schema   Do not upgrade/install the sys schema.
+  -S, --socket=name   The socket file to use for connection.
+  --ssl               Deprecated. Use ssl-mode instead.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-mode=name     SSL connection mode.
+  --ssl-verify-server-cert 
+                      Deprecated. Use ssl-mode=VERIFY_IDENTITY instead.
+  --tls-version=name  TLS version to use.
+  -s, --upgrade-system-tables 
+                      Only upgrade the system tables, do not try to upgrade the
+                      data.
+  -u, --user=name     User for login if not current user.
+  -v, --verbose       Display more output about the process.
+                      (Defaults to on; use --skip-verbose to disable.)
+  -V, --version       Output version information and exit.
+  -k, --version-check Run this program only if its 'server version' matches the
+                      version of the server to which it's connecting, (enabled
+                      by default); use --skip-version-check to avoid this
+                      check. Note: the 'server version' of the program is the
+                      version of the MySQL server with which it was
+                      built/distributed.
+                      (Defaults to on; use --skip-version-check to disable.)
+  --write-binlog      Write all executed SQL statements to binary log. Disabled
+                      by default; use when statements should be sent to
+                      replication slaves.

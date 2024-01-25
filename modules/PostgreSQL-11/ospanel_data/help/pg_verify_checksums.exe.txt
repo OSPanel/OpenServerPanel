@@ -1,0 +1,16 @@
+pg_verify_checksums verifies data checksums in a PostgreSQL database cluster.
+
+Usage:
+  pg_verify_checksums [OPTION]... [DATADIR]
+
+Options:
+ [-D, --pgdata=]DATADIR  data directory
+  -v, --verbose          output verbose messages
+  -r RELFILENODE         check only relation with specified relfilenode
+  -V, --version          output version information, then exit
+  -?, --help             show this help, then exit
+
+If no data directory (DATADIR) is specified, the environment variable PGDATA
+is used.
+
+Report bugs to <pgsql-bugs@postgresql.org>.

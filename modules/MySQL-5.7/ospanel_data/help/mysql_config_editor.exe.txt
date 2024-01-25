@@ -1,0 +1,23 @@
+mysql_config_editor.exe Ver 1.0 Distrib 5.7.44, for Win64 on x86_64
+Copyright (c) 2012, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+MySQL Configuration Utility.
+Usage: mysql_config_editor.exe [program options] [command [command options]]
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  -?, --help          Display this help and exit.
+  -v, --verbose       Write more information.
+  -V, --version       Output version information and exit.
+
+Where command can be any one of the following :
+       set [command options]     Sets user name/password/host name/socket/port
+                                 for a given login path (section).
+       remove [command options]  Remove a login path from the login file.
+       print [command options]   Print all the options for a specified
+                                 login path.
+       reset [command options]   Deletes the contents of the login file.
+       help                      Display this usage/help information.
+

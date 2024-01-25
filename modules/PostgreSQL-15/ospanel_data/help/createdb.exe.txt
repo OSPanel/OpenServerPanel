@@ -1,0 +1,33 @@
+createdb creates a PostgreSQL database.
+
+Usage:
+  createdb [OPTION]... [DBNAME] [DESCRIPTION]
+
+Options:
+  -D, --tablespace=TABLESPACE  default tablespace for the database
+  -e, --echo                   show the commands being sent to the server
+  -E, --encoding=ENCODING      encoding for the database
+  -l, --locale=LOCALE          locale settings for the database
+      --lc-collate=LOCALE      LC_COLLATE setting for the database
+      --lc-ctype=LOCALE        LC_CTYPE setting for the database
+      --icu-locale=LOCALE      ICU locale setting for the database
+      --locale-provider={libc|icu}
+                               locale provider for the database's default collation
+  -O, --owner=OWNER            database user to own the new database
+  -S, --strategy=STRATEGY      database creation strategy wal_log or file_copy
+  -T, --template=TEMPLATE      template database to copy
+  -V, --version                output version information, then exit
+  -?, --help                   show this help, then exit
+
+Connection options:
+  -h, --host=HOSTNAME          database server host or socket directory
+  -p, --port=PORT              database server port
+  -U, --username=USERNAME      user name to connect as
+  -w, --no-password            never prompt for password
+  -W, --password               force password prompt
+  --maintenance-db=DBNAME      alternate maintenance database
+
+By default, a database with the same name as the current user is created.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

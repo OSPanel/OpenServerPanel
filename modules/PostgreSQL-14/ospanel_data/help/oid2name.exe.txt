@@ -1,0 +1,28 @@
+oid2name helps examining the file structure used by PostgreSQL.
+
+Usage:
+  oid2name [OPTION]...
+
+Options:
+  -f, --filenode=FILENODE    show info for table with given file node
+  -i, --indexes              show indexes and sequences too
+  -o, --oid=OID              show info for table with given OID
+  -q, --quiet                quiet (don't show headers)
+  -s, --tablespaces          show all tablespaces
+  -S, --system-objects       show system objects too
+  -t, --table=TABLE          show info for named table
+  -V, --version              output version information, then exit
+  -x, --extended             extended (show additional columns)
+  -?, --help                 show this help, then exit
+
+Connection options:
+  -d, --dbname=DBNAME        database to connect to
+  -h, --host=HOSTNAME        database server host or socket directory
+  -H                         same as -h, deprecated option
+  -p, --port=PORT            database server port number
+  -U, --username=USERNAME    connect as specified database user
+
+The default action is to show all database OIDs.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

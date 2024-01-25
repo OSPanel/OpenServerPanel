@@ -1,0 +1,129 @@
+Usage:
+  mongoimport <options> <file>
+
+Import CSV, TSV or JSON data into MongoDB. If no file is provided, mongoimport reads from stdin.
+
+See http://docs.mongodb.org/manual/reference/program/mongoimport/ for more information.
+
+general options:
+      /help                                       print usage
+      /version                                    print the tool version and
+                                                  exit
+      /config:<filename>                          path to a configuration file
+
+verbosity options:
+  /v, /verbose:<level>                            more detailed log output
+                                                  (include multiple times for
+                                                  more verbosity, e.g. -vvvvv,
+                                                  or specify a numeric value,
+                                                  e.g. --verbose=N)
+      /quiet                                      hide all log output
+
+connection options:
+  /h, /host:<hostname>                            mongodb host to connect to
+                                                  (setname/host1,host2 for
+                                                  replica sets)
+      /port:<port>                                server port (can also use
+                                                  --host hostname:port)
+
+ssl options:
+      /ssl                                        connect to a mongod or mongos
+                                                  that has ssl enabled
+      /sslCAFile:<filename>                       the .pem file containing the
+                                                  root certificate chain from
+                                                  the certificate authority
+      /sslPEMKeyFile:<filename>                   the .pem file containing the
+                                                  certificate and key
+      /sslPEMKeyPassword:<password>               the password to decrypt the
+                                                  sslPEMKeyFile, if necessary
+      /sslCRLFile:<filename>                      the .pem file containing the
+                                                  certificate revocation list
+      /sslFIPSMode                                use FIPS mode of the
+                                                  installed openssl library
+      /tlsInsecure                                bypass the validation for
+                                                  server's certificate chain
+                                                  and host name
+
+authentication options:
+  /u, /username:<username>                        username for authentication
+  /p, /password:<password>                        password for authentication
+      /authenticationDatabase:<database-name>     database that holds the
+                                                  user's credentials
+      /authenticationMechanism:<mechanism>        authentication mechanism to
+                                                  use
+
+namespace options:
+  /d, /db:<database-name>                         database to use
+  /c, /collection:<collection-name>               collection to use
+
+uri options:
+      /uri:mongodb-uri                            mongodb uri connection string
+
+input options:
+  /f, /fields:<field>[,<field>]*                  comma separated list of
+                                                  fields, e.g. -f name,age
+      /fieldFile:<filename>                       file with field names - 1 per
+                                                  line
+      /file:<filename>                            file to import from; if not
+                                                  specified, stdin is used
+      /headerline                                 use first line in input
+                                                  source as the field list (CSV
+                                                  and TSV only)
+      /jsonArray                                  treat input source as a JSON
+                                                  array
+      /parseGrace:<grace>                         controls behavior when type
+                                                  coercion fails - one of:
+                                                  autoCast, skipField, skipRow,
+                                                  stop (defaults to 'stop')
+                                                  (default: stop)
+      /type:<type>                                input format to import: json,
+                                                  csv, or tsv (defaults to
+                                                  'json') (default: json)
+      /columnsHaveTypes                           indicated that the field list
+                                                  (from --fields, --fieldsFile,
+                                                  or --headerline) specifies
+                                                  types; They must be in the
+                                                  form of
+                                                  '<colName>.<type>(<arg>)'.
+                                                  The type can be one of: auto,
+                                                  binary, bool, date, date_go,
+                                                  date_ms, date_oracle, double,
+                                                  int32, int64, string. For
+                                                  each of the date types, the
+                                                  argument is a datetime layout
+                                                  string. For the binary type,
+                                                  the argument can be one of:
+                                                  base32, base64, hex. All
+                                                  other types take an empty
+                                                  argument. Only valid for CSV
+                                                  and TSV imports. e.g.
+                                                  zipcode.string(),
+                                                  thumbnail.binary(base64)
+
+ingest options:
+      /drop                                       drop collection before
+                                                  inserting documents
+      /ignoreBlanks                               ignore fields with empty
+                                                  values in CSV and TSV
+      /maintainInsertionOrder                     insert documents in the order
+                                                  of their appearance in the
+                                                  input source
+  /j, /numInsertionWorkers:<number>               number of insert operations
+                                                  to run concurrently (defaults
+                                                  to 1) (default: 1)
+      /stopOnError                                stop importing at first
+                                                  insert/upsert error
+      /mode:[insert|upsert|merge]                 insert: insert only. upsert:
+                                                  insert or replace existing
+                                                  documents. merge: insert or
+                                                  modify existing documents.
+                                                  defaults to insert
+      /upsertFields:<field>[,<field>]*            comma-separated fields for
+                                                  the query part when --mode is
+                                                  set to upsert or merge
+      /writeConcern:<write-concern-specifier>     write concern options e.g.
+                                                  --writeConcern majority,
+                                                  --writeConcern '{w: 3,
+                                                  wtimeout: 500, fsync: true,
+                                                  j: true}'
+      /bypassDocumentValidation                   bypass document validation

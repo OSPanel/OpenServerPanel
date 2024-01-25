@@ -1,0 +1,13 @@
+RRDtool 1.4.5  Copyright 1997-2013 by Tobias Oetiker <tobi@oetiker.ch>
+               Compiled Jul  8 2014 18:14:11
+
+Usage: rrdtool [options] command command_options
+Valid commands: create, update, updatev, graph, graphv,  dump, restore,
+		last, lastupdate, first, info, fetch, tune,
+		resize, xport, flushcached
+
+RRDtool is distributed under the Terms of the GNU General
+Public License Version 2. (www.gnu.org/copyleft/gpl.html)
+
+For more information read the RRD manpages
+

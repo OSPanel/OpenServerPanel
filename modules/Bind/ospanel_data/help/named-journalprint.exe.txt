@@ -1,0 +1,1 @@
+Usage: named-journalprint.exe [-dux] journal

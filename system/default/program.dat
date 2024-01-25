@@ -1,0 +1,58 @@
+﻿[main]
+
+api_domain               = ospanel
+api_ip                   = 127.127.127.127
+api_port                 = 80
+clear_dns_cache          = on
+hosts_file               = on
+hosts_file_encoding      = UTF8
+lang                     = auto
+log_max_filesize         = 1
+task_scheduler           = on
+terminal_ansi_fix        = auto
+update_check             = on
+
+[menu]
+
+group_projects_by_tld    = off
+hide_useless_selectors   = on
+show_modules_in_groups   = on
+show_modules_in_submenu  = on
+show_projects_in_submenu = off
+show_tray_icon           = on
+
+[modules]
+
+allowed_env_vars         = allusersprofile appdata commonprogramfiles commonprogramfiles(x86) commonprogramw6432 computername comspec driverdata homedrive homepath localappdata logonserver number_of_processors os path pathext processor_architecture processor_identifier processor_level processor_revision programdata programfiles programfiles(x86) programw6432 psmodulepath public sessionname systemdrive systemroot temp tmp userdomain userdomain_roamingprofile username userprofile windir
+log_max_filesize         = 1
+log_write_title          = on
+max_probation_fails      = 1
+max_shutdown_time        = 0
+probation                = 30
+silent_mode              = on
+terminal_codepage        = 65001
+time_zone                = system
+
+[smtp]
+
+open_email_after_saving  = off
+saved_email_extension    = .eml
+smtp_port                = 25
+smtp_server              = on
+
+[environment]
+
+CURL_CA_BUNDLE           = {root_dir}\data\ssl\cacert.pem
+HOME                     = {root_dir}\user
+HOMEDRIVE                = {root_drive}
+HOMEPATH                 = {root_path}\user
+PATH                     = {root_dir}\bin;{root_dir}\addons\Perl\perl\site\bin;{root_dir}\addons\Perl\perl\bin;{root_dir}\addons\Perl\c\bin;%SYSTEMROOT%\system32;%SYSTEMROOT%;%SYSTEMROOT%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0
+PERL5LIB                 = {root_dir}\addons\Perl\perl\site\lib;{root_dir}\addons\Perl\perl\vendor\lib;{root_dir}\addons\Perl\perl\lib
+PERL5OPT                 =
+PERL_JSON_BACKEND        =
+PERL_MB_OPT              =
+PERL_MM_OPT              =
+PERL_YAML_BACKEND        =
+TERM                     = dumb
+TEMP                     = {root_dir}\temp
+TMP                      = {root_dir}\temp

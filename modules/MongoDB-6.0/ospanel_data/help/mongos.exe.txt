@@ -1,0 +1,114 @@
+Options:
+  --networkMessageCompressors arg (=snappy,zstd,zlib)
+                                        Comma-separated list of compressors to 
+                                        use for network messages
+
+General options:
+  -h [ --help ]                         Show this usage information
+  --version                             Show version information
+  -f [ --config ] arg                   Configuration file specifying 
+                                        additional options
+  --configExpand arg                    Process expansion directives in config 
+                                        file (none, exec, rest)
+  --port arg                            Specify port number - 27017 by default
+  --ipv6                                Enable IPv6 support (disabled by 
+                                        default)
+  --listenBacklog arg (=2147483647)     Set socket listen backlog size
+  --maxConns arg (=1000000)             Max number of simultaneous connections
+  --pidfilepath arg                     Full path to pidfile (if not set, no 
+                                        pidfile is created)
+  --timeZoneInfo arg                    Full path to time zone info directory, 
+                                        e.g. /usr/share/zoneinfo
+  -v [ --verbose ] [=arg(=v)]           Be more verbose (include multiple times
+                                        for more verbosity e.g. -vvvvv)
+  --quiet                               Quieter output
+  --logpath arg                         Log file to send write to instead of 
+                                        stdout - has to be a file, not 
+                                        directory
+  --logappend                           Append to logpath instead of 
+                                        over-writing
+  --logRotate arg                       Set the log rotation behavior 
+                                        (rename|reopen)
+  --timeStampFormat arg                 Desired format for timestamps in log 
+                                        messages. One of iso8601-utc or 
+                                        iso8601-local
+  --setParameter arg                    Set a configurable parameter
+  --keyFile arg                         Private key for cluster authentication
+  --clusterAuthMode arg                 Authentication mode used for cluster 
+                                        authentication. Alternatives are 
+                                        (keyFile|sendKeyFile|sendX509|x509)
+  --bind_ip arg                         Comma separated list of ip addresses to
+                                        listen on - localhost by default
+  --bind_ip_all                         Bind to all ip addresses
+  --noauth                              Run without security
+  --transitionToAuth                    For rolling access control upgrade. 
+                                        Attempt to authenticate over outgoing 
+                                        connections and proceed regardless of 
+                                        success. Accept incoming connections 
+                                        with or without authentication.
+  --slowms arg (=100)                   Value of slow for profile and console 
+                                        log
+  --slowOpSampleRate arg (=1)           Fraction of slow ops to include in the 
+                                        profile and console log
+  --profileFilter arg                   Query predicate to control which 
+                                        operations are logged and profiled
+
+AWS IAM Options:
+  --awsIamSessionToken arg              AWS Session Token for temporary 
+                                        credentials
+
+Windows Service Control Manager options:
+  --install                             Install Windows service
+  --remove                              Remove Windows service
+  --reinstall                           Reinstall Windows service (equivalent 
+                                        to --remove followed by --install)
+  --serviceName arg                     Windows service name
+  --serviceDisplayName arg              Windows service display name
+  --serviceDescription arg              Windows service description
+  --serviceUser arg                     Account for service execution
+  --servicePassword arg                 Password used to authenticate 
+                                        serviceUser
+
+TLS Options:
+  --tlsOnNormalPorts                    Use TLS on configured ports
+  --tlsMode arg                         Set the TLS operation mode 
+                                        (disabled|allowTLS|preferTLS|requireTLS
+                                        )
+  --tlsCertificateKeyFile arg           Certificate and key file for TLS
+  --tlsCertificateKeyFilePassword arg   Password to unlock key in the TLS 
+                                        certificate key file
+  --tlsClusterFile arg                  Key file for internal TLS 
+                                        authentication
+  --tlsClusterPassword arg              Internal authentication key file 
+                                        password
+  --tlsCAFile arg                       Certificate Authority file for TLS
+  --tlsClusterCAFile arg                CA used for verifying remotes during 
+                                        inbound connections
+  --tlsCRLFile arg                      Certificate Revocation List file for 
+                                        TLS
+  --tlsDisabledProtocols arg            Comma separated list of TLS protocols 
+                                        to disable [TLS1_0,TLS1_1,TLS1_2,TLS1_3
+                                        ]
+  --tlsAllowConnectionsWithoutCertificates 
+                                        Allow client to connect without 
+                                        presenting a certificate
+  --tlsAllowInvalidHostnames            Allow server certificates to provide 
+                                        non-matching hostnames
+  --tlsAllowInvalidCertificates         Allow connections to servers with 
+                                        invalid certificates
+  --tlsCertificateSelector arg          TLS Certificate in system store
+  --tlsClusterCertificateSelector arg   SSL/TLS Certificate in system store for
+                                        internal TLS authentication
+  --tlsLogVersions arg                  Comma separated list of TLS protocols 
+                                        to log on connect [TLS1_0,TLS1_1,TLS1_2
+                                        ,TLS1_3]
+
+Sharding options:
+  --configdb arg                        Connection string for communicating 
+                                        with config servers: <config replset 
+                                        name>/<host1:port>,<host2:port>,[...]
+  --localThreshold arg                  ping time (in ms) for a node to be 
+                                        considered local (default 15ms)
+  --test                                just run unit tests
+  --noscripting                         Disable scripting engine
+

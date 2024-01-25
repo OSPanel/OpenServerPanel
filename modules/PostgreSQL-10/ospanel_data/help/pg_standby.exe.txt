@@ -1,0 +1,26 @@
+pg_standby allows PostgreSQL warm standby servers to be configured.
+
+Usage:
+  pg_standby [OPTION]... ARCHIVELOCATION NEXTWALFILE XLOGFILEPATH [RESTARTWALFILE]
+
+Options:
+  -c                 copy file from archive (default)
+  -d                 generate lots of debugging output (testing only)
+  -k NUMFILESTOKEEP  if RESTARTWALFILE is not used, remove files prior to limit
+                     (0 keeps all)
+  -l                 does nothing; use of link is now deprecated
+  -r MAXRETRIES      max number of times to retry, with progressive wait
+                     (default=3)
+  -s SLEEPTIME       seconds to wait between file checks (min=1, max=60,
+                     default=5)
+  -t TRIGGERFILE     trigger file to initiate failover (no default)
+  -V, --version      output version information, then exit
+  -w MAXWAITTIME     max seconds to wait for a file (0=no limit) (default=0)
+  -?, --help         show this help, then exit
+
+Main intended use as restore_command in recovery.conf:
+  restore_command = 'pg_standby [OPTION]... ARCHIVELOCATION %f %p %r'
+e.g.
+  restore_command = 'pg_standby /mnt/server/archiverdir %f %p %r'
+
+Report bugs to <pgsql-bugs@postgresql.org>.

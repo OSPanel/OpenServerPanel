@@ -1,0 +1,1 @@
+usage: nsupdate [-dDi] [-L level] [-l][-g | -o | -y keyname:secret | -k keyfile] [-v] [-V] [-P] [-T] [-4 | -6] [filename]

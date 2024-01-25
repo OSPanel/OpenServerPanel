@@ -1,0 +1,55 @@
+postgres is the PostgreSQL server.
+
+Usage:
+  postgres [OPTION]...
+
+Options:
+  -B NBUFFERS        number of shared buffers
+  -c NAME=VALUE      set run-time parameter
+  -C NAME            print value of run-time parameter, then exit
+  -d 1-5             debugging level
+  -D DATADIR         database directory
+  -e                 use European date input format (DMY)
+  -F                 turn fsync off
+  -h HOSTNAME        host name or IP address to listen on
+  -i                 enable TCP/IP connections
+  -k DIRECTORY       Unix-domain socket location
+  -l                 enable SSL connections
+  -N MAX-CONNECT     maximum number of allowed connections
+  -p PORT            port number to listen on
+  -s                 show statistics after each query
+  -S WORK-MEM        set amount of memory for sorts (in kB)
+  -V, --version      output version information, then exit
+  --NAME=VALUE       set run-time parameter
+  --describe-config  describe configuration parameters, then exit
+  -?, --help         show this help, then exit
+
+Developer options:
+  -f s|i|o|b|t|n|m|h forbid use of some plan types
+  -n                 do not reinitialize shared memory after abnormal exit
+  -O                 allow system table structure changes
+  -P                 disable system indexes
+  -t pa|pl|ex        show timings after each query
+  -T                 send SIGSTOP to all backend processes if one dies
+  -W NUM             wait NUM seconds to allow attach from a debugger
+
+Options for single-user mode:
+  --single           selects single-user mode (must be first argument)
+  DBNAME             database name (defaults to user name)
+  -d 0-5             override debugging level
+  -E                 echo statement before execution
+  -j                 do not use newline as interactive query delimiter
+  -r FILENAME        send stdout and stderr to given file
+
+Options for bootstrapping mode:
+  --boot             selects bootstrapping mode (must be first argument)
+  --check            selects check mode (must be first argument)
+  DBNAME             database name (mandatory argument in bootstrapping mode)
+  -r FILENAME        send stdout and stderr to given file
+
+Please read the documentation for the complete list of run-time
+configuration settings and how to set them on the command line or in
+the configuration file.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

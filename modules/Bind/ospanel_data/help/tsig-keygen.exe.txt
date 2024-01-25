@@ -1,0 +1,4 @@
+Usage:
+ tsig-keygen [-a alg] [keyname]
+  -a alg:        algorithm (default hmac-sha256)
+

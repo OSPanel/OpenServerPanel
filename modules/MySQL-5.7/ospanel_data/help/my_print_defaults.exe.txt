@@ -1,0 +1,41 @@
+my_print_defaults.exe  Ver 1.6 for Win64 at x86_64
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Prints all arguments that is give to some program using the default files
+Usage: my_print_defaults.exe [OPTIONS] groups
+  -c, --config-file=name 
+                      Deprecated, please use --defaults-file instead. Name of
+                      config file to read; if no extension is given, default
+                      extension (e.g., .ini or .cnf) will be added
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit
+  -c, --defaults-file=name 
+                      Like --config-file, except: if first option, then read
+                      this file only, do not read global or per-user config
+                      files; should be the first option
+  -e, --defaults-extra-file=name 
+                      Read this file after the global config file and before
+                      the config file in the users home directory; should be
+                      the first option
+  -g, --defaults-group-suffix=name 
+                      In addition to the given groups, read also groups with
+                      this suffix
+  -e, --extra-file=name 
+                      Deprecated. Synonym for --defaults-extra-file.
+  -n, --no-defaults   Ignore reading of default option file(s), except for
+                      login file.
+  -l, --login-path=name 
+                      Path to be read from under the login file.
+  -s, --show          Show passwords in plain text.
+  -?, --help          Display this help message and exit.
+  -v, --verbose       Increase the output level
+  -V, --version       Output version information and exit.
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-5.7\my.ini C:\OSPanel\modules\MySQL-5.7\my.cnf 
+
+Example usage:
+my_print_defaults.exe --defaults-file=example.cnf client mysql

@@ -1,0 +1,33 @@
+Usage: mysql_install_db.pl [OPTIONS]
+  --basedir=path       The path to the MySQL installation directory.
+  --builddir=path      If using --srcdir with out-of-directory builds, you
+                       will need to set this to the location of the build
+                       directory where built files reside.
+  --cross-bootstrap    For internal use.  Used when building the MySQL system
+                       tables on a different host than the target.
+  --datadir=path       The path to the MySQL data directory.
+                       If missing, the directory will be created, but its
+                       parent directory must already exist and be writable.
+  --defaults-extra-file=name
+                       Read this file after the global files are read.
+  --defaults-file=name Only read default options from the given file name.
+  --force              Causes mysql_install_db to run even if DNS does not
+                       work.  In that case, grant table entries that
+                       normally use hostnames will use IP addresses.
+  --help               Display this help and exit.                     
+  --ldata=path         The path to the MySQL data directory. Same as --datadir.
+  --no-defaults        Don't read default options from any option file.
+  --keep-my-cnf        Don't try to create my.cnf based on template. 
+                       Useful for systems with working, updated my.cnf.
+                       Deprecated, will be removed in future version.
+  --rpm                For internal use.  This option is used by RPM files
+                       during the MySQL installation process.
+  --skip-name-resolve  Use IP addresses rather than hostnames when creating
+                       grant table entries.  This option can be useful if
+                       your DNS does not work.
+  --srcdir=path        The path to the MySQL source directory.  This option
+                       uses the compiled binaries and support files within the
+                       source tree, useful for if you don't want to install
+                       MySQL yet and just want to create the system tables.
+Any other options are passed to the mysqld program.
+

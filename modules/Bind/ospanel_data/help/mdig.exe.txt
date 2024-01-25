@@ -1,0 +1,56 @@
+Usage: mdig @server {global-opt} host
+           {local-opt} [ host {local-opt} [...]]
+Where:
+ anywhere opt    is one of:
+                 -f filename         (batch mode)
+                 -h                  (print help and exit)
+                 -v                  (print version and exit)
+ global opt      is one of:
+                 -4                  (use IPv4 query transport only)
+                 -6                  (use IPv6 query transport only)
+                 -b address[#port]   (bind to source address/port)
+                 -p port             (specify port number)
+                 -m                  (enable memory usage debugging)
+                 +[no]dscp[=###]     (Set the DSCP value to ### [0..63])
+                 +[no]vc             (TCP mode)
+                 +[no]tcp            (TCP mode, alternate syntax)
+                 +[no]besteffort     (Try to parse even illegal messages)
+                 +[no]cl             (Control display of class in records)
+                 +[no]comments       (Control display of comment lines)
+                 +[no]rrcomments     (Control display of per-record comments)
+                 +[no]crypto         (Control display of cryptographic fields in records)
+                 +[no]question       (Control display of question)
+                 +[no]answer         (Control display of answer)
+                 +[no]authority      (Control display of authority)
+                 +[no]additional     (Control display of additional)
+                 +[no]short          (Disable everything except short
+                                      form of answer)
+                 +[no]ttlid          (Control display of ttls in records)
+                 +[no]ttlunits       (Display TTLs in human-readable units)
+                 +[no]unknownformat  (Print RDATA in RFC 3597 "unknown" format)
+                 +[no]all            (Set or clear all display flags)
+                 +[no]multiline      (Print records in an expanded format)
+                 +[no]split=##       (Split hex/base64 fields into chunks)
+ local opt       is one of:
+                 -c class            (specify query class)
+                 -t type             (specify query type)
+                 -x dot-notation     (shortcut for reverse lookups)
+                 +timeout=###        (Set query timeout) [UDP=5,TCP=10]
+                 +udptimeout=###     (Set timeout before UDP retry)
+                 +tries=###          (Set number of UDP attempts) [3]
+                 +retry=###          (Set number of UDP retries) [2]
+                 +bufsize=###        (Set EDNS0 Max UDP packet size)
+                 +subnet=addr        (Set edns-client-subnet option)
+                 +[no]edns[=###]     (Set EDNS version) [0]
+                 +ednsflags=###      (Set EDNS flag bits)
+                 +ednsopt=###[:value] (Send specified EDNS option)
+                 +noednsopt          (Clear list of +ednsopt options)
+                 +[no]recurse        (Recursive mode)
+                 +[no]aaonly         (Set AA flag in query (+[no]aaflag))
+                 +[no]adflag         (Set AD flag in query)
+                 +[no]cdflag         (Set CD flag in query)
+                 +[no]zflag          (Set Z flag in query)
+                 +[no]dnssec         (Request DNSSEC records)
+                 +[no]expire         (Request time to expire)
+                 +[no]cookie[=###]   (Send a COOKIE option)
+                 +[no]nsid           (Request Name Server ID)

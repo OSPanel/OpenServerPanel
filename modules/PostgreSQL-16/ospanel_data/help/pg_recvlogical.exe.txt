@@ -1,0 +1,40 @@
+pg_recvlogical controls PostgreSQL logical decoding streams.
+
+Usage:
+  pg_recvlogical [OPTION]...
+
+Action to be performed:
+      --create-slot      create a new replication slot (for the slot's name see --slot)
+      --drop-slot        drop the replication slot (for the slot's name see --slot)
+      --start            start streaming in a replication slot (for the slot's name see --slot)
+
+Options:
+  -E, --endpos=LSN       exit after receiving the specified LSN
+  -f, --file=FILE        receive log into this file, - for stdout
+  -F  --fsync-interval=SECS
+                         time between fsyncs to the output file (default: 10)
+      --if-not-exists    do not error if slot already exists when creating a slot
+  -I, --startpos=LSN     where in an existing slot should the streaming start
+  -n, --no-loop          do not loop on connection lost
+  -o, --option=NAME[=VALUE]
+                         pass option NAME with optional value VALUE to the
+                         output plugin
+  -P, --plugin=PLUGIN    use output plugin PLUGIN (default: test_decoding)
+  -s, --status-interval=SECS
+                         time between status packets sent to server (default: 10)
+  -S, --slot=SLOTNAME    name of the logical replication slot
+  -t, --two-phase        enable decoding of prepared transactions when creating a slot
+  -v, --verbose          output verbose messages
+  -V, --version          output version information, then exit
+  -?, --help             show this help, then exit
+
+Connection options:
+  -d, --dbname=DBNAME    database to connect to
+  -h, --host=HOSTNAME    database server host or socket directory
+  -p, --port=PORT        database server port number
+  -U, --username=NAME    connect as specified database user
+  -w, --no-password      never prompt for password
+  -W, --password         force password prompt (should happen automatically)
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

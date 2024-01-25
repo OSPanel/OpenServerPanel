@@ -1,0 +1,21 @@
+vacuumlo removes unreferenced large objects from databases.
+
+Usage:
+  vacuumlo [OPTION]... DBNAME...
+
+Options:
+  -l, --limit=LIMIT         commit after removing each LIMIT large objects
+  -n, --dry-run             don't remove large objects, just show what would be done
+  -v, --verbose             write a lot of progress messages
+  -V, --version             output version information, then exit
+  -?, --help                show this help, then exit
+
+Connection options:
+  -h, --host=HOSTNAME       database server host or socket directory
+  -p, --port=PORT           database server port
+  -U, --username=USERNAME   user name to connect as
+  -w, --no-password         never prompt for password
+  -W, --password            force password prompt
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

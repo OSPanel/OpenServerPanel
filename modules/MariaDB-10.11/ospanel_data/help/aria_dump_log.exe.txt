@@ -1,0 +1,26 @@
+aria_dump_log.exe Ver 1.1 for Win64 on AMD64
+Copyright (C) 2008 MySQL AB
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL license
+
+Dump the raw content of aria log pages.
+For a logical dump, use aria_read_log
+
+Usage: aria_dump_log.exe OPTIONS aria_log_file
+  -f, --file=name     Path to file which will be read
+  -?, --help          Display this help and exit.
+  -o, --offset=#      Start reading log from this offset
+  -n, --pages=#       Number of pages to read
+  -U, --unit-test     Use unit test record table (for logs created by unittests
+  -V, --version       Print version and exit.
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-10.11\data\my.ini C:\OSPanel\modules\MariaDB-10.11\data\my.cnf C:\OSPanel\modules\MariaDB-10.11\my.ini C:\OSPanel\modules\MariaDB-10.11\my.cnf 
+The following groups are read: aria_dump_log
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.

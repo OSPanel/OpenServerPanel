@@ -1,0 +1,44 @@
+pg_basebackup takes a base backup of a running PostgreSQL server.
+
+Usage:
+  pg_basebackup [OPTION]...
+
+Options controlling the output:
+  -D, --pgdata=DIRECTORY receive base backup into directory
+  -F, --format=p|t       output format (plain (default), tar)
+  -r, --max-rate=RATE    maximum transfer rate to transfer data directory
+                         (in kB/s, or use suffix "k" or "M")
+  -R, --write-recovery-conf
+                         write recovery.conf for replication
+  -S, --slot=SLOTNAME    replication slot to use
+      --no-slot          prevent creation of temporary replication slot
+  -T, --tablespace-mapping=OLDDIR=NEWDIR
+                         relocate tablespace in OLDDIR to NEWDIR
+  -X, --wal-method=none|fetch|stream
+                         include required WAL files with specified method
+      --waldir=WALDIR    location for the write-ahead log directory
+  -z, --gzip             compress tar output
+  -Z, --compress=0-9     compress tar output with given compression level
+
+General options:
+  -c, --checkpoint=fast|spread
+                         set fast or spread checkpointing
+  -l, --label=LABEL      set backup label
+  -n, --no-clean         do not clean up after errors
+  -N, --no-sync          do not wait for changes to be written safely to disk
+  -P, --progress         show progress information
+  -v, --verbose          output verbose messages
+  -V, --version          output version information, then exit
+  -?, --help             show this help, then exit
+
+Connection options:
+  -d, --dbname=CONNSTR   connection string
+  -h, --host=HOSTNAME    database server host or socket directory
+  -p, --port=PORT        database server port number
+  -s, --status-interval=INTERVAL
+                         time between status packets sent to server (in seconds)
+  -U, --username=NAME    connect as specified database user
+  -w, --no-password      never prompt for password
+  -W, --password         force password prompt (should happen automatically)
+
+Report bugs to <pgsql-bugs@postgresql.org>.

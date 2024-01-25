@@ -1,0 +1,10 @@
+$ORIGIN example.local.
+$TTL 900
+example.local.  IN   SOA   ns1.example.local. root.example.local. (2021012101 900 300 604800 900)
+example.local.  IN   NS    ns1.example.local.
+example.local.  IN   NS    ns2.example.local.
+example.local.  IN   A     127.0.0.1
+ns1             IN   A     127.0.0.1
+ns2             IN   A     127.0.0.1
+www             IN   A     127.0.0.1
+example.local.  IN   CAA   0 issue "letsencrypt.org"

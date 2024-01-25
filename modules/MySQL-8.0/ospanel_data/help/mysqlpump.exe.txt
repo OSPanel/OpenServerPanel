@@ -1,0 +1,231 @@
+WARNING: mysqlpump is deprecated and will be removed in a future version. Use mysqldump instead.
+mysqlpump  Ver 8.0.35 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2014, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+MySQL utility for dumping data from databases to external file.
+Usage: mysqlpump [OPTIONS] [--all-databases]
+OR     mysqlpump [OPTIONS] --databases DB1 [DB2 DB3...]
+OR     mysqlpump [OPTIONS] database [tables]
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.0\my.ini C:\OSPanel\modules\MySQL-8.0\my.cnf 
+The following groups are read: client mysql_dump mysqlpump
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+  -?, --help          Display this help message and exit.
+  --add-drop-database Add a DROP DATABASE before each CREATE DATABASE.
+  --add-drop-table    Add a DROP TABLE before each CREATE TABLE.
+  --add-drop-user     Add a DROP USER before each CREATE USER.
+  --add-locks         Wrap data inserts on table with write lock on that table
+                      in output. This doesn't work with parallelism.
+  -A, --all-databases Dump all databases. This is default behaviour if no
+                      positional options are specified. Specifying this option
+                      is mutually exclusive with --databases.
+  --bind-address=name IP address to bind to.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  --column-statistics Add an ANALYZE TABLE statement to regenerate any existing
+                      column statistics.
+  --complete-insert   Use complete insert statements, include column names.
+  -C, --compress      Use compression in server/client protocol.
+  --compress-output=name 
+                      Compresses all output files with LZ4 or ZLIB compression
+                      algorithm.
+  --compression-algorithms=name 
+                      Use compression algorithm in server/client protocol.
+                      Valid values are any combination of
+                      'zstd','zlib','uncompressed'
+  -B, --databases     Dump selected databases, specified in positional options.
+                      Specifying this option is mutually exclusive with
+                      --all-databases.
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check[=#]   This is a non-debug version. Catch this and exit.
+  --debug-info[=#]    This is a non-debug version. Catch this and exit.
+  --default-character-set=name 
+                      Set the default character set.
+  --default-parallelism=# 
+                      Specifies number of threads to process each parallel
+                      queue for values N > 0. if N is 0 then no queue will be
+                      used. Default value is 2. If N > 1 then objects in dump
+                      file can have lines intersected. Usage of values greater
+                      than 1 is mutually exclusive with --single-transaction.
+  --default-auth=name Default authentication client-side plugin to use.
+  --defer-table-indexes 
+                      Defer addition of indexes of table to be added after all
+                      rows are dumped.
+                      (Defaults to on; use --skip-defer-table-indexes to disable.)
+  --events            Dump event scheduler events.
+                      (Defaults to on; use --skip-events to disable.)
+  --exclude-databases=name 
+                      Specifies comma-separated list of databases to exclude.
+  --exclude-events=name 
+                      Specifies comma-separated list of events to exclude.
+  --exclude-routines=name 
+                      Specifies comma-separated list of stored procedures or
+                      functions to exclude.
+  --exclude-tables=name 
+                      Specifies comma-separated list of tables to exclude.
+  --exclude-triggers=name 
+                      Specifies comma-separated list of triggers to exclude.
+  --exclude-users=name 
+                      Specifies comma-separated list of users to exclude. 
+  --extended-insert=# Allow usage of multiple-row INSERT syntax that include
+                      several VALUES lists. Specifies number of rows to include
+                      in single INSERT statement. Must be greater than 0
+  --get-server-public-key 
+                      Get public key from server
+  --hex-blob          Dump binary strings (in fields of type BINARY, VARBINARY,
+                      BLOB, ...) in hexadecimal format.
+  -h, --host=name     Connect to host.
+  --include-databases=name 
+                      Specifies comma-separated list of databases and all of
+                      its objects to include. If there are no exclusions then
+                      only included objects will be dumped. Otherwise all
+                      objects that are not on exclusion lists or are on
+                      inclusion list will be dumped.
+  --include-events=name 
+                      Specifies comma-separated list of events to include. If
+                      there is no exclusions then only included objects will be
+                      dumped. Otherwise all objects that are not on exclusion
+                      lists or are on inclusion list will be dumped.
+  --include-routines=name 
+                      Specifies comma-separated list of stored procedures or
+                      functions to include. If there is no exclusions then only
+                      included objects will be dumped. Otherwise all objects
+                      that are not on exclusion lists or are on inclusion list
+                      will be dumped.
+  --include-tables=name 
+                      Specifies comma-separated list of tables to include. If
+                      there is no exclusions then only included objects will be
+                      dumped. Otherwise all objects that are not on exclusion
+                      lists or are on inclusion list will be dumped.
+  --include-triggers=name 
+                      Specifies comma-separated list of triggers to include. If
+                      there is no exclusions then only included objects will be
+                      dumped. Otherwise all objects that are not on exclusion
+                      lists or are on inclusion list will be dumped.
+  --include-users=name 
+                      Specifies comma-separated list of users to include. If
+                      there is no exclusions then only included objects will be
+                      dumped. Otherwise all objects that are not on exclusion
+                      lists or are on inclusion list will be dumped.
+  --insert-ignore     Use INSERT IGNORE INTO for dumped rows instead of INSERT
+                      INTO.
+  --log-error-file=name 
+                      Append warnings and errors to specified file.
+  --max-allowed-packet=# 
+                      The maximum packet length to send to or receive from
+                      server.
+  --net-buffer-length=# 
+                      The buffer size for TCP/IP and socket communication.
+  --no-create-db      Suppress CREATE DATABASE statements.
+  -t, --no-create-info 
+                      Suppress CREATE TABLE statements.
+  --parallel-schemas=name 
+                      [N:]<list of: schema_name separated with ','>. Process
+                      tables in specified schemas using separate queue handled
+                      by --default-parallelism threads or N threads, if N is
+                      specified. Can be used multiple times to specify more
+                      parallel processes.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given, it's solicited on the tty.
+  --password1[=name]  Password for first factor authentication plugin.
+  --password2[=name]  Password for second factor authentication plugin.
+  --password3[=name]  Password for third factor authentication plugin.
+  -W, --pipe          Use named pipes to connect to server.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=#        Port number to use for connection.
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  --replace           Use REPLACE INTO for dumped rows instead of INSERT INTO.
+  --result-file=name  Direct all output generated for all objects to a given
+                      file.
+  --routines          Dump stored procedures and functions.
+                      (Defaults to on; use --skip-routines to disable.)
+  --server-public-key-path=name 
+                      Path to file containing server public key
+  --set-charset       Add 'SET NAMES default_character_set' to the output to
+                      keep charsets consistent.
+                      (Defaults to on; use --skip-set-charset to disable.)
+  --set-gtid-purged=name 
+                      Add 'SET @@GLOBAL.GTID_PURGED' to the output. Possible
+                      values for this option are ON, OFF and AUTO. If ON is
+                      used and GTIDs are not enabled on the server, an error is
+                      generated. If OFF is used, this option does nothing. If
+                      AUTO is used and GTIDs are enabled on the server, 'SET
+                      @@GLOBAL.GTID_PURGED' is added to the output. If GTIDs
+                      are disabled, AUTO does nothing. If no value is supplied
+                      then the default (AUTO) value will be considered.
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  --single-transaction 
+                      Creates a consistent snapshot by dumping all tables in a
+                      single transaction. Works ONLY for tables stored in
+                      storage engines which support multiversioning (currently
+                      only InnoDB does); the dump is NOT guaranteed to be
+                      consistent for other storage engines. While a
+                      --single-transaction dump is in process, to ensure a
+                      valid dump file (correct table contents and binary log
+                      position), no other connection should use the following
+                      statements: ALTER TABLE, DROP TABLE, RENAME TABLE,
+                      TRUNCATE TABLE, as consistent snapshot is not isolated
+                      from them. This option is mutually exclusive with
+                      --add-locks option.
+  --skip-definer      Skip DEFINER and SQL SECURITY clauses for Views and
+                      Stored Routines.
+  -d, --skip-dump-rows 
+                      Skip dumping rows of all tables to output.
+  --skip-generated-invisible-primary-key 
+                      Controls whether generated primary key and key column
+                      should be dumped or not.
+  -S, --socket=name   The socket file to use for connection.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --ssl-fips-mode=name 
+                      SSL fips mode to use.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-mode=name     SSL connection mode.
+  --ssl-session-data=name 
+                      Session data file to use to enable ssl session reuse
+  --ssl-session-data-continue-on-failed-reuse 
+                      If set to ON, this option will allow connection to
+                      succeed even if session data cannot be reused.
+  --tls-ciphersuites=name 
+                      TLS v1.3 cipher to use.
+  --tls-version=name  TLS version to use.
+  --triggers          Dump triggers.
+                      (Defaults to on; use --skip-triggers to disable.)
+  --tz-utc            SET TIME_ZONE='+00:00' at top of dump to allow dumping of
+                      TIMESTAMP data when a server has data in different time
+                      zones or data is being moved between servers with
+                      different time zones.
+                      (Defaults to on; use --skip-tz-utc to disable.)
+  -u, --user=name     User for login if not current user.
+  --users             Dump users with their privileges in GRANT format.
+                      Disabled by default.
+  -V, --version       Output version information and exit.
+  --watch-progress    Shows periodically dump process progress information on
+                      error output. Progress information include both completed
+                      and total number of tables, rows and other objects
+                      collected.
+                      (Defaults to on; use --skip-watch-progress to disable.)
+  --zstd-compression-level=# 
+                      Use this compression level in the client/server protocol,
+                      in case --compression-algorithms=zstd. Valid range is
+                      between 1 and 22, inclusive. Default is 3.

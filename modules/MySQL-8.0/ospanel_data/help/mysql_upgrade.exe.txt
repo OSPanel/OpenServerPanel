@@ -1,0 +1,107 @@
+mysql_upgrade  Ver 8.0.35 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+MySQL utility for upgrading databases to new MySQL versions (deprecated).
+The mysql_upgrade client is now deprecated. The actions executed by the upgrade client are now done by the server.
+To upgrade, please start the new MySQL binary with the older data directory. Repairing user tables is done automatically. Restart is not required after upgrade.
+The upgrade process automatically starts on running a new MySQL binary with an older data directory. To avoid accidental upgrades, please use the --upgrade=NONE option with the MySQL binary. The option --upgrade=FORCE is also provided to run the server upgrade sequence on demand.
+It may be possible that the server upgrade fails due to a number of reasons. In that case, the upgrade sequence will run again during the next MySQL server start. If the server upgrade fails repeatedly, the server can be started with the --upgrade=MINIMAL option to start the server without executing the upgrade sequence, thus allowing users to manually rectify the problem.
+Usage: mysql_upgrade [OPTIONS]
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.0\my.ini C:\OSPanel\modules\MySQL-8.0\my.cnf 
+The following groups are read: client mysql_upgrade
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+  -?, --help          Display this help message and exit.
+  --bind-address=name IP address to bind to.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  -C, --compress      Use compression in server/client protocol.
+  --compression-algorithms=name 
+                      Use compression algorithm in server/client protocol.
+                      Valid values are any combination of
+                      'zstd','zlib','uncompressed'
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check[=#]   This is a non-debug version. Catch this and exit.
+  --debug-info[=#]    This is a non-debug version. Catch this and exit.
+  --default-character-set=name 
+                      Set the default character set.
+  --default-auth=name Default authentication client-side plugin to use.
+  -f, --force         Force execution of SQL statements even if mysql_upgrade
+                      has already been executed for the current version of
+                      MySQL.
+  --get-server-public-key 
+                      Get public key from server
+  -h, --host=name     Connect to host.
+  --max-allowed-packet=# 
+                      The maximum packet length to send to or receive from
+                      server.
+  --net-buffer-length=# 
+                      The buffer size for TCP/IP and socket communication.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given, it's solicited on the tty.
+  --password1[=name]  Password for first factor authentication plugin.
+  --password2[=name]  Password for second factor authentication plugin.
+  --password3[=name]  Password for third factor authentication plugin.
+  -W, --pipe          Use named pipes to connect to server.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=#        Port number to use for connection.
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  --server-public-key-path=name 
+                      Path to file containing server public key
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  --skip-sys-schema   Do not upgrade/install the sys schema.
+  -S, --socket=name   The socket file to use for connection.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --ssl-fips-mode=name 
+                      SSL fips mode to use.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-mode=name     SSL connection mode.
+  --ssl-session-data=name 
+                      Session data file to use to enable ssl session reuse
+  --ssl-session-data-continue-on-failed-reuse 
+                      If set to ON, this option will allow connection to
+                      succeed even if session data cannot be reused.
+  --tls-ciphersuites=name 
+                      TLS v1.3 cipher to use.
+  --tls-version=name  TLS version to use.
+  -s, --upgrade-system-tables 
+                      Only upgrade the system tables, do not try to upgrade the
+                      data.
+  -u, --user=name     User for login if not current user.
+  -v, --verbose       Display more output about the process.
+                      (Defaults to on; use --skip-verbose to disable.)
+  -V, --version       Output version information and exit.
+  -k, --version-check Run this program only if its 'server version' matches the
+                      version of the server to which it's connecting, (enabled
+                      by default); use --skip-version-check to avoid this
+                      check. Note: the 'server version' of the program is the
+                      version of the MySQL server with which it was
+                      built/distributed.
+                      (Defaults to on; use --skip-version-check to disable.)
+  --write-binlog      Write all executed SQL statements to the binary log.
+                      Disabled by default. Use of this option is discouraged.
+  --zstd-compression-level=# 
+                      Use this compression level in the client/server protocol,
+                      in case --compression-algorithms=zstd. Valid range is
+                      between 1 and 22, inclusive. Default is 3.

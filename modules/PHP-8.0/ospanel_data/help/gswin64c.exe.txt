@@ -1,0 +1,38 @@
+GPL Ghostscript 10.01.2 (2023-06-21)
+Copyright (C) 2023 Artifex Software, Inc.  All rights reserved.
+Usage: gs [switches] [file1.ps file2.ps ...]
+Most frequently used switches: (you can use # in place of =)
+ -dNOPAUSE           no pause after page   | -q       `quiet', fewer messages
+ -g<width>x<height>  page size in pixels   | -r<res>  pixels/inch resolution
+ -sDEVICE=<devname>  select device         | -dBATCH  exit after last file
+ -sOutputFile=<file> select output file: - for stdout, |command for pipe,
+                                         embed %d or %ld for page #
+Input formats: PostScript PostScriptLevel1 PostScriptLevel2 PostScriptLevel3 PDF
+Default output device: display
+Available devices:
+   bbox bit bitcmyk bitrgb bitrgbtags bj10e bj200 bjc600 bjc800 bmp16 bmp16m
+   bmp256 bmp32b bmpgray bmpmono bmpsep1 bmpsep8 cdeskjet cdj500 cdj550
+   cdjcolor cdjmono chameleon cljet5 cljet5c cljet5pr declj250 deskjet
+   devicen display dj505j djet500 djet500c dnj650c docxwrite eps2write
+   eps9high eps9mid epson epsonc fpng fs600 hocr ibmpro ijs imagen ink_cov
+   inkcov jetp3852 jpeg jpegcmyk jpeggray laserjet lbp8 lj250 lj3100sw
+   lj4dith lj4dithp lj5gray ljet2p ljet3 ljet3d ljet4 ljet4d ljet4pjl
+   ljetplus lp2563 m8510 mswinpr2 necp6 nullpage oce9050 ocr paintjet pam
+   pamcmyk32 pamcmyk4 pbm pbmraw pclm pclm8 pcx16 pcx24b pcx256 pcxcmyk
+   pcxgray pcxmono pdfimage24 pdfimage32 pdfimage8 pdfocr24 pdfocr32 pdfocr8
+   pdfwrite pgm pgmraw pgnm pgnmraw picty180 pj pjetxl pjxl pjxl300 pkmraw
+   plan planc plang plank planm planr plib plibc plibg plibk plibm png16
+   png16m png16malpha png256 png48 pngalpha pnggray pngmono pngmonod pnm
+   pnmcmyk pnmraw ppm ppmraw ps2write psdcmyk psdcmyk16 psdcmykog
+   psdcmyktags psdcmyktags16 psdrgb psdrgb16 pxlcolor pxlmono r4081 sj48
+   spotcmyk st800 stcolor t4693d2 t4693d4 t4693d8 tek4696 tiff12nc tiff24nc
+   tiff32nc tiff48nc tiff64nc tiffcrle tiffg3 tiffg32d tiffg4 tiffgray
+   tifflzw tiffpack tiffscaled tiffscaled24 tiffscaled32 tiffscaled4
+   tiffscaled8 tiffsep tiffsep1 txtwrite uniprint xpswrite
+Search path:
+   C:\OSPanel\modules\PHP-8.0\PHP\lib ; %rom%Resource/Init/ ; %rom%lib/ ;
+   c:/gs/gs10.01.2/Resource/Init ; c:/gs/gs10.01.2/lib ;
+   c:/gs/gs10.01.2/Resource/Font ; c:/gs/fonts
+Initialization files are compiled into the executable.
+For more information, see c:/gs/gs10.01.2/doc/Use.htm.
+Please report bugs to bugs.ghostscript.com.

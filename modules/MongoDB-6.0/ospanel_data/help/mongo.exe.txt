@@ -1,0 +1,80 @@
+MongoDB shell version v5.0.11
+usage: mongo.exe [options] [db address] [file names (ending in .js)]
+db address can be:
+  foo                   foo database on local machine
+  192.168.0.5/foo       foo database on 192.168.0.5 machine
+  192.168.0.5:9999/foo  foo database on 192.168.0.5 machine on port 9999
+  mongodb://192.168.0.5:9999/foo  connection string URI can also be used
+Options:
+  --ipv6                               enable IPv6 support (disabled by 
+                                       default)
+  --host arg                           server to connect to
+  --port arg                           port to connect to
+  -h [ --help ]                        show this usage information
+  --version                            show version information
+  --verbose                            increase verbosity
+  --shell                              run the shell after executing files
+  --nodb                               don't connect to mongod on startup - no 
+                                       'db address' arg expected
+  --norc                               will not run the ".mongorc.js" file on 
+                                       start up
+  --quiet                              be less chatty
+  --eval arg                           evaluate javascript
+  --apiVersion arg                     set the MongoDB API version
+  --apiStrict                          disable all features not included in the
+                                       MongoDB Versioned API
+  --apiDeprecationErrors               disable all features deprecated in the 
+                                       MongoDB Versioned API
+  --disableJavaScriptJIT               disable the Javascript Just In Time 
+                                       compiler
+  --enableJavaScriptJIT                enable the Javascript Just In Time 
+                                       compiler
+  --disableJavaScriptProtection        allow automatic JavaScript function 
+                                       marshalling
+  --retryWrites                        automatically retry write operations 
+                                       upon transient network errors
+  --disableImplicitSessions            do not automatically create and use 
+                                       implicit sessions
+  --jsHeapLimitMB arg                  set the js scope's heap size limit
+  --idleSessionTimeout arg (=0)        Terminate the Shell session if it's been
+                                       idle for this many seconds
+
+Authentication Options:
+  -u [ --username ] arg                username for authentication
+  -p [ --password ] arg                password for authentication
+  --authenticationDatabase arg         user source (defaults to dbname)
+  --authenticationMechanism arg        authentication mechanism
+  --gssapiServiceName arg (=mongodb)   Service name to use when authenticating 
+                                       using GSSAPI/Kerberos
+  --gssapiHostName arg                 Remote host name to use for purpose of 
+                                       GSSAPI/Kerberos authentication
+
+FLE AWS Options:
+  --awsAccessKeyId arg                 AWS Access Key for FLE Amazon KMS
+  --awsSecretAccessKey arg             AWS Secret Key for FLE Amazon KMS
+  --awsSessionToken arg                Optional AWS Session Token ID
+  --keyVaultNamespace arg              database.collection to store encrypted 
+                                       FLE parameters
+  --kmsURL arg                         Test parameter to override the URL for 
+                                       KMS
+
+AWS IAM Options:
+  --awsIamSessionToken arg             AWS Session Token for temporary 
+                                       credentials
+
+TLS Options:
+  --tls                                use TLS for all connections
+  --tlsCertificateKeyFile arg          PEM certificate/key file for TLS
+  --tlsCertificateKeyFilePassword arg  Password for key in PEM file for TLS
+  --tlsCAFile arg                      Certificate Authority file for TLS
+  --tlsCRLFile arg                     Certificate Revocation List file for TLS
+  --tlsAllowInvalidHostnames           Allow connections to servers with 
+                                       non-matching hostnames
+  --tlsAllowInvalidCertificates        Allow connections to servers with 
+                                       invalid certificates
+  --tlsFIPSMode                        Activate FIPS 140-2 mode at startup
+  --tlsCertificateSelector arg         TLS Certificate in system store
+  --tlsDisabledProtocols arg           Comma separated list of TLS protocols to
+                                       disable [TLS1_0,TLS1_1,TLS1_2,TLS1_3]
+
+file names: a list of files to run. files have to end in .js and will exit after unless --shell is specified

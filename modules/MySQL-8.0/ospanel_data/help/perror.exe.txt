@@ -1,0 +1,18 @@
+perror.exe  Ver 8.0.35 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Print a description for a system error code or a MySQL error code.
+If you want to get the error for a negative error code, you should use
+-- before the first error code to tell perror that there was no more options.
+
+Usage: perror.exe [OPTIONS] [ERRORCODE [ERRORCODE...]]
+  -?, --help          Displays this help and exits.
+  -I, --info          Synonym for --help.
+  -s, --silent        Only print the error message.
+  -v, --verbose       Print error code and message (default).
+                      (Defaults to on; use --skip-verbose to disable.)
+  -V, --version       Displays version information and exits.

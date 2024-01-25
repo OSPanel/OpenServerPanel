@@ -1,0 +1,70 @@
+aria_read_log.exe Ver 1.6 for Win64 on AMD64
+Copyright (C) 2007 MySQL AB, 2009-2011 Monty Program Ab, 2022 MariaDB Corporation
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL license
+
+Display or apply log records from a Aria transaction log
+found in the current directory (for now)
+
+Note: Aria is compiled without -DIDENTICAL_PAGES_AFTER_RECOVERY
+which means that the table files are not byte-to-byte identical to
+files created during normal execution. This should be ok, except for
+test scripts that tries to compare files before and after recovery.
+
+Usage: aria_read_log.exe OPTIONS [-d | -a] -h `aria_log_directory`
+or
+Usage: aria_read_log.exe OPTIONS -h `aria_log_directory` --print-log-control-file
+
+  -a, --apply         Apply log to tables: modifies tables! you should make a
+                      backup first!  Displays a lot of information if not run
+                      with --silent
+  --character-sets-dir=name 
+                      Directory where character sets are.
+  -c, --check         if --display-only, check if record is fully readable (for
+                      debugging)
+  -?, --help          Display this help and exit.
+  -d, --display-only  display brief info read from records' header
+  -e, --end-lsn=name  Alias for lsn-redo-end
+  -e, --lsn-redo-end=name 
+                      Stop applying at this lsn during redo. If this option is
+                      used UNDO:s will not be applied unless --lsn-undo-end is
+                      given
+  -E, --lsn-undo-end=name 
+                      Stop applying undo after this lsn has been applied
+  -h, --aria-log-dir-path=name 
+                      Path to the directory where to store transactional log
+  -P, --page-buffer-size=# 
+                      The size of the buffer used for index blocks for Aria
+                      tables
+  -l, --print-log-control-file 
+                      Print the content of the aria_log_control_file
+  -o, --start-from-lsn=# 
+                      Start reading log from this lsn
+  -C, --start-from-checkpoint 
+                      Start applying from last checkpoint
+  -s, --silent        Print less information during apply/undo phase
+  -T, --tables-to-redo=name 
+                      List of tables separated with , that we should apply REDO
+                      on. Use this if you only want to recover some tables
+  -t, --tmpdir=name   Path for temporary files. Multiple paths can be
+                      specified, separated by semicolon (;)
+  --translog-buffer-size=# 
+                      The size of the buffer used for transaction log for Aria
+                      tables
+  -u, --undo          Apply UNDO records to tables. (disable with
+                      --disable-undo). Will be automatically set if
+                      lsn-undo-end is used
+                      (Defaults to on; use --skip-undo to disable.)
+  -v, --verbose       Print more information during apply/undo phase
+  -V, --version       Print version and exit.
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.0\data\my.ini C:\OSPanel\modules\MariaDB-11.0\data\my.cnf C:\OSPanel\modules\MariaDB-11.0\my.ini C:\OSPanel\modules\MariaDB-11.0\my.cnf 
+The following groups are read: aria_read_log
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.

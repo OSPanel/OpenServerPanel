@@ -1,0 +1,22 @@
+pg_resetxlog resets the PostgreSQL transaction log.
+
+Usage:
+  pg_resetxlog [OPTION]... DATADIR
+
+Options:
+  -c XID,XID       set oldest and newest transactions bearing commit timestamp
+                   (zero in either value means no change)
+ [-D] DATADIR      data directory
+  -e XIDEPOCH      set next transaction ID epoch
+  -f               force update to be done
+  -l XLOGFILE      force minimum WAL starting location for new transaction log
+  -m MXID,MXID     set next and oldest multitransaction ID
+  -n               no update, just show what would be done (for testing)
+  -o OID           set next OID
+  -O OFFSET        set next multitransaction offset
+  -u XID           set oldest transaction ID
+  -V, --version    output version information, then exit
+  -x XID           set next transaction ID
+  -?, --help       show this help, then exit
+
+Report bugs to <pgsql-bugs@postgresql.org>.

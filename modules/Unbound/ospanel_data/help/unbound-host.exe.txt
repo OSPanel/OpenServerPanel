@@ -1,0 +1,27 @@
+Usage:	unbound-host [-C configfile] [-vdhr46] [-c class] [-t type]
+                     [-y key] [-f keyfile] [-F namedkeyfile] hostname
+  Queries the DNS for information.
+  The hostname is looked up for IP4, IP6 and mail.
+  If an ip-address is given a reverse lookup is done.
+  Use the -v option to see DNSSEC security information.
+    -t type		what type to look for.
+    -c class		what class to look for, if not class IN.
+    -y 'keystring'	specify trust anchor, DS or DNSKEY, like
+			-y 'example.com DS 31560 5 1 1CFED8478...'
+    -D			DNSSEC enable with default root anchor
+    			from C:\Program Files\Unbound\root.key
+    -f keyfile		read trust anchors from file, with lines as -y.
+    -F keyfile		read named.conf-style trust anchors.
+    -C config		use the specified unbound.conf (none read by default)
+			pass as first argument if you want to override some
+			options with further arguments
+    -r			read forwarder information from /etc/resolv.conf
+      			breaks validation if the forwarder does not do DNSSEC.
+    -v			be more verbose, shows nodata and security.
+    -d			debug, traces the action, -d -d shows more.
+    -4			use ipv4 network, avoid ipv6.
+    -6			use ipv6 network, avoid ipv4.
+    -h			show this usage help.
+Version 1.19.0
+BSD licensed, see LICENSE in source package for details.
+Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues

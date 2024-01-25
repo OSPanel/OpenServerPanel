@@ -1,0 +1,150 @@
+mariadb-binlog.exe Ver 3.5 for Win64 at AMD64
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Dumps a MariaDB binary log in a format usable for viewing or for piping to
+the mysql command line client.
+
+Usage: mariadb-binlog.exe [options] log-files
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-10.6\data\my.ini C:\OSPanel\modules\MariaDB-10.6\data\my.cnf C:\OSPanel\modules\MariaDB-10.6\my.ini C:\OSPanel\modules\MariaDB-10.6\my.cnf 
+The following groups are read: mysqlbinlog mariadb-binlog client client-server client-mariadb
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.
+
+  -?, --help          Display this help and exit.
+  --base64-output=name 
+                      Determine when the output statements should be
+                      base64-encoded BINLOG statements: ‘never’ neither
+                      prints base64 encodings nor verbose event data, and will
+                      exit on error if a row-based event is found.
+                      'decode-rows' decodes row events into commented SQL
+                      statements if the --verbose option is also given.
+                      ‘auto’ outputs base64 encoded entries for row-based
+                      and format description events. If no option is given at
+                      all, the default is ‘auto', and is consequently the
+                      only option that should be used when row-format events
+                      are processed for re-execution.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  -d, --database=name List entries for just this database (local log only).
+  --debug-check       Check memory and open file usage at exit .
+  --debug-info        Print some debug info at exit.
+  --default-auth=name Default authentication client-side plugin to use.
+  -D, --disable-log-bin 
+                      Disable binary log. This is useful, if you enabled
+                      --to-last-log and are sending the output to the same
+                      MariaDB server. This way you could avoid an endless loop.
+                      You would also like to use it when restoring after a
+                      crash to avoid duplication of the statements you already
+                      have. NOTE: you will need a SUPER privilege to use this
+                      option.
+  -B, --flashback     Flashback feature can rollback you committed data to a
+                      special time point.
+  -F, --force-if-open Force if binlog was not closed properly.
+                      (Defaults to on; use --skip-force-if-open to disable.)
+  -f, --force-read    Force reading unknown binlog events.
+  -H, --hexdump       Augment output with hexadecimal and ASCII event dump.
+  -h, --host=name     Get the binlog from server.
+  -l, --local-load=name 
+                      Prepare local temporary files for LOAD DATA INFILE in the
+                      specified directory.
+  -o, --offset=#      Skip the first N entries.
+  -p, --password[=name] 
+                      Password to connect to remote server.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe).
+  -R, --read-from-remote-server 
+                      Read binary logs from a MariaDB server.
+  --raw               Requires -R. Output raw binlog data instead of SQL
+                      statements. Output files named after server logs.
+  -r, --result-file=name 
+                      Direct output to a given file. With --raw this is a
+                      prefix for the file names.
+  --print-row-count   Print row counts for each row events
+                      (Defaults to on; use --skip-print-row-count to disable.)
+  --print-row-event-positions 
+                      Print row event positions
+                      (Defaults to on; use --skip-print-row-event-positions to disable.)
+  --server-id=#       Extract only binlog entries created by the server having
+                      the given id.
+  --set-charset=name  Add 'SET NAMES character_set' to the output.
+  -s, --short-form    Just show regular queries: no extra info, no row-based
+                      events and no row counts. This is mainly for testing
+                      only, and should not be used to feed to the MariaDB
+                      server. If you want to just suppress base64-output, you
+                      can instead use --base64-output=never
+  -S, --socket=name   The socket file to use for connection.
+  --ssl               Enable SSL for connection (automatically enabled with
+                      other flags).
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies
+                      --ssl).
+  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl).
+  --ssl-cert=name     X509 cert in PEM format (implies --ssl).
+  --ssl-cipher=name   SSL cipher to use (implies --ssl).
+  --ssl-key=name      X509 key in PEM format (implies --ssl).
+  --ssl-crl=name      Certificate revocation list (implies --ssl).
+  --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
+  --tls-version=name  TLS protocol version for secure connection.
+  --ssl-verify-server-cert 
+                      Verify server's "Common Name" in its cert against
+                      hostname used when connecting. This option is disabled by
+                      default.
+  --start-datetime=name 
+                      Start reading the binlog at first event having a datetime
+                      equal or posterior to the argument; the argument must be
+                      a date and time in the local time zone, in any format
+                      accepted by the MariaDB server for DATETIME and TIMESTAMP
+                      types, for example: 2004-12-25 11:25:56 (you should
+                      probably use quotes for your shell to set it properly).
+  -j, --start-position=# 
+                      Start reading the binlog at position N. Applies to the
+                      first binlog passed on the command line.
+  --stop-datetime=name 
+                      Stop reading the binlog at first event having a datetime
+                      equal or posterior to the argument; the argument must be
+                      a date and time in the local time zone, in any format
+                      accepted by the MariaDB server for DATETIME and TIMESTAMP
+                      types, for example: 2004-12-25 11:25:56 (you should
+                      probably use quotes for your shell to set it properly).
+  --stop-never        Wait for more data from the server instead of stopping at
+                      the end of the last log. Implies --to-last-log.
+  --stop-never-slave-server-id=# 
+                      The slave server_id used for --read-from-remote-server
+                      --stop-never.
+  --stop-position=#   Stop reading the binlog at position N. Applies to the
+                      last binlog passed on the command line.
+  -T, --table=name    List entries for just this table (affects only row
+                      events).
+  -t, --to-last-log   Requires -R. Will not stop at the end of the requested
+                      binlog but rather continue printing until the end of the
+                      last binlog of the MariaDB server. If you send the output
+                      to the same MariaDB server, that may lead to an endless
+                      loop.
+  -u, --user=name     Connect to the remote server as username.
+  -v, --verbose       Reconstruct SQL statements out of row events. -v -v adds
+                      comments on column data types.
+  -V, --version       Print version and exit.
+  --open-files-limit=# 
+                      Used to reserve file descriptors for use by this program.
+  --binlog-row-event-max-size=# 
+                      The maximum size of a row-based binary log event in
+                      bytes. Rows will be grouped into events smaller than this
+                      size if possible. This value must be a multiple of 256.
+  -c, --verify-binlog-checksum 
+                      Verify binlog event checksums.
+  --rewrite-db=name   Updates to a database with a different name than the
+                      original. Example: rewrite-db='from->to'.
+  --skip-annotate-row-events 
+                      Don't print Annotate_rows events stored in the binary
+                      log.
+  --print-table-metadata 
+                      Print metadata stored in Table_map_log_event

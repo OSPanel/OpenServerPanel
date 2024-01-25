@@ -1,0 +1,1 @@
+usage: named-checkconf [-chijlvz] [-p [-x]] [-t directory] [named.conf]

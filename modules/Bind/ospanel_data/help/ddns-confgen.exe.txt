@@ -1,0 +1,7 @@
+Usage:
+ ddns-confgen [-a alg] [-k keyname] [-q] [-s name | -z zone]
+  -a alg:        algorithm (default hmac-sha256)
+  -k keyname:    name of the key as it will be used in named.conf
+  -s name:       domain name to be updated using the created key
+  -z zone:       name of the zone as it will be used in named.conf
+  -q:            quiet mode: print the key, with no explanatory text

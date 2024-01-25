@@ -1,0 +1,54 @@
+pg_basebackup takes a base backup of a running PostgreSQL server.
+
+Usage:
+  pg_basebackup [OPTION]...
+
+Options controlling the output:
+  -D, --pgdata=DIRECTORY receive base backup into directory
+  -F, --format=p|t       output format (plain (default), tar)
+  -r, --max-rate=RATE    maximum transfer rate to transfer data directory
+                         (in kB/s, or use suffix "k" or "M")
+  -R, --write-recovery-conf
+                         write configuration for replication
+  -T, --tablespace-mapping=OLDDIR=NEWDIR
+                         relocate tablespace in OLDDIR to NEWDIR
+      --waldir=WALDIR    location for the write-ahead log directory
+  -X, --wal-method=none|fetch|stream
+                         include required WAL files with specified method
+  -z, --gzip             compress tar output
+  -Z, --compress=0-9     compress tar output with given compression level
+
+General options:
+  -c, --checkpoint=fast|spread
+                         set fast or spread checkpointing
+  -C, --create-slot      create replication slot
+  -l, --label=LABEL      set backup label
+  -n, --no-clean         do not clean up after errors
+  -N, --no-sync          do not wait for changes to be written safely to disk
+  -P, --progress         show progress information
+  -S, --slot=SLOTNAME    replication slot to use
+  -v, --verbose          output verbose messages
+  -V, --version          output version information, then exit
+      --manifest-checksums=SHA{224,256,384,512}|CRC32C|NONE
+                         use algorithm for manifest checksums
+      --manifest-force-encode
+                         hex encode all file names in manifest
+      --no-estimate-size do not estimate backup size in server side
+      --no-manifest      suppress generation of backup manifest
+      --no-slot          prevent creation of temporary replication slot
+      --no-verify-checksums
+                         do not verify checksums
+  -?, --help             show this help, then exit
+
+Connection options:
+  -d, --dbname=CONNSTR   connection string
+  -h, --host=HOSTNAME    database server host or socket directory
+  -p, --port=PORT        database server port number
+  -s, --status-interval=INTERVAL
+                         time between status packets sent to server (in seconds)
+  -U, --username=NAME    connect as specified database user
+  -w, --no-password      never prompt for password
+  -W, --password         force password prompt (should happen automatically)
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

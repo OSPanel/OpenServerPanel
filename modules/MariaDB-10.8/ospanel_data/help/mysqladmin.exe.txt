@@ -1,0 +1,112 @@
+mysqladmin.exe  Ver 9.1 Distrib 10.8.8-MariaDB, for Win64 on AMD64
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Administration program for the mysqld daemon.
+Usage: mysqladmin.exe [OPTIONS] command command....
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-10.8\data\my.ini C:\OSPanel\modules\MariaDB-10.8\data\my.cnf C:\OSPanel\modules\MariaDB-10.8\my.ini C:\OSPanel\modules\MariaDB-10.8\my.cnf 
+The following groups are read: mysqladmin mariadb-admin client client-server client-mariadb
+The following options may be given as the first argument:
+--print-defaults          Print the program argument list and exit.
+--no-defaults             Don't read default options from any option file.
+The following specify which files/extra groups are read (specified before remaining options):
+--defaults-file=#         Only read default options from the given file #.
+--defaults-extra-file=#   Read this file after the global files are read.
+--defaults-group-suffix=# Additionally read default groups with # appended as a suffix.
+
+  -c, --count=#       Number of iterations to make. This works with -i
+                      (--sleep) only.
+  --debug-check       Check memory and open file usage at exit.
+  --debug-info        Print some debug info at exit.
+  -f, --force         Don't ask for confirmation on drop database; with
+                      multiple commands, continue even if an error occurs.
+  -C, --compress      Use compression in server/client protocol.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  --default-character-set=name 
+                      Set the default character set.
+  -?, --help          Display this help and exit.
+  -h, --host=name     Connect to host.
+  -l, --local         Local command, don't write to binlog.
+  -b, --no-beep       Turn off beep on error.
+  -p, --password[=name] 
+                      Password to use when connecting to server. If password is
+                      not given it's asked from the tty.
+  -W, --pipe          Use named pipes to connect to server.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe).
+  -r, --relative      Show difference between current and previous values when
+                      used with -i. Currently only works with extended-status.
+  -s, --silent        Silently exit if one can't connect to server.
+  -S, --socket=name   The socket file to use for connection.
+  -i, --sleep=#       Execute commands repeatedly with a sleep between.
+  --ssl               Enable SSL for connection (automatically enabled with
+                      other flags).
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies
+                      --ssl).
+  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl).
+  --ssl-cert=name     X509 cert in PEM format (implies --ssl).
+  --ssl-cipher=name   SSL cipher to use (implies --ssl).
+  --ssl-key=name      X509 key in PEM format (implies --ssl).
+  --ssl-crl=name      Certificate revocation list (implies --ssl).
+  --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
+  --tls-version=name  TLS protocol version for secure connection.
+  --ssl-verify-server-cert 
+                      Verify server's "Common Name" in its cert against
+                      hostname used when connecting. This option is disabled by
+                      default.
+  -u, --user=name     User for login if not current user.
+  -v, --verbose       Write more information.
+  -V, --version       Output version information and exit.
+  -E, --vertical      Print output vertically. Is similar to --relative, but
+                      prints output vertically.
+  -w, --wait[=#]      Wait and retry if connection is down.
+  --connect-timeout=# 
+  --shutdown-timeout=# 
+  --wait-for-all-slaves 
+                      Defers shutdown until after all binlogged events have
+                      been sent to all connected slaves
+  --plugin-dir=name   Directory for client-side plugins.
+  --default-auth=name Default authentication client-side plugin to use.
+
+Where command is a one or more of: (Commands may be shortened)
+  create databasename	  Create a new database
+  debug			  Instruct server to write debug information to log
+  drop databasename	  Delete a database and all its tables
+  extended-status         Gives an extended status message from the server
+  flush-all-statistics    Flush all statistics tables
+  flush-all-status        Flush status and statistics
+  flush-client-statistics Flush client statistics
+  flush-hosts             Flush all cached hosts
+  flush-index-statistics  Flush index statistics
+  flush-logs              Flush all logs
+  flush-privileges        Reload grant tables (same as reload)
+  flush-binary-log        Flush binary log
+  flush-engine-log        Flush engine log(s)
+  flush-error-log         Flush error log
+  flush-general-log       Flush general log
+  flush-relay-log         Flush relay log
+  flush-slow-log          Flush slow query log
+  flush-ssl               Flush SSL certificates
+  flush-status            Clear status variables
+  flush-table-statistics  Clear table statistics
+  flush-tables            Flush all tables
+  flush-threads           Flush the thread cache
+  flush-user-statistics   Flush user statistics
+  flush-user-resources    Flush user resources
+  kill id,id,...	Kill mysql threads
+  password [new-password] Change old password to new-password in current format
+  old-password [new-password] Change old password to new-password in old format
+  ping			Check if mysqld is alive
+  processlist		Show list of active threads in server
+  reload		Reload grant tables
+  refresh		Flush all tables and close and open logfiles
+  shutdown		Take server down
+  status		Gives a short status message from the server
+  start-slave		Start slave
+  stop-slave		Stop slave
+  variables             Prints variables available
+  version		Get version info from server

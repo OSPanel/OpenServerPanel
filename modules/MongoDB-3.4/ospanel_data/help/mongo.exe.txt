@@ -1,0 +1,49 @@
+MongoDB shell version v3.4.24
+usage: mongo.exe [options] [db address] [file names (ending in .js)]
+db address can be:
+  foo                   foo database on local machine
+  192.168.0.5/foo       foo database on 192.168.0.5 machine
+  192.168.0.5:9999/foo  foo database on 192.168.0.5 machine on port 9999
+Options:
+  --shell                             run the shell after executing files
+  --nodb                              don't connect to mongod on startup - no 
+                                      'db address' arg expected
+  --norc                              will not run the ".mongorc.js" file on 
+                                      start up
+  --quiet                             be less chatty
+  --port arg                          port to connect to
+  --host arg                          server to connect to
+  --eval arg                          evaluate javascript
+  -h [ --help ]                       show this usage information
+  --version                           show version information
+  --verbose                           increase verbosity
+  --ipv6                              enable IPv6 support (disabled by default)
+  --disableJavaScriptJIT              disable the Javascript Just In Time 
+                                      compiler
+  --disableJavaScriptProtection       allow automatic JavaScript function 
+                                      marshalling
+  --ssl                               use SSL for all connections
+  --sslCAFile arg                     Certificate Authority file for SSL
+  --sslPEMKeyFile arg                 PEM certificate/key file for SSL
+  --sslPEMKeyPassword arg             password for key in PEM file for SSL
+  --sslCRLFile arg                    Certificate Revocation List file for SSL
+  --sslAllowInvalidHostnames          allow connections to servers with 
+                                      non-matching hostnames
+  --sslAllowInvalidCertificates       allow connections to servers with invalid
+                                      certificates
+  --sslFIPSMode                       activate FIPS 140-2 mode at startup
+  --networkMessageCompressors arg     Comma-separated list of compressors to 
+                                      use for network messages
+  --jsHeapLimitMB arg                 set the js scope's heap size limit
+
+Authentication Options:
+  -u [ --username ] arg               username for authentication
+  -p [ --password ] arg               password for authentication
+  --authenticationDatabase arg        user source (defaults to dbname)
+  --authenticationMechanism arg       authentication mechanism
+  --gssapiServiceName arg (=mongodb)  Service name to use when authenticating 
+                                      using GSSAPI/Kerberos
+  --gssapiHostName arg                Remote host name to use for purpose of 
+                                      GSSAPI/Kerberos authentication
+
+file names: a list of files to run. files have to end in .js and will exit after unless --shell is specified

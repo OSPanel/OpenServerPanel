@@ -1,0 +1,6 @@
+﻿[main]
+
+id         =
+ignore_ver =
+mutex      = OSPanel
+path_check = on

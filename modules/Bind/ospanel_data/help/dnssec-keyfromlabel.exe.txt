@@ -1,0 +1,43 @@
+Usage:
+    dnssec-keyfromlabel -l label [options] name
+
+Version: 9.16.32
+Required options:
+    -l label: label of the key pair
+    name: owner of the key
+Other options:
+    -a algorithm: 
+        DH | RSASHA1 |
+        NSEC3RSASHA1 |
+        RSASHA256 | RSASHA512 |
+        ECDSAP256SHA256 | ECDSAP384SHA384 |
+        ED25519 | ED448
+    -3: use NSEC3-capable algorithm
+    -c class (default: IN)
+    -E <engine>:
+        name of an OpenSSL engine to use
+    -f keyflag: KSK | REVOKE
+    -K directory: directory in which to place key files
+    -k: generate a TYPE=KEY key
+    -L ttl: default key TTL
+    -n nametype: ZONE | HOST | ENTITY | USER | OTHER
+        (DNSKEY generation defaults to ZONE
+    -p protocol: default: 3 [dnssec]
+    -t type: AUTHCONF | NOAUTHCONF | NOAUTH | NOCONF (default: AUTHCONF)
+    -y: permit keys that might collide
+    -v verbose level
+    -V: print version information
+Date options:
+    -P date/[+-]offset: set key publication date
+    -P sync date/[+-]offset: set CDS and CDNSKEY publication date
+    -A date/[+-]offset: set key activation date
+    -R date/[+-]offset: set key revocation date
+    -I date/[+-]offset: set key inactivation date
+    -D date/[+-]offset: set key deletion date
+    -D sync date/[+-]offset: set CDS and CDNSKEY deletion date
+    -G: generate key only; do not set -P or -A
+    -C: generate a backward-compatible key, omitting all dates
+    -S <key>: generate a successor to an existing key
+    -i <interval>: prepublication interval for successor key (default: 30 days)
+Output:
+     K<name>+<alg>+<id>.key, K<name>+<alg>+<id>.private

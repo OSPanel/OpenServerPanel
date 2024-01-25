@@ -1,0 +1,37 @@
+Warning: mysqlhotcopy.pl is deprecated and will be removed in a future version.
+
+mysqlhotcopy.pl Ver 1.23
+
+Usage: mysqlhotcopy.pl db_name[./table_regex/] [new_db_name | directory]
+
+  -?, --help           display this help-screen and exit
+  -u, --user=#         user for database login if not current user
+  -p, --password=#     password to use when connecting to server (if not set
+                       in my.cnf, which is recommended)
+  -h, --host=#         hostname for local server when connecting over TCP/IP
+  -P, --port=#         port to use when connecting to local server with TCP/IP
+  -S, --socket=#       socket to use when connecting to local server
+      --old_server     connect to old MySQL-server (before v5.5) which
+                       doesn't have FLUSH TABLES WITH READ LOCK fully implemented.
+
+  --allowold           don't abort if target dir already exists (rename it _old)
+  --addtodest          don't rename target dir if it exists, just add files to it
+  --keepold            don't delete previous (now renamed) target when done
+  --noindices          don't include full index files in copy
+  --method=#           method for copy (only "cp" currently supported)
+
+  -q, --quiet          be silent except for errors
+  --debug              enable debug
+  -n, --dryrun         report actions without doing them
+
+  --regexp=#           copy all databases with names matching regexp
+  --suffix=#           suffix for names of copied databases
+  --checkpoint=#       insert checkpoint entry into specified db.table
+  --flushlog           flush logs once all tables are locked 
+  --resetmaster        reset the binlog once all tables are locked
+  --resetslave         reset the master.info once all tables are locked
+  --tmpdir=#	       temporary directory (instead of C:\OSPanel\temp\MySQL-5.6\default)
+  --record_log_pos=#   record slave and master status in specified db.table
+  --chroot=#           base directory of chroot jail in which mysqld operates
+
+  Try 'perldoc mysqlhotcopy.pl' for more complete documentation
