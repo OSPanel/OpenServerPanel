@@ -110,7 +110,8 @@ echo                             {lang_about_gen_root_cert}
 echo convert ^<DOMAIN^>            {lang_convert_from_to_punycode}
 echo domains                     {lang_show_info_about_domains}
 echo exit                        {lang_shutting_down_program}
-echo log     ^<MODULE^|main^>  [N]  {lang_show_log}
+echo log     ^<MODULE^|...^>   [N]  {lang_show_log}
+echo                             {lang_show_log_descr}
 echo modules                     {lang_show_mod_info}
 echo sysprep [silent^|ssd]        {lang_launch_sp_tool}
 echo                             {lang_silent_flag}
@@ -127,7 +128,7 @@ echo osp exit ^& ospanel          {lang_restarting_program}
 echo osp use PostgreSQL-9.6      {lang_using_postgresql}
 echo osp on PHP-8.1 myprofile    {lang_enabling_php}
 echo osp restart mysql-8.0       {lang_restarting_mysql}
-echo osp log main 20             {lang_show_last_20_lines}
+echo osp log general 20          {lang_show_last_20_lines}
 echo osp reset ^& osp add bind    {lang_combining_with_bind}
 goto end
 :: -----------------------------------------------------------------------------------
@@ -186,30 +187,32 @@ set "OSP_TMP_NAME=%2"
 if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
 )
-call :strfind "%OSP_MODULES_LIST_%main:all:" ":%OSP_TMP_NAME%:"
+call :strfind "%OSP_MODULES_LIST_%api:general:scheduler:smtp:all:" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
-set "OSP_TMPVAL=general"
-if /i not "%OSP_TMP_NAME%"=="main" set "OSP_TMPVAL=%OSP_TMP_NAME%"
-if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
-if %OSP_TMPVAL%==general (
-    if /i not "%OSP_TMP_NAME%"=="all" echo:
-    if not exist "{root_dir}\logs\general.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
-    if exist "{root_dir}\logs\general.log" for %%S in ("{root_dir}\logs\general.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\general.log"
-        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\general.log" %3
+set "OSP_TMPVAL="
+call :strfind ":api:general:scheduler:smtp:" ":%OSP_TMP_NAME%:"
+setlocal EnableDelayedExpansion
+if defined OSP_TMPVAL (
+    echo:
+    if not exist "{root_dir}\logs\%OSP_TMP_NAME%.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
+    if exist "{root_dir}\logs\%OSP_TMP_NAME%.log" for %%S in ("{root_dir}\logs\%OSP_TMP_NAME%.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
+        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%OSP_TMP_NAME%.log"
+        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%OSP_TMP_NAME%.log" %3
         echo %ESC%[0m
     )
 ) else (
-for %%a in (%OSP_TMPVAL%) do (
-    if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_journal} %%a & echo:
-    if /i not "%OSP_TMP_NAME%"=="all" echo:
-    if not exist "{root_dir}\logs\%%a_console.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
-    if exist "{root_dir}\logs\%%a_console.log" for %%S in ("{root_dir}\logs\%%a_console.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log"
-        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log" %3
-        echo %ESC%[0m
+    if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_ACTIVE_MODULES_LIST%"
+    if /i not "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_TMP_NAME%"
+    for %%a in (!OSP_TMPVAL!) do (
+        if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_journal} %%a & echo:
+        if /i not "%OSP_TMP_NAME%"=="all" echo:
+        if not exist "{root_dir}\logs\%%a_console.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
+        if exist "{root_dir}\logs\%%a_console.log" for %%S in ("{root_dir}\logs\%%a_console.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
+            if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log"
+            if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log" %3
+            echo %ESC%[0m
+        )
     )
-)
 )
 goto end
 :: -----------------------------------------------------------------------------------
