@@ -3,6 +3,7 @@
 task_command        = wget.exe --secure-protocol=TLSv1_2 -q --no-cache https://example.local/cron.php -O nul
 task_directory      = {root_dir}\bin
 task_enabled        = off
+task_max_runs       = 0
 task_plan           = */10 * * * *
 
 [example task 2]
@@ -10,4 +11,5 @@ task_plan           = */10 * * * *
 task_command        = "%COMSPEC%" /c "osp reset init & osp use php-7.4 & php.exe -q -f cron.php"
 task_directory      = {root_dir}\home\example.local\public_html
 task_enabled        = off
+task_max_runs       = 0
 task_plan           = * * * * *
