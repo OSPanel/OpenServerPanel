@@ -8,7 +8,7 @@
 
 SourceDir               = .
 OutputDir               = release
-OutputBaseFilename      = ospanel_setup_{#AppVersion_}
+OutputBaseFilename      = open_server_panel_{#AppVersion_}_setup
 
 // Application info
 
@@ -100,7 +100,7 @@ Name: "{userstartup}\{#AppTitle}";        Filename: "{app}\bin\ospanel.exe";    
 
 Name: "core";                  Description: "{cm:CoreData}";      Types: full compact;                            Flags: disablenouninstallwarning
 Name: "browscap";              Description: "{cm:Browscap}";      Types: full;                                    Flags: disablenouninstallwarning
-Name: "geobases";              Description: "{cm:Geobases}";      Types: full;                                    Flags: disablenouninstallwarning
+Name: "geobases";              Description: "{cm:Geobases}";      Types: full compact;                            Flags: disablenouninstallwarning
  
 Name: "dns";                   Description: "DNS";                                                                Flags: disablenouninstallwarning
 Name: "dns\bind";              Description: "Bind";               Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;  
