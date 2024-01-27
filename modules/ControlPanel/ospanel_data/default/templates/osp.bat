@@ -80,8 +80,6 @@ echo:
 echo {lang_env_management}:
 echo:
 echo add     ^<MODULE^>            {lang_merge_env}
-echo                             {lang_common_env_alert_1}
-echo                             {lang_common_env_alert_2}
 echo info                        {lang_show_current_env}
 echo project ^<DOMAIN^>            {lang_activate_project}
 echo reset   [init]              {lang_reset_current_env}
@@ -324,6 +322,9 @@ if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 )
 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
+for /f "delims=-" %%i in ("%OSP_TMP_NAME%") do set "OSP_TMPVAL=%%~i"
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMPVAL%"
+if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
 call :strfind "%OSP_PASSIVE_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if defined OSP_TMPVAL set "OSP_PSV=yes"
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMP_NAME%:"
