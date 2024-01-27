@@ -116,8 +116,6 @@ echo                             {lang_silent_flag}
 echo                             {lang_ssd_flag}
 echo                             {lang_about_silent_mode_1}
 echo                             {lang_about_silent_mode_2}
-echo                             {lang_about_confirmation_req_1}
-echo                             {lang_about_confirmation_req_2}
 echo version                     {lang_show_version_info}
 echo:
 echo {lang_usage_examples}:
