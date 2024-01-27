@@ -214,6 +214,7 @@ if defined OSP_TMPVAL (
         )
     )
 )
+endlocal
 goto end
 :: -----------------------------------------------------------------------------------
 :: DOMAINS/MODULES LIST
