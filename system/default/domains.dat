@@ -19,5 +19,5 @@ ssl_key_file         = {root_dir}\data\ssl\domains\{host}\cert.key
 project_add_commands =
 project_add_modules  =
 project_home_dir     =
-project_use_sys_env  = off
+project_use_sys_env  = on
 terminal_codepage    =
