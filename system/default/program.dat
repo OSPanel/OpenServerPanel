@@ -21,6 +21,26 @@ show_modules_in_submenu  = on
 show_projects_in_submenu = off
 show_tray_icon           = on
 
+[domains]
+
+aliases                  = www
+auto_configure           = on
+enabled                  = on
+engine                   = 
+ip                       = 
+log_format               = combined
+cgi_dir                  = {root_dir}\home\{host}\cgi-bin
+public_dir               = {root_dir}\home\{host}\htdocs
+ssl                      = on
+ssl_auto_cert            = on
+ssl_cert_file            = 
+ssl_key_file             = 
+project_add_commands     =
+project_add_modules      =
+project_home_dir         =
+project_use_sys_env      = on
+terminal_codepage        =
+
 [modules]
 
 allowed_env_vars         = allusersprofile appdata commonprogramfiles commonprogramfiles(x86) commonprogramw6432 computername comspec driverdata homedrive homepath localappdata logonserver number_of_processors os path pathext processor_architecture processor_identifier processor_level processor_revision programdata programfiles programfiles(x86) programw6432 psmodulepath public sessionname systemdrive systemroot temp tmp userdomain userdomain_roamingprofile username userprofile windir
