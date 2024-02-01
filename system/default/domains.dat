@@ -5,19 +5,5 @@ engine               = PHP-7.4
 [example-test.local]
 
 aliases              = www mydomain.local www.mydomain.local
-auto_configure       = on
-enabled              = on
 engine               = PHP-8.1
-ip                   = auto
-log_format           = combined
-cgi_dir              = {root_dir}\home\{host}\cgi-bin
 public_dir           = {root_dir}\home\{host}\htdocs
-ssl                  = on
-ssl_auto_cert        = on
-ssl_cert_file        = {root_dir}\data\ssl\domains\{host}\cert.crt
-ssl_key_file         = {root_dir}\data\ssl\domains\{host}\cert.key
-project_add_commands =
-project_add_modules  =
-project_home_dir     =
-project_use_sys_env  = on
-terminal_codepage    =
