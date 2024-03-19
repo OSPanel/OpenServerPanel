@@ -11,6 +11,6 @@ usage:  unbound [options]
         install, remove - manage the services entry
         service - used to start from services control panel
 
-Version 1.19.2
+Version 1.19.3
 BSD licensed, see LICENSE in source package for details.
 Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues

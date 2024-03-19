@@ -82,6 +82,6 @@ Commands:
   rpz_enable zone               Enable the RPZ zone if it had previously
                                 been disabled
   rpz_disable zone              Disable the RPZ zone
-Version 1.19.2
+Version 1.19.3
 BSD licensed, see LICENSE in source package for details.
 Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues

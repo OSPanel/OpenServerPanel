@@ -26,6 +26,6 @@ Usage:  unbound-anchor [opts]
 -P port         use port for https connect, default 443
 -F              debug, force update with cert
 -h              show this usage help
-Version 1.19.2
+Version 1.19.3
 BSD licensed, see LICENSE in source package for details.
 Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues

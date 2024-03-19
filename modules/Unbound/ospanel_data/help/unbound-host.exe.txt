@@ -22,6 +22,6 @@ Usage:  unbound-host [-C configfile] [-vdhr46] [-c class] [-t type]
     -4                  use ipv4 network, avoid ipv6.
     -6                  use ipv6 network, avoid ipv4.
     -h                  show this usage help.
-Version 1.19.2
+Version 1.19.3
 BSD licensed, see LICENSE in source package for details.
 Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues

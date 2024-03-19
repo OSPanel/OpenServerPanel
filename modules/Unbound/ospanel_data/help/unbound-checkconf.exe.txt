@@ -4,6 +4,6 @@ file    if omitted C:\Program Files\Unbound\service.conf is used.
 -o option       print value of option to stdout.
 -f              output full pathname with chroot applied, eg. with -o pidfile.
 -h              show this usage help.
-Version 1.19.2
+Version 1.19.3
 BSD licensed, see LICENSE in source package for details.
 Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues
