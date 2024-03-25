@@ -28,7 +28,6 @@ auto_configure           = on
 enabled                  = on
 php_engine               =
 nginx_engine             =
-nginx_as_proxy           = off
 ip                       =
 log_format               = combined
 cgi_dir                  = {root_dir}\home\{host}\cgi-bin
