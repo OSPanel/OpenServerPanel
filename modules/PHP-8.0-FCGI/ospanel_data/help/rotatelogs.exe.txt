@@ -1,0 +1,35 @@
+Usage: rotatelogs.exe [-vlfDtTe] [-L linkname] [-p prog] [-n number] <logfile> {<rotation time in seconds>|<rotation size>(B|K|M|G)} [offset minutes from UTC]
+
+Add this:
+
+TransferLog "|rotatelogs.exe /some/where 86400"
+
+or 
+
+TransferLog "|rotatelogs.exe /some/where 5M"
+
+to httpd.conf. By default, the generated name will be
+<logfile>.nnnn where nnnn is the system time at which the log
+nominally starts (N.B. if using a rotation time, the time will
+always be a multiple of the rotation time, so you can synchronize
+cron scripts with it). If <logfile> contains strftime conversion
+specifications, those will be used instead. At the end of each
+rotation time or when the file size is reached a new log is
+started.
+
+Options:
+  -v       Verbose operation. Messages are written to stderr.
+  -l       Base rotation on local time instead of UTC.
+  -L path  Create hard link from current log to specified path.
+  -p prog  Run specified program after opening a new log file. See below.
+  -f       Force opening of log on program start.
+  -D       Create parent directories of log file.
+  -t       Truncate logfile instead of rotating, tail friendly.
+  -T       Truncate logfiles opened for rotation, but not the initial logfile.
+  -e       Echo log to stdout for further processing.
+  -n num   Rotate file by adding suffixes '.1', '.2', ..., '.num'.
+
+The program for '-p' is invoked as "[prog] <curfile> [<prevfile>]"
+where <curfile> is the filename of the newly opened logfile, and
+<prevfile>, if given, is the filename of the previously used logfile.
+
