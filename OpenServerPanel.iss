@@ -103,7 +103,7 @@ Name: "browscap";              Description: "{cm:Browscap}";      Types: full;  
 Name: "geobases";              Description: "{cm:Geobases}";      Types: full compact;                            Flags: disablenouninstallwarning
  
 Name: "dns";                   Description: "DNS";                                                                Flags: disablenouninstallwarning
-Name: "dns\bind";              Description: "Bind";               Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;  
+Name: "dns\bind";              Description: "Bind";               Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
 Name: "dns\unbound";           Description: "Unbound";            Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "mariadb";               Description: "MariaDB";                                                            Flags: disablenouninstallwarning
@@ -111,16 +111,16 @@ Name: "mariadb\mariadb101";    Description: "MariaDB 10.1";       Types: full;  
 Name: "mariadb\mariadb102";    Description: "MariaDB 10.2";       Types: full;                                    Flags: disablenouninstallwarning
 Name: "mariadb\mariadb103";    Description: "MariaDB 10.3";       Types: full;                                    Flags: disablenouninstallwarning
 Name: "mariadb\mariadb104";    Description: "MariaDB 10.4";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "mariadb\mariadb105";    Description: "MariaDB 10.5";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb106";    Description: "MariaDB 10.6";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb107";    Description: "MariaDB 10.7";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb108";    Description: "MariaDB 10.8";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb109";    Description: "MariaDB 10.9";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb1010";   Description: "MariaDB 10.10";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb1011";   Description: "MariaDB 10.11";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb110";    Description: "MariaDB 11.0";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb111";    Description: "MariaDB 11.1";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mariadb\mariadb112";    Description: "MariaDB 11.2";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
+Name: "mariadb\mariadb105";    Description: "MariaDB 10.5";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb106";    Description: "MariaDB 10.6";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb107";    Description: "MariaDB 10.7";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb108";    Description: "MariaDB 10.8";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb109";    Description: "MariaDB 10.9";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb1010";   Description: "MariaDB 10.10";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb1011";   Description: "MariaDB 10.11";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb110";    Description: "MariaDB 11.0";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb111";    Description: "MariaDB 11.1";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mariadb\mariadb112";    Description: "MariaDB 11.2";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
 Name: "memcached";             Description: "Memcached";                                                          Flags: disablenouninstallwarning
 Name: "memcached\memcached14"; Description: "Memcached 1.4";      Types: full;                                    Flags: disablenouninstallwarning
@@ -133,39 +133,47 @@ Name: "mongodb\mongodb34";     Description: "MongoDB 3.4";        Types: full;  
 Name: "mongodb\mongodb36";     Description: "MongoDB 3.6";        Types: full;                                    Flags: disablenouninstallwarning
 Name: "mongodb\mongodb40";     Description: "MongoDB 4.0";        Types: full;                                    Flags: disablenouninstallwarning
 Name: "mongodb\mongodb42";     Description: "MongoDB 4.2";        Types: full;                                    Flags: disablenouninstallwarning
-Name: "mongodb\mongodb44";     Description: "MongoDB 4.4";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mongodb\mongodb50";     Description: "MongoDB 5.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mongodb\mongodb60";     Description: "MongoDB 6.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mongodb\mongodb70";     Description: "MongoDB 7.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
+Name: "mongodb\mongodb44";     Description: "MongoDB 4.4";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mongodb\mongodb50";     Description: "MongoDB 5.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mongodb\mongodb60";     Description: "MongoDB 6.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mongodb\mongodb70";     Description: "MongoDB 7.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
 Name: "mysql";                 Description: "MySQL";                                                              Flags: disablenouninstallwarning
 Name: "mysql\mysql55";         Description: "MySQL 5.5";          Types: full;                                    Flags: disablenouninstallwarning
 Name: "mysql\mysql56";         Description: "MySQL 5.6";          Types: full compact;                            Flags: disablenouninstallwarning
-Name: "mysql\mysql57";         Description: "MySQL 5.7";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mysql\mysql80";         Description: "MySQL 8.0";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "mysql\mysql82";         Description: "MySQL 8.2";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
+Name: "mysql\mysql57";         Description: "MySQL 5.7";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mysql\mysql80";         Description: "MySQL 8.0";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "mysql\mysql82";         Description: "MySQL 8.2";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
+Name: "nginx";                 Description: "Nginx";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 Name: "perl";                  Description: "Perl";               Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "php";                   Description: "PHP";                                                                Flags: disablenouninstallwarning
 Name: "php\php72";             Description: "PHP 7.2";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "php\php72-fcgi";        Description: "PHP 7.2 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
 Name: "php\php73";             Description: "PHP 7.3";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "php\php73-fcgi";        Description: "PHP 7.3 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
 Name: "php\php74";             Description: "PHP 7.4";            Types: full compact;                            Flags: disablenouninstallwarning
+Name: "php\php74-fcgi";        Description: "PHP 7.4 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning
 Name: "php\php80";             Description: "PHP 8.0";            Types: full compact;                            Flags: disablenouninstallwarning
+Name: "php\php80-fcgi";        Description: "PHP 8.0 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning
 Name: "php\php81";             Description: "PHP 8.1";            Types: full compact;                            Flags: disablenouninstallwarning
+Name: "php\php81-fcgi";        Description: "PHP 8.1 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning
 Name: "php\php82";             Description: "PHP 8.2";            Types: full compact;                            Flags: disablenouninstallwarning
-Name: "php\php83";             Description: "PHP 8.3";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
+Name: "php\php82-fcgi";        Description: "PHP 8.2 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning
+Name: "php\php83";             Description: "PHP 8.3";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "php\php83-fcgi";        Description: "PHP 8.3 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
 Name: "psql";                  Description: "PostgreSQL";                                                         Flags: disablenouninstallwarning
 Name: "psql\postgresql95";     Description: "PostgreSQL 9.5";     Types: full;                                    Flags: disablenouninstallwarning
 Name: "psql\postgresql96";     Description: "PostgreSQL 9.6";     Types: full;                                    Flags: disablenouninstallwarning
 Name: "psql\postgresql10";     Description: "PostgreSQL 10";      Types: full;                                    Flags: disablenouninstallwarning
-Name: "psql\postgresql11";     Description: "PostgreSQL 11";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "psql\postgresql12";     Description: "PostgreSQL 12";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "psql\postgresql13";     Description: "PostgreSQL 13";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "psql\postgresql14";     Description: "PostgreSQL 14";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "psql\postgresql15";     Description: "PostgreSQL 15";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
-Name: "psql\postgresql16";     Description: "PostgreSQL 16";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer;
+Name: "psql\postgresql11";     Description: "PostgreSQL 11";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "psql\postgresql12";     Description: "PostgreSQL 12";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "psql\postgresql13";     Description: "PostgreSQL 13";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "psql\postgresql14";     Description: "PostgreSQL 14";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "psql\postgresql15";     Description: "PostgreSQL 15";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "psql\postgresql16";     Description: "PostgreSQL 16";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
 Name: "redis";                 Description: "Redis";                                                              Flags: disablenouninstallwarning
 Name: "redis\redis30";         Description: "Redis 3.0";          Types: full;                                    Flags: disablenouninstallwarning
@@ -199,6 +207,29 @@ Source: "modules\PHP-8.0\*";                                      DestDir: "{app
 Source: "modules\PHP-8.1\*";                                      DestDir: "{app}\modules\PHP-8.1";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81;                       Permissions: users-full
 Source: "modules\PHP-8.2\*";                                      DestDir: "{app}\modules\PHP-8.2";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82;                       Permissions: users-full
 Source: "modules\PHP-8.3\*";                                      DestDir: "{app}\modules\PHP-8.3";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83;                       Permissions: users-full
+Source: "modules\PHP-7.2-FCGI\*";                                 DestDir: "{app}\modules\PHP-7.2-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.3-FCGI\*";                                 DestDir: "{app}\modules\PHP-7.3-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.4-FCGI\*";                                 DestDir: "{app}\modules\PHP-7.4-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php74-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.0-FCGI\*";                                 DestDir: "{app}\modules\PHP-8.0-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php80-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.1-FCGI\*";                                 DestDir: "{app}\modules\PHP-8.1-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.2-FCGI\*";                                 DestDir: "{app}\modules\PHP-8.2-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.3-FCGI\*";                                 DestDir: "{app}\modules\PHP-8.3-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83-fcgi;                  Permissions: users-full
+
+Source: "modules\PHP-7.2\PHP";                                    DestDir: "{app}\modules\PHP-7.2-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.3\PHP";                                    DestDir: "{app}\modules\PHP-7.3-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.4\PHP";                                    DestDir: "{app}\modules\PHP-7.4-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php74-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.0\PHP";                                    DestDir: "{app}\modules\PHP-8.0-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php80-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.1\PHP";                                    DestDir: "{app}\modules\PHP-8.1-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.2\PHP";                                    DestDir: "{app}\modules\PHP-8.2-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.3\PHP";                                    DestDir: "{app}\modules\PHP-8.3-FCGI";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83-fcgi;                  Permissions: users-full
+
+Source: "modules\PHP-7.2\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-7.2-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.3\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-7.3-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.4\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-7.4-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php74-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.0\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-8.0-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php80-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.1\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-8.1-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.2\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-8.2-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.3\Apache\conf\openssl.cnf";                DestDir: "{app}\modules\PHP-8.3-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83-fcgi;                  Permissions: users-full
 
 Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-7.2\PHP";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72;                       Permissions: users-full
 Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-7.3\PHP";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73;                       Permissions: users-full
@@ -207,8 +238,15 @@ Source: "resources\php_bundle\*";                                 DestDir: "{app
 Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.1\PHP";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81;                       Permissions: users-full
 Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.2\PHP";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82;                       Permissions: users-full
 Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.3\PHP";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83;                       Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-7.2-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72-fcgi;                  Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-7.3-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73-fcgi;                  Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-7.4-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php74-fcgi;                  Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.0-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php80-fcgi;                  Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.1-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81-fcgi;                  Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.2-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82-fcgi;                  Permissions: users-full
+Source: "resources\php_bundle\*";                                 DestDir: "{app}\modules\PHP-8.3-FCGI\PHP";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83-fcgi;                  Permissions: users-full
 
-Source: "user\browscap\lite_php_browscap.ini";                    DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72 php\php73 php\php74 php\php80 php\php81 php\php82 php\php83; Permissions: users-full
+Source: "user\browscap\lite_php_browscap.ini";                    DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72 php\php73 php\php74 php\php80 php\php81 php\php82 php\php83 php\php72-fcgi php\php73-fcgi php\php74-fcgi php\php80-fcgi php\php81-fcgi php\php82-fcgi php\php83-fcgi; Permissions: users-full
 
 Source: "modules\MySQL-5.5\*";                                    DestDir: "{app}\modules\MySQL-5.5";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: mysql\mysql55;         Permissions: users-full
 Source: "modules\MySQL-5.6\*";                                    DestDir: "{app}\modules\MySQL-5.6";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mysql\mysql56;                   Permissions: users-full
@@ -274,6 +312,13 @@ Source: "modules\PHP-8.0\ospanel_data\default\*";                 DestDir: "{app
 Source: "modules\PHP-8.1\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-8.1\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81;                       Permissions: users-full
 Source: "modules\PHP-8.2\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-8.2\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82;                       Permissions: users-full
 Source: "modules\PHP-8.3\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-8.3\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83;                       Permissions: users-full
+Source: "modules\PHP-7.2-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-7.2-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php72-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.3-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-7.3-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73-fcgi;                  Permissions: users-full
+Source: "modules\PHP-7.4-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-7.4-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php74-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.0-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-8.0-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php80-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.1-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-8.1-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php81-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.2-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-8.2-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php82-fcgi;                  Permissions: users-full
+Source: "modules\PHP-8.3-FCGI\ospanel_data\default\*";            DestDir: "{app}\config\PHP-8.3-FCGI\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php83-fcgi;                  Permissions: users-full
 
 Source: "modules\MySQL-5.5\ospanel_data\default\*";               DestDir: "{app}\config\MySQL-5.5\default";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: mysql\mysql55;         Permissions: users-full
 Source: "modules\MySQL-5.6\ospanel_data\default\*";               DestDir: "{app}\config\MySQL-5.6\default";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: mysql\mysql56;                   Permissions: users-full
@@ -337,6 +382,13 @@ Source: "modules\PHP-8.0\ospanel_data\default_data\*";            DestDir: "{app
 Source: "modules\PHP-8.1\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-8.1\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php81;                    Permissions: users-full
 Source: "modules\PHP-8.2\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-8.2\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php82;                    Permissions: users-full
 Source: "modules\PHP-8.3\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-8.3\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php83;                    Permissions: users-full
+Source: "modules\PHP-7.2-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-7.2-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php72-fcgi;               Permissions: users-full
+Source: "modules\PHP-7.3-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-7.3-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php73-fcgi;               Permissions: users-full
+Source: "modules\PHP-7.4-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-7.4-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php74-fcgi;               Permissions: users-full
+Source: "modules\PHP-8.0-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-8.0-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php80-fcgi;               Permissions: users-full
+Source: "modules\PHP-8.1-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-8.1-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php81-fcgi;               Permissions: users-full
+Source: "modules\PHP-8.2-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-8.2-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php82-fcgi;               Permissions: users-full
+Source: "modules\PHP-8.3-FCGI\ospanel_data\default_data\*";       DestDir: "{app}\data\PHP-8.3-FCGI\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php83-fcgi;               Permissions: users-full
 
 Source: "modules\Bind\ospanel_data\default_data\*";               DestDir: "{app}\data\Bind\default";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: dns\bind;                     Permissions: users-full
 Source: "modules\Unbound\ospanel_data\default_data\*";            DestDir: "{app}\data\Unbound\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: dns\unbound;                  Permissions: users-full
