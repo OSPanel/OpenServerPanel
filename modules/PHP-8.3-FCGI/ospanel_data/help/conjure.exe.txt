@@ -1,0 +1,26 @@
+Version: ImageMagick 7.1.0-13 Q16 x64 2021-11-10 https://imagemagick.org
+Copyright: (C) 1999-2021 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC Modules OpenMP(2.0)
+Delegates (built-in): bzlib cairo flif freetype gslib heic jng jp2 jpeg jxl lcms lqr lzma openexr pangocairo png ps raqm raw rsvg tiff webp xml zip zlib
+Compiler: Visual Studio 2017 (191627045)
+Usage: conjure [options ...] file [ [options ...] file ...]
+
+Image Settings:
+  -monitor             monitor progress
+  -quiet               suppress all warning messages
+  -regard-warnings     pay attention to warning messages
+  -seed value          seed a new sequence of pseudo-random numbers
+  -verbose             print detailed information about the image
+
+Miscellaneous Options:
+  -debug events        display copious debugging information
+  -help                print program options
+  -list type           print a list of supported option arguments
+  -log format          format of debugging information
+  -version             print version information
+
+In addition, define any key value pairs required by your script.  For
+example,
+
+    conjure -size 100x100 -color blue -foo bar script.msl

@@ -1,0 +1,34 @@
+Blackfire version 2.24.2 (c) 2014-2024 Platform.sh
+Blackfire helps developers manage the performance of their applications
+
+Usage:
+  blackfire.exe [global options] <command> [command options] [arguments...]
+
+Global options:
+  --help, -h                         Show help
+  --no-ansi                          Disable ANSI output
+  --ansi                             Force ANSI output
+  --no-interaction                   Disable all interactions
+  --quiet, -q                        Do not output any message
+  -v|vv|vvv, --verbose, --log-level  Increase the verbosity of messages: 1 for normal output, 2 and 3 for more verbose outputs and 4 for debug
+  -V                                 Print the version
+
+Available commands:
+ agent
+  agent:config                         Configure the Blackfire Agent daemon
+  agent:healthcheck, healthcheck       Check the Agent health
+  agent:start, agent                   Run the Blackfire Agent daemon
+ client
+  client:bootstrap-tests               Bootstrap a .blackfire.yaml skeleton for your Blackfire tests
+  client:build:trigger, build-trigger  Trigger a build
+  client:config                        Configure the Blackfire Client
+  client:curl, curl                    Profile a URL via curl
+  client:run, run                      Run a program to profile
+ open
+  open:docs                            Open the online Web documentation
+  open:support                         Open the web support page
+ php
+  php:install                          Install the PHP probe
+ self
+  self:help, help, list                Display help for a command or a category of commands
+  self:version, version                Display the application version
