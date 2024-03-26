@@ -1,0 +1,4 @@
+Usage: magick tool [ {option} | {image} ... ] {output_image}
+Usage: magick [ {option} | {image} ... ] {output_image}
+       magick [ {option} | {image} ... ] -script {filename} [ {script_args} ...]
+       magick -help | -version | -usage | -list {option}
