@@ -27,16 +27,16 @@ VersionInfoCopyright    = Copyright (c) 2010-{#CurrentYear}, {#AppDomain}
 
 // Compression
 
-// Compression          = lzma2/fast
-Compression             = lzma2/ultra64
+Compression          = lzma2/fast
+// Compression             = lzma2/ultra64
 InternalCompressLevel   = ultra64
 LZMAUseSeparateProcess  = yes
 SolidCompression        = yes
 LZMABlockSize           = 262144
 LZMADictionarySize      = 262144
 LZMANumBlockThreads     = 4
-LZMANumFastBytes        = 273
-// LZMANumFastBytes     = 32
+// LZMANumFastBytes        = 273
+LZMANumFastBytes     = 32
 
 // Misc  
 
@@ -145,7 +145,10 @@ Name: "mysql\mysql57";         Description: "MySQL 5.7";          Types: full co
 Name: "mysql\mysql80";         Description: "MySQL 8.0";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 Name: "mysql\mysql82";         Description: "MySQL 8.2";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "nginx";                 Description: "Nginx";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "nginx";                 Description: "Nginx";                                                              Flags: disablenouninstallwarning
+Name: "nginx\nginx122";        Description: "Nginx 1.22";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "nginx\nginx125";        Description: "Nginx 1.25";         Types: full compact;                            Flags: disablenouninstallwarning
+
 Name: "perl";                  Description: "Perl";               Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "php";                   Description: "PHP";                                                                Flags: disablenouninstallwarning
@@ -303,6 +306,9 @@ Source: "modules\Redis-7.2\*";                                    DestDir: "{app
 Source: "modules\Bind\*";                                         DestDir: "{app}\modules\Bind";                  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\*";                                      DestDir: "{app}\modules\Unbound";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\unbound;                     Permissions: users-full
 
+Source: "modules\Nginx-1.22\*";                                   DestDir: "{app}\modules\Nginx-1.22";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx122;                  Permissions: users-full
+Source: "modules\Nginx-1.25\*";                                   DestDir: "{app}\modules\Nginx-1.25";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx125;                  Permissions: users-full
+
 Source: "modules\ControlPanel\ospanel_data\default\*";            DestDir: "{app}\config\ControlPanel\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: core;                  Permissions: users-full
 
 Source: "modules\PHP-7.2\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-7.2\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: php\php72;            Permissions: users-full
@@ -374,6 +380,9 @@ Source: "modules\Redis-7.2\ospanel_data\default\*";               DestDir: "{app
 
 Source: "modules\Bind\ospanel_data\default\*";                    DestDir: "{app}\config\Bind\default";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\ospanel_data\default\*";                 DestDir: "{app}\config\Unbound\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\unbound;                     Permissions: users-full
+
+Source: "modules\Nginx-1.22\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.22\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx122;                  Permissions: users-full
+Source: "modules\Nginx-1.25\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.25\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx125;                  Permissions: users-full
 
 Source: "modules\PHP-7.2\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-7.2\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite solidbreak;  Components: php\php72;         Permissions: users-full
 Source: "modules\PHP-7.3\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-7.3\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php73;                    Permissions: users-full
