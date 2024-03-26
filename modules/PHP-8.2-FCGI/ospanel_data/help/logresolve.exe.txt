@@ -1,0 +1,7 @@
+logresolve.exe -- Resolve IP-addresses to hostnames in Apache log files.
+Usage: logresolve.exe [-s STATFILE] [-c]
+
+Options:
+  -s   Record statistics to STATFILE when finished.
+
+  -c   Perform double lookups when resolving IP addresses.
