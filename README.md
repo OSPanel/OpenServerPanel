@@ -31,6 +31,12 @@ Today, Open Server Panel is widely used for the development, debugging and testi
 
 [Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home)
 
+**Download**
+
+https://files.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
+https://us.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
+https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe
+
 Command Line Interface
 ----------
 ![Open Server Panel Console](./resources/screenshots/cli-en.png)
@@ -63,6 +69,12 @@ Command Line Interface
 - и многое другое...
 
 [Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) | [Telegram](https://t.me/ospanel_chat)
+
+**Скачать**
+
+https://files.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
+https://us.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
+https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe
 
 Интерфейс командной строки
 ----------
