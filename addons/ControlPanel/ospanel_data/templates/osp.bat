@@ -128,7 +128,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :shutdown
 if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
-if exist "{root_dir}\data\{module_name}\env_%%a.bat" call "{root_dir}\data\{module_name}\env_%%a.bat" resetenv
+if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
 )
 {system_environment}
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
@@ -263,13 +263,13 @@ if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 )
 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
-if not exist "{root_dir}\data\{module_name}\shell_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_shell_config} %OSP_TMP_NAME%" & goto error
+if not exist "{root_dir}\data\ControlPanel\shell_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_shell_config} %OSP_TMP_NAME%" & goto error
 setlocal
 call :env_reset post
-call "{root_dir}\data\{module_name}\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
+call "{root_dir}\data\ControlPanel\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
 echo:
 TITLE %OSP_TMP_NAME% shell ^| Open Server Panel
-call "{root_dir}\data\{module_name}\shell_%OSP_TMP_NAME%.bat"
+call "{root_dir}\data\ControlPanel\shell_%OSP_TMP_NAME%.bat"
 endlocal
 chcp 65001 > nul
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
@@ -287,10 +287,10 @@ if %ERRORLEVEL% gtr 0 goto error
 :: -----------------------------------------------------------------------------------
 :project
 if "%2"=="" goto eargument
-if not exist "{root_dir}\data\{module_name}\project_%2.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
+if not exist "{root_dir}\data\ControlPanel\project_%2.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
 set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
 set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
-call "{root_dir}\data\{module_name}\project_%2.bat" %2 %3
+call "{root_dir}\data\ControlPanel\project_%2.bat" %2 %3
 @if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
 @echo off
 chcp 65001 > nul
@@ -314,8 +314,8 @@ call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMPVAL%"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMP_NAME%:"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
-if not exist "{root_dir}\data\{module_name}\env_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%" & goto error
-call "{root_dir}\data\{module_name}\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
+if not exist "{root_dir}\data\ControlPanel\env_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%" & goto error
+call "{root_dir}\data\ControlPanel\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
 goto end
 :: -----------------------------------------------------------------------------------
 :: MODULE ENVIRONMENT (USE)
@@ -328,9 +328,9 @@ if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 )
 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
-if not exist "{root_dir}\data\{module_name}\env_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%" & goto error
+if not exist "{root_dir}\data\ControlPanel\env_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%" & goto error
 call :env_reset post
-call "{root_dir}\data\{module_name}\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
+call "{root_dir}\data\ControlPanel\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
 goto end
 :: -----------------------------------------------------------------------------------
 :: DEFAULT SYSTEM ENVIRONMENT
@@ -348,11 +348,11 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_reset
 if /i "%1"=="pre" if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
-if exist "{root_dir}\data\{module_name}\env_%%a.bat" call "{root_dir}\data\{module_name}\env_%%a.bat" resetenv
+if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
 )
 {system_environment}
 if /i "%1"=="post" if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
-if exist "{root_dir}\data\{module_name}\env_%%a.bat" call "{root_dir}\data\{module_name}\env_%%a.bat" resetenv
+if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
 )
 set "ESC="
 exit /b 0
