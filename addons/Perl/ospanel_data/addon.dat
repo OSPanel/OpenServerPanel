@@ -11,3 +11,13 @@ version            = 5.32.1.1
 [docs]
 
 English            = https://perldoc.perl.org/perl
+
+[environment]
+
+PATH               = {root_dir}\addons\Perl\perl\site\bin;{root_dir}\addons\Perl\perl\bin;{root_dir}\addons\Perl\c\bin;%PATH%
+PERL5LIB           = {root_dir}\addons\Perl\perl\site\lib;{root_dir}\addons\Perl\perl\vendor\lib;{root_dir}\addons\Perl\perl\lib
+PERL5OPT           =
+PERL_JSON_BACKEND  =
+PERL_MB_OPT        =
+PERL_MM_OPT        =
+PERL_YAML_BACKEND  =
