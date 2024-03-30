@@ -31,4 +31,5 @@ path_separator     = \\
 [environment]
 
 ERLANG_HOME        = {root_dir}\addons\ErlangOTP
+ERL_LIBS           = {root_dir}\addons\ErlangOTP\lib
 PATH               = {root_dir}\addons\ErlangOTP\bin;%PATH%
