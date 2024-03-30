@@ -4,7 +4,6 @@
 
 architecture       = x64
 category           = Bind
-class              = DNS
 ipv6_support       = yes
 ip_separator       = ;
 license            = https://www.mozilla.org/en-US/MPL/2.0/

@@ -4,7 +4,6 @@
 
 architecture       = x64
 category           = PostgreSQL
-class              = DBMS
 ipv6_support       = yes
 ip_separator       = ,
 license            = https://www.postgresql.org/about/licence/

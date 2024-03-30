@@ -4,8 +4,6 @@
 
 architecture            = x64
 category                = PHP
-class                   = Web
-fast_cgi                = yes
 fast_start              = yes
 fast_stop               = yes
 ipv6_support            = yes

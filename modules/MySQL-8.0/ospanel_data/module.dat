@@ -4,7 +4,6 @@
 
 architecture       = x64
 category           = MySQL
-class              = DBMS
 ipv6_support       = yes
 ip_separator       = ,
 license            = https://downloads.mysql.com/docs/licenses/mysqld-8.0-gpl-en.pdf

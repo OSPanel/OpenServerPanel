@@ -4,7 +4,6 @@
 
 architecture       = x64
 category           = MongoDB
-class              = NoSQL
 ipv6_support       = yes
 ip_separator       = ,
 license            = https://www.mongodb.com/community/licensing

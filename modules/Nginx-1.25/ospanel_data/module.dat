@@ -4,7 +4,6 @@
 
 architecture            = x64
 category                = Nginx
-class                   = Web
 ipv6_support            = yes
 ip_separator            =
 license                 = https://nginx.org/LICENSE

@@ -4,7 +4,6 @@
 
 architecture       = x64
 category           = Redis
-class              = NoSQL
 ipv6_support       = yes
 ip_separator       = 
 license            = https://redis.io/docs/about/license/
