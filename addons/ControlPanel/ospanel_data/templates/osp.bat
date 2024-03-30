@@ -184,6 +184,7 @@ if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL="
 call :strfind ":api:general:scheduler:smtp:" ":%OSP_TMP_NAME%:"
 setlocal EnableDelayedExpansion
+if %ERRORLEVEL%==1 set "OSP_ERR_MSG={err_failed_to_enable_ce}" & goto error
 if defined OSP_TMPVAL (
     echo:
     if not exist "{root_dir}\logs\%OSP_TMP_NAME%.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
@@ -235,6 +236,7 @@ if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_cmd_to_all_warning_1} & echo {l
 if /i "%OSP_TMP_NAME%"=="all" "%SystemRoot%\System32\choice.exe" /C YN /N /M "->{lang_continue} (Y/N)?"
 if /i "%OSP_TMP_NAME%"=="all" if not %ERRORLEVEL%==1 goto end
 setlocal EnableDelayedExpansion
+if %ERRORLEVEL%==1 set "OSP_ERR_MSG={err_failed_to_enable_ce}" & goto error
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
         "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/off/%%a/%3
