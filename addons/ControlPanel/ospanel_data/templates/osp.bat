@@ -182,29 +182,18 @@ if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 call :strfind "%OSP_MODULES_LIST_%api:general:scheduler:smtp:all:" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
 set "OSP_TMPVAL="
-call :strfind ":api:general:scheduler:smtp:" ":%OSP_TMP_NAME%:"
 setlocal EnableDelayedExpansion
 if %ERRORLEVEL%==1 set "OSP_ERR_MSG={err_failed_to_enable_ce}" & goto error
-if defined OSP_TMPVAL (
-    echo:
-    if not exist "{root_dir}\logs\%OSP_TMP_NAME%.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
-    if exist "{root_dir}\logs\%OSP_TMP_NAME%.log" for %%S in ("{root_dir}\logs\%OSP_TMP_NAME%.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%OSP_TMP_NAME%.log" 15
-        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%OSP_TMP_NAME%.log" %3
+if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=General API Scheduler SMTP %OSP_MODULES_LIST%"
+if /i not "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_TMP_NAME%"
+for %%a in (!OSP_TMPVAL!) do (
+    if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_journal} %%a & echo:
+    if /i not "%OSP_TMP_NAME%"=="all" echo:
+    if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
+    if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
+        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" 15
+        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
         echo %ESC%[0m
-    )
-) else (
-    if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=general api scheduler smtp %OSP_MODULES_LIST%"
-    if /i not "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_TMP_NAME%"
-    for %%a in (!OSP_TMPVAL!) do (
-        if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_journal} %%a & echo:
-        if /i not "%OSP_TMP_NAME%"=="all" echo:
-        if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
-        if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
-            if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" 15
-            if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
-            echo %ESC%[0m
-        )
     )
 )
 endlocal
