@@ -2,21 +2,18 @@
 
 [main]
 
-architecture            = x64
-category                = RabbitMQ
-fast_stop               = yes
-ipv6_support            = yes
-ip_separator            =
-kill_names              = epmd.exe
-license                 = https://www.php.net/license/3_01.txt
-license_type            = PHP License 3.01
-license_additional      = https://www.apache.org/licenses/LICENSE-2.0
-license_type_additional = Apache License 2.0
-min_windows_ver         = 10.0.10240
-timestamp               = 1651770000
-version                 = 8.3.1
+architecture       = x64
+category           = RabbitMQ
+fast_stop          = yes
+ipv6_support       = yes
+ip_separator       = no
+kill_names         = epmd.exe
+license            = https://www.mozilla.org/en-US/MPL/2.0/
+license_type       = MPL License 2.0
+min_windows_ver    = 6.1.7601
+timestamp          = 1651770000
+version            = 3.13.1
 
 [docs]
 
-English                 = https://www.php.net/manual/en/
-Russian                 = https://www.php.net/manual/ru/
+English            = https://www.rabbitmq.com/docs
