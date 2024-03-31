@@ -194,15 +194,15 @@ if defined OSP_TMPVAL (
         echo %ESC%[0m
     )
 ) else (
-    if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_MODULES_LIST%"
+    if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=general api scheduler smtp %OSP_MODULES_LIST%"
     if /i not "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_TMP_NAME%"
     for %%a in (!OSP_TMPVAL!) do (
         if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_journal} %%a & echo:
         if /i not "%OSP_TMP_NAME%"=="all" echo:
-        if not exist "{root_dir}\logs\%%a_console.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
-        if exist "{root_dir}\logs\%%a_console.log" for %%S in ("{root_dir}\logs\%%a_console.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
-            if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log" 15
-            if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log" %3
+        if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
+        if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
+            if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" 15
+            if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
             echo %ESC%[0m
         )
     )
@@ -250,7 +250,7 @@ for %%a in (%OSP_TMPVAL%) do (
         "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
     )
-    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a_console.log" for %%S in ("{root_dir}\logs\%%a_console.log") do if not %%~zS==0 echo: & "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a_console.log" 15 & echo %ESC%[0m
+    if !errorlevel!==0 if /i "%1"=="status" if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if not %%~zS==0 echo: & "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" 15 & echo %ESC%[0m
 )
 endlocal
 goto end
