@@ -4,6 +4,7 @@
 
 architecture       = x64
 defer              = yes
+enabled            = on
 license            = https://ospanel.io/license/
 license_type       = Freeware
 timestamp          = 1651770000

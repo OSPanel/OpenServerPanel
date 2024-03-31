@@ -3,6 +3,7 @@
 [main]
 
 architecture       = x64
+enabled            = on
 license            = https://dev.perl.org/licenses/gpl1.html
 license_type       = GNU GPLv1
 timestamp          = 1651770000
