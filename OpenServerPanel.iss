@@ -103,8 +103,10 @@ Name: "browscap";              Description: "{cm:Browscap}";      Types: full;  
 Name: "geobases";              Description: "{cm:Geobases}";      Types: full compact;                            Flags: disablenouninstallwarning
  
 Name: "dns";                   Description: "DNS";                                                                Flags: disablenouninstallwarning
-Name: "dns\bind";              Description: "Bind";               Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
-Name: "dns\unbound";           Description: "Unbound";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "dns\bind";              Description: "Bind 9.16";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
+Name: "dns\unbound";           Description: "Unbound 1.19";       Types: full;                                    Flags: disablenouninstallwarning
+
+Name: "erlang";                Description: "Erlang/OTP 26.2";    Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "mariadb";               Description: "MariaDB";                                                            Flags: disablenouninstallwarning
 Name: "mariadb\mariadb101";    Description: "MariaDB 10.1";       Types: full;                                    Flags: disablenouninstallwarning
@@ -149,7 +151,7 @@ Name: "nginx";                 Description: "Nginx";                            
 Name: "nginx\nginx122";        Description: "Nginx 1.22";         Types: full;                                    Flags: disablenouninstallwarning
 Name: "nginx\nginx125";        Description: "Nginx 1.25";         Types: full compact;                            Flags: disablenouninstallwarning
 
-Name: "perl";                  Description: "Perl";               Types: full;                                    Flags: disablenouninstallwarning
+Name: "perl";                  Description: "Perl 5.32";          Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "php";                   Description: "PHP";                                                                Flags: disablenouninstallwarning
 Name: "php\php72";             Description: "PHP 7.2";            Types: full;                                    Flags: disablenouninstallwarning
@@ -178,6 +180,8 @@ Name: "psql\postgresql14";     Description: "PostgreSQL 14";      Types: full;  
 Name: "psql\postgresql15";     Description: "PostgreSQL 15";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 Name: "psql\postgresql16";     Description: "PostgreSQL 16";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
+Name: "rabbit\rabbitmq313";    Description: "RabbitMQ 3.13";      Types: full;                                    Flags: disablenouninstallwarning
+
 Name: "redis";                 Description: "Redis";                                                              Flags: disablenouninstallwarning
 Name: "redis\redis30";         Description: "Redis 3.0";          Types: full;                                    Flags: disablenouninstallwarning
 Name: "redis\redis32";         Description: "Redis 3.2";          Types: full;                                    Flags: disablenouninstallwarning
@@ -199,6 +203,7 @@ Source: "system\*";                                               DestDir: "{app
 Source: "user\ssl\*";                                             DestDir: "{app}\user\ssl";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "addons\ControlPanel\*";                                  DestDir: "{app}\addons\ControlPanel";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "addons\Perl\*";                                          DestDir: "{app}\addons\Perl";                   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: perl;                 Permissions: users-full
+Source: "addons\ErlangOTP\*";                                     DestDir: "{app}\addons\ErlangOTP";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: erlang;               Permissions: users-full
 
 Source: "user\browscap\*"; Excludes: "lite_php_browscap.ini";     DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: browscap;              Permissions: users-full
 Source: "user\geo\*";                                             DestDir: "{app}\user\geo";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: geobases;                        Permissions: users-full
@@ -305,9 +310,9 @@ Source: "modules\Redis-7.2\*";                                    DestDir: "{app
 
 Source: "modules\Bind\*";                                         DestDir: "{app}\modules\Bind";                  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\*";                                      DestDir: "{app}\modules\Unbound";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\unbound;                     Permissions: users-full
-
 Source: "modules\Nginx-1.22\*";                                   DestDir: "{app}\modules\Nginx-1.22";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx122;                  Permissions: users-full
 Source: "modules\Nginx-1.25\*";                                   DestDir: "{app}\modules\Nginx-1.25";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx125;                  Permissions: users-full
+Source: "modules\RabbitMQ-3.13\*";                                DestDir: "{app}\modules\RabbitMQ-3.13";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: rabbit\rabbitmq313;              Permissions: users-full
 
 Source: "modules\PHP-7.2\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-7.2\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: php\php72;            Permissions: users-full
 Source: "modules\PHP-7.3\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-7.3\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73;                       Permissions: users-full
