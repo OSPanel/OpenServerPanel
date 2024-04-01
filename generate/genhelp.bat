@@ -96,6 +96,6 @@ exit /b 0
 forfiles /S /M *.exe /C "cmd /c if /i not @fname==\"pgAdmin3\" if /i not @fname==\"isolationtester\" if /i not @fname==\"stackbuilder\" call @file %2 >  %OSP_ROOT_DIR%generate\help\%1\ospanel_data\help\@file.txt 2>&1"
 exit /b 0
 :end
-call perl --help > %OSP_ROOT_DIR%modules\perl\ospanel_data\help\perl.exe.txt 2>&1
+call perl --help > %OSP_ROOT_DIR%addons\Perl-5.32\ospanel_data\help\perl.exe.txt 2>&1
 echo on
 @PAUSE
