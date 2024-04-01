@@ -32,7 +32,7 @@ if /i "%1"=="add"         goto env_add
 if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
-if /i "%1"=="info"        echo: & echo {lang_current_env}: %OSP_ACTIVE_ENV% & goto end
+if /i "%1"=="info"        echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m & goto end
 if /i "%1"=="init"        goto mod_cmd
 if /i "%1"=="modules"     goto request
 if /i "%1"=="log"         goto log
@@ -63,7 +63,7 @@ echo ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  _
 echo  \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
 echo       ^|_^|
 echo:
-echo {lang_calling_help}: osp help ^| {lang_program_version}: {osp_version} ^| © 2010-2024 ^«OSPanel.io^»
+echo {lang_calling_help}: %ESC%[32mosp help%ESC%[0m ^| {lang_program_version}: %ESC%[33m{osp_version}%ESC%[0m ^| © 2010-2024 ^«OSPanel.io^»
 @exit /b 0
 :: -----------------------------------------------------------------------------------
 :: HELP
@@ -71,57 +71,57 @@ echo {lang_calling_help}: osp help ^| {lang_program_version}: {osp_version} ^| �
 :help
 call :logo
 echo:
-echo {lang_using}: osp ^<{lang_command_param}^> [^<{lang_arguments}^>]
+echo %ESC%[33m{lang_using}:%ESC%[0m %ESC%[32mosp ^<{lang_command_param}^> [^<{lang_arguments}^>]%ESC%[0m
 echo:
-echo {lang_env_management}:
+echo %ESC%[33m{lang_env_management}:%ESC%[0m
 echo:
-echo add     ^<MODULE^>            {lang_merge_env}
-echo info                        {lang_show_current_env}
-echo project ^<DOMAIN^>            {lang_activate_project}
-echo reset   [init]              {lang_reset_current_env}
+echo %ESC%[32madd     ^<MODULE^>%ESC%[0m            {lang_merge_env}
+echo %ESC%[32minfo%ESC%[0m                        {lang_show_current_env}
+echo %ESC%[32mproject ^<DOMAIN^>%ESC%[0m            {lang_activate_project}
+echo %ESC%[32mreset   [init]%ESC%[0m              {lang_reset_current_env}
 echo                             {lang_init_flag}
-echo use     ^<MODULE^>            {lang_apply_mod_env}
+echo %ESC%[32muse     ^<MODULE^>%ESC%[0m            {lang_apply_mod_env}
 echo                             {lang_disabled_mod_note_1}
 echo                             {lang_disabled_mod_note_2}
 echo:
-echo {lang_mod_management}:
+echo %ESC%[33m{lang_mod_management}:%ESC%[0m
 echo:
-echo init    ^<MODULE^> [PROFILE]  {lang_reinit}
+echo %ESC%[32minit    ^<MODULE^> [PROFILE]%ESC%[0m  {lang_reinit}
 echo                             {lang_switch_profile_note}
 echo                             {lang_reinit_note}
 echo                             {lang_apply_mod_env_again_1}
 echo                             {lang_apply_mod_env_again_2}
-echo off     ^<MODULE^>            {lang_disable_mod}
-echo on      ^<MODULE^> [PROFILE]  {lang_enable_mod}
-echo restart ^<MODULE^> [PROFILE]  {lang_restart_mod}
-echo shell   ^<MODULE^>            {lang_launch_shell_descr}
-echo status  ^<MODULE^>            {lang_show_mod_status}
+echo %ESC%[32moff     ^<MODULE^>%ESC%[0m            {lang_disable_mod}
+echo %ESC%[32mon      ^<MODULE^> [PROFILE]%ESC%[0m  {lang_enable_mod}
+echo %ESC%[32mrestart ^<MODULE^> [PROFILE]%ESC%[0m  {lang_restart_mod}
+echo %ESC%[32mshell   ^<MODULE^>%ESC%[0m            {lang_launch_shell_descr}
+echo %ESC%[32mstatus  ^<MODULE^>%ESC%[0m            {lang_show_mod_status}
 echo:
-echo {lang_other_commands}:
+echo %ESC%[33m{lang_other_commands}:%ESC%[0m
 echo:
-echo cacert  ^<init^|show^|deinit^>  {lang_gen_and_install_root_cert}
+echo %ESC%[32mcacert  ^<init^|show^|deinit^>%ESC%[0m  {lang_gen_and_install_root_cert}
 echo                             {lang_about_gen_root_cert}
-echo convert ^<DOMAIN^>            {lang_convert_from_to_punycode}
-echo domains                     {lang_show_info_about_domains}
-echo exit                        {lang_shutting_down_program}
-echo log     ^<MODULE^|...^>   [N]  {lang_show_log}
+echo %ESC%[32mconvert ^<DOMAIN^>%ESC%[0m            {lang_convert_from_to_punycode}
+echo %ESC%[32mdomains%ESC%[0m                     {lang_show_info_about_domains}
+echo %ESC%[32mexit%ESC%[0m                        {lang_shutting_down_program}
+echo %ESC%[32mlog     ^<MODULE^|...^>   [N]%ESC%[0m  {lang_show_log}
 echo                             {lang_show_log_descr}
-echo modules                     {lang_show_mod_info}
-echo sysprep [silent^|ssd]        {lang_launch_sp_tool}
+echo %ESC%[32mmodules%ESC%[0m                     {lang_show_mod_info}
+echo %ESC%[32msysprep [silent^|ssd]%ESC%[0m        {lang_launch_sp_tool}
 echo                             {lang_silent_flag}
 echo                             {lang_ssd_flag}
 echo                             {lang_about_silent_mode_1}
 echo                             {lang_about_silent_mode_2}
-echo version                     {lang_show_version_info}
+echo %ESC%[32mversion%ESC%[0m                     {lang_show_version_info}
 echo:
-echo {lang_usage_examples}:
+echo %ESC%[33m{lang_usage_examples}:%ESC%[0m
 echo:
-echo osp exit ^& ospanel          {lang_restarting_program}
-echo osp use PostgreSQL-9.6      {lang_using_postgresql}
-echo osp on PHP-8.1 myprofile    {lang_enabling_php}
-echo osp restart mysql-8.0       {lang_restarting_mysql}
-echo osp log general 20          {lang_show_last_20_lines}
-echo osp reset ^& osp add bind    {lang_combining_with_bind}
+echo %ESC%[32mosp exit ^& ospanel%ESC%[0m          {lang_restarting_program}
+echo %ESC%[32mosp use PostgreSQL-9.6%ESC%[0m      {lang_using_postgresql}
+echo %ESC%[32mosp on PHP-8.1 myprofile%ESC%[0m    {lang_enabling_php}
+echo %ESC%[32mosp restart mysql-8.0%ESC%[0m       {lang_restarting_mysql}
+echo %ESC%[32mosp log general 20%ESC%[0m          {lang_show_last_20_lines}
+echo %ESC%[32mosp reset ^& osp add bind%ESC%[0m    {lang_combining_with_bind}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHUTTING DOWN THE APPLICATION
@@ -331,7 +331,7 @@ call :env_reset pre
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
-if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_current_env}: %OSP_ACTIVE_ENV%
+if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 goto end
 :: -----------------------------------------------------------------------------------
@@ -370,7 +370,7 @@ exit /b 0
 if /i not "%1"=="add" set "OSP_ACTIVE_ENV=%2" & set "OSP_ACTIVE_ENV_VAL=:%2:"
 if /i "%1"=="add" set "OSP_ACTIVE_ENV=%OSP_ACTIVE_ENV% + %2" & set "OSP_ACTIVE_ENV_VAL=%OSP_ACTIVE_ENV_VAL%:%2:"
 if not exist "{root_dir}\temp\%2.lock" echo: & echo %ESC%[93m{lang_warning}: %2 {lang_not_enabled}%ESC%[0m
-if /i not "%1"=="shell" if /i not "%3"=="silent" echo: & echo {lang_current_env}: %OSP_ACTIVE_ENV%
+if /i not "%1"=="shell" if /i not "%3"=="silent" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
 if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @exit /b 0
 :: -----------------------------------------------------------------------------------
