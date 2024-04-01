@@ -14,10 +14,19 @@ version            = 5.32.1.1
 
 English            = https://perldoc.perl.org/perl
 
+[addon_env.bat]
+
+comment            = ::
+destination        = {root_dir}\data\controlpanel\env_{addon_name}.bat
+enabled            = on
+encoding           = UTF8
+path_separator     = \
+source_dir         = {root_dir}\system\templates
+
 [environment]
 
-PATH               = {root_dir}\addons\Perl-5.32\perl\site\bin;{root_dir}\addons\Perl-5.32\perl\bin;{root_dir}\addons\Perl-5.32\c\bin;%PATH%
-PERL5LIB           = {root_dir}\addons\Perl-5.32\perl\site\lib;{root_dir}\addons\Perl-5.32\perl\vendor\lib;{root_dir}\addons\Perl-5.32\perl\lib
+PATH               = {root_dir}\addons\{addon_name}\perl\site\bin;{root_dir}\addons\{addon_name}\perl\bin;{root_dir}\addons\{addon_name}\c\bin;%PATH%
+PERL5LIB           = {root_dir}\addons\{addon_name}\perl\site\lib;{root_dir}\addons\{addon_name}\perl\vendor\lib;{root_dir}\addons\{addon_name}\perl\lib
 PERL5OPT           =
 PERL_JSON_BACKEND  =
 PERL_MB_OPT        =
