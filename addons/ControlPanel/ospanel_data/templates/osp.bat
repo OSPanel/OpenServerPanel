@@ -24,6 +24,8 @@ if not exist "{root_dir}\system\bin\colortest.exe" set "OSP_ERR_MSG={root_dir}\s
 if not exist "{root_dir}\system\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\system\bin\syspreptool.exe {lang_err_not_found}" & goto error
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_MODULES_LIST_=:%OSP_MODULES_LIST: =:%:"
+set "OSP_ADDONS_LIST={addons_list}"
+set "OSP_ADDONS_LIST_=:%OSP_ADDONS_LIST: =:%:"
 :: -----------------------------------------------------------------------------------
 :: ROUTER
 :: -----------------------------------------------------------------------------------
@@ -199,7 +201,7 @@ for %%a in (!OSP_TMPVAL!) do (
 endlocal
 goto end
 :: -----------------------------------------------------------------------------------
-:: DOMAINS/MODULES LIST
+:: ADDONS/DOMAINS/MODULES LIST
 :: -----------------------------------------------------------------------------------
 :request
 "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1
@@ -314,6 +316,9 @@ goto end
 :env_set
 if "%2"=="" goto eargument
 set "OSP_TMP_NAME=%2"
+if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
+    if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+)
 if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
 )
@@ -382,6 +387,8 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @set "OSP_CODEPAGE="
 @set "OSP_MODULES_LIST="
 @set "OSP_MODULES_LIST_="
+@set "OSP_ADDONS_LIST="
+@set "OSP_ADDONS_LIST_="
 @set "OSP_ECHO_STATE="
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
