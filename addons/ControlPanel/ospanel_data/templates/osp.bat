@@ -30,6 +30,7 @@ set "OSP_ADDONS_LIST_=:%OSP_ADDONS_LIST: =:%:"
 :: ROUTER
 :: -----------------------------------------------------------------------------------
 :router
+if /i "%1"=="addons"      goto request
 if /i "%1"=="add"         goto env_add
 if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="-h"          goto help
@@ -101,6 +102,7 @@ echo %ESC%[32mstatus  ^<MODULE^>%ESC%[0m            {lang_show_mod_status}
 echo:
 echo %ESC%[33m{lang_other_commands}:%ESC%[0m
 echo:
+echo %ESC%[32maddons%ESC%[0m                    {lang_show_addons_info}
 echo %ESC%[32mcacert  ^<init^|show^|deinit^>%ESC%[0m  {lang_gen_and_install_root_cert}
 echo                             {lang_about_gen_root_cert}
 echo %ESC%[32mconvert ^<DOMAIN^>%ESC%[0m            {lang_convert_from_to_punycode}
