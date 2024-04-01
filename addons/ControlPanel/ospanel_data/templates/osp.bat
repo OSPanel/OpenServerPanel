@@ -390,7 +390,13 @@ exit /b 0
 :post_env
 if /i not "%1"=="add" set "OSP_ACTIVE_ENV=%2" & set "OSP_ACTIVE_ENV_VAL=:%2:"
 if /i "%1"=="add" set "OSP_ACTIVE_ENV=%OSP_ACTIVE_ENV% + %2" & set "OSP_ACTIVE_ENV_VAL=%OSP_ACTIVE_ENV_VAL%:%2:"
-if not exist "{root_dir}\temp\%2.lock" echo: & echo %ESC%[93m{lang_warning}: %2 {lang_not_enabled}%ESC%[0m
+set "OSP_TMP_NAME_2=" & set "OSP_TMPVAL="
+if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
+    if /i "%%a"=="%2" set "OSP_TMP_NAME_2=%%a"
+)
+if defined OSP_TMP_NAME_2 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME_2%:"
+set "OSP_TMP_NAME_2="
+if defined OSP_TMPVAL if not exist "{root_dir}\temp\%2.lock" echo: & echo %ESC%[93m{lang_warning}: %2 {lang_not_enabled}%ESC%[0m
 if /i not "%1"=="shell" if /i not "%3"=="silent" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
 if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @exit /b 0
