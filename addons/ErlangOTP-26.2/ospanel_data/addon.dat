@@ -17,7 +17,7 @@ English            = https://www.erlang.org/docs
 [erl.ini]
 
 comment            = ;
-destination        = {root_dir}\addons\ErlangOTP\bin\erl.ini
+destination        = {root_dir}\addons\ErlangOTP-26.2\bin\erl.ini
 enabled            = on
 encoding           = UTF8
 path_separator     = \\
@@ -25,14 +25,14 @@ path_separator     = \\
 [erl-bin.ini]
 
 comment            = ;
-destination        = {root_dir}\addons\ErlangOTP\erts-14.2.3\bin\erl.ini
+destination        = {root_dir}\addons\ErlangOTP-26.2\erts-14.2.3\bin\erl.ini
 enabled            = on
 encoding           = UTF8
 path_separator     = \\
 
 [environment]
 
-ERLANG_HOME        = {root_dir}\addons\ErlangOTP
-ERLANG_SERVICE_MANAGER_PATH = {root_dir}\addons\ErlangOTP\erts-14.2.3\bin
-ERL_LIBS           = {root_dir}\addons\ErlangOTP\lib
-PATH               = {root_dir}\addons\ErlangOTP\bin;%PATH%
+ERLANG_HOME        = {root_dir}\addons\ErlangOTP-26.2
+ERLANG_SERVICE_MANAGER_PATH = {root_dir}\addons\ErlangOTP-26.2\erts-14.2.3\bin
+ERL_LIBS           = {root_dir}\addons\ErlangOTP-26.2\lib
+PATH               = {root_dir}\addons\ErlangOTP-26.2\bin;%PATH%
