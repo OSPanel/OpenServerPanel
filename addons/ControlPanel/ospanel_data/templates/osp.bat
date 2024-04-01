@@ -134,6 +134,9 @@ goto end
 if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
 )
+if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
+if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
+)
 {system_environment}
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
@@ -299,10 +302,14 @@ goto end
 :env_add
 if "%2"=="" goto eargument
 set "OSP_TMP_NAME=%2"
+if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
+    if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+)
 if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
 )
-call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
+call :strfind "%OSP_ADDONS_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
 for /f "delims=-" %%i in ("%OSP_TMP_NAME%") do set "OSP_TMPVAL=%%~i"
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMPVAL%"
@@ -324,7 +331,8 @@ if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
 if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
 )
-call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
+call :strfind "%OSP_ADDONS_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
 if not exist "{root_dir}\data\ControlPanel\env_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%" & goto error
 call :env_reset post
@@ -348,8 +356,14 @@ goto end
 if /i "%1"=="pre" if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
 )
+if /i "%1"=="pre" if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
+if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
+)
 {system_environment}
 if /i "%1"=="post" if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
+if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
+)
+if /i "%1"=="post" if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
 if exist "{root_dir}\data\ControlPanel\env_%%a.bat" call "{root_dir}\data\ControlPanel\env_%%a.bat" resetenv
 )
 set "ESC="
