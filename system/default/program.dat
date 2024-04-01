@@ -5,7 +5,6 @@ api_ip                   = 127.127.127.127
 api_port                 = 80
 clear_dns_cache          = on
 hosts_file               = on
-hosts_file_encoding      = UTF8
 lang                     = auto
 log_max_filesize         = 1
 task_scheduler           = on
