@@ -35,10 +35,9 @@ ssl                      = on
 ssl_auto_cert            = on
 ssl_cert_file            =
 ssl_key_file             =
-project_add_commands     =
-project_add_modules      =
+project_commands         =
 project_home_dir         =
-project_use_sys_env      = on
+project_env              = System
 terminal_codepage        =
 
 [modules]
