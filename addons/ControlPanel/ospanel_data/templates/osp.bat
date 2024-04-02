@@ -124,7 +124,6 @@ echo %ESC%[32mosp exit ^& ospanel%ESC%[0m          {lang_restarting_program}
 echo %ESC%[32mosp use PostgreSQL-9.6%ESC%[0m      {lang_using_postgresql}
 echo %ESC%[32mosp on PHP-8.1 myprofile%ESC%[0m    {lang_enabling_php}
 echo %ESC%[32mosp restart mysql-8.0%ESC%[0m       {lang_restarting_mysql}
-echo %ESC%[32mosp log general 20%ESC%[0m          {lang_show_last_20_lines}
 echo %ESC%[32mosp reset ^& osp add bind%ESC%[0m    {lang_combining_with_bind}
 goto end
 :: -----------------------------------------------------------------------------------
