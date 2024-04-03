@@ -78,12 +78,12 @@ echo %ESC%[33m{lang_usage}:%ESC%[0m %ESC%[32mosp ^<{lang_command_param}^> [^<{la
 echo:
 echo %ESC%[33m{lang_env_management}:%ESC%[0m
 echo:
-echo %ESC%[32madd     ^<MODULE^>%ESC%[0m            {lang_merge_env}
+echo %ESC%[32madd     ^<MODULE^|ADDON^>%ESC%[0m      {lang_merge_env}
 echo %ESC%[32minfo%ESC%[0m                        {lang_show_current_env}
 echo %ESC%[32mproject ^<DOMAIN^>%ESC%[0m            {lang_activate_project}
 echo %ESC%[32mreset   [init]%ESC%[0m              {lang_reset_current_env}
 echo                             {lang_init_flag}
-echo %ESC%[32muse     ^<MODULE^>%ESC%[0m            {lang_apply_mod_env}
+echo %ESC%[32muse     ^<MODULE^|ADDON^>%ESC%[0m      {lang_apply_mod_env}
 echo                             {lang_disabled_mod_note_1}
 echo                             {lang_disabled_mod_note_2}
 echo:
