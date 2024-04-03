@@ -74,7 +74,7 @@ echo {lang_calling_help}: %ESC%[32mosp help%ESC%[0m ^| {lang_program_version}: %
 :help
 call :logo
 echo:
-echo %ESC%[33m{lang_using}:%ESC%[0m %ESC%[32mosp ^<{lang_command_param}^> [^<{lang_arguments}^>]%ESC%[0m
+echo %ESC%[33m{lang_usage}:%ESC%[0m %ESC%[32mosp ^<{lang_command_param}^> [^<{lang_arguments}^>]%ESC%[0m
 echo:
 echo %ESC%[33m{lang_env_management}:%ESC%[0m
 echo:
@@ -121,7 +121,7 @@ echo:
 echo %ESC%[33m{lang_usage_examples}:%ESC%[0m
 echo:
 echo %ESC%[32mosp exit ^& ospanel%ESC%[0m          {lang_restarting_program}
-echo %ESC%[32mosp use PostgreSQL-9.6%ESC%[0m      {lang_using_postgresql}
+echo %ESC%[32mosp use PostgreSQL-9.6%ESC%[0m      {lang_usage_postgresql}
 echo %ESC%[32mosp on PHP-8.1 myprofile%ESC%[0m    {lang_enabling_php}
 echo %ESC%[32mosp restart mysql-8.0%ESC%[0m       {lang_restarting_mysql}
 echo %ESC%[32mosp reset ^& osp add bind%ESC%[0m    {lang_combining_with_bind}
