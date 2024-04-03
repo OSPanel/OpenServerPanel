@@ -1,5 +1,5 @@
-#define AppVersion      "6.0.1"
-#define AppVersion_     "6_0_1"
+#define AppVersion      "6.0.0"
+#define AppVersion_     "6_0_0"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -106,7 +106,7 @@ Name: "dns";                   Description: "DNS";                              
 Name: "dns\bind";              Description: "Bind 9.16";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
 Name: "dns\unbound";           Description: "Unbound 1.19";       Types: full;                                    Flags: disablenouninstallwarning
 
-Name: "erlang";                Description: "Erlang/OTP 26.2";    Types: full;                                    Flags: disablenouninstallwarning
+Name: "erlang\erlang26";       Description: "Erlang/OTP 26.2";    Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "mariadb";               Description: "MariaDB";                                                            Flags: disablenouninstallwarning
 Name: "mariadb\mariadb101";    Description: "MariaDB 10.1";       Types: full;                                    Flags: disablenouninstallwarning
@@ -151,7 +151,7 @@ Name: "nginx";                 Description: "Nginx";                            
 Name: "nginx\nginx122";        Description: "Nginx 1.22";         Types: full;                                    Flags: disablenouninstallwarning
 Name: "nginx\nginx125";        Description: "Nginx 1.25";         Types: full compact;                            Flags: disablenouninstallwarning
 
-Name: "perl";                  Description: "Perl 5.32";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "perl\perl532";          Description: "Perl 5.32";          Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "php";                   Description: "PHP";                                                                Flags: disablenouninstallwarning
 Name: "php\php72";             Description: "PHP 7.2";            Types: full;                                    Flags: disablenouninstallwarning
@@ -194,6 +194,7 @@ Name: "redis\redis72";         Description: "Redis 7.2";          Types: full;  
 
 Source: "system\default\domains.dat";   DestName: "domains.ini";  DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\menu.dat";      DestName: "menu.ini";     DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
+Source: "system\default\menu.dat";      DestName: "wt_menu.ini";  DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\program.dat";   DestName: "program.ini";  DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\scheduler.dat"; DestName: "scheduler.ini";DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "licenses\licenses\*";                                    DestDir: "{app}\licenses";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
@@ -202,8 +203,8 @@ Source: "home\*";                                                 DestDir: "{app
 Source: "system\*";                                               DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "user\ssl\*";                                             DestDir: "{app}\user\ssl";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "addons\ControlPanel\*";                                  DestDir: "{app}\addons\ControlPanel";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
-Source: "addons\Perl\*";                                          DestDir: "{app}\addons\Perl";                   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: perl;                 Permissions: users-full
-Source: "addons\ErlangOTP\*";                                     DestDir: "{app}\addons\ErlangOTP";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: erlang;               Permissions: users-full
+Source: "addons\Perl-5.32\*";                                     DestDir: "{app}\addons\Perl-5.32";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: perl\perl532;         Permissions: users-full
+Source: "addons\ErlangOTP-26.2\*";                                DestDir: "{app}\addons\ErlangOTP-26.2";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: erlang\erlang26;      Permissions: users-full
 
 Source: "user\browscap\*"; Excludes: "lite_php_browscap.ini";     DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: browscap;              Permissions: users-full
 Source: "user\geo\*";                                             DestDir: "{app}\user\geo";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: geobases;                        Permissions: users-full
