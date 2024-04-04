@@ -3,6 +3,7 @@
 [main]
 
 architecture       = x64
+category           = Perl
 enabled            = on
 license            = https://dev.perl.org/licenses/gpl1.html
 license_type       = GNU GPLv1
