@@ -25,6 +25,7 @@ need_use_win_terminal = off
 caption               = {lang_open_in_explorer}
 category              = domains
 command               = "%SystemRoot%\explorer.exe" "{project_home_dir}"
+hr_after              = on
 work_directory        = {project_home_dir}
 
 [4]
