@@ -18,7 +18,7 @@ English            = https://perldoc.perl.org/perl
 [addon_env.bat]
 
 comment            = ::
-destination        = {root_dir}\data\controlpanel\env_{addon_name}.bat
+destination        = {root_dir}\data\cli\env_{addon_name}.bat
 enabled            = on
 encoding           = UTF8
 path_separator     = \
