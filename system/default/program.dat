@@ -14,7 +14,7 @@ use_win_terminal         = off
 
 [menu]
 
-group_projects_by_tld    = off
+do_not_group_single_item = on
 hide_useless_selectors   = on
 show_addons              = on
 show_addons_in_groups    = on
@@ -23,6 +23,7 @@ show_modules             = on
 show_modules_in_groups   = on
 show_modules_in_submenu  = on
 show_projects            = on
+show_projects_in_groups  = off
 show_projects_in_submenu = off
 show_tray_icon           = on
 
