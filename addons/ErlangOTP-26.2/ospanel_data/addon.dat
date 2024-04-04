@@ -3,6 +3,7 @@
 [main]
 
 architecture       = x64
+category           = ErlangOTP
 enabled            = on
 license            = https://www.apache.org/licenses/LICENSE-2.0
 license_type       = Apache License 2.0
