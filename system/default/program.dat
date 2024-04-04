@@ -26,6 +26,9 @@ show_projects            = on
 show_projects_in_groups  = off
 show_projects_in_submenu = off
 show_tray_icon           = on
+show_hr_after_addons     = on
+show_hr_after_modules    = on
+show_hr_after_projects   = on
 
 [domains]
 
