@@ -3,6 +3,7 @@
 [main]
 
 architecture       = x64
+category           = Control Panel
 defer              = yes
 enabled            = on
 license            = https://ospanel.io/license/
