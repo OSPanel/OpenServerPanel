@@ -49,6 +49,12 @@ Command Line Interface
 
 На сегодняшний день Open Server Panel широко используется с целью разработки, отладки и тестирования веб-проектов, а также для предоставления веб-сервисов в локальных сетях. Проект завоевал большую популярность у начинающих веб-разработчиков, так как позволяет быстро развернуть рабочую среду и сразу начать изучение веб-технологий без сложных манипуляций по установке и настройке большого количества разнообразных программ.
 
+**Скачать**
+
+https://files.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
+https://us.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
+https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe
+
 **Возможности**
 
 - Незаметная работа в трее Windows
@@ -68,13 +74,11 @@ Command Line Interface
 - Punycode конвертер доменных имён
 - и многое другое...
 
-[Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация) | [Telegram](https://t.me/ospanel_chat)
+[Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
 
-**Скачать**
+Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
-https://files.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
-https://us.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
-https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe
+Хотите получать обновления чаще? Поддержите нашу работу используя [платную загрузку](https://ospanel.io/download/)!
 
 Интерфейс командной строки
 ----------
