@@ -29,11 +29,9 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - Punycode domain name converter
 - and much more...
 
+**Download:** [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
+
 [Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home)
-
-**Download**
-
-[Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Command Line Interface
 ----------
@@ -46,10 +44,6 @@ Command Line Interface
 Open Server Panel — это уникальный инструмент для локальной разработки веб-сайтов и веб-сервисов на платформе Windows. К вашим услугам большой набор серверного программного обеспечения ([WAMP](https://ru.wikipedia.org/wiki/WAMP)-cтек), а также простая и удобная панель управления.
 
 На сегодняшний день Open Server Panel широко используется с целью разработки, отладки и тестирования веб-проектов, а также для предоставления веб-сервисов в локальных сетях. Проект завоевал большую популярность у начинающих веб-разработчиков, так как позволяет быстро развернуть рабочую среду и сразу начать изучение веб-технологий без сложных манипуляций по установке и настройке разнообразного ПО.
-
-**Скачать**
-
-[Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 **Возможности**
 
@@ -69,6 +63,8 @@ Open Server Panel — это уникальный инструмент для л
 - Преднастроенная среда для каждого модуля (вплоть до входа в shell/cli одной командой)
 - Punycode конвертер доменных имён
 - и многое другое...
+
+**Скачать:** [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 [Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
 
