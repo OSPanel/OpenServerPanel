@@ -4,7 +4,7 @@ Open Server Panel 6 <sup><sup>Beta</sup></sup>
 
 **PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
 
-[Documentation EN](https://github.com/OSPanel/OpenServerPanel/wiki/Home) [Документация RU](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
+**Documentation:** [EN](https://github.com/OSPanel/OpenServerPanel/wiki/Home) | [RU](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
 
 We present you the best software environment for web development!
 
