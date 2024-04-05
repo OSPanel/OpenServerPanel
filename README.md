@@ -33,9 +33,7 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 
 **Download**
 
-https://files.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
-https://us.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
-https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe
+[Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Command Line Interface
 ----------
@@ -51,9 +49,7 @@ Open Server Panel — это уникальный инструмент для л
 
 **Скачать**
 
-https://files.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
-https://us.ospanel.io/ospanel_setup_6_0_0_570.exe<br>
-https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe
+[Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 **Возможности**
 
