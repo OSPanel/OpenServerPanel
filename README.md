@@ -4,6 +4,8 @@ Open Server Panel 6 <sup><sup>Beta</sup></sup>
 
 **PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
 
+[Documentation EN](https://github.com/OSPanel/OpenServerPanel/wiki/Home) [Документация RU](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
+
 We present you the best software environment for web development!
 
 Open Server Panel is a unique tool for local development of websites and web services on the Windows platform. It offers a large set of server software (WAMP stack), as well as a simple and convenient control panel.
@@ -29,9 +31,7 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - Punycode domain name converter
 - and much more...
 
-**Download:** [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
-
-[Documentation](https://github.com/OSPanel/OpenServerPanel/wiki/Home)
+**Download:** [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Command Line Interface
 ----------
@@ -64,9 +64,7 @@ Open Server Panel — это уникальный инструмент для л
 - Punycode конвертер доменных имён
 - и многое другое...
 
-**Скачать:** [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
-
-[Документация](https://github.com/OSPanel/OpenServerPanel/wiki/Документация)
+**Скачать:** [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
