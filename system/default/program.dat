@@ -52,8 +52,7 @@ terminal_codepage        =
 
 [modules]
 
-addons                   =
-allowed_env_vars         = allusersprofile appdata commonprogramfiles commonprogramfiles(x86) commonprogramw6432 computername comspec driverdata homedrive homepath localappdata logonserver number_of_processors os path pathext processor_architecture processor_identifier processor_level processor_revision programdata programfiles programfiles(x86) programw6432 psmodulepath public sessionname systemdrive systemroot temp tmp userdomain userdomain_roamingprofile username userprofile windir
+allowed_system_env_vars  = allusersprofile appdata commonprogramfiles commonprogramfiles(x86) commonprogramw6432 computername comspec driverdata homedrive homepath localappdata logonserver number_of_processors os path pathext processor_architecture processor_identifier processor_level processor_revision programdata programfiles programfiles(x86) programw6432 psmodulepath public sessionname systemdrive systemroot temp tmp userdomain userdomain_roamingprofile username userprofile windir
 log_max_filesize         = 1
 log_write_title          = on
 max_probation_fails      = 1
@@ -62,6 +61,7 @@ probation                = 30
 silent_mode              = on
 terminal_codepage        = 65001
 time_zone                = system
+used_addons_environment  =
 
 [smtp]
 
