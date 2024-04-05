@@ -16,6 +16,7 @@ use_win_terminal         = off
 
 do_not_group_single_item = on
 hide_useless_selectors   = on
+show_icons               = on
 show_addons              = on
 show_addons_in_groups    = on
 show_addons_in_submenu   = off
