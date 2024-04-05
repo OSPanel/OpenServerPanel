@@ -29,7 +29,7 @@ caption               = {lang_open_in_explorer}
 category              = domains
 command               = "%SystemRoot%\explorer.exe" "{project_dir}"
 hr_after              = on
-icon                  = fa-folder-closed
+icon                  = fa-folder-open
 work_directory        = {project_dir}
 
 [4]
@@ -74,7 +74,7 @@ caption               = {lang_open_in_explorer}
 category              = modules
 command               = "%SystemRoot%\explorer.exe" "{root_dir}\modules\{module_name}"
 hr_after              = on
-icon                  = fa-folder-closed
+icon                  = fa-folder-open
 work_directory        = {root_dir}\modules\{module_name}
 
 [9]
@@ -131,7 +131,7 @@ need_use_win_terminal = off
 
 caption               = {lang_root_dir}
 command               = "%SystemRoot%\explorer.exe" "{root_dir}"
-icon                  = fa-folder-closed
+icon                  = fa-folder-open
 
 [16]
 
