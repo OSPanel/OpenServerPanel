@@ -6,9 +6,9 @@ Open Server Panel 6 <sup><sup>Beta</sup></sup>
 
 The best tool for local development of websites and web services on the Windows platform.
 
-We present to you a software environment for web developers, which includes a set of server software (WAMP-stack), as well as a simple and convenient control panel in two versions: a web interface and a command line interface (CLI).
+We present you a unique software environment for web development, with a large set of server software at your service (WAMP-stack), as well as a simple and convenient control panel.
 
-Today, Open Server Panel is widely used for the development, debugging and testing of web projects, as well as for providing web services in local networks. The project has gained great popularity among novice web developers, as it allows you to quickly deploy a working environment and immediately begin learning web technologies without complex manipulations for installing and configuring a large number of various programs.
+Today, the Open Server Panel is widely used for the purpose of developing, debugging and testing web projects, as well as for providing web services on local networks. The project has gained great popularity among novice web developers, as it allows you to quickly deploy a work environment and immediately start learning web technologies without complex manipulations for installing and configuring a variety of software.
 
 **Features**
 
@@ -45,7 +45,7 @@ Command Line Interface
 
 Лучший инструмент для локальной разработки веб-сайтов и веб-сервисов на платформе Windows.
 
-Представляем вам программную среду для веб-разработчиков, включающую в себя набор серверного программного обеспечения ([WAMP](https://ru.wikipedia.org/wiki/WAMP)-cтек), а также простую и удобную панель управления в двух вариантах: веб-интерфейс и интерфейс командной строки (CLI).
+Представляем вам уникальную программную среду для веб-разработки, к вашим услугам большой набор серверного программного обеспечения ([WAMP](https://ru.wikipedia.org/wiki/WAMP)-cтек), а также простая и удобная панель управления.
 
 На сегодняшний день Open Server Panel широко используется с целью разработки, отладки и тестирования веб-проектов, а также для предоставления веб-сервисов в локальных сетях. Проект завоевал большую популярность у начинающих веб-разработчиков, так как позволяет быстро развернуть рабочую среду и сразу начать изучение веб-технологий без сложных манипуляций по установке и настройке разнообразного ПО.
 
