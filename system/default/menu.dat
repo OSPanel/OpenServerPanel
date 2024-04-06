@@ -4,7 +4,7 @@ caption               = {lang_open_in_browser}
 category              = domains
 command               = "%COMSPEC%" /c "start "" "http://{host_decoded}""
 hide                  = on
-icon                  = fa-up-right-from-square
+icon                  = up-right-from-square
 need_state            = on
 
 [1]
@@ -12,7 +12,7 @@ need_state            = on
 caption               = {lang_open_in_console}
 category              = domains
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
-icon                  = fa-terminal
+icon                  = terminal
 need_use_win_terminal = on
 
 [2]
@@ -20,7 +20,7 @@ need_use_win_terminal = on
 caption               = {lang_open_in_console}
 category              = domains
 command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
-icon                  = fa-terminal
+icon                  = terminal
 need_use_win_terminal = off
 
 [3]
@@ -28,8 +28,7 @@ need_use_win_terminal = off
 caption               = {lang_open_in_explorer}
 category              = domains
 command               = "%SystemRoot%\explorer.exe" "{project_dir}"
-hr_after              = on
-icon                  = fa-folder-open
+icon                  = folder-open
 work_directory        = {project_dir}
 
 [4]
@@ -37,7 +36,7 @@ work_directory        = {project_dir}
 caption               = {lang_open_in_console}
 category              = modules
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
-icon                  = fa-terminal
+icon                  = terminal
 need_use_win_terminal = on
 
 [5]
@@ -45,7 +44,7 @@ need_use_win_terminal = on
 caption               = {lang_open_in_console}
 category              = modules
 command               = "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
-icon                  = fa-terminal
+icon                  = terminal
 need_use_win_terminal = off
 
 [6]
@@ -53,7 +52,7 @@ need_use_win_terminal = off
 caption               = {lang_launch_shell}
 category              = modules
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
-icon                  = fa-terminal
+icon                  = terminal
 need_state            = on
 need_module_shell     = on
 need_use_win_terminal = on
@@ -63,7 +62,7 @@ need_use_win_terminal = on
 caption               = {lang_launch_shell}
 category              = modules
 command               = "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
-icon                  = fa-terminal
+icon                  = terminal
 need_state            = on
 need_module_shell     = on
 need_use_win_terminal = off
@@ -74,7 +73,7 @@ caption               = {lang_open_in_explorer}
 category              = modules
 command               = "%SystemRoot%\explorer.exe" "{root_dir}\modules\{module_name}"
 hr_after              = on
-icon                  = fa-folder-open
+icon                  = folder-closed
 work_directory        = {root_dir}\modules\{module_name}
 
 [9]
@@ -83,7 +82,7 @@ caption               = {lang_initialize}
 category              = modules
 command               = "%COMSPEC%" /c "osp init {module_name}"
 hide                  = on
-icon                  = fa-gears
+icon                  = gears
 need_state            = off
 
 [10]
@@ -92,7 +91,7 @@ caption               = {lang_switch_on}
 category              = modules
 command               = "%COMSPEC%" /c "osp on {module_name}"
 hide                  = on
-icon                  = fa-circle-play
+icon                  = circle-play
 need_state            = off
 
 [11]
@@ -101,7 +100,7 @@ caption               = {lang_restart}
 category              = modules
 command               = "%COMSPEC%" /c "osp restart {module_name}"
 hide                  = on
-icon                  = fa-redo
+icon                  = redo
 need_state            = on
 
 [12]
@@ -110,34 +109,34 @@ caption               = {lang_switch_off}
 category              = modules
 command               = "%COMSPEC%" /c "osp off {module_name}"
 hide                  = on
-icon                  = fa-power-off
+icon                  = power-off
 need_state            = on
 
 [13]
 
 caption               = {lang_cli}
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
-icon                  = fa-terminal
+icon                  = terminal
 need_use_win_terminal = on
 
 [14]
 
 caption               = {lang_cli}
 command               = "%COMSPEC%" /k "osp reset init"
-icon                  = fa-terminal
+icon                  = terminal
 need_use_win_terminal = off
 
 [15]
 
 caption               = {lang_root_dir}
 command               = "%SystemRoot%\explorer.exe" "{root_dir}"
-icon                  = fa-folder-open
+icon                  = folder-closed
 
 [16]
 
 caption               = {lang_idn_menu_caption}
 command               = "{root_dir}\system\bin\idnconverter.exe"
-icon                  = fa-shuffle
+icon                  = shuffle
 
 [17]
 
@@ -145,4 +144,4 @@ caption               = {lang_sp_tool}
 command               = "{root_dir}\system\bin\syspreptool.exe"
 hr_after              = on
 hr_before             = on
-icon                  = fa-tools
+icon                  = tools
