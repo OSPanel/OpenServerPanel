@@ -194,7 +194,7 @@ if %ERRORLEVEL%==1 set "OSP_ERR_MSG={err_failed_to_enable_ce}" & goto error
 if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=General API Scheduler SMTP %OSP_MODULES_LIST%"
 if /i not "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_TMP_NAME%"
 for %%a in (!OSP_TMPVAL!) do (
-    if /i "%OSP_TMP_NAME%"=="all" echo: & echo {lang_journal} %%a & echo:
+    if /i "%OSP_TMP_NAME%"=="all" echo: & echo %ESC%[33m{lang_journal} %%a%ESC%[0m & echo:
     if /i not "%OSP_TMP_NAME%"=="all" echo:
     if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
     if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
