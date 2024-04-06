@@ -38,6 +38,7 @@ auto_configure           = on
 enabled                  = on
 php_engine               =
 nginx_engine             =
+nodejs_engine            =
 ip                       =
 log_format               = combined
 cgi_dir                  = {root_dir}\home\{host}\cgi-bin
@@ -46,9 +47,10 @@ ssl                      = on
 ssl_auto_cert            = on
 ssl_cert_file            =
 ssl_key_file             =
-project_commands         =
+project_command          =
 project_dir              =
 project_env              = System
+project_start_command    =
 terminal_codepage        =
 
 [modules]
