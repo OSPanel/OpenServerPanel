@@ -25,13 +25,31 @@ need_use_win_terminal = off
 
 [3]
 
+caption               = {launch_nodejs_app}
+category              = domains
+command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
+icon                  = terminal
+need_ps_command       = on
+need_use_win_terminal = on
+
+[4]
+
+caption               = {launch_nodejs_app}
+category              = domains
+command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
+icon                  = terminal
+need_ps_command       = on
+need_use_win_terminal = off
+
+[5]
+
 caption               = {lang_open_in_explorer}
 category              = domains
 command               = "%SystemRoot%\explorer.exe" "{project_dir}"
 icon                  = folder-closed
 work_directory        = {project_dir}
 
-[4]
+[6]
 
 caption               = {lang_open_in_console}
 category              = modules
@@ -39,7 +57,7 @@ command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COM
 icon                  = terminal
 need_use_win_terminal = on
 
-[5]
+[7]
 
 caption               = {lang_open_in_console}
 category              = modules
@@ -47,7 +65,7 @@ command               = "%COMSPEC%" /k "osp reset init noprint & osp use {module
 icon                  = terminal
 need_use_win_terminal = off
 
-[6]
+[8]
 
 caption               = {lang_launch_shell}
 category              = modules
@@ -57,7 +75,7 @@ need_state            = on
 need_module_shell     = on
 need_use_win_terminal = on
 
-[7]
+[9]
 
 caption               = {lang_launch_shell}
 category              = modules
@@ -67,7 +85,7 @@ need_state            = on
 need_module_shell     = on
 need_use_win_terminal = off
 
-[8]
+[10]
 
 caption               = {lang_open_in_explorer}
 category              = modules
@@ -76,7 +94,7 @@ hr_after              = on
 icon                  = folder-closed
 work_directory        = {root_dir}\modules\{module_name}
 
-[9]
+[11]
 
 caption               = {lang_initialize}
 category              = modules
@@ -85,7 +103,7 @@ hide                  = on
 icon                  = gears
 need_state            = off
 
-[10]
+[12]
 
 caption               = {lang_switch_on}
 category              = modules
@@ -94,7 +112,7 @@ hide                  = on
 icon                  = circle-play
 need_state            = off
 
-[11]
+[13]
 
 caption               = {lang_restart}
 category              = modules
@@ -103,7 +121,7 @@ hide                  = on
 icon                  = redo
 need_state            = on
 
-[12]
+[14]
 
 caption               = {lang_switch_off}
 category              = modules
@@ -112,33 +130,33 @@ hide                  = on
 icon                  = power-off
 need_state            = on
 
-[13]
+[15]
 
 caption               = {lang_cli}
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
 icon                  = terminal
 need_use_win_terminal = on
 
-[14]
+[16]
 
 caption               = {lang_cli}
 command               = "%COMSPEC%" /k "osp reset init"
 icon                  = terminal
 need_use_win_terminal = off
 
-[15]
+[17]
 
 caption               = {lang_root_dir}
 command               = "%SystemRoot%\explorer.exe" "{root_dir}"
 icon                  = folder-closed
 
-[16]
+[18]
 
 caption               = {lang_idn_menu_caption}
 command               = "{root_dir}\system\bin\idnconverter.exe"
 icon                  = shuffle
 
-[17]
+[19]
 
 caption               = {lang_sp_tool}
 command               = "{root_dir}\system\bin\syspreptool.exe"
