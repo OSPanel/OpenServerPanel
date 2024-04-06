@@ -25,19 +25,19 @@ need_use_win_terminal = off
 
 [3]
 
-caption               = {launch_nodejs_app}
+caption               = {lang_launch_app}
 category              = domains
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
-icon                  = terminal
+icon                  = rocket
 need_ps_command       = on
 need_use_win_terminal = on
 
 [4]
 
-caption               = {launch_nodejs_app}
+caption               = {lang_launch_app}
 category              = domains
 command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
-icon                  = terminal
+icon                  = rocket
 need_ps_command       = on
 need_use_win_terminal = off
 
@@ -161,5 +161,4 @@ icon                  = shuffle
 caption               = {lang_sp_tool}
 command               = "{root_dir}\system\bin\syspreptool.exe"
 hr_after              = on
-hr_before             = on
 icon                  = tools
