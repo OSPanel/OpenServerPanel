@@ -1,0 +1,4 @@
+root: {root_dir}\addons\{addon_name}
+path: {root_dir}\addons\{addon_name}\nodejs
+arch: 64
+proxy: none
