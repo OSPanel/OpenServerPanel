@@ -30,27 +30,28 @@ set "OSP_ADDONS_LIST_=:%OSP_ADDONS_LIST: =:%:"
 :: ROUTER
 :: -----------------------------------------------------------------------------------
 :router
-if /i "%1"=="addons"      goto request
 if /i "%1"=="add"         goto env_add
+if /i "%1"=="addons"      goto request
+if /i "%1"=="cacert"      goto cacertinit
+if /i "%1"=="convert"     goto convert
+if /i "%1"=="domains"     goto request
 if /i "%1"=="exit"        goto shutdown
-if /i "%1"=="-h"          goto help
 if /i "%1"=="help"        goto help
+if /i "%1"=="-h"          goto help
 if /i "%1"=="info"        echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m & goto end
 if /i "%1"=="init"        goto mod_cmd
-if /i "%1"=="modules"     goto request
 if /i "%1"=="log"         goto log
+if /i "%1"=="modules"     goto request
+if /i "%1"=="node"        goto node
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
 if /i "%1"=="project"     goto project
-if /i "%1"=="convert"     goto convert
-if /i "%1"=="domains"     goto request
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
-if /i "%1"=="use"         goto env_set
 if /i "%1"=="shell"       goto mod_shell
-if /i "%1"=="cacert"      goto cacertinit
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
+if /i "%1"=="use"         goto env_set
 if /i "%1"=="-v"          echo: & echo {lang_version_info}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
 if /i "%1"=="version"     echo: & echo {lang_version_info}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
 if "%1"==""               goto help
@@ -190,6 +191,71 @@ goto end
 if exist "{root_dir}\data\ssl\root\cert.crt" del /Q "{root_dir}\data\ssl\root\cert.crt"
 "%SystemRoot%\System32\certutil.exe" -user -delstore "Root" "Open Server Panel"
 "%SystemRoot%\System32\certutil.exe" -urlcache * delete > nul 2> nul
+goto end
+:: -----------------------------------------------------------------------------------
+:: NODE MANAGEMENT
+:: -----------------------------------------------------------------------------------
+:node
+if "%2"=="" goto eargument
+call :strfind "%OSP_ADDONS_LIST_%" ":NVM:"
+if not defined OSP_TMPVAL set "OSP_ERR_MSG={lang_nvm_not_installed}" & goto error
+if not exist "{root_dir}\data\cli\env_NVM.bat" set "OSP_ERR_MSG={lang_err_no_env_config} NVM" & goto error
+if /i "%2"=="install" goto nodeinstall
+if /i "%2"=="list" goto nodelist
+if /i "%2"=="node_mirror" goto nodeurl
+if /i "%2"=="npm_mirror" goto nodeurl
+if /i "%2"=="proxy" goto nodecmd
+if /i "%2"=="uninstall" goto nodecmd
+if /i "%2"=="add" goto nodeadd
+if /i "%2"=="use" goto nodeuse
+goto invalid
+:nodeadd
+if /i "%3"=="" goto invalid
+if not exist "{root_dir}\addons\NVM\v%3" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node"
+if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%3:"
+if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
+call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3
+set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
+set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
+set "NVM_SYMLINK="
+set "NVM_HOME="
+goto end
+:nodeuse
+if /i "%3"=="" goto invalid
+if not exist "{root_dir}\addons\NVM\v%3" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
+call :env_reset post
+call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3
+set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
+set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
+set "NVM_SYMLINK="
+set "NVM_HOME="
+goto end
+:nodecmd
+setlocal
+call :env_reset post
+call "{root_dir}\data\cli\env_NVM.bat" use
+call "{root_dir}\addons\NVM\nvm.exe" %2 %3
+endlocal
+goto end
+:nodelist
+if /i not "%3"=="" if /i not "%3"=="available" goto invalid
+setlocal
+call :env_reset post
+call "{root_dir}\data\cli\env_NVM.bat" use
+call "{root_dir}\addons\NVM\nvm.exe" %2 %3
+endlocal
+goto end
+:nodeinstall
+if /i "%3"=="" goto invalid
+if /i not "%4"=="" if /i not "%4"=="latest" if /i not "%4"=="lts" if /i not "%4"=="all" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
+setlocal
+call :env_reset post
+call "{root_dir}\data\cli\env_NVM.bat" use
+echo:
+call "{root_dir}\addons\NVM\nvm.exe" %2 %3 %4
+endlocal
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
