@@ -37,7 +37,7 @@
     body {
         font-family: Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
         font-weight: normal;
-        font-size:  14rem;
+        font-size: 14rem;
         background-color: #E5EEF5;
         color: #000;
     }
@@ -145,7 +145,7 @@
         color: #fff;
         cursor: pointer;
         /* display: inline-block; */
-        display: none;
+        display: inline-block;
         font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         font-size: 14rem;
         font-weight: 600;
@@ -212,12 +212,11 @@
     <script src="dist/js/axios.min.js"></script>
     <script>
     $(document).ready(function() {
-    $('#clibtn').on('click', function() {
-        axios.get('{web_api_url}/cli').then(function(response) {
-        }).catch(function(error) {
-            toastr.error('{lang_err_api_req_failed}');
+        $('#clibtn').on('click', function() {
+            axios.get('{cmd_api_url}/cli').then(function(response) {}).catch(function(error) {
+                toastr.error('{lang_err_api_req_failed}');
+            });
         });
-    });
     });
     </script>
 </body>
