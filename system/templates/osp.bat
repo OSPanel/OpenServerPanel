@@ -104,6 +104,7 @@ if not exist "{root_dir}\addons\NVM\nvm.exe" goto help2
 echo:
 echo %ESC%[33m{lang_nvm_management}:%ESC%[0m
 echo:
+echo %ESC%[32mnode    add     ^<N^>       %ESC%[0m  {lang_nvm_add}
 echo %ESC%[32mnode    install ^<N^> [ARCH]%ESC%[0m  {lang_nvm_install_1}
 echo                             {lang_nvm_install_2}
 echo                             {lang_nvm_install_3}
@@ -216,7 +217,7 @@ call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%3:"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
-call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3
+call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3 %4
 set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
 set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
 set "NVM_SYMLINK="
@@ -226,7 +227,7 @@ goto end
 if /i "%3"=="" goto invalid
 if not exist "{root_dir}\addons\NVM\v%3" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3
+call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3 %4
 set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
 set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
 set "NVM_SYMLINK="
@@ -510,6 +511,7 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @set "OSP_ADDONS_LIST="
 @set "OSP_ADDONS_LIST_="
 @set "OSP_ECHO_STATE="
+@set "OSP_PROG_LIST="
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
 @set "OSP_TMP_NAME="
