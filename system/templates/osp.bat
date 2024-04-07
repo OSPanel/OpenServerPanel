@@ -19,6 +19,7 @@ del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if not exist "{root_dir}\system\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\system\bin\curl.exe {lang_err_not_found}" & goto error
 if not exist "{root_dir}\system\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\system\bin\tail.exe {lang_err_not_found}" & goto error
+if not exist "{root_dir}\system\bin\getbit.exe" set "OSP_ERR_MSG={root_dir}\system\bin\getbit.exe {lang_err_not_found}" & goto error
 if not exist "{root_dir}\system\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\bin\ansicon.exe {lang_err_not_found}" & goto error
 if not exist "{root_dir}\system\bin\colortest.exe" set "OSP_ERR_MSG={root_dir}\system\bin\colortest.exe {lang_err_not_found}" & goto error
 if not exist "{root_dir}\system\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\system\bin\syspreptool.exe {lang_err_not_found}" & goto error
@@ -202,6 +203,7 @@ if not defined OSP_TMPVAL set "OSP_ERR_MSG={lang_nvm_not_installed}" & goto erro
 if not exist "{root_dir}\data\cli\env_NVM.bat" set "OSP_ERR_MSG={lang_err_no_env_config} NVM" & goto error
 if /i "%2"=="install" goto nodeinstall
 if /i "%2"=="list" goto nodelist
+if /i "%2"=="mode" goto nodemode
 if /i "%2"=="node_mirror" goto nodeurl
 if /i "%2"=="npm_mirror" goto nodeurl
 if /i "%2"=="proxy" goto nodecmd
@@ -232,6 +234,15 @@ set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
 set "NVM_SYMLINK="
 set "NVM_HOME="
 goto end
+:nodemode
+if /i "%4"=="" echo: & call "{root_dir}\system\bin\getbit.exe" "{root_dir}\addons\NVM\v%3\node.exe" & goto end
+if /i not "%4"=="" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
+setlocal
+call :env_reset post
+call "{root_dir}\data\cli\env_NVM.bat" use
+if /i not "%3"=="" call "{root_dir}\addons\NVM\nvm.exe" use %3 %4
+endlocal
+goto end
 :nodecmd
 setlocal
 call :env_reset post
@@ -249,7 +260,7 @@ endlocal
 goto end
 :nodeinstall
 if /i "%3"=="" goto invalid
-if /i not "%4"=="" if /i not "%4"=="latest" if /i not "%4"=="lts" if /i not "%4"=="all" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
+if /i not "%4"=="" if /i not "%4"=="all" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
 setlocal
 call :env_reset post
 call "{root_dir}\data\cli\env_NVM.bat" use
