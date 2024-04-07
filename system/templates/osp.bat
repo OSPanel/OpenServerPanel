@@ -17,12 +17,10 @@
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
-if not exist "{root_dir}\system\bin\curl.exe" set "OSP_ERR_MSG={root_dir}\system\bin\curl.exe {lang_err_not_found}" & goto error
-if not exist "{root_dir}\system\bin\tail.exe" set "OSP_ERR_MSG={root_dir}\system\bin\tail.exe {lang_err_not_found}" & goto error
-if not exist "{root_dir}\system\bin\getbit.exe" set "OSP_ERR_MSG={root_dir}\system\bin\getbit.exe {lang_err_not_found}" & goto error
-if not exist "{root_dir}\system\bin\ansicon.exe" set "OSP_ERR_MSG={root_dir}\system\bin\ansicon.exe {lang_err_not_found}" & goto error
-if not exist "{root_dir}\system\bin\colortest.exe" set "OSP_ERR_MSG={root_dir}\system\bin\colortest.exe {lang_err_not_found}" & goto error
-if not exist "{root_dir}\system\bin\syspreptool.exe" set "OSP_ERR_MSG={root_dir}\system\bin\syspreptool.exe {lang_err_not_found}" & goto error
+set "OSP_PROG_LIST=curl tail getbit ansicon colortest syspreptool"
+for %%a in (%OSP_PROG_LIST%) do (
+    if not exist "{root_dir}\system\bin\%%a.exe" set "OSP_ERR_MSG=%%a.exe {lang_err_not_found}" & goto error
+)
 set "OSP_MODULES_LIST={modules_list}"
 set "OSP_MODULES_LIST_=:%OSP_MODULES_LIST: =:%:"
 set "OSP_ADDONS_LIST={addons_list}"
