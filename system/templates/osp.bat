@@ -100,6 +100,29 @@ echo %ESC%[32mon      ^<MODULE^> [PROFILE]%ESC%[0m  {lang_enable_mod}
 echo %ESC%[32mrestart ^<MODULE^> [PROFILE]%ESC%[0m  {lang_restart_mod}
 echo %ESC%[32mshell   ^<MODULE^>%ESC%[0m            {lang_launch_shell_descr}
 echo %ESC%[32mstatus  ^<MODULE^>%ESC%[0m            {lang_show_mod_status}
+if not exist "{root_dir}\addons\NVM\nvm.exe" goto help2
+echo:
+echo %ESC%[33m{lang_nvm_management}:%ESC%[0m
+echo:
+echo %ESC%[32mnode    install ^<N^> [ARCH]%ESC%[0m  {lang_nvm_install_1}
+echo                             {lang_nvm_install_2}
+echo                             {lang_nvm_install_3}
+echo                             {lang_nvm_install_4}
+echo                             {lang_nvm_install_5}
+echo %ESC%[32mnode    list   [available]%ESC%[0m  {lang_nvm_list_1}
+echo                             {lang_nvm_list_2}
+echo %ESC%[32mnode    mode   ^<N^>  [ARCH]%ESC%[0m  {lang_nvm_mode_1}
+echo                             {lang_nvm_mode_2}
+echo %ESC%[32mnode    node_mirror  [URL]%ESC%[0m  {lang_nvm_node_mirror_1}
+echo                             {lang_nvm_node_mirror_2}
+echo %ESC%[32mnode    npm_mirror   [URL]%ESC%[0m  {lang_nvm_npm_mirror_1}
+echo                             {lang_nvm_npm_mirror_2}
+echo %ESC%[32mnode    proxy        [URL]%ESC%[0m  {lang_nvm_proxy_1}
+echo                             {lang_nvm_proxy_2}
+echo                             {lang_nvm_proxy_3}
+echo %ESC%[32mnode    uninstall      ^<N^>%ESC%[0m  {lang_nvm_uninstall}
+echo %ESC%[32mnode    use            ^<N^>%ESC%[0m  {lang_nvm_use}
+:help2
 echo:
 echo %ESC%[33m{lang_other_commands}:%ESC%[0m
 echo:
