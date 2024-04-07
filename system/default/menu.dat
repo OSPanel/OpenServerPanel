@@ -132,31 +132,39 @@ need_state            = on
 
 [15]
 
+caption               = {lang_control_panel}
+command               = "%COMSPEC%" /c "start "" "{web_panel_url}""
+enabled               = off
+hide                  = on
+icon                  = gear
+
+[16]
+
 caption               = {lang_cli}
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
 icon                  = terminal
 need_use_win_terminal = on
 
-[16]
+[17]
 
 caption               = {lang_cli}
 command               = "%COMSPEC%" /k "osp reset init"
 icon                  = terminal
 need_use_win_terminal = off
 
-[17]
+[18]
 
 caption               = {lang_root_dir}
 command               = "%SystemRoot%\explorer.exe" "{root_dir}"
 icon                  = folder-closed
 
-[18]
+[19]
 
 caption               = {lang_idn_menu_caption}
 command               = "{root_dir}\system\bin\idnconverter.exe"
 icon                  = shuffle
 
-[19]
+[20]
 
 caption               = {lang_sp_tool}
 command               = "{root_dir}\system\bin\syspreptool.exe"
