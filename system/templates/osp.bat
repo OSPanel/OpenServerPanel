@@ -17,7 +17,7 @@
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
-set "OSP_PROG_LIST=curl tail getbit ansicon colortest syspreptool"
+set "OSP_PROG_LIST=curl tail getbit getparent ansicon colortest syspreptool"
 for %%a in (%OSP_PROG_LIST%) do (
     if not exist "{root_dir}\system\bin\%%a.exe" set "OSP_ERR_MSG=%%a.exe {lang_err_not_found}" & goto error
 )
@@ -25,6 +25,8 @@ set "OSP_MODULES_LIST={modules_list}"
 set "OSP_MODULES_LIST_=:%OSP_MODULES_LIST: =:%:"
 set "OSP_ADDONS_LIST={addons_list}"
 set "OSP_ADDONS_LIST_=:%OSP_ADDONS_LIST: =:%:"
+call "{root_dir}\system\bin\getparent.exe" >nul 2>nul
+@if %ERRORLEVEL% gtr 0 set "OSP_ERR_MSG={lang_err_powershell_detect}" & goto error
 :: -----------------------------------------------------------------------------------
 :: ROUTER
 :: -----------------------------------------------------------------------------------
@@ -275,6 +277,7 @@ call "{root_dir}\data\cli\env_NVM.bat" use
 echo:
 call "{root_dir}\addons\NVM\nvm.exe" %2 %OSP_TMP_NAME% %4
 endlocal
+"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/update_menu >nul 2>nul
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
@@ -410,7 +413,7 @@ goto end
 :env_add
 if "%2"=="" goto eargument
 call :strfind "%2" "Node-"
-if defined OSP_TMPVAL goto nodeadd
+if defined OSP_TMPVAL call :nodeadd node add %2 %3 & goto end
 set "OSP_TMPVAL="
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
@@ -436,7 +439,7 @@ goto end
 :env_set
 if "%2"=="" goto eargument
 call :strfind "%2" "Node-"
-if defined OSP_TMPVAL goto nodeuse
+if defined OSP_TMPVAL call :nodeuse node use %2 %3 & goto end
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
