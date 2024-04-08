@@ -104,12 +104,13 @@ if not exist "{root_dir}\addons\NVM\nvm.exe" goto help2
 echo:
 echo %ESC%[33m{lang_nvm_management}:%ESC%[0m
 echo:
-echo %ESC%[32mnode    add     ^<N^>%ESC%[0m         {lang_nvm_add}
 echo %ESC%[32mnode    install ^<N^> [ARCH]%ESC%[0m  {lang_nvm_install_1}
 echo                             {lang_nvm_install_2}
 echo                             {lang_nvm_install_3}
 echo                             {lang_nvm_install_4}
 echo                             {lang_nvm_install_5}
+echo                             {lang_nvm_install_6}
+echo                             {lang_nvm_install_7}
 echo %ESC%[32mnode    list   [available]%ESC%[0m  {lang_nvm_list_1}
 echo                             {lang_nvm_list_2}
 echo %ESC%[32mnode    mode    ^<N^> [ARCH]%ESC%[0m  {lang_nvm_mode_1}
@@ -122,7 +123,6 @@ echo %ESC%[32mnode    proxy        [URL]%ESC%[0m  {lang_nvm_proxy_1}
 echo                             {lang_nvm_proxy_2}
 echo                             {lang_nvm_proxy_3}
 echo %ESC%[32mnode    uninstall ^<N^>%ESC%[0m       {lang_nvm_uninstall}
-echo %ESC%[32mnode    use       ^<N^>%ESC%[0m       {lang_nvm_use}
 :help2
 echo:
 echo %ESC%[33m{lang_other_commands}:%ESC%[0m
@@ -205,8 +205,8 @@ if /i "%2"=="list" goto nodelist
 if /i "%2"=="mode" goto nodemode
 if /i "%2"=="node_mirror" goto nodeurl
 if /i "%2"=="npm_mirror" goto nodeurl
-if /i "%2"=="proxy" goto nodecmd
-if /i "%2"=="uninstall" goto nodecmd
+if /i "%2"=="proxy" goto nodeurl
+if /i "%2"=="uninstall" goto nodeinstall
 if /i "%2"=="add" goto nodeadd
 if /i "%2"=="use" goto nodeuse
 goto invalid
@@ -238,15 +238,18 @@ set "NVM_SYMLINK="
 set "NVM_HOME="
 goto end
 :nodemode
-if /i "%4"=="" echo: & call "{root_dir}\system\bin\getbit.exe" "{root_dir}\addons\NVM\v%3\node.exe" & goto end
+if /i "%3"=="" goto invalid
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+if /i "%4"=="" echo: & call "{root_dir}\system\bin\getbit.exe" "{root_dir}\addons\NVM\v%OSP_TMP_NAME%\node.exe" & goto end
 if /i not "%4"=="" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
 setlocal
 call :env_reset post
 call "{root_dir}\data\cli\env_NVM.bat" use
-if /i not "%3"=="" call "{root_dir}\addons\NVM\nvm.exe" use %3 %4
+call "{root_dir}\addons\NVM\nvm.exe" use %OSP_TMP_NAME% %4
 endlocal
 goto end
-:nodecmd
+:nodeurl
 setlocal
 call :env_reset post
 call "{root_dir}\data\cli\env_NVM.bat" use
@@ -263,12 +266,14 @@ endlocal
 goto end
 :nodeinstall
 if /i "%3"=="" goto invalid
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
 if /i not "%4"=="" if /i not "%4"=="all" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
 setlocal
 call :env_reset post
 call "{root_dir}\data\cli\env_NVM.bat" use
 echo:
-call "{root_dir}\addons\NVM\nvm.exe" %2 %3 %4
+call "{root_dir}\addons\NVM\nvm.exe" %2 %OSP_TMP_NAME% %4
 endlocal
 goto end
 :: -----------------------------------------------------------------------------------
@@ -404,6 +409,9 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_add
 if "%2"=="" goto eargument
+call :strfind "%2" "Node-"
+if defined OSP_TMPVAL goto nodeadd
+set "OSP_TMPVAL="
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
@@ -427,6 +435,8 @@ goto end
 :: -----------------------------------------------------------------------------------
 :env_set
 if "%2"=="" goto eargument
+call :strfind "%2" "Node-"
+if defined OSP_TMPVAL goto nodeuse
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
