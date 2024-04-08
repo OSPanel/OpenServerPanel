@@ -212,24 +212,28 @@ if /i "%2"=="use" goto nodeuse
 goto invalid
 :nodeadd
 if /i "%3"=="" goto invalid
-if not exist "{root_dir}\addons\NVM\v%3" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+if not exist "{root_dir}\addons\NVM\v%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
-call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%3:"
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%OSP_TMP_NAME%:"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
-call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3 %4
+call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
-set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
+set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
 set "NVM_SYMLINK="
 set "NVM_HOME="
 goto end
 :nodeuse
 if /i "%3"=="" goto invalid
-if not exist "{root_dir}\addons\NVM\v%3" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+if not exist "{root_dir}\addons\NVM\v%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%3 %4
+call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
-set "PATH={root_dir}\addons\NVM\v%3;%PATH%"
+set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
 set "NVM_SYMLINK="
 set "NVM_HOME="
 goto end
