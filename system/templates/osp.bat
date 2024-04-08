@@ -391,7 +391,7 @@ if "%2"=="" goto eargument
 if not exist "{root_dir}\data\cli\project_%2.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
 set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
 set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
-call "{root_dir}\data\cli\project_%2.bat" %2 %3
+"{root_dir}\data\cli\project_%2.bat" %2 %3
 @if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
 @echo off
 chcp 65001 > nul
