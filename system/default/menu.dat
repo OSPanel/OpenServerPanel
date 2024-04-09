@@ -154,23 +154,17 @@ need_use_win_terminal = off
 
 [18]
 
-caption               = {lang_log_viewer}
-command               = "{root_dir}\system\bin\logviewer.exe"
-icon                  = bug
-
-[19]
-
 caption               = {lang_root_dir}
 command               = "%SystemRoot%\explorer.exe" "{root_dir}"
 icon                  = folder-closed
 
-[20]
+[19]
 
 caption               = {lang_idn_menu_caption}
 command               = "{root_dir}\system\bin\idnconverter.exe"
 icon                  = shuffle
 
-[21]
+[20]
 
 caption               = {lang_sp_tool}
 command               = "{root_dir}\system\bin\syspreptool.exe"
