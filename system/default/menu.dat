@@ -2,7 +2,7 @@
 
 caption               = {lang_open_in_browser}
 category              = domains
-command               = "%COMSPEC%" /c "start "" "http://{host_decoded}""
+command               = "%COMSPEC%" /c "start "" "{project_url}""
 hide                  = on
 icon                  = up-right-from-square
 need_state            = on
