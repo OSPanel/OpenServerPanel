@@ -83,3 +83,18 @@ PATH                     = {root_dir}\bin;%SYSTEMROOT%\system32;%SYSTEMROOT%;%SY
 TERM                     = dumb
 TEMP                     = {root_dir}\temp
 TMP                      = {root_dir}\temp
+
+[index.html]
+
+destination              = {root_dir}\system\public_html\index.html
+enabled                  = on
+encoding                 = UTF8
+path_separator           = /
+
+[osp.bat]
+
+comment                  = ::
+destination              = {root_dir}\bin\osp.bat
+enabled                  = on
+encoding                 = UTF8
+path_separator           = \
