@@ -50,7 +50,7 @@ ssl_key_file             =
 project_command          =
 project_dir              =
 project_env              = System
-project_url              = https://{host}
+project_url              = https://{host_decoded}
 terminal_codepage        =
 
 [modules]
