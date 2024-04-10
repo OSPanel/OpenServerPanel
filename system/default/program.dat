@@ -9,6 +9,7 @@ log_max_filesize         = 1
 task_scheduler           = on
 terminal_ansi_fix        = auto
 update_check             = on
+use_hosts_file           = on
 use_win_terminal         = off
 
 [menu]
