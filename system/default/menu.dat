@@ -137,7 +137,7 @@ caption               = {lang_control_panel}
 command               = "%COMSPEC%" /c "start "" "{web_panel_url}""
 enabled               = off
 hide                  = on
-icon                  = gear
+icon                  = tools
 
 [16]
 
@@ -163,11 +163,5 @@ icon                  = folder-closed
 
 caption               = {lang_idn_menu_caption}
 command               = "{root_dir}\system\bin\idnconverter.exe"
-icon                  = shuffle
-
-[20]
-
-caption               = {lang_sp_tool}
-command               = "{root_dir}\system\bin\syspreptool.exe"
 hr_after              = on
-icon                  = tools
+icon                  = shuffle
