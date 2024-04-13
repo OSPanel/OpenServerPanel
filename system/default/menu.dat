@@ -1,30 +1,5 @@
 ﻿[0]
 
-caption               = {lang_open_in_browser}
-category              = domains
-command               = "%COMSPEC%" /c "start "" "{project_url}""
-hide                  = on
-icon                  = up-right-from-square
-need_state            = on
-
-[1]
-
-caption               = {lang_open_in_console}
-category              = domains
-command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
-icon                  = terminal
-need_use_win_terminal = on
-
-[2]
-
-caption               = {lang_open_in_console}
-category              = domains
-command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
-icon                  = terminal
-need_use_win_terminal = off
-
-[3]
-
 caption               = {lang_launch_app}
 category              = domains
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
@@ -32,7 +7,7 @@ icon                  = rocket
 need_project_command  = on
 need_use_win_terminal = on
 
-[4]
+[1]
 
 caption               = {lang_launch_app}
 category              = domains
@@ -40,6 +15,32 @@ command               = "%COMSPEC%" /k "osp reset init noprint & osp project {ho
 icon                  = rocket
 need_project_command  = on
 need_use_win_terminal = off
+
+[2]
+
+caption               = {lang_open_in_browser}
+category              = domains
+command               = "%COMSPEC%" /c "start "" "{project_url}""
+hide                  = on
+icon                  = up-right-from-square
+need_state            = on
+
+[3]
+
+caption               = {lang_open_in_console}
+category              = domains
+command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
+icon                  = terminal
+need_use_win_terminal = on
+
+[4]
+
+caption               = {lang_open_in_console}
+category              = domains
+command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
+icon                  = terminal
+need_use_win_terminal = off
+
 
 [5]
 
@@ -51,38 +52,38 @@ work_directory        = {project_dir}
 
 [6]
 
+caption               = {lang_launch_shell}
+category              = modules
+command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
+icon                  = rocket
+need_state            = on
+need_module_shell     = on
+need_use_win_terminal = on
+
+[7]
+
+caption               = {lang_launch_shell}
+category              = modules
+command               = "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
+icon                  = rocket
+need_state            = on
+need_module_shell     = on
+need_use_win_terminal = off
+
+[8]
+
 caption               = {lang_open_in_console}
 category              = modules
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
 icon                  = terminal
 need_use_win_terminal = on
 
-[7]
+[9]
 
 caption               = {lang_open_in_console}
 category              = modules
 command               = "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
 icon                  = terminal
-need_use_win_terminal = off
-
-[8]
-
-caption               = {lang_launch_shell}
-category              = modules
-command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
-icon                  = terminal
-need_state            = on
-need_module_shell     = on
-need_use_win_terminal = on
-
-[9]
-
-caption               = {lang_launch_shell}
-category              = modules
-command               = "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
-icon                  = terminal
-need_state            = on
-need_module_shell     = on
 need_use_win_terminal = off
 
 [10]
