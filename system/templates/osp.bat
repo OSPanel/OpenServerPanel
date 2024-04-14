@@ -52,6 +52,7 @@ if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
 if /i "%1"=="sysprep"     goto sysprep
+if /i "%1"=="tasks"       goto request
 if /i "%1"=="use"         goto env_set
 if /i "%1"=="-v"          echo: & echo {lang_version_info}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
 if /i "%1"=="version"     echo: & echo {lang_version_info}: Open Server Panel v{osp_version} x64 {osp_version_datetime} & goto end
@@ -135,14 +136,19 @@ echo                             {lang_about_gen_root_cert}
 echo %ESC%[32mconvert ^<DOMAIN^>%ESC%[0m            {lang_convert_from_to_punycode}
 echo %ESC%[32mdomains%ESC%[0m                     {lang_show_info_about_domains}
 echo %ESC%[32mexit%ESC%[0m                        {lang_shutting_down_program}
-echo %ESC%[32mlog     ^<MODULE^|...^>   [N]%ESC%[0m  {lang_show_log}
+echo %ESC%[32mlog     ^<PATTERN^> [N]%ESC%[0m       {lang_show_log}
 echo                             {lang_show_log_descr}
+echo                             {lang_show_log_descr_2}
+echo                             {lang_show_log_descr_3}
+echo                             {lang_show_log_descr_4}
+echo                             {lang_show_log_descr_5}
 echo %ESC%[32mmodules%ESC%[0m                     {lang_show_mod_info}
 echo %ESC%[32msysprep [silent^|ssd]%ESC%[0m        {lang_launch_sp_tool}
 echo                             {lang_silent_flag}
 echo                             {lang_ssd_flag}
 echo                             {lang_about_silent_mode_1}
 echo                             {lang_about_silent_mode_2}
+echo %ESC%[32mtasks%ESC%[0m                       {lang_show_tasks}
 echo %ESC%[32mversion%ESC%[0m                     {lang_show_version_info}
 echo:
 echo %ESC%[33m{lang_usage_examples}:%ESC%[0m
@@ -292,12 +298,12 @@ goto end
 :: LOG VIEW
 :: -----------------------------------------------------------------------------------
 :log
-if "%2"=="" goto eargument
+if "%~2"=="" goto eargument
 echo:
 "{root_dir}\system\bin\fd.exe" -e log -p %2 "{root_dir}\logs" -x "{root_dir}\system\bin\tail.bat" {} %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: ADDONS/DOMAINS/MODULES LIST
+:: ADDONS/DOMAINS/MODULES/TASKS LIST
 :: -----------------------------------------------------------------------------------
 :request
 "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1
