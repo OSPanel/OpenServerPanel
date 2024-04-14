@@ -40,6 +40,8 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 
 **Download:** [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
+Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
+
 Command Line Interface
 ----------
 ![Open Server Panel Console](./resources/screenshots/cli-en.png)
