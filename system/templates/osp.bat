@@ -246,6 +246,12 @@ if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto err
 call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
 set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
+set "NPM_CONFIG_UNICODE=true"
+set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
+set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\npmrc"
+set "NPM_CONFIG_GLOBALCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\npmrc"
+set "NPM_CONFIG_CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
+set "NPM_CACHE_LOCATION={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
 set "NVM_SYMLINK="
 set "NVM_HOME="
 goto end
@@ -258,6 +264,12 @@ call :env_reset post
 call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
 set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
+set "NPM_CONFIG_UNICODE=true"
+set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
+set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\npmrc"
+set "NPM_CONFIG_GLOBALCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\npmrc"
+set "NPM_CONFIG_CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
+set "NPM_CACHE_LOCATION={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
 set "NVM_SYMLINK="
 set "NVM_HOME="
 goto end
@@ -297,9 +309,22 @@ setlocal
 call :env_reset post
 call "{root_dir}\data\cli\env_NVM.bat" use
 echo:
-call "{root_dir}\addons\NVM\nvm.exe" %2 %OSP_TMP_NAME% %4
+if /i "%2"=="uninstall" goto nodeuninstall
+if /i "%4"=="64" goto nodeinst64
+if /i "%4"=="" goto nodeinst64
+:nodeinst32
+call "{root_dir}\addons\NVM\nvm.exe" install %OSP_TMP_NAME% 32
+call "{root_dir}\addons\NVM\nvm.exe" use %OSP_TMP_NAME% 32
+if /i "%4"=="32" goto nodeinstallend
+:nodeinst64
+call "{root_dir}\addons\NVM\nvm.exe" install %OSP_TMP_NAME% 64
+call "{root_dir}\addons\NVM\nvm.exe" use %OSP_TMP_NAME% 64
+goto nodeinstallend
+:nodeuninstall
+call "{root_dir}\addons\NVM\nvm.exe" uninstall %OSP_TMP_NAME%
+:nodeinstallend
 endlocal
-"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/update_menu >nul 2>nul
+"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/update_node >nul 2>nul
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL
