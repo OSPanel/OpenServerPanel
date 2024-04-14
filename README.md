@@ -1,6 +1,13 @@
 Open Server Panel 6 <sup><sup>Beta</sup></sup>
 =======================================
+
+Modules & Addons
+------------
 ![](https://img.shields.io/badge/Apache-2.4-7aba03) ![](https://img.shields.io/badge/Apache_modules-+14-ef509f) ![](https://img.shields.io/badge/Bind-9.16-red) ![](https://img.shields.io/badge/ErlangOTP-26.2-7aba03) ![](https://img.shields.io/badge/MariaDB-10.1--11.2-blue) ![](https://img.shields.io/badge/Memcached-1.4--1.6-blue) ![](https://img.shields.io/badge/MongoDB-3.0--7.0-blue) ![](https://img.shields.io/badge/MySQL-5.5--8.2-blue) ![](https://img.shields.io/badge/Nginx-1.22--1.25-blue) ![](https://img.shields.io/badge/Nginx_modules-+8-ef509f) ![](https://img.shields.io/badge/NVM-1.1.12-7aba03) ![](https://img.shields.io/badge/Perl-5.32-7aba03) ![](https://img.shields.io/badge/PHP-7.2--8.3-blue) ![](https://img.shields.io/badge/PHP_extensions-+115-ef509f) ![](https://img.shields.io/badge/PostgreSQL-9.5--16-blue) ![](https://img.shields.io/badge/RabbitMQ-3.13-7aba03) ![](https://img.shields.io/badge/Redis-3.0--7.2-blue) ![](https://img.shields.io/badge/Sass-1.75.0-7aba03) ![](https://img.shields.io/badge/Unbound-1.17-7aba03)
+
+Third Party Utilities
+------------
+![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.7.1-7aba03) ![](https://img.shields.io/badge/dust-1.0.0-7aba03) ![](https://img.shields.io/badge/fd-9.0.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.75-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
 
 **PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
 
