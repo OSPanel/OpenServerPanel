@@ -17,7 +17,7 @@
 @echo off
 del "{root_dir}\temp\%OSP_TMPVAL%"
 if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
-set "OSP_PROG_LIST=curl tail getbit getparent ansicon colortest syspreptool"
+set "OSP_PROG_LIST=curl tail fd bat getbit getparent ansicon colortest syspreptool"
 for %%a in (%OSP_PROG_LIST%) do (
     if not exist "{root_dir}\system\bin\%%a.exe" set "OSP_ERR_MSG=%%a.exe {lang_err_not_found}" & goto error
 )
@@ -293,28 +293,8 @@ goto end
 :: -----------------------------------------------------------------------------------
 :log
 if "%2"=="" goto eargument
-set "OSP_TMP_NAME=%2"
-if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
-    if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
-)
-call :strfind "%OSP_MODULES_LIST_%api:general:scheduler:smtp:all:" ":%OSP_TMP_NAME%:"
-if not defined OSP_TMPVAL goto invalid
-set "OSP_TMPVAL="
-setlocal EnableDelayedExpansion
-if %ERRORLEVEL%==1 set "OSP_ERR_MSG={err_failed_to_enable_ce}" & goto error
-if /i "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=General API Scheduler SMTP %OSP_MODULES_LIST%"
-if /i not "%OSP_TMP_NAME%"=="all" set "OSP_TMPVAL=%OSP_TMP_NAME%"
-for %%a in (!OSP_TMPVAL!) do (
-    if /i "%OSP_TMP_NAME%"=="all" echo: & echo %ESC%[33m{lang_journal} %%a%ESC%[0m & echo:
-    if /i not "%OSP_TMP_NAME%"=="all" echo:
-    if not exist "{root_dir}\logs\%%a.log" echo %ESC%[90m{lang_empty_log}%ESC%[0m
-    if exist "{root_dir}\logs\%%a.log" for %%S in ("{root_dir}\logs\%%a.log") do if %%~zS==0 (echo %ESC%[90m{lang_empty_log}%ESC%[0m) else (
-        if "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" 15
-        if not "%3"=="" "{root_dir}\system\bin\tail.exe" "{root_dir}\logs\%%a.log" %3
-        echo %ESC%[0m
-    )
-)
-endlocal
+echo:
+"{root_dir}\system\bin\fd.exe" -e log -p %2 "{root_dir}\logs" -x "{root_dir}\system\bin\tail.bat" {} %3
 goto end
 :: -----------------------------------------------------------------------------------
 :: ADDONS/DOMAINS/MODULES LIST
@@ -536,7 +516,7 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 :notrunning
 @echo:
 @echo %ESC%[91m{lang_error}
-@echo ————————————————————————————————————————————————————
+@echo ────────────────────────────────────────────────────
 @echo {lang_command}: osp %1 %2 %3
 @echo {lang_message}: {lang_err_failed_exec_command}
 @echo {lang_reason}: {lang_err_osp_must_be_started}%ESC%[0m
@@ -549,14 +529,14 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 :echo_error
 @echo:
 @echo %ESC%[91m{lang_error}
-@echo ————————————————————————————————————————————————————
+@echo ────────────────────────────────────────────────────
 @echo {lang_command}: osp %1 %2 %3
 @echo {lang_message}: {lang_err_failed_exec_command}%ESC%[0m
 @exit /b 1
 :error
 @echo:
 @echo %ESC%[91m{lang_error}
-@echo ————————————————————————————————————————————————————
+@echo ────────────────────────────────────────────────────
 @echo {lang_command}: osp %1 %2 %3
 @if not defined OSP_ERR_MSG @echo {lang_message}: {lang_err_failed_exec_command}%ESC%[0m
 @if defined OSP_ERR_MSG @echo {lang_message}: {lang_err_failed_exec_command}
