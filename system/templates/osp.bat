@@ -158,6 +158,22 @@ echo %ESC%[32mosp use PostgreSQL-9.6%ESC%[0m      {lang_usage_postgresql}
 echo %ESC%[32mosp on PHP-8.1 myprofile%ESC%[0m    {lang_enabling_php}
 echo %ESC%[32mosp restart mysql-8.0%ESC%[0m       {lang_restarting_mysql}
 echo %ESC%[32mosp reset ^& osp add bind%ESC%[0m    {lang_combining_with_bind}
+echo:
+echo %ESC%[33m{lang_available_utilities}:%ESC%[0m
+echo:
+echo %ESC%[32maria2c%ESC%[0m                      {lang_utilite_aria2c}
+echo %ESC%[32mbat%ESC%[0m                         {lang_utilite_bat}
+echo %ESC%[32mbrotli%ESC%[0m                      {lang_utilite_brotli}
+echo %ESC%[32mcurl%ESC%[0m                        {lang_utilite_curl}
+echo %ESC%[32mdust%ESC%[0m                        {lang_utilite_dust}
+echo %ESC%[32mfd%ESC%[0m                          {lang_utilite_fd}
+echo %ESC%[32mgzip%ESC%[0m                        {lang_utilite_gzip}
+echo %ESC%[32mjq%ESC%[0m                          {lang_utilite_jq}
+echo %ESC%[32mmmdbinspect%ESC%[0m                 {lang_utilite_mmdbinspect}
+echo %ESC%[32msass%ESC%[0m                        {lang_utilite_sass}
+echo %ESC%[32msd%ESC%[0m                          {lang_utilite_sd}
+echo %ESC%[32mwget%ESC%[0m                        {lang_utilite_wget}
+echo %ESC%[32mxh%ESC%[0m                          {lang_utilite_xh}
 goto end
 :: -----------------------------------------------------------------------------------
 :: SHUTTING DOWN THE APPLICATION
