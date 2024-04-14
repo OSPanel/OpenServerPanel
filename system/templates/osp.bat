@@ -223,7 +223,7 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "%OSP_ADDONS_LIST_%" ":NVM:"
 if not defined OSP_TMPVAL set "OSP_ERR_MSG={lang_nvm_not_installed}" & goto error
-if not exist "{root_dir}\data\cli\env_NVM.bat" set "OSP_ERR_MSG={lang_err_no_env_config} NVM" & goto error
+if not exist "{root_dir}\data\cli\nvm_helper.bat" set "OSP_ERR_MSG={lang_err_no_env_config} NVM" & goto error
 if /i "%2"=="install" goto nodeinstall
 if /i "%2"=="list" goto nodelist
 if /i "%2"=="mode" goto nodemode
@@ -243,36 +243,16 @@ call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%OSP_TMP_NAME%:"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
-call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
-set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
-set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
-set "NPM_CONFIG_UNICODE=true"
-set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
-set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
-set "NPM_CONFIG_GLOBALCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\global-npm.conf"
-set "NPM_CONFIG_CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
-set "NPM_CACHE_LOCATION={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
-set "NVM_SYMLINK="
-set "NVM_HOME="
-goto end
+call "{root_dir}\data\cli\nvm_helper.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
+goto nodeenv
 :nodeuse
 if /i "%3"=="" goto invalid
 set "OSP_TMP_NAME=%3"
 set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
 if not exist "{root_dir}\addons\NVM\v%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
-set "PATH=%PATH:{root_dir}\addons\NVM;{root_dir}\addons\NVM\nodejs;=%"
-set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
-set "NPM_CONFIG_UNICODE=true"
-set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
-set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
-set "NPM_CONFIG_GLOBALCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\global-npm.conf"
-set "NPM_CONFIG_CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
-set "NPM_CACHE_LOCATION={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
-set "NVM_SYMLINK="
-set "NVM_HOME="
-goto end
+call "{root_dir}\data\cli\nvm_helper.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
+goto nodeenv
 :nodemode
 if /i "%3"=="" goto invalid
 set "OSP_TMP_NAME=%3"
@@ -281,23 +261,23 @@ if /i "%4"=="" echo: & call "{root_dir}\system\bin\getbit.exe" "{root_dir}\addon
 if /i not "%4"=="" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
 setlocal
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" use
-call "{root_dir}\addons\NVM\nvm.exe" use %OSP_TMP_NAME% %4
+call "{root_dir}\data\cli\nvm_helper.bat" use
+call "{root_dir}\data\cli\nvm.bat" use %OSP_TMP_NAME% %4
 endlocal
 goto end
 :nodeurl
 setlocal
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" use
-call "{root_dir}\addons\NVM\nvm.exe" %2 %3
+call "{root_dir}\data\cli\nvm_helper.bat" use
+call "{root_dir}\data\cli\nvm.bat" %2 %3
 endlocal
 goto end
 :nodelist
 if /i not "%3"=="" if /i not "%3"=="available" goto invalid
 setlocal
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" use
-call "{root_dir}\addons\NVM\nvm.exe" %2 %3
+call "{root_dir}\data\cli\nvm_helper.bat" use
+call "{root_dir}\data\cli\nvm.bat" %2 %3
 endlocal
 goto end
 :nodeinstall
@@ -307,24 +287,33 @@ set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
 if /i not "%4"=="" if /i not "%4"=="all" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
 setlocal
 call :env_reset post
-call "{root_dir}\data\cli\env_NVM.bat" use
+call "{root_dir}\data\cli\nvm_helper.bat" use
 echo:
 if /i "%2"=="uninstall" goto nodeuninstall
 if /i "%4"=="64" goto nodeinst64
 if /i "%4"=="" goto nodeinst64
 :nodeinst32
-call "{root_dir}\addons\NVM\nvm.exe" install %OSP_TMP_NAME% 32
-call "{root_dir}\addons\NVM\nvm.exe" use %OSP_TMP_NAME% 32
+call "{root_dir}\data\cli\nvm.bat" install %OSP_TMP_NAME% 32
+call "{root_dir}\data\cli\nvm.bat" use %OSP_TMP_NAME% 32
 if /i "%4"=="32" goto nodeinstallend
 :nodeinst64
-call "{root_dir}\addons\NVM\nvm.exe" install %OSP_TMP_NAME% 64
-call "{root_dir}\addons\NVM\nvm.exe" use %OSP_TMP_NAME% 64
+call "{root_dir}\data\cli\nvm.bat" install %OSP_TMP_NAME% 64
+call "{root_dir}\data\cli\nvm.bat" use %OSP_TMP_NAME% 64
 goto nodeinstallend
 :nodeuninstall
-call "{root_dir}\addons\NVM\nvm.exe" uninstall %OSP_TMP_NAME%
+call "{root_dir}\data\cli\nvm.bat" uninstall %OSP_TMP_NAME%
 :nodeinstallend
 endlocal
 "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/update_node >nul 2>nul
+goto end
+:nodeenv
+set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
+set "NPM_CONFIG_UNICODE=true"
+set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
+set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
+set "NPM_CONFIG_GLOBALCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\global-npm.conf"
+set "NPM_CONFIG_CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
+set "NPM_CACHE_LOCATION={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
 goto end
 :: -----------------------------------------------------------------------------------
 :: SYSTEM PREPARATION TOOL

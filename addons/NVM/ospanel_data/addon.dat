@@ -18,11 +18,19 @@ English            = https://perldoc.perl.org/perl
 [addon_env.bat]
 
 comment            = ::
-destination        = {root_dir}\data\cli\env_{addon_name}.bat
+destination        = {root_dir}\data\cli\nvm_helper.bat
 enabled            = on
 encoding           = UTF8
 path_separator     = \
 source_dir         = {root_dir}\system\templates
+
+[nvm.bat]
+
+comment            = ::
+destination        = {root_dir}\data\cli\nvm.bat
+enabled            = on
+encoding           = UTF8
+path_separator     = \
 
 [settings.txt]
 
@@ -33,8 +41,4 @@ path_separator     = \
 
 [environment]
 
-PATH               = {root_dir}\addons\{addon_name};{root_dir}\addons\{addon_name}\nodejs;%PATH%
-SYS_ARCH           = 64
-NVM_HOME           = {root_dir}\addons\{addon_name}
-NVM_SYMLINK        = {root_dir}\addons\{addon_name}\nodejs
-NODE_TLS_REJECT_UNAUTHORIZED = 1
+PATH               = {root_dir}\addons\{addon_name}\nodejs;%PATH%
