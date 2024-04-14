@@ -11,10 +11,6 @@ min_windows_ver    = 10.0.10240
 timestamp          = 1651770000
 version            = 1.1.12
 
-[docs]
-
-English            = https://perldoc.perl.org/perl
-
 [addon_env.bat]
 
 comment            = ::
@@ -41,4 +37,7 @@ path_separator     = \
 
 [environment]
 
-PATH               = {root_dir}\addons\{addon_name}\nodejs;%PATH%
+NVM_HOME           =
+NVM_SYMLINK        =
+PATH               = %PATH%
+SYS_ARCH           =
