@@ -243,7 +243,6 @@ call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
 call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%OSP_TMP_NAME%:"
 if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
-call "{root_dir}\data\cli\nvm_helper.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 goto nodeenv
 :nodeuse
 if /i "%3"=="" goto invalid
@@ -251,7 +250,6 @@ set "OSP_TMP_NAME=%3"
 set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
 if not exist "{root_dir}\addons\NVM\v%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
 call :env_reset post
-call "{root_dir}\data\cli\nvm_helper.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 goto nodeenv
 :nodemode
 if /i "%3"=="" goto invalid
@@ -307,6 +305,7 @@ endlocal
 "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/update_node >nul 2>nul
 goto end
 :nodeenv
+call "{root_dir}\data\cli\nvm_helper.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
 set "NPM_CONFIG_UNICODE=true"
 set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
