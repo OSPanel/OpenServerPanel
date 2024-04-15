@@ -37,7 +37,4 @@ path_separator     = \
 
 [environment]
 
-NVM_HOME           =
-NVM_SYMLINK        =
 PATH               = %PATH%
-SYS_ARCH           =
