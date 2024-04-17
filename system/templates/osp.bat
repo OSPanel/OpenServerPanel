@@ -343,13 +343,7 @@ goto end
 :: INIT/ON/OFF/RESTART/STATUS
 :: -----------------------------------------------------------------------------------
 :mod_cmd
-if "%1"=="status" if "%2"=="" "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/tasks
-if "%1"=="status" if "%2"=="" if %ERRORLEVEL% gtr 0 goto error
-if "%1"=="status" if "%2"=="" "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/domains
-if "%1"=="status" if "%2"=="" if %ERRORLEVEL% gtr 0 goto error
-if "%1"=="status" if "%2"=="" "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/addons
-if "%1"=="status" if "%2"=="" if %ERRORLEVEL% gtr 0 goto error
-if "%1"=="status" if "%2"=="" "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/modules
+if "%1"=="status" if "%2"=="" "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/all
 if "%1"=="status" if "%2"=="" if %ERRORLEVEL% gtr 0 goto error
 if "%1"=="status" if "%2"=="" goto end
 if "%2"=="" goto eargument
