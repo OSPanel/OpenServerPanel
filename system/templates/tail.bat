@@ -6,11 +6,11 @@ for /f "tokens=2 delims=:" %%a in ('mode con^|more +4') do if not defined width 
 for /l %%a in (1,1,%width%) do set "line=!line!─"
 if exist "%1" for %%S in ("%1") do if %%~zS==0 (
     echo %ESC%[90m%line%%ESC%[0m
-    echo {lang_journal} %1 ^({lang_empty_log}^)
+    echo %ESC%[36m{lang_journal} %1 ^({lang_empty_log}^)%ESC%[0m
     echo %ESC%[90m%line%%ESC%[0m
 ) else (
     echo %ESC%[90m%line%%ESC%[0m
-    echo {lang_journal} %1
+    echo %ESC%[36m{lang_journal} %1%ESC%[0m
     echo %ESC%[90m%line%%ESC%[0m
     "{root_dir}\system\bin\tail.exe" %1 -%2 | "{root_dir}\system\bin\bat.exe" -f -l log --style=plain --theme=ansi
     echo:
