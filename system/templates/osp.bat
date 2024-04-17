@@ -47,7 +47,6 @@ if /i "%1"=="node"        goto node
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
 if /i "%1"=="project"     goto project
-if /i "%1"=="python"      goto python
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="shell"       goto mod_shell
@@ -127,27 +126,6 @@ echo %ESC%[32mnode    proxy        [URL]%ESC%[0m  {lang_nvm_proxy_1}
 echo                             {lang_nvm_proxy_2}
 echo                             {lang_nvm_proxy_3}
 echo %ESC%[32mnode    uninstall ^<N^>%ESC%[0m       {lang_nvm_uninstall}
-echo:
-echo %ESC%[33m{lang_python_management}:%ESC%[0m
-echo:
-echo %ESC%[32mpython  install ^<N^|-a^> ...%ESC%[0m  {lang_python_install_cmd}
-echo                             {lang_python_install_cmd_1}
-echo                             {lang_python_install_descr}
-echo                       %ESC%[32m[-f^]%ESC%[0m  {lang_python_install_1}
-echo                       %ESC%[32m[-s^]%ESC%[0m  {lang_python_install_2}
-echo                       %ESC%[32m[-r^]%ESC%[0m  {lang_python_install_3}
-echo                       %ESC%[32m[-q^]%ESC%[0m  {lang_python_install_4}
-echo        %ESC%[32m[--32only^|--64only]%ESC%[0m  {lang_python_install_5}
-echo                             {lang_python_install_6}
-echo                             {lang_python_install_7}
-echo %ESC%[32mpython  latest    ^<N^> [-k]%ESC%[0m  {lang_python_latest}
-echo                             {lang_python_latest_2}
-echo %ESC%[32mpython  list   [available] %ESC%[0m {lang_python_list}
-echo                             {lang_python_list_2}
-echo %ESC%[32mpython  uninstall   ^<N^|-a^>%ESC%[0m  {lang_python_uninstall}
-echo                             {lang_python_uninstall_2}
-echo %ESC%[32mpython  update  [--ignore]%ESC%[0m  {lang_python_update}
-echo                             {lang_python_update_2}
 :help2
 echo:
 echo %ESC%[33m{lang_other_commands}:%ESC%[0m
@@ -329,98 +307,6 @@ goto end
 :nodeenv
 call "{root_dir}\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH={root_dir}\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
-set "NPM_CONFIG_UNICODE=true"
-set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
-set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
-set "NPM_CONFIG_GLOBALCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\global-npm.conf"
-set "NPM_CONFIG_CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
-set "NPM_CACHE_LOCATION={root_dir}\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
-goto end
-:: -----------------------------------------------------------------------------------
-:: PYTHON MANAGEMENT
-:: -----------------------------------------------------------------------------------
-:python
-if "%2"=="" goto eargument
-call :strfind "%OSP_ADDONS_LIST_%" ":Pyenv:"
-if not defined OSP_TMPVAL set "OSP_ERR_MSG={lang_python_addon_not_installed}" & goto error
-if not exist "{root_dir}\data\cli\env_Pyenv.bat" set "OSP_ERR_MSG={lang_err_no_env_config} Pyenv" & goto error
-if /i "%2"=="install" goto pythoninstall
-if /i "%2"=="latest" goto pythonlatest
-if /i "%2"=="list" goto pythonlist
-if /i "%2"=="uninstall" goto pythonuninstall
-if /i "%2"=="update" goto pythonupdate
-if /i "%2"=="add" goto pythonadd
-if /i "%2"=="use" goto pythonuse
-goto invalid
-:pythonadd
-if /i "%3"=="" goto invalid
-set "OSP_TMP_NAME=%3"
-set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
-if not exist "{root_dir}\addons\Pyenv\pyenv-win\versions\%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_python_not_installed}" & goto error
-call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Python"
-if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_modules_exist}" & goto error
-call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Python-%OSP_TMP_NAME%:"
-if defined OSP_TMPVAL set "OSP_ERR_MSG={lang_err_env_already_active}" & goto error
-goto pythonenv
-:pythonuse
-if /i "%3"=="" goto invalid
-set "OSP_TMP_NAME=%3"
-set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
-if not exist "{root_dir}\addons\Pyenv\pyenv-win\versions\%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_python_not_installed}" & goto error
-call :env_reset post
-goto pythonenv
-:pythonlatest
-if /i "%3"=="" goto invalid
-if /i "%3"=="-k" goto invalid
-set "OSP_TMP_NAME=%3"
-set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
-if /i not "%4"=="" if /i not "%4"=="-k" goto invalid
-setlocal
-call :env_reset post
-call "{root_dir}\data\cli\env_Pyenv.bat" use
-call "{root_dir}\data\cli\pyenv.bat" %2 %OSP_TMP_NAME% %4
-endlocal
-goto end
-:pythonlist
-setlocal
-call :env_reset post
-call "{root_dir}\data\cli\env_Pyenv.bat" use
-if /i "%3"=="" call "{root_dir}\data\cli\pyenv.bat" versions
-if /i "%3"=="available" call "{root_dir}\data\cli\pyenv.bat" install -l
-endlocal
-goto end
-:pythoninstall
-if /i "%3"=="" goto invalid
-if /i "%3"=="--32only" goto invalid
-if /i "%3"=="--64only" goto invalid
-if /i "%3"=="-f" goto invalid
-if /i "%3"=="-s" goto invalid
-if /i "%3"=="-r" goto invalid
-if /i "%3"=="-q" goto invalid
-set "OSP_TMP_NAME=%3"
-set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
-setlocal
-call :env_reset post
-call "{root_dir}\data\cli\env_Pyenv.bat" use
-echo:
-call "{root_dir}\data\cli\pyenv.bat" install %OSP_TMP_NAME% %4 %5 %6 %7 %8 %9
-call "{root_dir}\data\cli\pyenv.bat" install -c %OSP_TMP_NAME% >nul 2>nul
-goto pythoninstallend
-:pythonuninstall
-if /i "%3"=="" goto invalid
-set "OSP_TMP_NAME=%3"
-set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
-call "{root_dir}\data\cli\pyenv.bat" uninstall %OSP_TMP_NAME%
-:pythoninstallend
-"{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/update_python >nul 2>nul
-goto end
-:pythonupdate
-if /i not "%3"=="" if /i not "%3"=="--ignore" goto invalid
-call "{root_dir}\data\cli\pyenv.bat" %2 %3
-goto end
-:pythonenv
-call "{root_dir}\data\cli\env_Pyenv.bat" %2 & call :post_env %2 Python-%OSP_TMP_NAME% %4
-set "PATH={root_dir}\addons\Pyenv\pyenv-win\versions\%OSP_TMP_NAME%;%PATH%"
 set "NPM_CONFIG_UNICODE=true"
 set "NPM_CONFIG_CAFILE={root_dir}\data\ssl\cacert.pem"
 set "NPM_CONFIG_USERCONFIG={root_dir}\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
