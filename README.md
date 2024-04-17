@@ -38,7 +38,9 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - Punycode domain name converter
 - and much more...
 
-**Download:** [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
+**Download**
+
+Please select the server closest to your physical location: [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
 
@@ -69,7 +71,9 @@ Open Server Panel — это уникальный инструмент для л
 - Punycode конвертер доменных имён
 - и многое другое...
 
-**Скачать:** [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
+**Скачать**
+
+Пожалуйста, выберите сервер, расположенный ближе всего к вашему местоположению: [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
