@@ -18,7 +18,7 @@ English            = https://github.com/coreybutler/nvm-windows
 [addon_env.bat]
 
 comment            = ::
-destination        = {root_dir}\data\cli\nvm_helper.bat
+destination        = {root_dir}\data\cli\env_{addon_name}.bat
 enabled            = on
 encoding           = UTF8
 path_separator     = \
@@ -41,4 +41,10 @@ path_separator     = \
 
 [environment]
 
+NPM_CONFIG_UNICODE =
+NPM_CONFIG_CAFILE  =
+NPM_CONFIG_USERCONFIG =
+NPM_CONFIG_GLOBALCONFIG =
+NPM_CONFIG_CACHE   =
+NPM_CACHE_LOCATION =
 PATH               = %PATH%
