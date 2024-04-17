@@ -13,7 +13,8 @@ license_additional      = https://www.apache.org/licenses/LICENSE-2.0
 license_type_additional = Apache License 2.0
 min_windows_ver         = 10.0.10240
 timestamp               = 1651770000
-version                 = 8.3.1/2.4.58
+version                 = 8.3.1
+version_additional      = 2.4.58
 
 [docs]
 
