@@ -143,6 +143,7 @@ echo                             {lang_show_log_descr_3}
 echo                             {lang_show_log_descr_4}
 echo                             {lang_show_log_descr_5}
 echo %ESC%[32mmodules%ESC%[0m                     {lang_show_mod_info}
+echo %ESC%[32mstatus%ESC%[0m                      {lang_show_all_status}
 echo %ESC%[32msysprep [silent^|ssd]%ESC%[0m        {lang_launch_sp_tool}
 echo                             {lang_silent_flag}
 echo                             {lang_ssd_flag}
