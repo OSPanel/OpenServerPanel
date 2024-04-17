@@ -404,7 +404,7 @@ call :env_reset post
 call "{root_dir}\data\cli\env_Pyenv.bat" use
 echo:
 call "{root_dir}\data\cli\pyenv.bat" install %OSP_TMP_NAME% %4 %5 %6 %7 %8 %9
-call "{root_dir}\data\cli\pyenv.bat" -c %OSP_TMP_NAME% >nul 2>nul
+call "{root_dir}\data\cli\pyenv.bat" install -c %OSP_TMP_NAME% >nul 2>nul
 goto pythoninstallend
 :pythonuninstall
 if /i "%3"=="" goto invalid
