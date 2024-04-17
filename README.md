@@ -42,10 +42,6 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 
 Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
 
-Command Line Interface
-----------
-![Open Server Panel Console](./resources/screenshots/cli-en.png)
-
 ***
 
 Представляем вам лучшую программную среду для веб-разработки!
@@ -78,7 +74,3 @@ Open Server Panel — это уникальный инструмент для л
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
 Хотите получать обновления чаще? Поддержите нашу работу используя [платную загрузку](https://ospanel.io/download/)!
-
-Интерфейс командной строки
-----------
-![Open Server Panel Console](./resources/screenshots/cli.png)
