@@ -133,7 +133,6 @@ echo:
 echo %ESC%[32mpython  install ^<N^|-a^> ...%ESC%[0m  {lang_python_install_cmd}
 echo                             {lang_python_install_cmd_1}
 echo                             {lang_python_install_descr}
-echo                       %ESC%[32m[-c^]%ESC%[0m  {lang_python_install_0}
 echo                       %ESC%[32m[-f^]%ESC%[0m  {lang_python_install_1}
 echo                       %ESC%[32m[-s^]%ESC%[0m  {lang_python_install_2}
 echo                       %ESC%[32m[-r^]%ESC%[0m  {lang_python_install_3}
@@ -372,13 +371,14 @@ call :env_reset post
 goto pythonenv
 :pythonlatest
 if /i "%3"=="" goto invalid
+if /i "%3"=="-k" goto invalid
 set "OSP_TMP_NAME=%3"
 set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
 if /i not "%4"=="" if /i not "%4"=="-k" goto invalid
 setlocal
 call :env_reset post
 call "{root_dir}\data\cli\env_Pyenv.bat" use
-call "{root_dir}\data\cli\pyenv.bat" %OSP_TMP_NAME% %4
+call "{root_dir}\data\cli\pyenv.bat" %2 %OSP_TMP_NAME% %4
 endlocal
 goto end
 :pythonlist
@@ -391,6 +391,12 @@ endlocal
 goto end
 :pythoninstall
 if /i "%3"=="" goto invalid
+if /i "%3"=="--32only" goto invalid
+if /i "%3"=="--64only" goto invalid
+if /i "%3"=="-f" goto invalid
+if /i "%3"=="-s" goto invalid
+if /i "%3"=="-r" goto invalid
+if /i "%3"=="-q" goto invalid
 set "OSP_TMP_NAME=%3"
 set "OSP_TMP_NAME=%OSP_TMP_NAME:Python-=%"
 setlocal
@@ -398,6 +404,7 @@ call :env_reset post
 call "{root_dir}\data\cli\env_Pyenv.bat" use
 echo:
 call "{root_dir}\data\cli\pyenv.bat" install %OSP_TMP_NAME% %4 %5 %6 %7 %8 %9
+call "{root_dir}\data\cli\pyenv.bat" -c %OSP_TMP_NAME% >nul 2>nul
 goto pythoninstallend
 :pythonuninstall
 if /i "%3"=="" goto invalid
