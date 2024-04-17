@@ -73,7 +73,7 @@ Open Server Panel — это уникальный инструмент для л
 
 **Скачать**
 
-Пожалуйста, выберите сервер, расположенный ближе всего к вашему местоположению: [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
+Пожалуйста, выберите ближайший к вашему местоположению сервер: [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
