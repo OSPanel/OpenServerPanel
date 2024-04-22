@@ -1,6 +1,7 @@
 ﻿[main]
 
-id         =
-ignore_ver =
-mutex      = OSPanel
-path_check = on
+id             =
+ignore_ver     =
+min_menu_width = 23
+mutex          = OSPanel
+path_check     = on
