@@ -106,7 +106,7 @@ Name: "dns";                   Description: "DNS";                              
 Name: "dns\bind";              Description: "Bind 9.16";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
 Name: "dns\unbound";           Description: "Unbound 1.19";       Types: full;                                    Flags: disablenouninstallwarning
 
-Name: "erlang\erlang26";       Description: "Erlang/OTP 26.2";    Types: full;                                    Flags: disablenouninstallwarning
+Name: "erlang26";              Description: "Erlang/OTP 26.2";    Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "mariadb";               Description: "MariaDB";                                                            Flags: disablenouninstallwarning
 Name: "mariadb\mariadb101";    Description: "MariaDB 10.1";       Types: full;                                    Flags: disablenouninstallwarning
@@ -149,9 +149,10 @@ Name: "mysql\mysql82";         Description: "MySQL 8.2";          Types: full co
 
 Name: "nginx";                 Description: "Nginx";                                                              Flags: disablenouninstallwarning
 Name: "nginx\nginx122";        Description: "Nginx 1.22";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "nginx\nginx125";        Description: "Nginx 1.25";         Types: full compact;                            Flags: disablenouninstallwarning
+Name: "nginx\nginx126";        Description: "Nginx 1.26";         Types: full compact;                            Flags: disablenouninstallwarning
 
-Name: "perl\perl532";          Description: "Perl 5.32";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "nvm";                   Description: "NVM 1.1";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
+Name: "perl532";               Description: "Perl 5.32";          Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "php";                   Description: "PHP";                                                                Flags: disablenouninstallwarning
 Name: "php\php72";             Description: "PHP 7.2";            Types: full;                                    Flags: disablenouninstallwarning
@@ -180,7 +181,7 @@ Name: "psql\postgresql14";     Description: "PostgreSQL 14";      Types: full;  
 Name: "psql\postgresql15";     Description: "PostgreSQL 15";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 Name: "psql\postgresql16";     Description: "PostgreSQL 16";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "rabbit\rabbitmq313";    Description: "RabbitMQ 3.13";      Types: full;                                    Flags: disablenouninstallwarning
+Name: "rabbitmq313";           Description: "RabbitMQ 3.13";      Types: full;                                    Flags: disablenouninstallwarning
 
 Name: "redis";                 Description: "Redis";                                                              Flags: disablenouninstallwarning
 Name: "redis\redis30";         Description: "Redis 3.0";          Types: full;                                    Flags: disablenouninstallwarning
@@ -201,9 +202,9 @@ Source: "bin\*";                                                  DestDir: "{app
 Source: "home\*";                                                 DestDir: "{app}\home";                          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite; Components: core;         Permissions: users-full
 Source: "system\*";                                               DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "user\ssl\*";                                             DestDir: "{app}\user\ssl";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
-Source: "addons\ControlPanel\*";                                  DestDir: "{app}\addons\ControlPanel";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
-Source: "addons\Perl-5.32\*";                                     DestDir: "{app}\addons\Perl-5.32";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: perl\perl532;         Permissions: users-full
-Source: "addons\ErlangOTP-26.2\*";                                DestDir: "{app}\addons\ErlangOTP-26.2";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: erlang\erlang26;      Permissions: users-full
+Source: "addons\Perl-5.32\*";                                     DestDir: "{app}\addons\Perl-5.32";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: perl532;              Permissions: users-full
+Source: "addons\ErlangOTP-26.2\*";                                DestDir: "{app}\addons\ErlangOTP-26.2";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: erlang26;             Permissions: users-full
+Source: "addons\NVM\*";                                           DestDir: "{app}\addons\NVM";                    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: nvm;                  Permissions: users-full
 
 Source: "user\browscap\*"; Excludes: "lite_php_browscap.ini";     DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: browscap;              Permissions: users-full
 Source: "user\geo\*";                                             DestDir: "{app}\user\geo";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: geobases;                        Permissions: users-full
@@ -311,8 +312,8 @@ Source: "modules\Redis-7.2\*";                                    DestDir: "{app
 Source: "modules\Bind\*";                                         DestDir: "{app}\modules\Bind";                  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\*";                                      DestDir: "{app}\modules\Unbound";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\unbound;                     Permissions: users-full
 Source: "modules\Nginx-1.22\*";                                   DestDir: "{app}\modules\Nginx-1.22";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx122;                  Permissions: users-full
-Source: "modules\Nginx-1.25\*";                                   DestDir: "{app}\modules\Nginx-1.25";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx125;                  Permissions: users-full
-Source: "modules\RabbitMQ-3.13\*";                                DestDir: "{app}\modules\RabbitMQ-3.13";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: rabbit\rabbitmq313;              Permissions: users-full
+Source: "modules\Nginx-1.26\*";                                   DestDir: "{app}\modules\Nginx-1.26";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx126;                  Permissions: users-full
+Source: "modules\RabbitMQ-3.13\*";                                DestDir: "{app}\modules\RabbitMQ-3.13";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: rabbitmq313;                     Permissions: users-full
 
 Source: "modules\PHP-7.2\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-7.2\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: php\php72;            Permissions: users-full
 Source: "modules\PHP-7.3\ospanel_data\default\*";                 DestDir: "{app}\config\PHP-7.3\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: php\php73;                       Permissions: users-full
@@ -384,8 +385,8 @@ Source: "modules\Redis-7.2\ospanel_data\default\*";               DestDir: "{app
 Source: "modules\Bind\ospanel_data\default\*";                    DestDir: "{app}\config\Bind\default";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\ospanel_data\default\*";                 DestDir: "{app}\config\Unbound\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: dns\unbound;                     Permissions: users-full
 Source: "modules\Nginx-1.22\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.22\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx122;                  Permissions: users-full
-Source: "modules\Nginx-1.25\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.25\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx125;                  Permissions: users-full
-Source: "modules\RabbitMQ-3.13\ospanel_data\default\*";           DestDir: "{app}\config\RabbitMQ-3.13\default";  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: rabbit\rabbitmq313;              Permissions: users-full
+Source: "modules\Nginx-1.26\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.26\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nginx\nginx126;                  Permissions: users-full
+Source: "modules\RabbitMQ-3.13\ospanel_data\default\*";           DestDir: "{app}\config\RabbitMQ-3.13\default";  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: rabbitmq313;                     Permissions: users-full
 
 Source: "modules\PHP-7.2\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-7.2\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite solidbreak;  Components: php\php72;         Permissions: users-full
 Source: "modules\PHP-7.3\ospanel_data\default_data\*";            DestDir: "{app}\data\PHP-7.3\default";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite;  Components: php\php73;                    Permissions: users-full
