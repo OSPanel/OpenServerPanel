@@ -9,7 +9,7 @@ license            = https://dev.perl.org/licenses/gpl1.html
 license_type       = GNU GPLv1
 min_windows_ver    = 6.1.7601
 timestamp          = 1651770000
-version            = 5.32.1.1
+version            = 5.32.2.2
 
 [docs]
 
