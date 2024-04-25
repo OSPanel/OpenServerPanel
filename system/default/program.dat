@@ -42,7 +42,6 @@ ip                       =
 log_format               = combined
 public_dir               = {root_dir}\home\{host}\public_html
 ssl                      = on
-ssl_auto_cert            = on
 ssl_cert_file            =
 ssl_key_file             =
 project_command          =
