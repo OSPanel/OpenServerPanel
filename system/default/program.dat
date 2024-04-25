@@ -88,6 +88,13 @@ enabled                  = on
 encoding                 = UTF8
 path_separator           = /
 
+[default.html]
+
+destination              = {root_dir}\system\public_html\default\index.html
+enabled                  = on
+encoding                 = UTF8
+path_separator           = /
+
 [osp.bat]
 
 comment                  = ::
