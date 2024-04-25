@@ -34,7 +34,6 @@ show_hr_after_projects   = on
 [domains]
 
 aliases                  = www
-auto_configure           = on
 enabled                  = on
 php_engine               =
 nginx_engine             =
