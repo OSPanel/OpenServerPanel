@@ -3,6 +3,7 @@
 caption               = {lang_launch_app}
 category              = domains
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
+hr_after              = on
 icon                  = rocket
 need_project_command  = on
 need_use_win_terminal = on
@@ -12,6 +13,7 @@ need_use_win_terminal = on
 caption               = {lang_launch_app}
 category              = domains
 command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
+hr_after              = on
 icon                  = rocket
 need_project_command  = on
 need_use_win_terminal = off
