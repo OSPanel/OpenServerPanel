@@ -35,7 +35,6 @@ if /i "%1"=="add"         goto env_add
 if /i "%1"=="addons"      goto request
 if /i "%1"=="cacert"      goto cacertinit
 if /i "%1"=="convert"     goto convert
-if /i "%1"=="domains"     goto request
 if /i "%1"=="exit"        goto shutdown
 if /i "%1"=="help"        goto help
 if /i "%1"=="-h"          goto help
@@ -47,6 +46,7 @@ if /i "%1"=="node"        goto node
 if /i "%1"=="off"         goto mod_cmd
 if /i "%1"=="on"          goto mod_cmd
 if /i "%1"=="project"     goto project
+if /i "%1"=="projects"    goto request
 if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="shell"       goto mod_shell
@@ -134,7 +134,6 @@ echo %ESC%[32maddons%ESC%[0m                      {lang_show_addons_info}
 echo %ESC%[32mcacert  ^<init^|show^|deinit^>%ESC%[0m  {lang_gen_and_install_root_cert}
 echo                             {lang_about_gen_root_cert}
 echo %ESC%[32mconvert ^<DOMAIN^>%ESC%[0m            {lang_convert_from_to_punycode}
-echo %ESC%[32mdomains%ESC%[0m                     {lang_show_info_about_domains}
 echo %ESC%[32mexit%ESC%[0m                        {lang_shutting_down_program}
 echo %ESC%[32mlog     ^<PATTERN^> [N]%ESC%[0m       {lang_show_log}
 echo                             {lang_show_log_descr}
@@ -143,6 +142,7 @@ echo                             {lang_show_log_descr_3}
 echo                             {lang_show_log_descr_4}
 echo                             {lang_show_log_descr_5}
 echo %ESC%[32mmodules%ESC%[0m                     {lang_show_mod_info}
+echo %ESC%[32mprojects%ESC%[0m                     {lang_show_info_about_domains}
 echo %ESC%[32mstatus%ESC%[0m                      {lang_show_all_status}
 echo %ESC%[32msysprep [silent^|ssd]%ESC%[0m        {lang_launch_sp_tool}
 echo                             {lang_silent_flag}
@@ -333,7 +333,7 @@ echo:
 "{root_dir}\system\bin\fd.exe" -e log -a -i -p %2 "{root_dir}\logs" -x "{root_dir}\system\bin\tail.bat" {} %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: ADDONS/DOMAINS/MODULES/TASKS LIST
+:: ADDONS/PROJECTS/MODULES/TASKS LIST
 :: -----------------------------------------------------------------------------------
 :request
 "{root_dir}\system\bin\curl.exe" -f -s {cmd_api_url}/%1
