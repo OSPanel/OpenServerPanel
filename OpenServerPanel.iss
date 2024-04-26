@@ -193,7 +193,7 @@ Name: "redis\redis72";         Description: "Redis 7.2";          Types: full;  
 
 [Files]
 
-Source: "system\default\domains.dat";   DestName: "domains.ini";  DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
+Source: "system\default\projects.dat";  DestName: "projects.ini"; DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\menu.dat";      DestName: "menu.ini";     DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\program.dat";   DestName: "program.ini";  DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\scheduler.dat"; DestName: "scheduler.ini";DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
