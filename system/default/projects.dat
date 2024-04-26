@@ -1,0 +1,9 @@
+﻿[example.local]
+
+php_engine           = PHP-7.4
+
+[example-test.local]
+
+aliases              = www mydomain.local www.mydomain.local
+php_engine           = PHP-8.1
+public_dir           = {root_dir}\home\{host}\htdocs
