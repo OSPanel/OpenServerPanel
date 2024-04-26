@@ -35,19 +35,19 @@ show_hr_after_projects   = on
 
 aliases                  = www
 enabled                  = on
-php_engine               =
-nginx_engine             =
-node_engine              =
+environment              = System
 ip                       =
 log_format               = combined
+nginx_engine             =
+node_engine              =
+php_engine               =
+project_dir              =
+project_url              = https://{host_decoded}
 public_dir               = {root_dir}\home\{host}\public_html
 ssl                      = on
 ssl_cert_file            =
 ssl_key_file             =
-project_command          =
-project_dir              =
-project_env              = System
-project_url              = https://{host_decoded}
+start_command            =
 terminal_codepage        =
 
 [modules]
