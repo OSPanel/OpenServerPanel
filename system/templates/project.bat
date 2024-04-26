@@ -8,6 +8,6 @@ if not %ERRORLEVEL% gtr 0 if defined OSP_TMP_CODEPAGE chcp %OSP_TMP_CODEPAGE% > 
 if not %ERRORLEVEL% gtr 0 if /i "%2"=="start" goto start
 goto end
 :start
-{project_command}
+{start_command}
 :end
 exit /b %ERRORLEVEL%
