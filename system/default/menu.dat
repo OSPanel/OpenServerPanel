@@ -1,7 +1,7 @@
 ﻿[0]
 
 caption               = {lang_launch_app}
-category              = domains
+category              = projects
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
 hr_after              = on
 icon                  = rocket
@@ -11,7 +11,7 @@ need_use_win_terminal = on
 [1]
 
 caption               = {lang_launch_app}
-category              = domains
+category              = projects
 command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
 hr_after              = on
 icon                  = rocket
@@ -21,7 +21,7 @@ need_use_win_terminal = off
 [2]
 
 caption               = {lang_open_in_browser}
-category              = domains
+category              = projects
 command               = "%COMSPEC%" /c "start "" "{project_url}""
 hide                  = on
 icon                  = up-right-from-square
@@ -30,7 +30,7 @@ need_state            = on
 [3]
 
 caption               = {lang_open_in_console}
-category              = domains
+category              = projects
 command               = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon                  = terminal
 need_use_win_terminal = on
@@ -38,7 +38,7 @@ need_use_win_terminal = on
 [4]
 
 caption               = {lang_open_in_console}
-category              = domains
+category              = projects
 command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon                  = terminal
 need_use_win_terminal = off
@@ -47,7 +47,7 @@ need_use_win_terminal = off
 [5]
 
 caption               = {lang_open_in_explorer}
-category              = domains
+category              = projects
 command               = "%SystemRoot%\explorer.exe" "{project_dir}"
 icon                  = folder-closed
 work_directory        = {project_dir}
