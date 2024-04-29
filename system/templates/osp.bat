@@ -142,7 +142,7 @@ echo                             {lang_show_log_descr_3}
 echo                             {lang_show_log_descr_4}
 echo                             {lang_show_log_descr_5}
 echo %ESC%[32mmodules%ESC%[0m                     {lang_show_mod_info}
-echo %ESC%[32mprojects%ESC%[0m                     {lang_show_info_about_domains}
+echo %ESC%[32mprojects%ESC%[0m                    {lang_show_info_about_domains}
 echo %ESC%[32mstatus%ESC%[0m                      {lang_show_all_status}
 echo %ESC%[32msysprep [silent^|ssd]%ESC%[0m        {lang_launch_sp_tool}
 echo                             {lang_silent_flag}
@@ -415,16 +415,40 @@ if %ERRORLEVEL% gtr 0 goto error
 :: -----------------------------------------------------------------------------------
 :project
 if "%2"=="" goto eargument
-if not exist "{root_dir}\data\cli\project_%2.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
+if /i "%3"=="start" if not exist "{root_dir}\data\cli\start_%2.bat" set "OSP_ERR_MSG={lang_err_no_start_command} %2" & goto error
+if not exist "{root_dir}\data\cli\projects_data.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
+set "OSP_PROJECT_ADDED="
+set "OSP_PROJECT_DIR="
+set "OSP_PROJECT_ENV="
+set "OSP_PROJECT_ENV_="
+set "OSP_PROJECT_PATH="
+call "{root_dir}\data\cli\projects_data.bat" %2
+if not defined OSP_PROJECT_DIR set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
+call :env_reset pre
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
 set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
 set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
-"{root_dir}\data\cli\project_%2.bat" %2 %3
-@if %ERRORLEVEL% gtr 0 @set "OSP_ERR_STATE=ON"
-@echo off
-chcp 65001 > nul
+call :strfind "%OSP_PROJECT_ENV_%" ":System:"
+if defined OSP_TMPVAL set "OSP_PROJECT_ADDED=Added"
+if not "%OSP_PROJECT_ENV%"=="" for %%a in (%OSP_PROJECT_ENV%) do (
+    if not defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp use %%a silent
+    if defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp add %%a silent
+    if not defined OSP_PROJECT_ADDED set "OSP_ENV_LIST=Added"
+)
+if not "%OSP_PROJECT_DIR%"=="" cd /d "%OSP_PROJECT_DIR%"
+if not "%OSP_PROJECT_PATH%"=="" set "PATH=%OSP_PROJECT_PATH%%PATH%"
+set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
+if "%3"=="" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
 if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
-if defined OSP_ERR_STATE set "OSP_ERR_STATE=" & goto error
+set "OSP_PROJECT_ADDED="
+set "OSP_PROJECT_DIR="
+set "OSP_PROJECT_ENV="
+set "OSP_PROJECT_ENV_="
+set "OSP_PROJECT_PATH="
+if /i "%3"=="start" set "OSP_PROJECT_CMD=YES" & set "OSP_PROJECT_START=%2"
 goto end
 :: -----------------------------------------------------------------------------------
 :: MODULE ENVIRONMENT (ADD)
@@ -473,6 +497,7 @@ if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 call :strfind "%OSP_ADDONS_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
 if not defined OSP_TMPVAL goto invalid
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
 if not exist "{root_dir}\data\cli\env_%OSP_TMP_NAME%.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%" & goto error
 call :env_reset post
 call "{root_dir}\data\cli\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3 & call :post_env %1 %OSP_TMP_NAME% %3
@@ -483,7 +508,7 @@ goto end
 :env_windows
 call :env_reset pre
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
-if /i not "{terminal_codepage}"=="" if /i "%2"=="init" set "OSP_CODEPAGE={terminal_codepage}"
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
 if /i "%2"=="init" if /i not "%3"=="silent" call :logo
 if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
@@ -568,6 +593,7 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @exit /b 1
 :end
 @call :before_exit
+@if defined OSP_PROJECT_CMD @goto start
 @exit /b 0
 :echo_error
 @echo:
@@ -586,3 +612,8 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @if defined OSP_ERR_MSG @echo {lang_reason}: %OSP_ERR_MSG%%ESC%[0m
 @call :before_exit
 @exit /b 1
+:start
+@set "OSP_PROJECT_CMD="
+@echo:
+@"{root_dir}\data\cli\start_%OSP_PROJECT_START%.bat"
+@exit /b %ERRORLEVEL%
