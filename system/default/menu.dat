@@ -25,7 +25,6 @@ category              = projects
 command               = "%COMSPEC%" /c "start "" "{project_url}""
 hide                  = on
 icon                  = up-right-from-square
-need_state            = on
 
 [3]
 
@@ -42,7 +41,6 @@ category              = projects
 command               = "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon                  = terminal
 need_use_win_terminal = off
-
 
 [5]
 
