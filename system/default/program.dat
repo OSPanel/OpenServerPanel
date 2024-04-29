@@ -6,6 +6,8 @@ api_port                 = 80
 clear_dns_cache          = on
 lang                     = auto
 log_max_filesize         = 1
+projects_search_depth    = 3
+projects_search_path     = {root_dir}\home
 task_scheduler           = on
 terminal_ansi_fix        = auto
 update_check             = on
@@ -43,12 +45,12 @@ node_engine              =
 php_engine               =
 project_dir              =
 project_url              = https://{host_decoded}
-public_dir               = {root_dir}\home\{host}\public_html
+public_dir               = {base_dir}
 ssl                      = on
 ssl_cert_file            =
 ssl_key_file             =
 start_command            =
-terminal_codepage        =
+terminal_codepage        = 65001
 
 [modules]
 
@@ -99,6 +101,14 @@ path_separator           = /
 
 comment                  = ::
 destination              = {root_dir}\bin\osp.bat
+enabled                  = on
+encoding                 = UTF8
+path_separator           = \
+
+[tail.bat]
+
+comment                  = ::
+destination              = {root_dir}\system\bin\tail.bat
 enabled                  = on
 encoding                 = UTF8
 path_separator           = \
