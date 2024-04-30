@@ -193,10 +193,8 @@ Name: "redis\redis72";         Description: "Redis 7.2";          Types: full;  
 
 [Files]
 
-Source: "system\default\projects.dat";  DestName: "projects.ini"; DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\menu.dat";      DestName: "menu.ini";     DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "system\default\program.dat";   DestName: "program.ini";  DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
-Source: "system\default\scheduler.dat"; DestName: "scheduler.ini";DestDir: "{app}\config";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                            Permissions: users-full
 Source: "licenses\licenses\*";                                    DestDir: "{app}\licenses";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "bin\*";                                                  DestDir: "{app}\bin";                           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "home\*";                                                 DestDir: "{app}\home";                          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs uninsneveruninstall confirmoverwrite; Components: core;         Permissions: users-full
