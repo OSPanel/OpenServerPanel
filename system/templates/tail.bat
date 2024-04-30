@@ -1,8 +1,7 @@
 @echo off
 set "ESC="
 setlocal enabledelayedexpansion
-set "width="
-for /f "tokens=2 delims=:" %%a in ('mode con^|more +4') do if not defined width set /a width=%%a
+for /f "skip=4 tokens=2 delims=:" %%a in ('mode con') do if not defined width set /a width=%%a
 for /l %%a in (1,1,%width%) do set "line=!line!─"
 if exist "%1" for %%S in ("%1") do if %%~zS==0 (
     echo %ESC%[90m%line%%ESC%[0m
