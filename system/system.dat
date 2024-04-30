@@ -3,5 +3,6 @@
 id             =
 ignore_ver     =
 min_menu_width = 23
+tasks_timeuot  = 15
 mutex          = OSPanel
 path_check     = on
