@@ -17,7 +17,6 @@ use_win_terminal         = off
 [menu]
 
 do_not_group_single_item = on
-hide_useless_selectors   = on
 show_icons               = on
 show_addons              = on
 show_addons_in_groups    = on
@@ -42,7 +41,7 @@ ip                       =
 nginx_engine             =
 node_engine              =
 php_engine               =
-project_dir              =
+project_dir              = {base_dir}
 project_url              = https://{host_decoded}
 public_dir               = {base_dir}
 ssl                      = on
