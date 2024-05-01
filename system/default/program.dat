@@ -39,7 +39,6 @@ aliases                  = www
 enabled                  = on
 environment              = System
 ip                       =
-log_format               = combined
 nginx_engine             =
 node_engine              =
 php_engine               =
