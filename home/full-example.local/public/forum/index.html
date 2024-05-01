@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+    <title>Open Server Panel</title>
+    <style>
+    a {
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects
+    }
+    a:active,
+    a:hover {
+        outline-width: 0
+    }
+    *,
+    *:after,
+    *:before {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+        color: #000;
+    }
+    html {
+        box-sizing: border-box;
+        font-size: 1px !important;
+    }
+    body {
+        font: normal 16rem/23rem "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: #F4F6F9;
+    }
+    .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 740rem;
+        min-width: 360rem;
+        padding: 20rem;
+        position: relative;
+    }
+    h1 {
+        line-height: 60rem;
+        font-size: 60rem;
+        margin: 0 0 70rem 165rem;
+    }
+    .content {
+        position: absolute;
+        left: 50%;
+        top: 120rem;
+        transform: translate(-50%, -50%);
+        padding-top: 4px;
+        overflow: hidden;
+        font-size: 35px;
+        line-height: 40px;
+        color: #ecf0f1;
+    }
+    .content__container {
+        font-weight: 600;
+        overflow: hidden;
+        height: 40px;
+        padding: 0 40px;
+    }
+    .content__container:before {
+        content: "[";
+        left: 0;
+    }
+    .content__container:after {
+        content: "]";
+        position: absolute;
+        right: 0;
+    }
+    .content__container:after,
+    .content__container:before {
+        position: absolute;
+        top: 0;
+        color: #16a085;
+        font-size: 42px;
+        line-height: 40px;
+        -webkit-animation-name: opacity;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: infinite;
+        animation-name: opacity;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    .content__container__text {
+        display: inline;
+        float: left;
+        margin: 0;
+    }
+    .content__container__list {
+        margin-top: 0;
+        padding-left: 110px;
+        text-align: left;
+        list-style: none;
+        -webkit-animation-name: change;
+        -webkit-animation-duration: 10s;
+        -webkit-animation-iteration-count: infinite;
+        animation-name: change;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+    }
+    .content__container__list__item {
+        line-height: 40px;
+        margin: 0;
+    }
+    @-webkit-keyframes opacity {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes change {
+        0%,
+        12.66%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+        16.66%,
+        29.32% {
+            transform: translate3d(0, -25%, 0);
+        }
+        33.32%,
+        45.98% {
+            transform: translate3d(0, -50%, 0);
+        }
+        49.98%,
+        62.64% {
+            transform: translate3d(0, -75%, 0);
+        }
+        66.64%,
+        79.3% {
+            transform: translate3d(0, -50%, 0);
+        }
+        83.3%,
+        95.96% {
+            transform: translate3d(0, -25%, 0);
+        }
+    }
+    @-o-keyframes opacity {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+    @-o-keyframes change {
+        0%,
+        12.66%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+        16.66%,
+        29.32% {
+            transform: translate3d(0, -25%, 0);
+        }
+        33.32%,
+        45.98% {
+            transform: translate3d(0, -50%, 0);
+        }
+        49.98%,
+        62.64% {
+            transform: translate3d(0, -75%, 0);
+        }
+        66.64%,
+        79.3% {
+            transform: translate3d(0, -50%, 0);
+        }
+        83.3%,
+        95.96% {
+            transform: translate3d(0, -25%, 0);
+        }
+    }
+    @-moz-keyframes opacity {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+    @-moz-keyframes change {
+        0%,
+        12.66%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+        16.66%,
+        29.32% {
+            transform: translate3d(0, -25%, 0);
+        }
+        33.32%,
+        45.98% {
+            transform: translate3d(0, -50%, 0);
+        }
+        49.98%,
+        62.64% {
+            transform: translate3d(0, -75%, 0);
+        }
+        66.64%,
+        79.3% {
+            transform: translate3d(0, -50%, 0);
+        }
+        83.3%,
+        95.96% {
+            transform: translate3d(0, -25%, 0);
+        }
+    }
+    @keyframes opacity {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+    @keyframes change {
+        0%,
+        12.66%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+        16.66%,
+        29.32% {
+            transform: translate3d(0, -25%, 0);
+        }
+        33.32%,
+        45.98% {
+            transform: translate3d(0, -50%, 0);
+        }
+        49.98%,
+        62.64% {
+            transform: translate3d(0, -75%, 0);
+        }
+        66.64%,
+        79.3% {
+            transform: translate3d(0, -50%, 0);
+        }
+        83.3%,
+        95.96% {
+            transform: translate3d(0, -25%, 0);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class='outer'>
+        <div class='middle'>
+            <div class='inner'>
+                <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS9SURBVHhe7ZpPbxNHHIZzQuJ7VGoT20mgB6Te4qD2CyS0oECpBCTlXPqHAzklblAEHOyIU0PtnEBRcnf4FImansi5XGukpgJN57V3RZEnah17o9n9Pa/0SIk8Xh/ex+PfeD1GCCGEEEIIIYQQQozm6mcfTXgeeQ49f3kc5Bp1+JtHnU4kNffHP3jOU/+mOvFu9c6se7Y877bXr7udR19DjlGHmw/m3MrtqlO3vuOnnvNJ7b0k5bfvzV9yLx4uBC8E+UfdqmPf9Ut1ntTfFaDxnX8g9CQoHurad15Pyy/dnBl/+3yNd74V1LU6V/cS4PHKrWpwIRQXda7uJcDh5vJc3wIoNupc3UuAY6Z9e2yv35AAxxIguACKj7pHAMMggHEGFmD8k48hB4S6C3EqAaanJyFizkSATy9OQ4QggHEQwDgIYBwEMA4CGAcBjIMAxkEA40QnwMULU25rq+V2d3e7f4fWwOiISgAV3mq1XJqDg313wT8XEbIjGgFU8sZGI6n+fY6Ojty1q18hQUZEJYDe8aG8edNxd+9+iwQZEI0A2uqnJstuZ2cnqb0/az/XkGDERLUDTE9V3GSl5Br1elJ5fzQjIMHoiEYA8W8Jfvzhe9fpdJLaP8ze3h4SjIioBBA9CXofB1euzLvXr/9Iav8wmhe++PwyIgxJdAIIlZrOBJdnZ9z+fng45IQwPFEKIN5LUHGVcunE4VAnhPv3f0KCUxKtACKVIJ0Lms1fk9r7wwnhdEQtQIqKlQSV/5CAnWBwciOAdoJarZZU3Z9abbW7BgEGIzcC7O6GZwAdFZeWFrsDIwIMTtQCpO/8k74iPnr1yn3pj4qUf3qiFUBl6oino14oOhrqiEj5wxGlACpTA52OeKG02+3u0VBHRMofjugEUJk60p0UnQJ0JNSpgPKHJyoBVOZJw56i+wNp+RQ/GqIRQIWeNOzpfsDS4qIvv9y9T0D5oyMaAbSdbzQCvwhi0s+UqHYAldxqNpPqe5N+pTxB+RkSlQDa3rXNSwLd/GHYy55oBBCpBDre6V1P+dkTlQBCZQuKPxuiEwDOlsIKkO4kWRB6vbxSSAFUUlbZKtivkgsngMrR/JBVivaz9EIKoNNDVmm1ml3BQq+dRxBgwCBATj4C9IWSvkUsl0aDrlXEG1GFE0CkEqis0TLZvS4CRC6AUElZEXq9vFJYAeD/gQDGQQDjIIBxEMA4CGAcBDAOAhgHAYyDAMZBAOMggHEQwDgIYBwEMA4CGAcBjIMAxkEA4yCAcRDAOAhgHAQwDgIYBwGMgwDGQQDjIIBxEMA4CGAcBDAOAhgHAYyDAMZBAOMggHEQwDgIYBwEMA4CGAcBjHNmAkC8ZC4AxE+ouxADCwDFAgGMgwDGSQU43l6/HlwAxeXFwwUJ8KcEONxcnutbAMVm88GcBDiQAI9XbleDi6C4rNyqSoAnEqB8c2b87fO1heBCKB7qWp2r+zHF/9G4N38puBiKh7pW593yFf/POU9bD7ATFBd1m5T/Up0n9feSSFD3W8O71Tuz7tnyvNtevxG8EOQHTfu/+IFPc5669R0/9ZxPau+Pf7DkeeL53fO3R8ZAful4DjzqtPeZTwghhBBCCCGEEEKsZWzsHyLTshaA781YAAAAAElFTkSuQmCC' style='float: left; margin-top: 3rem'>
+                <h1 id='t1'>Open Server Panel</h1>
+                <div class="content">
+                    <div class="content__container">
+                        <p class="content__container__text">Hello</p>
+                        <ul class="content__container__list">
+                            <li class="content__container__list__item">world!</li>
+                            <li class="content__container__list__item">Bob!</li>
+                            <li class="content__container__list__item">users!</li>
+                            <li class="content__container__list__item">everybody!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
