@@ -12,7 +12,7 @@ license                 = https://www.php.net/license/3_01.txt
 license_type            = PHP License 3.01
 min_windows_ver         = 6.1.7601
 timestamp               = 1651770000
-version                 = 8.2.15
+version                 = 8.2.18
 
 [docs]
 
