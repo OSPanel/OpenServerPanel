@@ -190,9 +190,11 @@ if exist "%OSP_DIR%\data\cli\env_%%a.bat" call "%OSP_DIR%\data\cli\env_%%a.bat" 
 {system_environment}
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
+if /i not "%2"=="silent" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 "%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
 if exist "%OSP_DIR%\temp\OSPanel.lock" goto error
-echo: & echo {lang_exiting_program}
+if /i not "%2"=="silent" echo: & echo {lang_exiting_program}
 goto end
 :: -----------------------------------------------------------------------------------
 :: INIT CACERT
