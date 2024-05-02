@@ -15,6 +15,8 @@ Auxiliary utilities
 
 **Download:** https://ospanel.io/download/
 
+**Planned release date:** 05.05.2024 (Don't download now)
+
 We present you the best software environment for web development!
 
 Open Server Panel is a unique tool for local development of websites and web services on the Windows platform. It offers a large set of server software (WAMP stack), as well as a simple and convenient control panel.
