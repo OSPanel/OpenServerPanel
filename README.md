@@ -42,6 +42,31 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 
 Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
 
+System requirements
+------------
+| Type | Description |
+| ---: | :--- |
+| **Operating system** | Windows 10 v1607 / Windows Server 2016 or later<br>32-bit systems are not supported<br>There are no versions for Linux and macOS |
+| **Free hardware resources** | from 3 GB of RAM and from 10 GB of disk space |
+| **Mandatory software** | MSVC++ 2005-2022 Redistributable Packages (it is included) |
+| **File system** | NTFS (network drives are not supported) |
+
+You may need to limit the number of modules running at the same time if less than 3 GB of free RAM is available on your system. Owners of low-performance computers are advised to run no more than one module of each type at a time.
+
+Running Open Server Panel is also possible on legacy operating systems with some reservations (not all modules are available, paths longer than 255 characters are not supported):
+
+| Operating system (x64) | Version number | Compatibility |
+| :--- | :---: | :---: |
+| Windows 7 SP1 | 6.1.7601 | limited support |
+| Windows Server 2008 R2 SP1 | 6.1.7601 | limited support |
+| Windows Home Server 2011 | 6.1.8400 | limited support |
+| Windows Server 2012 | 6.2.9200 | limited support |
+| Windows 8 | 6.2.9200 | limited support |
+| Windows 8.1 | 6.3.9600 | limited support |
+| Windows Server 2012 R2 | 6.3.9600 | limited support |
+| Windows 10 v1507 | 10.0.10240 | limited support |
+| Windows 10 v1511 | 10.0.10586 | limited support |
+
 Command Line Interface
 ----------
 ![Open Server Panel Console](./resources/screenshots/cli-en.png)
@@ -76,6 +101,31 @@ Open Server Panel — это уникальный инструмент для л
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
 Хотите получать обновления чаще? Поддержите нашу работу используя [платную загрузку](https://ospanel.io/download/)!
+
+Системные требования
+------------
+| Тип | Описание |
+| ---: | :--- |
+| **Операционная система** | Windows 10 v1607 / Windows Server 2016 или новее<br>32-битные системы не поддерживаются<br>Версий для Linux и MacOS нет |
+| **Свободные аппаратные ресурсы** | от 3 ГБ RAM и от 10 ГБ места на диске |
+| **Обязательное ПО** | MSVC++ 2005-2022 Redistributable Packages (есть в комплекте) |
+| **Файловая система** | NTFS (сетевые диски не поддерживаются) |
+
+Может потребоваться ограничение количества одновременно запускаемых модулей в случае, если в вашей системе доступно менее 3 ГБ свободной оперативной памяти. Владельцам малопроизводительных компьютеров рекомендуется запускать не более одного модуля каждого типа одновременно.
+
+Запуск Open Server Panel возможен и на устаревших операционных системах с некоторыми оговорками (не все модули доступны, не поддерживаются пути длиннее 255 символов):
+
+| Операционная система (x64) | Номер версии | Поддержка |
+| :--- | :---: | :---: |
+| Windows 7 SP1 | 6.1.7601 | ограниченная |
+| Windows Server 2008 R2 SP1 | 6.1.7601 | ограниченная |
+| Windows Home Server 2011 | 6.1.8400 | ограниченная |
+| Windows Server 2012 | 6.2.9200 | ограниченная |
+| Windows 8 | 6.2.9200 | ограниченная |
+| Windows 8.1 | 6.3.9600 | ограниченная |
+| Windows Server 2012 R2 | 6.3.9600 | ограниченная |
+| Windows 10 v1507 | 10.0.10240 | ограниченная |
+| Windows 10 v1511 | 10.0.10586 | ограниченная |
 
 Интерфейс командной строки
 ----------
