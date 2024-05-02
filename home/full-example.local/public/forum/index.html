@@ -4,7 +4,6 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-    <link href='data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=' rel='icon' type='image/x-icon'>
     <title>Open Server Panel</title>
     <style>
     a {
@@ -287,7 +286,6 @@
     var userLang = navigator.language || navigator.userLanguage;
     var userLang_detected = userLang.toLowerCase();
     if (userLang_detected != 'ru-ru' && userLang_detected != 'ru') {
-        document.title = 'Welcome!';
         document.getElementById('t1').innerHTML = 'Hello';
         document.getElementById('t2').innerHTML = 'world!';
         document.getElementById('t3').innerHTML = 'Bob!';
