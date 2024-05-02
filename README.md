@@ -1,4 +1,4 @@
-Open Server Panel 6 <sup><sup>Beta</sup></sup>
+Open Server Panel 6
 =======================================
 
 Modules & Addons
@@ -12,6 +12,8 @@ Auxiliary utilities
 **PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
 
 **Documentation:** [EN](https://github.com/OSPanel/OpenServerPanel/wiki/Home/c31bf93751abb63672d5627a31d896f7f751ab65) | [RU](https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F/c31bf93751abb63672d5627a31d896f7f751ab65)
+
+**Download:** https://ospanel.io/download/
 
 We present you the best software environment for web development!
 
@@ -37,10 +39,6 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - A pre-configured environment for each module (up to entering the shell/cli with one command)
 - Punycode domain name converter
 - and much more...
-
-**Download**
-
-Please select the server closest to your physical location: [Asia](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [America](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Europe](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
 
@@ -74,10 +72,6 @@ Open Server Panel — это уникальный инструмент для л
 - Преднастроенная среда для каждого модуля (вплоть до входа в shell/cli одной командой)
 - Punycode конвертер доменных имён
 - и многое другое...
-
-**Скачать**
-
-Пожалуйста, выберите ближайший к вашему местоположению сервер: [Азия](https://files.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Америка](https://us.ospanel.io/ospanel_setup_6_0_0_570.exe) | [Европа](https://eu.ospanel.io/ospanel_setup_6_0_0_570.exe)
 
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
 
