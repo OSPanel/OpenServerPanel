@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
+    <link href='data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=' rel='icon' type='image/x-icon'>
     <title>Open Server Panel</title>
     <style>
     a {
@@ -28,7 +28,7 @@
         font-size: 1px !important;
     }
     body {
-        font: normal 16rem/23rem "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font: normal 16rem/23rem 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         background-color: #F4F6F9;
     }
     .outer {
@@ -58,19 +58,18 @@
     }
     .content {
         position: absolute;
-        left: 50%;
-        top: 120rem;
-        transform: translate(-50%, -50%);
+        left: 185rem;
+        top: 93rem;
         padding-top: 4px;
         overflow: hidden;
         font-size: 35px;
-        line-height: 40px;
+        line-height: 50px;
         color: #ecf0f1;
     }
     .content__container {
         font-weight: 600;
         overflow: hidden;
-        height: 40px;
+        height: 50px;
         padding: 0 40px;
     }
     .content__container:before {
@@ -88,7 +87,7 @@
         top: 0;
         color: #16a085;
         font-size: 42px;
-        line-height: 40px;
+        line-height: 50px;
         -webkit-animation-name: opacity;
         -webkit-animation-duration: 2s;
         -webkit-animation-iteration-count: infinite;
@@ -103,7 +102,7 @@
     }
     .content__container__list {
         margin-top: 0;
-        padding-left: 110px;
+        padding-left: 150px;
         text-align: left;
         list-style: none;
         -webkit-animation-name: change;
@@ -114,7 +113,7 @@
         animation-iteration-count: infinite;
     }
     .content__container__list__item {
-        line-height: 40px;
+        line-height: 50px;
         margin: 0;
     }
     @-webkit-keyframes opacity {
@@ -268,22 +267,35 @@
     <div class='outer'>
         <div class='middle'>
             <div class='inner'>
-                <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS9SURBVHhe7ZpPbxNHHIZzQuJ7VGoT20mgB6Te4qD2CyS0oECpBCTlXPqHAzklblAEHOyIU0PtnEBRcnf4FImansi5XGukpgJN57V3RZEnah17o9n9Pa/0SIk8Xh/ex+PfeD1GCCGEEEIIIYQQQozm6mcfTXgeeQ49f3kc5Bp1+JtHnU4kNffHP3jOU/+mOvFu9c6se7Y877bXr7udR19DjlGHmw/m3MrtqlO3vuOnnvNJ7b0k5bfvzV9yLx4uBC8E+UfdqmPf9Ut1ntTfFaDxnX8g9CQoHurad15Pyy/dnBl/+3yNd74V1LU6V/cS4PHKrWpwIRQXda7uJcDh5vJc3wIoNupc3UuAY6Z9e2yv35AAxxIguACKj7pHAMMggHEGFmD8k48hB4S6C3EqAaanJyFizkSATy9OQ4QggHEQwDgIYBwEMA4CGAcBjIMAxkEA40QnwMULU25rq+V2d3e7f4fWwOiISgAV3mq1XJqDg313wT8XEbIjGgFU8sZGI6n+fY6Ojty1q18hQUZEJYDe8aG8edNxd+9+iwQZEI0A2uqnJstuZ2cnqb0/az/XkGDERLUDTE9V3GSl5Br1elJ5fzQjIMHoiEYA8W8Jfvzhe9fpdJLaP8ze3h4SjIioBBA9CXofB1euzLvXr/9Iav8wmhe++PwyIgxJdAIIlZrOBJdnZ9z+fng45IQwPFEKIN5LUHGVcunE4VAnhPv3f0KCUxKtACKVIJ0Lms1fk9r7wwnhdEQtQIqKlQSV/5CAnWBwciOAdoJarZZU3Z9abbW7BgEGIzcC7O6GZwAdFZeWFrsDIwIMTtQCpO/8k74iPnr1yn3pj4qUf3qiFUBl6oino14oOhrqiEj5wxGlACpTA52OeKG02+3u0VBHRMofjugEUJk60p0UnQJ0JNSpgPKHJyoBVOZJw56i+wNp+RQ/GqIRQIWeNOzpfsDS4qIvv9y9T0D5oyMaAbSdbzQCvwhi0s+UqHYAldxqNpPqe5N+pTxB+RkSlQDa3rXNSwLd/GHYy55oBBCpBDre6V1P+dkTlQBCZQuKPxuiEwDOlsIKkO4kWRB6vbxSSAFUUlbZKtivkgsngMrR/JBVivaz9EIKoNNDVmm1ml3BQq+dRxBgwCBATj4C9IWSvkUsl0aDrlXEG1GFE0CkEqis0TLZvS4CRC6AUElZEXq9vFJYAeD/gQDGQQDjIIBxEMA4CGAcBDAOAhgHAYyDAMZBAOMggHEQwDgIYBwEMA4CGAcBjIMAxkEA4yCAcRDAOAhgHAQwDgIYBwGMgwDGQQDjIIBxEMA4CGAcBDAOAhgHAYyDAMZBAOMggHEQwDgIYBwEMA4CGAcBjHNmAkC8ZC4AxE+ouxADCwDFAgGMgwDGSQU43l6/HlwAxeXFwwUJ8KcEONxcnutbAMVm88GcBDiQAI9XbleDi6C4rNyqSoAnEqB8c2b87fO1heBCKB7qWp2r+zHF/9G4N38puBiKh7pW593yFf/POU9bD7ATFBd1m5T/Up0n9feSSFD3W8O71Tuz7tnyvNtevxG8EOQHTfu/+IFPc5669R0/9ZxPau+Pf7DkeeL53fO3R8ZAful4DjzqtPeZTwghhBBCCCGEEEKsZWzsHyLTshaA781YAAAAAElFTkSuQmCC' style='float: left; margin-top: 3rem'>
-                <h1 id='t1'>Open Server Panel</h1>
-                <div class="content">
-                    <div class="content__container">
-                        <p class="content__container__text">Hello</p>
-                        <ul class="content__container__list">
-                            <li class="content__container__list__item">world!</li>
-                            <li class="content__container__list__item">Bob!</li>
-                            <li class="content__container__list__item">users!</li>
-                            <li class="content__container__list__item">everybody!</li>
+                <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABEVBMVEUAAABZOiRgQSlZOiRZOiRZOiRZOiRZOiRZOiRZOiRZOiRZOiRhQipZOiRZOiRZOiRZOiRZOiRgQSlZOiRZOiRZOiRZOiRZOiRZOiRZOiSJiIcpKCf19fSff1QwMC56enmioqH///8tLCoyMS8wLy2vr6+jo6MvLi0xMC6FZEIsKypaWVifflSGZkMvLiwuLSutjF6qiVyvjl90VTd1VTfq6un09PSjoqIwLy7U1NMtLCutjF1EQ0Hf3t6gf1UzMjCwsK94d3ZXVlWjo6JqammwsLBHRkRWVlUtLSuVlJSHh4aWlZW8vLyrilyko6NoaGekpKPT09OHh4e7u7toZ2eWlpWeflTf39+FZUIuLSxZOiRPry9FAAAAGnRSTlMABvzXj5SVK/mQLLv9+CqOmAn91L3W89j69MJJIKUAAAHzSURBVHja7dsFkhsxEIVhmWmZieQ2aMnM7DAts+9/kExGYS7SC7z/Av2VqyWzYoyxP6KZ2dD0xHHTy7MzyhaITB0PuhXHdY/up+bm/fmp2kkF0kltKeABotUKrGpEqViwjAOUgzEV3q8A2w+r0DYSsB1S8S4SUIqrSQXahIDPAZvO+hFgx1E/BgydRAABBBDwWwA5fypIgOS0bhuBAeRGe90dCgzQ1u/aeiIggClktd+GYACSKb60gpwAAFYwbviCNwI6hq3C87ovaD8TyEUkptC70O8PAwLgCfIdu4pbu4IAeIJMce/DYQAAvCTz4r1gVzAAc6n9XhkQYOSPb5wVIAAx9kLuPyoYxA7I4Z0//6Jn57sGyO6WP/+qkzeCuAk3tN9eMWMQN+H79dPjYkaArwfq1w8tzLOhef1p/SEAKTS1vkjb+RBA66GZtesHAFhBvpAxgnxfIF+P51sz+X7OAKK/26k4AojR3y3nDJDR3+2x+W8A5iF98E3pYkacLaHJfKeWEfQx/McuIgIIIIAAAggggAACCCCAAAIIIIAAAggggABHbf5hP+uFNiEA/PP+kxXwHxyOFlX4HgnYT6gk9k8uSaWiNRygFrV/dAI9BmX7RycViCwcD0rO9//2fmFuXtliidW1iePWFxNJxRhjf0JvAapNN4g0B9FcAAAAAElFTkSuQmCC' style='float: left; margin-top: 3rem'>
+                <h1>Open Server Panel</h1>
+                <div class='content'>
+                    <div class='content__container'>
+                        <p class='content__container__text' id='t1'>Привет</p>
+                        <ul class='content__container__list' id='t6'>
+                            <li class='content__container__list__item' id='t2'>мир!</li>
+                            <li class='content__container__list__item' id='t3'>Боб!</li>
+                            <li class='content__container__list__item' id='t4'>юзеры!</li>
+                            <li class='content__container__list__item' id='t5'>все!</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    var userLang = navigator.language || navigator.userLanguage;
+    var userLang_detected = userLang.toLowerCase();
+    if (userLang_detected != 'ru-ru' && userLang_detected != 'ru') {
+        document.title = 'Welcome!';
+        document.getElementById('t1').innerHTML = 'Hello';
+        document.getElementById('t2').innerHTML = 'world!';
+        document.getElementById('t3').innerHTML = 'Bob!';
+        document.getElementById('t4').innerHTML = 'users!';
+        document.getElementById('t5').innerHTML = 'everybody!';
+        document.getElementById('t6').style.paddingLeft = '110rem';
+    }
+    </script>
 </body>
 
 </html>
