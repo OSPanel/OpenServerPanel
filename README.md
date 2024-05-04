@@ -23,7 +23,7 @@ Features
 
 **Planned release date:** 05.05.2024 (Don't download now)
 
-We present you the best software environment for web development!
+We present you the best software environment for web development on Windows!
 
 Open Server Panel is a unique tool for local development of websites and web services on the Windows platform. It offers a large set of server software (WAMP stack), as well as a simple and convenient control panel.
 
@@ -81,7 +81,7 @@ Command Line Interface
 
 ***
 
-Представляем вам лучшую программную среду для веб-разработки!
+Представляем вам лучшую программную среду для веб-разработки на Windows!
 
 Open Server Panel — это уникальный инструмент для локальной разработки веб-сайтов и веб-сервисов на платформе Windows. К вашим услугам большой набор серверного программного обеспечения ([WAMP](https://ru.wikipedia.org/wiki/WAMP)-cтек), а также простая и удобная панель управления.
 
