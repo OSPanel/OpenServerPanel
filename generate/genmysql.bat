@@ -18,6 +18,7 @@ call osp off %1
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
 call osp init %1 initdb
 call osp use %1
+call osp add Perl-5.32
 rd    "%OSP_ROOT_DIR%data\%1\default" /s /q 2>nul
 mkdir "%OSP_ROOT_DIR%data\%1\default"
 mkdir "%OSP_ROOT_DIR%generate\new_data\%1\ospanel_data\default_data"
