@@ -475,7 +475,7 @@
                 </tr>
                 <tr>
                     <td class="e">Loaded Modules </td>
-                    <td class="v">core mod_win32 mpm_winnt http_core mod_so mod_access_compat mod_actions mod_alias mod_allowmethods mod_asis mod_auth_basic mod_auth_digest mod_authn_core mod_authn_file mod_authz_core mod_authz_groupfile mod_authz_host mod_authz_user mod_autoindex mod_brotli mod_cgi mod_deflate mod_dir mod_env mod_expires mod_filter mod_headers mod_include mod_info mod_isapi mod_log_config mod_macro mod_mime mod_negotiation mod_proxy mod_proxy_http mod_remoteip mod_rewrite mod_setenvif mod_socache_shmcb mod_ssl mod_status mod_unique_id mod_php </td>
+                    <td class="v">core mod_win32 mpm_winnt http_core mod_so mod_access_compat mod_actions mod_alias mod_allowmethods mod_asis mod_auth_basic mod_auth_digest mod_authn_core mod_authn_file mod_authz_core mod_authz_groupfile mod_authz_host mod_authz_user mod_autoindex mod_brotli mod_cgi mod_deflate mod_dir mod_env mod_expires mod_filter mod_headers mod_http2 mod_include mod_info mod_isapi mod_log_config mod_macro mod_mime mod_negotiation mod_proxy mod_proxy_http mod_remoteip mod_rewrite mod_setenvif mod_socache_shmcb mod_ssl mod_status mod_unique_id mod_php </td>
                 </tr>
             </tbody>
         </table>
@@ -512,7 +512,7 @@
                 </tr>
                 <tr>
                     <td class="e">UNIQUE_ID </td>
-                    <td class="v">ZjVn_vX3zduNnunHBTx1LwAAAD4 </td>
+                    <td class="v">ZjXRNALTYnESrCLC1VWErQAAOwo </td>
                 </tr>
                 <tr>
                     <td class="e">HTTPS </td>
@@ -521,6 +521,34 @@
                 <tr>
                     <td class="e">SSL_TLS_SNI </td>
                     <td class="v">example.local </td>
+                </tr>
+                <tr>
+                    <td class="e">HTTP2 </td>
+                    <td class="v">on </td>
+                </tr>
+                <tr>
+                    <td class="e">H2PUSH </td>
+                    <td class="v">off </td>
+                </tr>
+                <tr>
+                    <td class="e">H2_PUSH </td>
+                    <td class="v">off </td>
+                </tr>
+                <tr>
+                    <td class="e">H2_PUSHED </td>
+                    <td class="v"><i>no value</i> </td>
+                </tr>
+                <tr>
+                    <td class="e">H2_PUSHED_ON </td>
+                    <td class="v"><i>no value</i> </td>
+                </tr>
+                <tr>
+                    <td class="e">H2_STREAM_ID </td>
+                    <td class="v">1 </td>
+                </tr>
+                <tr>
+                    <td class="e">H2_STREAM_TAG </td>
+                    <td class="v">2692-0-1 </td>
                 </tr>
                 <tr>
                     <td class="e">SSL_SERVER_S_DN_CN </td>
@@ -600,15 +628,15 @@
                 </tr>
                 <tr>
                     <td class="e">SSL_SERVER_M_SERIAL </td>
-                    <td class="v">085F686D3C9D62F382665F99AD785DC335E0A3D0 </td>
+                    <td class="v">1E8F476E93BDF84EBA71F6D44E0B80B45D6A9AEF </td>
                 </tr>
                 <tr>
                     <td class="e">SSL_SERVER_V_START </td>
-                    <td class="v">May 3 22:39:45 2024 GMT </td>
+                    <td class="v">May 4 06:09:51 2024 GMT </td>
                 </tr>
                 <tr>
                     <td class="e">SSL_SERVER_V_END </td>
-                    <td class="v">May 1 22:39:45 2034 GMT </td>
+                    <td class="v">May 2 06:09:51 2034 GMT </td>
                 </tr>
                 <tr>
                     <td class="e">SSL_SERVER_S_DN </td>
@@ -628,19 +656,11 @@
                 </tr>
                 <tr>
                     <td class="e">SSL_SESSION_ID </td>
-                    <td class="v">d1a7b64c3be41cdcd9fb0c6e57977459f7e0a81421dbbafe7ced732129530145 </td>
+                    <td class="v">b65174ca6a207d6db3da55acebc17bc87023e46d6df076f314fccba5d6f9afd0 </td>
                 </tr>
                 <tr>
                     <td class="e">SSL_SESSION_RESUMED </td>
                     <td class="v">Initial </td>
-                </tr>
-                <tr>
-                    <td class="e">HTTP_HOST </td>
-                    <td class="v">example.local </td>
-                </tr>
-                <tr>
-                    <td class="e">HTTP_CONNECTION </td>
-                    <td class="v">keep-alive </td>
                 </tr>
                 <tr>
                     <td class="e">HTTP_CACHE_CONTROL </td>
@@ -693,6 +713,10 @@
                 <tr>
                     <td class="e">HTTP_ACCEPT_LANGUAGE </td>
                     <td class="v">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7 </td>
+                </tr>
+                <tr>
+                    <td class="e">HTTP_HOST </td>
+                    <td class="v">example.local </td>
                 </tr>
                 <tr>
                     <td class="e">PATH </td>
@@ -764,7 +788,7 @@
                 </tr>
                 <tr>
                     <td class="e">REMOTE_PORT </td>
-                    <td class="v">64877 </td>
+                    <td class="v">61884 </td>
                 </tr>
                 <tr>
                     <td class="e">GATEWAY_INTERFACE </td>
@@ -772,7 +796,7 @@
                 </tr>
                 <tr>
                     <td class="e">SERVER_PROTOCOL </td>
-                    <td class="v">HTTP/1.1 </td>
+                    <td class="v">HTTP/2.0 </td>
                 </tr>
                 <tr>
                     <td class="e">REQUEST_METHOD </td>
@@ -800,30 +824,22 @@
                 </tr>
                 <tr>
                     <td class="e">HTTP Request </td>
-                    <td class="v">GET / HTTP/1.1 </td>
-                </tr>
-                <tr>
-                    <td class="e">Host </td>
-                    <td class="v">example.local </td>
-                </tr>
-                <tr>
-                    <td class="e">Connection </td>
-                    <td class="v">keep-alive </td>
+                    <td class="v">GET / HTTP/2.0 </td>
                 </tr>
                 <tr>
                     <td class="e">Cache-Control </td>
                     <td class="v">max-age=0 </td>
                 </tr>
                 <tr>
-                    <td class="e">sec-ch-ua </td>
+                    <td class="e">Sec-Ch-Ua </td>
                     <td class="v">"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120" </td>
                 </tr>
                 <tr>
-                    <td class="e">sec-ch-ua-mobile </td>
+                    <td class="e">Sec-Ch-Ua-Mobile </td>
                     <td class="v">?0 </td>
                 </tr>
                 <tr>
-                    <td class="e">sec-ch-ua-platform </td>
+                    <td class="e">Sec-Ch-Ua-Platform </td>
                     <td class="v">"Windows" </td>
                 </tr>
                 <tr>
@@ -861,6 +877,10 @@
                 <tr>
                     <td class="e">Accept-Language </td>
                     <td class="v">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7 </td>
+                </tr>
+                <tr>
+                    <td class="e">Host </td>
+                    <td class="v">example.local </td>
                 </tr>
                 <tr class="h">
                     <th colspan="2">HTTP Response Headers</th>
@@ -7855,7 +7875,7 @@
                 </tr>
                 <tr>
                     <td class="e">AP_PARENT_PID </td>
-                    <td class="v">10756 </td>
+                    <td class="v">35616 </td>
                 </tr>
             </tbody>
         </table>
@@ -7868,7 +7888,7 @@
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['UNIQUE_ID']</td>
-                    <td class="v">ZjVn_vX3zduNnunHBTx1LwAAAD4</td>
+                    <td class="v">ZjXRNALTYnESrCLC1VWErQAAOwo</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['HTTPS']</td>
@@ -7877,6 +7897,34 @@
                 <tr>
                     <td class="e">$_SERVER['SSL_TLS_SNI']</td>
                     <td class="v">example.local</td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['HTTP2']</td>
+                    <td class="v">on</td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['H2PUSH']</td>
+                    <td class="v">off</td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['H2_PUSH']</td>
+                    <td class="v">off</td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['H2_PUSHED']</td>
+                    <td class="v"><i>no value</i></td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['H2_PUSHED_ON']</td>
+                    <td class="v"><i>no value</i></td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['H2_STREAM_ID']</td>
+                    <td class="v">1</td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['H2_STREAM_TAG']</td>
+                    <td class="v">2692-0-1</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SERVER_S_DN_CN']</td>
@@ -7956,15 +8004,15 @@
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SERVER_M_SERIAL']</td>
-                    <td class="v">085F686D3C9D62F382665F99AD785DC335E0A3D0</td>
+                    <td class="v">1E8F476E93BDF84EBA71F6D44E0B80B45D6A9AEF</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SERVER_V_START']</td>
-                    <td class="v">May 3 22:39:45 2024 GMT</td>
+                    <td class="v">May 4 06:09:51 2024 GMT</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SERVER_V_END']</td>
-                    <td class="v">May 1 22:39:45 2034 GMT</td>
+                    <td class="v">May 2 06:09:51 2034 GMT</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SERVER_S_DN']</td>
@@ -7984,19 +8032,11 @@
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SESSION_ID']</td>
-                    <td class="v">d1a7b64c3be41cdcd9fb0c6e57977459f7e0a81421dbbafe7ced732129530145</td>
+                    <td class="v">b65174ca6a207d6db3da55acebc17bc87023e46d6df076f314fccba5d6f9afd0</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SSL_SESSION_RESUMED']</td>
                     <td class="v">Initial</td>
-                </tr>
-                <tr>
-                    <td class="e">$_SERVER['HTTP_HOST']</td>
-                    <td class="v">example.local</td>
-                </tr>
-                <tr>
-                    <td class="e">$_SERVER['HTTP_CONNECTION']</td>
-                    <td class="v">keep-alive</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['HTTP_CACHE_CONTROL']</td>
@@ -8049,6 +8089,10 @@
                 <tr>
                     <td class="e">$_SERVER['HTTP_ACCEPT_LANGUAGE']</td>
                     <td class="v">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</td>
+                </tr>
+                <tr>
+                    <td class="e">$_SERVER['HTTP_HOST']</td>
+                    <td class="v">example.local</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['PATH']</td>
@@ -8120,7 +8164,7 @@
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['REMOTE_PORT']</td>
-                    <td class="v">64877</td>
+                    <td class="v">61884</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['GATEWAY_INTERFACE']</td>
@@ -8128,7 +8172,7 @@
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['SERVER_PROTOCOL']</td>
-                    <td class="v">HTTP/1.1</td>
+                    <td class="v">HTTP/2.0</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['REQUEST_METHOD']</td>
@@ -8152,11 +8196,11 @@
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['REQUEST_TIME_FLOAT']</td>
-                    <td class="v">1714776062.5023</td>
+                    <td class="v">1714802996.2364</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['REQUEST_TIME']</td>
-                    <td class="v">1714776062</td>
+                    <td class="v">1714802996</td>
                 </tr>
                 <tr>
                     <td class="e">$_SERVER['argv']</td>
