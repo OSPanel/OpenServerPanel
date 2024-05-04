@@ -9,6 +9,12 @@ Auxiliary utilities
 ------------
 ![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.7.1-7aba03) ![](https://img.shields.io/badge/dust-1.0.0-7aba03) ![](https://img.shields.io/badge/fd-9.0.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.75-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
 
+Features
+------------
+![](https://img.shields.io/badge/SSL-ON-B54AB5) ![](https://img.shields.io/badge/HTTP/2-ON-B54AB5) ![](https://img.shields.io/badge/Brotli_&_Gzip-ON-B54AB5) ![](https://img.shields.io/badge/Nginx_PHP_Modes:-FastCGI_&_Proxy-B54AB5)
+
+**TRUE SIMULTANEOUS OPERATION OF ALL VERSIONS OF PHP!**
+
 **PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
 
 **Documentation:** [EN](https://github.com/OSPanel/OpenServerPanel/wiki) | [RU](https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F)
