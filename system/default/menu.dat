@@ -135,6 +135,7 @@ need_state            = on
 
 caption               = {lang_control_panel}
 command               = "%COMSPEC%" /c "start "" "{web_panel_url}""
+enabled               = off
 hide                  = on
 icon                  = tools
 
