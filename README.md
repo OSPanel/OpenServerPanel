@@ -13,7 +13,7 @@ Features
 ------------
 ![](https://img.shields.io/badge/SSL-ON-B54AB5) ![](https://img.shields.io/badge/HTTP/2-ON-B54AB5) ![](https://img.shields.io/badge/Brotli-ON-B54AB5) ![](https://img.shields.io/badge/Nginx_PHP_Modes-FastCGI_&_Proxy-B54AB5) ![](https://img.shields.io/badge/Composer_&_Node_&_NPM-Yes!-B54AB5)
 
-**TRUE SIMULTANEOUS OPERATION OF ALL VERSIONS OF PHP!**
+**RUN MULTIPLE PHP VERSIONS AT THE SAME TIME!**
 
 **PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
 
