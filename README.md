@@ -37,7 +37,7 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - Full user access to module settings and configurations
 - Program management in console mode and via the web interface (under development)
 - Full control over processes (including monitoring and recovery after a failure)
-- The possibility of parallel operation of any modules (you can enable all at the same time)
+- The ability to run modules in parallel (you can even turn on all modules at the same time)
 - Easy domain management with support for internationalized domains and domain pseudomains (aliases)
 - A huge set of third-party PHP extensions
 - SSL and IPv6 support without additional configuration
@@ -95,7 +95,7 @@ Open Server Panel — это уникальный инструмент для л
 - Полный доступ пользователя к настройкам и конфигурации модулей
 - Управление программой в консольном режиме и через веб-интерфейс (в разработке)
 - Полный контроль над процессами (включая мониторинг и восстановление после сбоя)
-- Возможность параллельной работы любых модулей (можно включить все одновременно)
+- Возможность параллельного запуска модулей (вы даже можете включить все модули одновременно)
 - Простое управление доменами с поддержкой интернационализованных доменов и доменных псевдоминов (алиасов)
 - Огромный набор сторонних расширений PHP
 - Поддержка SSL и IPv6 без дополнительной настройки
