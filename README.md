@@ -11,7 +11,7 @@ Auxiliary utilities
 
 Features
 ------------
-![](https://img.shields.io/badge/SSL-ON-B54AB5) ![](https://img.shields.io/badge/HTTP/2-ON-B54AB5) ![](https://img.shields.io/badge/Brotli_&_Gzip-ON-B54AB5) ![](https://img.shields.io/badge/Nginx_PHP_Modes:-FastCGI_&_Proxy-B54AB5)
+![](https://img.shields.io/badge/SSL-ON-B54AB5) ![](https://img.shields.io/badge/HTTP/2-ON-B54AB5) ![](https://img.shields.io/badge/Brotli-ON-B54AB5) ![](https://img.shields.io/badge/Nginx_PHP_Modes:-FastCGI_&_Proxy-B54AB5)
 
 **TRUE SIMULTANEOUS OPERATION OF ALL VERSIONS OF PHP!**
 
