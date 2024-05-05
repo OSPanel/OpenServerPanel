@@ -45,7 +45,7 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - Ability to create module configuration profiles (including module configuration files and data)
 - Personalization of settings for each domain (from IP to PHP version)
 - A pre-configured environment for each module (up to entering the shell/cli with one command)
-- Punycode domain name converter
+- IDN domain name converter
 - and much more...
 
 Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
@@ -103,7 +103,7 @@ Open Server Panel — это уникальный инструмент для л
 - Возможность создавать профили настроек модулей (включая файлы конфигурации модулей и данные)
 - Персонализация настроек для каждого домена (от IP до версии PHP)
 - Преднастроенная среда для каждого модуля (вплоть до входа в shell/cli одной командой)
-- Punycode конвертер доменных имён
+- IDN конвертер доменных имён
 - и многое другое...
 
 Присоединяйтесь к нашей группе [Telegram](https://t.me/ospanel_chat) и узнавайте о новых версиях первым! Будем рады обсудить вместе с вами любые ваши идеи, а армия опытных пользователей всегда готова прийти на помощь.
