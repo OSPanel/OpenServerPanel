@@ -27,16 +27,16 @@ VersionInfoCopyright    = Copyright (c) 2010-{#CurrentYear}, {#AppDomain}
 
 // Compression
 
-Compression          = lzma2/fast
-// Compression             = lzma2/ultra64
+// Compression          = lzma2/fast
+Compression             = lzma2/ultra64
 InternalCompressLevel   = ultra64
 LZMAUseSeparateProcess  = yes
 SolidCompression        = yes
 LZMABlockSize           = 262144
 LZMADictionarySize      = 262144
 LZMANumBlockThreads     = 4
-// LZMANumFastBytes        = 273
-LZMANumFastBytes     = 32
+LZMANumFastBytes        = 273
+// LZMANumFastBytes     = 32
 
 // Misc  
 
