@@ -2,49 +2,49 @@
 
 [main]
 
-architecture       = x64
-category           = NVM
-enabled            = on
-license            = https://raw.githubusercontent.com/coreybutler/nvm-windows/master/LICENSE
-license_type       = MIT License (MIT)
-min_windows_ver    = 10.0.10240
-timestamp          = 1651770000
-version            = 1.1.12
+architecture        = x64
+category            = NVM
+enabled             = on
+license             = https://raw.githubusercontent.com/coreybutler/nvm-windows/master/LICENSE
+license_type        = MIT License (MIT)
+min_windows_ver     = 10.0.10240
+timestamp           = 1651770000
+version             = 1.1.12
 
 [docs]
 
-English            = https://github.com/coreybutler/nvm-windows
+English             = https://github.com/coreybutler/nvm-windows
 
 [addon_env.bat]
 
-comment            = ::
-destination        = {root_dir}\data\cli\env_{addon_name}.bat
-enabled            = on
-encoding           = UTF8
-path_separator     = \
-source_dir         = {root_dir}\system\templates
+comment             = ::
+destination         = {root_dir}\data\cli\env_{addon_name}.bat
+directory_separator = \
+enabled             = on
+encoding            = UTF8
+source_dir          = {root_dir}\system\templates
 
 [nvm.bat]
 
-comment            = ::
-destination        = {root_dir}\data\cli\nvm.bat
-enabled            = on
-encoding           = UTF8
-path_separator     = \
+comment             = ::
+destination         = {root_dir}\data\cli\nvm.bat
+directory_separator = \
+enabled             = on
+encoding            = UTF8
 
 [settings.txt]
 
-destination        = {root_dir}\addons\{addon_name}\settings.txt
-enabled            = on
-encoding           = UTF8
-path_separator     = \
+destination         = {root_dir}\addons\{addon_name}\settings.txt
+directory_separator = \
+enabled             = on
+encoding            = UTF8
 
 [environment]
 
-NPM_CONFIG_UNICODE =
-NPM_CONFIG_CAFILE  =
+NPM_CONFIG_UNICODE  =
+NPM_CONFIG_CAFILE   =
 NPM_CONFIG_USERCONFIG =
 NPM_CONFIG_GLOBALCONFIG =
-NPM_CONFIG_CACHE   =
-NPM_CACHE_LOCATION =
-PATH               = %PATH%
+NPM_CONFIG_CACHE    =
+NPM_CACHE_LOCATION  =
+PATH                = %PATH%

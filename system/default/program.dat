@@ -84,29 +84,29 @@ TMP                      = {root_dir}\temp
 [index.html]
 
 destination              = {root_dir}\system\public_html\index.html
+directory_separator      = /
 enabled                  = on
 encoding                 = UTF8
-path_separator           = /
 
 [default.html]
 
 destination              = {root_dir}\system\public_html\default\index.html
+directory_separator      = /
 enabled                  = on
 encoding                 = UTF8
-path_separator           = /
 
 [osp.bat]
 
 comment                  = ::
 destination              = {root_dir}\bin\osp.bat
+directory_separator      = \
 enabled                  = on
 encoding                 = UTF8
-path_separator           = \
 
 [tail.bat]
 
 comment                  = ::
 destination              = {root_dir}\system\bin\tail.bat
+directory_separator      = \
 enabled                  = on
 encoding                 = UTF8
-path_separator           = \

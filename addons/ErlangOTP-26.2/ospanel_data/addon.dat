@@ -2,47 +2,47 @@
 
 [main]
 
-architecture       = x64
-category           = ErlangOTP
-enabled            = on
-license            = https://www.apache.org/licenses/LICENSE-2.0
-license_type       = Apache License 2.0
-min_windows_ver    = 6.1.7601
-timestamp          = 1651770000
-version            = 26.2.3
+architecture        = x64
+category            = ErlangOTP
+enabled             = on
+license             = https://www.apache.org/licenses/LICENSE-2.0
+license_type        = Apache License 2.0
+min_windows_ver     = 6.1.7601
+timestamp           = 1651770000
+version             = 26.2.3
 
 [docs]
 
-English            = https://www.erlang.org/docs
+English              https://www.erlang.org/docs
 
 [erl.ini]
 
-comment            = ;
-destination        = {root_dir}\addons\{addon_name}\bin\erl.ini
-enabled            = on
-encoding           = UTF8
-path_separator     = \\
+comment             = ;
+destination         = {root_dir}\addons\{addon_name}\bin\erl.ini
+directory_separator = \\
+enabled             = on
+encoding            = UTF8
 
 [erl-bin.ini]
 
-comment            = ;
-destination        = {root_dir}\addons\{addon_name}\erts-14.2.3\bin\erl.ini
-enabled            = on
-encoding           = UTF8
-path_separator     = \\
+comment             = ;
+destination         = {root_dir}\addons\{addon_name}\erts-14.2.3\bin\erl.ini
+directory_separator = \\
+enabled             = on
+encoding            = UTF8
 
 [addon_env.bat]
 
-comment            = ::
-destination        = {root_dir}\data\cli\env_{addon_name}.bat
-enabled            = on
-encoding           = UTF8
-path_separator     = \
-source_dir         = {root_dir}\system\templates
+comment             = ::
+destination         = {root_dir}\data\cli\env_{addon_name}.bat
+directory_separator = \
+enabled             = on
+encoding            = UTF8
+source_dir          = {root_dir}\system\templates
 
 [environment]
 
-ERLANG_HOME        = {root_dir}\addons\{addon_name}
+ERLANG_HOME         = {root_dir}\addons\{addon_name}
 ERLANG_SERVICE_MANAGER_PATH = {root_dir}\addons\{addon_name}\erts-14.2.3\bin
-ERL_LIBS           = {root_dir}\addons\{addon_name}\lib
-PATH               = {root_dir}\addons\{addon_name}\bin;%PATH%
+ERL_LIBS            = {root_dir}\addons\{addon_name}\lib
+PATH                = {root_dir}\addons\{addon_name}\bin;%PATH%
