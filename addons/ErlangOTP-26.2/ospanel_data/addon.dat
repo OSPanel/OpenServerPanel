@@ -13,7 +13,7 @@ version             = 26.2.3
 
 [docs]
 
-English              https://www.erlang.org/docs
+English             = https://www.erlang.org/docs
 
 [erl.ini]
 
