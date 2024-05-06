@@ -46,6 +46,8 @@ Today, the Open Server Panel is widely used for the purpose of developing, debug
 - IDN domain name converter
 - and much more...
 
+Join our group [Telegram](https://t.me/ospanel_chat  and be the first to learn about new versions! We will be happy to discuss any of your ideas with you, and our community is always ready to help.
+
 Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
 
 System requirements
