@@ -1,8 +1,38 @@
 ﻿[main]
 
-id             =
-ignore_ver     =
-min_menu_width = 23
-tasks_timeuot  = 15
-mutex          = OSPanel
-path_check     = on
+id                       =
+ignore_ver               =
+min_menu_width           = 23
+tasks_timeuot            = 15
+mutex                    = OSPanel
+path_check               = on
+
+[index.html]
+
+destination              = {root_dir}\system\public_html\index.html
+directory_separator      = /
+enabled                  = on
+encoding                 = UTF8
+
+[default.html]
+
+destination              = {root_dir}\system\public_html\default\index.html
+directory_separator      = /
+enabled                  = on
+encoding                 = UTF8
+
+[osp.bat]
+
+comment                  = ::
+destination              = {root_dir}\bin\osp.bat
+directory_separator      = \
+enabled                  = on
+encoding                 = UTF8
+
+[tail.bat]
+
+comment                  = ::
+destination              = {root_dir}\system\bin\tail.bat
+directory_separator      = \
+enabled                  = on
+encoding                 = UTF8
