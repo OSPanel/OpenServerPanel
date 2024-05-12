@@ -324,7 +324,7 @@ goto end
 :sysprep
 if /i not "%2"=="silent" if /i not "%2"=="ssd" if not "%2"=="" goto invalid
 if /i "%2"=="silent" start "" /WAIT "%OSP_DIR%\system\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
-if /i "%2"=="ssd" start "" /WAIT "%OSP_DIR%\system\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="taskSsdopts"
+if /i "%2"=="ssd" start "" /WAIT "%OSP_DIR%\system\bin\syspreptool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="task_SSD"
 if "%2"=="" start "" "%OSP_DIR%\system\bin\syspreptool.exe"
 goto end
 :: -----------------------------------------------------------------------------------
