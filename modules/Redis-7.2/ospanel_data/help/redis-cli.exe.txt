@@ -11,7 +11,10 @@ Usage: redis-cli [OPTIONS] [cmd [arg [arg ...]]]
   --askpass          Force user to input password with mask from STDIN.
                      If this argument is used, '-a' and REDISCLI_AUTH
                      environment variable will be ignored.
-  -u <uri>           Server URI.
+  -u <uri>           Server URI on format redis://user:password@host:port/dbnum
+                     User, password and dbnum are optional. For authentication
+                     without a username, use username 'default'. For TLS, use
+                     the scheme 'rediss'.
   -r <repeat>        Execute specified command N times.
   -i <interval>      When -r is used, waits <interval> seconds per command.
                      It is possible to specify sub-second times like -i 0.1.
@@ -26,6 +29,8 @@ Usage: redis-cli [OPTIONS] [cmd [arg [arg ...]]]
   -D <delimiter>     Delimiter between responses for raw formatting (default: \n).
   -c                 Enable cluster mode (follow -ASK and -MOVED redirections).
   -e                 Return exit error code when command execution fails.
+  -4                 Prefer IPv4 over IPv6 on DNS lookup.
+  -6                 Prefer IPv6 over IPv4 on DNS lookup.
   --raw              Use raw formatting for replies (default when STDOUT is
                      not a tty).
   --no-raw           Force formatted output even when STDOUT is not a tty.
@@ -88,6 +93,7 @@ Cluster Manager Commands:
   Use --cluster help to list all available cluster manager commands.
 
 Examples:
+  redis-cli -u redis://default:PASSWORD@localhost:6379/0
   cat /etc/passwd | redis-cli -x set mypasswd
   redis-cli -D "" --raw dump key > key.dump && redis-cli -X dump_tag restore key2 0 dump_tag replace < key.dump
   redis-cli -r 100 lpush mylist x
