@@ -1,0 +1,108 @@
+myisamchk.exe  Ver 8.2.0 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Description, check and repair of MyISAM tables.
+Used without options all tables on the command will be checked for errors
+Usage: myisamchk.exe [OPTIONS] tables[.MYI]
+
+Global options:
+  -H, --HELP          Display this help and exit.
+  -?, --help          Display this help and exit.
+  -t, --tmpdir=path   Path for temporary files. Multiple paths can be
+                      specified, separated by semicolon (;), they will be used
+                      in a round-robin fashion.
+  -s, --silent	      Only print errors.  One can use two -s to make
+		      myisamchk very silent.
+  -v, --verbose       Print more information. This can be used with
+                      --description and --check. Use many -v for more verbosity.
+  -V, --version       Print version and exit.
+  -w, --wait          Wait if table is locked.
+
+Check options (check is the default action for myisamchk):
+  -c, --check	      Check table for errors.
+  -e, --extend-check  Check the table VERY thoroughly. Only use this in
+                      extreme cases as myisamchk should normally be able to
+                      find out if the table is ok even without this switch.
+  -F, --fast	      Check only tables that haven't been closed properly.
+  -C, --check-only-changed
+		      Check only tables that have changed since last check.
+  -f, --force         Restart with '-r' if there are any errors in the table.
+		      States will be updated as with '--update-state'.
+  -i, --information   Print statistics information about table that is checked.
+  -m, --medium-check  Faster than extend-check, but only finds 99.99% of
+		      all errors.  Should be good enough for most cases.
+  -U  --update-state  Mark tables as crashed if you find any errors.
+  -T, --read-only     Don't mark table as checked.
+
+Repair options (When using '-r' or '-o'):
+  -B, --backup	      Make a backup of the .MYD file as 'filename-time.BAK'.
+  --correct-checksum  Correct checksum information for table.
+  -D, --data-file-length=#  Max length of data file (when recreating data
+                      file when it's full).
+  -e, --extend-check  Try to recover every possible row from the data file
+		      Normally this will also find a lot of garbage rows;
+		      Don't use this option if you are not totally desperate.
+  -f, --force         Overwrite old temporary files.
+  -k, --keys-used=#   Tell MyISAM to update only some specific keys. # is a
+	              bit mask of which keys to use. This can be used to
+		      get faster inserts.
+  --max-record-length=#
+                      Skip rows bigger than this if myisamchk can't allocate
+		      memory to hold it.
+  -r, --recover       Can fix almost anything except unique keys that aren't
+                      unique.
+  -n, --sort-recover  Forces recovering with sorting even if the temporary
+		      file would be very big.
+  -o, --safe-recover  Uses old recovery method; Slower than '-r' but can
+		      handle a couple of cases where '-r' reports that it
+		      can't fix the data file.
+  --character-sets-dir=...
+                      Directory where character sets are.
+  --set-collation=name
+ 		      Change the collation used by the index.
+  -q, --quick         Faster repair by not modifying the data file.
+                      One can give a second '-q' to force myisamchk to
+		      modify the original datafile in case of duplicate keys.
+		      NOTE: Tables where the data file is corrupted can't be
+		      fixed with this option.
+  -u, --unpack        Unpack file packed with myisampack.
+
+Other actions:
+  -a, --analyze	      Analyze distribution of keys. Will make some joins in
+		      MySQL faster.  You can check the calculated distribution
+		      by using '--description --verbose table_name'.
+  --stats_method=name Specifies how index statistics collection code should
+                      treat NULLs. Possible values of name are "nulls_unequal"
+                      (default for 4.1/5.0), "nulls_equal" (emulate 4.0), and 
+                      "nulls_ignored".
+  -d, --description   Prints some information about table.
+  -A, --set-auto-increment[=value]
+		      Force auto_increment to start at this or higher value
+		      If no value is given, then sets the next auto_increment
+		      value to the highest used value for the auto key + 1.
+  -S, --sort-index    Sort index blocks.  This speeds up 'read-next' in
+		      applications.
+  -R, --sort-records=#
+		      Sort records according to an index.  This makes your
+		      data much more localized and may speed up things
+		      (It may be VERY slow to do a sort the first time!).
+  -b,  --block-search=#
+                       Find a record, a block at given offset belongs to.
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.2\my.ini C:\OSPanel\modules\MySQL-8.2\my.cnf
+The following groups are read: myisamchk
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+--no-login-paths        Don't read login paths from the login path file.

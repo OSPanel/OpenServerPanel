@@ -1,0 +1,213 @@
+mysqlbinlog.exe  Ver 8.2.0 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Dumps a MySQL binary log in a format usable for viewing or for piping to
+the mysql command line client.
+
+Usage: mysqlbinlog.exe [options] log-files
+  -?, --help          Display this help and exit.
+  --base64-output=name 
+                      Determine when the output statements should be
+                      base64-encoded BINLOG statements: 'never' disables it and
+                      works only for binlogs without row-based events;
+                      'decode-rows' decodes row events into commented
+                      pseudo-SQL statements if the --verbose option is also
+                      given; 'auto' prints base64 only when necessary (i.e.,
+                      for row-based events and format description events).  If
+                      no --base64-output[=name] option is given at all, the
+                      default is 'auto'.
+  --bind-address=name IP address to bind to.
+  --character-sets-dir=name 
+                      Directory for character set files.
+  -d, --database=name List entries for just this database (local log only).
+  --rewrite-db=name   Rewrite the row event to point so that it can be applied
+                      to a new database
+  -#, --debug[=#]     This is a non-debug version. Catch this and exit.
+  --debug-check       This is a non-debug version. Catch this and exit.
+  --debug-info        This is a non-debug version. Catch this and exit.
+  --default-auth=name Default authentication client-side plugin to use.
+  -D, --disable-log-bin 
+                      Disable binary log. This is useful, if you enabled
+                      --to-last-log and are sending the output to the same
+                      MySQL server. This way you could avoid an endless loop.
+                      You would also like to use it when restoring after a
+                      crash to avoid duplication of the statements you already
+                      have. NOTE: you will need a SUPER privilege to use this
+                      option.
+  -F, --force-if-open If the IN_USE flag is set in the first event, run
+                      anyways, and do not fail in case the file ends with a
+                      truncated event. The IN_USE flag is set only for the
+                      binary log that is currently written by the server; in
+                      case the server has crashed, the flag remains set until
+                      the server is started up again and recovers the binary
+                      log. Without -F, mysqlbinlog refuses to process file with
+                      the flag set. Since the server may be writing the file,
+                      it is considered normal that the last event is truncated.
+                      (Defaults to on; use --skip-force-if-open to disable.)
+  -f, --force-read    Force reading unknown binlog events.
+  -H, --hexdump       Augment output with hexadecimal and ASCII event dump.
+  -h, --host=name     Get the binlog from server.
+  -i, --idempotent    Notify the server to use idempotent mode before applying
+                      Row Events
+  -l, --local-load=name 
+                      Prepare local temporary files for LOAD DATA INFILE in the
+                      specified directory.
+  -o, --offset=#      Skip the first N entries.
+  -p, --password[=name] 
+                      Password to connect to remote server.
+  --plugin-dir=name   Directory for client-side plugins.
+  -P, --port=#        Port number to use for connection or 0 for default to, in
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+                      /etc/services, built-in default (3306).
+  --protocol=name     The protocol to use for connection (tcp, socket, pipe,
+                      memory).
+  -R, --read-from-remote-server 
+                      Read binary logs from a MySQL server. This is an alias
+                      for read-from-remote-source=BINLOG-DUMP-NON-GTIDS.
+  --read-from-remote-master=name 
+                      This option is deprecated and will be removed in a future
+                      version. Use read-from-remote-source instead.
+  --read-from-remote-source=name 
+                      Read binary logs from a MySQL server through the
+                      COM_BINLOG_DUMP or COM_BINLOG_DUMP_GTID commands by
+                      setting the option to either BINLOG-DUMP-NON-GTIDS or
+                      BINLOG-DUMP-GTIDS, respectively. If
+                      --read-from-remote-source=BINLOG-DUMP-GTIDS is combined
+                      with --exclude-gtids, transactions are filtered out on
+                      the source, to avoid unnecessary network traffic.
+  --raw               Requires -R. Output raw binlog data instead of SQL
+                      statements, output is to log files.
+  -r, --result-file=name 
+                      Direct output to a given file. With --raw this is a
+                      prefix for the file names.
+  --server-id=#       Extract only binlog entries created by the server having
+                      the given id.
+  --server-id-bits=#  Set number of significant bits in server-id
+  --set-charset=name  Add 'SET NAMES character_set' to the output.
+  --shared-memory-base-name=name 
+                      Base name of shared memory.
+  -s, --short-form    Just show regular queries: no extra info and no row-based
+                      events. This is for testing only, and should not be used
+                      in production systems. If you want to suppress
+                      base64-output, consider using --base64-output=never
+                      instead.
+  -S, --socket=name   The socket file to use for connection.
+  --server-public-key-path=name 
+                      File path to the server public RSA key in PEM format.
+  --get-server-public-key 
+                      Get server public key
+  --ssl-mode=name     SSL connection mode.
+  --ssl-ca=name       CA file in PEM format.
+  --ssl-capath=name   CA directory.
+  --ssl-cert=name     X509 cert in PEM format.
+  --ssl-cipher=name   SSL cipher to use.
+  --ssl-key=name      X509 key in PEM format.
+  --ssl-crl=name      Certificate revocation list.
+  --ssl-crlpath=name  Certificate revocation list path.
+  --tls-version=name  TLS version to use, permitted values are: TLSv1.2,
+                      TLSv1.3
+  --ssl-fips-mode=name 
+                      SSL FIPS mode (applies only for OpenSSL); permitted
+                      values are: OFF, ON, STRICT
+  --tls-ciphersuites=name 
+                      TLS v1.3 cipher to use.
+  --ssl-session-data=name 
+                      Session data file to use to enable ssl session reuse
+  --ssl-session-data-continue-on-failed-reuse 
+                      If set to ON, this option will allow connection to
+                      succeed even if session data cannot be reused.
+  --tls-sni-servername=name
+                      The SNI server name to pass to server
+  --start-datetime=name 
+                      Start reading the binlog at first event having a datetime
+                      equal or posterior to the argument; the argument must be
+                      a date and time in the local time zone, in any format
+                      accepted by the MySQL server for DATETIME and TIMESTAMP
+                      types, for example: 2004-12-25 11:25:56 (you should
+                      probably use quotes for your shell to set it properly).
+  -j, --start-position=# 
+                      Start reading the binlog at position N. Applies to the
+                      first binlog passed on the command line.
+  --stop-datetime=name 
+                      Stop reading the binlog at first event having a datetime
+                      equal or posterior to the argument; the argument must be
+                      a date and time in the local time zone, in any format
+                      accepted by the MySQL server for DATETIME and TIMESTAMP
+                      types, for example: 2004-12-25 11:25:56 (you should
+                      probably use quotes for your shell to set it properly).
+  --stop-never        Wait for more data from the server instead of stopping at
+                      the end of the last log. Implicitly sets --to-last-log
+                      but instead of stopping at the end of the last log it
+                      continues to wait till the server disconnects.
+  --stop-never-slave-server-id=# 
+                      The server_id that is reported when connecting to a
+                      source server when using --read-from-remote-server
+                      --stop-never. This option is deprecated and will be
+                      removed in a future version. Use connection-server-id
+                      instead.
+  --connection-server-id=# 
+                      The server_id that will be reported when connecting to a
+                      source server when using --read-from-remote-server. This
+                      option cannot be used together with
+                      stop-never-slave-server-id.
+  --stop-position=#   Stop reading the binlog at position N. Applies to the
+                      last binlog passed on the command line.
+  -t, --to-last-log   Requires -R. Will not stop at the end of the requested
+                      binlog but rather continue printing until the end of the
+                      last binlog of the MySQL server. If you send the output
+                      to the same MySQL server, that may lead to an endless
+                      loop.
+  -u, --user=name     Connect to the remote server as username.
+  -v, --verbose       Reconstruct pseudo-SQL statements out of row events. -v
+                      -v adds comments on column data types.
+  -V, --version       Print version and exit.
+  --open-files-limit=# 
+                      Used to reserve file descriptors for use by this program.
+  -c, --verify-binlog-checksum 
+                      Verify checksum binlog events.
+  --binlog-row-event-max-size=# 
+                      The maximum size of a row-based binary log event in
+                      bytes. Rows will be grouped into events smaller than this
+                      size if possible. This value must be a multiple of 256.
+  --skip-gtids        Do not preserve Global Transaction Identifiers; instead
+                      make the server execute the transactions as if they were
+                      new.
+  --include-gtids=name 
+                      Print events whose Global Transaction Identifiers were
+                      provided.
+  --exclude-gtids=name 
+                      Print all events but those whose Global Transaction
+                      Identifiers were provided.
+  --print-table-metadata 
+                      Print metadata stored in Table_map_log_event
+  -C, --compress      Use compression in server/client protocol.
+  --compression-algorithms=name 
+                      Use compression algorithm in server/client protocol.
+                      Valid values are any combination of
+                      'zstd','zlib','uncompressed'.
+  --zstd-compression-level=# 
+                      Use this compression level in the client/server protocol,
+                      in case --compression-algorithms=zstd. Valid range is
+                      between 1 and 22, inclusive. Default is 3.
+  --require-row-format 
+                      Fail when printing an event that was not logged using row
+                      format or other forbidden events like Load instructions
+                      or the creation/deletion of temporary tables.
+
+Default options are read from the following files in the given order:
+C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.2\my.ini C:\OSPanel\modules\MySQL-8.2\my.cnf
+The following groups are read: mysqlbinlog client
+The following options may be given as the first argument:
+--print-defaults        Print the program argument list and exit.
+--no-defaults           Don't read default options from any option file,
+                        except for login file.
+--defaults-file=#       Only read default options from the given file #.
+--defaults-extra-file=# Read this file after the global files are read.
+--defaults-group-suffix=#
+                        Also read groups with concat(group, suffix)
+--login-path=#          Read this path from the login file.
+--no-login-paths        Don't read login paths from the login path file.

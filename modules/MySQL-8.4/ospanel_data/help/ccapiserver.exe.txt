@@ -1,0 +1,3 @@
+Usage: ccapiserver.exe [options]
+  -k stop server
+  -c output debug info to console
