@@ -41,7 +41,7 @@
 
 **Download:** https://ospanel.io/download/
 
-### System Requirements
+## System Requirements
 
 | Component | Requirements |
 |---|---|
