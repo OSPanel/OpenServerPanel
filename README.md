@@ -110,7 +110,7 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 
 ### Особенности
 
-![](https://img.shields.io/badge/SSL-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/HTTP/2-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/Brotli-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0_IDN_&amp;_IPv6-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/PHP_%D0%B2_Nginx-FastCGI_&amp;_%D0%9F%D1%80%D0%BE%D0%BA%D1%81%D0%B8-blue) ![](https://img.shields.io/badge/Composer_&amp;_Node_&amp;_NPM-%D0%94%D0%B0!-blue)
+![](https://img.shields.io/badge/SSL-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/HTTP/2-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/Brotli-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0_IDN_&amp;_IPv6-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/PHP_+_Nginx-FastCGI_&amp;_%D0%9F%D1%80%D0%BE%D0%BA%D1%81%D0%B8-blue) ![](https://img.shields.io/badge/Composer_&amp;_Node_&amp;_NPM-%D0%94%D0%B0!-blue)
 
 **ВОЗМОЖЕН ОДНОВРЕМЕННЫЙ ЗАПУСК НЕСКОЛЬКИХ ВЕРСИЙ PHP!**
 
