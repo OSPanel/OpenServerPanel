@@ -98,6 +98,16 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 
 ## Возможности
 
+### Модули и дополнения
+
+![](https://img.shields.io/badge/Apache-2.4-7aba03?logo=apache&logoColor=white) ![](https://img.shields.io/badge/Apache_modules-+14-ef509f) ![](https://img.shields.io/badge/Bind-9.16-red) ![](https://img.shields.io/badge/ErlangOTP-26.2-7aba03) ![](https://img.shields.io/badge/MariaDB-10.1--11.2-blue?logo=mariadb&logoColor=white) ![](https://img.shields.io/badge/Memcached-1.4--1.6-blue) ![](https://img.shields.io/badge/MongoDB-3.0--7.0-blue?logo=mongodb&logoColor=white) ![](https://img.shields.io/badge/MySQL-5.5--8.2-blue?logo=mysql&logoColor=white) ![](https://img.shields.io/badge/Nginx-1.22--1.26-blue?logo=nginx&logoColor=white) ![](https://img.shields.io/badge/Nginx_modules-+9-ef509f) ![](https://img.shields.io/badge/NVM-1.1.12-7aba03?logo=node.js&logoColor=white) ![](https://img.shields.io/badge/Perl-5.32-7aba03?logo=perl&logoColor=white) ![](https://img.shields.io/badge/PHP-7.2--8.3-blue?logo=php&logoColor=white) ![](https://img.shields.io/badge/PHP_extensions-+115-ef509f) ![](https://img.shields.io/badge/PostgreSQL-9.5--16-blue?logo=postgresql&logoColor=white) ![](https://img.shields.io/badge/RabbitMQ-3.13-7aba03?logo=rabbitmq&logoColor=white) ![](https://img.shields.io/badge/Redis-3.0--7.2-blue?logo=redis&logoColor=white) ![](https://img.shields.io/badge/Unbound-1.17-7aba03)
+
+### Вспомогательные утилиты
+
+![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.7.1-7aba03) ![](https://img.shields.io/badge/dust-1.0.0-7aba03) ![](https://img.shields.io/badge/fd-9.0.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.75-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
+
+### Особенности
+
 ![](https://img.shields.io/badge/SSL-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/HTTP/2-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/Brotli-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0_IDN_&amp;_IPv6-%D0%92%D0%9A%D0%9B-blue) ![](https://img.shields.io/badge/PHP_%D0%B2_Nginx-FastCGI_&amp;_%D0%9F%D1%80%D0%BE%D0%BA%D1%81%D0%B8-blue) ![](https://img.shields.io/badge/Composer_&amp;_Node_&amp;_NPM-%D0%94%D0%B0!-blue)
 
 **ВОЗМОЖЕН ОДНОВРЕМЕННЫЙ ЗАПУСК НЕСКОЛЬКИХ ВЕРСИЙ PHP!**
@@ -107,14 +117,6 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 **Документация:** [https://github.com/OSPanel/OpenServerPanel/wiki/Документация](https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F)
 
 **Загрузка:** https://ospanel.io/download/
-
-### Модули и дополнения
-
-![](https://img.shields.io/badge/Apache-2.4-7aba03?logo=apache&logoColor=white) ![](https://img.shields.io/badge/Apache_modules-+14-ef509f) ![](https://img.shields.io/badge/Bind-9.16-red) ![](https://img.shields.io/badge/ErlangOTP-26.2-7aba03) ![](https://img.shields.io/badge/MariaDB-10.1--11.2-blue?logo=mariadb&logoColor=white) ![](https://img.shields.io/badge/Memcached-1.4--1.6-blue) ![](https://img.shields.io/badge/MongoDB-3.0--7.0-blue?logo=mongodb&logoColor=white) ![](https://img.shields.io/badge/MySQL-5.5--8.2-blue?logo=mysql&logoColor=white) ![](https://img.shields.io/badge/Nginx-1.22--1.26-blue?logo=nginx&logoColor=white) ![](https://img.shields.io/badge/Nginx_modules-+9-ef509f) ![](https://img.shields.io/badge/NVM-1.1.12-7aba03?logo=node.js&logoColor=white) ![](https://img.shields.io/badge/Perl-5.32-7aba03?logo=perl&logoColor=white) ![](https://img.shields.io/badge/PHP-7.2--8.3-blue?logo=php&logoColor=white) ![](https://img.shields.io/badge/PHP_extensions-+115-ef509f) ![](https://img.shields.io/badge/PostgreSQL-9.5--16-blue?logo=postgresql&logoColor=white) ![](https://img.shields.io/badge/RabbitMQ-3.13-7aba03?logo=rabbitmq&logoColor=white) ![](https://img.shields.io/badge/Redis-3.0--7.2-blue?logo=redis&logoColor=white) ![](https://img.shields.io/badge/Unbound-1.17-7aba03)
-
-### Вспомогательные утилиты
-
-![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.7.1-7aba03) ![](https://img.shields.io/badge/dust-1.0.0-7aba03) ![](https://img.shields.io/badge/fd-9.0.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.75-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
 
 ## Системные требования
 
