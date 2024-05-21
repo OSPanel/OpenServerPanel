@@ -1,8 +1,8 @@
 # Security Policy
 
-This project does not ensure the security of your data and is delivered "as is". The project was created for local use, any methods of information protection, such as passwords, prohibitions, restrictions using configuration, are not used.
+This project does not guarantee the security of your data and is provided "as is". The project is intended for local use, and any methods of information protection such as passwords, prohibitions, or configuration-based restrictions are not implemented.
 
-The project massively uses third-party software (modular system), which may contain both known and unknown vulnerabilities and configuration errors.
+The project extensively utilizes third-party software (modular system) which may contain both known and unknown vulnerabilities and configuration errors.
 
 ***
 
