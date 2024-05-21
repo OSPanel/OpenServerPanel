@@ -41,7 +41,7 @@
 
 **Download:** https://ospanel.io/download/
 
-## System Requirements
+### System Requirements
 
 | Component | Requirements |
 |---|---|
@@ -69,8 +69,8 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 | Windows 10 v1507 | 10.0.10240 | Limited |
 | Windows 10 v1511 | 10.0.10586 | Limited |
 
-Command Line Interface
-----------
+### Command Line Interface
+
 ![Open Server Panel Console](./resources/screenshots/cli-en.png)
 
 ***
