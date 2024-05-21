@@ -21,59 +21,54 @@ Features
 
 **Download:** https://ospanel.io/download/
 
-We present you the best web development software environment for Windows!
+## Forget the headaches of web development! 💻🚀
 
-Open Server Panel is a unique tool for local development of websites and web services on the Windows platform. It offers a large set of server software (WAMP stack), as well as a simple and convenient control panel.
+**Dreaming of building your own website or web service, but scared of complex server setup?** 😰
 
-Today, the Open Server Panel is widely used for the purpose of developing, debugging and testing web projects, as well as for providing web services on local networks. The project has gained great popularity among novice web developers, as it allows you to quickly deploy a work environment and immediately start learning web technologies without complex manipulations for installing and configuring a variety of software.
+**Open Server Panel is your key to a world of hassle-free web development!** 🎉
 
-**Features**
+**Imagine:**
 
-- Unobtrusive work in the Windows tray
-- Multilingual interface
-- Support portable operation mode
-- Full user access to module settings and configurations
-- Program management in console mode and via the web interface (under development)
-- Full control over processes (including monitoring and recovery after a failure)
-- The ability to run modules in parallel (you can even turn on all modules at the same time)
-- Easy domain management with support for internationalized domains and domain pseudomains (aliases)
-- A huge set of third-party PHP extensions
-- SSL and IPv6 support without additional configuration
-- The ability to quickly change the current environment in the console with one command
-- Ability to create module configuration profiles (including module configuration files and data)
-- Personalization of settings for each domain (from IP to PHP version)
-- A pre-configured environment for each module (up to entering the shell/cli with one command)
-- IDN domain name converter
-- and much more...
+* **User-friendly control panel** – everything at your fingertips, no complicated settings. 🖱️
+* **Powerful WAMP stack** – all the tools you need for development and testing. 🧰
+* **Quick start** – install the program and get started right away! ⚡
+* **Flexibility and control** – configure the server to your needs. ⚙️
+* **IPv6 and SSL support** – top-notch security for your project. 🔐
+* **Huge community** –  get help and share your experience. 🤝
 
-Join our group [Telegram](https://t.me/ospanel_chat)  and be the first to learn about new versions! We will be happy to discuss any of your ideas with you, and our community is always ready to help.
+**Open Server Panel is perfect for both beginners and experienced developers.** 🎓👨‍💻
 
-Do you want to receive updates more often? Support our work using a [paid download from a premium server](https://ospanel.io/download/)!
+**Download Open Server Panel now and unlock a world of web development without limits!** 🌎
 
-System requirements
-------------
-| Type | Description |
-| ---: | :--- |
-| **Operating system** | Windows 10 v1607 / Windows Server 2016 or later<br>32-bit systems are not supported<br>There are no versions for Linux and macOS |
-| **Free hardware resources** | from 3 GB of RAM and from 10 GB of disk space |
-| **Mandatory software** | MSVC++ 2005-2022 Redistributable Packages (it is included) |
-| **File system** | NTFS (network drives are not supported) |
+**P.S.**  Want to stay up-to-date with all the new features and receive updates more often? Support the project by choosing a paid download. 😊
 
-You may need to limit the number of modules running at the same time if less than 3 GB of free RAM is available on your system. Owners of low-performance computers are advised to run no more than one module of each type at a time.
+### System Requirements
 
-Running Open Server Panel is also possible on legacy operating systems with some reservations (not all modules are available, paths longer than 255 characters are not supported):
+| Component | Requirements |
+|---|---|
+| Operating System | Windows 10 (version 1607 or later), Windows Server 2016 or later.<br>32-bit systems are not supported.<br>Versions for Linux and MacOS are not available. |
+| Hardware Resources | Minimum 3 GB of RAM and 10 GB of free disk space. |
+| Required Software | MSVC++ 2005-2022 Redistributable Packages (x86/x64, included in the distribution). |
+| File System | NTFS (network drives are not supported). |
 
-| Operating system (x64) | Version number | Compatibility |
-| :--- | :---: | :---: |
-| Windows 7 SP1 | 6.1.7601 | limited support |
-| Windows Server 2008 R2 SP1 | 6.1.7601 | limited support |
-| Windows Home Server 2011 | 6.1.8400 | limited support |
-| Windows Server 2012 | 6.2.9200 | limited support |
-| Windows 8 | 6.2.9200 | limited support |
-| Windows 8.1 | 6.3.9600 | limited support |
-| Windows Server 2012 R2 | 6.3.9600 | limited support |
-| Windows 10 v1507 | 10.0.10240 | limited support |
-| Windows 10 v1511 | 10.0.10586 | limited support |
+### Support for Legacy Operating Systems
+
+Open Server Panel can be run on older versions of Windows (x64), however with some limitations:
+
+* Not all modules are available.
+* File paths cannot exceed 255 characters.
+
+| Operating System | Version Number | Support Level |
+|---|---|---|
+| Windows 7 SP1 | 6.1.7601 | Limited |
+| Windows Server 2008 R2 SP1 | 6.1.7601 | Limited |
+| Windows Home Server 2011 | 6.1.8400 | Limited |
+| Windows Server 2012 | 6.2.9200 | Limited |
+| Windows 8 | 6.2.9200 | Limited |
+| Windows 8.1 | 6.3.9600 | Limited |
+| Windows Server 2012 R2 | 6.3.9600 | Limited |
+| Windows 10 v1507 | 10.0.10240 | Limited |
+| Windows 10 v1511 | 10.0.10586 | Limited |
 
 Command Line Interface
 ----------
@@ -102,8 +97,8 @@ Command Line Interface
 
 **P.S.** Хотите быть в курсе всех новинок и получать обновления чаще? Поддержите проект, выбрав платную загрузку. 😊
 
-Системные требования
-------------
+### Системные требования
+
 | Компонент | Требования |
 |---|---|
 | Операционная система | Windows 10 (версия 1607 или новее), Windows Server 2016 или новее.<br>32-битные системы не поддерживаются.<br>Версии для Linux и MacOS отсутствуют. |
@@ -129,7 +124,6 @@ Open Server Panel может запускаться на устаревших в
 | Windows Server 2012 R2 | 6.3.9600 | Ограниченная |
 | Windows 10 v1507 | 10.0.10240 | Ограниченная |
 | Windows 10 v1511 | 10.0.10586 | Ограниченная |
-
 
 Интерфейс командной строки
 ----------
