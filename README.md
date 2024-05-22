@@ -52,7 +52,7 @@
 | Required Software | MSVC++ 2005-2022 Redistributable Packages (x86/x64, included in the distribution). |
 | File System | NTFS (network drives are not supported). |
 
-### Support for Legacy Operating Systems
+## Support for Legacy Operating Systems
 
 Open Server Panel can be run on older versions of Windows (x64), however with some limitations:
 
