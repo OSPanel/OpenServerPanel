@@ -19,7 +19,7 @@
 
 **Download Open Server Panel now and unlock a world of web development without limits!** 🌎
 
-**P.S.**  Want to stay up-to-date with all the new features and receive updates more often? Support the project by choosing a paid download. 😊
+**P.S.** Want to receive updates more often? Support the project by choosing a paid download. 😊
 
 ## Features
 
@@ -98,7 +98,7 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 
 **Скачайте Open Server Panel прямо сейчас и откройте для себя мир веб-разработки без границ!** 🌎
 
-**P.S.** Хотите быть в курсе всех новинок и получать обновления чаще? Поддержите проект, выбрав платную загрузку. 😊
+**P.S.** Хотите получать обновления чаще? Поддержите проект, выбрав платную загрузку. 😊
 
 ## Возможности
 
