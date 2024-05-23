@@ -619,5 +619,5 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 :start
 @set "OSP_PROJECT_CMD="
 @echo:
-@"%OSP_DIR%\data\cli\start_%OSP_PROJECT_START%.bat"
+@"{root_dir}\data\cli\start_%OSP_PROJECT_START%.bat"
 @exit /b %ERRORLEVEL%
