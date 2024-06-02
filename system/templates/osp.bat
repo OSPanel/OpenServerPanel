@@ -460,8 +460,6 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "%2" "Node-"
 if defined OSP_TMPVAL call :nodeadd node add %2 %3 & goto end
-call :strfind "%2" "Python-"
-if defined OSP_TMPVAL call :pythonadd python add %2 %3 & goto end
 set "OSP_TMPVAL="
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
@@ -488,8 +486,6 @@ goto end
 if "%2"=="" goto eargument
 call :strfind "%2" "Node-"
 if defined OSP_TMPVAL call :nodeuse node use %2 %3 & goto end
-call :strfind "%2" "Python-"
-if defined OSP_TMPVAL call :pythonuse python use %2 %3 & goto end
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" for %%a in (%OSP_ADDONS_LIST%) do (
     if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
