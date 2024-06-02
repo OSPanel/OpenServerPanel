@@ -259,7 +259,12 @@ goto nodeenv
 if /i "%3"=="" goto invalid
 set "OSP_TMP_NAME=%3"
 set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+setlocal
+call :env_reset post
+call "%OSP_DIR%\data\cli\env_NVM.bat" use
+call "%OSP_DIR%\data\cli\nvm.bat" current > nul
 if /i "%4"=="" echo: & call "%OSP_DIR%\system\bin\getbit.exe" "%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\node.exe" & goto end
+endlocal
 if /i not "%4"=="" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
 setlocal
 call :env_reset post
@@ -437,7 +442,7 @@ if defined OSP_TMPVAL set "OSP_PROJECT_ADDED=Added"
 if not "%OSP_PROJECT_ENV%"=="" for %%a in (%OSP_PROJECT_ENV%) do (
     if not defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp use %%a silent
     if defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp add %%a silent
-    if not defined OSP_PROJECT_ADDED set "OSP_ENV_LIST=Added"
+    if not defined OSP_PROJECT_ADDED set "OSP_PROJECT_ADDED=Added"
 )
 if not "%OSP_PROJECT_DIR%"=="" cd /d "%OSP_PROJECT_DIR%"
 if not "%OSP_PROJECT_PATH%"=="" set "PATH=%OSP_PROJECT_PATH%%PATH%"
