@@ -8,6 +8,7 @@ lang                     = auto
 log_max_filesize         = 1
 projects_search_depth    = 3
 projects_search_path     = {root_dir}\home
+short_project_title      = off
 task_scheduler           = on
 terminal_ansi_fix        = auto
 update_check             = on
