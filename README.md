@@ -37,7 +37,7 @@
 
 **RUN MULTIPLE PHP VERSIONS AT THE SAME TIME!**
 
-**PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
+**PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php-7.2.html) | [PHP 7.3](https://ospanel.io/phpinfo/php-7.3.html) | [PHP 7.4](https://ospanel.io/phpinfo/php-7.4.html) | [PHP 8.0](https://ospanel.io/phpinfo/php-8.0.html) | [PHP 8.1](https://ospanel.io/phpinfo/php-8.1.html) | [PHP 8.2](https://ospanel.io/phpinfo/php-8.2.html) | [PHP 8.3](https://ospanel.io/phpinfo/php-8.3.html)
 
 **Documentation:** [https://github.com/OSPanel/OpenServerPanel/wiki](https://github.com/OSPanel/OpenServerPanel/wiki)
 
@@ -116,7 +116,7 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 
 **ВОЗМОЖЕН ОДНОВРЕМЕННЫЙ ЗАПУСК НЕСКОЛЬКИХ ВЕРСИЙ PHP!**
 
-**PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php72.html) | [PHP 7.3](https://ospanel.io/phpinfo/php73.html) | [PHP 7.4](https://ospanel.io/phpinfo/php74.html) | [PHP 8.0](https://ospanel.io/phpinfo/php80.html) | [PHP 8.1](https://ospanel.io/phpinfo/php81.html) | [PHP 8.2](https://ospanel.io/phpinfo/php82.html) | [PHP 8.3](https://ospanel.io/phpinfo/php83.html)
+**PHPINFO:** [PHP 7.2](https://ospanel.io/phpinfo/php-7.2.html) | [PHP 7.3](https://ospanel.io/phpinfo/php-7.3.html) | [PHP 7.4](https://ospanel.io/phpinfo/php-7.4.html) | [PHP 8.0](https://ospanel.io/phpinfo/php-8.0.html) | [PHP 8.1](https://ospanel.io/phpinfo/php-8.1.html) | [PHP 8.2](https://ospanel.io/phpinfo/php-8.2.html) | [PHP 8.3](https://ospanel.io/phpinfo/php-8.3.html)
 
 **Документация:** [https://github.com/OSPanel/OpenServerPanel/wiki/Документация](https://github.com/OSPanel/OpenServerPanel/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F)
 
