@@ -448,7 +448,8 @@ if not "%OSP_PROJECT_DIR%"=="" cd /d "%OSP_PROJECT_DIR%"
 if not "%OSP_PROJECT_PATH%"=="" set "PATH=%OSP_PROJECT_PATH%%PATH%"
 set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
 if "%3"=="" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
-TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+if "{short_project_title}"=="yes" TITLE %2
+if not "{short_project_title}"=="yes" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
 if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
 set "OSP_PROJECT_ADDED="
