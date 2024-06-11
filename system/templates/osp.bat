@@ -134,6 +134,7 @@ echo:
 echo %ESC%[32maddons%ESC%[0m                      {lang_show_addons_info}
 echo %ESC%[32mcacert  ^<init^|show^|deinit^>%ESC%[0m  {lang_gen_and_install_root_cert}
 echo                             {lang_about_gen_root_cert}
+echo                             {lang_about_gen_root_cert_2}
 echo %ESC%[32mconvert ^<DOMAIN^>%ESC%[0m            {lang_convert_from_to_punycode}
 echo %ESC%[32mexit%ESC%[0m                        {lang_shutting_down_program}
 echo %ESC%[32mlog     ^<PATTERN^> [N]%ESC%[0m       {lang_show_log}
