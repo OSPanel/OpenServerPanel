@@ -10,6 +10,6 @@ licenses/** filter=lfs diff=lfs merge=lfs -text
 /resources/php_bundle/** filter=lfs diff=lfs merge=lfs -text
 /resources/php_addons/** filter=lfs diff=lfs merge=lfs -text
 /modules/** filter=lfs diff=lfs merge=lfs -text
-/modules/*/ospanel_data/** !filter !diff !merge text
-/modules/*/Nginx*/conf/** !filter !diff !merge text
-/addons/*/ospanel_data/** !filter !diff !merge text
+/modules/*/ospanel_data/ filter= diff= merge= text
+/modules/*/Nginx*/conf/ filter= diff= merge= text
+/addons/*/ospanel_data/ filter= diff= merge= text
