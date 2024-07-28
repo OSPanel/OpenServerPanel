@@ -423,16 +423,21 @@ if %ERRORLEVEL% gtr 0 goto error
 :: PROJECT
 :: -----------------------------------------------------------------------------------
 :project
-if "%2"=="" goto eargument
-if /i "%3"=="start" if not exist "%OSP_DIR%\data\cli\start_%2.bat" set "OSP_ERR_MSG={lang_err_no_start_command} %2" & goto error
-if not exist "%OSP_DIR%\data\cli\projects_data.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
+if "%2"=="" if not exist "%OSP_DIR%\data\cli\projects_data.bat" goto error
+if not "%2"=="" if not exist "%OSP_DIR%\data\cli\projects_data.bat" set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
 set "OSP_PROJECT_ADDED="
 set "OSP_PROJECT_DIR="
 set "OSP_PROJECT_ENV="
 set "OSP_PROJECT_ENV_="
+set "OSP_PROJECT_NUMBER="
 set "OSP_PROJECT_PATH="
-call "%OSP_DIR%\data\cli\projects_data.bat" %2
-if not defined OSP_PROJECT_DIR set "OSP_ERR_MSG={lang_err_no_env_config} %2" & goto error
+set "OSP_PROJECT_TITLE="
+set "OSP_PROJECT_WEBHOST="
+if "%2"=="" call "%OSP_DIR%\data\cli\projects_data.bat" select
+if not "%2"=="" call "%OSP_DIR%\data\cli\projects_data.bat" selected %2
+if "%OSP_PROJECT_NUMBER%"=="" set "OSP_PROJECT_NUMBER=%2"
+if "%2"=="" if "%OSP_PROJECT_NUMBER%"=="" if not defined OSP_PROJECT_DIR goto eargument
+if not "%OSP_PROJECT_NUMBER%"=="" if not defined OSP_PROJECT_DIR set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_PROJECT_NUMBER%" & goto error
 call :env_reset pre
 set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
@@ -441,15 +446,15 @@ set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
 call :strfind "%OSP_PROJECT_ENV_%" ":System:"
 if defined OSP_TMPVAL set "OSP_PROJECT_ADDED=Added"
 if not "%OSP_PROJECT_ENV%"=="" for %%a in (%OSP_PROJECT_ENV%) do (
-    if not defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp use %%a silent
-    if defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp add %%a silent
+    if not defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp use %%a project
+    if defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp add %%a project
     if not defined OSP_PROJECT_ADDED set "OSP_PROJECT_ADDED=Added"
 )
 if not "%OSP_PROJECT_DIR%"=="" cd /d "%OSP_PROJECT_DIR%"
 if not "%OSP_PROJECT_PATH%"=="" set "PATH=%OSP_PROJECT_PATH%%PATH%"
-set "OSP_ACTIVE_ENV=%2 ^| %OSP_ACTIVE_ENV%"
+set "OSP_ACTIVE_ENV=%OSP_PROJECT_TITLE% ^| %OSP_ACTIVE_ENV%"
 if "%3"=="" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
-if "{short_project_title}"=="yes" TITLE %2
+if "{short_project_title}"=="yes" TITLE %OSP_PROJECT_TITLE%
 if not "{short_project_title}"=="yes" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
 if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
@@ -458,7 +463,8 @@ set "OSP_PROJECT_DIR="
 set "OSP_PROJECT_ENV="
 set "OSP_PROJECT_ENV_="
 set "OSP_PROJECT_PATH="
-if /i "%3"=="start" set "OSP_PROJECT_CMD=YES" & set "OSP_PROJECT_START=%2"
+if /i "%3"=="start" if not exist "%OSP_DIR%\data\cli\start_%OSP_PROJECT_WEBHOST%.bat" set "OSP_ERR_MSG={lang_err_no_start_command} %OSP_PROJECT_TITLE%" & goto error
+if /i "%3"=="start" set "OSP_PROJECT_CMD=YES"
 goto end
 :: -----------------------------------------------------------------------------------
 :: MODULE ENVIRONMENT (ADD)
@@ -567,8 +573,8 @@ if not "%OSP_MODULES_LIST%"=="" for %%a in (%OSP_MODULES_LIST%) do (
 if defined OSP_TMP_NAME_2 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME_2%:"
 set "OSP_TMP_NAME_2="
 if defined OSP_TMPVAL if not exist "%OSP_DIR%\temp\%2.lock" echo: & echo %ESC%[93m{lang_warning}: %2 {lang_not_enabled}%ESC%[0m
-if /i not "%1"=="shell" if /i not "%3"=="silent" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
-if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+if /i not "%1"=="shell" if /i not "%3"=="silent" if /i not "%3"=="project" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+if /i not "%1"=="shell" if /i not "%3"=="project" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @exit /b 0
 :: -----------------------------------------------------------------------------------
 :: EXIT
@@ -582,8 +588,10 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 @set "OSP_MODULES_LIST_="
 @set "OSP_ADDONS_LIST="
 @set "OSP_ADDONS_LIST_="
+@set "OSP_ADDONS_LIST_="
 @set "OSP_ECHO_STATE="
 @set "OSP_PROG_LIST="
+@set "OSP_PROJECT_NUMBER="
 @set "OSP_ERR_MSG="
 @set "OSP_TMPVAL="
 @set "OSP_TMP_NAME="
@@ -622,5 +630,5 @@ if /i not "%1"=="shell" TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
 :start
 @set "OSP_PROJECT_CMD="
 @echo:
-@"{root_dir}\data\cli\start_%OSP_PROJECT_START%.bat"
+@"{root_dir}\data\cli\start_%OSP_PROJECT_WEBHOST%.bat"
 @exit /b %ERRORLEVEL%
