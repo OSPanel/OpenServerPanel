@@ -18,10 +18,16 @@ use_win_terminal         = off
 [menu]
 
 do_not_group_single_item = on
+item_color_folder        = F08100
+item_color_other         = 008FCF
+item_color_red           = DC143C
+item_color_green         = 228B22
+item_color_black         = 141414
 show_icons               = on
 show_addons              = on
 show_addons_in_groups    = on
 show_addons_in_submenu   = off
+show_colored_menu        = on
 show_modules             = on
 show_modules_in_groups   = on
 show_modules_in_submenu  = on
