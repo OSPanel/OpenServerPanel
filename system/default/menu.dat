@@ -110,7 +110,7 @@ caption               = {lang_switch_on}
 category              = modules
 command               = "%COMSPEC%" /c "osp on {module_name}"
 hide                  = on
-icon                  = circle-play
+icon                  = toggle-off
 need_state            = off
 
 [13]
@@ -128,7 +128,7 @@ caption               = {lang_switch_off}
 category              = modules
 command               = "%COMSPEC%" /c "osp off {module_name}"
 hide                  = on
-icon                  = power-off
+icon                  = toggle-on
 need_state            = on
 
 [15]
