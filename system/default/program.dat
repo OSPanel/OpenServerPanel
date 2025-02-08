@@ -18,17 +18,12 @@ use_win_terminal         = off
 [menu]
 
 do_not_group_single_item = on
-item_color_black         = 141414
-item_color_green         = 00AA37
-item_color_red           = F93217
-item_colored_black       = 008FCF
-item_colored_folder      = F08100
+icon_theme               = cobalt
 item_font_size           = auto
 show_icons               = on
 show_addons              = on
 show_addons_in_groups    = on
 show_addons_in_submenu   = off
-show_colored_menu        = on
 show_modules             = on
 show_modules_in_groups   = on
 show_modules_in_submenu  = on
