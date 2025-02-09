@@ -19,7 +19,7 @@ use_win_terminal         = off
 
 do_not_group_single_item = on
 icon_theme               = cobalt
-item_font_size           = auto
+font_size                = auto
 show_icons               = on
 show_addons              = on
 show_addons_in_groups    = on
