@@ -35,7 +35,7 @@ show_projects            = on
 show_projects_in_groups  = off
 show_projects_in_submenu = off
 show_tray_icon           = on
-show_vertiacal_divider   = on
+show_vertiacal_divider   = off
 
 [projects]
 
