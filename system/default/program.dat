@@ -18,7 +18,7 @@ use_win_terminal         = off
 [menu]
 
 do_not_group_single_item = on
-icon_theme               = cobalt
+icon_theme               = dualtone
 font_size                = auto
 native_rendering         = off
 show_icons               = on
