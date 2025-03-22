@@ -560,6 +560,14 @@
             }
           },
           {
+            "key": "ssl",
+            "value": {
+              "_type": "Boolean",
+              "_value": true,
+              "_strict": true
+            }
+          },
+          {
             "key": "terminal_codepage",
             "value": {
               "_type": "UString",
