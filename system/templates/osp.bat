@@ -70,7 +70,7 @@ echo ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  _
 echo  \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
 echo       ^|_^|
 echo:
-echo {lang_calling_help}: %ESC%[32mosp help%ESC%[0m ^| {lang_program_version}: %ESC%[33m{osp_version}%ESC%[0m ^| © 2010-2024 ^«OSPanel.io^»
+echo {lang_calling_help}: %ESC%[32mosp help%ESC%[0m ^| {lang_program_version}: %ESC%[33m{osp_version}%ESC%[0m ^| © 2010-2025 ^«OSPanel.io^»
 @exit /b 0
 :: -----------------------------------------------------------------------------------
 :: HELP
