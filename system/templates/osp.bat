@@ -3,9 +3,9 @@
 :: -----------------------------------------------------------------------------------
 @set "ESC="
 @set "OSP_DIR={root_dir}"
-@if "{terminal_ansi_fix}"=="on" @if not defined OSP_FIXED @if exist "%OSP_DIR%\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "%OSP_DIR%\system\bin\ansicon.exe" -p >nul 2>nul
+@if "{terminal_ansi_fix}"=="1" @if not defined OSP_FIXED @if exist "%OSP_DIR%\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "%OSP_DIR%\system\bin\ansicon.exe" -p >nul 2>nul
 @if exist "%OSP_DIR%\system\bin\colortest.exe" "%OSP_DIR%\system\bin\colortest.exe"
-@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="auto" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "%OSP_DIR%\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "%OSP_DIR%\system\bin\ansicon.exe" -p >nul 2>nul
+@if %ERRORLEVEL% gtr 0 @if "{terminal_ansi_fix}"=="0" @if /i not "%ConEmuANSI%"=="ON" @if not defined OSP_FIXED @if exist "%OSP_DIR%\system\bin\ansicon.exe" @set "OSP_FIXED=YES" & "%OSP_DIR%\system\bin\ansicon.exe" -p >nul 2>nul
 @for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
 @call :trim %OSP_CODEPAGE% OSP_CODEPAGE
 @chcp 65001 > nul
