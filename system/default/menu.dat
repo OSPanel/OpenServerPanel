@@ -133,35 +133,53 @@ need_state     = on
 
 [15]
 
-caption        = {lang_control_panel}
-command        = "%COMSPEC%" /c "start "" "{web_panel_url}""
-enabled        = off
-hide           = on
-icon           = tools
-
-[16]
-
 caption        = {lang_cli}
 command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
 icon           = terminal
-need_use_wt    = off
+need_use_wt    = on
 
-[17]
+[16]
 
 caption        = {lang_cli}
 command        = "%COMSPEC%" /k "osp reset init"
 icon           = terminal
 need_use_wt    = off
 
-[18]
+[17]
 
 caption        = {lang_root_dir}
 command        = "%SystemRoot%\explorer.exe" "{root_dir}"
 icon           = folder-closed
 
+[18]
+
+caption        = {lang_logs_viewer}
+command        = command_open_logs_viewer
+icon           = regular-file-lines
+
 [19]
 
 caption        = {lang_idn_menu_caption}
-command        = "{root_dir}\system\bin\idnconverter.exe"
-hr_after       = on
+command        = command_open_idn_converter
 icon           = shuffle
+
+
+[20]
+
+caption        = {lang_options}
+command        = command_open_options
+hr_after       = on
+icon           = tools
+
+[21]
+
+caption        = {lang_restart}
+command        = command_restart
+icon           = redo
+
+[22]
+
+caption        = {lang_exit}
+command        = command_exit
+icon           = sign-out
+
