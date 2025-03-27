@@ -6,7 +6,7 @@ command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" 
 hr_after       = on
 icon           = rocket
 need_start_cmd = on
-need_use_wt    = off
+need_use_wt    = on
 
 [1]
 
@@ -32,7 +32,7 @@ caption        = {lang_open_in_console}
 category       = projects
 command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon           = terminal
-need_use_wt    = off
+need_use_wt    = on
 
 [4]
 
@@ -58,7 +58,7 @@ command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" 
 icon           = rocket
 need_state     = on
 need_shell     = on
-need_use_wt    = off
+need_use_wt    = on
 
 [7]
 
@@ -76,7 +76,7 @@ caption        = {lang_open_in_console}
 category       = modules
 command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
 icon           = terminal
-need_use_wt    = off
+need_use_wt    = on
 
 [9]
 
