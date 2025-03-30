@@ -17,6 +17,14 @@
             }
           },
           {
+            "key": "use_system_environment",
+            "value": {
+              "_type": "Boolean",
+              "_value": true,
+              "_strict": true
+            }
+          },
+          {
             "key": "api_ip",
             "value": {
               "_type": "UString",
@@ -98,14 +106,6 @@
           },
           {
             "key": "short_project_title",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "clear_dns_cache",
             "value": {
               "_type": "Boolean",
               "_value": true,
@@ -627,16 +627,7 @@
             "key": "environment",
             "value": {
               "_type": "Empty",
-              "_strict": true,
-              "_children": [
-                {
-                  "key": "System",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                }
-              ]
+              "_strict": true
             }
           },
           {
