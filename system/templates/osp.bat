@@ -52,6 +52,7 @@ if /i "%1"=="reset"       goto env_windows
 if /i "%1"=="restart"     goto mod_cmd
 if /i "%1"=="shell"       goto mod_shell
 if /i "%1"=="status"      goto mod_cmd
+if /i "%1"=="startcheck"  goto request
 if /i "%1"=="sysprep"     goto sysprep
 if /i "%1"=="tasks"       goto request
 if /i "%1"=="use"         goto env_set
@@ -86,6 +87,8 @@ echo %ESC%[32madd     ^<MODULE^|ADDON^>%ESC%[0m      {lang_merge_env}
 echo %ESC%[32minfo%ESC%[0m                        {lang_show_current_env}
 echo %ESC%[32mproject ^<DOMAIN^>   [start]%ESC%[0m  {lang_activate_project}
 echo                             {lang_activate_project_info}
+echo                             {lang_activate_project_info_2}
+echo                             {lang_activate_project_info_3}
 echo %ESC%[32mreset   [init]%ESC%[0m              {lang_reset_current_env}
 echo                             {lang_init_flag}
 echo %ESC%[32muse     ^<MODULE^|ADDON^>%ESC%[0m      {lang_apply_mod_env}
@@ -342,7 +345,7 @@ echo:
 "%OSP_DIR%\system\bin\fd.exe" -e log -a -i -p %2 "%OSP_DIR%\logs" -x "%OSP_DIR%\system\bin\tail.bat" {} %3
 goto end
 :: -----------------------------------------------------------------------------------
-:: ADDONS/PROJECTS/MODULES/TASKS LIST
+:: ADDONS/PROJECTS/MODULES/TASKS/STARTCHECK LIST
 :: -----------------------------------------------------------------------------------
 :request
 "%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/%1
