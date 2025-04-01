@@ -2,7 +2,9 @@
 
 id                       =
 ignore_ver               =
-last_check               = 1000000000000
+last_check               = 0
+last_check_ver           =
+last_check_time          = 0
 icon_cobalt_black        = 1A3151
 icon_cobalt_dir          = 1A3151
 icon_cobalt_green        = 00AA37
