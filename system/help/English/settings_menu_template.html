@@ -146,6 +146,14 @@
                 </td>
             </tr>
             <tr>
+                <th>need_alias</th>
+                <td>
+                    Displays the menu item only for the domain alias. There can only be one item with need_alias=on in the menu template!<br>
+                    Applicable for categories: projects<br><br>
+                    Default: not specified | Values: on, off
+                </td>
+            </tr>
+            <tr>
                 <th>need_category</th>
                 <td>
                     <p>Restricts the menu item display to modules/addons of a specific category.</p>
@@ -240,6 +248,10 @@
         <tr>
             <td>{host_decoded}</td>
             <td>Visible domain name (without Punycode)</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Menu item caption (only for projects category with need_alias=ON)</td>
         </tr>
         <tr>
             <td>{nginx_engine}</td>

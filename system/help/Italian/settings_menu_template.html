@@ -146,6 +146,14 @@
                 </td>
             </tr>
             <tr>
+                <th>need_alias</th>
+                <td>
+                    Visualizza la voce di menu solo per l'alias di dominio. Nel template del menu può esserci solo una voce con need_alias=on!<br>
+                    Applicabile per le categorie: projects<br><br>
+                    Predefinito: non specificato | Valori: on, off
+                </td>
+            </tr>
+            <tr>
                 <th>need_category</th>
                 <td>
                     <p>Limita la visualizzazione della voce di menu ai moduli/componenti aggiuntivi di una determinata categoria.</p>
@@ -240,6 +248,10 @@
         <tr>
             <td>{host_decoded}</td>
             <td>Nome di dominio visibile (senza Punycode)</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Titolo della voce di menu (solo per la categoria projects con need_alias=ON)</td>
         </tr>
         <tr>
             <td>{nginx_engine}</td>

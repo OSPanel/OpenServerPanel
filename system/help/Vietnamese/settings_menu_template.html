@@ -146,6 +146,14 @@
                 </td>
             </tr>
             <tr>
+                <th>need_alias</th>
+                <td>
+                    Hiển thị mục menu chỉ cho bí danh tên miền. Trong mẫu menu chỉ có thể có một mục với need_alias=on!<br>
+                    Áp dụng cho các danh mục: projects<br><br>
+                    Mặc định: không được chỉ định | Giá trị: on, off
+                </td>
+            </tr>
+            <tr>
                 <th>need_category</th>
                 <td>
                     <p>Giới hạn hiển thị mục menu cho module/tiện ích mở rộng thuộc danh mục cụ thể.</p>
@@ -240,6 +248,10 @@
         <tr>
             <td>{host_decoded}</td>
             <td>Tên miền hiển thị (không dùng Punycode)</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Tiêu đề mục menu (chỉ dành cho danh mục projects với need_alias=ON)</td>
         </tr>
         <tr>
             <td>{nginx_engine}</td>
