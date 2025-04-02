@@ -28,13 +28,21 @@ icon           = up-right-from-square
 
 [3]
 
+category       = projects
+command        = "%COMSPEC%" /c "start "" "{host_scheme}://{menu_caption}""
+hide           = on
+need_alias     = on
+icon           = up-right-from-square
+
+[4]
+
 caption        = {lang_open_in_console}
 category       = projects
 command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon           = terminal
 need_use_wt    = on
 
-[4]
+[5]
 
 caption        = {lang_open_in_console}
 category       = projects
@@ -42,7 +50,7 @@ command        = "%COMSPEC%" /k "osp reset init noprint & osp project {host_deco
 icon           = terminal
 need_use_wt    = off
 
-[5]
+[6]
 
 caption        = {lang_open_in_explorer}
 category       = projects
@@ -50,7 +58,7 @@ command        = "%SystemRoot%\explorer.exe" "{project_dir}"
 icon           = folder-closed
 work_directory = {project_dir}
 
-[6]
+[7]
 
 caption        = {lang_launch_shell}
 category       = modules
@@ -60,7 +68,7 @@ need_state     = on
 need_shell     = on
 need_use_wt    = on
 
-[7]
+[8]
 
 caption        = {lang_launch_shell}
 category       = modules
@@ -70,7 +78,7 @@ need_state     = on
 need_shell     = on
 need_use_wt    = off
 
-[8]
+[9]
 
 caption        = {lang_open_in_console}
 category       = modules
@@ -78,7 +86,7 @@ command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" 
 icon           = terminal
 need_use_wt    = on
 
-[9]
+[10]
 
 caption        = {lang_open_in_console}
 category       = modules
@@ -86,7 +94,7 @@ command        = "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
 icon           = terminal
 need_use_wt    = off
 
-[10]
+[11]
 
 caption        = {lang_open_in_explorer}
 category       = modules
@@ -95,7 +103,7 @@ hr_after       = on
 icon           = folder-closed
 work_directory = {root_dir}\modules\{module_name}
 
-[11]
+[12]
 
 caption        = {lang_initialize}
 category       = modules
@@ -104,7 +112,7 @@ hide           = on
 icon           = gears
 need_state     = off
 
-[12]
+[13]
 
 caption        = {lang_switch_on}
 category       = modules
@@ -113,7 +121,7 @@ hide           = on
 icon           = toggle-off
 need_state     = off
 
-[13]
+[14]
 
 caption        = {lang_restart}
 category       = modules
@@ -122,7 +130,7 @@ hide           = on
 icon           = redo
 need_state     = on
 
-[14]
+[15]
 
 caption        = {lang_switch_off}
 category       = modules
@@ -131,53 +139,53 @@ hide           = on
 icon           = toggle-on
 need_state     = on
 
-[15]
+[16]
 
 caption        = {lang_cli}
 command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
 icon           = terminal
 need_use_wt    = on
 
-[16]
+[17]
 
 caption        = {lang_cli}
 command        = "%COMSPEC%" /k "osp reset init"
 icon           = terminal
 need_use_wt    = off
 
-[17]
+[18]
 
 caption        = {lang_root_dir}
 command        = "%SystemRoot%\explorer.exe" "{root_dir}"
 icon           = folder-closed
 
-[18]
+[19]
 
 caption        = {lang_logs_viewer}
 command        = command_open_logs_viewer
 icon           = regular-file-lines
 
-[19]
+[20]
 
 caption        = {lang_idn_menu_caption}
 command        = command_open_idn_converter
 icon           = shuffle
 
 
-[20]
+[21]
 
 caption        = {lang_options}
 command        = command_open_options
 hr_after       = on
 icon           = tools
 
-[21]
+[22]
 
 caption        = {lang_restart}
 command        = command_restart
 icon           = redo
 
-[22]
+[23]
 
 caption        = {lang_exit}
 command        = command_exit
