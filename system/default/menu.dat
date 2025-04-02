@@ -28,21 +28,13 @@ icon           = up-right-from-square
 
 [3]
 
-category       = projects
-command        = "%COMSPEC%" /c "start "" "{host_scheme}://{menu_caption}""
-hide           = on
-need_alias     = on
-icon           = up-right-from-square
-
-[4]
-
 caption        = {lang_open_in_console}
 category       = projects
 command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon           = terminal
 need_use_wt    = on
 
-[5]
+[4]
 
 caption        = {lang_open_in_console}
 category       = projects
@@ -50,13 +42,21 @@ command        = "%COMSPEC%" /k "osp reset init noprint & osp project {host_deco
 icon           = terminal
 need_use_wt    = off
 
-[6]
+[5]
 
 caption        = {lang_open_in_explorer}
 category       = projects
 command        = "%SystemRoot%\explorer.exe" "{project_dir}"
 icon           = folder-closed
 work_directory = {project_dir}
+
+[6]
+
+category       = projects
+command        = "%COMSPEC%" /c "start "" "{host_scheme}://{menu_caption}""
+hide           = on
+need_alias     = on
+icon           = up-right-from-square
 
 [7]
 
