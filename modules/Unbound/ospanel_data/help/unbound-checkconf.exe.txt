@@ -3,7 +3,8 @@ Usage:  unbound-checkconf [file]
 file    if omitted C:\Program Files\Unbound\service.conf is used.
 -o option       print value of option to stdout.
 -f              output full pathname with chroot applied, eg. with -o pidfile.
+-q              quiet (suppress output on success).
 -h              show this usage help.
-Version 1.19.3
+Version 1.22.0
 BSD licensed, see LICENSE in source package for details.
 Report bugs to unbound-bugs@nlnetlabs.nl or https://github.com/NLnetLabs/unbound/issues
