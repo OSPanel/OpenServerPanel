@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Global Module Environment Variables</h2>
+    <p>In this section, you can set global environment variables for modules. These variables are applied exclusively to the module environment and do not affect system variables or project environments. Template variables can be used in values.</p>
+    <p>If a variable exists in the system environment but should not be used in the module environment, use the special filter (see Modules&rarr;Allowed System Variables) or remove the variable from the environment by setting it to an empty value.</p>
+    <h2>Template Variables</h2>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel root directory (full path)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Root directory drive</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Path to the Open Server Panel root directory</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Terminal encoding (see Modules&rarr;Terminal Encoding)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Time zone in Etc/GMT format (see Modules&rarr;Time Zone)</td>
+        </tr>
+    </table>
+    <p>In addition to template variables, you can use any Windows environment variables, such as: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
+</body>
+
+</html>

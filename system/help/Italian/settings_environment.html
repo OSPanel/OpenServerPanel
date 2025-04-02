@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Variabili globali dell'ambiente dei moduli</h2>
+    <p>In questa sezione è possibile definire variabili di ambiente globali per i moduli. Queste variabili vengono applicate esclusivamente nell'ambiente dei moduli e non influenzano le variabili di sistema o l'ambiente dei progetti. Nei valori è possibile utilizzare variabili di modello.</p>
+    <p>Se una variabile è presente nell'ambiente di sistema, ma non deve essere utilizzata nell'ambiente dei moduli, utilizzare un filtro speciale (vedi Moduli&rarr;Variabili di sistema consentite) o rimuovere la variabile dall'ambiente assegnandole un valore vuoto.</p>
+    <h2>Variabili di modello</h2>
+    <table>
+        <tr>
+            <th>Variabile</th>
+            <th>Descrizione</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Directory principale di Open Server Panel (percorso completo)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Unità della directory principale</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Percorso alla directory principale di Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codifica nel terminale (vedi Moduli&rarr;Codifica nel terminale)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Fuso orario nel formato Etc/GMT (vedi Moduli&rarr;Fuso orario)</td>
+        </tr>
+    </table>
+    <p>Oltre alle variabili di modello, è possibile utilizzare qualsiasi variabile dell'ambiente Windows, ad esempio: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, ecc.</p>
+</body>
+
+</html>

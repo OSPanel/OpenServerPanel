@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Cài đặt menu</h2>
+    <table>
+        <tr>
+            <th>Giao diện</th>
+        </tr>
+        <tr>
+            <td>
+                Giao diện cho biểu tượng menu.</td>
+        </tr>
+        <tr>
+            <th>Kích thước phông chữ</th>
+        </tr>
+        <tr>
+            <td>
+                Kích thước phông chữ menu tính bằng pixel. Tùy chọn này cho phép đặt kích thước phông chữ menu độc lập với cài đặt hệ thống.<br><br>
+                Đặt thanh trượt ở giá trị tối thiểu 12px để tắt chức năng kiểm soát kích thước phông chữ (sẽ sử dụng kích thước hệ thống).</td>
+        </tr>
+        <tr>
+            <th>Hiển thị biểu tượng trong vùng thông báo</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị biểu tượng chương trình trong vùng thông báo của Windows.<br><br>
+                <strong>Tắt:</strong> Tắt tùy chọn này nếu bạn chạy Open Server Panel trong môi trường Windows Server Core hoặc sử dụng loại tự động khởi động không yêu cầu đăng nhập người dùng Windows (Trình lập lịch tác vụ Windows&rarr;Khởi động khi máy tính khởi động).</td>
+        </tr>
+        <tr>
+            <th>Hiển thị biểu tượng cho mục menu</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị biểu tượng trong menu chương trình. Biểu tượng không hiển thị nếu đã bật chế độ vẽ hệ thống.</td>
+        </tr>
+        <tr>
+            <th>Bật chế độ vẽ hệ thống</th>
+        </tr>
+        <tr>
+            <td>
+                Chỉ bật tùy chọn này khi cần đảm bảo tương thích với các chương trình đọc màn hình (screen readers).</td>
+        </tr>
+        <tr>
+            <th>Hiển thị đường phân cách dọc</th>
+        </tr>
+        <tr>
+            <td>
+                Khi bật tùy chọn này, các biểu tượng trong menu chương trình sẽ được phân cách bằng đường kẻ dọc.</td>
+        </tr>
+        <tr>
+            <th>Không nhóm danh sách chỉ có một phần tử</th>
+        </tr>
+        <tr>
+            <td>
+                Không nhóm các danh sách chỉ chứa một phần tử.</td>
+        </tr>
+        <tr>
+            <th>Tiện ích mở rộng: hiển thị</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị menu tiện ích mở rộng.</td>
+        </tr>
+        <tr>
+            <th>Tiện ích mở rộng: nhóm</th>
+        </tr>
+        <tr>
+            <td>
+                Nhóm các tiện ích mở rộng trong menu.</td>
+        </tr>
+        <tr>
+            <th>Tiện ích mở rộng: menu con</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị menu tiện ích mở rộng trong một menu con riêng biệt.</td>
+        </tr>
+        <tr>
+            <th>Tiện ích mở rộng: hiển thị đường phân cách</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị đường phân cách sau menu tiện ích mở rộng.</td>
+        </tr>
+        <tr>
+            <th>Module: hiển thị</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị menu quản lý module.</td>
+        </tr>
+        <tr>
+            <th>Module: nhóm</th>
+        </tr>
+        <tr>
+            <td>
+                Nhóm các module trong menu.</td>
+        </tr>
+        <tr>
+            <th>Module: menu con</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị menu module trong một menu con riêng biệt.</td>
+        </tr>
+        <tr>
+            <th>Module: hiển thị đường phân cách</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị đường phân cách sau menu module.</td>
+        </tr>
+        <tr>
+            <th>Dự án: hiển thị</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị menu quản lý dự án.</td>
+        </tr>
+        <tr>
+            <th>Dự án: nhóm</th>
+        </tr>
+        <tr>
+            <td>
+                Nhóm các dự án theo vùng tên miền trong menu.</td>
+        </tr>
+        <tr>
+            <th>Dự án: menu con</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị menu dự án trong một menu con riêng biệt.</td>
+        </tr>
+        <tr>
+            <th>Dự án: hiển thị đường phân cách</th>
+        </tr>
+        <tr>
+            <td>
+                Hiển thị đường phân cách sau menu dự án.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Cài đặt dự án toàn cầu</h2>
+    <p>Các tham số được đặt trong phần này sẽ được sử dụng nếu không có giá trị khác được chỉ định trong cài đặt dự án.</p>
+    <table>
+        <tr>
+            <th>Bật</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định trạng thái mặc định của dự án (bật hoặc tắt).</td>
+        </tr>
+        <tr>
+            <th>Mã hóa terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Mã hóa terminal khi làm việc với môi trường dự án.<br><br>
+                <strong>Giá trị đặc biệt:</strong><br>
+                - system: Sử dụng mã hóa hệ thống.<br>
+                - (giá trị trống): Mã hóa terminal vẫn giữ nguyên.<br><br>
+                <strong>Quan trọng:</strong> Nếu giá trị không được xác định, khi tạo môi trường dự án cuối cùng, mã hóa terminal sẽ được thiết lập bởi môi trường được kết nối cuối cùng có giá trị này, ví dụ, môi trường của module PHP.</td>
+        </tr>
+        <tr>
+            <th>Nginx</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định phiên bản máy chủ web Nginx được sử dụng cho các dự án.</td>
+        </tr>
+        <tr>
+            <th>Node</th>
+        </tr>
+        <tr>
+            <td>
+                Chỉ định động cơ Node.js để chạy các ứng dụng Node.js.<br><br>
+                <strong>Cài đặt Node.js:</strong> Hãy cài đặt phiên bản Node.js cần thiết bằng tiện ích mở rộng NVM trước.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định động cơ PHP được sử dụng để xử lý các tệp PHP.<br><br>
+                <strong>Quan trọng:</strong> Các module PHP không có tiền tố FCGI là các module tích hợp Apache+PHP.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Đặt địa chỉ IP được sử dụng bởi tất cả các dự án không có cài đặt riêng.<br><br>
+                <strong>Giới hạn:</strong> Các dự án sử dụng cùng địa chỉ IP phải chạy trên cùng phiên bản PHP.<br><br>
+                <strong>Hỗ trợ nhiều IP:</strong> Bạn có thể chỉ định nhiều địa chỉ IP cách nhau bằng dấu cách, bao gồm cả IPv6. Trong tệp HOSTS, các tên miền sẽ được gán IP đầu tiên trong danh sách.<br><br>
+                <strong>Gán tự động:</strong> Nếu để trống trường này, địa chỉ IP sẽ được gán tự động.<br><br>
+                <strong>Khuyến nghị:</strong>
+                <ul>
+                    <li>Quản lý địa chỉ IP tự động được khuyến nghị cho hầu hết người dùng.</li>
+                    <li>Chỉ nên đặt địa chỉ IP thủ công khi có yêu cầu cấu hình mạng cụ thể.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định cổng cho kết nối HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định cổng cho kết nối HTTPS.</td>
+        </tr>
+        <tr>
+            <th>SSL</th>
+        </tr>
+        <tr>
+            <td>
+                Bật hoặc tắt hỗ trợ SSL cho các dự án không có cài đặt riêng.</td>
+        </tr>
+        <tr>
+            <th>Tệp chứng chỉ</th>
+        </tr>
+        <tr>
+            <td>
+                Chỉ định đường dẫn đến tệp chứng chỉ SSL. Có thể sử dụng biến mẫu.<br><br>
+                <strong>Ký tự được phép:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Khuyến nghị:</strong> Để trống trường này để tự động tạo chứng chỉ.</td>
+        </tr>
+        <tr>
+            <th>Tệp khóa</th>
+        </tr>
+        <tr>
+            <td>
+                Chỉ định đường dẫn đến tệp khóa SSL. Có thể sử dụng biến mẫu.<br><br>
+                <strong>Ký tự được phép:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Khuyến nghị:</strong> Để trống trường này để tự động tạo khóa.</td>
+        </tr>
+        <tr>
+            <th>Thư mục dự án</th>
+        </tr>
+        <tr>
+            <td>
+                Chỉ định thư mục gốc của dự án. Thư mục này sẽ được chuyển đến khi sử dụng lệnh <strong>osp project &lt;DOMAIN&gt;</strong> đồng thời với việc kích hoạt môi trường dự án. Có thể sử dụng biến mẫu.<br><br>
+                <strong>Ký tự được phép:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Thư mục công khai</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định thư mục công khai của dự án. Có thể sử dụng biến mẫu.<br><br>
+                <strong>Ký tự được phép:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Bí danh</th>
+        </tr>
+        <tr>
+            <td>
+                Chỉ định tên miền bổ sung (bí danh) cho dự án (cách nhau bằng dấu cách). Có thể sử dụng biến mẫu.<br><br>
+                <strong>Tên miền phụ:</strong> Nếu bí danh không chứa dấu chấm, nó được coi là tên miền phụ (ví dụ: "www" -> "www.test.local").<br><br>
+                <strong>Giới hạn:</strong> Ký tự "*" không được hỗ trợ trong tệp HOSTS của Windows và yêu cầu cấu hình DNS.</td>
+        </tr>
+        <tr>
+            <th>Môi trường dự án</th>
+        </tr>
+        <tr>
+            <td>
+                Danh sách các tiện ích mở rộng và module (cách nhau bằng dấu cách) tạo nên môi trường dự án.<br><br>
+                <strong>Module PHP/Nginx/Node.js:</strong> Môi trường của các module này luôn được kết nối (nếu được đặt cho tên miền) và không cần phải chỉ định trong tham số này.</td>
+        </tr>
+        <tr>
+            <th>Lệnh khởi động dự án</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định lệnh để khởi động dự án (ví dụ: <strong>nodemon app.js</strong>). Có thể sử dụng biến mẫu.</td>
+        </tr>
+        <tr>
+            <th>URL dự án</th>
+        </tr>
+        <tr>
+            <td>
+                URL được mở khi chọn <strong>Mở dự án trong trình duyệt</strong> trong Open Server Panel. Có thể sử dụng biến mẫu.<br><br>
+                <strong>Ứng dụng:</strong> Có thể đặt URL cho bảng điều khiển quản trị CMS.</td>
+        </tr>
+    </table>
+    <h2>Biến mẫu</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Biến</th>
+                <th>Mô tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Thư mục gốc của dự án (nơi chứa thư mục .osp)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Tên miền (đối với tên miền quốc tế hóa, sử dụng Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Tên miền hiển thị (không dùng Punycode)</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Thư mục gốc của Open Server Panel (đường dẫn đầy đủ)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Ổ đĩa của thư mục gốc</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Đường dẫn đến thư mục gốc của Open Server Panel</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

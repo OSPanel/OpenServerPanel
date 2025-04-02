@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Impostazioni del programma</h2>
+    <table>
+        <tr>
+            <th>Avvia con Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva l'avvio automatico di Open Server Panel all'avvio del sistema operativo.</td>
+        </tr>
+        <tr>
+            <th>Controlla aggiornamenti</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva il controllo degli aggiornamenti di Open Server Panel (richiede connessione a Internet).</td>
+        </tr>
+        <tr>
+            <th>Attiva pianificatore attività</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva il pianificatore attività incorporato. Se il parametro è disattivato, nessuna attività pianificata verrà eseguita, indipendentemente dal loro stato.</td>
+        </tr>
+        <tr>
+            <th>Utilizza file HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva la registrazione dei nomi di dominio nel file HOSTS.<br><br>
+                <strong>Raccomandazioni in caso di accesso limitato al file HOSTS in un'organizzazione:</strong><br><br>
+                1. Configura tutti i moduli e progetti necessari.<br>
+                2. Contatta l'amministratore di sistema per sbloccare HOSTS e fissare il suo stato.<br>
+                3. Dopo che l'amministratore ha fissato le modifiche, puoi disattivare questa opzione.<br><br>
+                <strong>Importante:</strong> Non disattivare questo parametro se non sei sicuro delle conseguenze!</td>
+        </tr>
+        <tr>
+            <th>Lingua dell'interfaccia</th>
+        </tr>
+        <tr>
+            <td>
+                Lingua dell'interfaccia utente di Open Server Panel.<br><br>
+                Se il file di localizzazione è assente o contiene errori, verrà utilizzata la lingua inglese.</td>
+        </tr>
+        <tr>
+            <th>Dominio API</th>
+        </tr>
+        <tr>
+            <td>
+                Dominio locale per API e interfaccia web (in sviluppo)<br><br>
+                <strong>Raccomandazione:</strong> Se utilizzi VPN o proxy, aggiungi questo dominio alle eccezioni.</td>
+        </tr>
+        <tr>
+            <th>Indirizzo IP API</th>
+        </tr>
+        <tr>
+            <td>
+                Indirizzo IPv4 per API e interfaccia web (in sviluppo).<br><br>
+                <strong>Raccomandazione:</strong> Se utilizzi VPN o proxy, aggiungi questo indirizzo IP alle eccezioni.</td>
+        </tr>
+        <tr>
+            <th>Porta API</th>
+        </tr>
+        <tr>
+            <td>
+                Porta utilizzata per API e interfaccia web (in sviluppo). Open Server Panel non si avvierà se la porta specificata è già occupata.</td>
+        </tr>
+        <tr>
+            <th>Utilizza Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva l'utilizzo di Windows Terminal invece dell'interfaccia a riga di comando standard.<br><br>
+                <strong>Requisiti:</strong> Windows Terminal deve essere installato nel sistema e registrato nella variabile di ambiente PATH.<br><br>
+                <strong>Windows Terminal come cmd.exe:</strong> Nelle nuove versioni di Windows, Windows Terminal può sostituire cmd.exe ed essere registrato nella variabile di ambiente %COMSPEC%. Se è così, lascia questa opzione attivata.<br><br>
+                <strong>Nuove istanze di Windows Terminal:</strong> Se Windows Terminal apre nuove finestre invece di schede, configuralo così: Impostazioni&rarr;Avvio&rarr;Comportamento nuova istanza&rarr;Unisci all'ultima finestra utilizzata.</td>
+        </tr>
+        <tr>
+            <th>Titolo breve del progetto</th>
+        </tr>
+        <tr>
+            <td>
+                Quando questa opzione è attiva, nella barra del titolo della finestra del terminale verrà visualizzato solo il nome del progetto invece di una descrizione dettagliata.</td>
+        </tr>
+        <tr>
+            <th>Utilizza ambiente di sistema con ambiente dei progetti</th>
+        </tr>
+        <tr>
+            <td>Utilizza l'ambiente di sistema (System) nel terminale, anche se non è specificato nelle impostazioni del progetto. L'ambiente di sistema consente di utilizzare programmi installati nel sistema (ad esempio, git.exe o ssh.exe).<br><br>Disattiva questa opzione solo in caso di conflitti con il software di sistema.</td>
+        </tr>
+        <tr>
+            <th>Supporto ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva il supporto dei codici ANSI per il controllo dei colori nel terminale.<br><br>
+                Modalità "Automatica" (predefinita):<br>
+                - La correzione viene applicata solo a Windows 7, 8 e Windows 10 (fino alla versione 1903 inclusa). Nelle versioni più recenti di Windows, il supporto dei codici ANSI è già integrato.<br>
+                - La correzione non viene applicata ai terminali che supportano ANSI per impostazione predefinita (ad esempio, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Directory per la ricerca dei progetti</th>
+        </tr>
+        <tr>
+            <td>
+                Elenco delle directory in cui Open Server Panel cercherà i progetti. Separa i percorsi con punto e virgola (;).<br><br>
+                <strong>Eccezioni:</strong> Le sottodirectory node_modules e vendor vengono ignorate.</td>
+        </tr>
+        <tr>
+            <th>Profondità</th>
+        </tr>
+        <tr>
+            <td>
+                Profondità massima di nidificazione delle directory durante la ricerca dei progetti.<br><br>
+                Aumentare questo valore può rallentare l'avvio di Open Server Panel se le directory specificate contengono un gran numero di sottodirectory.</td>
+        </tr>
+        <tr>
+            <th>Dimensione massima del file di registro</th>
+        </tr>
+        <tr>
+            <td>
+                Dimensione massima del file di registro in megabyte. Quando viene superato il valore specificato, il file di log verrà ricreato al successivo avvio del programma.<br><br>
+                Imposta il valore su 0 per cancellare i file di log ad ogni avvio del programma.<br><br>
+                Imposta il valore su 100 MB per disattivare completamente la pulizia dei file di log.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

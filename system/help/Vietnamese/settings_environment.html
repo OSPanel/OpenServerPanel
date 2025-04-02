@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Biến môi trường toàn cầu cho module</h2>
+    <p>Trong phần này, bạn có thể thiết lập các biến môi trường toàn cầu cho module. Các biến này chỉ áp dụng trong môi trường module và không ảnh hưởng đến biến hệ thống hoặc môi trường dự án. Trong giá trị, có thể sử dụng biến mẫu.</p>
+    <p>Nếu biến có trong môi trường hệ thống nhưng không nên được sử dụng trong môi trường module, hãy sử dụng bộ lọc đặc biệt (xem Module&rarr;Biến hệ thống được phép) hoặc xóa biến khỏi môi trường bằng cách đặt giá trị trống.</p>
+    <h2>Biến mẫu</h2>
+    <table>
+        <tr>
+            <th>Biến</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Thư mục gốc của Open Server Panel (đường dẫn đầy đủ)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Ổ đĩa của thư mục gốc</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Đường dẫn đến thư mục gốc của Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Mã hóa trong terminal (xem Module&rarr;Mã hóa terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Múi giờ theo định dạng Etc/GMT (xem Module&rarr;Múi giờ)</td>
+        </tr>
+    </table>
+    <p>Ngoài các biến mẫu, bạn có thể sử dụng bất kỳ biến môi trường Windows nào, ví dụ: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH% v.v.</p>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Impostazioni globali dei progetti</h2>
+    <p>I parametri definiti in questa sezione vengono utilizzati quando nelle impostazioni del progetto non sono specificati altri valori.</p>
+    <table>
+        <tr>
+            <th>Attiva</th>
+        </tr>
+        <tr>
+            <td>
+                Determina lo stato predefinito del progetto (attivato o disattivato).</td>
+        </tr>
+        <tr>
+            <th>Codifica del terminale</th>
+        </tr>
+        <tr>
+            <td>
+                Codifica del terminale quando si lavora nell'ambiente del progetto.<br><br>
+                <strong>Valori speciali:</strong><br>
+                - system: Viene utilizzata la codifica di sistema.<br>
+                - (valore vuoto): La codifica del terminale rimane invariata.<br><br>
+                <strong>Importante:</strong> Se il valore non è specificato, durante la formazione dell'ambiente finale del progetto, la codifica del terminale sarà impostata dall'ultimo ambiente collegato in cui è specificata, ad esempio, l'ambiente del modulo PHP.</td>
+        </tr>
+        <tr>
+            <th>Nginx</th>
+        </tr>
+        <tr>
+            <td>
+                Determina la versione del server web Nginx utilizzata per i progetti.</td>
+        </tr>
+        <tr>
+            <th>Node</th>
+        </tr>
+        <tr>
+            <td>
+                Specifica il motore Node.js per l'esecuzione delle applicazioni Node.js.<br><br>
+                <strong>Installazione di Node.js:</strong> Installare preventivamente la versione desiderata di Node.js utilizzando il componente aggiuntivo NVM.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Determina il motore PHP utilizzato per l'elaborazione dei file PHP.<br><br>
+                <strong>Importante:</strong> I moduli PHP senza il prefisso FCGI sono moduli integrati Apache+PHP.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Imposta l'indirizzo/i IP utilizzato/i da tutti i progetti senza impostazioni individuali.<br><br>
+                <strong>Limitazione:</strong> I progetti che utilizzano lo stesso indirizzo IP devono funzionare con la stessa versione di PHP.<br><br>
+                <strong>Supporto per più IP:</strong> È possibile specificare più indirizzi IP separati da spazi, inclusi IPv6. Nel file HOSTS, ai domini verrà assegnato il primo IP specificato.<br><br>
+                <strong>Assegnazione automatica:</strong> Lasciando il campo vuoto, l'indirizzo IP verrà assegnato automaticamente.<br><br>
+                <strong>Raccomandazioni:</strong>
+                <ul>
+                    <li>La gestione automatica degli indirizzi IP è consigliata per la maggior parte degli utenti.</li>
+                    <li>L'impostazione manuale dell'indirizzo IP dovrebbe essere utilizzata solo in caso di requisiti specifici di configurazione di rete.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Determina la porta per le connessioni HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Determina la porta per le connessioni HTTPS.</td>
+        </tr>
+        <tr>
+            <th>SSL</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva o disattiva il supporto SSL per i progetti senza impostazioni individuali.</td>
+        </tr>
+        <tr>
+            <th>File del certificato</th>
+        </tr>
+        <tr>
+            <td>
+                Specifica il percorso al file del certificato SSL. È possibile utilizzare variabili di modello.<br><br>
+                <strong>Caratteri consentiti:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Raccomandazione:</strong> Lasciare il campo vuoto per la generazione automatica dei certificati.</td>
+        </tr>
+        <tr>
+            <th>File della chiave</th>
+        </tr>
+        <tr>
+            <td>
+                Specifica il percorso al file della chiave SSL. È possibile utilizzare variabili di modello.<br><br>
+                <strong>Caratteri consentiti:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Raccomandazione:</strong> Lasciare il campo vuoto per la generazione automatica della chiave.</td>
+        </tr>
+        <tr>
+            <th>Directory del progetto</th>
+        </tr>
+        <tr>
+            <td>
+                Specifica la directory principale del progetto. Il passaggio a questa directory avviene con il comando <strong>osp project &lt;DOMAIN&gt;</strong> contestualmente all'attivazione dell'ambiente del progetto. È possibile utilizzare variabili di modello.<br><br>
+                <strong>Caratteri consentiti:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Directory pubblica</th>
+        </tr>
+        <tr>
+            <td>
+                Definisce la directory pubblica del progetto. È possibile utilizzare variabili di modello.<br><br>
+                <strong>Caratteri consentiti:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Alias</th>
+        </tr>
+        <tr>
+            <td>
+                Specifica nomi di dominio aggiuntivi (alias) per il progetto (separati da spazi). È possibile utilizzare variabili di modello.<br><br>
+                <strong>Sottodomini:</strong> Se un alias non contiene un punto, viene considerato come un sottodominio (ad esempio, "www" -> "www.test.local").<br><br>
+                <strong>Limitazione:</strong> Il carattere "*" non è supportato nel file HOSTS di Windows e richiede la configurazione DNS.</td>
+        </tr>
+        <tr>
+            <th>Ambiente del progetto</th>
+        </tr>
+        <tr>
+            <td>
+                Elenco di componenti aggiuntivi e moduli (separati da spazi) che formano l'ambiente del progetto.<br><br>
+                <strong>Moduli PHP/Nginx/Node.js:</strong> Gli ambienti di questi moduli vengono sempre collegati (se specificati per il dominio) e non richiedono di essere indicati in questo parametro.</td>
+        </tr>
+        <tr>
+            <th>Comando di avvio del progetto</th>
+        </tr>
+        <tr>
+            <td>
+                Definisce il comando per l'avvio del progetto (ad esempio, <strong>nodemon app.js</strong>). È possibile utilizzare variabili di modello.</td>
+        </tr>
+        <tr>
+            <th>URL del progetto</th>
+        </tr>
+        <tr>
+            <td>
+                URL che si apre quando si seleziona <strong>Apri progetto nel browser</strong> in Open Server Panel. È possibile utilizzare variabili di modello.<br><br>
+                <strong>Applicazione:</strong> È possibile impostare l'URL del pannello di amministrazione del CMS.</td>
+        </tr>
+    </table>
+    <h2>Variabili di modello</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variabile</th>
+                <th>Descrizione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Directory principale del progetto (dove si trova la directory .osp)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Nome di dominio (per i domini internazionalizzati viene utilizzato Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Nome di dominio visibile (senza Punycode)</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Directory principale di Open Server Panel (percorso completo)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Unità della directory principale</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Percorso alla directory principale di Open Server Panel</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

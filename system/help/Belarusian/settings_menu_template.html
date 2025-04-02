@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Стварэнне ўласных пунктаў меню</h2>
+    <ol>
+        <li>Дадайце новую секцыю з унікальным ідэнтыфікатарам [ID]</li>
+        <li>Размясціце секцыі ў жаданым парадку — гэта вызначыць парадак пунктаў у меню</li>
+        <li>Захавайце змены і перазапусціце Open Server Panel для прымянення змен</li>
+    </ol>
+    <div class="bs-callout bs-callout-danger">
+        <h3>Важная інфармацыя</h3>
+        Пры стварэнні ўласных пунктаў меню сачыце за тым, каб ідэнтыфікатары секцый не паўтараліся. Гэта можа прывесці да канфліктаў у працы меню.
+    </div>
+    <h2>Налады пунктаў меню</h2>
+    <p><strong>Парадак сартавання:</strong> Пункты меню сартуюцца ў тым жа парадку, у якім размешчаны адпаведныя секцыі ў шаблоне.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Загаловак пункта меню. Падтрымлівае моўныя канстанты ў фармаце {lang_xxx}.<br><br>
+                    Па змаўчанні: не зададзена
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Вызначае размяшчэнне пункта меню ў іерархіі. Падтрымлівае адзін узровень укладанасці (напрыклад, "Мае Закладкі\Праца").</p>
+                    <p>Спецыяльныя катэгорыі:</p>
+                    <ul>
+                        <li>projects, modules, addons - дадае пункт у адпаведнае меню дзеянняў</li>
+                        <li>projects\<імя_дамена>, modules\<імя_модуля>, addons\<імя_дадатку> - дадае пункт для канкрэтнага элемента</li>
+                    </ul>
+                    <p>Калі катэгорыя не ўказана, пункт ствараецца ў каранёвым меню.</p>
+                    Па змаўчанні: не зададзена
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Каманда для выканання пры актывацыі пункта меню. Пункты без каманды ігнаруюцца.<br><br>
+                    Па змаўчанні: не зададзена
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Уключае/адключае адлюстраванне пункта меню.<br><br>
+                    Па змаўчанні: on | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Кіруе бачнасцю акна выклікаемага дадатку. Не ўплывае на даччыныя працэсы.<br><br>
+                    Па змаўчанні: off | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Дадае гарызантальны падзяляльнік пасля пункта меню.<br><br>
+                    Па змаўчанні: off | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Дадае гарызантальны падзяляльнік перад пунктам меню.<br><br>
+                    Па змаўчанні: off | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Іконка з набору Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Па змаўчанні: не зададзена
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Абмяжоўвае адлюстраванне пункта меню модулямі/дадаткамі пэўнай катэгорыі.</p>
+                    <p>Падтрымліваемыя фарматы:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<імя_модуля>, addons\<імя_дадатку>
+                        </li>
+                    </ul>
+                    Па змаўчанні: не зададзена
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Адлюстроўвае пункт меню ў залежнасці ад наяўнасці shell/cli у бацькоўскага модуля.<br>
+                    Ужываецца для катэгорый: modules, modules\<імя_модуля><br><br>
+                        Па змаўчанні: не зададзена | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Адлюстроўвае пункт меню ў залежнасці ад стану бацькоўскага модуля.<br>
+                    Ужываецца для катэгорый: modules, modules\<імя_модуля><br><br>
+                        Па змаўчанні: не зададзена | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Адлюстроўвае пункт меню пры наяўнасці каманды запуску ў наладах праекта.<br>
+                    Ужываецца для катэгорый: projects, projects\<імя_дамена><br><br>
+                        Па змаўчанні: не зададзена | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Адлюстроўвае пункт меню ў залежнасці ад налады выкарыстання Windows Terminal у Open Server Panel.<br><br>
+                    Па змаўчанні: не зададзена | Значэнні: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Працоўная дырэкторыя для выканання каманды. Можа змяняцца падчас выканання каманд.<br><br>
+                    Па змаўчанні: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Шаблонныя зменныя</h2>
+    У параметрах "command" і "work_directory" можна выкарыстоўваць наступныя шаблонныя зменныя:
+    <h3>Агульныя зменныя</h3>
+    <table>
+        <tr>
+            <th>Зменная</th>
+            <th>Апісанне</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Каранёвы каталог Open Server Panel (поўны шлях)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Дыск каранёвага каталога</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Шлях да каранёвага каталога Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL-адрас вэб-інтэрфейса</td>
+        </tr>
+    </table>
+    <h3>Асаблівыя зменныя (толькі для projects і projects\&lt;імя_дамена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Зменная</th>
+            <th>Апісанне</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Базавы каталог праекта</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Імя дамена (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Бачнае імя дамена (без Punycode)</td>
+        </tr>
+        <tr>
+            <td>{nginx_engine}</td>
+            <td>Рухавік Nginx</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Рухавік Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Рухавік PHP</td>
+        </tr>
+        <tr>
+            <td>{project_dir}</td>
+            <td>Каранёвы каталог праекта</td>
+        </tr>
+        <tr>
+            <td>{project_url}</td>
+            <td>URL праекта</td>
+        </tr>
+        <tr>
+            <td>{public_dir}</td>
+            <td>Публічны каталог праекта</td>
+        </tr>
+        <tr>
+            <td>{start_command}</td>
+            <td>Каманда запуску праекта (калі наладжана)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кадыроўка кансолі</td>
+        </tr>
+    </table>
+    <h3>Асаблівыя зменныя (толькі для addons і addons\&lt;імя_дадатку&gt;)</h3>
+    <table>
+        <tr>
+            <th>Зменная</th>
+            <th>Апісанне</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Імя дадатку</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кадыроўка кансолі</td>
+        </tr>
+    </table>
+    <h3>Асаблівыя зменныя (толькі для modules і modules\&lt;імя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Зменная</th>
+            <th>Апісанне</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP-адрас модуля</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Узровень журналявання памылак</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Імя модуля</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Порт модуля</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Імя бягучага профілю наладаў модуля</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Узровень журналявання запытаў</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Каманда запуску shell/cli абалонкі модуля (калі наладжана)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кадыроўка кансолі</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Часавы пояс</td>
+        </tr>
+    </table>
+    <h3>Асаблівыя значэнні каманд</h3>
+    <table>
+        <tr>
+            <th>Каманда</th>
+            <th>Апісанне</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Адкрыць акно прагляду журналаў</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Адкрыць IDN-канвертар</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Адкрыць акно наладаў праграмы</td>
+        </tr>
+        <tr>
+            <td>command_restart</td>
+            <td>Перазапусціць праграму</td>
+        </tr>
+        <tr>
+            <td>command_exit</td>
+            <td>Завяршыць працу праграмы</td>
+        </tr>
+    </table>
+    <p>Акрамя шаблонных зменных, можна выкарыстоўваць любыя зменныя асяроддзя Windows, напрыклад: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH% і г.д.</p>
+    <h3>Прыклады выкарыстання</h3>
+    <pre class="code">
+[21]
+
+caption  = Адкрыць у PhpStorm
+category = projects
+command  = "%COMSPEC%" /c "osp project {host_decoded} & start "" "C:\chrome.exe" "{project_dir}""
+hide     = on
+icon     = code
+
+[22]
+
+caption  = Google
+category = Мае Закладкі\Пошукавыя сістэмы
+command  = "%COMSPEC%" /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Опцыі `cmd.exe`</h3>
+    <ul>
+        <li>/c: Выканаць каманду і закрыць тэрмінал.</li>
+        <li>/k: Выканаць каманду і пакінуць тэрмінал адкрытым.</li>
+    </ul>
+</body>
+
+</html>

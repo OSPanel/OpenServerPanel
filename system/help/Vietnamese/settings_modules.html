@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Cài đặt module toàn cầu</h2>
+    <p>Các tham số được đặt trong phần này sẽ được áp dụng khi trong cài đặt của module cụ thể, tùy chọn tương ứng được đặt là auto (mặc định).</p>
+    <table>
+        <tr>
+            <th>Chế độ im lặng</th>
+        </tr>
+        <tr>
+            <td>
+                Tắt thông báo lỗi bật lên từ Windows Error Reporting và từ chính module.<br><br>
+                <strong>Khuyến nghị:</strong> Chỉ tắt chế độ này khi cần chẩn đoán vấn đề trong hoạt động của module.</td>
+        </tr>
+        <tr>
+            <th>Thêm tiêu đề vào tệp nhật ký</th>
+        </tr>
+        <tr>
+            <td>
+                Bật tự động thêm tiêu đề vào tệp nhật ký mỗi khi khởi động module. Hữu ích khi tắt tính năng tự động xóa nhật ký để phân biệt các phiên làm việc.</td>
+        </tr>
+        <tr>
+            <th>Số lần khởi động thất bại tối đa</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định số lần khởi động thất bại liên tiếp cho phép trước khi module chuyển sang trạng thái "Lỗi".</td>
+        </tr>
+        <tr>
+            <th>Thời gian kiểm tra hoạt động của module</th>
+        </tr>
+        <tr>
+            <td>Xác định khoảng thời gian kiểm tra hoạt động của module sau khi khởi động thành công.<br><br>
+                <strong>Thời điểm bắt đầu:</strong> Từ thời điểm module khởi động thành công.<br><br>
+                <strong>Chuyển sang trạng thái "Lỗi":</strong> Nếu module kết thúc đột ngột trong thời gian thử nghiệm, nó sẽ không được tự động khởi động lại và sẽ chuyển sang trạng thái "Lỗi". Điều này cũng áp dụng khi không thể khởi động module ở cấp độ hệ thống.<br><br>
+                <strong>Tắt kiểm tra:</strong> Giá trị 0 sẽ tắt thời gian thử nghiệm, và module sẽ luôn được khởi động lại khi gặp sự cố.<br><br>
+                <strong>Khuyến nghị:</strong> Không đặt giá trị 0 hoặc thời gian quá ngắn (dưới 30 giây), vì điều này có thể dẫn đến vòng lặp khởi động lại vô hạn.</td>
+        </tr>
+        <tr>
+            <th>Thời gian chờ kết thúc module</th>
+        </tr>
+        <tr>
+            <td>Xác định thời gian tối đa cho phép module hoàn tất hoạt động của nó.<br><br>
+                <strong>Kết thúc cưỡng bức:</strong> Nếu module không kết thúc trong thời gian quy định, nó sẽ bị dừng cưỡng bức.<br><br>
+                <strong>Tắt thời gian chờ:</strong> Giá trị 0 sẽ tắt thời gian chờ. Chương trình sẽ chờ module kết thúc trong thời gian không giới hạn.<br><br>
+                <strong>Cảnh báo:</strong> Việc dừng cưỡng bức module có thể dẫn đến hỏng dữ liệu, mất các thay đổi chưa lưu hoặc kết thúc không đúng quy trình. Hãy sử dụng cài đặt này một cách thận trọng.</td>
+        </tr>
+        <tr>
+            <th>Kích thước tệp nhật ký tối đa</th>
+        </tr>
+        <tr>
+            <td>
+                Kích thước tối đa của tệp nhật ký tính bằng megabyte. Khi vượt quá giá trị này, tệp nhật ký sẽ được tạo lại vào lần khởi động tiếp theo của module.<br><br>
+                Đặt giá trị 0 để xóa tệp nhật ký mỗi khi khởi động module.<br><br>
+                Đặt giá trị 100 MB để tắt hoàn toàn việc xóa tệp nhật ký.</td>
+        </tr>
+        <tr>
+            <th>Mã hóa terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Mã hóa terminal khi làm việc với môi trường module.<br><br>
+                <strong>Giá trị đặc biệt:</strong><br>
+                - system: Sử dụng mã hóa hệ thống.<br>
+                - (giá trị trống): Mã hóa terminal vẫn giữ nguyên.</td>
+        </tr>
+        <tr>
+            <th>Múi giờ</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định múi giờ của module theo định dạng Etc/GMT (ví dụ: Etc/GMT-3).<br><br>
+                <strong>Giá trị đặc biệt:</strong><br>
+                - system: Sử dụng múi giờ hệ thống.<br><br>
+                <strong>Quan trọng:</strong> Định dạng Etc/GMT có độ lệch ngược so với UTC (ví dụ: Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Môi trường tiện ích mở rộng được sử dụng</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định danh sách các tiện ích mở rộng (cách nhau bằng dấu cách) mà môi trường của chúng (nếu có) được kết nối với môi trường module. Các chỉ báo thông tin trong terminal không hiển thị các môi trường bổ sung này.<br><br>
+                <strong>Cảnh báo:</strong> Chỉ sử dụng tùy chọn này khi hiểu rõ mục đích của nó.</td>
+        </tr>
+        <tr>
+            <th>Biến hệ thống được phép</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định danh sách các biến môi trường Windows (cách nhau bằng dấu cách) được truyền vào môi trường module.<br><br>
+                <strong>Mục đích:</strong> Cho phép cô lập môi trường làm việc của module khỏi phần mềm tương tự được cài đặt trong hệ thống.<br><br>
+                <strong>Cảnh báo:</strong> Thay đổi danh sách này mà không hiểu đầy đủ ảnh hưởng của nó có thể dẫn đến hoạt động không ổn định của module.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Impostazioni globali dei moduli</h2>
+    <p>I parametri definiti in questa sezione vengono applicati nei casi in cui nelle impostazioni di un modulo specifico è impostato il valore auto (predefinito) per l'opzione corrispondente.</p>
+    <table>
+        <tr>
+            <th>Modalità silenziosa</th>
+        </tr>
+        <tr>
+            <td>
+                Disattiva i messaggi popup di errore da Windows Error Reporting e dal modulo stesso.<br><br>
+                <strong>Raccomandazione:</strong> Disattivare questa modalità solo quando è necessario diagnosticare problemi nel funzionamento del modulo.</td>
+        </tr>
+        <tr>
+            <th>Aggiungi intestazione al file di registro</th>
+        </tr>
+        <tr>
+            <td>
+                Abilita l'aggiunta automatica di un'intestazione al file di registro ogni volta che il modulo viene avviato. Utile quando la pulizia automatica dei log è disattivata per separare le sessioni di lavoro.</td>
+        </tr>
+        <tr>
+            <th>Numero massimo di avvii falliti</th>
+        </tr>
+        <tr>
+            <td>
+                Determina quanti avvii consecutivi falliti del modulo sono consentiti prima che passi allo stato "Errore".</td>
+        </tr>
+        <tr>
+            <th>Tempo di verifica del funzionamento del modulo</th>
+        </tr>
+        <tr>
+            <td>Determina il periodo di test del funzionamento del modulo dopo il suo avvio riuscito.<br><br>
+                <strong>Inizio del conteggio:</strong> Dal momento dell'avvio riuscito del modulo.<br><br>
+                <strong>Passaggio allo stato "Errore":</strong> Se il modulo termina in modo anomalo durante il periodo di prova, non verrà riavviato automaticamente e passerà allo stato "Errore". Questo vale anche per i casi in cui il modulo non può essere avviato a livello di sistema.<br><br>
+                <strong>Disattivazione della verifica:</strong> Il valore 0 disattiva il periodo di prova, e il modulo verrà sempre riavviato in caso di fallimento.<br><br>
+                <strong>Raccomandazione:</strong> Non impostare il valore su 0 o un periodo troppo breve (meno di 30 secondi), poiché ciò potrebbe causare cicli di riavvio infiniti.</td>
+        </tr>
+        <tr>
+            <th>Tempo di attesa per la terminazione del modulo</th>
+        </tr>
+        <tr>
+            <td>Determina il tempo massimo entro il quale il modulo è autorizzato a terminare il proprio funzionamento.<br><br>
+                <strong>Terminazione forzata:</strong> Se il modulo non termina entro il tempo specificato, verrà arrestato forzatamente.<br><br>
+                <strong>Disattivazione dell'attesa:</strong> Il valore 0 disattiva il periodo di attesa. Il programma attenderà indefinitamente il completamento del modulo.<br><br>
+                <strong>Avvertenza:</strong> L'arresto forzato del modulo può portare a danni ai dati, perdita di modifiche non salvate o terminazione impropria dei processi. Utilizzare questa impostazione con cautela.</td>
+        </tr>
+        <tr>
+            <th>Dimensione massima del file di registro</th>
+        </tr>
+        <tr>
+            <td>
+                Dimensione massima del file di registro in megabyte. Quando viene superato il valore specificato, il file di log verrà ricreato al successivo avvio del modulo.<br><br>
+                Impostare il valore su 0 per cancellare i file di log ad ogni avvio del modulo.<br><br>
+                Impostare il valore su 100 MB per disattivare completamente la pulizia dei file di log.</td>
+        </tr>
+        <tr>
+            <th>Codifica del terminale</th>
+        </tr>
+        <tr>
+            <td>
+                Codifica del terminale quando si lavora con l'ambiente del modulo.<br><br>
+                <strong>Valori speciali:</strong><br>
+                - system: Viene utilizzata la codifica di sistema.<br>
+                - (valore vuoto): La codifica del terminale rimane invariata.</td>
+        </tr>
+        <tr>
+            <th>Fuso orario</th>
+        </tr>
+        <tr>
+            <td>
+                Determina il fuso orario del modulo nel formato Etc/GMT (ad esempio, Etc/GMT-3).<br><br>
+                <strong>Valori speciali:</strong><br>
+                - system: Viene utilizzato il fuso orario di sistema.<br><br>
+                <strong>Importante:</strong> Il formato Etc/GMT ha uno spostamento inverso rispetto a UTC (ad esempio, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Ambienti dei componenti aggiuntivi utilizzati</th>
+        </tr>
+        <tr>
+            <td>
+                Determina l'elenco dei componenti aggiuntivi (separati da spazi) i cui ambienti (se esistenti) vengono uniti all'ambiente del modulo. Gli indicatori informativi nel terminale non mostrano questi ambienti aggiuntivi.<br><br>
+                <strong>Avvertenza:</strong> Utilizzare questa opzione solo con una piena comprensione del suo scopo.</td>
+        </tr>
+        <tr>
+            <th>Variabili di sistema consentite</th>
+        </tr>
+        <tr>
+            <td>
+                Determina l'elenco delle variabili dell'ambiente Windows (separate da spazi) che vengono trasferite all'ambiente del modulo.<br><br>
+                <strong>Scopo:</strong> Consente di isolare l'ambiente di lavoro del modulo da software simile installato nel sistema.<br><br>
+                <strong>Avvertenza:</strong> La modifica di questo elenco senza una piena comprensione della sua influenza può portare a un funzionamento instabile del modulo.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

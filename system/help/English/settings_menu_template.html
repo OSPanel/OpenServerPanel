@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Creating Custom Menu Items</h2>
+    <ol>
+        <li>Add a new section with a unique identifier [ID]</li>
+        <li>Arrange sections in the desired order — this will determine the order of items in the menu</li>
+        <li>Save the changes and restart Open Server Panel to apply the changes</li>
+    </ol>
+    <div class="bs-callout bs-callout-danger">
+        <h3>Important Information</h3>
+        When creating custom menu items, ensure that section identifiers are not duplicated. This can lead to conflicts in menu operation.
+    </div>
+    <h2>Menu Item Settings</h2>
+    <p><strong>Sort order:</strong> Menu items are sorted in the same order as the corresponding sections in the template.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Menu item title. Supports language constants in {lang_xxx} format.<br><br>
+                    Default: not set
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Determines the menu item's position in the hierarchy. Supports one level of nesting (e.g., "My Bookmarks\Work").</p>
+                    <p>Special categories:</p>
+                    <ul>
+                        <li>projects, modules, addons - adds the item to the corresponding action menu</li>
+                        <li>projects\<domain_name>, modules\<module_name>, addons\<addon_name> - adds the item for a specific element</li>
+                    </ul>
+                    <p>If the category is not specified, the item is created in the root menu.</p>
+                    Default: not set
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Command to execute when the menu item is activated. Items without a command are ignored.<br><br>
+                    Default: not set
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Enables/disables the display of the menu item.<br><br>
+                    Default: on | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Controls the visibility of the called application window. Does not affect child processes.<br><br>
+                    Default: off | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Adds a horizontal separator after the menu item.<br><br>
+                    Default: off | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Adds a horizontal separator before the menu item.<br><br>
+                    Default: off | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Icon from the Font Awesome Free set (Solid/Regular/Brands).<br><br>
+                    Default: not set
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Restricts the menu item display to modules/addons of a specific category.</p>
+                    <p>Supported formats:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<module_name>, addons\<addon_name>
+                        </li>
+                    </ul>
+                    Default: not set
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Displays the menu item depending on the presence of shell/cli in the parent module.<br>
+                    Applicable for categories: modules, modules\<module_name><br><br>
+                        Default: not set | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Displays the menu item depending on the state of the parent module.<br>
+                    Applicable for categories: modules, modules\<module_name><br><br>
+                        Default: not set | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Displays the menu item if a start command is present in the project settings.<br>
+                    Applicable for categories: projects, projects\<domain_name><br><br>
+                        Default: not set | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Displays the menu item depending on the Windows Terminal usage setting in Open Server Panel.<br><br>
+                    Default: not set | Values: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Working directory for command execution. Can change during command execution.<br><br>
+                    Default: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Template Variables</h2>
+    The following template variables can be used in the "command" and "work_directory" parameters:
+    <h3>Common Variables</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel root directory (full path)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Root directory drive</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Path to the Open Server Panel root directory</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Web interface URL</td>
+        </tr>
+    </table>
+    <h3>Special Variables (only for projects and projects\&lt;domain_name&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Project base directory</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domain name (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Visible domain name (without Punycode)</td>
+        </tr>
+        <tr>
+            <td>{nginx_engine}</td>
+            <td>Nginx engine</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js engine</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP engine</td>
+        </tr>
+        <tr>
+            <td>{project_dir}</td>
+            <td>Project root directory</td>
+        </tr>
+        <tr>
+            <td>{project_url}</td>
+            <td>Project URL</td>
+        </tr>
+        <tr>
+            <td>{public_dir}</td>
+            <td>Project public directory</td>
+        </tr>
+        <tr>
+            <td>{start_command}</td>
+            <td>Project start command (if configured)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Console encoding</td>
+        </tr>
+    </table>
+    <h3>Special Variables (only for addons and addons\&lt;addon_name&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Addon name</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Console encoding</td>
+        </tr>
+    </table>
+    <h3>Special Variables (only for modules and modules\&lt;module_name&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Module IP address</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Error logging level</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Module name</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Module port</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Current module settings profile name</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Query logging level</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Module shell/cli launch command (if configured)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Console encoding</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Time zone</td>
+        </tr>
+    </table>
+    <h3>Special Command Values</h3>
+    <table>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Open logs viewer window</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Open IDN converter</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Open program settings window</td>
+        </tr>
+        <tr>
+            <td>command_restart</td>
+            <td>Restart the program</td>
+        </tr>
+        <tr>
+            <td>command_exit</td>
+            <td>Exit the program</td>
+        </tr>
+    </table>
+    <p>In addition to template variables, you can use any Windows environment variables, such as: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
+    <h3>Usage Examples</h3>
+    <pre class="code">
+[21]
+
+caption  = Open in PhpStorm
+category = projects
+command  = "%COMSPEC%" /c "osp project {host_decoded} & start "" "C:\chrome.exe" "{project_dir}""
+hide     = on
+icon     = code
+
+[22]
+
+caption  = Google
+category = My Bookmarks\Search Engines
+command  = "%COMSPEC%" /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>cmd.exe Options</h3>
+    <ul>
+        <li>/c: Execute the command and close the terminal.</li>
+        <li>/k: Execute the command and keep the terminal open.</li>
+    </ul>
+</body>
+
+</html>

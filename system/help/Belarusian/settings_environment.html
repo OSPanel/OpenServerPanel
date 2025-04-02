@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Глабальныя зменныя асяроддзя модуляў</h2>
+    <p>У дадзеным раздзеле можна задаць глабальныя зменныя асяроддзя для модуляў. Гэтыя зменныя ўжываюцца выключна ў асяроддзі модуляў і не аказваюць уплыву на сістэмныя зменныя або асяроддзе праектаў. У значэннях дапускаецца выкарыстанне шаблонных зменных.</p>
+    <p>Калі зменная прысутнічае ў сістэмным асяроддзі, але не павінна выкарыстоўвацца ў асяроддзі модуляў, скарыстайцеся спецыяльным фільтрам (гл. Модулі&rarr;Дазволеныя сістэмныя зменныя) або выдаліце зменную з асяроддзя, задаўшы ёй пустое значэнне.</p>
+    <h2>Шаблонныя зменныя</h2>
+    <table>
+        <tr>
+            <th>Зменная</th>
+            <th>Апісанне</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Каранёвы каталог Open Server Panel (поўны шлях)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Дыск каранёвага каталога</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Шлях да каранёвага каталога Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кадыроўка ў тэрмінале (гл. Модулі&rarr;Кадыроўка ў тэрмінале)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Часавы пояс у фармаце Etc/GMT (гл. Модулі&rarr;Часавы пояс)</td>
+        </tr>
+    </table>
+    <p>Акрамя шаблонных зменных, можна выкарыстоўваць любыя зменныя асяроддзя Windows, напрыклад: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH% і г.д.</p>
+</body>
+
+</html>
