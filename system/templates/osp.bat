@@ -119,13 +119,6 @@ echo                             {lang_nvm_install_6}
 echo                             {lang_nvm_install_7}
 echo %ESC%[32mnode    list   [available]%ESC%[0m  {lang_nvm_list_1}
 echo                             {lang_nvm_list_2}
-echo %ESC%[32mnode    node_mirror  [URL]%ESC%[0m  {lang_nvm_node_mirror_1}
-echo                             {lang_nvm_node_mirror_2}
-echo %ESC%[32mnode    npm_mirror   [URL]%ESC%[0m  {lang_nvm_npm_mirror_1}
-echo                             {lang_nvm_npm_mirror_2}
-echo %ESC%[32mnode    proxy        [URL]%ESC%[0m  {lang_nvm_proxy_1}
-echo                             {lang_nvm_proxy_2}
-echo                             {lang_nvm_proxy_3}
 echo %ESC%[32mnode    uninstall ^<N^>%ESC%[0m       {lang_nvm_uninstall}
 :help2
 echo:
