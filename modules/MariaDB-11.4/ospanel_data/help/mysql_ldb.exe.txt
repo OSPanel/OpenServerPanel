@@ -1,0 +1,62 @@
+ldb - RocksDB Tool
+
+commands MUST specify --db=<full_path_to_db_directory> when necessary
+
+commands can optionally specify --env_uri=<uri_of_environment> if necessary
+
+The following optional parameters control if keys/values are input/output as hex or as plain strings:
+  --key_hex : Keys are input/output as hex
+  --value_hex : Values are input/output as hex
+  --hex : Both keys and values are input/output as hex
+
+The following optional parameters control the database internals:
+  --column_family=<string> : name of the column family to operate on. default: default column family
+  --ttl with 'put','get','scan','dump','query','batchput' : DB supports ttl and value is internally timestamp-suffixed
+  --try_load_options : Try to load option file from DB.
+  --ignore_unknown_options : Ignore unknown options when loading option file.
+  --bloom_bits=<int,e.g.:14>
+  --fix_prefix_len=<int,e.g.:14>
+  --compression_type=<no|snappy|zlib|bzip2|lz4|lz4hc|xpress|zstd>
+  --compression_max_dict_bytes=<int,e.g.:16384>
+  --block_size=<block_size_in_bytes>
+  --auto_compaction=<true|false>
+  --db_write_buffer_size=<int,e.g.:16777216>
+  --write_buffer_size=<int,e.g.:4194304>
+  --file_size=<int,e.g.:2097152>
+
+
+Data Access Commands:
+  put <key> <value>  [--ttl]
+  get <key> [--ttl]
+  batchput <key> <value> [<key> <value>] [..] [--ttl]
+  scan [--from] [--to]  [--ttl] [--timestamp] [--max_keys=<N>q]  [--start_time=<N>:- is inclusive] [--end_time=<N>:- is exclusive] [--no_value]
+  delete <key>
+  deleterange <begin key> <end key>
+  query [--ttl]
+    Starts a REPL shell.  Type help for list of available commands.
+  approxsize [--from] [--to] 
+  checkconsistency
+  list_file_range_deletes [--max_keys=<N>] : print tombstones in SST files.
+
+
+Admin Commands:
+  dump_wal --walfile=<write_ahead_log_file_path> [--header]  [--print_value]  [--write_committed=true|false] 
+  compact [--from] [--to] 
+  reduce_levels --new_levels=<New number of levels> [--print_old_levels]
+  change_compaction_style --old_compaction_style=<Old compaction style: 0 for level compaction, 1 for universal compaction> --new_compaction_style=<New compaction style: 0 for level compaction, 1 for universal compaction>
+  dump [--from] [--to]  [--ttl] [--max_keys=<N>] [--timestamp] [--count_only] [--count_delim=<char>] [--stats] [--bucket=<N>] [--start_time=<N>:- is inclusive] [--end_time=<N>:- is exclusive] [--path=<path_to_a_file>]
+  load [--create_if_missing] [--disable_wal] [--bulk_load] [--compact]
+  manifest_dump [--verbose] [--json] [--path=<path_to_manifest_file>]
+  file_checksum_dump [--path=<path_to_manifest_file>]
+  list_column_families
+  create_column_family --db=<db_path> <new_column_family_name>
+  drop_column_family --db=<db_path> <column_family_name_to_drop>
+  dump_live_files
+  idump [--from] [--to]  [--input_key_hex] [--max_keys=<N>] [--count_only] [--count_delim=<char>] [--stats]
+  repair
+  backup [--backup_env_uri]  [--backup_dir]  [--num_threads]  [--stderr_log_level=<int (InfoLogLevel)>] 
+  restore [--backup_env_uri]  [--backup_dir]  [--num_threads]  [--stderr_log_level=<int (InfoLogLevel)>] 
+  checkpoint [--checkpoint_dir] 
+  write_extern_sst <output_sst_path>
+  ingest_extern_sst <input_sst_path> [--move_files]  [--snapshot_consistency]  [--allow_global_seqno]  [--allow_blocking_flush]  [--ingest_behind]  [--write_global_seqno] 
+
