@@ -1,0 +1,27 @@
+ecpg is the PostgreSQL embedded SQL preprocessor for C programs.
+
+Usage:
+  ecpg [OPTION]... FILE...
+
+Options:
+  -c             automatically generate C code from embedded SQL code;
+                 this affects EXEC SQL TYPE
+  -C MODE        set compatibility mode; MODE can be one of
+                 "INFORMIX", "INFORMIX_SE", "ORACLE"
+  -D SYMBOL      define SYMBOL
+  -h             parse a header file, this option includes option "-c"
+  -i             parse system include files as well
+  -I DIRECTORY   search DIRECTORY for include files
+  -o OUTFILE     write result to OUTFILE
+  -r OPTION      specify run-time behavior; OPTION can be:
+                 "no_indicator", "prepare", "questionmarks"
+  --regression   run in regression testing mode
+  -t             turn on autocommit of transactions
+  -V, --version  output version information, then exit
+  -?, --help     show this help, then exit
+
+If no output file is specified, the name is formed by adding .c to the
+input file name, after stripping off .pgc if present.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

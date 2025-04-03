@@ -1,0 +1,15 @@
+pg_controldata displays control information of a PostgreSQL database cluster.
+
+Usage:
+  pg_controldata [OPTION] [DATADIR]
+
+Options:
+ [-D, --pgdata=]DATADIR  data directory
+  -V, --version          output version information, then exit
+  -?, --help             show this help, then exit
+
+If no data directory (DATADIR) is specified, the environment variable PGDATA
+is used.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

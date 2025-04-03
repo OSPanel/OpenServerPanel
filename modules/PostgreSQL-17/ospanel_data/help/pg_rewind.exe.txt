@@ -1,0 +1,26 @@
+pg_rewind resynchronizes a PostgreSQL cluster with another copy of the cluster.
+
+Usage:
+  pg_rewind [OPTION]...
+
+Options:
+  -c, --restore-target-wal       use restore_command in target configuration to
+                                 retrieve WAL files from archives
+  -D, --target-pgdata=DIRECTORY  existing data directory to modify
+      --source-pgdata=DIRECTORY  source data directory to synchronize with
+      --source-server=CONNSTR    source server to synchronize with
+  -n, --dry-run                  stop before modifying anything
+  -N, --no-sync                  do not wait for changes to be written
+                                 safely to disk
+  -P, --progress                 write progress messages
+  -R, --write-recovery-conf      write configuration for replication
+                                 (requires --source-server)
+      --config-file=FILENAME     use specified main server configuration
+                                 file when running target cluster
+      --debug                    write a lot of debug messages
+      --no-ensure-shutdown       do not automatically fix unclean shutdown
+  -V, --version                  output version information, then exit
+  -?, --help                     show this help, then exit
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

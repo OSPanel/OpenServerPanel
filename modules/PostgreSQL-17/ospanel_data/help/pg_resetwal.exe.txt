@@ -1,0 +1,25 @@
+pg_resetwal resets the PostgreSQL write-ahead log.
+
+Usage:
+  pg_resetwal [OPTION]... DATADIR
+
+Options:
+  -c, --commit-timestamp-ids=XID,XID
+                                   set oldest and newest transactions bearing
+                                   commit timestamp (zero means no change)
+ [-D, --pgdata=]DATADIR            data directory
+  -e, --epoch=XIDEPOCH             set next transaction ID epoch
+  -f, --force                      force update to be done
+  -l, --next-wal-file=WALFILE      set minimum starting location for new WAL
+  -m, --multixact-ids=MXID,MXID    set next and oldest multitransaction ID
+  -n, --dry-run                    no update, just show what would be done
+  -o, --next-oid=OID               set next OID
+  -O, --multixact-offset=OFFSET    set next multitransaction offset
+  -u, --oldest-transaction-id=XID  set oldest transaction ID
+  -V, --version                    output version information, then exit
+  -x, --next-transaction-id=XID    set next transaction ID
+      --wal-segsize=SIZE           size of WAL segments, in megabytes
+  -?, --help                       show this help, then exit
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

@@ -1,0 +1,23 @@
+pg_archivecleanup removes older WAL files from PostgreSQL archives.
+
+Usage:
+  pg_archivecleanup [OPTION]... ARCHIVELOCATION OLDESTKEPTWALFILE
+
+Options:
+  -d             generate debug output (verbose mode)
+  -n             dry run, show the names of the files that would be removed
+  -V, --version  output version information, then exit
+  -x EXT         clean up files if they have this extension
+  -?, --help     show this help, then exit
+
+For use as archive_cleanup_command in postgresql.conf:
+  archive_cleanup_command = 'pg_archivecleanup [OPTION]... ARCHIVELOCATION %r'
+e.g.
+  archive_cleanup_command = 'pg_archivecleanup /mnt/server/archiverdir %r'
+
+Or for use as a standalone archive cleaner:
+e.g.
+  pg_archivecleanup /mnt/server/archiverdir 000000010000000000000010.00000020.backup
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

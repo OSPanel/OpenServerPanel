@@ -1,0 +1,22 @@
+pg_checksums enables, disables, or verifies data checksums in a PostgreSQL database cluster.
+
+Usage:
+  pg_checksums [OPTION]... [DATADIR]
+
+Options:
+ [-D, --pgdata=]DATADIR    data directory
+  -c, --check              check data checksums (default)
+  -d, --disable            disable data checksums
+  -e, --enable             enable data checksums
+  -f, --filenode=FILENODE  check only relation with specified filenode
+  -N, --no-sync            do not wait for changes to be written safely to disk
+  -P, --progress           show progress information
+  -v, --verbose            output verbose messages
+  -V, --version            output version information, then exit
+  -?, --help               show this help, then exit
+
+If no data directory (DATADIR) is specified, the environment variable PGDATA
+is used.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

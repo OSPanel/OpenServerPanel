@@ -1,0 +1,33 @@
+reindexdb reindexes a PostgreSQL database.
+
+Usage:
+  reindexdb [OPTION]... [DBNAME]
+
+Options:
+  -a, --all                    reindex all databases
+      --concurrently           reindex concurrently
+  -d, --dbname=DBNAME          database to reindex
+  -e, --echo                   show the commands being sent to the server
+  -i, --index=INDEX            recreate specific index(es) only
+  -j, --jobs=NUM               use this many concurrent connections to reindex
+  -q, --quiet                  don't write any messages
+  -s, --system                 reindex system catalogs only
+  -S, --schema=SCHEMA          reindex specific schema(s) only
+  -t, --table=TABLE            reindex specific table(s) only
+      --tablespace=TABLESPACE  tablespace where indexes are rebuilt
+  -v, --verbose                write a lot of output
+  -V, --version                output version information, then exit
+  -?, --help                   show this help, then exit
+
+Connection options:
+  -h, --host=HOSTNAME          database server host or socket directory
+  -p, --port=PORT              database server port
+  -U, --username=USERNAME      user name to connect as
+  -w, --no-password            never prompt for password
+  -W, --password               force password prompt
+  --maintenance-db=DBNAME      alternate maintenance database
+
+Read the description of the SQL command REINDEX for details.
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>
