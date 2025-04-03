@@ -1,0 +1,56 @@
+sst_dump --file=<data_dir_OR_sst_file> [--command=check|scan|raw|recompress]
+    --file=<data_dir_OR_sst_file>
+      Path to SST file or directory containing SST files
+
+    --env_uri=<uri of underlying Env>
+      URI of underlying Env
+
+    --command=check|scan|raw|verify
+        check: Iterate over entries in files but don't print anything except if an error is encountered (default command)
+        scan: Iterate over entries in files and print them to screen
+        raw: Dump all the table contents to <file_name>_dump.txt
+        verify: Iterate all the blocks in files verifying checksum to detect possible corruption but don't print anything except if a corruption is encountered
+        recompress: reports the SST file size if recompressed with different
+                    compression types
+
+    --output_hex
+      Can be combined with scan command to print the keys and values in Hex
+
+    --decode_blob_index
+      Decode blob indexes and print them in a human-readable format during scans.
+
+    --from=<user_key>
+      Key to start reading from when executing check|scan
+
+    --to=<user_key>
+      Key to stop reading at when executing check|scan
+
+    --prefix=<user_key>
+      Returns all keys with this prefix when executing check|scan
+      Cannot be used in conjunction with --from
+
+    --read_num=<num>
+      Maximum number of entries to read when executing check|scan
+
+    --verify_checksum
+      Verify file checksum when executing check|scan
+
+    --input_key_hex
+      Can be combined with --from and --to to indicate that these values are encoded in Hex
+
+    --show_properties
+      Print table properties after iterating over the file when executing
+      check|scan|raw
+
+    --set_block_size=<block_size>
+      Can be combined with --command=recompress to set the block size that will
+      be used when trying different compression algorithms
+
+    --compression_types=<comma-separated list of CompressionType members, e.g.,
+      kSnappyCompression>
+      Can be combined with --command=recompress to run recompression for this
+      list of compression types
+
+    --parse_internal_key=<0xKEY>
+      Convenience option to parse an internal key on the command line. Dumps the
+      internal key in hex format {'key' @ SN: type}
