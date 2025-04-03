@@ -111,17 +111,14 @@ if not exist "%OSP_DIR%\addons\NVM\nvm.exe" goto help2
 echo:
 echo %ESC%[33m{lang_nvm_management}:%ESC%[0m
 echo:
-echo %ESC%[32mnode    install ^<N^> [ARCH]%ESC%[0m  {lang_nvm_install_1}
+echo %ESC%[32mnode    install ^<N^>       %ESC%[0m  {lang_nvm_install_1}
 echo                             {lang_nvm_install_2}
 echo                             {lang_nvm_install_3}
 echo                             {lang_nvm_install_4}
-echo                             {lang_nvm_install_5}
 echo                             {lang_nvm_install_6}
 echo                             {lang_nvm_install_7}
 echo %ESC%[32mnode    list   [available]%ESC%[0m  {lang_nvm_list_1}
 echo                             {lang_nvm_list_2}
-echo %ESC%[32mnode    mode    ^<N^> [ARCH]%ESC%[0m  {lang_nvm_mode_1}
-echo                             {lang_nvm_mode_2}
 echo %ESC%[32mnode    node_mirror  [URL]%ESC%[0m  {lang_nvm_node_mirror_1}
 echo                             {lang_nvm_node_mirror_2}
 echo %ESC%[32mnode    npm_mirror   [URL]%ESC%[0m  {lang_nvm_npm_mirror_1}
