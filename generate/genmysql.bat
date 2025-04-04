@@ -8,7 +8,7 @@ call :mysql MySQL-5.5
 call :mysql MySQL-5.6
 call :mysql MySQL-5.7
 call :mysql MySQL-8.0
-call :mysql MySQL-8.2
+call :mysql MySQL-8.4
 goto end
 :: --------------------------------------------------------------------------------
 :: INIT MySQL
@@ -25,7 +25,7 @@ mkdir "%OSP_ROOT_DIR%generate\new_data\%1\ospanel_data\default_data"
 cd /d "%OSP_ROOT_DIR%modules\%1"
 copy my.ini my-default.ini
 copy my.ini my_print_defaults.ini
-if not "%1"=="MySQL-5.7" if not "%1"=="MySQL-8.0" if not "%1"=="MySQL-8.2" perl scripts\mysql_install_db.pl --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --basedir="%OSP_ROOT_DIR%modules\%1" --datadir="%OSP_ROOT_DIR%data\%1\default" --skip-name-resolve --windows --verbose
+if not "%1"=="MySQL-5.7" if not "%1"=="MySQL-8.0" if not "%1"=="MySQL-8.4" perl scripts\mysql_install_db.pl --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --basedir="%OSP_ROOT_DIR%modules\%1" --datadir="%OSP_ROOT_DIR%data\%1\default" --skip-name-resolve --windows --verbose
 if not "%1"=="MySQL-5.5" if not "%1"=="MySQL-5.6" "%OSP_ROOT_DIR%modules\%1\bin\mysqld.exe" --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --initialize-insecure --console --standalone
 timeout /t 3 /nobreak > nul
 del "%OSP_ROOT_DIR%modules\%1\*.ini" /q 2>nul
@@ -35,8 +35,8 @@ call osp on %1
 timeout /t 5 /nobreak > nul
 if "%1"=="MySQL-5.7" mysql --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --protocol=PIPE --socket=%1 --host="" -u root mysql -e "INSTALL PLUGIN mysqlx SONAME 'mysqlx.dll';"
 if "%1"=="MySQL-8.0" mysql --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
-if "%1"=="MySQL-8.2" mysql --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
-if not "%1"=="MySQL-8.0" if not "%1"=="MySQL-8.2" mysql --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
+if "%1"=="MySQL-8.4" mysql --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --protocol=PIPE --socket=%1 -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
+if not "%1"=="MySQL-8.0" if not "%1"=="MySQL-8.4" mysql --defaults-file="%OSP_ROOT_DIR%modules\%1\my.ini" --protocol=PIPE --socket=%1 --host="" -u root mysql < "%OSP_ROOT_DIR%generate\setup\timezone_posix.sql"
 timeout /t 3 /nobreak > nul
 call osp restart %1 default
 call osp use %1
