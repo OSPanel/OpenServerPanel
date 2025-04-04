@@ -176,18 +176,4 @@ icon           = shuffle
 
 caption        = {lang_options}
 command        = command_open_options
-hr_after       = on
 icon           = tools
-
-[22]
-
-caption        = {lang_restart}
-command        = command_restart
-icon           = redo
-
-[23]
-
-caption        = {lang_exit}
-command        = command_exit
-icon           = sign-out
-
