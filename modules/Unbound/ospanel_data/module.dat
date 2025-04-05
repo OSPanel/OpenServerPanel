@@ -3,7 +3,7 @@
 [main]
 
 architecture       = x64
-category           = Unbound
+category           = DNS
 ipv6_support       = yes
 ip_separator       = no
 license            = https://github.com/NLnetLabs/unbound/blob/master/LICENSE
