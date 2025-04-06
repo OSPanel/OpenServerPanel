@@ -1,0 +1,12 @@
+to:                  <email-address>             # required - comma-separated list of email addresses
+host:                <hostname-or-ip>            # required - SMTP host or IP to send via
+port:                <port>                      # optional - SMTP port, default 25
+starttls:            <true|false>                # optional - connect using STARTTLS, default false
+tls:                 <true|false>                # optional - connect using TLS, default false
+allow-insecure:      <true|false>                # optional - do not validate TLS certificate, default false
+auth:                <none|plain|login|cram-md5> # optional - default none
+username:            <username>                  # required for plain, login and cram-md5 auth
+password:            <password>                  # required for plain & login auth
+secret:              <cram-secret>               # required for cram-md5 auth
+return-path:         <bounce-address>            # optional - overrides Return-Path for all forwarded emails
+override-from:       <email-address>             # optional - overrides the From email address

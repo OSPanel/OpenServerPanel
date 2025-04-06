@@ -1,0 +1,7 @@
+filters:
+  - match: this is a match
+    tags: Tag 1
+  - match: addressed:test@example.com
+    tags: Tag 2
+  - match: from:from@example.com
+    tags: Tag 1, Tag 2
