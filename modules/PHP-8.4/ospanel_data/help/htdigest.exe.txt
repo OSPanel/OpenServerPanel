@@ -1,0 +1,2 @@
+Usage: htdigest [-c] passwordfile realm username
+The -c flag creates a new file.

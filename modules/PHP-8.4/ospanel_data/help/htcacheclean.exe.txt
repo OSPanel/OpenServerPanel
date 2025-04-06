@@ -1,0 +1,61 @@
+htcacheclean.exe -- program for cleaning the disk cache.
+Usage: htcacheclean.exe [-Dvtrn] -pPATH [-lLIMIT] [-LLIMIT] [-PPIDFILE]
+       htcacheclean.exe [-nti] -dINTERVAL -pPATH [-lLIMIT] [-LLIMIT] [-PPIDFILE]
+       htcacheclean.exe [-Dvt] -pPATH URL ...
+
+Options:
+  -d   Daemonize and repeat cache cleaning every INTERVAL minutes.
+       This option is mutually exclusive with the -D, -v and -r
+       options.
+
+  -D   Do a dry run and don't delete anything. This option is mutually
+       exclusive with the -d option. When doing a dry run and deleting
+       directories with -t, the inodes reported deleted in the stats
+       cannot take into account the directories deleted, and will be
+       marked as an estimate.
+
+  -v   Be verbose and print statistics. This option is mutually
+       exclusive with the -d option.
+
+  -r   Clean thoroughly. This assumes that the Apache web server is 
+       not running. This option is mutually exclusive with the -d
+       option and implies -t.
+
+  -n   Be nice. This causes slower processing in favour of other
+       processes.
+
+  -t   Delete all empty directories. By default only cache files are
+       removed, however with some configurations the large number of
+       directories created may require attention.
+
+  -p   Specify PATH as the root directory of the disk cache.
+
+  -P   Specify PIDFILE as the file to write the pid to.
+
+  -R   Specify amount to round sizes up to.
+
+  -l   Specify LIMIT as the total disk cache size limit. Attach 'K',
+       'M' or 'G' to the number for specifying KBytes, MBytes or
+        GBytes.
+
+  -L   Specify LIMIT as the total disk cache inode limit. 'K', 'M' or
+       'G' suffix can also be used.
+
+  -i   Be intelligent and run only when there was a modification of
+       the disk cache. This option is only possible together with the
+       -d option.
+
+  -a   List the URLs currently stored in the cache. Variants of the
+       same URL will be listed once for each variant.
+
+  -A   List the URLs currently stored in the cache, along with their
+       attributes in the following order: url, header size, body size,
+       status, entity version, date, expiry, request time,
+       response time, body present, head request.
+
+Should an URL be provided on the command line, the URL will be
+deleted from the cache. A reverse proxied URL is made up as follows:
+http://<hostname>:<port><path>?[query]. So, for the path "/" on the
+host "localhost" and port 80, the URL to delete becomes
+"http://localhost:80/?". Note the '?' in the URL must always be
+specified explicitly, whether a query string is present or not.

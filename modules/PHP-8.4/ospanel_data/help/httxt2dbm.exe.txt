@@ -1,0 +1,17 @@
+httxt2dbm.exe -- Program to Create DBM Files for use by RewriteMap
+Usage: httxt2dbm.exe [-v] [-f format] -i SOURCE_TXT -o OUTPUT_DBM
+
+Options: 
+ -v    More verbose output
+
+ -i    Source Text File. If '-', use stdin.
+
+ -o    Output DBM.
+
+ -f    DBM Format.  If not specified, will use the APR Default.
+           GDBM for GDBM files (unavailable)
+           SDBM for SDBM files (available)
+           DB   for berkeley DB files (unavailable)
+           NDBM for NDBM files (unavailable)
+           default for the default DBM type
+

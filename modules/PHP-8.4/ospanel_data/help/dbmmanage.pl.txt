@@ -1,0 +1,21 @@
+dbmmanage MD5 passwords require the module Crypt::PasswdMD5 available from CPAN
+
+    http://www.cpan.org/modules/by-module/Crypt/Crypt-PasswdMD5-1.1.tar.gz
+
+Please install Crypt::PasswdMD5 and try again, or use a different crypt option:
+
+Usage: dbmmanage [enc] dbname command [username [pw [group[,group] [comment]]]]
+
+    where enc is  -d for crypt encryption (default except on Win32, Netware)
+                  -m for MD5 encryption (default on Win32, Netware)
+                  -s for SHA1 encryption
+                  -p for plaintext
+
+    command is one of: add|adduser|check|delete|import|update|view
+
+    pw of . for update command retains the old password
+    pw of - (or blank) for update command prompts for the password
+
+    groups or comment of . (or blank) for update command retains old values
+    groups or comment of - for update command clears the existing value
+    groups or comment of - for add and adduser commands is the empty value

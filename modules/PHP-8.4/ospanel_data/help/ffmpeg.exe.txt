@@ -1,0 +1,122 @@
+ffmpeg version n6.0-32-gd4a7a6e7fa-20230804 Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 13.1.0 (crosstool-NG 1.25.0.196_227d99d)
+  configuration: --prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-w64-mingw32- --arch=x86_64 --target-os=mingw32 --enable-gpl --enable-version3 --disable-debug --enable-shared --disable-static --disable-w32threads --enable-pthreads --enable-iconv --enable-libxml2 --enable-zlib --enable-libfreetype --enable-libfribidi --enable-gmp --enable-lzma --enable-fontconfig --enable-libvorbis --enable-opencl --disable-libpulse --enable-libvmaf --disable-libxcb --disable-xlib --enable-amf --enable-libaom --enable-libaribb24 --enable-avisynth --enable-chromaprint --enable-libdav1d --enable-libdavs2 --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --enable-frei0r --enable-libgme --enable-libkvazaar --enable-libass --enable-libbluray --disable-libjxl --enable-libmp3lame --enable-libopus --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-lv2 --enable-libvpl --enable-openal --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librav1e --enable-librubberband --enable-schannel --enable-sdl2 --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --disable-vaapi --enable-libvidstab --enable-vulkan --enable-libshaderc --disable-libplacebo --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-ldflags=-pthread --extra-ldexeflags= --extra-libs=-lgomp --extra-version=20230804
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
+
+Getting help:
+    -h      -- print basic options
+    -h long -- print more options
+    -h full -- print all options (including all format and codec specific options, very long)
+    -h type=name -- print all options for the named decoder/encoder/demuxer/muxer/filter/bsf/protocol
+    See man ffmpeg for detailed description of the options.
+
+Print help / information / capabilities:
+-L                  show license
+-h topic            show help
+-? topic            show help
+-help topic         show help
+--help topic        show help
+-version            show version
+-buildconf          show build configuration
+-formats            show available formats
+-muxers             show available muxers
+-demuxers           show available demuxers
+-devices            show available devices
+-codecs             show available codecs
+-decoders           show available decoders
+-encoders           show available encoders
+-bsfs               show available bit stream filters
+-protocols          show available protocols
+-filters            show available filters
+-pix_fmts           show available pixel formats
+-layouts            show standard channel layouts
+-sample_fmts        show available audio sample formats
+-dispositions       show available stream dispositions
+-colors             show available color names
+-sources device     list sources of the input device
+-sinks device       list sinks of the output device
+-hwaccels           show available HW acceleration methods
+
+Global options (affect whole program instead of just one file):
+-loglevel loglevel  set logging level
+-v loglevel         set logging level
+-report             generate a report
+-max_alloc bytes    set maximum size of a single allocated block
+-y                  overwrite output files
+-n                  never overwrite output files
+-ignore_unknown     Ignore unknown stream types
+-filter_threads     number of non-complex filter threads
+-filter_complex_threads  number of threads for -filter_complex
+-stats              print progress report during encoding
+-max_error_rate maximum error rate  ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success.
+
+Per-file main options:
+-f fmt              force format
+-c codec            codec name
+-codec codec        codec name
+-pre preset         preset name
+-map_metadata outfile[,metadata]:infile[,metadata]  set metadata information of outfile from infile
+-t duration         record or transcode "duration" seconds of audio/video
+-to time_stop       record or transcode stop time
+-fs limit_size      set the limit file size in bytes
+-ss time_off        set the start time offset
+-sseof time_off     set the start time offset relative to EOF
+-seek_timestamp     enable/disable seeking by timestamp with -ss
+-timestamp time     set the recording timestamp ('now' to set the current time)
+-metadata string=string  add metadata
+-program title=string:st=number...  add program with specified streams
+-target type        specify target file type ("vcd", "svcd", "dvd", "dv" or "dv50" with optional prefixes "pal-", "ntsc-" or "film-")
+-apad               audio pad
+-frames number      set the number of frames to output
+-filter filter_graph  set stream filtergraph
+-filter_script filename  read stream filtergraph description from a file
+-reinit_filter      reinit filtergraph on input parameter changes
+-discard            discard
+-disposition        disposition
+
+Video options:
+-vframes number     set the number of video frames to output
+-r rate             set frame rate (Hz value, fraction or abbreviation)
+-fpsmax rate        set max frame rate (Hz value, fraction or abbreviation)
+-s size             set frame size (WxH or abbreviation)
+-aspect aspect      set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)
+-display_rotation angle  set pure counter-clockwise rotation in degrees for stream(s)
+-display_hflip      set display horizontal flip for stream(s) (overrides any display rotation if it is not set)
+-display_vflip      set display vertical flip for stream(s) (overrides any display rotation if it is not set)
+-vn                 disable video
+-vcodec codec       force video codec ('copy' to copy stream)
+-timecode hh:mm:ss[:;.]ff  set initial TimeCode value.
+-pass n             select the pass number (1 to 3)
+-vf filter_graph    set video filters
+-b bitrate          video bitrate (please use -b:v)
+-dn                 disable data
+
+Audio options:
+-aframes number     set the number of audio frames to output
+-aq quality         set audio quality (codec-specific)
+-ar rate            set audio sampling rate (in Hz)
+-ac channels        set number of audio channels
+-an                 disable audio
+-acodec codec       force audio codec ('copy' to copy stream)
+-ab bitrate         audio bitrate (please use -b:a)
+-af filter_graph    set audio filters
+
+Subtitle options:
+-s size             set frame size (WxH or abbreviation)
+-sn                 disable subtitle
+-scodec codec       force subtitle codec ('copy' to copy stream)
+-stag fourcc/tag    force subtitle tag/fourcc
+-fix_sub_duration   fix subtitles duration
+-canvas_size size   set canvas size (WxH or abbreviation)
+-spre preset        set the subtitle options to the indicated preset
+
+

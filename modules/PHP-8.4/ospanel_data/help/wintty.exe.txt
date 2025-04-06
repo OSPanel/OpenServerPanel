@@ -1,0 +1,17 @@
+
+wintty: a utility for echoing the stdin stream to a new console window,
+	even when invoked from within a service (such as the Apache server.)
+	Also reflects the console input back to the stdout stream, allowing
+	the operator to respond to prompts from the context of a service.
+
+Syntax: wintty.exe [opts] [-t "Window Title"]
+
+  opts: -c{haracter}   or -l{ine} input
+	-q{uiet}       or -e{cho} input
+	-u{nprocessed} or -p{rocessed} input
+	-n{owrap}      or -w{rap} output lines
+	-f{ormatted}   or -r{aw} output lines
+	-O{output} [number of seconds]
+	-v{erbose} error reporting (for debugging)
+	-? for this message
+
