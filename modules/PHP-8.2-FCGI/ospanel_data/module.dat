@@ -11,7 +11,7 @@ license_type            = PHP License 3.01
 min_windows_ver         = 6.1.7601
 parent_module           = PHP-8.2
 timestamp               = 1651770000
-version                 = 8.2.19
+version                 = 8.2.26
 
 [docs]
 
