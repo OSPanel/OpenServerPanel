@@ -71,6 +71,10 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 | Windows 10 v1507 | 10.0.10240 | Limited |
 | Windows 10 v1511 | 10.0.10586 | Limited |
 
+## GUI
+
+![Open Server Panel GUI](./resources/screenshots/gui-en.png)
+
 ## Command Line Interface
 
 ![Open Server Panel Console](./resources/screenshots/cli-en.png)
@@ -149,6 +153,10 @@ Open Server Panel может запускаться на устаревших в
 | Windows Server 2012 R2 | 6.3.9600 | Ограниченная |
 | Windows 10 v1507 | 10.0.10240 | Ограниченная |
 | Windows 10 v1511 | 10.0.10586 | Ограниченная |
+
+## Графический интерфейс
+
+![Open Server Panel GUI](./resources/screenshots/gui.png)
 
 ## Интерфейс командной строки
 
