@@ -32,4 +32,4 @@ GS_DEVICE           =
 GS_FONTPATH         = %windir%\Fonts
 GS_LIB              = {root_dir}\addons\{addon_name}\lib
 GS_OPTIONS          =
-PATH                = {root_dir}\addons\{addon_name};%PATH%
+PATH                = {root_dir}\addons\{addon_name}\bin;%PATH%
