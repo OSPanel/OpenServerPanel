@@ -1,0 +1,49 @@
+ Usage: typer [--help] [--version] [--plt PLT] [--edoc]
+              [--show | --show-exported | --annotate | --annotate-inc-files | --annotate-in-place]
+              [-Ddefine]* [-I include_dir]* [-pa dir]* [-pz dir]*
+              [-T application]* [-r] file*
+
+ Options:
+   -r dir*
+       search directories recursively for .erl files below them
+   --show
+       Prints type specifications for all functions on stdout.
+       (this is the default behaviour; this option is not really needed)
+   --show-exported (or --show_exported)
+       Same as --show, but prints specifications for exported functions only
+       Specs are displayed sorted alphabetically on the function's name
+   --annotate
+       Annotates the specified files with type specifications and writes
+       the resulting files into a new typer_ann folder.
+   --annotate-inc-files
+       Same as --annotate but annotates all -include() files as well as
+       all .erl files
+   --annotate-in-place
+       Annotate directly on the source code files, instead of dumping the
+       annotated files in a different directory
+   --edoc
+       Prints type information as Edoc @spec comments, not as type specs
+   --plt PLT
+       Use the specified dialyzer PLT file rather than the default one
+       (Incremental and non-incremental PLT files are supported)
+   -T file*
+       The specified file(s) already contain type specifications and these
+       are to be trusted in order to print specs for the rest of the files
+       (Multiple files or dirs, separated by spaces, can be specified.)
+   -Dname (or -Dname=value)
+       pass the defined name(s) to TypEr
+       (The syntax of defines is the same as that used by "erlc".)
+   -I include_dir
+       pass the include_dir to TypEr
+       (The syntax of includes is the same as that used by "erlc".)
+   -pa dir
+   -pz dir
+       Set code path options to TypEr
+       (This is useful for files that use parse transforms.)
+   --version (or -v)
+       prints the Typer version and exits
+   --help (or -h)
+       prints this message and exits
+
+ Note:
+   * denotes that multiple occurrences of these options are possible.

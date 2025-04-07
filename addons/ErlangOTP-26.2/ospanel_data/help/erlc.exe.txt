@@ -1,0 +1,36 @@
+Usage: erlc [Options] file.ext ...
+Options:
+-b type        type of output file (e.g. beam)
+-d             turn on debugging of erlc itself
+-Dname         define name
+-Dname=value   define name to have value
+-help          shows this help text
+-I path        where to search for include files
+-M             generate a rule for make(1) describing the dependencies
+-MF file       write the dependencies to 'file'
+-MT target     change the target of the rule emitted by dependency generation
+-MQ target     same as -MT but quote characters special to make(1)
+-MG            consider missing headers as generated files and add them to the dependencies
+-MP            add a phony target for each dependency
+-MD            same as -M -MT file (with default 'file')
+-MMD           generate dependencies as a side-effect
+-o name        name output directory or file
+-pa path       add path to the front of Erlang's code path
+-pz path       add path to the end of Erlang's code path
+-v             verbose compiler output
+-Werror        make all warnings into errors
+-W0            disable warnings
+-Wnumber       set warning level to number
+-Wall          enable all warnings
+-W             enable warnings (default; same as -W1)
+-E             generate listing of expanded code (Erlang compiler)
+-S             generate assembly listing (Erlang compiler)
+-P             generate listing of preprocessed code (Erlang compiler)
+-enable-feature <feature>
+               enable <feature> when compiling (Erlang compiler)
+-disable-feature <feature>
+               disable <feature> when compiling (Erlang compiler)
+-list-features list short descriptions of available features (Erlang compiler)
+-describe-feature <feature>
+               show long description of <feature>
++term          pass the Erlang term unchanged to the compiler
