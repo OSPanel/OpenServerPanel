@@ -29,7 +29,7 @@
 
 ### Auxiliary utilities
 
-![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.7.1-7aba03) ![](https://img.shields.io/badge/dust-1.0.0-7aba03) ![](https://img.shields.io/badge/fd-9.0.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.75-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
+![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.12.1-7aba03) ![](https://img.shields.io/badge/dust-1.2.0-7aba03) ![](https://img.shields.io/badge/fd-10.2.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.86.1-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
 
 ### Distinctive сharacteristics
 
@@ -112,7 +112,7 @@ Open Server Panel can be run on older versions of Windows (x64), however with so
 
 ### Вспомогательные утилиты
 
-![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.7.1-7aba03) ![](https://img.shields.io/badge/dust-1.0.0-7aba03) ![](https://img.shields.io/badge/fd-9.0.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.75-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
+![](https://img.shields.io/badge/aria2c-1.37.0-7aba03) ![](https://img.shields.io/badge/bat-0.24.0-7aba03) ![](https://img.shields.io/badge/brotli-1.1.0-7aba03) ![](https://img.shields.io/badge/curl-8.12.1-7aba03) ![](https://img.shields.io/badge/dust-1.2.0-7aba03) ![](https://img.shields.io/badge/fd-10.2.0-7aba03) ![](https://img.shields.io/badge/gzip-1.13.0-7aba03) ![](https://img.shields.io/badge/jq-1.6-7aba03) ![](https://img.shields.io/badge/mmdbinspect-0.2.0-7aba03) ![](https://img.shields.io/badge/sass-1.86.1-7aba03) ![](https://img.shields.io/badge/sd-1.0.0-7aba03) ![](https://img.shields.io/badge/wget-1.21.4-7aba03) ![](https://img.shields.io/badge/xh-0.22.0-7aba03)
 
 ### Особенности
 
