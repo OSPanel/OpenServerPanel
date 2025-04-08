@@ -4,6 +4,7 @@
 
 architecture       = x64
 category           = DNS
+exclusive          = yes
 ipv6_support       = yes
 ip_separator       = no
 license            = https://github.com/NLnetLabs/unbound/blob/master/LICENSE

@@ -4,6 +4,7 @@
 
 architecture       = x64
 category           = Mail
+exclusive          = yes
 ipv6_support       = yes
 ip_separator       = no
 license            = https://raw.githubusercontent.com/rnwood/smtp4dev/refs/heads/master/LICENSE.md
