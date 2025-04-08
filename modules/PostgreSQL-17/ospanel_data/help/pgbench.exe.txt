@@ -6,7 +6,14 @@ Usage:
 Initialization options:
   -i, --initialize         invokes initialization mode
   -I, --init-steps=[dtgGvpf]+ (default "dtgvp")
-                           run selected initialization steps
+                           run selected initialization steps, in the specified order
+                           d: drop any existing pgbench tables
+                           t: create the tables used by the standard pgbench scenario
+                           g: generate data, client-side
+                           G: generate data, server-side
+                           v: invoke VACUUM on the standard tables
+                           p: create primary key indexes on the standard tables
+                           f: create foreign keys between the standard tables
   -F, --fillfactor=NUM     set fill factor
   -n, --no-vacuum          do not run VACUUM during initialization
   -q, --quiet              quiet logging (one message each 5 seconds)
@@ -48,6 +55,7 @@ Benchmarking options:
   -T, --time=NUM           duration of benchmark test in seconds
   -v, --vacuum-all         vacuum all four standard tables before tests
   --aggregate-interval=NUM aggregate data over NUM seconds
+  --exit-on-abort          exit when any client is aborted
   --failures-detailed      report the failures grouped by basic types
   --log-prefix=PREFIX      prefix for transaction time log file
                            (default: "pgbench_log")
@@ -59,7 +67,8 @@ Benchmarking options:
   --verbose-errors         print messages of all errors
 
 Common options:
-  -d, --debug              print debugging output
+  --debug                  print debugging output
+  -d, --dbname=DBNAME      database name to connect to
   -h, --host=HOSTNAME      database server host or socket directory
   -p, --port=PORT          database server port number
   -U, --username=USERNAME  connect as specified database user

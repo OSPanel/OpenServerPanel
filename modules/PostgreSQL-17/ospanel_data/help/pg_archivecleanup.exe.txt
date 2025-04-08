@@ -4,11 +4,14 @@ Usage:
   pg_archivecleanup [OPTION]... ARCHIVELOCATION OLDESTKEPTWALFILE
 
 Options:
-  -d             generate debug output (verbose mode)
-  -n             dry run, show the names of the files that would be removed
-  -V, --version  output version information, then exit
-  -x EXT         clean up files if they have this extension
-  -?, --help     show this help, then exit
+  -b, --clean-backup-history  clean up files including backup history files
+  -d, --debug                 generate debug output (verbose mode)
+  -n, --dry-run               dry run, show the names of the files that would be
+                              removed
+  -V, --version               output version information, then exit
+  -x, --strip-extension=EXT   strip this extension before identifying files for
+                              clean up
+  -?, --help                  show this help, then exit
 
 For use as archive_cleanup_command in postgresql.conf:
   archive_cleanup_command = 'pg_archivecleanup [OPTION]... ARCHIVELOCATION %r'

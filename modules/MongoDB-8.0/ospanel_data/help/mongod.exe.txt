@@ -62,6 +62,16 @@ General options:
   --clusterAuthMode arg                 Authentication mode used for cluster 
                                         authentication. Alternatives are 
                                         (keyFile|sendKeyFile|sendX509|x509)
+  --upgradeBackCompat                   Indicates to the process that it is 
+                                        being run as part of an upgrade 
+                                        process. No features or commands which 
+                                        would not be recognized by a previous 
+                                        binary version are used.
+  --downgradeBackCompat                 Indicates to the process that it is 
+                                        being run as part of an downgrade 
+                                        process. No features or commands which 
+                                        would not be recognized by a previous 
+                                        binary version are used.
 
 Replication options:
   --oplogSize arg                       Size to use (in MB) for replication op 
@@ -71,6 +81,7 @@ Replication options:
 Replica set options:
   --replSet arg                         arg is <setname>[/<optionalseedhostlist
                                         >]
+  --replSetName arg                     arg is <setname>
   --enableMajorityReadConcern [=arg(=1)] (=1)
                                         Enables majority readConcern. 
                                         enableMajorityReadConcern=false is no 
@@ -82,22 +93,37 @@ Serverless mode:
                                         replSetName.
 
 Sharding options:
-  --configsvr                           Declare this is a config db of a 
-                                        cluster; default port 27019; default 
-                                        dir /data/configdb
-  --shardsvr                            Declare this is a shard db of a 
-                                        cluster; default port 27018
+  --configsvr                           Assigns the config-server role to this 
+                                        node in a sharded cluster. The default 
+                                        listening port is 27019 and the default
+                                        database directory is /data/configdb.
+  --shardsvr                            Assigns the shard-server role to this 
+                                        node in a sharded cluster. The default 
+                                        listening port is 27018.
+  --routerPort [=arg(=27016)]           Assigns the router role to this node in
+                                        a sharded cluster, and results in 
+                                        listening to a dedicated port (27016 by
+                                        default) to serve routing requests.
+  --maintenanceMode arg                 Allows this node to skip starting up 
+                                        sharding components or both replication
+                                        and  sharding components. This allows 
+                                        for performing maintenance on this 
+                                        node. To skip  setting up just sharding
+                                        components use --maintenanceMode=replic
+                                        aSet. To skip setting  up both sharding
+                                        and replication components use 
+                                        --maintenanceMode=standalone.
 
 Storage options:
   --storageEngine arg                   What storage engine to use - defaults 
                                         to wiredTiger if no data files present
   --dbpath arg                          Directory for datafiles - defaults to 
-                                        \data\db\ which is C:\data\db\ based on
+                                        \data\db\ which is F:\data\db\ based on
                                         the current working drive
   --directoryperdb                      Each database will be stored in a 
                                         separate directory
-  --syncdelay arg (=60)                 Seconds between disk syncs
-  --journalCommitInterval arg (=100)    how often to group/batch commit (ms)
+  --syncdelay arg                       Seconds between disk syncs
+  --journalCommitInterval arg           how often to group/batch commit (ms)
   --upgrade                             Upgrade db if needed
   --repair                              Run repair on all dbs
   --restore                             This should only be used when restoring
@@ -110,22 +136,6 @@ Storage options:
   --oplogMinRetentionHours arg (=0)     Minimum number of hours to preserve in 
                                         the oplog. Default is 0 (turned off). 
                                         Fractions are allowed (e.g. 1.5 hours)
-
-Windows Service Control Manager options:
-  --install                             Install Windows service
-  --remove                              Remove Windows service
-  --reinstall                           Reinstall Windows service (equivalent 
-                                        to --remove followed by --install)
-  --serviceName arg                     Windows service name
-  --serviceDisplayName arg              Windows service display name
-  --serviceDescription arg              Windows service description
-  --serviceUser arg                     Account for service execution
-  --servicePassword arg                 Password used to authenticate 
-                                        serviceUser
-
-AWS IAM Options:
-  --awsIamSessionToken arg              AWS Session Token for temporary 
-                                        credentials
 
 WiredTiger options:
   --wiredTigerCacheSizeGB arg           Maximum amount of memory to allocate 
@@ -145,6 +155,18 @@ WiredTiger options:
   --wiredTigerIndexPrefixCompression arg (=1)
                                         Use prefix compression on row-store 
                                         leaf pages
+
+Windows Service Control Manager options:
+  --install                             Install Windows service
+  --remove                              Remove Windows service
+  --reinstall                           Reinstall Windows service (equivalent 
+                                        to --remove followed by --install)
+  --serviceName arg                     Windows service name
+  --serviceDisplayName arg              Windows service display name
+  --serviceDescription arg              Windows service description
+  --serviceUser arg                     Account for service execution
+  --servicePassword arg                 Password used to authenticate 
+                                        serviceUser
 
 TLS Options:
   --tlsOnNormalPorts                    Use TLS on configured ports
@@ -204,4 +226,8 @@ TLS Options:
                                         the exact attributes and values 
                                         provided in this config option to be  
                                         treated as peer cluster nodes.
+
+AWS IAM Options:
+  --awsIamSessionToken arg              AWS Session Token for temporary 
+                                        credentials
 

@@ -13,13 +13,13 @@ Options:
    -n   Don't update database; display results on stdout.
    -b   Use the password from the command line rather than prompting for it.
    -i   Read password from stdin without verification (for script usage).
-   -m   Force MD5 encryption of the password (default).
-   -B   Force BCRYPT encryption of the password (very secure).
+   -m   Force MD5 hashing of the password (default).
+   -B   Force BCRYPT hashing of the password (very secure).
    -C   Set the computing time used for the bcrypt algorithm
         (higher is more secure but slower, default: 5, valid: 4 to 31).
-   -d   Force CRYPT encryption of the password (8 chars max, insecure).
-   -s   Force SHA encryption of the password (insecure).
-   -p   Do not encrypt the password (plaintext, insecure).
+   -d   Force CRYPT hashing of the password (8 chars max, insecure).
+   -s   Force SHA hashing of the password (insecure).
+   -p   Do not hash the password (plaintext, insecure).
    -T   DBM Type (SDBM|GDBM|DB|default).
    -l   Display usernames from database on stdout.
    -v   Verify the username/password.

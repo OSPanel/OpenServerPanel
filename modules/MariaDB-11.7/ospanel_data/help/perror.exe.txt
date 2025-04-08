@@ -1,4 +1,4 @@
-perror.exe from 11.2.2-MariaDB, client 2.11 for Win64 (AMD64)
+perror.exe from 11.7.2-MariaDB, client 2.11 for Win64 (AMD64)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Print a description for a system error code or a MariaDB error code.

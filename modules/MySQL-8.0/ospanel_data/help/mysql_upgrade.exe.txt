@@ -1,5 +1,5 @@
-mysql_upgrade  Ver 8.0.35 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+mysql_upgrade  Ver 8.0.41 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -12,8 +12,6 @@ The upgrade process automatically starts on running a new MySQL binary with an o
 It may be possible that the server upgrade fails due to a number of reasons. In that case, the upgrade sequence will run again during the next MySQL server start. If the server upgrade fails repeatedly, the server can be started with the --upgrade=MINIMAL option to start the server without executing the upgrade sequence, thus allowing users to manually rectify the problem.
 Usage: mysql_upgrade [OPTIONS]
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.0\my.ini C:\OSPanel\modules\MySQL-8.0\my.cnf 
 The following groups are read: client mysql_upgrade
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.

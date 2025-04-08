@@ -1,4 +1,4 @@
-mariadb-check.exe from 11.2.2-MariaDB, client 2.8 for Win64 (AMD64)
+mariadb-check.exe from 11.4.5-MariaDB, client 2.8 for Win64 (AMD64)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 This program can be used to CHECK (-c, -m, -C), REPAIR (-r), ANALYZE (-a),
@@ -20,8 +20,6 @@ Please consult the MariaDB Knowledge Base at
 https://mariadb.com/kb/en/mysqlcheck for latest information about
 this program.
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: mysqlcheck mariadb-check client client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.
@@ -116,10 +114,13 @@ The following specify which files/extra groups are read (specified before remain
   --ssl-crl=name      Certificate revocation list (implies --ssl).
   --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
   --tls-version=name  TLS protocol version for secure connection.
+  --ssl-fp=name       Server certificate fingerprint (implies --ssl).
+  --ssl-fplist=name   File with accepted server certificate fingerprints, one
+                      per line (implies --ssl).
   --ssl-verify-server-cert 
-                      Verify server's "Common Name" in its cert against
-                      hostname used when connecting. This option is disabled by
-                      default.
+                      Verify server's certificate to prevent man-in-the-middle
+                      attacks
+                      (Defaults to on; use --skip-ssl-verify-server-cert to disable.)
   --tables            Overrides option --databases (-B).
   --use-frm           When used with REPAIR, get table structure from .frm
                       file, so the table can be repaired even if .MYI header is

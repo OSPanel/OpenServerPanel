@@ -1,4 +1,4 @@
-mysqld.exe  Ver 11.2.2-MariaDB for Win64 on AMD64 (mariadb.org binary distribution)
+mysqld.exe  Ver 11.4.5-MariaDB for Win64 on AMD64 (mariadb.org binary distribution)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Starts the MariaDB database server.
@@ -14,10 +14,7 @@ NT and Win32 specific options:
   --enable-named-pipe           Only to be used for the default server (NT).
   --standalone                  Dummy option to start as a standalone server (NT).
 
-
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
-The following groups are read: mysqld server mysqld-11.2 mariadb mariadb-11.2 mariadbd mariadbd-11.2 client-server
+The following groups are read: mysqld server mysqld-11.4 mariadb mariadb-11.4 mariadbd mariadbd-11.4 client-server
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.
 --no-defaults             Don't read default options from any option file.
@@ -194,9 +191,26 @@ The following specify which files/extra groups are read (specified before remain
                       involve user-defined functions (i.e. UDFs) or the UUID()
                       function; for those, row-based binary logging is
                       automatically used.
+  --binlog-gtid-index Enable the creation of a GTID index for every binlog
+                      file, and the use of such index for speeding up GTID
+                      lookup in the binlog.
+                      (Defaults to on; use --skip-binlog-gtid-index to disable.)
+  --binlog-gtid-index-page-size=# 
+                      Page size to use for the binlog GTID index.
+  --binlog-gtid-index-span-min=# 
+                      Control sparseness of the binlog GTID index. If set to N,
+                      at most one index record will be added for every N bytes
+                      of binlog file written, to reduce the size of the index.
+                      Normally does not need tuning.
   --binlog-ignore-db=name 
                       Tells the master that updates to the given database
                       should not be logged to the binary log.
+  --binlog-legacy-event-pos 
+                      Fill in the end_log_pos field of _all_ events in the
+                      binlog, even when doing so costs performance. Can be used
+                      in case some old application needs it for backwards
+                      compatibility. Setting this option can hurt binlog
+                      scalability.
   --binlog-optimize-thread-scheduling 
                       Run fast part of group commit in a single thread, to
                       optimize kernel thread scheduling. On by default. Disable
@@ -212,30 +226,35 @@ The following specify which files/extra groups are read (specified before remain
                       size if possible. The value has to be a multiple of 256.
   --binlog-row-image=name 
                       Controls whether rows should be logged in 'FULL',
-                      'NOBLOB' or 'MINIMAL' formats. 'FULL', means that all
-                      columns in the before and after image are logged.
-                      'NOBLOB', means that mysqld avoids logging blob columns
-                      whenever possible (eg, blob column was not changed or is
-                      not part of primary key). 'MINIMAL', means that a PK
-                      equivalent (PK columns or full row if there is no PK in
-                      the table) is logged in the before image, and only
-                      changed columns are logged in the after image. (Default:
-                      FULL).
+                      'FULL_NODUP', 'NOBLOB' or 'MINIMAL' formats. 'FULL',
+                      means that all columns in the before and after image are
+                      logged. 'FULL_NODUP', means that all columns are logged
+                      in before image, but only changed columns or all columns
+                      of inserted record are logged in after image, 'NOBLOB',
+                      means that mysqld avoids logging blob columns whenever
+                      possible (eg, blob column was not changed or is not part
+                      of primary key). 'MINIMAL', means that a PK equivalent
+                      (PK columns or full row if there is no PK in the table)
+                      is logged in the before image, and only changed columns
+                      are logged in the after image. (Default: FULL).
   --binlog-row-metadata=name 
                       Controls whether metadata is logged using FULL , MINIMAL
                       format and NO_LOG.FULL causes all metadata to be logged;
                       MINIMAL means that only metadata actually required by
                       slave is logged; NO_LOG NO metadata will be
                       logged.Default: NO_LOG.
+  --binlog-space-limit=# 
+                      Alias for max_binlog_total_size. Compatibility with
+                      Percona server.
   --binlog-stmt-cache-size=# 
                       The size of the statement cache for updates to
                       non-transactional engines for the binary log. If you
                       often use statements updating a great number of rows, you
                       can increase this to get more performance.
-  --block-encryption-mode=name
+  --block-encryption-mode=name 
                       Default block encryption mode for AES_ENCRYPT() and
                       AES_DECRYPT() functions. One of: aes-128-ecb, aes-192-ecb,
-                      aes-256-ecb, aes-128-cbc, aes-192-cbc, aes-256-cbc,
+                      aes-256-ecb, aes-128-cbc, aes-192-cbc, aes-256-cbc, 
                       aes-128-ctr, aes-192-ctr, aes-256-ctr
   --bootstrap         Used by mysql installation scripts.
   --bulk-insert-buffer-size=# 
@@ -245,7 +264,7 @@ The following specify which files/extra groups are read (specified before remain
                       Don't ignore client side character set value sent during
                       handshake.
                       (Defaults to on; use --skip-character-set-client-handshake to disable.)
-  --character-set-collations=name
+  --character-set-collations=name 
                       Overrides for character set default collations.
   --character-set-filesystem=name 
                       Set the filesystem character set.
@@ -298,9 +317,6 @@ The following specify which files/extra groups are read (specified before remain
   --core-file         Write core on crashes
                       (Defaults to on; use --skip-core-file to disable.)
   -h, --datadir=name  Path to the database root directory
-  --date-format=name  The DATE format (ignored)
-  --datetime-format=name 
-                      The DATETIME format (ignored)
   --deadlock-search-depth-long=# 
                       Long search depth for the two-step deadlock detection
   --deadlock-search-depth-short=# 
@@ -326,9 +342,6 @@ The following specify which files/extra groups are read (specified before remain
                       replication.
   --debug-no-sync     Disables system sync calls. Only for running tests or
                       debugging!
-  --debug-no-thread-alarm 
-                      Disable system thread alarm calls. Disabling it may be
-                      useful in debugging or testing, never do it in production
   --debug-sporadic-binlog-dump-fail 
                       Option used by mysql-test for debugging and testing of
                       replication.
@@ -576,6 +589,9 @@ The following specify which files/extra groups are read (specified before remain
   --innodb-adaptive-hash-index-parts[=#] 
                       Number of InnoDB Adaptive Hash Index Partitions (default
                       8)
+  --innodb-alter-copy-bulk 
+                      Allow bulk insert operation for copy alter operation
+                      (Defaults to on; use --skip-innodb-alter-copy-bulk to disable.)
   --innodb-autoextend-increment=# 
                       Data file autoextend increment in megabytes
   --innodb-autoinc-lock-mode=# 
@@ -717,10 +733,11 @@ The following specify which files/extra groups are read (specified before remain
                       dynamic
   --innodb-disable-sort-file-cache 
                       Whether to disable OS system file cache for sort I/O
-  --innodb-doublewrite 
-                      Enable InnoDB doublewrite buffer (enabled by default).
-                      Disable with --skip-innodb-doublewrite.
-                      (Defaults to on; use --skip-innodb-doublewrite to disable.)
+  --innodb-doublewrite[=name] 
+                      Whether and how to use the doublewrite buffer. OFF=Assume
+                      that writes of innodb_page_size are atomic; ON=Prevent
+                      torn writes (the default); fast=Like ON, but do not
+                      synchronize writes to data files
   --innodb-encrypt-log 
                       Enable redo log encryption
   --innodb-encrypt-tables[=name] 
@@ -871,14 +888,21 @@ The following specify which files/extra groups are read (specified before remain
                       Redo log buffer size in bytes.
   --innodb-log-file-buffering 
                       Whether the file system cache for ib_logfile0 is enabled
+  --innodb-log-file-mmap 
+                      Whether ib_logfile0 resides in persistent memory (when
+                      supported) or should initially be memory-mapped
   --innodb-log-file-size=# 
                       Redo log size in bytes.
   --innodb-log-file-write-through 
                       Whether each write to ib_logfile0 is write through
   --innodb-log-group-home-dir=name 
                       Path to ib_logfile0
-  --innodb-lru-flush-size=# 
-                      How many pages to flush on LRU eviction
+  --innodb-log-spin-wait-delay[=#] 
+                      Delay between log buffer spin lock polls (0 to use a
+                      blocking latch)
+  --innodb-log-write-ahead-size=# 
+                      Redo log write size to avoid read-on-write; must be a
+                      power of two
   --innodb-lru-scan-depth=# 
                       How deep to scan LRU to keep it clean
   --innodb-max-dirty-pages-pct=# 
@@ -934,8 +958,6 @@ The following specify which files/extra groups are read (specified before remain
   --innodb-purge-batch-size[=#] 
                       Number of UNDO log pages to purge in one batch from the
                       history list.
-  --innodb-purge-rseg-truncate-frequency[=#] 
-                      Deprecated parameter with no effect
   --innodb-purge-threads[=#] 
                       Number of tasks for purging transaction history
   --innodb-random-read-ahead 
@@ -952,6 +974,8 @@ The following specify which files/extra groups are read (specified before remain
   --innodb-rollback-on-timeout 
                       Roll back the complete transaction on lock wait timeout,
                       for 4.x compatibility (disabled by default)
+  --innodb-snapshot-isolation 
+                      Use snapshot isolation (write-write conflict detection).
   --innodb-sort-buffer-size=# 
                       Memory buffer size for index creation
   --innodb-spin-wait-delay[=#] 
@@ -1065,6 +1089,8 @@ The following specify which files/extra groups are read (specified before remain
                       Path to files and their sizes making temp-tablespace.
   --innodb-tmpdir[=name] 
                       Directory for temporary non-tablespace files.
+  --innodb-truncate-temporary-tablespace-now 
+                      Shrink the temporary tablespace
   --innodb-trx[=name] Enable or disable INNODB_TRX plugin. One of: ON, OFF,
                       FORCE (don't start if the plugin fails to load),
                       FORCE_PLUS_PERMANENT (like FORCE, but the plugin can not
@@ -1200,13 +1226,13 @@ The following specify which files/extra groups are read (specified before remain
                       Log only certain types of queries to the slow log. If
                       variable empty all kind of queries are logged.  All types
                       are bound by slow_query_time, except 'not_using_index'
-                      which is always logged if enabled. Any combination of:
-                      admin, filesort, filesort_on_disk,
+                      which is always logged if enabled. Any combination of: 
+                      admin, filesort, filesort_on_disk, 
                       filesort_priority_queue, full_join, full_scan, 
                       not_using_index, query_cache, query_cache_miss, tmp_table,
                       tmp_table_on_disk
   Use 'ALL' to set all combinations.
-  --log-slow-max-warnings=#
+  --log-slow-max-warnings=# 
                       Max numbers of warnings printed to slow query log per
                       statement
   --log-slow-min-examined-row-limit=# 
@@ -1243,9 +1269,8 @@ The following specify which files/extra groups are read (specified before remain
                       when binary log is disabled).
   --log-tc-size=#     Size of transaction coordinator log.
   -W, --log-warnings[=#] 
-                      Log some not critical warnings to the general log
-                      file.Value can be between 0 and 11. Higher values mean
-                      more verbosity
+                      Log some non critical warnings to the error log.Value can
+                      be between 0 and 11. Higher values mean more verbosity
   --long-query-time=# Alias for log_slow_query_time. Log all queries that have
                       taken more than long_query_time seconds to execute to the
                       slow query log file. The argument will be treated as a
@@ -1275,6 +1300,11 @@ The following specify which files/extra groups are read (specified before remain
                       exceeds this value.
   --max-binlog-stmt-cache-size=# 
                       Sets the total size of the statement cache
+  --max-binlog-total-size=# 
+                      Maximum space to use for all binary logs. Extra logs are
+                      deleted on server start, log rotation, FLUSH LOGS or when
+                      writing to binlog. Default is 0, which means no size
+                      restrictions. See also slave_connections_needed_for_purge
   --max-connect-errors=# 
                       If there is more than this number of interrupted
                       connections from a host this host will be blocked from
@@ -1325,7 +1355,6 @@ The following specify which files/extra groups are read (specified before remain
                       seconds will be aborted. The argument will be treated as
                       a decimal value with microsecond precision. A value of 0
                       (default) means no timeout
-  --max-tmp-tables=#  Unused, will be removed.
   --max-user-connections=# 
                       The maximum number of active connections for a single
                       user (0 = no limit)
@@ -1385,9 +1414,9 @@ The following specify which files/extra groups are read (specified before remain
   --net-write-timeout=# 
                       Number of seconds to wait for a block to be written to a
                       connection before aborting the write
-  --note-verbosity=name
+  --note-verbosity=name 
                       Verbosity level for note-warnings given to the user. See
-                      also @@sql_notes.. Any combination of: basic,
+                      also @@sql_notes.. Any combination of: basic, 
                       unusable_keys, explain
   Use 'ALL' to set all combinations.
   --old               Use compatible behavior from previous MariaDB version.
@@ -1396,8 +1425,8 @@ The following specify which files/extra groups are read (specified before remain
                       MySQL versions. Any combination of: 
                       NO_DUP_KEY_WARNINGS_WITH_IGNORE, NO_PROGRESS_INFO, 
                       ZERO_DATE_TIME_CAST, UTF8_IS_UTF8MB3, 
-                      IGNORE_INDEX_ONLY_FOR_JOIN, COMPAT_5_1_CHECKSUM,
-                      LOCK_ALTER_TABLE_COPY
+                      IGNORE_INDEX_ONLY_FOR_JOIN, COMPAT_5_1_CHECKSUM, 
+                      NO_NULL_COLLATION_IDS, LOCK_ALTER_TABLE_COPY
   Use 'ALL' to set all combinations.
   --old-passwords     Use old password encryption method (needed for 4.0 and
                       older clients)
@@ -1412,6 +1441,8 @@ The following specify which files/extra groups are read (specified before remain
                       max_connections*5 or max_connections + table_cache*2
                       (whichever is larger) number of file descriptors
                       (Automatically configured unless set explicitly)
+  --optimizer-adjust-secondary-key-costs=# 
+                      Unused, will be removed.
   --optimizer-disk-read-cost=# 
                       Cost of reading a block of IO_SIZE (4096) from a disk (in
                       usec).
@@ -1428,6 +1459,15 @@ The following specify which files/extra groups are read (specified before remain
   --optimizer-index-block-copy-cost=# 
                       Cost of copying a key block from the cache to intern
                       storage as part of an index scan.
+  --optimizer-join-limit-pref-ratio=# 
+                      For queries with JOIN and ORDER BY LIMIT : make the
+                      optimizer consider a join order that allows to short-cut
+                      execution after producing #LIMIT matches if that promises
+                      N times speedup. (A conservative setting here would be is
+                      a high value, like 100 so the short-cutting plan is used
+                      if it promises a speedup of 100x or more). Short-cutting
+                      plans are inherently risky so the default is 0 which
+                      means do not consider this optimization
   --optimizer-key-compare-cost=# 
                       Cost of checking a key against the end key condition.
   --optimizer-key-copy-cost=# 
@@ -1441,7 +1481,7 @@ The following specify which files/extra groups are read (specified before remain
   --optimizer-max-sel-arg-weight=# 
                       The maximum weight of the SEL_ARG graph. Set to 0 for no
                       limit
-  --optimizer-max-sel-args=#
+  --optimizer-max-sel-args=# 
                       The maximum number of SEL_ARG objects created when
                       optimizing a range. If more objects would be needed, the
                       range will not be used by the optimizer.
@@ -1483,20 +1523,19 @@ The following specify which files/extra groups are read (specified before remain
                       list of option=value pairs, where value is on, off, or
                       default, and options are: index_merge, index_merge_union,
                       index_merge_sort_union, index_merge_intersection, 
-                      index_merge_sort_intersection, engine_condition_pushdown,
-                      index_condition_pushdown, derived_merge, 
-                      derived_with_keys, firstmatch, loosescan, materialization,
-                      in_to_exists, semijoin, partial_match_rowid_merge, 
-                      partial_match_table_scan, subquery_cache, mrr, 
-                      mrr_cost_based, mrr_sort_keys, outer_join_with_cache, 
-                      semijoin_with_cache, join_cache_incremental, 
-                      join_cache_hashed, join_cache_bka, 
+                      index_merge_sort_intersection, index_condition_pushdown, 
+                      derived_merge, derived_with_keys, firstmatch, loosescan, 
+                      materialization, in_to_exists, semijoin, 
+                      partial_match_rowid_merge, partial_match_table_scan, 
+                      subquery_cache, mrr, mrr_cost_based, mrr_sort_keys, 
+                      outer_join_with_cache, semijoin_with_cache, 
+                      join_cache_incremental, join_cache_hashed, join_cache_bka,
                       optimize_join_buffer_size, table_elimination, 
                       extended_keys, exists_to_in, orderby_uses_equalities, 
                       condition_pushdown_for_derived, split_materialized, 
                       condition_pushdown_for_subquery, rowid_filter, 
                       condition_pushdown_from_having, not_null_range_scan, 
-                      hash_join_cardinality, cset_narrowing
+                      hash_join_cardinality, cset_narrowing, sargable_casefold
   --optimizer-trace=name 
                       Controls tracing of the Optimizer:
                       optimizer_trace=option=val[,option=val...], where option
@@ -1765,6 +1804,8 @@ The following specify which files/extra groups are read (specified before remain
   --read-rnd-buffer-size=# 
                       When reading rows in sorted order after a sort, the rows
                       are read through this buffer to avoid a disk seeks
+  --redirect-url=name URL of another server to redirect clients to. Empty
+                      string means no redirection
   --relay-log=name    The location and name to use for relay logs.
   --relay-log-index=name 
                       The location and name to use for the file that keeps a
@@ -1888,7 +1929,7 @@ The following specify which files/extra groups are read (specified before remain
                       The tracing level for semi-sync replication.
   --rpl-semi-sync-master-wait-no-slave 
                       Wait until timeout when no semi-synchronous replication
-                      slave available (enabled by default).
+                      slave is available.
                       (Defaults to on; use --skip-rpl-semi-sync-master-wait-no-slave to disable.)
   --rpl-semi-sync-master-wait-point=name 
                       Should transaction wait for semi-sync ack after having
@@ -1959,6 +2000,11 @@ The following specify which files/extra groups are read (specified before remain
   --skip-slave-start  If set, slave is not autostarted.
   --slave-compressed-protocol 
                       Use compression on master/slave protocol
+  --slave-connections-needed-for-purge=# 
+                      Minimum number of connected slaves required for automatic
+                      binary log purge with max_binlog_total_size,
+                      binlog_expire_logs_seconds or binlog_expire_logs_days.
+                      Default is 0 when Galera is enabled and 1 otherwise.
   --slave-ddl-exec-mode=name 
                       How replication events should be executed. Legal values
                       are STRICT and IDEMPOTENT (default). In IDEMPOTENT mode,
@@ -2104,6 +2150,7 @@ The following specify which files/extra groups are read (specified before remain
                       deleting or updating every row in a table.
   --ssl               Enable SSL for connection (automatically enabled if an
                       ssl option is used).
+                      (Defaults to on; use --skip-ssl to disable.)
   --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies --ssl)
   --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl)
   --ssl-cert=name     X509 cert in PEM format (implies --ssl)
@@ -2205,8 +2252,9 @@ The following specify which files/extra groups are read (specified before remain
   --thread-pool-min-threads=# 
                       Minimum number of threads in the thread pool.
   --thread-pool-mode=name 
-                      Chose implementation of the threadpool. One of: windows, 
-                      generic
+                      Chose implementation of the threadpool. Use 'windows'
+                      unless you have a workload with a lot of concurrent
+                      connections and minimal contention
   --thread-pool-oversubscribe=# 
                       How many additional active worker threads in a group are
                       allowed.
@@ -2245,7 +2293,6 @@ The following specify which files/extra groups are read (specified before remain
                       FORCE_PLUS_PERMANENT (like FORCE, but the plugin can not
                       be uninstalled).
   --thread-stack=#    The stack size for each thread
-  --time-format=name  The TIME format (ignored)
   --tls-version=name  TLS protocol version for secure connections.. Any
                       combination of: TLSv1.0, TLSv1.1, TLSv1.2, TLSv1.3
   Use 'ALL' to set all combinations.

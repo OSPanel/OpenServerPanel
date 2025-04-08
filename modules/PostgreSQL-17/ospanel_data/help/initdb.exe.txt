@@ -19,7 +19,9 @@ Options:
                             set default locale in the respective category for
                             new databases (default taken from environment)
       --no-locale           equivalent to --locale=C
-      --locale-provider={libc|icu}
+      --builtin-locale=LOCALE
+                            set builtin locale name for new databases
+      --locale-provider={builtin|libc|icu}
                             set default locale provider for new databases
       --pwfile=FILE         read password for the new superuser from file
   -T, --text-search-config=CFG
@@ -37,7 +39,8 @@ Less commonly used options:
   -n, --no-clean            do not clean up after errors
   -N, --no-sync             do not wait for changes to be written safely to disk
       --no-instructions     do not print instructions for next steps
-  -s, --show                show internal settings
+  -s, --show                show internal settings, then exit
+      --sync-method=METHOD  set method for syncing files to disk
   -S, --sync-only           only sync database files to disk, then exit
 
 Other options:

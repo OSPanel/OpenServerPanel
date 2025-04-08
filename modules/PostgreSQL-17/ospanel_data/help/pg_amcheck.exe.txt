@@ -27,6 +27,7 @@ Table checking options:
       --endblock=BLOCK            check table(s) only up to the given block number
 
 B-tree index checking options:
+      --checkunique               check unique constraint if index is unique
       --heapallindexed            check that all heap tuples are found within indexes
       --parent-check              check index parent/child relationships
       --rootdescend               search from root page to refind tuples

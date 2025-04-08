@@ -1,6 +1,6 @@
 WARNING: mysqlpump is deprecated and will be removed in a future version. Use mysqldump instead.
-mysqlpump  Ver 8.0.35 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2014, 2023, Oracle and/or its affiliates.
+mysqlpump  Ver 8.0.41 for Win64 on x86_64 (MySQL Community Server - GPL)
+Copyright (c) 2014, 2025, Oracle and/or its affiliates.
 
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
@@ -11,8 +11,6 @@ Usage: mysqlpump [OPTIONS] [--all-databases]
 OR     mysqlpump [OPTIONS] --databases DB1 [DB2 DB3...]
 OR     mysqlpump [OPTIONS] database [tables]
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.0\my.ini C:\OSPanel\modules\MySQL-8.0\my.cnf 
 The following groups are read: client mysql_dump mysqlpump
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.

@@ -1,4 +1,4 @@
-replace.exe from 11.2.2-MariaDB, client 1.4 for Win64 (AMD64)
+replace.exe from 11.4.5-MariaDB, client 1.4 for Win64 (AMD64)
 This software comes with ABSOLUTELY NO WARRANTY. This is free software,
 and you are welcome to modify and redistribute it under the GPL license
 

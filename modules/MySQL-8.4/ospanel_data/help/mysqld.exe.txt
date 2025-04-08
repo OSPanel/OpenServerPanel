@@ -1,18 +1,3 @@
-2023-12-16T22:33:18.184339-00:00 0 [Note] [MY-013667] [Server] Error-log destination "stderr" is not a file. Can not restore error log messages from previous run.
-2023-12-16T22:33:18.177866-00:00 0 [Note] [MY-013847] [Server] Using jemalloc.dll for my_malloc and ut::malloc etc.
-2023-12-16T22:33:18.185863-00:00 0 [Note] [MY-010747] [Server] Plugin 'FEDERATED' is disabled.
-2023-12-16T22:33:18.185937-00:00 0 [Note] [MY-010747] [Server] Plugin 'ndbcluster' is disabled.
-2023-12-16T22:33:18.185954-00:00 0 [Note] [MY-010747] [Server] Plugin 'ndbinfo' is disabled.
-2023-12-16T22:33:18.185965-00:00 0 [Note] [MY-010747] [Server] Plugin 'ndb_transid_mysql_connection_map' is disabled.
-mysqld.exe  Ver 8.2.0 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2023, Oracle and/or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Starts the MySQL database server.
-
 Usage: mysqld.exe [OPTIONS]
 NT and Win32 specific options:
   --install                     Install the default service (NT).
@@ -24,10 +9,7 @@ NT and Win32 specific options:
   --enable-named-pipe           Only to be used for the default server (NT).
   --standalone                  Dummy option to start as a standalone server (NT).
 
-
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.2\my.ini C:\OSPanel\modules\MySQL-8.2\my.cnf
-The following groups are read: mysql_cluster mysqld server mysqld-8.2
+The following groups are read: mysql_cluster mysqld server mysqld-8.4
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.
 --no-defaults           Don't read default options from any option file,
@@ -57,29 +39,23 @@ The following options may be given as the first argument:
                       socket creation.
   --admin-port=#      Port number to use for service connection, built-in
                       default (33062)
-  --admin-ssl         Enable SSL for admin interface (automatically enabled
-                      with other flags).
-                      (Defaults to on; use --skip-admin-ssl to disable.)
-  --admin-ssl-ca=name CA file in PEM format (check OpenSSL docs, implies --ssl)
-                      for --admin-port
+  --admin-ssl-ca=name CA file in PEM format (check OpenSSL docs) for
+                      --admin-port
   --admin-ssl-capath=name 
-                      CA directory (check OpenSSL docs, implies --ssl) for
-                      --admin-port
+                      CA directory (check OpenSSL docs) for --admin-port
   --admin-ssl-cert=name 
-                      X509 cert in PEM format (implies --ssl) for --admin-port
+                      X509 cert in PEM format for --admin-port
   --admin-ssl-cipher=name 
-                      SSL cipher to use (implies --ssl) for --admin-port
+                      SSL cipher to use for --admin-port
   --admin-ssl-crl=name 
-                      CRL file in PEM format (check OpenSSL docs, implies
-                      --ssl) for --admin-port
+                      CRL file in PEM format (check OpenSSL docs) for
+                      --admin-port
   --admin-ssl-crlpath=name 
-                      CRL directory (check OpenSSL docs, implies --ssl) for
-                      --admin-port
+                      CRL directory (check OpenSSL docs) for --admin-port
   --admin-ssl-key=name 
-                      X509 key in PEM format (implies --ssl) for --admin-port
+                      X509 key in PEM format for --admin-port
   --admin-tls-ciphersuites=name 
-                      TLS v1.3 ciphersuite to use (implies --ssl) for
-                      --admin-port
+                      TLS v1.3 ciphersuite to use for --admin-port
   --admin-tls-version=name 
                       TLS version for --admin-port, permitted values are
                       TLSv1.2, TLSv1.3
@@ -96,17 +72,19 @@ The following options may be given as the first argument:
                       Defines policies around how user account can be
                       configured with Multi Factor authentication methods
                       during CREATE/ALTER USER statement. This variable accepts
-                      at-most 3 comma separated list of authentication plugin
-                      names where each value refers to what authentication
-                      plugin should be used in place of 1st Factor
-                      Authentication (FA), 2FA and 3FA method. Value *
-                      indicates any plugin is allowed for 1FA, 2FA and 3FA
-                      method. An empty value means nth FA method is optional.
+                      at-most 3 comma separated list of authentication factor
+                      descriptions. Allowed factor descriptions are: (empty) -
+                      factor is optional, any authentication method is allowed.
+                      * - factor is mandatory, any authentication method is
+                      allowed. <plugin> - <plugin> is mandatory authentication
+                      method. *:<plugin> - factor is mandatory, <plugin> is
+                      default authentication method. The first factor cannot be
+                      optional and if neither mandatory nor default method is
+                      specified, caching_sha2_password is assumed as default.
   --auto-generate-certs 
-                      Auto generate SSL certificates at server startup if --ssl
-                      is set to ON and none of the other SSL system variables
-                      are specified and certificate/key files are not present
-                      in data directory.
+                      Auto generate SSL certificates at server startup if none
+                      of the other SSL system variables are specified and
+                      certificate/key files are not present in data directory.
                       (Defaults to on; use --skip-auto-generate-certs to disable.)
   --auto-increment-increment[=#] 
                       Auto-increment columns are incremented by this
@@ -118,12 +96,6 @@ The following options may be given as the first argument:
   --automatic-sp-privileges 
                       Creating and dropping stored procedures alters ACLs
                       (Defaults to on; use --skip-automatic-sp-privileges to disable.)
-  --avoid-temporal-upgrade 
-                      When this option is enabled, the pre-5.6.4 temporal types
-                      are not upgraded to the new format for ALTER TABLE
-                      requests ADD/CHANGE/MODIFY COLUMN, ADD INDEX or FORCE
-                      operation. This variable is deprecated and will be
-                      removed in a future release.
   --back-log=#        The number of outstanding connection requests MySQL can
                       have. This comes into play when the main MySQL thread
                       gets very many connection requests in a very short time
@@ -281,12 +253,6 @@ The following options may be given as the first argument:
                       transaction compression in the binary log.
   --binlog-transaction-dependency-history-size=# 
                       Maximum number of rows to keep in the writeset history.
-  --binlog-transaction-dependency-tracking=name 
-                      Selects the source of dependency information from which
-                      to compute logical timestamps, which replicas can use to
-                      decide which transactions can be executed in parallel
-                      when using replica_parallel_type=LOGICAL_CLOCK. Possible
-                      values are COMMIT_ORDER, WRITESET and WRITESET_SESSION.
   --blackhole[=name]  Enable or disable BLACKHOLE plugin. Possible values are
                       ON, OFF, FORCE (don't start if the plugin fails to load).
   --block-encryption-mode=name 
@@ -308,10 +274,6 @@ The following options may be given as the first argument:
   --caching-sha2-password-public-key-path=name 
                       A fully qualified path to the public RSA key used for
                       authentication.
-  --character-set-client-handshake 
-                      Deprecated. Don't ignore client side character set value
-                      sent during handshake.
-                      (Defaults to on; use --skip-character-set-client-handshake to disable.)
   --character-set-filesystem=name 
                       Set the filesystem character set.
   -C, --character-set-server=name 
@@ -350,9 +312,6 @@ The following options may be given as the first argument:
                       Abort a recursive common table expression if it does more
                       than this number of iterations.
   -h, --datadir=name  Path to the database root directory
-  --default-authentication-plugin=name 
-                      The default authentication plugin used by the server to
-                      hash the password.
   --default-password-lifetime=# 
                       The number of days after which the password will expire.
   --default-storage-engine=name 
@@ -427,6 +386,10 @@ The following options may be given as the first argument:
                       (default), TREE, JSON and TRADITIONAL_STRICT.
                       TRADITIONAL_STRICT is only used internally by the mtr
                       test suite, and is not meant to be used anywhere else.
+  --explain-json-format-version=# 
+                      The JSON format version for EXPLAIN FORMAT=JSON queries
+                      with the old (non-hypergraph) join optimizer. Valid
+                      values are 1 and 2.
   --explicit-defaults-for-timestamp 
                       This option causes CREATE TABLE to create all TIMESTAMP
                       columns as NULL with DEFAULT NULL attribute, Without this
@@ -531,10 +494,6 @@ The following options may be given as the first argument:
   --initialize-insecure 
                       Create the default database and exit. Create a super user
                       with empty password.
-  --innodb            Deprecated option. Provided for backward compatibility
-                      only. The option has no effect on the server behaviour.
-                      InnoDB is always enabled. The option will be removed in a
-                      future release.
   --innodb-adaptive-flushing 
                       Attempt flushing dirty pages to avoid IO bursts at
                       checkpoints.
@@ -545,7 +504,6 @@ The following options may be given as the first argument:
   --innodb-adaptive-hash-index 
                       Enable InnoDB adaptive hash index (enabled by default). 
                       Disable with --skip-innodb-adaptive-hash-index.
-                      (Defaults to on; use --skip-innodb-adaptive-hash-index to disable.)
   --innodb-adaptive-hash-index-parts[=#] 
                       Number of InnoDB Adaptive Hash Index Partitions. (default
                       = 8). 
@@ -597,8 +555,9 @@ The following options may be given as the first argument:
                       determined that such exclusion is impossible a warning
                       will be emitted and @@core_file will be set to OFF to
                       prevent generating a core dump. If this option is enabled
-                      (which is the default), then core dumping logic will not
-                      be affected. 
+                      then core dumping logic will not be affected. This option
+                      is disabled by default if the platforms supports
+                      MADV_DONTDUMP, otherwise it is enabled by default.
                       (Defaults to on; use --skip-innodb-buffer-pool-in-core-file to disable.)
   --innodb-buffer-pool-instances=# 
                       Number of buffer pool instances, set to higher value on
@@ -619,8 +578,8 @@ The following options may be given as the first argument:
                       Maximum on-disk size of change buffer in terms of
                       percentage of the buffer pool.
   --innodb-change-buffering=name 
-                      Buffer changes to reduce random access: OFF, ON,
-                      inserting, deleting, changing, or purging.
+                      Buffer changes to reduce random access: OFF (default),
+                      ON, inserting, deleting, changing, or purging.
   --innodb-checksum-algorithm=name 
                       The algorithm InnoDB uses for page checksumming. Possible
                       values are CRC32 (hardware accelerated if the CPU
@@ -673,8 +632,7 @@ The following options may be given as the first argument:
                       (Defaults to on; use --skip-innodb-deadlock-detect to disable.)
   --innodb-dedicated-server 
                       Automatically scale innodb_buffer_pool_size and
-                      innodb_redo_log_capacity based on system memory. Also set
-                      innodb_flush_method=O_DIRECT_NO_FSYNC, if supported
+                      innodb_redo_log_capacity based on system memory.
   --innodb-default-row-format=name 
                       The default ROW FORMAT for all innodb tables created
                       without explicit ROW_FORMAT. Possible values are
@@ -859,7 +817,8 @@ The following options may be given as the first argument:
   --innodb-optimize-fulltext-only 
                       Only optimize the Fulltext index of the table
   --innodb-page-cleaners[=#] 
-                      Page cleaner threads can be from 1 to 64. Default is 4.
+                      Page cleaner threads can be from 1 to 64. Default is
+                      number of buffer pool instances.
   --innodb-page-size[=#] 
                       Page size to use for all InnoDB tablespaces.
   --innodb-parallel-read-threads=# 
@@ -876,7 +835,8 @@ The following options may be given as the first argument:
                       means purge rollback segment(s) on every Nth iteration of
                       purge invocation
   --innodb-purge-threads[=#] 
-                      Purge threads can be from 1 to 32. Default is 4.
+                      Purge threads can be from 1 to 32. Default is 1 if number
+                      of available CPUs is 16 or less, 4 otherwise.
   --innodb-random-read-ahead 
                       Whether to use read ahead for random access within an
                       extent.
@@ -998,6 +958,7 @@ The following options may be given as the first argument:
                       Number of undo tablespaces to use. (deprecated)
   --innodb-use-fdatasync 
                       Use fdatasync() instead of the default fsync().
+                      (Defaults to on; use --skip-innodb-use-fdatasync to disable.)
   --innodb-use-native-aio 
                       Use native AIO if supported on this platform.
                       (Defaults to on; use --skip-innodb-use-native-aio to disable.)
@@ -1036,6 +997,8 @@ The following options may be given as the first argument:
   --keyring-migration-destination=name 
                       Keyring plugin or component to which the keys are
                       migrated to.
+  --keyring-migration-from-component 
+                      Migrate from keyring component to keyring plugin.
   --keyring-migration-host=name 
                       Connect to host.
   -p, --keyring-migration-password[=name] 
@@ -1054,8 +1017,6 @@ The following options may be given as the first argument:
                       Migrate from keyring plugin to keyring component.
   --keyring-migration-user=name 
                       User to login to server.
-  -L, --language=name Client error messages in given language. May be given as
-                      a full path. Deprecated. Use --lc-messages-dir instead.
   --lc-messages=name  Set the language used for the error messages.
   --lc-messages-dir=name 
                       Directory where error messages are
@@ -1086,11 +1047,6 @@ The following options may be given as the first argument:
                       do not exist and the binary logging cannot break, so you
                       can safely set this to TRUE. This variable is deprecated
                       and will be removed in a future version.
-  --log-bin-use-v1-row-events 
-                      If equal to 1 then version 1 row events are written to a
-                      row based binary log.  If equal to 0, then the latest
-                      version of events are written.  This option is useful
-                      during some upgrades.
   --log-error[=name]  Error log file
   --log-error-services=name 
                       Services that should be called when an error event is
@@ -1174,14 +1130,6 @@ The following options may be given as the first argument:
                       still require activation unless they are made into
                       default roles. The granted roles will not be visible in
                       the mysql.role_edges table.
-  --master-info-file=name 
-                      The path and filename where the replication receiver
-                      thread stores connection configuration and positions, in
-                      case --master-info-repository=FILE. This option is
-                      deprecated and will be removed in a future version.
-  --master-info-repository=name 
-                      The repository format for the replication connection
-                      configuration.
   --master-retry-count=# 
                       The number of times this replica will attempt to connect
                       to a source before giving up. This option is deprecated
@@ -1275,7 +1223,7 @@ The following options may be given as the first argument:
                       NULLS_UNEQUAL (default behavior for 4.1 and later),
                       NULLS_EQUAL (emulate 4.0 behavior), and NULLS_IGNORED
   --myisam-use-mmap   Use memory mapping for reading and writing MyISAM tables
-  --mysql-native-password[=name]
+  --mysql-native-password[=name] 
                       Enable or disable mysql_native_password plugin. Possible
                       values are ON, OFF, FORCE (don't start if the plugin
                       fails to load).
@@ -1453,6 +1401,9 @@ The following options may be given as the first argument:
                       Insert mapping between epochs and binlog positions into
                       the ndb_binlog_index table.
                       (Defaults to on; use --skip-ndb-log-binlog-index to disable.)
+  --ndb-log-cache-size=# 
+                      Size of the binary log transaction cache used by NDB
+                      binlog
   --ndb-log-empty-epochs 
   --ndb-log-empty-update 
                       Normally empty updates are filtered away before they are
@@ -1469,6 +1420,9 @@ The following options may be given as the first argument:
   --ndb-log-orig      Log originating server id and epoch in ndb_binlog_index.
                       Each epoch may in this case have multiple rows in
                       ndb_binlog_index, one for each originating epoch.
+  --ndb-log-purge-rate=# 
+                      Rate of rows to delete when purging rows from
+                      ndb_binlog_index.
   --ndb-log-transaction-compression 
                       Compress the Ndb Binlog
   --ndb-log-transaction-compression-level-zstd[=#] 
@@ -1584,7 +1538,7 @@ The following options may be given as the first argument:
                       ndb_applier_conflict_role instead
   --ndb-table-no-logging 
   --ndb-table-temporary 
-  --ndb-tls-search-path=name
+  --ndb-tls-search-path=name 
                       Directory containing NDB Cluster TLS Private Keys
   --ndb-transid-mysql-connection-map[=name] 
                       Enable or disable ndb_transid_mysql_connection_map
@@ -1626,24 +1580,14 @@ The following options may be given as the first argument:
   --net-write-timeout=# 
                       Number of seconds to wait for a block to be written to a
                       connection before aborting the write
-  -n, --new           Use very new possible "unsafe" functions
   --ngram[=name]      Enable or disable ngram plugin. Possible values are ON,
                       OFF, FORCE (don't start if the plugin fails to load).
   --ngram-token-size=# 
                       InnoDB ngram full text plugin parser token size in
                       characters
-  --no-dd-upgrade     Abort restart if automatic upgrade or downgrade of the
-                      data dictionary is needed. Deprecated option. Use
-                      --upgrade=NONE instead.
   --no-monitor        Disable monitor process.
   --offline-mode      Make the server into offline mode
-  --old               Use compatible behavior
   --old-alter-table   Use old, non-optimized alter table
-  --old-style-user-limits 
-                      Enable old-style user limits (before 5.0.3, user
-                      resources were counted for each user + host vs. per
-                      account). This option is deprecated and will be removed
-                      in a future version.
   --open-files-limit=# 
                       If this is not 0, then mysqld will use this value to
                       reserve file descriptors to use with setrlimit(). If this
@@ -1842,9 +1786,9 @@ The following options may be given as the first argument:
   --performance-schema-max-metadata-locks=# 
                       Maximum number of metadata locks. Use 0 to disable, -1
                       for automated scaling.
-  --performance-schema-max-meter-classes=#
+  --performance-schema-max-meter-classes=# 
                       Maximum number of meter source instruments.
-  --performance-schema-max-metric-classes=#
+  --performance-schema-max-metric-classes=# 
                       Maximum number of metric source instruments.
   --performance-schema-max-mutex-classes=# 
                       Maximum number of mutex instruments.
@@ -1988,12 +1932,6 @@ The following options may be given as the first argument:
   --relay-log=name    The location and name to use for relay logs
   --relay-log-index=name 
                       File that holds the names for relay log files.
-  --relay-log-info-file=name 
-                      The location and name of the file that remembers where
-                      the SQL replication thread is in the relay logs
-  --relay-log-info-repository=name 
-                      Defines the type of the repository for the relay log
-                      information and associated workers.
   --relay-log-purge   if disabled - do not purge relay logs. if enabled - purge
                       them as soon as they are no more needed
                       (Defaults to on; use --skip-relay-log-purge to disable.)
@@ -2046,8 +1984,7 @@ The following options may be given as the first argument:
                       databases. LOGICAL_CLOCK, which is the default, indicates
                       that it decides whether two transactions can be applied
                       in parallel using the logical timestamps computed by the
-                      source, according to
-                      binlog_transaction_dependency_tracking.
+                      source.
   --replica-parallel-workers=# 
                       Number of worker threads for executing events in parallel
                       
@@ -2185,6 +2122,10 @@ The following options may be given as the first argument:
                       When this option is enabled, connections attempted using
                       insecure transport will be rejected.  Secure transports
                       are SSL/TLS, Unix socket or Shared Memory (on Windows).
+  --restrict-fk-on-non-standard-key 
+                      Disallow the creation of foreign keys referencing
+                      non-unique key or partial key
+                      (Defaults to on; use --skip-restrict-fk-on-non-standard-key to disable.)
   --rpl-read-size=#   The size for reads done from the binlog and relay log. It
                       must be a multiple of 4kb. Making it larger might help
                       with IO stalls while reading these files when they are
@@ -2239,9 +2180,9 @@ The following options may be given as the first argument:
                       characteristics (isolation level, read only/read write,
                       snapshot - but not any work done / data modified within
                       the transaction).
-  --set-operations-buffer-size=#
+  --set-operations-buffer-size=# 
                       The maximum size of the buffer used for hash based set
-                      operations
+                      operations 
   --sha256-password-auto-generate-rsa-keys 
                       Auto generate RSA keys at server startup if corresponding
                       system variables are not specified and key files are not
@@ -2271,12 +2212,6 @@ The following options may be given as the first argument:
                       SHOW commands and INFORMATION_SCHEMA tables shows
                       generated invisible primary key definition.
                       (Defaults to on; use --skip-show-gipk-in-create-table-and-information-schema to disable.)
-  --show-old-temporals 
-                      When this option is enabled, the pre-5.6.4 temporal types
-                      will be marked in the 'SHOW CREATE TABLE' and
-                      'INFORMATION_SCHEMA.COLUMNS' table as a comment in
-                      COLUMN_TYPE field. This variable is deprecated and will
-                      be removed in a future release.
   --show-replica-auth-info 
                       Include user and password in SHOW REPLICAS statements.
   --show-slave-auth-info 
@@ -2284,7 +2219,6 @@ The following options may be given as the first argument:
                       version. Use show-replica-auth-info instead.
   --skip-grant-tables Start without grant tables. This gives all users FULL
                       ACCESS to all tables.
-  --skip-host-cache   Don't cache host names.
   --skip-name-resolve Don't resolve hostnames. All hostnames are IP's or
                       'localhost'.
   --skip-networking   Don't allow connection with TCP/IP
@@ -2334,13 +2268,6 @@ The following options may be given as the first argument:
                       This option is deprecated. Use
                       replica_preserve_commit_order instead.
                       (Defaults to on; use --skip-slave-preserve-commit-order to disable.)
-  --slave-rows-search-algorithms=name 
-                      The set of algorithms used by the replication applier
-                      while searching the table for rows to update or delete.
-                      Possible values are: INDEX_SCAN, TABLE_SCAN and
-                      HASH_SCAN. Any combination is allowed, and the applier
-                      picks the most efficient among them for any given
-                      scenario. (Default: INDEX_SCAN, HASH_SCAN).
   --slave-skip-errors=name 
                       This option is deprecated. Use replica_skip_errors
                       instead.
@@ -2391,20 +2318,16 @@ The following options may be given as the first argument:
                       When set, tables must be created with a primary key, and
                       an existing primary key cannot be removed with 'ALTER
                       TABLE'. Attempts to do so will result in an error.
-  --ssl               Enable SSL for connection (automatically enabled with
-                      other flags).
-                      (Defaults to on; use --skip-ssl to disable.)
-  --ssl-ca=name       CA file in PEM format (check OpenSSL docs, implies --ssl)
-  --ssl-capath=name   CA directory (check OpenSSL docs, implies --ssl)
-  --ssl-cert=name     X509 cert in PEM format (implies --ssl)
-  --ssl-cipher=name   SSL cipher to use (implies --ssl)
-  --ssl-crl=name      CRL file in PEM format (check OpenSSL docs, implies
-                      --ssl)
-  --ssl-crlpath=name  CRL directory (check OpenSSL docs, implies --ssl)
+  --ssl-ca=name       CA file in PEM format (check OpenSSL docs)
+  --ssl-capath=name   CA directory (check OpenSSL docs)
+  --ssl-cert=name     X509 cert in PEM format
+  --ssl-cipher=name   SSL cipher to use
+  --ssl-crl=name      CRL file in PEM format (check OpenSSL docs)
+  --ssl-crlpath=name  CRL directory (check OpenSSL docs)
   --ssl-fips-mode=name 
                       SSL FIPS mode (applies only for OpenSSL); permitted
                       values are: OFF, ON, STRICT
-  --ssl-key=name      X509 key in PEM format (implies --ssl)
+  --ssl-key=name      X509 key in PEM format
   --ssl-session-cache-mode 
                       Is TLS session cache enabled or not
                       (Defaults to on; use --skip-ssl-session-cache-mode to disable.)
@@ -2471,7 +2394,6 @@ The following options may be given as the first argument:
   --temptable-use-mmap 
                       Use mmap files for temptables. This variable is
                       deprecated and will be removed in a future release.
-                      (Defaults to on; use --skip-temptable-use-mmap to disable.)
   --terminology-use-previous=name 
                       Make monitoring tables and statements use the identifiers
                       that were in use before they were changed in a given
@@ -2498,13 +2420,13 @@ The following options may be given as the first argument:
                       Define threads usage for handling queries, one of
                       one-thread-per-connection, no-threads, loaded-dynamically
   --thread-stack=#    The stack size for each thread
-  --tls-certificates-enforced-validation
+  --tls-certificates-enforced-validation 
                       If set to TRUE, server stops execution at the start up in
                       case of invalid certificates When ALTER INSTANCE RELOAD
                       TLS executed, new certficates will not be used if
-                      validation fails.
+                      validation fails. 
   --tls-ciphersuites=name 
-                      TLS v1.3 ciphersuite to use (implies --ssl)
+                      TLS v1.3 ciphersuite to use
   --tls-version=name  TLS version, permitted values are TLSv1.2, TLSv1.3
   --tmp-table-size=#  If an internal in-memory temporary table in the MEMORY or
                       TempTable storage engine exceeds this size, MySQL will
@@ -2523,10 +2445,6 @@ The following options may be given as the first argument:
   --transaction-read-only 
                       Default transaction access mode. True if transactions are
                       read-only.
-  --transaction-write-set-extraction[=name] 
-                      This option is used to let the server know when to
-                      extract the write set which will be used for various
-                      purposes. 
   --updatable-views-with-limit=name 
                       YES = Don't issue an error message (warning only) if a
                       VIEW without presence of a key of the underlying table is

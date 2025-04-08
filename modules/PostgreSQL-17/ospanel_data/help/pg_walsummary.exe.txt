@@ -1,0 +1,13 @@
+pg_walsummary prints the contents of a WAL summary file.
+
+Usage:
+  pg_walsummary [OPTION]... FILE...
+
+Options:
+  -i, --individual          list block numbers individually, not as ranges
+  -q, --quiet               don't print anything, just parse the files
+  -V, --version             output version information, then exit
+  -?, --help                show this help, then exit
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

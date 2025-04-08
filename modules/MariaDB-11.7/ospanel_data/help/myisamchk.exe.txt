@@ -1,4 +1,4 @@
-myisamchk.exe from 11.2.2-MariaDB, client 2.7 for Win64 (AMD64)
+myisamchk.exe from 11.7.2-MariaDB, client 2.7 for Win64 (AMD64)
 By Monty, for your professional use
 This software comes with NO WARRANTY: see the PUBLIC for details.
 
@@ -101,8 +101,6 @@ Other actions:
   -b,  --block-search=#
                        Find a record, a block at given offset belongs to.
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: myisamchk
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

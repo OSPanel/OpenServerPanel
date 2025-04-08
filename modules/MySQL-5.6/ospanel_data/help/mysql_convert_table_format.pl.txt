@@ -1,4 +1,3 @@
-Warning: mysql_convert_table_format.pl is deprecated and will be removed in a future version.
 mysql_convert_table_format.pl  version 1.1
 
 Conversion of a MySQL tables to other storage engines

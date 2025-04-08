@@ -33,6 +33,8 @@ Options controlling the restore:
   -1, --single-transaction     restore as a single transaction
   --disable-triggers           disable triggers during data-only restore
   --enable-row-security        enable row security
+  --filter=FILENAME            restore or skip objects based on expressions
+                               in FILENAME
   --if-exists                  use IF EXISTS when dropping objects
   --no-comments                do not restore comments
   --no-data-for-failed-tables  do not restore data of tables that could not be
@@ -45,6 +47,7 @@ Options controlling the restore:
   --section=SECTION            restore named section (pre-data, data, or post-data)
   --strict-names               require table and/or schema include patterns to
                                match at least one entity each
+  --transaction-size=N         commit after every N objects
   --use-set-session-authorization
                                use SET SESSION AUTHORIZATION commands instead of
                                ALTER OWNER commands to set ownership

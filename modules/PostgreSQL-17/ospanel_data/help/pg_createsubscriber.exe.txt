@@ -1,0 +1,25 @@
+pg_createsubscriber creates a new logical replica from a standby server.
+
+Usage:
+  pg_createsubscriber [OPTION]...
+
+Options:
+  -d, --database=DBNAME           database in which to create a subscription
+  -D, --pgdata=DATADIR            location for the subscriber data directory
+  -n, --dry-run                   dry run, just show what would be done
+  -p, --subscriber-port=PORT      subscriber port number (default 50432)
+  -P, --publisher-server=CONNSTR  publisher connection string
+  -s, --socketdir=DIR             socket directory to use (default current dir.)
+  -t, --recovery-timeout=SECS     seconds to wait for recovery to end
+  -U, --subscriber-username=NAME  user name for subscriber connection
+  -v, --verbose                   output verbose messages
+      --config-file=FILENAME      use specified main server configuration
+                                  file when running target cluster
+      --publication=NAME          publication name
+      --replication-slot=NAME     replication slot name
+      --subscription=NAME         subscription name
+  -V, --version                   output version information, then exit
+  -?, --help                      show this help, then exit
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

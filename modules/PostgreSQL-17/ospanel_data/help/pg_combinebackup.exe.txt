@@ -1,0 +1,24 @@
+pg_combinebackup reconstructs full backups from incrementals.
+
+Usage:
+  pg_combinebackup [OPTION]... DIRECTORY...
+
+Options:
+  -d, --debug               generate lots of debugging output
+  -n, --dry-run             do not actually do anything
+  -N, --no-sync             do not wait for changes to be written safely to disk
+  -o, --output=DIRECTORY    output directory
+  -T, --tablespace-mapping=OLDDIR=NEWDIR
+                            relocate tablespace in OLDDIR to NEWDIR
+      --clone               clone (reflink) files instead of copying
+      --copy                copy files (default)
+      --copy-file-range     copy using copy_file_range() system call
+      --manifest-checksums=SHA{224,256,384,512}|CRC32C|NONE
+                            use algorithm for manifest checksums
+      --no-manifest         suppress generation of backup manifest
+      --sync-method=METHOD  set method for syncing files to disk
+  -V, --version             output version information, then exit
+  -?, --help                show this help, then exit
+
+Report bugs to <pgsql-bugs@lists.postgresql.org>.
+PostgreSQL home page: <https://www.postgresql.org/>

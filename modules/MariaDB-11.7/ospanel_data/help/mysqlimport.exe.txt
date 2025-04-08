@@ -1,7 +1,7 @@
 Copyright 2000-2008 MySQL AB, 2008 Sun Microsystems, Inc.
 Copyright 2008-2011 Oracle and Monty Program Ab.
 Copyright 2012-2019 MariaDB Corporation Ab.
-mysqlimport.exe from 11.2.2-MariaDB, client 3.7 for Win64 (AMD64)
+mysqlimport.exe from 11.7.2-MariaDB, client 3.7 for Win64 (AMD64)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Loads tables from text files in various formats.  The base name of the
@@ -12,8 +12,6 @@ file. The SQL command 'LOAD DATA INFILE' is used to import the rows.
 
 Usage: mysqlimport.exe [OPTIONS] database textfile...
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: mysqlimport mariadb-import client client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.
@@ -25,8 +23,14 @@ The following specify which files/extra groups are read (specified before remain
 
   --character-sets-dir=name 
                       Directory for character set files.
+  --database=name     Restore the specified database, ignoring others.To
+                      specify more than one database to include, use the
+                      directive multiple times, once for each database. Only
+                      takes effect when used together with --dir option
   --default-character-set=name 
                       Set the default character set.
+  --dir=name          Restore all tables from backup directory created using
+                      mariadb-dump --dir
   -c, --columns=name  Use only these columns to import the data to. Give the
                       column names in a comma separated list. This is same as
                       giving columns to LOAD DATA INFILE.
@@ -50,11 +54,23 @@ The following specify which files/extra groups are read (specified before remain
                       character.
   -f, --force         Continue even if we get an SQL error.
   -?, --help          Displays this help and exits.
-  -h, --host=name     Connect to host.
+  -h, --host=name     Connect to host. Defaults in the following order:
+                      $MARIADB_HOST, and then localhost
   -i, --ignore        If duplicate unique key was found, keep old row.
   -k, --ignore-foreign-keys 
                       Disable foreign key checks while importing the data.
   --ignore-lines=#    Ignore first n lines of data infile.
+  --ignore-database=name 
+                      Do not restore the specified database. To specify more
+                      than one database to ignore, use the directive multiple
+                      times, once for each database. Only takes effect when
+                      used together with --dir option
+  --ignore-table=name Do not restore the specified table. To specify more than
+                      one table to ignore, use the directive multiple times,
+                      once for each table.  Each table must be specified with
+                      both database and table names, e.g.,
+                      --ignore-table=database.table.  Only takes effect when
+                      used together with --dir option
   --lines-terminated-by=name 
                       Lines in the input file are terminated by the given
                       string.
@@ -65,6 +81,7 @@ The following specify which files/extra groups are read (specified before remain
                       Password to use when connecting to server. If password is
                       not given it's asked from the tty.
   -W, --pipe          Use named pipes to connect to server.
+  -j, --parallel=#    Number of LOAD DATA jobs executed in parallel
   --plugin-dir=name   Directory for client-side plugins.
   -P, --port=#        Port number to use for connection or 0 for default to, in
                       order of preference, my.cnf, $MYSQL_TCP_PORT,
@@ -73,6 +90,11 @@ The following specify which files/extra groups are read (specified before remain
   -r, --replace       If duplicate unique key was found, replace old row.
   -s, --silent        Be more silent.
   -S, --socket=name   The socket file to use for connection.
+  --table=name        Restore the specified table ignoring others. Use
+                      --table=dbname.tablename with this option. To specify
+                      more than one table to include, use the directive
+                      multiple times, once for each table. Only takes effect
+                      when used together with --dir option
   --ssl               Enable SSL for connection (automatically enabled with
                       other flags).
                       (Defaults to on; use --skip-ssl to disable.)
@@ -85,12 +107,14 @@ The following specify which files/extra groups are read (specified before remain
   --ssl-crl=name      Certificate revocation list (implies --ssl).
   --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
   --tls-version=name  TLS protocol version for secure connection.
+  --ssl-fp=name       Server certificate fingerprint (implies --ssl).
+  --ssl-fplist=name   File with accepted server certificate fingerprints, one
+                      per line (implies --ssl).
   --ssl-verify-server-cert 
-                      Verify server's "Common Name" in its cert against
-                      hostname used when connecting. This option is disabled by
-                      default.
-  --use-threads=#     Load files in parallel. The argument is the number of
-                      threads to use for loading data.
+                      Verify server's certificate to prevent man-in-the-middle
+                      attacks
+                      (Defaults to on; use --skip-ssl-verify-server-cert to disable.)
+  --use-threads=#     Synonym for --parallel option
   -u, --user=name     User for login if not current user.
   -v, --verbose       Print info about the various stages.
   -V, --version       Output version information and exit.

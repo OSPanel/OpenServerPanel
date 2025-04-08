@@ -4,7 +4,7 @@ Usage:
   pg_rewind [OPTION]...
 
 Options:
-  -c, --restore-target-wal       use restore_command in target configuration to
+  -c, --restore-target-wal       use "restore_command" in target configuration to
                                  retrieve WAL files from archives
   -D, --target-pgdata=DIRECTORY  existing data directory to modify
       --source-pgdata=DIRECTORY  source data directory to synchronize with
@@ -19,6 +19,7 @@ Options:
                                  file when running target cluster
       --debug                    write a lot of debug messages
       --no-ensure-shutdown       do not automatically fix unclean shutdown
+      --sync-method=METHOD       set method for syncing files to disk
   -V, --version                  output version information, then exit
   -?, --help                     show this help, then exit
 

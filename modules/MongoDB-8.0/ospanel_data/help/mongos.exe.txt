@@ -52,27 +52,16 @@ General options:
                                         profile and console log
   --profileFilter arg                   Query predicate to control which 
                                         operations are logged and profiled
-
-Windows Service Control Manager options:
-  --install                             Install Windows service
-  --remove                              Remove Windows service
-  --reinstall                           Reinstall Windows service (equivalent 
-                                        to --remove followed by --install)
-  --serviceName arg                     Windows service name
-  --serviceDisplayName arg              Windows service display name
-  --serviceDescription arg              Windows service description
-  --serviceUser arg                     Account for service execution
-  --servicePassword arg                 Password used to authenticate 
-                                        serviceUser
-
-Sharding options:
-  --configdb arg                        Connection string for communicating 
-                                        with config servers: <config replset 
-                                        name>/<host1:port>,<host2:port>,[...]
-  --localThreshold arg                  ping time (in ms) for a node to be 
-                                        considered local (default 15ms)
-  --test                                just run unit tests
-  --noscripting                         Disable scripting engine
+  --upgradeBackCompat                   Indicates to the process that it is 
+                                        being run as part of an upgrade 
+                                        process. No features or commands which 
+                                        would not be recognized by a previous 
+                                        binary version are used.
+  --downgradeBackCompat                 Indicates to the process that it is 
+                                        being run as part of an downgrade 
+                                        process. No features or commands which 
+                                        would not be recognized by a previous 
+                                        binary version are used.
 
 TLS Options:
   --tlsOnNormalPorts                    Use TLS on configured ports
@@ -132,6 +121,27 @@ TLS Options:
                                         the exact attributes and values 
                                         provided in this config option to be  
                                         treated as peer cluster nodes.
+
+Sharding options:
+  --configdb arg                        Connection string for communicating 
+                                        with config servers: <config replset 
+                                        name>/<host1:port>,<host2:port>,[...]
+  --localThreshold arg                  ping time (in ms) for a node to be 
+                                        considered local (default 15ms)
+  --test                                just run unit tests
+  --noscripting                         Disable scripting engine
+
+Windows Service Control Manager options:
+  --install                             Install Windows service
+  --remove                              Remove Windows service
+  --reinstall                           Reinstall Windows service (equivalent 
+                                        to --remove followed by --install)
+  --serviceName arg                     Windows service name
+  --serviceDisplayName arg              Windows service display name
+  --serviceDescription arg              Windows service description
+  --serviceUser arg                     Account for service execution
+  --servicePassword arg                 Password used to authenticate 
+                                        serviceUser
 
 AWS IAM Options:
   --awsIamSessionToken arg              AWS Session Token for temporary 

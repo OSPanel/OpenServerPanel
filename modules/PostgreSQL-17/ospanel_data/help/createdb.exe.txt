@@ -10,9 +10,10 @@ Options:
   -l, --locale=LOCALE          locale settings for the database
       --lc-collate=LOCALE      LC_COLLATE setting for the database
       --lc-ctype=LOCALE        LC_CTYPE setting for the database
+      --builtin-locale=LOCALE  builtin locale setting for the database
       --icu-locale=LOCALE      ICU locale setting for the database
       --icu-rules=RULES        ICU rules setting for the database
-      --locale-provider={libc|icu}
+      --locale-provider={builtin|libc|icu}
                                locale provider for the database's default collation
   -O, --owner=OWNER            database user to own the new database
   -S, --strategy=STRATEGY      database creation strategy wal_log or file_copy

@@ -1,4 +1,4 @@
-myisamlog.exe from 11.2.2-MariaDB, client 1.4 for Win64 (AMD64)
+myisamlog.exe from 11.4.5-MariaDB, client 1.4 for Win64 (AMD64)
 By Monty, for your professional use
 
 Write info about whats in a MyISAM log file.

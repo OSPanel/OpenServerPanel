@@ -1,4 +1,4 @@
-mysql_plugin.exe from 11.2.2-MariaDB, client 1.0 for Win64 (AMD64)
+mysql_plugin.exe from 11.4.5-MariaDB, client 1.0 for Win64 (AMD64)
 Copyright (c) 2011, 2015, Oracle and/or its affiliates. All rights reserved.
 
 Enable or disable plugins.

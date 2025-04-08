@@ -1,4 +1,4 @@
-myisampack.exe from 11.2.2-MariaDB, client 1.23 for Win64 (AMD64)
+myisampack.exe from 11.7.2-MariaDB, client 1.23 for Win64 (AMD64)
 Copyright 2002-2008 MySQL AB, 2008 Sun Microsystems, Inc.
 This software comes with ABSOLUTELY NO WARRANTY. This is free software,
 and you are welcome to modify and redistribute it under the GPL license
@@ -26,8 +26,6 @@ Usage: myisampack.exe [OPTIONS] filename...
   -V, --version       Output version information and exit.
   -w, --wait          Wait and retry if table is in use.
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: myisampack
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

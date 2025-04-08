@@ -5,7 +5,7 @@ Usage:
 
 General options:
   -c, --command=COMMAND    run only single command (SQL or internal) and exit
-  -d, --dbname=DBNAME      database name to connect to (default: "postgres")
+  -d, --dbname=DBNAME      database name to connect to
   -f, --file=FILENAME      execute commands from file, then exit
   -l, --list               list available databases, then exit
   -v, --set=, --variable=NAME=VALUE
@@ -49,9 +49,9 @@ Output format options:
                            set record separator for unaligned output to zero byte
 
 Connection options:
-  -h, --host=HOSTNAME      database server host or socket directory (default: "PostgreSQL-16")
-  -p, --port=PORT          database server port (default: "5432")
-  -U, --username=USERNAME  database user name (default: "postgres")
+  -h, --host=HOSTNAME      database server host or socket directory
+  -p, --port=PORT          database server port
+  -U, --username=USERNAME  database user name
   -w, --no-password        never prompt for password
   -W, --password           force password prompt (should happen automatically)
 

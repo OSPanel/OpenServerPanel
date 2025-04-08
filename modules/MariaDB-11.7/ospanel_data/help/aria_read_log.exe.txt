@@ -58,8 +58,6 @@ Usage: aria_read_log.exe OPTIONS -h `aria_log_directory` --print-log-control-fil
   -v, --verbose       Print more information during apply/undo phase
   -V, --version       Print version and exit.
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: aria_read_log
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.

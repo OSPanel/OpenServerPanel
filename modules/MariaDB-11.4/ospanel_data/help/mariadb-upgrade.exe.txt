@@ -1,10 +1,8 @@
-mariadb-upgrade.exe from 11.2.2-MariaDB, client 2.1 for Win64 (AMD64)
+mariadb-upgrade.exe from 11.4.5-MariaDB, client 2.1 for Win64 (AMD64)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 MariaDB utility for upgrading databases to new MariaDB versions.
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: client mysql_upgrade mariadb-upgrade client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.
@@ -60,10 +58,13 @@ The following specify which files/extra groups are read (specified before remain
   --ssl-crl=name      Certificate revocation list (implies --ssl).
   --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
   --tls-version=name  TLS protocol version for secure connection.
+  --ssl-fp=name       Server certificate fingerprint (implies --ssl).
+  --ssl-fplist=name   File with accepted server certificate fingerprints, one
+                      per line (implies --ssl).
   --ssl-verify-server-cert 
-                      Verify server's "Common Name" in its cert against
-                      hostname used when connecting. This option is disabled by
-                      default.
+                      Verify server's certificate to prevent man-in-the-middle
+                      attacks
+                      (Defaults to on; use --skip-ssl-verify-server-cert to disable.)
   -t, --tmpdir=name   Directory for temporary files.
   -s, --upgrade-system-tables 
                       Only upgrade the system tables in the mysql database.

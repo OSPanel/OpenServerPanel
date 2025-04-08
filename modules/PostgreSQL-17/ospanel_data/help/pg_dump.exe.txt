@@ -14,6 +14,7 @@ General options:
                                compress as specified
   --lock-wait-timeout=TIMEOUT  fail after waiting TIMEOUT for a table lock
   --no-sync                    do not wait for changes to be written safely to disk
+  --sync-method=METHOD         set method for syncing files to disk
   -?, --help                   show this help, then exit
 
 Options controlling the output content:
@@ -41,6 +42,7 @@ Options controlling the output content:
   --disable-triggers           disable triggers during data-only restore
   --enable-row-security        enable row security (dump only content user has
                                access to)
+  --exclude-extension=PATTERN  do NOT dump the specified extension(s)
   --exclude-table-and-children=PATTERN
                                do NOT dump the specified table(s), including
                                child and partition tables
@@ -49,6 +51,8 @@ Options controlling the output content:
                                do NOT dump data for the specified table(s),
                                including child and partition tables
   --extra-float-digits=NUM     override default setting for extra_float_digits
+  --filter=FILENAME            include or exclude objects and data from dump
+                               based on expressions in FILENAME
   --if-exists                  use IF EXISTS when dropping objects
   --include-foreign-data=PATTERN
                                include data of foreign tables on foreign

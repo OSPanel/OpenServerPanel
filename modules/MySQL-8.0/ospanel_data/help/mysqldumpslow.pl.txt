@@ -15,7 +15,7 @@ Parse and summarize the MySQL slow query log. Options are
                  c: count
                  l: lock time
                  r: rows sent
-                 t: query time  
+                 t: query time
   -r           reverse the sort order (largest last instead of first)
   -t NUM       just show the top n queries
   -a           don't abstract all numbers to N and strings to 'S'
@@ -25,4 +25,3 @@ Parse and summarize the MySQL slow query log. Options are
                default is '*', i.e. match all
   -i NAME      name of server instance (if using mysql.server startup script)
   -l           don't subtract lock time from total time
-

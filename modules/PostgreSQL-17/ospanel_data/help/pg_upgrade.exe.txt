@@ -24,6 +24,8 @@ Options:
   -V, --version                 display version information, then exit
   --clone                       clone instead of copying files to new cluster
   --copy                        copy files to new cluster (default)
+  --copy-file-range             copy files to new cluster with copy_file_range
+  --sync-method=METHOD          set method for syncing files to disk
   -?, --help                    show this help, then exit
 
 Before running pg_upgrade you must:

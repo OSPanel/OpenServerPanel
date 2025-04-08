@@ -6,6 +6,8 @@ Usage:
 Options controlling the output:
   -D, --pgdata=DIRECTORY receive base backup into directory
   -F, --format=p|t       output format (plain (default), tar)
+  -i, --incremental=OLDMANIFEST
+                         take incremental backup
   -r, --max-rate=RATE    maximum transfer rate to transfer data directory
                          (in kB/s, or use suffix "k" or "M")
   -R, --write-recovery-conf
@@ -24,7 +26,7 @@ Options controlling the output:
 
 General options:
   -c, --checkpoint=fast|spread
-                         set fast or spread checkpointing
+                         set fast or spread (default) checkpointing
   -C, --create-slot      create replication slot
   -l, --label=LABEL      set backup label
   -n, --no-clean         do not clean up after errors
@@ -42,6 +44,8 @@ General options:
       --no-slot          prevent creation of temporary replication slot
       --no-verify-checksums
                          do not verify checksums
+      --sync-method=METHOD
+                         set method for syncing files to disk
   -?, --help             show this help, then exit
 
 Connection options:

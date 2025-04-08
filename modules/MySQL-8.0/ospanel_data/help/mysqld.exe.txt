@@ -1,12 +1,3 @@
-mysqld.exe  Ver 8.0.35 for Win64 on x86_64 (MySQL Community Server - GPL)
-Copyright (c) 2000, 2023, Oracle and/or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Starts the MySQL database server.
-
 Usage: mysqld.exe [OPTIONS]
 NT and Win32 specific options:
   --install                     Install the default service (NT).
@@ -18,9 +9,6 @@ NT and Win32 specific options:
   --enable-named-pipe           Only to be used for the default server (NT).
   --standalone                  Dummy option to start as a standalone server (NT).
 
-
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MySQL-8.0\my.ini C:\OSPanel\modules\MySQL-8.0\my.cnf 
 The following groups are read: mysql_cluster mysqld server mysqld-8.0
 The following options may be given as the first argument:
 --print-defaults        Print the program argument list and exit.
@@ -1460,6 +1448,9 @@ The following options may be given as the first argument:
                       Insert mapping between epochs and binlog positions into
                       the ndb_binlog_index table.
                       (Defaults to on; use --skip-ndb-log-binlog-index to disable.)
+  --ndb-log-cache-size=# 
+                      Size of the binary log transaction cache used by NDB
+                      binlog
   --ndb-log-empty-epochs 
   --ndb-log-empty-update 
                       Normally empty updates are filtered away before they are
@@ -1476,6 +1467,9 @@ The following options may be given as the first argument:
   --ndb-log-orig      Log originating server id and epoch in ndb_binlog_index.
                       Each epoch may in this case have multiple rows in
                       ndb_binlog_index, one for each originating epoch.
+  --ndb-log-purge-rate=# 
+                      Rate of rows to delete when purging rows from
+                      ndb_binlog_index.
   --ndb-log-transaction-compression 
                       Compress the Ndb Binlog
   --ndb-log-transaction-compression-level-zstd[=#] 

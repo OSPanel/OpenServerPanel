@@ -1,4 +1,4 @@
-mariadb-dump.exe from 11.2.2-MariaDB, client 10.19 for Win64 (AMD64)
+mariadb-dump.exe from 11.7.2-MariaDB, client 10.19 for Win64 (AMD64)
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Dumping structure and contents of MariaDB databases and tables.
@@ -7,8 +7,6 @@ OR     mariadb-dump.exe [OPTIONS] --databases DB1 [DB2 DB3...]
 OR     mariadb-dump.exe [OPTIONS] --all-databases
 OR     mariadb-dump.exe [OPTIONS] --system=[SYSTEMOPTIONS]]
 
-Default options are read from the following files in the given order:
-C:\Windows\my.ini C:\Windows\my.cnf C:\my.ini C:\my.cnf C:\OSPanel\modules\MariaDB-11.2\data\my.ini C:\OSPanel\modules\MariaDB-11.2\data\my.cnf C:\OSPanel\modules\MariaDB-11.2\my.ini C:\OSPanel\modules\MariaDB-11.2\my.cnf
 The following groups are read: mysqldump mariadb-dump client client-server client-mariadb
 The following options may be given as the first argument:
 --print-defaults          Print the program argument list and exit.
@@ -75,6 +73,9 @@ The following specify which files/extra groups are read (specified before remain
   --delete-master-logs 
                       Delete logs on master after backup. This automatically
                       enables --master-data.
+  -D, --dir=name      directory to store the backup. Table data is stored in
+                      tab-separated file, similar to --tab option,in a
+                      subdirectory with database name.
   -K, --disable-keys  '/*!40000 ALTER TABLE tb_name DISABLE KEYS */; and
                       '/*!40000 ALTER TABLE tb_name ENABLE KEYS */; will be put
                       in the output.
@@ -82,7 +83,12 @@ The following specify which files/extra groups are read (specified before remain
   --dump-date         Put a dump date to the end of the output.
                       (Defaults to on; use --skip-dump-date to disable.)
   -H, --dump-history  Dump system-versioned tables with history (only for
-                      timestamp based versioning)
+                      timestamp based versioning). Use also --update-history if
+                      upgrading to MariaDB 11.5 or newer from a version before
+                      11.5
+  --update-history    Update row_end history timestamp to support dates up to
+                      year 2106. This option will also enable tz-utc. Should be
+                      used when upgrading to MariaDB 11.5 or above.
   --dump-slave[=#]    This causes the binary log position and filename of the
                       master to be appended to the dumped data output. Setting
                       the value to 1, will printit as a CHANGE MASTER command
@@ -138,7 +144,8 @@ The following specify which files/extra groups are read (specified before remain
   -?, --help          Display this help message and exit.
   --hex-blob          Dump binary strings (BINARY, VARBINARY, BLOB) in
                       hexadecimal format.
-  -h, --host=name     Connect to host.
+  -h, --host=name     Connect to host. Defaults in the following order:
+                      $MARIADB_HOST, and then localhost
   --ignore-database=name 
                       Do not dump the specified database. To specify more than
                       one database to ignore, use the directive multiple times,
@@ -221,6 +228,8 @@ The following specify which files/extra groups are read (specified before remain
   -p, --password[=name] 
                       Password to use when connecting to server. If password is
                       not given it's solicited on the tty.
+  -j, --parallel=#    Number of dump table jobs executed in parallel (only with
+                      --tab option)
   -W, --pipe          Use named pipes to connect to server.
   -P, --port=#        Port number to use for connection.
   --protocol=name     The protocol to use for connection (tcp, socket, pipe).
@@ -265,13 +274,16 @@ The following specify which files/extra groups are read (specified before remain
   --ssl-crl=name      Certificate revocation list (implies --ssl).
   --ssl-crlpath=name  Certificate revocation list path (implies --ssl).
   --tls-version=name  TLS protocol version for secure connection.
+  --ssl-fp=name       Server certificate fingerprint (implies --ssl).
+  --ssl-fplist=name   File with accepted server certificate fingerprints, one
+                      per line (implies --ssl).
   --ssl-verify-server-cert 
-                      Verify server's "Common Name" in its cert against
-                      hostname used when connecting. This option is disabled by
-                      default.
+                      Verify server's certificate to prevent man-in-the-middle
+                      attacks
+                      (Defaults to on; use --skip-ssl-verify-server-cert to disable.)
   --system=name       Dump system tables as portable SQL. Any combination of: 
-                      all, users, plugins, udfs, servers, stats, timezones
-  Use 'ALL' to set all combinations.
+                      all, users, plugins, udfs, servers, stats, or ALL to set
+                      all combinations
   -T, --tab=name      Create tab-separated textfile for each table to given
                       path. (Create .sql and .txt files.) NOTE: This only works
                       if mysqldump is run on the same machine as the mysqld
