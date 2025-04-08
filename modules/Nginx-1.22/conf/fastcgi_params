@@ -2,10 +2,8 @@
         fastcgi_param  CONTENT_LENGTH    $content_length;
         fastcgi_param  DOCUMENT_ROOT     $document_root;
         fastcgi_param  DOCUMENT_URI      $document_uri;
-        fastcgi_param  HTTP_PROXY        '';
         fastcgi_param  HTTPS             $https if_not_empty;
         fastcgi_param  GATEWAY_INTERFACE CGI/1.1;
-        fastcgi_param  PATH_INFO         $fastcgi_path_info;
         fastcgi_param  QUERY_STRING      $query_string;
         fastcgi_param  REMOTE_ADDR       $remote_addr;
         fastcgi_param  REMOTE_PORT       $remote_port;
@@ -19,9 +17,4 @@
         fastcgi_param  SERVER_PORT       $server_port;
         fastcgi_param  SERVER_PROTOCOL   $server_protocol;
         fastcgi_param  SERVER_SOFTWARE   nginx/$nginx_version;
-
-        # fastcgi_param  COUNTRY_CODE      $geoip2_data_country_code;
-        # fastcgi_param  COUNTRY_NAME      $geoip2_data_country_name;
-        
-        # PHP only, required if PHP was built with --enable-force-cgi-redirect
-        # fastcgi_param  REDIRECT_STATUS   200;
+        fastcgi_param  REDIRECT_STATUS   200;
