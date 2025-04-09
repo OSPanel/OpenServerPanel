@@ -52,7 +52,7 @@
             "key": "log_max_filesize",
             "value": {
               "_type": "Integer",
-              "_value": 10,
+              "_value": 0,
               "_strict": true
             }
           },
@@ -149,7 +149,7 @@
             "key": "log_max_filesize",
             "value": {
               "_type": "Integer",
-              "_value": 10,
+              "_value": 0,
               "_strict": true
             }
           },
