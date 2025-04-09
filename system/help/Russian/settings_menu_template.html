@@ -254,6 +254,14 @@
             <td>Схема запроса к проекту ("http" или "https", зависит от параметра SSL в настройках проекта)</td>
         </tr>
         <tr>
+            <td>{http_port}</td>
+            <td>Порт запроса к проекту по протоколу HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Порт запроса к проекту по протоколу HTTPS</td>
+        </tr>
+        <tr>
             <td>{menu_caption}</td>
             <td>Заголовок пункта меню (только для категории projects с need_alias=ON)</td>
         </tr>
@@ -280,6 +288,10 @@
         <tr>
             <td>{public_dir}</td>
             <td>Публичный каталог проекта</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Порт запроса к проекту (":{http_port}"" или ":{https_port}", зависит от параметра SSL в настройках проекта). Если {http_port} или {https_port} имеет стандартное значение 80 или 443, то {scheme_port} будет пустым.</td>
         </tr>
         <tr>
             <td>{start_command}</td>

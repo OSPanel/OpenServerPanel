@@ -71,43 +71,43 @@
 <body>
     <h2 style="margin-top: 0.33em">Creazione di voci di menu personalizzate</h2>
     <ol>
-        <li>Aggiungi una nuova sezione con un identificatore univoco [ID]</li>
-        <li>Posiziona le sezioni nell'ordine desiderato — questo determinerà l'ordine delle voci nel menu</li>
-        <li>Salva le modifiche e riavvia Open Server Panel per applicare le modifiche</li>
+        <li>Aggiungere una nuova sezione con un identificatore univoco [ID]</li>
+        <li>Disporre le sezioni nell'ordine desiderato — questo determinerà l'ordine delle voci nel menu</li>
+        <li>Salvare le modifiche e riavviare Open Server Panel per applicare le modifiche</li>
     </ol>
     <div class="bs-callout bs-callout-danger">
         <h3>Informazioni importanti</h3>
-        Quando crei voci di menu personalizzate, assicurati che gli identificatori delle sezioni non si ripetano. Ciò potrebbe causare conflitti nel funzionamento del menu.
+        Quando si creano voci di menu personalizzate, assicurarsi che gli identificatori delle sezioni non siano duplicati. Questo può portare a conflitti nella funzionalità del menu.
     </div>
     <h2>Impostazioni delle voci di menu</h2>
-    <p><strong>Ordine di ordinamento:</strong> Le voci di menu sono ordinate nello stesso ordine in cui le sezioni corrispondenti sono posizionate nel modello.</p>
+    <p><strong>Ordine di ordinamento:</strong> Le voci del menu vengono ordinate nello stesso ordine delle sezioni corrispondenti nel modello.</p>
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
                 <th>caption</th>
                 <td>
-                    Intestazione della voce di menu. Supporta costanti linguistiche nel formato {lang_xxx}.<br><br>
-                    Predefinito: non specificato
+                    Titolo della voce di menu. Supporta costanti di lingua nel formato {lang_xxx}.<br><br>
+                    Predefinito: non impostato
                 </td>
             </tr>
             <tr>
                 <th>category</th>
                 <td>
-                    <p>Determina la posizione della voce di menu nella gerarchia. Supporta un livello di nidificazione (ad esempio, "I Miei Segnalibri\Lavoro").</p>
+                    <p>Determina la posizione della voce nella gerarchia del menu. Supporta un livello di nidificazione (ad esempio, "I miei Segnalibri\Lavoro").</p>
                     <p>Categorie speciali:</p>
                     <ul>
-                        <li>projects, modules, addons - aggiunge la voce nel menu azioni corrispondente</li>
-                        <li>projects\<nome_dominio>, modules\<nome_modulo>, addons\<nome_componente> - aggiunge la voce per l'elemento specifico</li>
+                        <li>projects, modules, addons - aggiunge la voce al menu azioni corrispondente</li>
+                        <li>projects\<nome_dominio>, modules\<nome_modulo>, addons\<nome_componente_aggiuntivo> - aggiunge una voce per un elemento specifico</li>
                     </ul>
-                    <p>Se la categoria non è specificata, la voce viene creata nel menu principale.</p>
-                    Predefinito: non specificato
+                    <p>Se la categoria non è specificata, la voce viene creata nel menu radice.</p>
+                    Predefinito: non impostato
                 </td>
             </tr>
             <tr>
                 <th>command</th>
                 <td>
-                    Comando da eseguire quando si attiva la voce di menu. Le voci senza comando vengono ignorate.<br><br>
-                    Predefinito: non specificato
+                    Comando da eseguire quando la voce di menu viene attivata. Le voci senza comando vengono ignorate.<br><br>
+                    Predefinito: non impostato
                 </td>
             </tr>
             <tr>
@@ -120,7 +120,7 @@
             <tr>
                 <th>hide</th>
                 <td>
-                    Controlla la visibilità della finestra dell'applicazione richiamata. Non influisce sui processi figlio.<br><br>
+                    Controlla la visibilità della finestra dell'applicazione chiamata. Non influisce sui processi figli.<br><br>
                     Predefinito: off | Valori: on, off
                 </td>
             </tr>
@@ -142,28 +142,28 @@
                 <th>icon</th>
                 <td>
                     Icona dal set Font Awesome Free (Solid/Regular/Brands).<br><br>
-                    Predefinito: non specificato
+                    Predefinito: non impostato
                 </td>
             </tr>
             <tr>
                 <th>need_alias</th>
                 <td>
-                    Visualizza la voce di menu solo per l'alias di dominio. Nel template del menu può esserci solo una voce con need_alias=on!<br>
-                    Applicabile per le categorie: projects<br><br>
-                    Predefinito: non specificato | Valori: on, off
+                    Visualizza la voce di menu solo per un alias di dominio. Il modello di menu può avere solo una voce con need_alias=on!<br>
+                    Applicabile per categorie: projects<br><br>
+                    Predefinito: non impostato | Valori: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_category</th>
                 <td>
-                    <p>Limita la visualizzazione della voce di menu ai moduli/componenti aggiuntivi di una determinata categoria.</p>
+                    <p>Limita la visualizzazione della voce di menu a moduli/componenti aggiuntivi di una specifica categoria.</p>
                     <p>Formati supportati:</p>
                     <ul>
                         <li>modules, addons</li>
-                        <li>modules\<nome_modulo>, addons\<nome_componente>
+                        <li>modules\<nome_modulo>, addons\<nome_componente_aggiuntivo>
                         </li>
                     </ul>
-                    Predefinito: non specificato
+                    Predefinito: non impostato
                 </td>
             </tr>
             <tr>
@@ -171,7 +171,7 @@
                 <td>
                     Visualizza la voce di menu in base alla presenza di shell/cli nel modulo principale.<br>
                     Applicabile per categorie: modules, modules\<nome_modulo><br><br>
-                        Predefinito: non specificato | Valori: on, off
+                    Predefinito: non impostato | Valori: on, off
                 </td>
             </tr>
             <tr>
@@ -179,35 +179,35 @@
                 <td>
                     Visualizza la voce di menu in base allo stato del modulo principale.<br>
                     Applicabile per categorie: modules, modules\<nome_modulo><br><br>
-                        Predefinito: non specificato | Valori: on, off
+                    Predefinito: non impostato | Valori: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_start_cmd</th>
                 <td>
-                    Visualizza la voce di menu quando è presente un comando di avvio nelle impostazioni del progetto.<br>
+                    Visualizza la voce di menu se è presente un comando di avvio nelle impostazioni del progetto.<br>
                     Applicabile per categorie: projects, projects\<nome_dominio><br><br>
-                        Predefinito: non specificato | Valori: on, off
+                    Predefinito: non impostato | Valori: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_use_wt</th>
                 <td>
-                    Visualizza la voce di menu in base all'impostazione dell'utilizzo di Windows Terminal in Open Server Panel.<br><br>
-                    Predefinito: non specificato | Valori: on, off
+                    Visualizza la voce di menu in base all'impostazione di utilizzo di Windows Terminal in Open Server Panel.<br><br>
+                    Predefinito: non impostato | Valori: on, off
                 </td>
             </tr>
             <tr>
                 <th>work_directory</th>
                 <td>
-                    Directory di lavoro per l'esecuzione del comando. Può essere modificata durante l'esecuzione dei comandi.<br><br>
+                    Directory di lavoro per l'esecuzione del comando. Può essere modificata durante l'esecuzione del comando.<br><br>
                     Predefinito: {root_dir}
                 </td>
             </tr>
         </tbody>
     </table>
-    <h2>Variabili di modello</h2>
-    Nei parametri "command" e "work_directory" è possibile utilizzare le seguenti variabili di modello:
+    <h2>Variabili del modello</h2>
+    Le seguenti variabili del modello possono essere utilizzate nei parametri "command" e "work_directory":
     <h3>Variabili generali</h3>
     <table>
         <tr>
@@ -216,15 +216,15 @@
         </tr>
         <tr>
             <td>{root_dir}</td>
-            <td>Directory principale di Open Server Panel (percorso completo)</td>
+            <td>Directory radice di Open Server Panel (percorso completo)</td>
         </tr>
         <tr>
             <td>{root_drive}</td>
-            <td>Unità della directory principale</td>
+            <td>Unità della directory radice</td>
         </tr>
         <tr>
             <td>{root_path}</td>
-            <td>Percorso alla directory principale di Open Server Panel</td>
+            <td>Percorso della directory radice di Open Server Panel</td>
         </tr>
         <tr>
             <td>{web_panel_url}</td>
@@ -251,7 +251,15 @@
         </tr>
         <tr>
             <td>{host_scheme}</td>
-            <td>Schema della richiesta al progetto ("http" o "https", dipende dal parametro SSL nelle impostazioni del progetto)</td>
+            <td>Schema di richiesta del progetto ("http" o "https", dipende dal parametro SSL nelle impostazioni del progetto)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Porta di richiesta del protocollo HTTP per il progetto</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Porta di richiesta del protocollo HTTPS per il progetto</td>
         </tr>
         <tr>
             <td>{menu_caption}</td>
@@ -271,7 +279,7 @@
         </tr>
         <tr>
             <td>{project_dir}</td>
-            <td>Directory principale del progetto</td>
+            <td>Directory radice del progetto</td>
         </tr>
         <tr>
             <td>{project_url}</td>
@@ -282,6 +290,10 @@
             <td>Directory pubblica del progetto</td>
         </tr>
         <tr>
+            <td>{scheme_port}</td>
+            <td>Porta di richiesta del progetto (":{http_port}" o ":{https_port}", dipende dal parametro SSL nelle impostazioni del progetto). Se {http_port} o {https_port} ha un valore standard di 80 o 443, allora {scheme_port} sarà vuoto.</td>
+        </tr>
+        <tr>
             <td>{start_command}</td>
             <td>Comando di avvio del progetto (se configurato)</td>
         </tr>
@@ -290,7 +302,7 @@
             <td>Codifica della console</td>
         </tr>
     </table>
-    <h3>Variabili speciali (solo per addons e addons\&lt;nome_componente&gt;)</h3>
+    <h3>Variabili speciali (solo per addons e addons\&lt;nome_componente_aggiuntivo&gt;)</h3>
     <table>
         <tr>
             <th>Variabile</th>
@@ -356,7 +368,7 @@
         </tr>
         <tr>
             <td>command_open_logs_viewer</td>
-            <td>Apri la finestra di visualizzazione dei registri</td>
+            <td>Apri la finestra di visualizzazione dei log</td>
         </tr>
         <tr>
             <td>command_open_idn_converter</td>
@@ -367,7 +379,7 @@
             <td>Apri la finestra delle impostazioni del programma</td>
         </tr>
     </table>
-    <p>Oltre alle variabili di modello, è possibile utilizzare qualsiasi variabile dell'ambiente Windows, ad esempio: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, ecc.</p>
+    <p>Oltre alle variabili del modello, è possibile utilizzare qualsiasi variabile di ambiente Windows, come: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, ecc.</p>
     <h3>Esempi di utilizzo</h3>
     <pre class="code">
 [21]
@@ -381,7 +393,7 @@ icon     = code
 [22]
 
 caption  = Google
-category = I Miei Segnalibri\Motori di ricerca
+category = I miei Segnalibri\Motori di ricerca
 command  = "%COMSPEC%" /c "start "" "https://google.com""
 hide     = on
 icon     = bookmark</pre>

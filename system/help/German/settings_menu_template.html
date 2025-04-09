@@ -69,72 +69,72 @@
 </head>
 
 <body>
-    <h2 style="margin-top: 0.33em">Erstellen eigener Menüpunkte</h2>
+    <h2 style="margin-top: 0.33em">Benutzerdefinierte Menüelemente erstellen</h2>
     <ol>
         <li>Fügen Sie einen neuen Abschnitt mit einer eindeutigen Kennung [ID] hinzu</li>
-        <li>Ordnen Sie die Abschnitte in der gewünschten Reihenfolge an – dies bestimmt die Reihenfolge der Punkte im Menü</li>
-        <li>Speichern Sie die Änderungen und starten Sie das Open Server Panel neu, um die Änderungen zu übernehmen</li>
+        <li>Ordnen Sie die Abschnitte in der gewünschten Reihenfolge an — dies bestimmt die Reihenfolge der Elemente im Menü</li>
+        <li>Speichern Sie die Änderungen und starten Sie Open Server Panel neu, um die Änderungen anzuwenden</li>
     </ol>
     <div class="bs-callout bs-callout-danger">
         <h3>Wichtige Information</h3>
-        Achten Sie bei der Erstellung eigener Menüpunkte darauf, dass sich die Abschnittskennungen nicht wiederholen. Dies kann zu Konflikten in der Menüfunktion führen.
+        Achten Sie bei der Erstellung benutzerdefinierter Menüelemente darauf, dass sich die Abschnittkennungen nicht wiederholen. Dies kann zu Konflikten in der Menüfunktionalität führen.
     </div>
-    <h2>Menüpunkt-Einstellungen</h2>
-    <p><strong>Sortierreihenfolge:</strong> Die Menüpunkte werden in der gleichen Reihenfolge sortiert, in der die entsprechenden Abschnitte in der Vorlage angeordnet sind.</p>
+    <h2>Menüelement-Einstellungen</h2>
+    <p><strong>Sortierreihenfolge:</strong> Menüelemente werden in derselben Reihenfolge sortiert wie die entsprechenden Abschnitte in der Vorlage.</p>
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
                 <th>caption</th>
                 <td>
-                    Überschrift des Menüpunkts. Unterstützt Sprachkonstanten im Format {lang_xxx}.<br><br>
-                    Standard: nicht definiert
+                    Titel des Menüelements. Unterstützt Sprachkonstanten im Format {lang_xxx}.<br><br>
+                    Standard: nicht festgelegt
                 </td>
             </tr>
             <tr>
                 <th>category</th>
                 <td>
-                    <p>Bestimmt die Position des Menüpunkts in der Hierarchie. Unterstützt eine Verschachtelungsebene (z.B. "Meine Lesezeichen\Arbeit").</p>
+                    <p>Bestimmt die Position des Elements in der Menühierarchie. Unterstützt eine Verschachtelungsebene (zum Beispiel "Meine Lesezeichen\Arbeit").</p>
                     <p>Spezielle Kategorien:</p>
                     <ul>
-                        <li>projects, modules, addons - fügt den Punkt zum entsprechenden Aktionsmenü hinzu</li>
-                        <li>projects\<Domainname>, modules\<Modulname>, addons\<Add-on-Name> - fügt den Punkt für ein bestimmtes Element hinzu</li>
+                        <li>projects, modules, addons - fügt das Element zum entsprechenden Aktionsmenü hinzu</li>
+                        <li>projects\<domain_name>, modules\<module_name>, addons\<addon_name> - fügt ein Element für ein bestimmtes Element hinzu</li>
                     </ul>
-                    <p>Wenn keine Kategorie angegeben ist, wird der Punkt im Hauptmenü erstellt.</p>
-                    Standard: nicht definiert
+                    <p>Wenn die Kategorie nicht angegeben ist, wird das Element im Stammmenü erstellt.</p>
+                    Standard: nicht festgelegt
                 </td>
             </tr>
             <tr>
                 <th>command</th>
                 <td>
-                    Befehl, der bei Aktivierung des Menüpunkts ausgeführt wird. Punkte ohne Befehl werden ignoriert.<br><br>
-                    Standard: nicht definiert
+                    Befehl, der bei Aktivierung des Menüelements ausgeführt wird. Elemente ohne Befehl werden ignoriert.<br><br>
+                    Standard: nicht festgelegt
                 </td>
             </tr>
             <tr>
                 <th>enabled</th>
                 <td>
-                    Aktiviert/deaktiviert die Anzeige des Menüpunkts.<br><br>
+                    Aktiviert/deaktiviert die Anzeige des Menüelements.<br><br>
                     Standard: on | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>hide</th>
                 <td>
-                    Steuert die Sichtbarkeit des Fensters der aufgerufenen Anwendung. Hat keinen Einfluss auf untergeordnete Prozesse.<br><br>
+                    Steuert die Sichtbarkeit des aufgerufenen Anwendungsfensters. Hat keinen Einfluss auf untergeordnete Prozesse.<br><br>
                     Standard: off | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>hr_after</th>
                 <td>
-                    Fügt nach dem Menüpunkt einen horizontalen Trennstrich hinzu.<br><br>
+                    Fügt nach dem Menüelement einen horizontalen Trennbalken hinzu.<br><br>
                     Standard: off | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>hr_before</th>
                 <td>
-                    Fügt vor dem Menüpunkt einen horizontalen Trennstrich hinzu.<br><br>
+                    Fügt vor dem Menüelement einen horizontalen Trennbalken hinzu.<br><br>
                     Standard: off | Werte: on, off
                 </td>
             </tr>
@@ -142,72 +142,72 @@
                 <th>icon</th>
                 <td>
                     Symbol aus dem Font Awesome Free Set (Solid/Regular/Brands).<br><br>
-                    Standard: nicht definiert
+                    Standard: nicht festgelegt
                 </td>
             </tr>
             <tr>
                 <th>need_alias</th>
                 <td>
-                    Zeigt den Menüpunkt nur für einen Domain-Alias an. In der Menüvorlage kann es nur einen Punkt mit need_alias=on geben!<br>
+                    Zeigt das Menüelement nur für einen Domain-Alias an. Die Menüvorlage kann nur ein Element mit need_alias=on haben!<br>
                     Anwendbar für Kategorien: projects<br><br>
-                    Standard: nicht definiert | Werte: on, off
+                    Standard: nicht festgelegt | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_category</th>
                 <td>
-                    <p>Beschränkt die Anzeige des Menüpunkts auf Module/Add-ons einer bestimmten Kategorie.</p>
+                    <p>Beschränkt die Anzeige des Menüelements auf Module/Add-Ons einer bestimmten Kategorie.</p>
                     <p>Unterstützte Formate:</p>
                     <ul>
                         <li>modules, addons</li>
-                        <li>modules\<Modulname>, addons\<Add-on-Name>
+                        <li>modules\<module_name>, addons\<addon_name>
                         </li>
                     </ul>
-                    Standard: nicht definiert
+                    Standard: nicht festgelegt
                 </td>
             </tr>
             <tr>
                 <th>need_module_shell</th>
                 <td>
-                    Zeigt den Menüpunkt abhängig vom Vorhandensein einer Shell/CLI beim übergeordneten Modul an.<br>
-                    Anwendbar für Kategorien: modules, modules\<Modulname><br><br>
-                        Standard: nicht definiert | Werte: on, off
+                    Zeigt das Menüelement abhängig vom Vorhandensein von Shell/CLI im übergeordneten Modul an.<br>
+                    Anwendbar für Kategorien: modules, modules\<module_name><br><br>
+                    Standard: nicht festgelegt | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_state</th>
                 <td>
-                    Zeigt den Menüpunkt abhängig vom Status des übergeordneten Moduls an.<br>
-                    Anwendbar für Kategorien: modules, modules\<Modulname><br><br>
-                        Standard: nicht definiert | Werte: on, off
+                    Zeigt das Menüelement abhängig vom Zustand des übergeordneten Moduls an.<br>
+                    Anwendbar für Kategorien: modules, modules\<module_name><br><br>
+                    Standard: nicht festgelegt | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_start_cmd</th>
                 <td>
-                    Zeigt den Menüpunkt an, wenn in den Projekteinstellungen ein Startbefehl vorhanden ist.<br>
-                    Anwendbar für Kategorien: projects, projects\<Domainname><br><br>
-                        Standard: nicht definiert | Werte: on, off
+                    Zeigt das Menüelement an, wenn in den Projekteinstellungen ein Startbefehl vorhanden ist.<br>
+                    Anwendbar für Kategorien: projects, projects\<domain_name><br><br>
+                    Standard: nicht festgelegt | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_use_wt</th>
                 <td>
-                    Zeigt den Menüpunkt abhängig von der Einstellung zur Verwendung des Windows Terminals im Open Server Panel an.<br><br>
-                    Standard: nicht definiert | Werte: on, off
+                    Zeigt das Menüelement abhängig von der Windows Terminal-Verwendungseinstellung in Open Server Panel an.<br><br>
+                    Standard: nicht festgelegt | Werte: on, off
                 </td>
             </tr>
             <tr>
                 <th>work_directory</th>
                 <td>
-                    Arbeitsverzeichnis für die Ausführung des Befehls. Kann während der Befehlsausführung geändert werden.<br><br>
+                    Arbeitsverzeichnis für die Befehlsausführung. Kann während der Befehlsausführung geändert werden.<br><br>
                     Standard: {root_dir}
                 </td>
             </tr>
         </tbody>
     </table>
     <h2>Vorlagenvariablen</h2>
-    In den Parametern "command" und "work_directory" können die folgenden Vorlagenvariablen verwendet werden:
+    Die folgenden Vorlagenvariablen können in den Parametern "command" und "work_directory" verwendet werden:
     <h3>Allgemeine Variablen</h3>
     <table>
         <tr>
@@ -216,7 +216,7 @@
         </tr>
         <tr>
             <td>{root_dir}</td>
-            <td>Stammverzeichnis des Open Server Panels (vollständiger Pfad)</td>
+            <td>Open Server Panel Stammverzeichnis (vollständiger Pfad)</td>
         </tr>
         <tr>
             <td>{root_drive}</td>
@@ -224,14 +224,14 @@
         </tr>
         <tr>
             <td>{root_path}</td>
-            <td>Pfad zum Stammverzeichnis des Open Server Panels</td>
+            <td>Pfad zum Open Server Panel Stammverzeichnis</td>
         </tr>
         <tr>
             <td>{web_panel_url}</td>
-            <td>URL-Adresse der Weboberfläche</td>
+            <td>Web-Interface-URL</td>
         </tr>
     </table>
-    <h3>Spezielle Variablen (nur für projects und projects\&lt;Domainname&gt;)</h3>
+    <h3>Spezielle Variablen (nur für projects und projects\&lt;domain_name&gt;)</h3>
     <table>
         <tr>
             <th>Variable</th>
@@ -239,7 +239,7 @@
         </tr>
         <tr>
             <td>{base_dir}</td>
-            <td>Basisverzeichnis des Projekts</td>
+            <td>Projekt-Basisverzeichnis</td>
         </tr>
         <tr>
             <td>{host}</td>
@@ -251,11 +251,19 @@
         </tr>
         <tr>
             <td>{host_scheme}</td>
-            <td>Anfrageschema für das Projekt ("http" oder "https", abhängig vom SSL-Parameter in den Projekteinstellungen)</td>
+            <td>Projekt-Anfrageschema ("http" oder "https", abhängig vom SSL-Parameter in den Projekteinstellungen)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP-Protokoll-Anfrageport für das Projekt</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS-Protokoll-Anfrageport für das Projekt</td>
         </tr>
         <tr>
             <td>{menu_caption}</td>
-            <td>Überschrift des Menüpunkts (nur für die Kategorie projects mit need_alias=ON)</td>
+            <td>Menüelement-Titel (nur für die Kategorie projects mit need_alias=ON)</td>
         </tr>
         <tr>
             <td>{nginx_engine}</td>
@@ -271,7 +279,7 @@
         </tr>
         <tr>
             <td>{project_dir}</td>
-            <td>Stammverzeichnis des Projekts</td>
+            <td>Projekt-Stammverzeichnis</td>
         </tr>
         <tr>
             <td>{project_url}</td>
@@ -279,18 +287,22 @@
         </tr>
         <tr>
             <td>{public_dir}</td>
-            <td>Öffentliches Verzeichnis des Projekts</td>
+            <td>Öffentliches Projektverzeichnis</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Projekt-Anfrageport (":{http_port}" oder ":{https_port}", abhängig vom SSL-Parameter in den Projekteinstellungen). Wenn {http_port} oder {https_port} einen Standardwert von 80 oder 443 hat, dann ist {scheme_port} leer.</td>
         </tr>
         <tr>
             <td>{start_command}</td>
-            <td>Projektstart-Befehl (falls konfiguriert)</td>
+            <td>Projekt-Startbefehl (falls konfiguriert)</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
             <td>Konsolencodierung</td>
         </tr>
     </table>
-    <h3>Spezielle Variablen (nur für addons und addons\&lt;Add-on-Name&gt;)</h3>
+    <h3>Spezielle Variablen (nur für addons und addons\&lt;addon_name&gt;)</h3>
     <table>
         <tr>
             <th>Variable</th>
@@ -298,14 +310,14 @@
         </tr>
         <tr>
             <td>{addon_name}</td>
-            <td>Name des Add-ons</td>
+            <td>Add-on-Name</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
             <td>Konsolencodierung</td>
         </tr>
     </table>
-    <h3>Spezielle Variablen (nur für modules und modules\&lt;Modulname&gt;)</h3>
+    <h3>Spezielle Variablen (nur für modules und modules\&lt;module_name&gt;)</h3>
     <table>
         <tr>
             <th>Variable</th>
@@ -313,7 +325,7 @@
         </tr>
         <tr>
             <td>{ip}</td>
-            <td>IP-Adresse des Moduls</td>
+            <td>Modul-IP-Adresse</td>
         </tr>
         <tr>
             <td>{log_level}</td>
@@ -321,11 +333,11 @@
         </tr>
         <tr>
             <td>{module_name}</td>
-            <td>Name des Moduls</td>
+            <td>Modulname</td>
         </tr>
         <tr>
             <td>{port}</td>
-            <td>Port des Moduls</td>
+            <td>Modulport</td>
         </tr>
         <tr>
             <td>{profile_name}</td>
@@ -337,7 +349,7 @@
         </tr>
         <tr>
             <td>{shell_command}</td>
-            <td>Startbefehl für die Shell/CLI des Moduls (falls konfiguriert)</td>
+            <td>Modul-Shell/CLI-Startbefehl (falls konfiguriert)</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
@@ -356,19 +368,19 @@
         </tr>
         <tr>
             <td>command_open_logs_viewer</td>
-            <td>Öffnet das Protokollansichtsfenster</td>
+            <td>Protokollbetrachter-Fenster öffnen</td>
         </tr>
         <tr>
             <td>command_open_idn_converter</td>
-            <td>Öffnet den IDN-Konverter</td>
+            <td>IDN-Konverter öffnen</td>
         </tr>
         <tr>
             <td>command_open_options</td>
-            <td>Öffnet das Programmeinstellungsfenster</td>
+            <td>Programmeinstellungen-Fenster öffnen</td>
         </tr>
     </table>
-    <p>Neben Vorlagenvariablen können Sie auch beliebige Windows-Umgebungsvariablen verwenden, wie z.B.: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH% usw.</p>
-    <h3>Verwendungsbeispiele</h3>
+    <p>Zusätzlich zu Vorlagenvariablen können Sie auch Windows-Umgebungsvariablen verwenden, wie z.B.: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH% usw.</p>
+    <h3>Anwendungsbeispiele</h3>
     <pre class="code">
 [21]
 
@@ -385,7 +397,7 @@ category = Meine Lesezeichen\Suchmaschinen
 command  = "%COMSPEC%" /c "start "" "https://google.com""
 hide     = on
 icon     = bookmark</pre>
-    <h3>Optionen für `cmd.exe`</h3>
+    <h3>`cmd.exe` Optionen</h3>
     <ul>
         <li>/c: Befehl ausführen und Terminal schließen.</li>
         <li>/k: Befehl ausführen und Terminal geöffnet lassen.</li>

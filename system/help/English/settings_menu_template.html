@@ -73,14 +73,14 @@
     <ol>
         <li>Add a new section with a unique identifier [ID]</li>
         <li>Arrange sections in the desired order — this will determine the order of items in the menu</li>
-        <li>Save the changes and restart Open Server Panel to apply the changes</li>
+        <li>Save changes and restart Open Server Panel to apply changes</li>
     </ol>
     <div class="bs-callout bs-callout-danger">
         <h3>Important Information</h3>
-        When creating custom menu items, ensure that section identifiers are not duplicated. This can lead to conflicts in menu operation.
+        When creating custom menu items, ensure that section identifiers are not duplicated. This can lead to conflicts in the menu functionality.
     </div>
     <h2>Menu Item Settings</h2>
-    <p><strong>Sort order:</strong> Menu items are sorted in the same order as the corresponding sections in the template.</p>
+    <p><strong>Sort order:</strong> Menu items are sorted in the same order as their corresponding sections in the template.</p>
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
@@ -93,11 +93,11 @@
             <tr>
                 <th>category</th>
                 <td>
-                    <p>Determines the menu item's position in the hierarchy. Supports one level of nesting (e.g., "My Bookmarks\Work").</p>
+                    <p>Determines the item's position in the menu hierarchy. Supports one level of nesting (for example, "My Bookmarks\Work").</p>
                     <p>Special categories:</p>
                     <ul>
                         <li>projects, modules, addons - adds the item to the corresponding action menu</li>
-                        <li>projects\<domain_name>, modules\<module_name>, addons\<addon_name> - adds the item for a specific element</li>
+                        <li>projects\<domain_name>, modules\<module_name>, addons\<addon_name> - adds an item for a specific element</li>
                     </ul>
                     <p>If the category is not specified, the item is created in the root menu.</p>
                     Default: not set
@@ -148,15 +148,15 @@
             <tr>
                 <th>need_alias</th>
                 <td>
-                    Displays the menu item only for the domain alias. There can only be one item with need_alias=on in the menu template!<br>
+                    Displays the menu item only for a domain alias. The menu template can have only one item with need_alias=on!<br>
                     Applicable for categories: projects<br><br>
-                    Default: not specified | Values: on, off
+                    Default: not set | Values: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_category</th>
                 <td>
-                    <p>Restricts the menu item display to modules/addons of a specific category.</p>
+                    <p>Restricts the display of the menu item to modules/add-ons of a specific category.</p>
                     <p>Supported formats:</p>
                     <ul>
                         <li>modules, addons</li>
@@ -171,7 +171,7 @@
                 <td>
                     Displays the menu item depending on the presence of shell/cli in the parent module.<br>
                     Applicable for categories: modules, modules\<module_name><br><br>
-                        Default: not set | Values: on, off
+                    Default: not set | Values: on, off
                 </td>
             </tr>
             <tr>
@@ -179,7 +179,7 @@
                 <td>
                     Displays the menu item depending on the state of the parent module.<br>
                     Applicable for categories: modules, modules\<module_name><br><br>
-                        Default: not set | Values: on, off
+                    Default: not set | Values: on, off
                 </td>
             </tr>
             <tr>
@@ -187,7 +187,7 @@
                 <td>
                     Displays the menu item if a start command is present in the project settings.<br>
                     Applicable for categories: projects, projects\<domain_name><br><br>
-                        Default: not set | Values: on, off
+                    Default: not set | Values: on, off
                 </td>
             </tr>
             <tr>
@@ -200,7 +200,7 @@
             <tr>
                 <th>work_directory</th>
                 <td>
-                    Working directory for command execution. Can change during command execution.<br><br>
+                    Working directory for command execution. Can be changed during command execution.<br><br>
                     Default: {root_dir}
                 </td>
             </tr>
@@ -208,7 +208,7 @@
     </table>
     <h2>Template Variables</h2>
     The following template variables can be used in the "command" and "work_directory" parameters:
-    <h3>Common Variables</h3>
+    <h3>General Variables</h3>
     <table>
         <tr>
             <th>Variable</th>
@@ -251,11 +251,19 @@
         </tr>
         <tr>
             <td>{host_scheme}</td>
-            <td>Request scheme to the project ("http" or "https", depends on the SSL parameter in the project settings)</td>
+            <td>Project request scheme ("http" or "https", depends on the SSL parameter in project settings)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP protocol request port for the project</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS protocol request port for the project</td>
         </tr>
         <tr>
             <td>{menu_caption}</td>
-            <td>Menu item caption (only for projects category with need_alias=ON)</td>
+            <td>Menu item title (only for projects category with need_alias=ON)</td>
         </tr>
         <tr>
             <td>{nginx_engine}</td>
@@ -280,6 +288,10 @@
         <tr>
             <td>{public_dir}</td>
             <td>Project public directory</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Project request port (":{http_port}" or ":{https_port}", depends on the SSL parameter in project settings). If {http_port} or {https_port} has a standard value of 80 or 443, then {scheme_port} will be empty.</td>
         </tr>
         <tr>
             <td>{start_command}</td>
@@ -385,7 +397,7 @@ category = My Bookmarks\Search Engines
 command  = "%COMSPEC%" /c "start "" "https://google.com""
 hide     = on
 icon     = bookmark</pre>
-    <h3>cmd.exe Options</h3>
+    <h3>`cmd.exe` Options</h3>
     <ul>
         <li>/c: Execute the command and close the terminal.</li>
         <li>/k: Execute the command and keep the terminal open.</li>

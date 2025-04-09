@@ -72,42 +72,42 @@
     <h2 style="margin-top: 0.33em">Creación de elementos de menú personalizados</h2>
     <ol>
         <li>Añada una nueva sección con un identificador único [ID]</li>
-        <li>Coloque las secciones en el orden deseado — esto determinará el orden de los elementos en el menú</li>
+        <li>Organice las secciones en el orden deseado — esto determinará el orden de los elementos en el menú</li>
         <li>Guarde los cambios y reinicie Open Server Panel para aplicar los cambios</li>
     </ol>
     <div class="bs-callout bs-callout-danger">
         <h3>Información importante</h3>
-        Al crear elementos de menú personalizados, asegúrese de que los identificadores de sección no se repitan. Esto puede causar conflictos en el funcionamiento del menú.
+        Al crear elementos de menú personalizados, asegúrese de que los identificadores de sección no se repitan. Esto puede provocar conflictos en la funcionalidad del menú.
     </div>
     <h2>Configuración de elementos de menú</h2>
-    <p><strong>Orden de clasificación:</strong> Los elementos del menú se ordenan en el mismo orden en que se colocan las secciones correspondientes en la plantilla.</p>
+    <p><strong>Orden de clasificación:</strong> Los elementos del menú se ordenan en el mismo orden que sus secciones correspondientes en la plantilla.</p>
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
                 <th>caption</th>
                 <td>
                     Título del elemento de menú. Admite constantes de idioma en formato {lang_xxx}.<br><br>
-                    Por defecto: no especificado
+                    Por defecto: no establecido
                 </td>
             </tr>
             <tr>
                 <th>category</th>
                 <td>
-                    <p>Define la ubicación del elemento de menú en la jerarquía. Admite un nivel de anidamiento (por ejemplo, "Mis Marcadores\Trabajo").</p>
+                    <p>Determina la posición del elemento en la jerarquía del menú. Admite un nivel de anidamiento (por ejemplo, "Mis Marcadores\Trabajo").</p>
                     <p>Categorías especiales:</p>
                     <ul>
                         <li>projects, modules, addons - añade el elemento al menú de acciones correspondiente</li>
-                        <li>projects\<nombre_dominio>, modules\<nombre_módulo>, addons\<nombre_complemento> - añade el elemento para un elemento específico</li>
+                        <li>projects\<nombre_dominio>, modules\<nombre_módulo>, addons\<nombre_complemento> - añade un elemento para un elemento específico</li>
                     </ul>
                     <p>Si no se especifica la categoría, el elemento se crea en el menú raíz.</p>
-                    Por defecto: no especificado
+                    Por defecto: no establecido
                 </td>
             </tr>
             <tr>
                 <th>command</th>
                 <td>
-                    Comando a ejecutar al activar el elemento del menú. Los elementos sin comando son ignorados.<br><br>
-                    Por defecto: no especificado
+                    Comando a ejecutar cuando se activa el elemento del menú. Los elementos sin comando se ignoran.<br><br>
+                    Por defecto: no establecido
                 </td>
             </tr>
             <tr>
@@ -120,7 +120,7 @@
             <tr>
                 <th>hide</th>
                 <td>
-                    Controla la visibilidad de la ventana de la aplicación invocada. No afecta a los procesos secundarios.<br><br>
+                    Controla la visibilidad de la ventana de la aplicación llamada. No afecta a los procesos secundarios.<br><br>
                     Por defecto: off | Valores: on, off
                 </td>
             </tr>
@@ -142,72 +142,72 @@
                 <th>icon</th>
                 <td>
                     Icono del conjunto Font Awesome Free (Solid/Regular/Brands).<br><br>
-                    Por defecto: no especificado
+                    Por defecto: no establecido
                 </td>
             </tr>
             <tr>
                 <th>need_alias</th>
                 <td>
-                    Muestra el elemento de menú solo para un alias de dominio. ¡En la plantilla de menú solo puede haber un elemento con need_alias=on!<br>
-                    Aplicable para categorías: projects<br><br>
-                    Por defecto: no especificado | Valores: on, off
+                    Muestra el elemento de menú solo para un alias de dominio. ¡La plantilla de menú puede tener solo un elemento con need_alias=on!<br>
+                    Aplicable a categorías: projects<br><br>
+                    Por defecto: no establecido | Valores: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_category</th>
                 <td>
-                    <p>Limita la visualización del elemento de menú a módulos/complementos de una categoría específica.</p>
+                    <p>Restringe la visualización del elemento de menú a módulos/complementos de una categoría específica.</p>
                     <p>Formatos admitidos:</p>
                     <ul>
                         <li>modules, addons</li>
                         <li>modules\<nombre_módulo>, addons\<nombre_complemento>
                         </li>
                     </ul>
-                    Por defecto: no especificado
+                    Por defecto: no establecido
                 </td>
             </tr>
             <tr>
                 <th>need_module_shell</th>
                 <td>
-                    Muestra el elemento de menú dependiendo de la existencia de shell/cli en el módulo principal.<br>
-                    Aplicable para categorías: modules, modules\<nombre_módulo><br><br>
-                        Por defecto: no especificado | Valores: on, off
+                    Muestra el elemento de menú dependiendo de la presencia de shell/cli en el módulo principal.<br>
+                    Aplicable a categorías: modules, modules\<nombre_módulo><br><br>
+                    Por defecto: no establecido | Valores: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_state</th>
                 <td>
                     Muestra el elemento de menú dependiendo del estado del módulo principal.<br>
-                    Aplicable para categorías: modules, modules\<nombre_módulo><br><br>
-                        Por defecto: no especificado | Valores: on, off
+                    Aplicable a categorías: modules, modules\<nombre_módulo><br><br>
+                    Por defecto: no establecido | Valores: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_start_cmd</th>
                 <td>
-                    Muestra el elemento de menú cuando existe un comando de inicio en la configuración del proyecto.<br>
-                    Aplicable para categorías: projects, projects\<nombre_dominio><br><br>
-                        Por defecto: no especificado | Valores: on, off
+                    Muestra el elemento de menú si hay un comando de inicio en la configuración del proyecto.<br>
+                    Aplicable a categorías: projects, projects\<nombre_dominio><br><br>
+                    Por defecto: no establecido | Valores: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_use_wt</th>
                 <td>
                     Muestra el elemento de menú dependiendo de la configuración de uso de Windows Terminal en Open Server Panel.<br><br>
-                    Por defecto: no especificado | Valores: on, off
+                    Por defecto: no establecido | Valores: on, off
                 </td>
             </tr>
             <tr>
                 <th>work_directory</th>
                 <td>
-                    Directorio de trabajo para ejecutar el comando. Puede cambiar durante la ejecución de comandos.<br><br>
+                    Directorio de trabajo para la ejecución de comandos. Puede cambiar durante la ejecución del comando.<br><br>
                     Por defecto: {root_dir}
                 </td>
             </tr>
         </tbody>
     </table>
     <h2>Variables de plantilla</h2>
-    En los parámetros "command" y "work_directory" se pueden utilizar las siguientes variables de plantilla:
+    Las siguientes variables de plantilla se pueden usar en los parámetros "command" y "work_directory":
     <h3>Variables generales</h3>
     <table>
         <tr>
@@ -251,7 +251,15 @@
         </tr>
         <tr>
             <td>{host_scheme}</td>
-            <td>Esquema de solicitud al proyecto ("http" o "https", depende del parámetro SSL en la configuración del proyecto)</td>
+            <td>Esquema de solicitud del proyecto ("http" o "https", depende del parámetro SSL en la configuración del proyecto)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Puerto de solicitud del protocolo HTTP para el proyecto</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Puerto de solicitud del protocolo HTTPS para el proyecto</td>
         </tr>
         <tr>
             <td>{menu_caption}</td>
@@ -280,6 +288,10 @@
         <tr>
             <td>{public_dir}</td>
             <td>Directorio público del proyecto</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Puerto de solicitud del proyecto (":{http_port}" o ":{https_port}", depende del parámetro SSL en la configuración del proyecto). Si {http_port} o {https_port} tiene un valor estándar de 80 o 443, entonces {scheme_port} estará vacío.</td>
         </tr>
         <tr>
             <td>{start_command}</td>
@@ -337,7 +349,7 @@
         </tr>
         <tr>
             <td>{shell_command}</td>
-            <td>Comando de inicio del shell/cli del módulo (si está configurado)</td>
+            <td>Comando de inicio de shell/cli del módulo (si está configurado)</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
@@ -356,18 +368,18 @@
         </tr>
         <tr>
             <td>command_open_logs_viewer</td>
-            <td>Abrir ventana de visualización de registros</td>
+            <td>Abrir ventana del visor de registros</td>
         </tr>
         <tr>
             <td>command_open_idn_converter</td>
-            <td>Abrir convertidor IDN</td>
+            <td>Abrir conversor IDN</td>
         </tr>
         <tr>
             <td>command_open_options</td>
             <td>Abrir ventana de configuración del programa</td>
         </tr>
     </table>
-    <p>Además de las variables de plantilla, se pueden utilizar cualquier variable de entorno de Windows, por ejemplo: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
+    <p>Además de las variables de plantilla, puede utilizar cualquier variable de entorno de Windows, como: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
     <h3>Ejemplos de uso</h3>
     <pre class="code">
 [21]
@@ -385,10 +397,10 @@ category = Mis Marcadores\Motores de búsqueda
 command  = "%COMSPEC%" /c "start "" "https://google.com""
 hide     = on
 icon     = bookmark</pre>
-    <h3>Opciones `cmd.exe`</h3>
+    <h3>Opciones de `cmd.exe`</h3>
     <ul>
-        <li>/c: Ejecutar el comando y cerrar la terminal.</li>
-        <li>/k: Ejecutar el comando y mantener la terminal abierta.</li>
+        <li>/c: Ejecutar el comando y cerrar el terminal.</li>
+        <li>/k: Ejecutar el comando y mantener el terminal abierto.</li>
     </ul>
 </body>
 

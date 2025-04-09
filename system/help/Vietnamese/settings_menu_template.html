@@ -71,43 +71,43 @@
 <body>
     <h2 style="margin-top: 0.33em">Tạo mục menu tùy chỉnh</h2>
     <ol>
-        <li>Thêm một phần mới với định danh duy nhất [ID]</li>
-        <li>Sắp xếp các phần theo thứ tự mong muốn — điều này sẽ xác định thứ tự của các mục trong menu</li>
+        <li>Thêm một phần mới với mã định danh duy nhất [ID]</li>
+        <li>Sắp xếp các phần theo thứ tự mong muốn — điều này sẽ xác định thứ tự các mục trong menu</li>
         <li>Lưu thay đổi và khởi động lại Open Server Panel để áp dụng thay đổi</li>
     </ol>
     <div class="bs-callout bs-callout-danger">
         <h3>Thông tin quan trọng</h3>
-        Khi tạo các mục menu tùy chỉnh, hãy đảm bảo rằng định danh phần không trùng lặp. Điều này có thể gây ra xung đột trong hoạt động của menu.
+        Khi tạo các mục menu tùy chỉnh, hãy đảm bảo rằng các mã định danh phần không bị trùng lặp. Điều này có thể dẫn đến xung đột trong chức năng menu.
     </div>
     <h2>Cài đặt mục menu</h2>
-    <p><strong>Thứ tự sắp xếp:</strong> Các mục menu được sắp xếp theo cùng thứ tự mà các phần tương ứng được đặt trong mẫu.</p>
+    <p><strong>Thứ tự sắp xếp:</strong> Các mục menu được sắp xếp theo cùng thứ tự với các phần tương ứng trong mẫu.</p>
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
                 <th>caption</th>
                 <td>
-                    Tiêu đề của mục menu. Hỗ trợ các hằng ngôn ngữ theo định dạng {lang_xxx}.<br><br>
-                    Mặc định: không được đặt
+                    Tiêu đề mục menu. Hỗ trợ hằng số ngôn ngữ ở định dạng {lang_xxx}.<br><br>
+                    Mặc định: không đặt
                 </td>
             </tr>
             <tr>
                 <th>category</th>
                 <td>
-                    <p>Xác định vị trí của mục menu trong phân cấp. Hỗ trợ một cấp lồng nhau (ví dụ: "Bookmark của tôi\Công việc").</p>
+                    <p>Xác định vị trí của mục trong hệ thống phân cấp menu. Hỗ trợ một cấp lồng nhau (ví dụ: "Dấu trang của tôi\Công việc").</p>
                     <p>Danh mục đặc biệt:</p>
                     <ul>
                         <li>projects, modules, addons - thêm mục vào menu hành động tương ứng</li>
-                        <li>projects\<tên_miền>, modules\<tên_module>, addons\<tên_tiện_ích> - thêm mục cho một phần tử cụ thể</li>
+                        <li>projects\<tên_miền>, modules\<tên_mô-đun>, addons\<tên_tiện_ích> - thêm mục cho một phần tử cụ thể</li>
                     </ul>
-                    <p>Nếu danh mục không được chỉ định, mục sẽ được tạo trong menu gốc.</p>
-                    Mặc định: không được đặt
+                    <p>Nếu không chỉ định danh mục, mục sẽ được tạo trong menu gốc.</p>
+                    Mặc định: không đặt
                 </td>
             </tr>
             <tr>
                 <th>command</th>
                 <td>
-                    Lệnh thực thi khi kích hoạt mục menu. Các mục không có lệnh sẽ bị bỏ qua.<br><br>
-                    Mặc định: không được đặt
+                    Lệnh để thực thi khi kích hoạt mục menu. Các mục không có lệnh sẽ bị bỏ qua.<br><br>
+                    Mặc định: không đặt
                 </td>
             </tr>
             <tr>
@@ -120,21 +120,21 @@
             <tr>
                 <th>hide</th>
                 <td>
-                    Điều khiển khả năng hiển thị của cửa sổ ứng dụng được gọi. Không ảnh hưởng đến các tiến trình con.<br><br>
+                    Kiểm soát khả năng hiển thị của cửa sổ ứng dụng được gọi. Không ảnh hưởng đến các tiến trình con.<br><br>
                     Mặc định: off | Giá trị: on, off
                 </td>
             </tr>
             <tr>
                 <th>hr_after</th>
                 <td>
-                    Thêm đường phân cách ngang sau mục menu.<br><br>
+                    Thêm thanh phân cách ngang sau mục menu.<br><br>
                     Mặc định: off | Giá trị: on, off
                 </td>
             </tr>
             <tr>
                 <th>hr_before</th>
                 <td>
-                    Thêm đường phân cách ngang trước mục menu.<br><br>
+                    Thêm thanh phân cách ngang trước mục menu.<br><br>
                     Mặc định: off | Giá trị: on, off
                 </td>
             </tr>
@@ -142,59 +142,59 @@
                 <th>icon</th>
                 <td>
                     Biểu tượng từ bộ Font Awesome Free (Solid/Regular/Brands).<br><br>
-                    Mặc định: không được đặt
+                    Mặc định: không đặt
                 </td>
             </tr>
             <tr>
                 <th>need_alias</th>
                 <td>
                     Hiển thị mục menu chỉ cho bí danh tên miền. Trong mẫu menu chỉ có thể có một mục với need_alias=on!<br>
-                    Áp dụng cho các danh mục: projects<br><br>
-                    Mặc định: không được chỉ định | Giá trị: on, off
+                    Áp dụng cho danh mục: projects<br><br>
+                    Mặc định: không đặt | Giá trị: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_category</th>
                 <td>
-                    <p>Giới hạn hiển thị mục menu cho module/tiện ích mở rộng thuộc danh mục cụ thể.</p>
+                    <p>Giới hạn hiển thị mục menu cho mô-đun/tiện ích của danh mục cụ thể.</p>
                     <p>Định dạng được hỗ trợ:</p>
                     <ul>
                         <li>modules, addons</li>
-                        <li>modules\<tên_module>, addons\<tên_tiện_ích>
+                        <li>modules\<tên_mô-đun>, addons\<tên_tiện_ích>
                         </li>
                     </ul>
-                    Mặc định: không được đặt
+                    Mặc định: không đặt
                 </td>
             </tr>
             <tr>
                 <th>need_module_shell</th>
                 <td>
-                    Hiển thị mục menu tùy thuộc vào sự hiện diện của shell/cli trong module cha.<br>
-                    Áp dụng cho danh mục: modules, modules\<tên_module><br><br>
-                        Mặc định: không được đặt | Giá trị: on, off
+                    Hiển thị mục menu tùy thuộc vào sự hiện diện của shell/cli trong mô-đun chính.<br>
+                    Áp dụng cho danh mục: modules, modules\<tên_mô-đun><br><br>
+                    Mặc định: không đặt | Giá trị: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_state</th>
                 <td>
-                    Hiển thị mục menu tùy thuộc vào trạng thái của module cha.<br>
-                    Áp dụng cho danh mục: modules, modules\<tên_module><br><br>
-                        Mặc định: không được đặt | Giá trị: on, off
+                    Hiển thị mục menu tùy thuộc vào trạng thái của mô-đun chính.<br>
+                    Áp dụng cho danh mục: modules, modules\<tên_mô-đun><br><br>
+                    Mặc định: không đặt | Giá trị: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_start_cmd</th>
                 <td>
-                    Hiển thị mục menu khi có lệnh khởi động trong cài đặt dự án.<br>
+                    Hiển thị mục menu nếu có lệnh khởi động trong cài đặt dự án.<br>
                     Áp dụng cho danh mục: projects, projects\<tên_miền><br><br>
-                        Mặc định: không được đặt | Giá trị: on, off
+                    Mặc định: không đặt | Giá trị: on, off
                 </td>
             </tr>
             <tr>
                 <th>need_use_wt</th>
                 <td>
                     Hiển thị mục menu tùy thuộc vào cài đặt sử dụng Windows Terminal trong Open Server Panel.<br><br>
-                    Mặc định: không được đặt | Giá trị: on, off
+                    Mặc định: không đặt | Giá trị: on, off
                 </td>
             </tr>
             <tr>
@@ -207,7 +207,7 @@
         </tbody>
     </table>
     <h2>Biến mẫu</h2>
-    Trong tham số "command" và "work_directory", bạn có thể sử dụng các biến mẫu sau:
+    Các biến mẫu sau có thể được sử dụng trong tham số "command" và "work_directory":
     <h3>Biến chung</h3>
     <table>
         <tr>
@@ -247,15 +247,23 @@
         </tr>
         <tr>
             <td>{host_decoded}</td>
-            <td>Tên miền hiển thị (không dùng Punycode)</td>
+            <td>Tên miền hiển thị (không có Punycode)</td>
         </tr>
         <tr>
             <td>{host_scheme}</td>
-            <td>Sơ đồ yêu cầu tới dự án ("http" hoặc "https", phụ thuộc vào tham số SSL trong cài đặt dự án)</td>
+            <td>Sơ đồ yêu cầu dự án ("http" hoặc "https", phụ thuộc vào tham số SSL trong cài đặt dự án)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Cổng yêu cầu giao thức HTTP cho dự án</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Cổng yêu cầu giao thức HTTPS cho dự án</td>
         </tr>
         <tr>
             <td>{menu_caption}</td>
-            <td>Tiêu đề mục menu (chỉ dành cho danh mục projects với need_alias=ON)</td>
+            <td>Tiêu đề mục menu (chỉ cho danh mục projects với need_alias=ON)</td>
         </tr>
         <tr>
             <td>{nginx_engine}</td>
@@ -282,12 +290,16 @@
             <td>Thư mục công khai của dự án</td>
         </tr>
         <tr>
+            <td>{scheme_port}</td>
+            <td>Cổng yêu cầu dự án (":{http_port}" hoặc ":{https_port}", phụ thuộc vào tham số SSL trong cài đặt dự án). Nếu {http_port} hoặc {https_port} có giá trị tiêu chuẩn là 80 hoặc 443, thì {scheme_port} sẽ trống.</td>
+        </tr>
+        <tr>
             <td>{start_command}</td>
             <td>Lệnh khởi động dự án (nếu được cấu hình)</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
-            <td>Mã hóa của bảng điều khiển</td>
+            <td>Mã hóa bảng điều khiển</td>
         </tr>
     </table>
     <h3>Biến đặc biệt (chỉ cho addons và addons\&lt;tên_tiện_ích&gt;)</h3>
@@ -298,14 +310,14 @@
         </tr>
         <tr>
             <td>{addon_name}</td>
-            <td>Tên tiện ích mở rộng</td>
+            <td>Tên tiện ích</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
-            <td>Mã hóa của bảng điều khiển</td>
+            <td>Mã hóa bảng điều khiển</td>
         </tr>
     </table>
-    <h3>Biến đặc biệt (chỉ cho modules và modules\&lt;tên_module&gt;)</h3>
+    <h3>Biến đặc biệt (chỉ cho modules và modules\&lt;tên_mô-đun&gt;)</h3>
     <table>
         <tr>
             <th>Biến</th>
@@ -313,7 +325,7 @@
         </tr>
         <tr>
             <td>{ip}</td>
-            <td>Địa chỉ IP của module</td>
+            <td>Địa chỉ IP của mô-đun</td>
         </tr>
         <tr>
             <td>{log_level}</td>
@@ -321,15 +333,15 @@
         </tr>
         <tr>
             <td>{module_name}</td>
-            <td>Tên module</td>
+            <td>Tên mô-đun</td>
         </tr>
         <tr>
             <td>{port}</td>
-            <td>Cổng của module</td>
+            <td>Cổng của mô-đun</td>
         </tr>
         <tr>
             <td>{profile_name}</td>
-            <td>Tên hồ sơ cài đặt module hiện tại</td>
+            <td>Tên hồ sơ cài đặt hiện tại của mô-đun</td>
         </tr>
         <tr>
             <td>{query_log_level}</td>
@@ -337,11 +349,11 @@
         </tr>
         <tr>
             <td>{shell_command}</td>
-            <td>Lệnh khởi động shell/cli của module (nếu được cấu hình)</td>
+            <td>Lệnh khởi động shell/cli của mô-đun (nếu được cấu hình)</td>
         </tr>
         <tr>
             <td>{terminal_codepage}</td>
-            <td>Mã hóa của bảng điều khiển</td>
+            <td>Mã hóa bảng điều khiển</td>
         </tr>
         <tr>
             <td>{time_zone}</td>
@@ -367,7 +379,7 @@
             <td>Mở cửa sổ cài đặt chương trình</td>
         </tr>
     </table>
-    <p>Ngoài các biến mẫu, bạn có thể sử dụng bất kỳ biến môi trường Windows nào, ví dụ: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH% v.v.</p>
+    <p>Ngoài các biến mẫu, bạn có thể sử dụng bất kỳ biến môi trường Windows nào, chẳng hạn như: %COMSPEC%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, v.v.</p>
     <h3>Ví dụ sử dụng</h3>
     <pre class="code">
 [21]
@@ -381,7 +393,7 @@ icon     = code
 [22]
 
 caption  = Google
-category = Bookmark của tôi\Công cụ tìm kiếm
+category = Dấu trang của tôi\Công cụ tìm kiếm
 command  = "%COMSPEC%" /c "start "" "https://google.com""
 hide     = on
 icon     = bookmark</pre>
