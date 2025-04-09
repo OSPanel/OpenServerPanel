@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Configuración global de módulos</h2>
+    <p>Los parámetros especificados en esta sección se aplican cuando en la configuración de un módulo específico la opción correspondiente está establecida como auto (por defecto).</p>
+    <table>
+        <tr>
+            <th>Modo silencioso</th>
+        </tr>
+        <tr>
+            <td>
+                Desactiva los mensajes emergentes de error de Windows Error Reporting y del propio módulo.<br><br>
+                <strong>Recomendación:</strong> Desactive este modo solo cuando sea necesario diagnosticar problemas en el funcionamiento del módulo.</td>
+        </tr>
+        <tr>
+            <th>Añadir encabezado al archivo de registro</th>
+        </tr>
+        <tr>
+            <td>
+                Activa la adición automática de un encabezado al archivo de registro cada vez que se inicia el módulo. Útil cuando la limpieza automática de registros está desactivada para separar sesiones de trabajo.</td>
+        </tr>
+        <tr>
+            <th>Número máximo de inicios fallidos</th>
+        </tr>
+        <tr>
+            <td>
+                Determina cuántos inicios fallidos consecutivos del módulo se permiten antes de que pase al estado "Error".</td>
+        </tr>
+        <tr>
+            <th>Tiempo de verificación de funcionamiento del módulo</th>
+        </tr>
+        <tr>
+            <td>Determina el período de prueba de funcionamiento del módulo después de su inicio exitoso.<br><br>
+                <strong>Inicio del conteo:</strong> Desde el momento del inicio exitoso del módulo.<br><br>
+                <strong>Transición al estado "Error":</strong> Si el módulo termina abruptamente durante el período de prueba, no se reiniciará automáticamente y pasará al estado "Error". Esto también aplica a casos donde el módulo no puede iniciarse a nivel del sistema.<br><br>
+                <strong>Desactivación de la verificación:</strong> El valor 0 desactiva el período de prueba, y el módulo siempre se reiniciará en caso de fallo.<br><br>
+                <strong>Recomendación:</strong> No establezca el valor 0 o un período demasiado corto (menos de 30 segundos), ya que esto puede provocar ciclos infinitos de reinicio.</td>
+        </tr>
+        <tr>
+            <th>Tiempo de espera para finalización del módulo</th>
+        </tr>
+        <tr>
+            <td>Determina el tiempo límite durante el cual se permite al módulo finalizar su trabajo.<br><br>
+                <strong>Finalización forzada:</strong> Si el módulo no finaliza su trabajo en el tiempo especificado, será detenido forzosamente.<br><br>
+                <strong>Desactivación de la espera:</strong> El valor 0 desactiva el período de espera. El programa esperará indefinidamente la finalización del trabajo del módulo.<br><br>
+                <strong>Advertencia:</strong> La detención forzada del módulo puede provocar daños en los datos, pérdida de cambios no guardados o finalización incorrecta de procesos. Use esta configuración con precaución.</td>
+        </tr>
+        <tr>
+            <th>Tamaño máximo del archivo de registro</th>
+        </tr>
+        <tr>
+            <td>
+                Tamaño máximo del archivo de registro en megabytes. Si se excede el valor especificado, el archivo de registro se recreará en el próximo inicio del módulo.<br><br>
+                Establezca el valor 0 para limpiar los archivos de registro en cada inicio del módulo.<br><br>
+                Establezca el valor 100 MB para desactivar completamente la limpieza de archivos de registro.</td>
+        </tr>
+        <tr>
+            <th>Codificación de terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Codificación de la terminal al trabajar con el entorno del módulo.<br><br>
+                <strong>Valores especiales:</strong><br>
+                - system: Se utiliza la codificación del sistema.<br>
+                - (valor vacío): La codificación de la terminal permanece sin cambios.</td>
+        </tr>
+        <tr>
+            <th>Zona horaria</th>
+        </tr>
+        <tr>
+            <td>
+                Define la zona horaria del módulo en formato Etc/GMT (por ejemplo, Etc/GMT-3).<br><br>
+                <strong>Valores especiales:</strong><br>
+                - system: Se utiliza la zona horaria del sistema.<br><br>
+                <strong>Importante:</strong> El formato Etc/GMT tiene un desplazamiento inverso respecto a UTC (por ejemplo, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Entornos de complementos utilizados</th>
+        </tr>
+        <tr>
+            <td>
+                Define la lista de complementos (separados por espacios) cuyos entornos (si existen) se adjuntan al entorno del módulo. Los indicadores informativos en la terminal no muestran estos entornos adicionales.<br><br>
+                <strong>Advertencia:</strong> Utilice esta opción solo cuando comprenda completamente su propósito.</td>
+        </tr>
+        <tr>
+            <th>Variables del sistema permitidas</th>
+        </tr>
+        <tr>
+            <td>
+                Define la lista de variables de entorno de Windows (separadas por espacios) que se transmiten al entorno del módulo.<br><br>
+                <strong>Propósito:</strong> Permite aislar el entorno de trabajo del módulo de software similar instalado en el sistema.<br><br>
+                <strong>Advertencia:</strong> La modificación de esta lista sin comprender completamente su impacto puede provocar un funcionamiento inestable del módulo.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

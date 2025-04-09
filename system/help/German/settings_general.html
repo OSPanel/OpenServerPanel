@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programmeinstellungen</h2>
+    <table>
+        <tr>
+            <th>Mit Windows starten</th>
+        </tr>
+        <tr>
+            <td>
+                Automatischen Start des Open Server Panels beim Betriebssystemstart aktivieren.</td>
+        </tr>
+        <tr>
+            <th>Nach neuen Versionen suchen</th>
+        </tr>
+        <tr>
+            <td>
+                Aktualisierungsprüfung für das Open Server Panel aktivieren (Internetverbindung erforderlich).</td>
+        </tr>
+        <tr>
+            <th>Aufgabenplaner aktivieren</th>
+        </tr>
+        <tr>
+            <td>
+                Internen Aufgabenplaner aktivieren. Wenn dieser Parameter deaktiviert ist, werden keine geplanten Aufgaben ausgeführt, unabhängig von ihrem Status.</td>
+        </tr>
+        <tr>
+            <th>HOSTS-Datei verwenden</th>
+        </tr>
+        <tr>
+            <td>
+                Eintragung von Domainnamen in die HOSTS-Datei aktivieren.<br><br>
+                <strong>Empfehlungen bei eingeschränktem Zugriff auf die HOSTS-Datei in einer Organisation:</strong><br><br>
+                1. Konfigurieren Sie alle erforderlichen Module und Projekte.<br>
+                2. Wenden Sie sich an den Systemadministrator, um die HOSTS-Datei zu entsperren und ihren Zustand zu fixieren.<br>
+                3. Nach der Fixierung der Änderungen durch den Administrator können Sie diese Option deaktivieren.<br><br>
+                <strong>Wichtig:</strong> Deaktivieren Sie diesen Parameter nicht, wenn Sie sich über die Konsequenzen nicht im Klaren sind!</td>
+        </tr>
+        <tr>
+            <th>Schnittstellensprache</th>
+        </tr>
+        <tr>
+            <td>
+                Sprache der Benutzeroberfläche des Open Server Panels.<br><br>
+                Wenn die Lokalisierungsdatei fehlt oder Fehler enthält, wird Englisch verwendet.</td>
+        </tr>
+        <tr>
+            <th>API-Domain</th>
+        </tr>
+        <tr>
+            <td>
+                Lokale Domain für API und Weboberfläche (in Entwicklung)<br><br>
+                <strong>Empfehlung:</strong> Wenn Sie VPN oder Proxy verwenden, fügen Sie diese Domain zu den Ausnahmen hinzu.</td>
+        </tr>
+        <tr>
+            <th>API-IP-Adresse</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4-Adresse für API und Weboberfläche (in Entwicklung).<br><br>
+                <strong>Empfehlung:</strong> Wenn Sie VPN oder Proxy verwenden, fügen Sie diese IP-Adresse zu den Ausnahmen hinzu.</td>
+        </tr>
+        <tr>
+            <th>API-Port</th>
+        </tr>
+        <tr>
+            <td>
+                Port, der für API und Weboberfläche verwendet wird (in Entwicklung). Das Open Server Panel startet nicht, wenn der angegebene Port bereits belegt ist.</td>
+        </tr>
+        <tr>
+            <th>Windows Terminal verwenden</th>
+        </tr>
+        <tr>
+            <td>
+                Verwendung des Windows Terminals anstelle der Standard-Befehlsschnittstelle aktivieren.<br><br>
+                <strong>Anforderungen:</strong> Windows Terminal muss im System installiert und in der PATH-Umgebungsvariable eingetragen sein.<br><br>
+                <strong>Windows Terminal als cmd.exe:</strong> In neueren Windows-Versionen kann das Windows Terminal cmd.exe ersetzen und in der Umgebungsvariable %COMSPEC% eingetragen sein. Wenn das der Fall ist, lassen Sie diese Option aktiviert.<br><br>
+                <strong>Neue Windows Terminal-Instanzen:</strong> Wenn Windows Terminal neue Fenster anstelle von Tabs öffnet, konfigurieren Sie es so: Einstellungen&rarr;Start&rarr;Verhalten neuer Instanzen&rarr;An zuletzt verwendetes Fenster anfügen.</td>
+        </tr>
+        <tr>
+            <th>Kurzer Projekttitel</th>
+        </tr>
+        <tr>
+            <td>
+                Wenn diese Option aktiviert ist, wird in der Titelleiste des Terminalfensters nur der Projektname anstelle einer detaillierten Beschreibung angezeigt.</td>
+        </tr>
+        <tr>
+            <th>Systemumgebung mit Projektumgebungen verwenden</th>
+        </tr>
+        <tr>
+            <td>Systemumgebung (System) im Terminal verwenden, auch wenn sie nicht in den Projekteinstellungen definiert ist. Die Systemumgebung ermöglicht die Verwendung von im System installierten Programmen (z.B. git.exe oder ssh.exe).<br><br>Deaktivieren Sie diese Option nur bei Konflikten mit Systemsoftware.</td>
+        </tr>
+        <tr>
+            <th>ANSI-Unterstützung</th>
+        </tr>
+        <tr>
+            <td>
+                ANSI-Code-Unterstützung für Farbsteuerung im Terminal aktivieren.<br><br>
+                Modus "Automatisch" (Standard):<br>
+                - Die Korrektur wird nur auf Windows 7, 8 und Windows 10 (bis Version 1903 einschließlich) angewendet. In neueren Windows-Versionen ist die ANSI-Code-Unterstützung bereits integriert.<br>
+                - Die Korrektur wird nicht auf Terminals angewendet, die ANSI standardmäßig unterstützen (z.B. Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Verzeichnisse für Projektsuche</th>
+        </tr>
+        <tr>
+            <td>
+                Liste der Verzeichnisse, in denen das Open Server Panel nach Projekten suchen wird. Trennen Sie Pfade mit Semikolon (;).<br><br>
+                <strong>Ausnahmen:</strong> Unterverzeichnisse node_modules und vendor werden ignoriert.</td>
+        </tr>
+        <tr>
+            <th>Tiefe</th>
+        </tr>
+        <tr>
+            <td>
+                Maximale Verschachtelungstiefe bei der Suche nach Projekten.<br><br>
+                Eine Erhöhung dieses Wertes kann den Start des Open Server Panels verlangsamen, wenn die angegebenen Verzeichnisse eine große Anzahl von Unterverzeichnissen enthalten.</td>
+        </tr>
+        <tr>
+            <th>Maximale Protokolldateigröße</th>
+        </tr>
+        <tr>
+            <td>
+                Maximale Größe der Protokolldatei in Megabyte. Wenn der angegebene Wert überschritten wird, wird die Protokolldatei beim nächsten Programmstart neu erstellt.<br><br>
+                Setzen Sie den Wert auf 0, um die Protokolldateien bei jedem Programmstart zu löschen.<br><br>
+                Setzen Sie den Wert auf 100 MB, um die Protokollbereinigung vollständig zu deaktivieren.</td>
+        </tr>
+    </table>
+</body>
+
+</html>
