@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765344626488
+timestamp=0001744195501446090
 create-version=2
 source=SELECT sys.format_statement(DIGEST_TEXT) AS query,\n       SCHEMA_NAME as db,\n       IF(SUM_NO_GOOD_INDEX_USED > 0 OR SUM_NO_INDEX_USED > 0, \'*\', \'\') AS full_scan,\n       COUNT_STAR AS exec_count,\n       SUM_ERRORS AS err_count,\n       SUM_WARNINGS AS warn_count,\n       format_pico_time(SUM_TIMER_WAIT) AS total_latency,\n       format_pico_time(MAX_TIMER_WAIT) AS max_latency,\n       format_pico_time(AVG_TIMER_WAIT) AS avg_latency,\n       SUM_ROWS_SENT AS rows_sent,\n       ROUND(IFNULL(SUM_ROWS_SENT / NULLIF(COUNT_STAR, 0), 0)) AS rows_sent_avg,\n       SUM_ROWS_EXAMINED AS rows_examined,\n       ROUND(IFNULL(SUM_ROWS_EXAMINED / NULLIF(COUNT_STAR, 0), 0)) AS rows_examined_avg,\n       FIRST_SEEN AS first_seen,\n       LAST_SEEN AS last_seen,\n       DIGEST AS digest\n  FROM performance_schema.events_statements_summary_by_digest stmts\n  JOIN sys.x$ps_digest_95th_percentile_by_avg_us AS top_percentile\n    ON ROUND(stmts.avg_timer_wait/1000000) >= top_percentile.avg_us\n ORDER BY AVG_TIMER_WAIT DESC;
 client_cs_name=utf8mb3

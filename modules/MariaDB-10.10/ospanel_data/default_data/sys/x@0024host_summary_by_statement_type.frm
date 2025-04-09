@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765284586211
+timestamp=0001744195430624252
 create-version=2
 source=SELECT IF(host IS NULL, \'background\', host) AS host,\n       SUBSTRING_INDEX(event_name, \'/\', -1) AS statement,\n       count_star AS total,\n       sum_timer_wait AS total_latency,\n       max_timer_wait AS max_latency,\n       sum_lock_time AS lock_latency,\n       sum_rows_sent AS rows_sent,\n       sum_rows_examined AS rows_examined,\n       sum_rows_affected AS rows_affected,\n       sum_no_index_used + sum_no_good_index_used AS full_scans\n  FROM performance_schema.events_statements_summary_by_host_by_event_name\n WHERE sum_timer_wait != 0\n ORDER BY IF(host IS NULL, \'background\', host), sum_timer_wait DESC;
 client_cs_name=utf8mb3

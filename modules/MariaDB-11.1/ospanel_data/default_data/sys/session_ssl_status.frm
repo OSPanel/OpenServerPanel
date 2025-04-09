@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765374656671
+timestamp=0001744195535783045
 create-version=2
 source=SELECT sslver.thread_id,\n       sslver.variable_value ssl_version,\n       sslcip.variable_value ssl_cipher,\n       sslreuse.variable_value ssl_sessions_reused\n  FROM performance_schema.status_by_thread sslver\n  LEFT JOIN performance_schema.status_by_thread sslcip\n    ON (sslcip.thread_id=sslver.thread_id and sslcip.variable_name=\'Ssl_cipher\')\n  LEFT JOIN performance_schema.status_by_thread sslreuse\n    ON (sslreuse.thread_id=sslver.thread_id and sslreuse.variable_name=\'Ssl_sessions_reused\')\n WHERE sslver.variable_name=\'Ssl_version\';
 client_cs_name=utf8mb3

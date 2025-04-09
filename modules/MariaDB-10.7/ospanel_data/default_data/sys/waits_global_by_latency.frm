@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765419055076
+timestamp=0001744195563509112
 create-version=2
 source=SELECT event_name AS event,\n       count_star AS total,\n       sys.format_time(sum_timer_wait) AS total_latency,\n       sys.format_time(avg_timer_wait) AS avg_latency,\n       sys.format_time(max_timer_wait) AS max_latency\n  FROM performance_schema.events_waits_summary_global_by_event_name\n WHERE event_name != \'idle\'\n   AND sum_timer_wait > 0\n ORDER BY sum_timer_wait DESC;
 client_cs_name=utf8mb3

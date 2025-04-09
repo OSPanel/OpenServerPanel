@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765374503401
+timestamp=0001744195535210825
 create-version=2
 source=SELECT\n    TABLE_SCHEMA,\n    TABLE_NAME,\n    INDEX_NAME,\n    MAX(NON_UNIQUE) AS non_unique,\n    MAX(IF(SUB_PART IS NULL, 0, 1)) AS subpart_exists,\n    GROUP_CONCAT(COLUMN_NAME ORDER BY SEQ_IN_INDEX) AS index_columns\n  FROM INFORMATION_SCHEMA.STATISTICS\n  WHERE\n    INDEX_TYPE=\'BTREE\'\n    AND TABLE_SCHEMA NOT IN (\'mysql\', \'sys\', \'INFORMATION_SCHEMA\', \'PERFORMANCE_SCHEMA\')\n  GROUP BY\n    TABLE_SCHEMA, TABLE_NAME, INDEX_NAME;
 client_cs_name=utf8mb3

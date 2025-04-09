@@ -7,7 +7,7 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=2023-12-16 22:21:33
+timestamp=2025-04-09 10:43:12
 create-version=1
 source=SELECT IF(accounts.host IS NULL, \'background\', accounts.host) AS host, SUM(stmt.total) AS statements, SUM(stmt.total_latency) AS statement_latency, SUM(stmt.total_latency) / SUM(stmt.total) AS statement_avg_latency, SUM(stmt.full_scans) AS table_scans, SUM(io.ios) AS file_ios, SUM(io.io_latency) AS file_io_latency, SUM(accounts.current_connections) AS current_connections, SUM(accounts.total_connections) AS total_connections, COUNT(DISTINCT accounts.user) AS unique_users, SUM(mem.current_allocated) AS current_memory, SUM(mem.total_allocated) AS total_memory_allocated FROM performance_schema.accounts JOIN sys.x$host_summary_by_statement_latency AS stmt ON accounts.host = stmt.host JOIN sys.x$host_summary_by_file_io AS io ON accounts.host = io.host JOIN sys.x$memory_by_host_by_current_bytes mem ON accounts.host = mem.host GROUP BY IF(accounts.host IS NULL, \'background\', accounts.host)
 client_cs_name=utf8

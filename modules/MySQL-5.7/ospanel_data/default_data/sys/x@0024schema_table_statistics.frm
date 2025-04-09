@@ -7,7 +7,7 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=2023-12-16 22:21:33
+timestamp=2025-04-09 10:43:12
 create-version=1
 source=SELECT pst.object_schema AS table_schema, pst.object_name AS table_name, pst.sum_timer_wait AS total_latency, pst.count_fetch AS rows_fetched, pst.sum_timer_fetch AS fetch_latency, pst.count_insert AS rows_inserted, pst.sum_timer_insert AS insert_latency, pst.count_update AS rows_updated, pst.sum_timer_update AS update_latency, pst.count_delete AS rows_deleted, pst.sum_timer_delete AS delete_latency, fsbi.count_read AS io_read_requests, fsbi.sum_number_of_bytes_read AS io_read, fsbi.sum_timer_read AS io_read_latency, fsbi.count_write AS io_write_requests, fsbi.sum_number_of_bytes_write AS io_write, fsbi.sum_timer_write AS io_write_latency, fsbi.count_misc AS io_misc_requests, fsbi.sum_timer_misc AS io_misc_latency FROM performance_schema.table_io_waits_summary_by_table AS pst LEFT JOIN x$ps_schema_table_statistics_io AS fsbi ON pst.object_schema = fsbi.table_schema AND pst.object_name = fsbi.table_name ORDER BY pst.sum_timer_wait DESC
 client_cs_name=utf8

@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765405485586
+timestamp=0001744195569496400
 create-version=2
 source=SELECT t.thread_id,\n       IF(t.name = \'thread/sql/one_connection\',\n          CONCAT(t.processlist_user, \'@\', t.processlist_host),\n          REPLACE(t.name, \'thread/\', \'\')) user,\n       SUM(mt.current_count_used) AS current_count_used,\n       SUM(mt.current_number_of_bytes_used) AS current_allocated,\n       IFNULL(SUM(mt.current_number_of_bytes_used) / NULLIF(SUM(current_count_used), 0), 0) AS current_avg_alloc,\n       MAX(mt.current_number_of_bytes_used) AS current_max_alloc,\n       SUM(mt.sum_number_of_bytes_alloc) AS total_allocated\n  FROM performance_schema.memory_summary_by_thread_by_event_name AS mt\n  JOIN performance_schema.threads AS t USING (thread_id)\n GROUP BY thread_id, IF(t.name = \'thread/sql/one_connection\',\n          CONCAT(t.processlist_user, \'@\', t.processlist_host),\n          REPLACE(t.name, \'thread/\', \'\'))\n ORDER BY SUM(mt.current_number_of_bytes_used) DESC;
 client_cs_name=utf8mb3

@@ -7,7 +7,7 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=2023-12-16 22:21:33
+timestamp=2025-04-09 10:43:12
 create-version=1
 source=SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, DATA_TYPE, COLUMN_TYPE, (LOCATE(\'unsigned\', COLUMN_TYPE) = 0) AS is_signed, (LOCATE(\'unsigned\', COLUMN_TYPE) > 0) AS is_unsigned, ( CASE DATA_TYPE WHEN \'tinyint\' THEN 255 WHEN \'smallint\' THEN 65535 WHEN \'mediumint\' THEN 16777215 WHEN \'int\' THEN 4294967295 WHEN \'bigint\' THEN 18446744073709551615 END >> IF(LOCATE(\'unsigned\', COLUMN_TYPE) > 0, 0, 1) ) AS max_value, AUTO_INCREMENT, AUTO_INCREMENT / ( CASE DATA_TYPE WHEN \'tinyint\' THEN 255 WHEN \'smallint\' THEN 65535 WHEN \'mediumint\' THEN 16777215 WHEN \'int\' THEN 4294967295 WHEN \'bigint\' THEN 18446744073709551615 END >> IF(LOCATE(\'unsigned\', COLUMN_TYPE) > 0, 0, 1) ) AS auto_increment_ratio FROM INFORMATION_SCHEMA.COLUMNS INNER JOIN INFORMATION_SCHEMA.TABLES USING (TABLE_SCHEMA, TABLE_NAME) WHERE TABLE_SCHEMA NOT IN (\'mysql\', \'sys\', \'INFORMATION_SCHEMA\', \'performance_schema\') AND TABLE_TYPE=\'BASE TABLE\' AND EXTRA=\'auto_increment\' ORDER BY auto_increment_ratio DESC, max_value
 client_cs_name=utf8

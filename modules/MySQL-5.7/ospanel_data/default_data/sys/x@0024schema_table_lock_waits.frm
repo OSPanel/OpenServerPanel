@@ -7,7 +7,7 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=2023-12-16 22:21:33
+timestamp=2025-04-09 10:43:12
 create-version=1
 source=SELECT g.object_schema AS object_schema, g.object_name AS object_name, pt.thread_id AS waiting_thread_id, pt.processlist_id AS waiting_pid, sys.ps_thread_account(p.owner_thread_id) AS waiting_account, p.lock_type AS waiting_lock_type, p.lock_duration AS waiting_lock_duration, pt.processlist_info AS waiting_query, pt.processlist_time AS waiting_query_secs, ps.rows_affected AS waiting_query_rows_affected, ps.rows_examined AS waiting_query_rows_examined, gt.thread_id AS blocking_thread_id, gt.processlist_id AS blocking_pid, sys.ps_thread_account(g.owner_thread_id) AS blocking_account, g.lock_type AS blocking_lock_type, g.lock_duration AS blocking_lock_duration, CONCAT(\'KILL QUERY \', gt.processlist_id) AS sql_kill_blocking_query, CONCAT(\'KILL \', gt.processlist_id) AS sql_kill_blocking_connection FROM performance_schema.metadata_locks g INNER JOIN performance_schema.metadata_locks p  ON g.object_type = p.object_type AND g.object_schema = p.object_schema AND g.object_name = p.object_name AND g.lock_status = \'GRANTED\' AND p.lock_status = \'PENDING\' INNER JOIN performance_schema.threads gt ON g.owner_thread_id = gt.thread_id INNER JOIN performance_schema.threads pt ON p.owner_thread_id = pt.thread_id LEFT JOIN performance_schema.events_statements_current gs ON g.owner_thread_id = gs.thread_id LEFT JOIN performance_schema.events_statements_current ps ON p.owner_thread_id = ps.thread_id WHERE g.object_type = \'TABLE\'
 client_cs_name=utf8

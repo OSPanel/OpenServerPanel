@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765344524274
+timestamp=0001744195501156976
 create-version=2
 source=SELECT TABLE_SCHEMA,\n       TABLE_NAME,\n       COLUMN_NAME,\n       DATA_TYPE,\n       COLUMN_TYPE,\n       (LOCATE(\'unsigned\', COLUMN_TYPE) = 0) AS is_signed,\n       (LOCATE(\'unsigned\', COLUMN_TYPE) > 0) AS is_unsigned,\n       (\n          CASE DATA_TYPE\n            WHEN \'tinyint\' THEN 255\n            WHEN \'smallint\' THEN 65535\n            WHEN \'mediumint\' THEN 16777215\n            WHEN \'int\' THEN 4294967295\n            WHEN \'bigint\' THEN 18446744073709551615\n          END >> IF(LOCATE(\'unsigned\', COLUMN_TYPE) > 0, 0, 1)\n       ) AS max_value,\n       AUTO_INCREMENT,\n       AUTO_INCREMENT / (\n         CASE DATA_TYPE\n           WHEN \'tinyint\' THEN 255\n           WHEN \'smallint\' THEN 65535\n           WHEN \'mediumint\' THEN 16777215\n           WHEN \'int\' THEN 4294967295\n           WHEN \'bigint\' THEN 18446744073709551615\n         END >> IF(LOCATE(\'unsigned\', COLUMN_TYPE) > 0, 0, 1)\n       ) AS auto_increment_ratio\n  FROM INFORMATION_SCHEMA.COLUMNS\n INNER JOIN INFORMATION_SCHEMA.TABLES USING (TABLE_SCHEMA, TABLE_NAME)\n WHERE TABLE_SCHEMA NOT IN (\'mysql\', \'sys\', \'INFORMATION_SCHEMA\', \'performance_schema\')\n   AND TABLE_TYPE=\'BASE TABLE\'\n   AND EXTRA=\'auto_increment\'\n ORDER BY auto_increment_ratio DESC, max_value;
 client_cs_name=utf8mb3

@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765405578787
+timestamp=0001744195569856478
 create-version=2
 source=SELECT SUBSTRING_INDEX(event_name,\'/\', 3) AS event_class,\n       SUM(COUNT_STAR) AS total,\n       format_pico_time(SUM(sum_timer_wait)) AS total_latency,\n       format_pico_time(MIN(min_timer_wait)) min_latency,\n       format_pico_time(IFNULL(SUM(sum_timer_wait) / NULLIF(SUM(COUNT_STAR), 0), 0)) AS avg_latency,\n       format_pico_time(MAX(max_timer_wait)) AS max_latency\n  FROM performance_schema.events_waits_summary_global_by_event_name\n WHERE sum_timer_wait > 0\n   AND event_name != \'idle\'\n GROUP BY SUBSTRING_INDEX(event_name,\'/\', 3)\n ORDER BY SUM(sum_timer_wait) DESC;
 client_cs_name=utf8mb3

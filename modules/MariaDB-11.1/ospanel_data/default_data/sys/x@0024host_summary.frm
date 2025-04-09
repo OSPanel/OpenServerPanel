@@ -7,7 +7,7 @@ definer_user=mariadb.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=0001702765374629633
+timestamp=0001744195535681656
 create-version=2
 source=SELECT IF(accounts.host IS NULL, \'background\', accounts.host) AS host,\n       SUM(stmt.total) AS statements,\n       SUM(stmt.total_latency) AS statement_latency,\n       SUM(stmt.total_latency) / SUM(stmt.total) AS statement_avg_latency,\n       SUM(stmt.full_scans) AS table_scans,\n       SUM(io.ios) AS file_ios,\n       SUM(io.io_latency) AS file_io_latency,\n       SUM(accounts.current_connections) AS current_connections,\n       SUM(accounts.total_connections) AS total_connections,\n       COUNT(DISTINCT accounts.user) AS unique_users,\n       SUM(mem.current_allocated) AS current_memory,\n       SUM(mem.total_allocated) AS total_memory_allocated\n  FROM performance_schema.accounts\n  JOIN sys.x$host_summary_by_statement_latency AS stmt ON accounts.host = stmt.host\n  JOIN sys.x$host_summary_by_file_io AS io ON accounts.host = io.host\n  JOIN sys.x$memory_by_host_by_current_bytes mem ON accounts.host = mem.host\n GROUP BY IF(accounts.host IS NULL, \'background\', accounts.host);
 client_cs_name=utf8mb3

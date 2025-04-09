@@ -7,7 +7,7 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
-timestamp=2023-12-16 22:21:33
+timestamp=2025-04-09 10:43:12
 create-version=1
 source=SELECT IF(LOCATE(\'.\', ibp.table_name) = 0, \'InnoDB System\', REPLACE(SUBSTRING_INDEX(ibp.table_name, \'.\', 1), \'`\', \'\')) AS object_schema, REPLACE(SUBSTRING_INDEX(ibp.table_name, \'.\', -1), \'`\', \'\') AS object_name, SUM(IF(ibp.compressed_size = 0, 16384, compressed_size)) AS allocated, SUM(ibp.data_size) AS data, COUNT(ibp.page_number) AS pages, COUNT(IF(ibp.is_hashed = \'YES\', 1, NULL)) AS pages_hashed, COUNT(IF(ibp.is_old = \'YES\', 1, NULL)) AS pages_old, ROUND(IFNULL(SUM(ibp.number_records)/NULLIF(COUNT(DISTINCT ibp.index_name), 0), 0)) AS rows_cached  FROM information_schema.innodb_buffer_page ibp  WHERE table_name IS NOT NULL GROUP BY object_schema, object_name ORDER BY SUM(IF(ibp.compressed_size = 0, 16384, compressed_size)) DESC
 client_cs_name=utf8
