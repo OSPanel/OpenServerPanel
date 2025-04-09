@@ -611,7 +611,7 @@
             "key": "project_url",
             "value": {
               "_type": "UString",
-              "_value": "https://{host_decoded}",
+              "_value": "{host_scheme}://{host_decoded}{scheme_port}",
               "_strict": true
             }
           },
