@@ -676,7 +676,7 @@
               "_strict": true,
               "_children": [
                 {
-                  "key": "www",
+                  "key": "www.{host}",
                   "value": {
                     "_type": "Empty",
                     "_strict": true
