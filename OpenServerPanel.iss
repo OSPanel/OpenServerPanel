@@ -1,5 +1,5 @@
-#define AppVersion      "6.0.0"
-#define AppVersion_     "6_0_0"
+#define AppVersion      "6.2.1"
+#define AppVersion_     "6_2_1
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -214,12 +214,12 @@ Source: "home\*";                                                 DestDir: "{app
 Source: "system\*";                                               DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "user\ssl\*";                                             DestDir: "{app}\user\ssl";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                            Permissions: users-full
 Source: "addons\Perl-5.32\*";                                     DestDir: "{app}\addons\Perl-5.32";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: perl532;              Permissions: users-full
-Source: "addons\ErlangOTP-26.2\*";                                DestDir: "{app}\addons\ErlangOTP-26.2";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: erlang26;             Permissions: users-full
-Source: "addons\NVM\*";                                           DestDir: "{app}\addons\NVM";                    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: nvm;                  Permissions: users-full
-Source: "addons\ImageMagick-7.1\*";                               DestDir: "{app}\addons\ImageMagick-7.1";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: im71;                 Permissions: users-full
-Source: "addons\Ghostscript-10.05\*";                             DestDir: "{app}\addons\Ghostscript-10.05";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: gs1005;               Permissions: users-full
-Source: "addons\FFMpeg-7.1\*";                                    DestDir: "{app}\addons\FFMpeg-7.1";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: ffmpeg71;             Permissions: users-full
-Source: "addons\Blackfire\*";                                     DestDir: "{app}\addons\Blackfire";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak;  Components: blackfire;            Permissions: users-full
+Source: "addons\ErlangOTP-26.2\*";                                DestDir: "{app}\addons\ErlangOTP-26.2";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: erlang26;                        Permissions: users-full
+Source: "addons\NVM\*";                                           DestDir: "{app}\addons\NVM";                    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: nvm;                             Permissions: users-full
+Source: "addons\ImageMagick-7.1\*";                               DestDir: "{app}\addons\ImageMagick-7.1";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: im71;                            Permissions: users-full
+Source: "addons\Ghostscript-10.05\*";                             DestDir: "{app}\addons\Ghostscript-10.05";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: gs1005;                          Permissions: users-full
+Source: "addons\FFMpeg-7.1\*";                                    DestDir: "{app}\addons\FFMpeg-7.1";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: ffmpeg71;                        Permissions: users-full
+Source: "addons\Blackfire\*";                                     DestDir: "{app}\addons\Blackfire";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: blackfire;                       Permissions: users-full
 
 Source: "user\browscap\*"; Excludes: "lite_php_browscap.ini";     DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: browscap;              Permissions: users-full
 Source: "user\geo\*";                                             DestDir: "{app}\user\geo";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: geobases;                        Permissions: users-full
