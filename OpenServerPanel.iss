@@ -1,5 +1,5 @@
-#define AppVersion      "6.2.2"
-#define AppVersion_     "6_2_2"
+#define AppVersion      "6.2.4"
+#define AppVersion_     "6_2_4"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -666,10 +666,8 @@ begin
         begin
             WizardForm.TasksList.Checked[0] := false;  
             WizardForm.TasksList.Checked[1] := false;
-            WizardForm.TasksList.Checked[2] := false;
             WizardForm.TasksList.ItemEnabled[0] := false;  
             WizardForm.TasksList.ItemEnabled[1] := false;
-            WizardForm.TasksList.ItemEnabled[2] := false;
         end;
   end;
 
