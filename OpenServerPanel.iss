@@ -1,5 +1,5 @@
-#define AppVersion      "6.2.1"
-#define AppVersion_     "6_2_1"
+#define AppVersion      "6.2.2"
+#define AppVersion_     "6_2_2"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
