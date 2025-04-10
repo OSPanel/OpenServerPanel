@@ -53,7 +53,7 @@ work_directory = {project_dir}
 [6]
 
 category       = projects
-command        = "%COMSPEC%" /c "start "" "{host_scheme}://{menu_caption}""
+command        = "%COMSPEC%" /c "start "" "{project_url}""
 hide           = on
 need_alias     = on
 icon           = up-right-from-square
