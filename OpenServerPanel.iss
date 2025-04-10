@@ -111,6 +111,10 @@ Name: "ffmpeg71";              Description: "FFMpeg-7.1";         Types: full co
 Name: "gs1005";                Description: "Ghostscript-10.05";  Types: full compact;                            Flags: disablenouninstallwarning
 Name: "im71";                  Description: "ImageMagick-7.1";    Types: full compact;                            Flags: disablenouninstallwarning
 
+Name: "mail";                  Description: "Mail";                                                               Flags: disablenouninstallwarning
+Name: "mail\mailpit";          Description: "Mailpit";            Types: full compact;                            Flags: disablenouninstallwarning
+Name: "mail\smtp4dev";         Description: "Smtp4dev";           Types: full compact;                            Flags: disablenouninstallwarning
+
 Name: "mariadb";               Description: "MariaDB";                                                            Flags: disablenouninstallwarning
 Name: "mariadb\mariadb101";    Description: "MariaDB 10.1";       Types: full;                                    Flags: disablenouninstallwarning
 Name: "mariadb\mariadb102";    Description: "MariaDB 10.2";       Types: full;                                    Flags: disablenouninstallwarning
@@ -199,10 +203,6 @@ Name: "redis\redis50";         Description: "Redis 5.0";          Types: full;  
 Name: "redis\redis70";         Description: "Redis 7.0";          Types: full;                                    Flags: disablenouninstallwarning
 Name: "redis\redis72";         Description: "Redis 7.2";          Types: full;                                    Flags: disablenouninstallwarning
 Name: "redis\redis74";         Description: "Redis 7.4";          Types: full;                                    Flags: disablenouninstallwarning
-
-Name: "mail";                  Description: "SMTP";                                                               Flags: disablenouninstallwarning
-Name: "mail\mailpit";          Description: "Mailpit";            Types: full compact;                            Flags: disablenouninstallwarning
-Name: "mail\smtp4dev";         Description: "Smtp4dev";           Types: full compact;                            Flags: disablenouninstallwarning
 
 [Files]
 
