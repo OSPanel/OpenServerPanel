@@ -81,7 +81,7 @@ Name: "be";             MessagesFile: "resources\lang\be.isl";    LicenseFile: "
 [Tasks]
 
 Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";                      Components: core
-Name: "autostarticon";  Description:  "{cm:AutoStartProgram,{#AppTitle}}";           Components: core
+// Name: "autostarticon";  Description:  "{cm:AutoStartProgram,{#AppTitle}}";        Components: core
 Name: "add_to_path";    Description:  "{cm:AddToPath}";                              Components: core
 Name: "import_cert";    Description:  "{cm:ImportCert}";                             Components: core
 
@@ -94,7 +94,7 @@ Name: "{group}\{cm:RunManual}";           Filename: "https://github.com/OSPanel/
 Name: "{group}\{cm:RunDonate}";           Filename: "https://ospanel.io/donate/";                                 Components: core
 Name: "{group}\{cm:UninstallProgram,{#AppTitle}}"; Filename: "{uninstallexe}";      WorkingDir: "{app}";          Components: core;           Flags: createonlyiffileexists
 Name: "{autodesktop}\{#AppTitle}";        Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";          Flags: createonlyiffileexists;    Tasks: desktop_icon
-Name: "{userstartup}\{#AppTitle}";        Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";          Flags: createonlyiffileexists;    Tasks: autostarticon
+// Name: "{userstartup}\{#AppTitle}";     Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";          Flags: createonlyiffileexists;    Tasks: autostarticon
 
 [Components]
 
