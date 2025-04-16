@@ -406,3 +406,7 @@ NormalInstallationDescr=Normal installation makes it possible to integrate the a
 PortableInstallationDescr=Portable mode allows you to unpack the application to the selected directory without installing it into the system. In this mode, it is not possible to create shortcuts to the application, add it to startup and integrate with the PATH variable.
 WantToDeleteDataFolder=Do you want to keep the data directory "data"?
 WantToDeleteHomeFolder=Do you want to keep the project directory "home"?
+
+SubAddons=Add-ons
+SubDataPacks=Data Packs
+SubModules=Modules
