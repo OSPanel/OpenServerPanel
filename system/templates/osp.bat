@@ -311,6 +311,7 @@ goto end
 :nodeenv
 call "%OSP_DIR%\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
 set "PATH=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
+set "NODE_EXTRA_CA_CERTS=%OSP_DIR%\data\ssl\cacert.pem"
 set "NPM_CONFIG_UNICODE=true"
 set "NPM_CONFIG_CAFILE=%OSP_DIR%\data\ssl\cacert.pem"
 set "NPM_CONFIG_USERCONFIG=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
