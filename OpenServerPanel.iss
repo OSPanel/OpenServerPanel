@@ -1,5 +1,5 @@
-#define AppVersion      "6.2.6"
-#define AppVersion_     "6_2_6"
+#define AppVersion      "6.2.9"
+#define AppVersion_     "6_2_9"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -27,16 +27,16 @@ VersionInfoCopyright    = Copyright (c) 2010-{#CurrentYear}, {#AppDomain}
 
 // Compression
 
-Compression          = lzma2/fast
-// Compression             = lzma2/ultra64
+// Compression          = lzma2/fast
+Compression             = lzma2/ultra64
 InternalCompressLevel   = ultra64
 LZMAUseSeparateProcess  = yes
 SolidCompression        = yes
 LZMABlockSize           = 262144
 LZMADictionarySize      = 262144
 LZMANumBlockThreads     = 4
-// LZMANumFastBytes        = 273
-LZMANumFastBytes     = 32
+LZMANumFastBytes        = 273
+// LZMANumFastBytes     = 32
 
 // Misc  
 
@@ -81,7 +81,6 @@ Name: "be";             MessagesFile: "resources\lang\be.isl";    LicenseFile: "
 [Tasks]
 
 Name: "desktop_icon";   Description:  "{cm:CreateDesktopIcon}";                      Components: core
-// Name: "autostarticon";  Description:  "{cm:AutoStartProgram,{#AppTitle}}";        Components: core
 Name: "add_to_path";    Description:  "{cm:AddToPath}";                              Components: core
 Name: "import_cert";    Description:  "{cm:ImportCert}";                             Components: core
 
@@ -94,7 +93,6 @@ Name: "{group}\{cm:RunManual}";           Filename: "https://github.com/OSPanel/
 Name: "{group}\{cm:RunDonate}";           Filename: "https://ospanel.io/donate/";                                 Components: core
 Name: "{group}\{cm:UninstallProgram,{#AppTitle}}"; Filename: "{uninstallexe}";      WorkingDir: "{app}";          Components: core;           Flags: createonlyiffileexists
 Name: "{autodesktop}\{#AppTitle}";        Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";          Flags: createonlyiffileexists;    Tasks: desktop_icon
-// Name: "{userstartup}\{#AppTitle}";     Filename: "{app}\bin\ospanel.exe";        WorkingDir: "{app}";          Flags: createonlyiffileexists;    Tasks: autostarticon
 
 [Components]
 
