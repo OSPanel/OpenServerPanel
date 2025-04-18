@@ -198,6 +198,7 @@ if "%2"=="" goto eargument
 if /i "%2"=="show" "%SystemRoot%\System32\certutil.exe" -user -store "Root" "Open Server Panel" & goto end
 if /i "%2"=="deinit" goto cacertdeinit
 "%OSP_DIR%\system\bin\curl.exe" -f -s -L -o "%OSP_DIR%\system\ssl\cacert.pem" https://curl.se/ca/cacert.pem
+if %ERRORLEVEL%==0 copy "%OSP_DIR%\system\ssl\cacert.pem" "%OSP_DIR%\bin\curl-ca-bundle.crt" /b /y >nul
 if not exist "%OSP_DIR%\system\ssl\gen_root_cert.bat" set "OSP_ERR_MSG=%OSP_DIR%\system\ssl\gen_root_cert.bat {lang_err_not_found}" & goto error
 if exist "%OSP_DIR%\data\ssl\root\cert.crt" del /Q "%OSP_DIR%\data\ssl\root\cert.crt"
 "%SystemRoot%\System32\certutil.exe" -user -delstore "Root" "Open Server Panel"
