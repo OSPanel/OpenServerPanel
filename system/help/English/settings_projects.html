@@ -48,24 +48,6 @@
     <p>Parameters set in this section are used if no other values are specified in the project settings.</p>
     <table>
         <tr>
-            <th>Enable</th>
-        </tr>
-        <tr>
-            <td>
-                Determines the default project state (enabled or disabled).</td>
-        </tr>
-        <tr>
-            <th>Terminal Encoding</th>
-        </tr>
-        <tr>
-            <td>
-                Terminal encoding when working with the project environment.<br><br>
-                <strong>Special values:</strong><br>
-                - system: Uses system encoding.<br>
-                - (empty value): Terminal encoding remains unchanged.<br><br>
-                <strong>Important:</strong> If the value is not set, when forming the final project environment, terminal encoding will be set by the last connected environment in which it is defined, for example, the PHP module environment.</td>
-        </tr>
-        <tr>
             <th>Nginx</th>
         </tr>
         <tr>
@@ -87,6 +69,24 @@
             <td>
                 Defines the PHP engine used for processing PHP files.<br><br>
                 <strong>Important:</strong> PHP modules without the FCGI prefix are integrated Apache+PHP modules.</td>
+        </tr>
+        <tr>
+            <th>Enable</th>
+        </tr>
+        <tr>
+            <td>
+                Determines the default project state (enabled or disabled).</td>
+        </tr>
+        <tr>
+            <th>Terminal Encoding</th>
+        </tr>
+        <tr>
+            <td>
+                Terminal encoding when working with the project environment.<br><br>
+                <strong>Special values:</strong><br>
+                - system: Uses system encoding.<br>
+                - (empty value): Terminal encoding remains unchanged.<br><br>
+                <strong>Important:</strong> If the value is not set, when forming the final project environment, terminal encoding will be set by the last connected environment in which it is defined, for example, the PHP module environment.</td>
         </tr>
         <tr>
             <th>IP</th>
