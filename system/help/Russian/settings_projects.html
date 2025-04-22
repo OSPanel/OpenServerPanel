@@ -214,6 +214,42 @@
                 <td>Видимое имя домена (без Punycode)</td>
             </tr>
             <tr>
+                <td>{host_scheme}</td>
+                <td>Схема запроса к проекту ("http" или "https", зависит от параметра SSL в настройках проекта)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Порт запроса к проекту по протоколу HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Порт запроса к проекту по протоколу HTTPS</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Движок Nginx</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Движок Node.js</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Движок PHP</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Корневой каталог проекта</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Публичный каталог проекта</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Порт запроса к проекту (":{http_port}"" или ":{https_port}", зависит от параметра SSL в настройках проекта).<br><br>Если {http_port} или {https_port} имеет стандартное значение 80 или 443, то {scheme_port} будет пустым.</td>
+            </tr>
+            <tr>
                 <td>{root_dir}</td>
                 <td>Корневой каталог Open Server Panel (полный путь)</td>
             </tr>
@@ -224,6 +260,10 @@
             <tr>
                 <td>{root_path}</td>
                 <td>Путь к корневому каталогу Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Кодировка консоли</td>
             </tr>
         </tbody>
     </table>
