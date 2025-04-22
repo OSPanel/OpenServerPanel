@@ -192,7 +192,7 @@
                 <strong>Aplicación:</strong> Se puede establecer la URL del panel de administración del CMS.</td>
         </tr>
     </table>
-    <h2>Variables de plantilla</h2>
+    <h2>Variables de Plantilla</h2>
     <table>
         <thead>
             <tr>
@@ -214,6 +214,42 @@
                 <td>Nombre de dominio visible (sin Punycode)</td>
             </tr>
             <tr>
+                <td>{host_scheme}</td>
+                <td>Esquema de solicitud al proyecto ("http" o "https", depende del parámetro SSL en la configuración del proyecto)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Puerto de solicitud al proyecto mediante el protocolo HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Puerto de solicitud al proyecto mediante el protocolo HTTPS</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Motor Nginx</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Motor Node.js</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Motor PHP</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Directorio raíz del proyecto</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Directorio público del proyecto</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Puerto de solicitud al proyecto (":{http_port}" o ":{https_port}", depende del parámetro SSL en la configuración del proyecto).<br><br>Si {http_port} o {https_port} tiene el valor estándar 80 o 443, entonces {scheme_port} estará vacío.</td>
+            </tr>
+            <tr>
                 <td>{root_dir}</td>
                 <td>Directorio raíz de Open Server Panel (ruta completa)</td>
             </tr>
@@ -224,6 +260,10 @@
             <tr>
                 <td>{root_path}</td>
                 <td>Ruta al directorio raíz de Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Codificación de la consola</td>
             </tr>
         </tbody>
     </table>

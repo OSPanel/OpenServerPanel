@@ -214,8 +214,44 @@
                 <td>Sichtbarer Domainname (ohne Punycode)</td>
             </tr>
             <tr>
+                <td>{host_scheme}</td>
+                <td>Anfrageschema des Projekts ("http" oder "https", abhängig vom SSL-Parameter in den Projekteinstellungen)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Anfrageport des Projekts über das HTTP-Protokoll</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Anfrageport des Projekts über das HTTPS-Protokoll</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Nginx-Engine</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Node.js-Engine</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP-Engine</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Stammverzeichnis des Projekts</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Öffentliches Verzeichnis des Projekts</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Anfrageport des Projekts (":{http_port}" oder ":{https_port}", abhängig vom SSL-Parameter in den Projekteinstellungen).<br><br>Wenn {http_port} oder {https_port} den Standardwert 80 oder 443 hat, dann wird {scheme_port} leer sein.</td>
+            </tr>
+            <tr>
                 <td>{root_dir}</td>
-                <td>Stammverzeichnis des Open Server Panels (vollständiger Pfad)</td>
+                <td>Stammverzeichnis von Open Server Panel (vollständiger Pfad)</td>
             </tr>
             <tr>
                 <td>{root_drive}</td>
@@ -223,7 +259,11 @@
             </tr>
             <tr>
                 <td>{root_path}</td>
-                <td>Pfad zum Stammverzeichnis des Open Server Panels</td>
+                <td>Pfad zum Stammverzeichnis von Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolencodierung</td>
             </tr>
         </tbody>
     </table>

@@ -214,6 +214,42 @@
                 <td>Бачнае імя дамена (без Punycode)</td>
             </tr>
             <tr>
+                <td>{host_scheme}</td>
+                <td>Схема запыту да праекта ("http" або "https", залежыць ад параметра SSL у наладах праекта)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Порт запыту да праекта па пратаколе HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Порт запыту да праекта па пратаколе HTTPS</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Рухавік Nginx</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Рухавік Node.js</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Рухавік PHP</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Каранёвы каталог праекта</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Публічны каталог праекта</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Порт запыту да праекта (":{http_port}" або ":{https_port}", залежыць ад параметра SSL у наладах праекта).<br><br>Калі {http_port} або {https_port} мае стандартнае значэнне 80 або 443, то {scheme_port} будзе пустым.</td>
+            </tr>
+            <tr>
                 <td>{root_dir}</td>
                 <td>Каранёвы каталог Open Server Panel (поўны шлях)</td>
             </tr>
@@ -224,6 +260,10 @@
             <tr>
                 <td>{root_path}</td>
                 <td>Шлях да каранёвага каталога Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Кадзіроўка кансолі</td>
             </tr>
         </tbody>
     </table>

@@ -214,6 +214,42 @@
                 <td>Visible domain name (without Punycode)</td>
             </tr>
             <tr>
+                <td>{host_scheme}</td>
+                <td>Project request scheme ("http" or "https", depends on the SSL parameter in the project settings)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Project request port using the HTTP protocol</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Project request port using the HTTPS protocol</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Nginx engine</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Node.js engine</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP engine</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Project root directory</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Project public directory</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Project request port (":{http_port}" or ":{https_port}", depends on the SSL parameter in the project settings).<br><br>If {http_port} or {https_port} has the standard value of 80 or 443, then {scheme_port} will be empty.</td>
+            </tr>
+            <tr>
                 <td>{root_dir}</td>
                 <td>Open Server Panel root directory (full path)</td>
             </tr>
@@ -224,6 +260,10 @@
             <tr>
                 <td>{root_path}</td>
                 <td>Path to the Open Server Panel root directory</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Console encoding</td>
             </tr>
         </tbody>
     </table>

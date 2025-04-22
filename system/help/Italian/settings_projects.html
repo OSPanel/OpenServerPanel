@@ -192,7 +192,7 @@
                 <strong>Applicazione:</strong> È possibile impostare l'URL del pannello di amministrazione del CMS.</td>
         </tr>
     </table>
-    <h2>Variabili di modello</h2>
+    <h2>Variabili di Template</h2>
     <table>
         <thead>
             <tr>
@@ -214,6 +214,42 @@
                 <td>Nome di dominio visibile (senza Punycode)</td>
             </tr>
             <tr>
+                <td>{host_scheme}</td>
+                <td>Schema di richiesta al progetto ("http" o "https", dipende dal parametro SSL nelle impostazioni del progetto)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Porta di richiesta al progetto tramite il protocollo HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Porta di richiesta al progetto tramite il protocollo HTTPS</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Motore Nginx</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Motore Node.js</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Motore PHP</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Directory principale del progetto</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Directory pubblica del progetto</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Porta di richiesta al progetto (":{http_port}" o ":{https_port}", dipende dal parametro SSL nelle impostazioni del progetto).<br><br>Se {http_port} o {https_port} ha il valore standard 80 o 443, allora {scheme_port} sarà vuoto.</td>
+            </tr>
+            <tr>
                 <td>{root_dir}</td>
                 <td>Directory principale di Open Server Panel (percorso completo)</td>
             </tr>
@@ -223,7 +259,11 @@
             </tr>
             <tr>
                 <td>{root_path}</td>
-                <td>Percorso alla directory principale di Open Server Panel</td>
+                <td>Percorso della directory principale di Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Codifica della console</td>
             </tr>
         </tbody>
     </table>

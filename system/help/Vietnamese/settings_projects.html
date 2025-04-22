@@ -192,7 +192,7 @@
                 <strong>Ứng dụng:</strong> Có thể đặt URL cho bảng điều khiển quản trị CMS.</td>
         </tr>
     </table>
-    <h2>Biến mẫu</h2>
+    <h2>Biến Mẫu</h2>
     <table>
         <thead>
             <tr>
@@ -207,11 +207,47 @@
             </tr>
             <tr>
                 <td>{host}</td>
-                <td>Tên miền (đối với tên miền quốc tế hóa, sử dụng Punycode)</td>
+                <td>Tên miền (Punycode được sử dụng cho tên miền quốc tế)</td>
             </tr>
             <tr>
                 <td>{host_decoded}</td>
-                <td>Tên miền hiển thị (không dùng Punycode)</td>
+                <td>Tên miền hiển thị (không có Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Giao thức yêu cầu đến dự án ("http" hoặc "https", phụ thuộc vào tham số SSL trong cài đặt dự án)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Cổng yêu cầu đến dự án thông qua giao thức HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Cổng yêu cầu đến dự án thông qua giao thức HTTPS</td>
+            </tr>
+            <tr>
+                <td>{nginx_engine}</td>
+                <td>Động cơ Nginx</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Động cơ Node.js</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Động cơ PHP</td>
+            </tr>
+            <tr>
+                <td>{project_dir}</td>
+                <td>Thư mục gốc của dự án</td>
+            </tr>
+            <tr>
+                <td>{public_dir}</td>
+                <td>Thư mục công khai của dự án</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Cổng yêu cầu đến dự án (":{http_port}" hoặc ":{https_port}", phụ thuộc vào tham số SSL trong cài đặt dự án).<br><br>Nếu {http_port} hoặc {https_port} có giá trị tiêu chuẩn 80 hoặc 443, thì {scheme_port} sẽ trống.</td>
             </tr>
             <tr>
                 <td>{root_dir}</td>
@@ -224,6 +260,10 @@
             <tr>
                 <td>{root_path}</td>
                 <td>Đường dẫn đến thư mục gốc của Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Mã hóa của bảng điều khiển</td>
             </tr>
         </tbody>
     </table>
