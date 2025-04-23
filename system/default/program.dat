@@ -1,861 +1,901 @@
-{
-  "_type": "Empty",
-  "_strict": true,
-  "_children": [
-    {
-      "key": "general",
-      "value": {
-        "_type": "Empty",
-        "_strict": true,
-        "_children": [
-          {
-            "key": "use_win_terminal",
-            "value": {
-              "_type": "Boolean",
-              "_value": false,
-              "_strict": true
-            }
-          },
-          {
-            "key": "use_system_environment",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "api_ip",
-            "value": {
-              "_type": "UString",
-              "_value": "127.127.127.127",
-              "_strict": true
-            }
-          },
-          {
-            "key": "use_hosts_file",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "update_check",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "log_max_filesize",
-            "value": {
-              "_type": "Integer",
-              "_value": 0,
-              "_strict": true
-            }
-          },
-          {
-            "key": "projects_search_path",
-            "value": {
-              "_type": "Empty",
-              "_strict": true,
-              "_children": [
-                {
-                  "key": "{root_dir}\\home",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
+﻿{
+   "_type":"Empty",
+   "_strict":true,
+   "_children":[
+      {
+         "key":"general",
+         "value":{
+            "_type":"Empty",
+            "_strict":true,
+            "_children":[
+               {
+                  "key":"use_win_terminal",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
                   }
-                }
-              ]
-            }
-          },
-          {
-            "key": "projects_search_depth",
-            "value": {
-              "_type": "Integer",
-              "_value": 3,
-              "_strict": true
-            }
-          },
-          {
-            "key": "api_domain",
-            "value": {
-              "_type": "UString",
-              "_value": "ospanel",
-              "_strict": true
-            }
-          },
-          {
-            "key": "task_scheduler",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "lang",
-            "value": {
-              "_type": "UString",
-              "_value": "System",
-              "_strict": true
-            }
-          },
-          {
-            "key": "short_project_title",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "api_port",
-            "value": {
-              "_type": "UString",
-              "_value": "80",
-              "_strict": true
-            }
-          },
-          {
-            "key": "terminal_ansi_fix",
-            "value": {
-              "_type": "Integer",
-              "_value": 0,
-              "_strict": true
-            }
-          }
-        ]
+               },
+               {
+                  "key":"api_ip",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"127.127.127.127",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"use_hosts_file",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"update_check",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"use_system_environment",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"log_max_filesize",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":0,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"projects_search_path",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true,
+                     "_children":[
+                        {
+                           "key":"{root_dir}\\home",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        }
+                     ]
+                  }
+               },
+               {
+                  "key":"projects_search_depth",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":3,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"api_domain",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"ospanel",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"task_scheduler",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"run_with_profile",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"lang",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"System",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"short_project_title",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"autostart_delay",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":0,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"api_port",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"80",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"terminal_ansi_fix",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":0,
+                     "_strict":true
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "key":"modules",
+         "value":{
+            "_type":"Empty",
+            "_strict":true,
+            "_children":[
+               {
+                  "key":"terminal_codepage",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"65001",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"log_max_filesize",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":0,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"silent_mode",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"time_zone",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"System",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"max_probation_fails",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":1,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"environment",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true,
+                     "_children":[
+                        {
+                           "key":"HOMEPATH",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_path}\\user",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"PATH",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_dir}\\bin;%SYSTEMROOT%\\system32;%SYSTEMROOT%;%SYSTEMROOT%\\System32\\Wbem;%SYSTEMROOT%\\System32\\WindowsPowerShell\\v1.0",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"TEMP",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_dir}\\temp",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"CURL_CA_BUNDLE",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_dir}\\data\\ssl\\cacert.pem",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"TMP",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_dir}\\temp",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"HOMEDRIVE",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_drive}",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"HOME",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"{root_dir}\\user",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"TERM",
+                           "value":{
+                              "_type":"UString",
+                              "_value":"dumb",
+                              "_strict":true
+                           }
+                        }
+                     ]
+                  }
+               },
+               {
+                  "key":"used_addons_environment",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"probation",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":30,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"log_write_title",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"max_shutdown_time",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":0,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"allowed_system_env_vars",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true,
+                     "_children":[
+                        {
+                           "key":"logonserver",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"public",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"tmp",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"systemdrive",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"temp",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"number_of_processors",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"systemroot",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"homedrive",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"psmodulepath",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"userdomain_roamingprofile",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"pathext",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"programfiles(x86)",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"allusersprofile",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"commonprogramw6432",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"computername",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"comspec",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"localappdata",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"windir",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"commonprogramfiles(x86)",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"processor_revision",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"programdata",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"processor_level",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"userdomain",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"homepath",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"path",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"processor_identifier",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"userprofile",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"appdata",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"driverdata",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"commonprogramfiles",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"os",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"processor_architecture",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"username",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"sessionname",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"programw6432",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        },
+                        {
+                           "key":"programfiles",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        }
+                     ]
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "key":"projects",
+         "value":{
+            "_type":"Empty",
+            "_strict":true,
+            "_children":[
+               {
+                  "key":"public_dir",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"{base_dir}",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"project_url",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"{host_scheme}:\/\/{host_decoded}{scheme_port}",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"ssl_key_file",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"http_port",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"80",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"project_dir",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"{base_dir}",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"ssl",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"ip",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"start_command",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"backend_ip",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"terminal_codepage",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"65001",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"backend_enable",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"nginx_engine",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"ssl_cert_file",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"node_engine",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"php_engine",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"environment",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"backend_port",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"enabled",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"https_port",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"443",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"aliases",
+                  "value":{
+                     "_type":"Empty",
+                     "_strict":true,
+                     "_children":[
+                        {
+                           "key":"www.{host}",
+                           "value":{
+                              "_type":"Empty",
+                              "_strict":true
+                           }
+                        }
+                     ]
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "key":"menu",
+         "value":{
+            "_type":"Empty",
+            "_strict":true,
+            "_children":[
+               {
+                  "key":"show_icons",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_projects",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"native_rendering",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_addons_in_groups",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_projects_in_groups",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_addons",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"font_size",
+                  "value":{
+                     "_type":"Integer",
+                     "_value":12,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_vertiacal_divider",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_hr_after_projects",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_modules_in_groups",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_hr_after_modules",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"icon_theme",
+                  "value":{
+                     "_type":"UString",
+                     "_value":"Dualtone",
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_modules",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_addons_in_submenu",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"do_not_group_single_item",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_modules_in_submenu",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_tray_icon",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_hr_after_addons",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
+                  "key":"show_projects_in_submenu",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":false,
+                     "_strict":true
+                  }
+               }
+            ]
+         }
       }
-    },
-    {
-      "key": "modules",
-      "value": {
-        "_type": "Empty",
-        "_strict": true,
-        "_children": [
-          {
-            "key": "terminal_codepage",
-            "value": {
-              "_type": "UString",
-              "_value": "65001",
-              "_strict": true
-            }
-          },
-          {
-            "key": "log_max_filesize",
-            "value": {
-              "_type": "Integer",
-              "_value": 0,
-              "_strict": true
-            }
-          },
-          {
-            "key": "silent_mode",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "time_zone",
-            "value": {
-              "_type": "UString",
-              "_value": "System",
-              "_strict": true
-            }
-          },
-          {
-            "key": "max_probation_fails",
-            "value": {
-              "_type": "Integer",
-              "_value": 1,
-              "_strict": true
-            }
-          },
-          {
-            "key": "environment",
-            "value": {
-              "_type": "Empty",
-              "_strict": true,
-              "_children": [
-                {
-                  "key": "HOMEPATH",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_path}\\user",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "PATH",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_dir}\\bin;%SYSTEMROOT%\\system32;%SYSTEMROOT%;%SYSTEMROOT%\\System32\\Wbem;%SYSTEMROOT%\\System32\\WindowsPowerShell\\v1.0",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "TEMP",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_dir}\\temp",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "CURL_CA_BUNDLE",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_dir}\\data\\ssl\\cacert.pem",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "TMP",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_dir}\\temp",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "HOMEDRIVE",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_drive}",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "HOME",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "{root_dir}\\user",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "TERM",
-                  "value": {
-                    "_type": "UString",
-                    "_value": "dumb",
-                    "_strict": true
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "key": "used_addons_environment",
-            "value": {
-              "_type": "Empty",
-              "_strict": true
-            }
-          },
-          {
-            "key": "probation",
-            "value": {
-              "_type": "Integer",
-              "_value": 30,
-              "_strict": true
-            }
-          },
-          {
-            "key": "log_write_title",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "max_shutdown_time",
-            "value": {
-              "_type": "Integer",
-              "_value": 0,
-              "_strict": true
-            }
-          },
-          {
-            "key": "allowed_system_env_vars",
-            "value": {
-              "_type": "Empty",
-              "_strict": true,
-              "_children": [
-                {
-                  "key": "logonserver",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "public",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "tmp",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "systemdrive",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "temp",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "number_of_processors",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "systemroot",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "homedrive",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "psmodulepath",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "userdomain_roamingprofile",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "pathext",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "programfiles(x86)",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "allusersprofile",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "commonprogramw6432",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "computername",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "comspec",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "localappdata",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "windir",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "commonprogramfiles(x86)",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "processor_revision",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "programdata",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "processor_level",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "userdomain",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "homepath",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "path",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "processor_identifier",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "userprofile",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "appdata",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "driverdata",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "commonprogramfiles",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "os",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "processor_architecture",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "username",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "sessionname",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "programw6432",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                },
-                {
-                  "key": "programfiles",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "key": "projects",
-      "value": {
-        "_type": "Empty",
-        "_strict": true,
-        "_children": [
-          {
-            "key": "ssl_cert_file",
-            "value": {
-              "_type": "UString",
-              "_value": "",
-              "_strict": true
-            }
-          },
-          {
-            "key": "ssl",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "terminal_codepage",
-            "value": {
-              "_type": "UString",
-              "_value": "65001",
-              "_strict": true
-            }
-          },
-          {
-            "key": "nginx_engine",
-            "value": {
-              "_type": "UString",
-              "_value": "",
-              "_strict": true
-            }
-          },
-          {
-            "key": "node_engine",
-            "value": {
-              "_type": "UString",
-              "_value": "",
-              "_strict": true
-            }
-          },
-          {
-            "key": "php_engine",
-            "value": {
-              "_type": "UString",
-              "_value": "",
-              "_strict": true
-            }
-          },
-          {
-            "key": "public_dir",
-            "value": {
-              "_type": "UString",
-              "_value": "{base_dir}",
-              "_strict": true
-            }
-          },
-          {
-            "key": "project_url",
-            "value": {
-              "_type": "UString",
-              "_value": "{host_scheme}://{host_decoded}{scheme_port}",
-              "_strict": true
-            }
-          },
-          {
-            "key": "ssl_key_file",
-            "value": {
-              "_type": "UString",
-              "_value": "",
-              "_strict": true
-            }
-          },
-          {
-            "key": "environment",
-            "value": {
-              "_type": "Empty",
-              "_strict": true
-            }
-          },
-          {
-            "key": "http_port",
-            "value": {
-              "_type": "UString",
-              "_value": "80",
-              "_strict": true
-            }
-          },
-          {
-            "key": "enabled",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "https_port",
-            "value": {
-              "_type": "UString",
-              "_value": "443",
-              "_strict": true
-            }
-          },
-          {
-            "key": "project_dir",
-            "value": {
-              "_type": "UString",
-              "_value": "{base_dir}",
-              "_strict": true
-            }
-          },
-          {
-            "key": "ip",
-            "value": {
-              "_type": "Empty",
-              "_strict": true
-            }
-          },
-          {
-            "key": "aliases",
-            "value": {
-              "_type": "Empty",
-              "_strict": true,
-              "_children": [
-                {
-                  "key": "www.{host}",
-                  "value": {
-                    "_type": "Empty",
-                    "_strict": true
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "key": "start_command",
-            "value": {
-              "_type": "UString",
-              "_value": "",
-              "_strict": true
-            }
-          }
-        ]
-      }
-    },
-    {
-      "key": "menu",
-      "value": {
-        "_type": "Empty",
-        "_strict": true,
-        "_children": [
-          {
-            "key": "show_icons",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_projects",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "native_rendering",
-            "value": {
-              "_type": "Boolean",
-              "_value": false,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_addons_in_groups",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_projects_in_groups",
-            "value": {
-              "_type": "Boolean",
-              "_value": false,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_addons",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "font_size",
-            "value": {
-              "_type": "Integer",
-              "_value": 12,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_vertiacal_divider",
-            "value": {
-              "_type": "Boolean",
-              "_value": false,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_hr_after_projects",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_modules_in_groups",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_hr_after_modules",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "icon_theme",
-            "value": {
-              "_type": "UString",
-              "_value": "Dualtone",
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_modules",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_addons_in_submenu",
-            "value": {
-              "_type": "Boolean",
-              "_value": false,
-              "_strict": true
-            }
-          },
-          {
-            "key": "do_not_group_single_item",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_modules_in_submenu",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_tray_icon",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_hr_after_addons",
-            "value": {
-              "_type": "Boolean",
-              "_value": true,
-              "_strict": true
-            }
-          },
-          {
-            "key": "show_projects_in_submenu",
-            "value": {
-              "_type": "Boolean",
-              "_value": false,
-              "_strict": true
-            }
-          }
-        ]
-      }
-    }
-  ]
+   ]
 }
