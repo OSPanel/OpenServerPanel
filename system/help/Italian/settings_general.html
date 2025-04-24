@@ -51,41 +51,54 @@
         </tr>
         <tr>
             <td>
-                Attiva l'avvio automatico di Open Server Panel all'avvio del sistema operativo.</td>
+                Abilita l'avvio automatico di Open Server Panel all'avvio del sistema operativo.</td>
         </tr>
         <tr>
-            <th>Controlla aggiornamenti</th>
-        </tr>
-        <tr>
-            <td>
-                Attiva il controllo degli aggiornamenti di Open Server Panel (richiede connessione a Internet).</td>
-        </tr>
-        <tr>
-            <th>Attiva pianificatore attività</th>
+            <th>Ritardo</th>
         </tr>
         <tr>
             <td>
-                Attiva il pianificatore attività incorporato. Se il parametro è disattivato, nessuna attività pianificata verrà eseguita, indipendentemente dal loro stato.</td>
+                Ritardo all'avvio del programma (in secondi, da 0 a 60).<br><br>Consente di posticipare l'avvio dell'applicazione per ridurre il carico sul sistema durante l'avvio. Questo è particolarmente utile se è necessario attendere la completa inizializzazione di servizi di terze parti o interfacce di rete.</td>
         </tr>
         <tr>
-            <th>Utilizza file HOSTS</th>
+            <th>Verifica la presenza di nuove versioni</th>
         </tr>
         <tr>
             <td>
-                Attiva la registrazione dei nomi di dominio nel file HOSTS.<br><br>
-                <strong>Raccomandazioni in caso di accesso limitato al file HOSTS in un'organizzazione:</strong><br><br>
-                1. Configura tutti i moduli e progetti necessari.<br>
-                2. Contatta l'amministratore di sistema per sbloccare HOSTS e fissare il suo stato.<br>
-                3. Dopo che l'amministratore ha fissato le modifiche, puoi disattivare questa opzione.<br><br>
-                <strong>Importante:</strong> Non disattivare questo parametro se non sei sicuro delle conseguenze!</td>
+                Abilita il controllo degli aggiornamenti per Open Server Panel (richiede connessione a Internet).</td>
+        </tr>
+        <tr>
+            <th>Abilita pianificatore attività</th>
+        </tr>
+        <tr>
+            <td>
+                Attiva il pianificatore di attività integrato. Se questo parametro è disabilitato, nessuna attività pianificata verrà eseguita indipendentemente dal suo stato.</td>
+        </tr>
+        <tr>
+            <th>Usa file HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Abilita la scrittura di nomi di dominio nel file HOSTS.<br><br>
+                <strong>Raccomandazioni per l'accesso limitato al file HOSTS nelle organizzazioni:</strong><br><br>
+                1. Configurare tutti i moduli e progetti necessari.<br>
+                2. Contattare l'amministratore di sistema per sbloccare il file HOSTS e fissarne lo stato.<br>
+                3. Dopo che l'amministratore ha fissato le modifiche, è possibile disabilitare questa opzione.<br><br>
+                <strong>Importante:</strong> Non disabilitare questo parametro se non sei sicuro delle conseguenze!</td>
+        </tr>
+        <tr>
+            <th>Avvia moduli con profilo progetto</th>
+        </tr>
+        <tr>
+            <td>Avvia i moduli con attivazione simultanea di un profilo corrispondente al nome del progetto.<br><br>Utilizzato quando si seleziona la voce di menu "Abilita moduli del progetto" per attivare automaticamente un profilo con lo stesso nome del progetto corrente, se esiste.</td>
         </tr>
         <tr>
             <th>Lingua dell'interfaccia</th>
         </tr>
         <tr>
             <td>
-                Lingua dell'interfaccia utente di Open Server Panel.<br><br>
-                Se il file di localizzazione è assente o contiene errori, verrà utilizzata la lingua inglese.</td>
+                Lingua dell'interfaccia utente per Open Server Panel.<br><br>
+                Se il file di localizzazione è mancante o contiene errori, verrà utilizzato l'inglese.</td>
         </tr>
         <tr>
             <th>Dominio API</th>
@@ -93,7 +106,7 @@
         <tr>
             <td>
                 Dominio locale per API e interfaccia web (in sviluppo)<br><br>
-                <strong>Raccomandazione:</strong> Se utilizzi VPN o proxy, aggiungi questo dominio alle eccezioni.</td>
+                <strong>Raccomandazione:</strong> Se si utilizza VPN o proxy, aggiungere questo dominio alle eccezioni.</td>
         </tr>
         <tr>
             <th>Indirizzo IP API</th>
@@ -101,73 +114,73 @@
         <tr>
             <td>
                 Indirizzo IPv4 per API e interfaccia web (in sviluppo).<br><br>
-                <strong>Raccomandazione:</strong> Se utilizzi VPN o proxy, aggiungi questo indirizzo IP alle eccezioni.</td>
+                <strong>Raccomandazione:</strong> Se si utilizza VPN o proxy, aggiungere questo indirizzo IP alle eccezioni.</td>
         </tr>
         <tr>
             <th>Porta API</th>
         </tr>
         <tr>
             <td>
-                Porta utilizzata per API e interfaccia web (in sviluppo). Open Server Panel non si avvierà se la porta specificata è già occupata.</td>
+                Porta utilizzata per API e interfaccia web (in sviluppo). Open Server Panel non sarà in grado di avviarsi se la porta specificata è già in uso da un'altra applicazione.</td>
         </tr>
         <tr>
-            <th>Utilizza Windows Terminal</th>
+            <th>Usa Windows Terminal</th>
         </tr>
         <tr>
             <td>
-                Attiva l'utilizzo di Windows Terminal invece dell'interfaccia a riga di comando standard.<br><br>
-                <strong>Requisiti:</strong> Windows Terminal deve essere installato nel sistema e registrato nella variabile di ambiente PATH.<br><br>
-                <strong>Windows Terminal come cmd.exe:</strong> Nelle nuove versioni di Windows, Windows Terminal può sostituire cmd.exe ed essere registrato nella variabile di ambiente %COMSPEC%. Se è così, lascia questa opzione attivata.<br><br>
-                <strong>Nuove istanze di Windows Terminal:</strong> Se Windows Terminal apre nuove finestre invece di schede, configuralo così: Impostazioni&rarr;Avvio&rarr;Comportamento nuova istanza&rarr;Unisci all'ultima finestra utilizzata.</td>
+                Abilita l'utilizzo di Windows Terminal invece dell'interfaccia a riga di comando standard.<br><br>
+                <strong>Requisiti:</strong> Windows Terminal deve essere installato nel sistema e definito nella variabile di ambiente PATH.<br><br>
+                <strong>Windows Terminal come cmd.exe:</strong> Windows Terminal può sostituire cmd.exe ed essere definito nella variabile di ambiente %COMSPEC% nelle versioni più recenti di Windows. In questo caso, mantieni questa opzione abilitata.<br><br>
+                <strong>Nuove istanze di Windows Terminal:</strong> Se Windows Terminal apre nuove finestre invece di schede, configuralo come segue: Impostazioni&rarr;Avvio&rarr;Comportamento nuova istanza&rarr;Collega alla finestra utilizzata più di recente.</td>
         </tr>
         <tr>
             <th>Titolo breve del progetto</th>
         </tr>
         <tr>
             <td>
-                Quando questa opzione è attiva, nella barra del titolo della finestra del terminale verrà visualizzato solo il nome del progetto invece di una descrizione dettagliata.</td>
+                Quando questa opzione è attivata, nel titolo della finestra del terminale verrà visualizzato solo il nome del progetto invece di una descrizione dettagliata.</td>
         </tr>
         <tr>
-            <th>Utilizza ambiente di sistema con ambiente dei progetti</th>
+            <th>Includi ambiente di sistema nell'ambiente del progetto</th>
         </tr>
         <tr>
-            <td>Utilizza l'ambiente di sistema (System) nel terminale, anche se non è specificato nelle impostazioni del progetto. L'ambiente di sistema consente di utilizzare programmi installati nel sistema (ad esempio, git.exe o ssh.exe).<br><br>Disattiva questa opzione solo in caso di conflitti con il software di sistema.</td>
+            <td>Usa l'ambiente di sistema (System) nel terminale anche se non è specificato nelle impostazioni del progetto. L'ambiente di sistema consente l'uso di programmi installati nel sistema (come git.exe o ssh.exe).<br><br>Disabilita questa opzione solo in caso di conflitti con il software di sistema.</td>
         </tr>
         <tr>
             <th>Supporto ANSI</th>
         </tr>
         <tr>
             <td>
-                Attiva il supporto dei codici ANSI per il controllo dei colori nel terminale.<br><br>
+                Abilita il supporto per i codici ANSI per controllare i colori nel terminale.<br><br>
                 Modalità "Automatica" (predefinita):<br>
-                - La correzione viene applicata solo a Windows 7, 8 e Windows 10 (fino alla versione 1903 inclusa). Nelle versioni più recenti di Windows, il supporto dei codici ANSI è già integrato.<br>
+                - La correzione viene applicata solo a Windows 7, 8 e Windows 10 (fino alla versione 1903 inclusa). Nelle versioni più recenti di Windows, il supporto per i codici ANSI è già integrato.<br>
                 - La correzione non viene applicata ai terminali che supportano ANSI per impostazione predefinita (ad esempio, Windows Terminal).
             </td>
         </tr>
         <tr>
-            <th>Directory per la ricerca dei progetti</th>
+            <th>Directory di ricerca progetti</th>
         </tr>
         <tr>
             <td>
-                Elenco delle directory in cui Open Server Panel cercherà i progetti. Separa i percorsi con punto e virgola (;).<br><br>
-                <strong>Eccezioni:</strong> Le sottodirectory node_modules e vendor vengono ignorate.</td>
+                Elenco delle directory in cui Open Server Panel cercherà i progetti. Separare i percorsi con punto e virgola (;).<br><br>
+                <strong>Esclusioni:</strong> Le sottodirectory node_modules e vendor vengono ignorate.</td>
         </tr>
         <tr>
             <th>Profondità</th>
         </tr>
         <tr>
             <td>
-                Profondità massima di nidificazione delle directory durante la ricerca dei progetti.<br><br>
+                Profondità massima di annidamento delle directory durante la ricerca dei progetti.<br><br>
                 Aumentare questo valore può rallentare l'avvio di Open Server Panel se le directory specificate contengono un gran numero di sottodirectory.</td>
         </tr>
         <tr>
-            <th>Dimensione massima del file di registro</th>
+            <th>Dimensione massima file di registro</th>
         </tr>
         <tr>
             <td>
-                Dimensione massima del file di registro in megabyte. Quando viene superato il valore specificato, il file di log verrà ricreato al successivo avvio del programma.<br><br>
-                Imposta il valore su 0 per cancellare i file di log ad ogni avvio del programma.<br><br>
-                Imposta il valore su 100 MB per disattivare completamente la pulizia dei file di log.</td>
+                Dimensione massima del file di registro in megabyte. Quando viene superato il valore specificato, il file di registro verrà ricreato al prossimo avvio del programma.<br><br>
+                Impostare il valore su 0 per cancellare i file di registro a ogni avvio del programma.<br><br>
+                Impostare il valore su 100 MB per disabilitare completamente la pulizia dei file di registro.</td>
         </tr>
     </table>
 </body>

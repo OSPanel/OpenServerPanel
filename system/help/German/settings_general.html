@@ -51,40 +51,53 @@
         </tr>
         <tr>
             <td>
-                Automatischen Start des Open Server Panels beim Betriebssystemstart aktivieren.</td>
+                Autostart von Open Server Panel beim Hochfahren des Betriebssystems aktivieren.</td>
+        </tr>
+        <tr>
+            <th>Verzögerung</th>
+        </tr>
+        <tr>
+            <td>
+                Verzögerung des Programmstarts (in Sekunden, von 0 bis 60).<br><br>Ermöglicht es, den Start der Anwendung zu verzögern, um die Systemlast beim Hochfahren zu verringern. Dies ist besonders nützlich, wenn auf die vollständige Initialisierung von Drittanbieterdiensten oder Netzwerkschnittstellen gewartet werden muss.</td>
         </tr>
         <tr>
             <th>Nach neuen Versionen suchen</th>
         </tr>
         <tr>
             <td>
-                Aktualisierungsprüfung für das Open Server Panel aktivieren (Internetverbindung erforderlich).</td>
+                Aktivieren der Aktualisierungsprüfung für Open Server Panel (Internetverbindung erforderlich).</td>
         </tr>
         <tr>
             <th>Aufgabenplaner aktivieren</th>
         </tr>
         <tr>
             <td>
-                Internen Aufgabenplaner aktivieren. Wenn dieser Parameter deaktiviert ist, werden keine geplanten Aufgaben ausgeführt, unabhängig von ihrem Status.</td>
+                Den integrierten Aufgabenplaner aktivieren. Wenn dieser Parameter deaktiviert ist, werden keine geplanten Aufgaben ausgeführt, unabhängig von ihrem Status.</td>
         </tr>
         <tr>
             <th>HOSTS-Datei verwenden</th>
         </tr>
         <tr>
             <td>
-                Eintragung von Domainnamen in die HOSTS-Datei aktivieren.<br><br>
-                <strong>Empfehlungen bei eingeschränktem Zugriff auf die HOSTS-Datei in einer Organisation:</strong><br><br>
+                Aktivieren des Schreibens von Domainnamen in die HOSTS-Datei.<br><br>
+                <strong>Empfehlungen bei eingeschränktem Zugriff auf die HOSTS-Datei in Organisationen:</strong><br><br>
                 1. Konfigurieren Sie alle erforderlichen Module und Projekte.<br>
-                2. Wenden Sie sich an den Systemadministrator, um die HOSTS-Datei zu entsperren und ihren Zustand zu fixieren.<br>
-                3. Nach der Fixierung der Änderungen durch den Administrator können Sie diese Option deaktivieren.<br><br>
-                <strong>Wichtig:</strong> Deaktivieren Sie diesen Parameter nicht, wenn Sie sich über die Konsequenzen nicht im Klaren sind!</td>
+                2. Wenden Sie sich an Ihren Systemadministrator, um die HOSTS-Datei zu entsperren und ihren Zustand zu fixieren.<br>
+                3. Nachdem der Administrator die Änderungen festgelegt hat, können Sie diese Option deaktivieren.<br><br>
+                <strong>Wichtig:</strong> Deaktivieren Sie diesen Parameter nicht, wenn Sie sich über die Folgen nicht im Klaren sind!</td>
         </tr>
         <tr>
-            <th>Schnittstellensprache</th>
+            <th>Module mit Projektprofil starten</th>
+        </tr>
+        <tr>
+            <td>Module mit gleichzeitiger Aktivierung eines Profils starten, das dem Projektnamen entspricht.<br><br>Wird verwendet, wenn der Menüpunkt "Projektmodule aktivieren" ausgewählt wird, um automatisch ein Profil mit demselben Namen wie das aktuelle Projekt zu aktivieren, sofern ein solches existiert.</td>
+        </tr>
+        <tr>
+            <th>Oberflächensprache</th>
         </tr>
         <tr>
             <td>
-                Sprache der Benutzeroberfläche des Open Server Panels.<br><br>
+                Benutzeroberflächen-Sprache für Open Server Panel.<br><br>
                 Wenn die Lokalisierungsdatei fehlt oder Fehler enthält, wird Englisch verwendet.</td>
         </tr>
         <tr>
@@ -93,7 +106,7 @@
         <tr>
             <td>
                 Lokale Domain für API und Weboberfläche (in Entwicklung)<br><br>
-                <strong>Empfehlung:</strong> Wenn Sie VPN oder Proxy verwenden, fügen Sie diese Domain zu den Ausnahmen hinzu.</td>
+                <strong>Empfehlung:</strong> Bei Verwendung von VPN oder Proxy fügen Sie diese Domain zu den Ausnahmen hinzu.</td>
         </tr>
         <tr>
             <th>API-IP-Adresse</th>
@@ -101,64 +114,64 @@
         <tr>
             <td>
                 IPv4-Adresse für API und Weboberfläche (in Entwicklung).<br><br>
-                <strong>Empfehlung:</strong> Wenn Sie VPN oder Proxy verwenden, fügen Sie diese IP-Adresse zu den Ausnahmen hinzu.</td>
+                <strong>Empfehlung:</strong> Bei Verwendung von VPN oder Proxy fügen Sie diese IP-Adresse zu den Ausnahmen hinzu.</td>
         </tr>
         <tr>
             <th>API-Port</th>
         </tr>
         <tr>
             <td>
-                Port, der für API und Weboberfläche verwendet wird (in Entwicklung). Das Open Server Panel startet nicht, wenn der angegebene Port bereits belegt ist.</td>
+                Port für API und Weboberfläche (in Entwicklung). Open Server Panel kann nicht gestartet werden, wenn der angegebene Port bereits von einer anderen Anwendung verwendet wird.</td>
         </tr>
         <tr>
             <th>Windows Terminal verwenden</th>
         </tr>
         <tr>
             <td>
-                Verwendung des Windows Terminals anstelle der Standard-Befehlsschnittstelle aktivieren.<br><br>
-                <strong>Anforderungen:</strong> Windows Terminal muss im System installiert und in der PATH-Umgebungsvariable eingetragen sein.<br><br>
-                <strong>Windows Terminal als cmd.exe:</strong> In neueren Windows-Versionen kann das Windows Terminal cmd.exe ersetzen und in der Umgebungsvariable %COMSPEC% eingetragen sein. Wenn das der Fall ist, lassen Sie diese Option aktiviert.<br><br>
-                <strong>Neue Windows Terminal-Instanzen:</strong> Wenn Windows Terminal neue Fenster anstelle von Tabs öffnet, konfigurieren Sie es so: Einstellungen&rarr;Start&rarr;Verhalten neuer Instanzen&rarr;An zuletzt verwendetes Fenster anfügen.</td>
+                Aktivieren der Verwendung von Windows Terminal anstelle der Standardbefehlsschnittstelle.<br><br>
+                <strong>Anforderungen:</strong> Windows Terminal muss im System installiert und in der PATH-Umgebungsvariable definiert sein.<br><br>
+                <strong>Windows Terminal als cmd.exe:</strong> Windows Terminal kann in neueren Windows-Versionen cmd.exe ersetzen und in der Umgebungsvariable %COMSPEC% definiert sein. Ist dies der Fall, lassen Sie diese Option aktiviert.<br><br>
+                <strong>Neue Windows Terminal-Instanzen:</strong> Wenn Windows Terminal neue Fenster statt Tabs öffnet, konfigurieren Sie es wie folgt: Einstellungen&rarr;Start&rarr;Verhalten der neuen Instanz&rarr;Am zuletzt verwendeten Fenster anhängen.</td>
         </tr>
         <tr>
             <th>Kurzer Projekttitel</th>
         </tr>
         <tr>
             <td>
-                Wenn diese Option aktiviert ist, wird in der Titelleiste des Terminalfensters nur der Projektname anstelle einer detaillierten Beschreibung angezeigt.</td>
+                Wenn diese Option aktiviert ist, wird nur der Projektname im Fenstertitel des Terminals angezeigt, anstatt einer detaillierten Beschreibung.</td>
         </tr>
         <tr>
-            <th>Systemumgebung mit Projektumgebungen verwenden</th>
+            <th>Systemumgebung in Projektumgebung einbeziehen</th>
         </tr>
         <tr>
-            <td>Systemumgebung (System) im Terminal verwenden, auch wenn sie nicht in den Projekteinstellungen definiert ist. Die Systemumgebung ermöglicht die Verwendung von im System installierten Programmen (z.B. git.exe oder ssh.exe).<br><br>Deaktivieren Sie diese Option nur bei Konflikten mit Systemsoftware.</td>
+            <td>Die Systemumgebung (System) im Terminal verwenden, auch wenn sie nicht in den Projekteinstellungen angegeben ist. Die Systemumgebung ermöglicht die Verwendung von im System installierten Programmen (wie git.exe oder ssh.exe).<br><br>Deaktivieren Sie diese Option nur, wenn Konflikte mit Systemsoftware auftreten.</td>
         </tr>
         <tr>
             <th>ANSI-Unterstützung</th>
         </tr>
         <tr>
             <td>
-                ANSI-Code-Unterstützung für Farbsteuerung im Terminal aktivieren.<br><br>
-                Modus "Automatisch" (Standard):<br>
-                - Die Korrektur wird nur auf Windows 7, 8 und Windows 10 (bis Version 1903 einschließlich) angewendet. In neueren Windows-Versionen ist die ANSI-Code-Unterstützung bereits integriert.<br>
+                Unterstützung für ANSI-Codes zur Steuerung von Farben im Terminal aktivieren.<br><br>
+                "Automatischer" Modus (Standard):<br>
+                - Die Korrektur wird nur auf Windows 7, 8 und Windows 10 (bis einschließlich Version 1903) angewendet. In neueren Windows-Versionen ist die ANSI-Code-Unterstützung bereits integriert.<br>
                 - Die Korrektur wird nicht auf Terminals angewendet, die ANSI standardmäßig unterstützen (z.B. Windows Terminal).
             </td>
         </tr>
         <tr>
-            <th>Verzeichnisse für Projektsuche</th>
+            <th>Projektsuche-Verzeichnisse</th>
         </tr>
         <tr>
             <td>
-                Liste der Verzeichnisse, in denen das Open Server Panel nach Projekten suchen wird. Trennen Sie Pfade mit Semikolon (;).<br><br>
-                <strong>Ausnahmen:</strong> Unterverzeichnisse node_modules und vendor werden ignoriert.</td>
+                Liste der Verzeichnisse, in denen Open Server Panel nach Projekten sucht. Trennen Sie Pfade durch Semikolons (;).<br><br>
+                <strong>Ausschlüsse:</strong> Unterverzeichnisse node_modules und vendor werden ignoriert.</td>
         </tr>
         <tr>
             <th>Tiefe</th>
         </tr>
         <tr>
             <td>
-                Maximale Verschachtelungstiefe bei der Suche nach Projekten.<br><br>
-                Eine Erhöhung dieses Wertes kann den Start des Open Server Panels verlangsamen, wenn die angegebenen Verzeichnisse eine große Anzahl von Unterverzeichnissen enthalten.</td>
+                Maximale Verzeichnisschachtelungstiefe bei der Suche nach Projekten.<br><br>
+                Eine Erhöhung dieses Wertes kann den Start von Open Server Panel verlangsamen, wenn die angegebenen Verzeichnisse eine große Anzahl von Unterverzeichnissen enthalten.</td>
         </tr>
         <tr>
             <th>Maximale Protokolldateigröße</th>
@@ -166,8 +179,8 @@
         <tr>
             <td>
                 Maximale Größe der Protokolldatei in Megabyte. Wenn der angegebene Wert überschritten wird, wird die Protokolldatei beim nächsten Programmstart neu erstellt.<br><br>
-                Setzen Sie den Wert auf 0, um die Protokolldateien bei jedem Programmstart zu löschen.<br><br>
-                Setzen Sie den Wert auf 100 MB, um die Protokollbereinigung vollständig zu deaktivieren.</td>
+                Setzen Sie den Wert auf 0, um Protokolldateien bei jedem Programmstart zu löschen.<br><br>
+                Setzen Sie den Wert auf 100 MB, um die Bereinigung von Protokolldateien vollständig zu deaktivieren.</td>
         </tr>
     </table>
 </body>

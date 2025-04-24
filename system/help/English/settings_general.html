@@ -47,44 +47,57 @@
     <h2 style="margin-top: 0.33em">Program Settings</h2>
     <table>
         <tr>
-            <th>Launch with Windows</th>
+            <th>Run with Windows</th>
         </tr>
         <tr>
             <td>
-                Enable Open Server Panel autostart when the operating system boots.</td>
+                Enable automatic startup of Open Server Panel when the operating system loads.</td>
         </tr>
         <tr>
-            <th>Check for Updates</th>
+            <th>Delay</th>
         </tr>
         <tr>
             <td>
-                Enable checking for Open Server Panel updates (internet connection required).</td>
+                Program startup delay (in seconds, from 0 to 60).<br><br>Allows postponing the application launch to reduce system load during startup. This is especially useful if you need to wait for full initialization of third-party services or network interfaces.</td>
         </tr>
         <tr>
-            <th>Enable Task Scheduler</th>
+            <th>Check for new versions</th>
+        </tr>
+        <tr>
+            <td>
+                Enable update checking for Open Server Panel (internet connection required).</td>
+        </tr>
+        <tr>
+            <th>Enable task scheduler</th>
         </tr>
         <tr>
             <td>
                 Activate the built-in task scheduler. If this parameter is disabled, no scheduled tasks will be executed regardless of their status.</td>
         </tr>
         <tr>
-            <th>Use HOSTS File</th>
+            <th>Use HOSTS file</th>
         </tr>
         <tr>
             <td>
-                Enable domain name recording in the HOSTS file.<br><br>
-                <strong>Recommendations for limited access to HOSTS file in organizations:</strong><br><br>
+                Enable writing domain names to the HOSTS file.<br><br>
+                <strong>Recommendations for restricted access to HOSTS file in organizations:</strong><br><br>
                 1. Configure all necessary modules and projects.<br>
-                2. Contact the system administrator to unlock HOSTS and fix its state.<br>
+                2. Contact your system administrator to unblock HOSTS and fix its state.<br>
                 3. After the administrator has fixed the changes, you can disable this option.<br><br>
                 <strong>Important:</strong> Do not disable this parameter if you are unsure of the consequences!</td>
         </tr>
         <tr>
-            <th>Interface Language</th>
+            <th>Launch modules with project profile</th>
+        </tr>
+        <tr>
+            <td>Launch modules with simultaneous activation of a profile matching the project name.<br><br>Used when selecting the "Enable project modules" menu item to automatically activate a profile with the same name as the current project, if one exists.</td>
+        </tr>
+        <tr>
+            <th>Interface language</th>
         </tr>
         <tr>
             <td>
-                Open Server Panel user interface language.<br><br>
+                User interface language for Open Server Panel.<br><br>
                 If the localization file is missing or contains errors, English will be used.</td>
         </tr>
         <tr>
@@ -93,7 +106,7 @@
         <tr>
             <td>
                 Local domain for API and web interface (in development)<br><br>
-                <strong>Recommendation:</strong> If using VPN or proxy, add this domain to the exceptions.</td>
+                <strong>Recommendation:</strong> If using VPN or proxy, add this domain to exceptions.</td>
         </tr>
         <tr>
             <th>API IP Address</th>
@@ -101,40 +114,40 @@
         <tr>
             <td>
                 IPv4 address for API and web interface (in development).<br><br>
-                <strong>Recommendation:</strong> If using VPN or proxy, add this IP address to the exceptions.</td>
+                <strong>Recommendation:</strong> If using VPN or proxy, add this IP address to exceptions.</td>
         </tr>
         <tr>
             <th>API Port</th>
         </tr>
         <tr>
             <td>
-                Port used for API and web interface (in development). Open Server Panel will not start if the specified port is already in use.</td>
+                Port used for API and web interface (in development). Open Server Panel will not be able to start if the specified port is already in use by another application.</td>
         </tr>
         <tr>
             <th>Use Windows Terminal</th>
         </tr>
         <tr>
             <td>
-                Enable the use of Windows Terminal instead of the standard command interface.<br><br>
-                <strong>Requirements:</strong> Windows Terminal must be installed on the system and added to the PATH environment variable.<br><br>
-                <strong>Windows Terminal as cmd.exe:</strong> In newer Windows versions, Windows Terminal can replace cmd.exe and be specified in the %COMSPEC% environment variable. If this is the case, keep this option enabled.<br><br>
+                Enable using Windows Terminal instead of the standard command interface.<br><br>
+                <strong>Requirements:</strong> Windows Terminal must be installed on the system and defined in the PATH environment variable.<br><br>
+                <strong>Windows Terminal as cmd.exe:</strong> Windows Terminal can replace cmd.exe and be defined in the %COMSPEC% environment variable in newer versions of Windows. If this is the case, keep this option enabled.<br><br>
                 <strong>New Windows Terminal instances:</strong> If Windows Terminal opens new windows instead of tabs, configure it as follows: Settings&rarr;Startup&rarr;New instance behavior&rarr;Attach to the most recently used window.</td>
         </tr>
         <tr>
-            <th>Short Project Title</th>
+            <th>Short project title</th>
         </tr>
         <tr>
             <td>
-                When this option is enabled, only the project name will be displayed in the terminal window title instead of a detailed description.</td>
+                When this option is activated, only the project name will be displayed in the terminal window title instead of a detailed description.</td>
         </tr>
         <tr>
-            <th>Use System Environment with Project Environment</th>
+            <th>Include system environment in project environment</th>
         </tr>
         <tr>
-            <td>Use the system environment (System) in the terminal, even if it is not specified in the project settings. The system environment allows using programs installed in the system (e.g., git.exe or ssh.exe).<br><br>Disable this option only when conflicts with system software occur.</td>
+            <td>Use the system environment (System) in the terminal even if it is not specified in the project settings. System environment allows the use of programs installed on the system (such as git.exe or ssh.exe).<br><br>Disable this option only if conflicts with system software occur.</td>
         </tr>
         <tr>
-            <th>ANSI Support</th>
+            <th>ANSI support</th>
         </tr>
         <tr>
             <td>
@@ -145,12 +158,12 @@
             </td>
         </tr>
         <tr>
-            <th>Project Search Directories</th>
+            <th>Project search directories</th>
         </tr>
         <tr>
             <td>
-                List of directories where Open Server Panel will search for projects. Separate paths with a semicolon (;).<br><br>
-                <strong>Exclusions:</strong> The node_modules and vendor subdirectories are ignored.</td>
+                List of directories where Open Server Panel will search for projects. Separate paths with semicolons (;).<br><br>
+                <strong>Exclusions:</strong> Subdirectories node_modules and vendor are ignored.</td>
         </tr>
         <tr>
             <th>Depth</th>
@@ -158,16 +171,16 @@
         <tr>
             <td>
                 Maximum directory nesting depth when searching for projects.<br><br>
-                Increasing this value can slow down Open Server Panel startup if the specified directories contain a large number of subdirectories.</td>
+                Increasing this value may slow down the Open Server Panel startup if the specified directories contain a large number of subdirectories.</td>
         </tr>
         <tr>
-            <th>Maximum Log File Size</th>
+            <th>Maximum log file size</th>
         </tr>
         <tr>
             <td>
-                Maximum log file size in megabytes. When this value is exceeded, the log file will be recreated the next time the program starts.<br><br>
-                Set the value to 0 to clear log files each time the program starts.<br><br>
-                Set the value to 100 MB to completely disable log file cleanup.</td>
+                Maximum log file size in megabytes. When the specified value is exceeded, the log file will be recreated the next time the program starts.<br><br>
+                Set the value to 0 to clear log files on each program start.<br><br>
+                Set the value to 100 MB to completely disable log file cleaning.</td>
         </tr>
     </table>
 </body>

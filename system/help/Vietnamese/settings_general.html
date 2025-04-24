@@ -51,21 +51,28 @@
         </tr>
         <tr>
             <td>
-                Bật tự động khởi động Open Server Panel khi khởi động hệ điều hành.</td>
+                Bật tự động khởi động Open Server Panel khi hệ điều hành khởi động.</td>
+        </tr>
+        <tr>
+            <th>Độ trễ</th>
+        </tr>
+        <tr>
+            <td>
+                Độ trễ khởi động chương trình (tính bằng giây, từ 0 đến 60).<br><br>Cho phép trì hoãn việc khởi chạy ứng dụng để giảm tải cho hệ thống khi khởi động. Điều này đặc biệt hữu ích nếu bạn cần đợi cho quá trình khởi tạo hoàn chỉnh của các dịch vụ bên thứ ba hoặc các giao diện mạng.</td>
         </tr>
         <tr>
             <th>Kiểm tra phiên bản mới</th>
         </tr>
         <tr>
             <td>
-                Bật kiểm tra cập nhật Open Server Panel (yêu cầu kết nối Internet).</td>
+                Bật kiểm tra cập nhật cho Open Server Panel (yêu cầu kết nối Internet).</td>
         </tr>
         <tr>
-            <th>Bật trình lập lịch tác vụ</th>
+            <th>Bật lập lịch nhiệm vụ</th>
         </tr>
         <tr>
             <td>
-                Kích hoạt trình lập lịch tác vụ tích hợp. Nếu tham số này bị tắt, không có tác vụ theo lịch nào sẽ được thực hiện, bất kể trạng thái của chúng.</td>
+                Kích hoạt trình lập lịch nhiệm vụ tích hợp. Nếu tham số này bị vô hiệu hóa, không có nhiệm vụ theo lịch nào được thực hiện bất kể trạng thái của chúng.</td>
         </tr>
         <tr>
             <th>Sử dụng tệp HOSTS</th>
@@ -73,19 +80,25 @@
         <tr>
             <td>
                 Bật ghi tên miền vào tệp HOSTS.<br><br>
-                <strong>Khuyến nghị khi truy cập tệp HOSTS bị hạn chế trong tổ chức:</strong><br><br>
-                1. Cấu hình tất cả các module và dự án cần thiết.<br>
+                <strong>Khuyến nghị khi truy cập hạn chế đến tệp HOSTS trong tổ chức:</strong><br><br>
+                1. Cấu hình tất cả các mô-đun và dự án cần thiết.<br>
                 2. Liên hệ với quản trị viên hệ thống để mở khóa HOSTS và cố định trạng thái của nó.<br>
-                3. Sau khi quản trị viên cố định các thay đổi, bạn có thể tắt tùy chọn này.<br><br>
-                <strong>Quan trọng:</strong> Đừng tắt tham số này nếu bạn không chắc chắn về hậu quả!</td>
+                3. Sau khi quản trị viên đã cố định các thay đổi, bạn có thể tắt tùy chọn này.<br><br>
+                <strong>Quan trọng:</strong> Không tắt tham số này nếu bạn không chắc chắn về hậu quả!</td>
+        </tr>
+        <tr>
+            <th>Khởi chạy mô-đun với hồ sơ dự án</th>
+        </tr>
+        <tr>
+            <td>Khởi chạy mô-đun với việc kích hoạt đồng thời hồ sơ trùng khớp với tên dự án.<br><br>Được sử dụng khi chọn mục menu "Bật mô-đun dự án" để tự động kích hoạt một hồ sơ có cùng tên với dự án hiện tại, nếu có tồn tại.</td>
         </tr>
         <tr>
             <th>Ngôn ngữ giao diện</th>
         </tr>
         <tr>
             <td>
-                Ngôn ngữ giao diện người dùng của Open Server Panel.<br><br>
-                Nếu tệp bản địa hóa không tồn tại hoặc chứa lỗi, tiếng Anh sẽ được sử dụng.</td>
+                Ngôn ngữ giao diện người dùng cho Open Server Panel.<br><br>
+                Nếu tệp bản địa hóa bị thiếu hoặc chứa lỗi, tiếng Anh sẽ được sử dụng.</td>
         </tr>
         <tr>
             <th>Tên miền API</th>
@@ -93,7 +106,7 @@
         <tr>
             <td>
                 Tên miền cục bộ cho API và giao diện web (đang phát triển)<br><br>
-                <strong>Khuyến nghị:</strong> Nếu bạn sử dụng VPN hoặc proxy, hãy thêm tên miền này vào danh sách ngoại lệ.</td>
+                <strong>Khuyến nghị:</strong> Nếu sử dụng VPN hoặc proxy, hãy thêm tên miền này vào ngoại lệ.</td>
         </tr>
         <tr>
             <th>Địa chỉ IP API</th>
@@ -101,14 +114,14 @@
         <tr>
             <td>
                 Địa chỉ IPv4 cho API và giao diện web (đang phát triển).<br><br>
-                <strong>Khuyến nghị:</strong> Nếu bạn sử dụng VPN hoặc proxy, hãy thêm địa chỉ IP này vào danh sách ngoại lệ.</td>
+                <strong>Khuyến nghị:</strong> Nếu sử dụng VPN hoặc proxy, hãy thêm địa chỉ IP này vào ngoại lệ.</td>
         </tr>
         <tr>
             <th>Cổng API</th>
         </tr>
         <tr>
             <td>
-                Cổng được sử dụng cho API và giao diện web (đang phát triển). Open Server Panel sẽ không khởi động nếu cổng đã được sử dụng.</td>
+                Cổng được sử dụng cho API và giao diện web (đang phát triển). Open Server Panel sẽ không thể khởi động nếu cổng đã chỉ định đang được sử dụng bởi ứng dụng khác.</td>
         </tr>
         <tr>
             <th>Sử dụng Windows Terminal</th>
@@ -116,32 +129,32 @@
         <tr>
             <td>
                 Bật sử dụng Windows Terminal thay vì giao diện dòng lệnh tiêu chuẩn.<br><br>
-                <strong>Yêu cầu:</strong> Windows Terminal phải được cài đặt trong hệ thống và được thêm vào biến môi trường PATH.<br><br>
-                <strong>Windows Terminal như cmd.exe:</strong> Trong phiên bản Windows mới, Windows Terminal có thể thay thế cmd.exe và được đặt trong biến môi trường %COMSPEC%. Nếu vậy, hãy để tùy chọn này được bật.<br><br>
-                <strong>Phiên bản Windows Terminal mới:</strong> Nếu Windows Terminal mở cửa sổ mới thay vì tab, hãy cấu hình nó như sau: Cài đặt&rarr;Khởi động&rarr;Hành vi phiên bản mới&rarr;Gắn kết với cửa sổ được sử dụng gần đây nhất.</td>
+                <strong>Yêu cầu:</strong> Windows Terminal phải được cài đặt trên hệ thống và được định nghĩa trong biến môi trường PATH.<br><br>
+                <strong>Windows Terminal như cmd.exe:</strong> Windows Terminal có thể thay thế cmd.exe và được định nghĩa trong biến môi trường %COMSPEC% trong các phiên bản Windows mới hơn. Nếu đúng như vậy, hãy giữ tùy chọn này được bật.<br><br>
+                <strong>Các phiên bản Windows Terminal mới:</strong> Nếu Windows Terminal mở cửa sổ mới thay vì tab, hãy cấu hình nó như sau: Cài đặt&rarr;Khởi động&rarr;Hành vi phiên bản mới&rarr;Gắn vào cửa sổ được sử dụng gần đây nhất.</td>
         </tr>
         <tr>
             <th>Tiêu đề dự án ngắn</th>
         </tr>
         <tr>
             <td>
-                Khi kích hoạt tùy chọn này, chỉ tên dự án sẽ được hiển thị trong tiêu đề cửa sổ terminal thay vì mô tả chi tiết.</td>
+                Khi tùy chọn này được kích hoạt, chỉ tên dự án sẽ hiển thị trong tiêu đề cửa sổ terminal thay vì mô tả chi tiết.</td>
         </tr>
         <tr>
-            <th>Sử dụng môi trường hệ thống với môi trường dự án</th>
+            <th>Bao gồm môi trường hệ thống trong môi trường dự án</th>
         </tr>
         <tr>
-            <td>Sử dụng môi trường hệ thống (System) trong terminal, ngay cả khi nó không được đặt trong cài đặt dự án. Môi trường hệ thống cho phép sử dụng các chương trình được cài đặt trong hệ thống (ví dụ: git.exe hoặc ssh.exe).<br><br>Chỉ tắt tùy chọn này khi xảy ra xung đột với phần mềm hệ thống.</td>
+            <td>Sử dụng môi trường hệ thống (System) trong terminal ngay cả khi nó không được chỉ định trong cài đặt dự án. Môi trường hệ thống cho phép sử dụng các chương trình được cài đặt trên hệ thống (như git.exe hoặc ssh.exe).<br><br>Chỉ tắt tùy chọn này khi xảy ra xung đột với phần mềm hệ thống.</td>
         </tr>
         <tr>
             <th>Hỗ trợ ANSI</th>
         </tr>
         <tr>
             <td>
-                Bật hỗ trợ mã ANSI để điều khiển màu sắc trong terminal.<br><br>
+                Bật hỗ trợ cho mã ANSI để điều khiển màu sắc trong terminal.<br><br>
                 Chế độ "Tự động" (mặc định):<br>
-                - Bản sửa lỗi chỉ áp dụng cho Windows 7, 8 và Windows 10 (đến phiên bản 1903). Trong phiên bản Windows mới hơn, hỗ trợ mã ANSI đã được tích hợp sẵn.<br>
-                - Bản sửa lỗi không áp dụng cho các terminal mặc định hỗ trợ ANSI (ví dụ: Windows Terminal).
+                - Sửa lỗi chỉ được áp dụng cho Windows 7, 8 và Windows 10 (đến phiên bản 1903 bao gồm). Trong các phiên bản Windows mới hơn, hỗ trợ mã ANSI đã được tích hợp sẵn.<br>
+                - Sửa lỗi không được áp dụng cho các terminal hỗ trợ ANSI theo mặc định (ví dụ: Windows Terminal).
             </td>
         </tr>
         <tr>
@@ -149,25 +162,25 @@
         </tr>
         <tr>
             <td>
-                Danh sách thư mục mà Open Server Panel sẽ tìm kiếm dự án. Phân tách các đường dẫn bằng dấu chấm phẩy (;).<br><br>
-                <strong>Loại trừ:</strong> Thư mục con node_modules và vendor bị bỏ qua.</td>
+                Danh sách các thư mục mà Open Server Panel sẽ tìm kiếm dự án. Phân cách đường dẫn bằng dấu chấm phẩy (;).<br><br>
+                <strong>Loại trừ:</strong> Các thư mục con node_modules và vendor bị bỏ qua.</td>
         </tr>
         <tr>
             <th>Độ sâu</th>
         </tr>
         <tr>
             <td>
-                Độ sâu tối đa của thư mục lồng nhau khi tìm kiếm dự án.<br><br>
-                Tăng giá trị này có thể làm chậm quá trình khởi động Open Server Panel nếu trong các thư mục được chỉ định có số lượng lớn thư mục con.</td>
+                Độ sâu lồng nhau tối đa của thư mục khi tìm kiếm dự án.<br><br>
+                Tăng giá trị này có thể làm chậm quá trình khởi động của Open Server Panel nếu các thư mục được chỉ định chứa số lượng lớn thư mục con.</td>
         </tr>
         <tr>
             <th>Kích thước tệp nhật ký tối đa</th>
         </tr>
         <tr>
             <td>
-                Kích thước tối đa của tệp nhật ký tính bằng megabyte. Khi vượt quá giá trị này, tệp nhật ký sẽ được tạo lại vào lần khởi động tiếp theo của chương trình.<br><br>
-                Đặt giá trị 0 để xóa tệp nhật ký mỗi khi khởi động chương trình.<br><br>
-                Đặt giá trị 100 MB để tắt hoàn toàn việc xóa tệp nhật ký.</td>
+                Kích thước tệp nhật ký tối đa tính bằng megabyte. Khi vượt quá giá trị đã chỉ định, tệp nhật ký sẽ được tạo lại vào lần tiếp theo khi chương trình khởi động.<br><br>
+                Đặt giá trị là 0 để xóa tệp nhật ký mỗi khi chương trình khởi động.<br><br>
+                Đặt giá trị là 100 MB để tắt hoàn toàn việc dọn dẹp tệp nhật ký.</td>
         </tr>
     </table>
 </body>

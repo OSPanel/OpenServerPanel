@@ -51,106 +51,119 @@
         </tr>
         <tr>
             <td>
-                Activar el inicio automático de Open Server Panel al cargar el sistema operativo.</td>
+                Habilitar el inicio automático de Open Server Panel al cargar el sistema operativo.</td>
+        </tr>
+        <tr>
+            <th>Retraso</th>
+        </tr>
+        <tr>
+            <td>
+                Retraso de inicio del programa (en segundos, de 0 a 60).<br><br>Permite posponer el lanzamiento de la aplicación para reducir la carga del sistema durante el inicio. Esto es especialmente útil si necesita esperar la inicialización completa de servicios de terceros o interfaces de red.</td>
         </tr>
         <tr>
             <th>Comprobar nuevas versiones</th>
         </tr>
         <tr>
             <td>
-                Activar la comprobación de actualizaciones de Open Server Panel (requiere conexión a Internet).</td>
+                Habilitar la comprobación de actualizaciones para Open Server Panel (se requiere conexión a Internet).</td>
         </tr>
         <tr>
-            <th>Activar el programador de tareas</th>
+            <th>Habilitar programador de tareas</th>
         </tr>
         <tr>
             <td>
-                Activar el programador de tareas integrado. Si este parámetro está desactivado, no se ejecutará ninguna tarea programada, independientemente de su estado.</td>
+                Activar el programador de tareas integrado. Si este parámetro está desactivado, no se ejecutará ninguna tarea programada independientemente de su estado.</td>
         </tr>
         <tr>
             <th>Usar archivo HOSTS</th>
         </tr>
         <tr>
             <td>
-                Activar la escritura de nombres de dominio en el archivo HOSTS.<br><br>
-                <strong>Recomendaciones para acceso limitado al archivo HOSTS en una organización:</strong><br><br>
+                Habilitar la escritura de nombres de dominio en el archivo HOSTS.<br><br>
+                <strong>Recomendaciones para acceso restringido al archivo HOSTS en organizaciones:</strong><br><br>
                 1. Configure todos los módulos y proyectos necesarios.<br>
-                2. Contacte con el administrador del sistema para desbloquear HOSTS y fijar su estado.<br>
-                3. Después de que el administrador fije los cambios, puede desactivar esta opción.<br><br>
+                2. Contacte a su administrador de sistemas para desbloquear HOSTS y fijar su estado.<br>
+                3. Después de que el administrador haya fijado los cambios, puede desactivar esta opción.<br><br>
                 <strong>Importante:</strong> ¡No desactive este parámetro si no está seguro de las consecuencias!</td>
+        </tr>
+        <tr>
+            <th>Iniciar módulos con perfil de proyecto</th>
+        </tr>
+        <tr>
+            <td>Iniciar módulos con la activación simultánea de un perfil que coincida con el nombre del proyecto.<br><br>Se utiliza al seleccionar la opción de menú "Habilitar módulos del proyecto" para activar automáticamente un perfil con el mismo nombre que el proyecto actual, si existe.</td>
         </tr>
         <tr>
             <th>Idioma de la interfaz</th>
         </tr>
         <tr>
             <td>
-                Idioma de la interfaz de usuario de Open Server Panel.<br><br>
-                Si el archivo de localización está ausente o contiene errores, se utilizará el idioma inglés.</td>
+                Idioma de la interfaz de usuario para Open Server Panel.<br><br>
+                Si el archivo de localización falta o contiene errores, se utilizará el inglés.</td>
         </tr>
         <tr>
-            <th>Dominio API</th>
+            <th>Dominio de API</th>
         </tr>
         <tr>
             <td>
                 Dominio local para API e interfaz web (en desarrollo)<br><br>
-                <strong>Recomendación:</strong> Si utiliza VPN o proxy, añada este dominio a las exclusiones.</td>
+                <strong>Recomendación:</strong> Si usa VPN o proxy, añada este dominio a las excepciones.</td>
         </tr>
         <tr>
-            <th>Dirección IP API</th>
+            <th>Dirección IP de API</th>
         </tr>
         <tr>
             <td>
                 Dirección IPv4 para API e interfaz web (en desarrollo).<br><br>
-                <strong>Recomendación:</strong> Si utiliza VPN o proxy, añada esta dirección IP a las exclusiones.</td>
+                <strong>Recomendación:</strong> Si usa VPN o proxy, añada esta dirección IP a las excepciones.</td>
         </tr>
         <tr>
-            <th>Puerto API</th>
+            <th>Puerto de API</th>
         </tr>
         <tr>
             <td>
-                Puerto utilizado para API e interfaz web (en desarrollo). Open Server Panel no se iniciará si el puerto especificado ya está ocupado.</td>
+                Puerto utilizado para API e interfaz web (en desarrollo). Open Server Panel no podrá iniciarse si el puerto especificado ya está siendo utilizado por otra aplicación.</td>
         </tr>
         <tr>
             <th>Usar Windows Terminal</th>
         </tr>
         <tr>
             <td>
-                Activar el uso de Windows Terminal en lugar de la interfaz de comandos estándar.<br><br>
-                <strong>Requisitos:</strong> Windows Terminal debe estar instalado en el sistema y estar en la variable de entorno PATH.<br><br>
-                <strong>Windows Terminal como cmd.exe:</strong> En las nuevas versiones de Windows, Windows Terminal puede reemplazar cmd.exe y estar en la variable de entorno %COMSPEC%. Si es así, mantenga esta opción activada.<br><br>
-                <strong>Nuevas instancias de Windows Terminal:</strong> Si Windows Terminal abre nuevas ventanas en lugar de pestañas, configúrelo así: Configuración&rarr;Inicio&rarr;Comportamiento de nueva instancia&rarr;Adjuntar a la última ventana usada.</td>
+                Habilitar el uso de Windows Terminal en lugar de la interfaz de comandos estándar.<br><br>
+                <strong>Requisitos:</strong> Windows Terminal debe estar instalado en el sistema y definido en la variable de entorno PATH.<br><br>
+                <strong>Windows Terminal como cmd.exe:</strong> Windows Terminal puede reemplazar a cmd.exe y estar definido en la variable de entorno %COMSPEC% en versiones más recientes de Windows. Si este es el caso, mantenga esta opción habilitada.<br><br>
+                <strong>Nuevas instancias de Windows Terminal:</strong> Si Windows Terminal abre nuevas ventanas en lugar de pestañas, configúrelo de la siguiente manera: Configuración&rarr;Inicio&rarr;Comportamiento de nueva instancia&rarr;Adjuntar a la ventana usada más recientemente.</td>
         </tr>
         <tr>
             <th>Título corto del proyecto</th>
         </tr>
         <tr>
             <td>
-                Al activar esta opción, en el título de la ventana de terminal solo se mostrará el nombre del proyecto en lugar de una descripción detallada.</td>
+                Cuando esta opción está activada, solo se mostrará el nombre del proyecto en el título de la ventana del terminal en lugar de una descripción detallada.</td>
         </tr>
         <tr>
-            <th>Usar entorno del sistema con entorno de proyectos</th>
+            <th>Incluir entorno del sistema en el entorno del proyecto</th>
         </tr>
         <tr>
-            <td>Usar el entorno del sistema (System) en la terminal, incluso si no está especificado en la configuración del proyecto. El entorno del sistema permite utilizar programas instalados en el sistema (por ejemplo, git.exe o ssh.exe).<br><br>Desactive esta opción solo si hay conflictos con software del sistema.</td>
+            <td>Usar el entorno del sistema (System) en el terminal incluso si no está especificado en la configuración del proyecto. El entorno del sistema permite el uso de programas instalados en el sistema (como git.exe o ssh.exe).<br><br>Desactive esta opción solo si se producen conflictos con el software del sistema.</td>
         </tr>
         <tr>
             <th>Soporte ANSI</th>
         </tr>
         <tr>
             <td>
-                Activar el soporte de códigos ANSI para el control de colores en la terminal.<br><br>
-                Modo "Automático" (por defecto):<br>
-                - La corrección se aplica solo a Windows 7, 8 y Windows 10 (hasta la versión 1903 inclusive). En versiones más recientes de Windows, el soporte de códigos ANSI ya está integrado.<br>
+                Habilitar soporte para códigos ANSI para controlar los colores en el terminal.<br><br>
+                Modo "Automático" (predeterminado):<br>
+                - La corrección se aplica solo a Windows 7, 8 y Windows 10 (hasta la versión 1903 inclusive). En versiones más recientes de Windows, el soporte para códigos ANSI ya está integrado.<br>
                 - La corrección no se aplica a terminales que soportan ANSI por defecto (por ejemplo, Windows Terminal).
             </td>
         </tr>
         <tr>
-            <th>Directorios para buscar proyectos</th>
+            <th>Directorios de búsqueda de proyectos</th>
         </tr>
         <tr>
             <td>
                 Lista de directorios donde Open Server Panel buscará proyectos. Separe las rutas con punto y coma (;).<br><br>
-                <strong>Exclusiones:</strong> Los subdirectorios node_modules y vendor son ignorados.</td>
+                <strong>Exclusiones:</strong> Se ignoran los subdirectorios node_modules y vendor.</td>
         </tr>
         <tr>
             <th>Profundidad</th>
@@ -165,9 +178,9 @@
         </tr>
         <tr>
             <td>
-                Tamaño máximo del archivo de registro en megabytes. Si se excede el valor especificado, el archivo de registro se recreará en el próximo inicio del programa.<br><br>
-                Establezca el valor 0 para limpiar los archivos de registro en cada inicio del programa.<br><br>
-                Establezca el valor 100 MB para desactivar completamente la limpieza de archivos de registro.</td>
+                Tamaño máximo del archivo de registro en megabytes. Cuando se supera el valor especificado, el archivo de registro se recreará la próxima vez que se inicie el programa.<br><br>
+                Establezca el valor en 0 para limpiar los archivos de registro en cada inicio del programa.<br><br>
+                Establezca el valor en 100 MB para desactivar completamente la limpieza de archivos de registro.</td>
         </tr>
     </table>
 </body>
