@@ -45,7 +45,7 @@
 
 <body>
     <h2 style="margin-top: 0.33em">Globale Projekteinstellungen</h2>
-    <p>Die in diesem Abschnitt festgelegten Parameter werden verwendet, wenn in den Projekteinstellungen keine anderen Werte angegeben sind.</p>
+    <p>Die Parameter, die in diesem Abschnitt festgelegt sind, werden verwendet, wenn in den Projekteinstellungen keine anderen Werte angegeben sind.</p>
     <table>
         <tr>
             <th>Nginx</th>
@@ -60,14 +60,14 @@
         <tr>
             <td>
                 Gibt die Node.js-Engine zum Ausführen von Node.js-Anwendungen an.<br><br>
-                <strong>Node.js-Installation:</strong> Installieren Sie vorher die gewünschte Node.js-Version mit dem NVM-Add-on.</td>
+                <strong>Node.js Installation:</strong> Installieren Sie vorab die gewünschte Node.js-Version mit Hilfe der NVM-Erweiterung.</td>
         </tr>
         <tr>
             <th>PHP</th>
         </tr>
         <tr>
             <td>
-                Bestimmt die PHP-Engine, die zur Verarbeitung von PHP-Dateien verwendet wird.<br><br>
+                Bestimmt die verwendete PHP-Engine zur Verarbeitung von PHP-Dateien.<br><br>
                 <strong>Wichtig:</strong> PHP-Module ohne FCGI-Präfix sind integrierte Apache+PHP-Module.</td>
         </tr>
         <tr>
@@ -75,17 +75,17 @@
         </tr>
         <tr>
             <td>
-                Bestimmt den Standardzustand des Projekts (aktiviert oder deaktiviert).</td>
+                Bestimmt den Standardstatus des Projekts (aktiviert oder deaktiviert).</td>
         </tr>
         <tr>
             <th>Terminal-Codierung</th>
         </tr>
         <tr>
             <td>
-                Die Zeichencodierung des Terminals bei der Arbeit mit der Projektumgebung.<br><br>
+                Zeichencodierung des Terminals bei der Arbeit mit der Projektumgebung.<br><br>
                 <strong>Spezielle Werte:</strong><br>
                 - system: Die Systemcodierung wird verwendet.<br><br>
-                <strong>Wichtig:</strong> Wenn kein Wert angegeben ist, wird bei der Erstellung der endgültigen Projektumgebung die Terminal-Codierung durch die zuletzt verbundene Umgebung festgelegt, in der sie definiert ist, z.B. durch die PHP-Modulumgebung.</td>
+                <strong>Wichtig:</strong> Wenn kein Wert festgelegt ist, wird bei der Erstellung der endgültigen Projektumgebung die Terminal-Codierung durch die zuletzt verbundene Umgebung festgelegt, in der sie definiert ist, zum Beispiel durch die Umgebung des PHP-Moduls.</td>
         </tr>
         <tr>
             <th>IP</th>
@@ -94,12 +94,12 @@
             <td>
                 Legt die IP-Adresse(n) fest, die von allen Projekten ohne individuelle Einstellungen verwendet werden.<br><br>
                 <strong>Einschränkung:</strong> Projekte, die dieselbe IP-Adresse verwenden, müssen mit derselben PHP-Version arbeiten.<br><br>
-                <strong>Unterstützung mehrerer IPs:</strong> Sie können mehrere IP-Adressen durch Leerzeichen getrennt angeben, einschließlich IPv6. In der HOSTS-Datei wird den Domains die erste angegebene IP zugewiesen.<br><br>
-                <strong>Automatische Zuweisung:</strong> Wenn Sie das Feld leer lassen, wird die IP-Adresse automatisch zugewiesen.<br><br>
+                <strong>Unterstützung mehrerer IPs:</strong> Es können mehrere IP-Adressen durch Leerzeichen getrennt angegeben werden, einschließlich IPv6. In der HOSTS-Datei wird den Domains die erste angegebene IP zugewiesen.<br><br>
+                <strong>Automatische Zuweisung:</strong> Wenn das Feld leer gelassen wird, wird die IP-Adresse automatisch zugewiesen.<br><br>
                 <strong>Empfehlungen:</strong>
                 <ul>
-                    <li>Die automatische IP-Adressverwaltung wird für die meisten Benutzer empfohlen.</li>
-                    <li>Eine manuelle IP-Adresszuweisung sollte nur bei spezifischen Netzwerkkonfigurationsanforderungen verwendet werden.</li>
+                    <li>Die automatische Verwaltung von IP-Adressen wird für die meisten Benutzer empfohlen.</li>
+                    <li>Die manuelle Festlegung einer IP-Adresse sollte nur bei spezifischen Netzwerkkonfigurationsanforderungen verwendet werden.</li>
                 </ul>
             </td>
         </tr>
@@ -108,14 +108,14 @@
         </tr>
         <tr>
             <td>
-                Definiert den Port für HTTP-Verbindungen.</td>
+                Bestimmt den Port für HTTP-Verbindungen.</td>
         </tr>
         <tr>
             <th>HTTPS</th>
         </tr>
         <tr>
             <td>
-                Definiert den Port für HTTPS-Verbindungen.</td>
+                Bestimmt den Port für HTTPS-Verbindungen.</td>
         </tr>
         <tr>
             <th>SSL</th>
@@ -129,7 +129,7 @@
         </tr>
         <tr>
             <td>
-                Gibt den Pfad zur SSL-Zertifikatsdatei an. Vorlagenvariablen können verwendet werden.<br><br>
+                Gibt den Pfad zur SSL-Zertifikatsdatei an. Template-Variablen können verwendet werden.<br><br>
                 <strong>Zulässige Zeichen:</strong> A-Za-z0-9-+_.\:<br><br>
                 <strong>Empfehlung:</strong> Lassen Sie das Feld leer, um Zertifikate automatisch zu generieren.</td>
         </tr>
@@ -138,16 +138,34 @@
         </tr>
         <tr>
             <td>
-                Gibt den Pfad zur SSL-Schlüsseldatei an. Vorlagenvariablen können verwendet werden.<br><br>
+                Gibt den Pfad zur SSL-Schlüsseldatei an. Template-Variablen können verwendet werden.<br><br>
                 <strong>Zulässige Zeichen:</strong> A-Za-z0-9-+_.\:<br><br>
                 <strong>Empfehlung:</strong> Lassen Sie das Feld leer, um den Schlüssel automatisch zu generieren.</td>
+        </tr>
+        <tr>
+            <th>IP-Adresse (Backend)</th>
+        </tr>
+        <tr>
+            <td>Gibt die IP-Adresse an, über die die Verbindung zum Backend hergestellt wird.</td>
+        </tr>
+        <tr>
+            <th>Port (Backend)</th>
+        </tr>
+        <tr>
+            <td>Bestimmt die Portnummer für die Verbindung zum Backend.</td>
+        </tr>
+        <tr>
+            <th>Aktivieren (Backend)</th>
+        </tr>
+        <tr>
+            <td>Ermöglicht das automatische Weiterleiten des gesamten eingehenden Projektverkehrs (HTTP und HTTPS) an das Backend. Nützlich für Tests oder Entwicklung, wenn Frontend und Backend getrennt sind.</td>
         </tr>
         <tr>
             <th>Projektverzeichnis</th>
         </tr>
         <tr>
             <td>
-                Gibt das Stammverzeichnis des Projekts an. Der Wechsel in dieses Verzeichnis erfolgt mit dem Befehl <strong>osp project &lt;DOMAIN&gt;</strong> gleichzeitig mit der Aktivierung der Projektumgebung. Vorlagenvariablen können verwendet werden.<br><br>
+                Gibt das Stammverzeichnis des Projekts an. Der Wechsel in dieses Verzeichnis erfolgt mit dem Befehl <strong>osp project &lt;DOMAIN&gt;</strong> bei gleichzeitiger Aktivierung der Projektumgebung. Template-Variablen können verwendet werden.<br><br>
                 <strong>Erlaubte Zeichen:</strong> A-Za-z0-9-+_.\:</td>
         </tr>
         <tr>
@@ -155,7 +173,7 @@
         </tr>
         <tr>
             <td>
-                Definiert das öffentliche Verzeichnis des Projekts. Vorlagenvariablen können verwendet werden.<br><br>
+                Bestimmt das öffentliche Verzeichnis des Projekts. Template-Variablen können verwendet werden.<br><br>
                 <strong>Erlaubte Zeichen:</strong> A-Za-z0-9-+_.\:</td>
         </tr>
         <tr>
@@ -163,35 +181,35 @@
         </tr>
         <tr>
             <td>
-                Gibt zusätzliche Domainnamen (Aliase) für das Projekt an (durch Leerzeichen getrennt). Vorlagenvariablen können verwendet werden.<br><br>
+                Gibt zusätzliche Domainnamen (Aliase) für das Projekt an (durch Leerzeichen getrennt). Template-Variablen können verwendet werden.<br><br>
                 <strong>Subdomains:</strong> Wenn ein Alias keinen Punkt enthält, wird er als Subdomain betrachtet (z.B. "www" -> "www.test.local").<br><br>
-                <strong>Einschränkung:</strong> Das Zeichen "*" wird unter Windows in der HOSTS-Datei nicht unterstützt und erfordert eine DNS-Konfiguration.</td>
+                <strong>Einschränkung:</strong> Das Zeichen "*" wird in der Windows-HOSTS-Datei nicht unterstützt und erfordert eine DNS-Konfiguration.</td>
         </tr>
         <tr>
             <th>Projektumgebung</th>
         </tr>
         <tr>
             <td>
-                Liste der Add-ons und Module (durch Leerzeichen getrennt), die die Projektumgebung bilden.<br><br>
+                Liste der Erweiterungen und Module (durch Leerzeichen getrennt), die die Projektumgebung bilden.<br><br>
                 <strong>PHP/Nginx/Node.js-Module:</strong> Die Umgebungen dieser Module werden immer verbunden (wenn sie für die Domain festgelegt sind) und müssen in diesem Parameter nicht angegeben werden.</td>
         </tr>
         <tr>
-            <th>Projektstart-Befehl</th>
+            <th>Projektstartbefehl</th>
         </tr>
         <tr>
             <td>
-                Definiert den Befehl zum Starten des Projekts (z.B. <strong>nodemon app.js</strong>). Vorlagenvariablen können verwendet werden.</td>
+                Definiert den Befehl zum Starten des Projekts (z.B. <strong>nodemon app.js</strong>). Template-Variablen können verwendet werden.</td>
         </tr>
         <tr>
             <th>Projekt-URL</th>
         </tr>
         <tr>
             <td>
-                URL, die geöffnet wird, wenn <strong>Projekt im Browser öffnen</strong> im Open Server Panel ausgewählt wird. Vorlagenvariablen können verwendet werden.<br><br>
-                <strong>Anwendung:</strong> Sie können eine URL für das CMS-Administrationsbereich festlegen.</td>
+                URL, die beim Auswählen von <strong>Projekt im Browser öffnen</strong> im Open Server Panel geöffnet wird. Template-Variablen können verwendet werden.<br><br>
+                <strong>Anwendung:</strong> Kann die URL des CMS-Administrationsbereichs festlegen.</td>
         </tr>
     </table>
-    <h2>Vorlagenvariablen</h2>
+    <h2>Template-Variablen</h2>
     <table>
         <thead>
             <tr>
@@ -200,6 +218,14 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP-Adresse für die Verbindung zum Backend</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port für die Verbindung zum Backend</td>
+            </tr>
             <tr>
                 <td>{base_dir}</td>
                 <td>Stammverzeichnis des Projekts (wo sich das .osp-Verzeichnis befindet)</td>
@@ -214,15 +240,15 @@
             </tr>
             <tr>
                 <td>{host_scheme}</td>
-                <td>Anfrageschema des Projekts ("http" oder "https", abhängig vom SSL-Parameter in den Projekteinstellungen)</td>
+                <td>Schema der Projektanfrage ("http" oder "https", abhängig vom SSL-Parameter in den Projekteinstellungen)</td>
             </tr>
             <tr>
                 <td>{http_port}</td>
-                <td>Anfrageport des Projekts über das HTTP-Protokoll</td>
+                <td>Port für Projektanfragen über das HTTP-Protokoll</td>
             </tr>
             <tr>
                 <td>{https_port}</td>
-                <td>Anfrageport des Projekts über das HTTPS-Protokoll</td>
+                <td>Port für Projektanfragen über das HTTPS-Protokoll</td>
             </tr>
             <tr>
                 <td>{nginx_engine}</td>
@@ -246,11 +272,11 @@
             </tr>
             <tr>
                 <td>{scheme_port}</td>
-                <td>Anfrageport des Projekts (":{http_port}" oder ":{https_port}", abhängig vom SSL-Parameter in den Projekteinstellungen).<br><br>Wenn {http_port} oder {https_port} den Standardwert 80 oder 443 hat, dann wird {scheme_port} leer sein.</td>
+                <td>Port für Projektanfragen (":{http_port}" oder ":{https_port}", abhängig vom SSL-Parameter in den Projekteinstellungen).<br><br>Wenn {http_port} oder {https_port} den Standardwert 80 oder 443 hat, wird {scheme_port} leer sein.</td>
             </tr>
             <tr>
                 <td>{root_dir}</td>
-                <td>Stammverzeichnis von Open Server Panel (vollständiger Pfad)</td>
+                <td>Stammverzeichnis des Open Server Panels (vollständiger Pfad)</td>
             </tr>
             <tr>
                 <td>{root_drive}</td>
@@ -258,7 +284,7 @@
             </tr>
             <tr>
                 <td>{root_path}</td>
-                <td>Pfad zum Stammverzeichnis von Open Server Panel</td>
+                <td>Pfad zum Stammverzeichnis des Open Server Panels</td>
             </tr>
             <tr>
                 <td>{terminal_codepage}</td>

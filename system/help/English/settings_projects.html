@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td>
-                Defines the Nginx web server version used for projects.</td>
+                Determines the version of the Nginx web server used for projects.</td>
         </tr>
         <tr>
             <th>Node</th>
@@ -60,14 +60,14 @@
         <tr>
             <td>
                 Specifies the Node.js engine for running Node.js applications.<br><br>
-                <strong>Installing Node.js:</strong> First install the required Node.js version using the NVM addon.</td>
+                <strong>Node.js Installation:</strong> Pre-install the desired Node.js version using the NVM extension.</td>
         </tr>
         <tr>
             <th>PHP</th>
         </tr>
         <tr>
             <td>
-                Defines the PHP engine used for processing PHP files.<br><br>
+                Determines the PHP engine used for processing PHP files.<br><br>
                 <strong>Important:</strong> PHP modules without the FCGI prefix are integrated Apache+PHP modules.</td>
         </tr>
         <tr>
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td>
-                Determines the default project state (enabled or disabled).</td>
+                Determines the default state of the project (enabled or disabled).</td>
         </tr>
         <tr>
             <th>Terminal Encoding</th>
@@ -84,8 +84,8 @@
             <td>
                 Terminal encoding when working with the project environment.<br><br>
                 <strong>Special values:</strong><br>
-                - system: Uses system encoding.<br><br>
-                <strong>Important:</strong> If the value is not set, when forming the final project environment, terminal encoding will be set by the last connected environment in which it is defined, for example, the PHP module environment.</td>
+                - system: System encoding is used.<br><br>
+                <strong>Important:</strong> If no value is specified, when forming the final project environment, the terminal encoding will be set by the last connected environment in which it is defined, for example, by the PHP module environment.</td>
         </tr>
         <tr>
             <th>IP</th>
@@ -93,13 +93,13 @@
         <tr>
             <td>
                 Sets the IP address(es) used by all projects without individual settings.<br><br>
-                <strong>Limitation:</strong> Projects using the same IP address must work with the same PHP version.<br><br>
-                <strong>Multiple IP support:</strong> You can specify multiple IP addresses separated by spaces, including IPv6. The first specified IP will be assigned to domains in the HOSTS file.<br><br>
-                <strong>Automatic assignment:</strong> If left empty, the IP address will be assigned automatically.<br><br>
+                <strong>Limitation:</strong> Projects using the same IP address must run on the same PHP version.<br><br>
+                <strong>Multiple IP support:</strong> You can specify multiple IP addresses separated by spaces, including IPv6. In the HOSTS file, domains will be assigned the first specified IP.<br><br>
+                <strong>Automatic assignment:</strong> If the field is left empty, the IP address will be assigned automatically.<br><br>
                 <strong>Recommendations:</strong>
                 <ul>
                     <li>Automatic IP address management is recommended for most users.</li>
-                    <li>Manual IP address assignment should be used only for specific network configuration requirements.</li>
+                    <li>Manual IP address assignment should only be used for specific network configuration requirements.</li>
                 </ul>
             </td>
         </tr>
@@ -108,14 +108,14 @@
         </tr>
         <tr>
             <td>
-                Defines the port for HTTP connections.</td>
+                Determines the port for HTTP connections.</td>
         </tr>
         <tr>
             <th>HTTPS</th>
         </tr>
         <tr>
             <td>
-                Defines the port for HTTPS connections.</td>
+                Determines the port for HTTPS connections.</td>
         </tr>
         <tr>
             <th>SSL</th>
@@ -131,7 +131,7 @@
             <td>
                 Specifies the path to the SSL certificate file. Template variables can be used.<br><br>
                 <strong>Allowed characters:</strong> A-Za-z0-9-+_.\:<br><br>
-                <strong>Recommendation:</strong> Leave this field empty for automatic certificate generation.</td>
+                <strong>Recommendation:</strong> Leave the field empty for automatic certificate generation.</td>
         </tr>
         <tr>
             <th>Key File</th>
@@ -140,14 +140,32 @@
             <td>
                 Specifies the path to the SSL key file. Template variables can be used.<br><br>
                 <strong>Allowed characters:</strong> A-Za-z0-9-+_.\:<br><br>
-                <strong>Recommendation:</strong> Leave this field empty for automatic key generation.</td>
+                <strong>Recommendation:</strong> Leave the field empty for automatic key generation.</td>
+        </tr>
+        <tr>
+            <th>IP Address (backend)</th>
+        </tr>
+        <tr>
+            <td>Specifies the IP address used for connecting to the Backend.</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Determines the port number for connecting to the Backend.</td>
+        </tr>
+        <tr>
+            <th>Enable (backend)</th>
+        </tr>
+        <tr>
+            <td>Allows automatically directing all incoming project traffic (HTTP and HTTPS) to the Backend. Useful for testing or development when frontend and backend are separated.</td>
         </tr>
         <tr>
             <th>Project Directory</th>
         </tr>
         <tr>
             <td>
-                Specifies the root directory of the project. Switching to this directory is performed by the command <strong>osp project &lt;DOMAIN&gt;</strong> simultaneously with the activation of the project environment. Template variables can be used.<br><br>
+                Specifies the root directory of the project. Changing to this directory is done using the command <strong>osp project &lt;DOMAIN&gt;</strong> while simultaneously activating the project environment. Template variables can be used.<br><br>
                 <strong>Allowed characters:</strong> A-Za-z0-9-+_.\:</td>
         </tr>
         <tr>
@@ -155,7 +173,7 @@
         </tr>
         <tr>
             <td>
-                Defines the public directory of the project. Template variables can be used.<br><br>
+                Determines the public directory of the project. Template variables can be used.<br><br>
                 <strong>Allowed characters:</strong> A-Za-z0-9-+_.\:</td>
         </tr>
         <tr>
@@ -164,19 +182,19 @@
         <tr>
             <td>
                 Specifies additional domain names (aliases) for the project (space-separated). Template variables can be used.<br><br>
-                <strong>Subdomains:</strong> If an alias does not contain a dot, it is considered a subdomain (e.g., "www" -> "www.test.local").<br><br>
-                <strong>Limitation:</strong> The "*" character is not supported in Windows HOSTS file and requires DNS configuration.</td>
+                <strong>Subdomains:</strong> If an alias does not contain a dot, it is treated as a subdomain (e.g., "www" -> "www.test.local").<br><br>
+                <strong>Limitation:</strong> The "*" character is not supported in the Windows HOSTS file and requires DNS configuration.</td>
         </tr>
         <tr>
             <th>Project Environment</th>
         </tr>
         <tr>
             <td>
-                List of add-ons and modules (space-separated) that form the project environment.<br><br>
-                <strong>PHP/Nginx/Node.js modules:</strong> Environments of these modules are always connected (if set for the domain) and do not need to be specified in this parameter.</td>
+                List of extensions and modules (space-separated) that form the project environment.<br><br>
+                <strong>PHP/Nginx/Node.js modules:</strong> The environments of these modules are always connected (if set for the domain) and do not need to be specified in this parameter.</td>
         </tr>
         <tr>
-            <th>Project Start Command</th>
+            <th>Project Launch Command</th>
         </tr>
         <tr>
             <td>
@@ -188,7 +206,7 @@
         <tr>
             <td>
                 URL opened when selecting <strong>Open project in browser</strong> in Open Server Panel. Template variables can be used.<br><br>
-                <strong>Application:</strong> You can set the URL of the CMS admin panel.</td>
+                <strong>Application:</strong> Can be used to set the URL of the CMS administration panel.</td>
         </tr>
     </table>
     <h2>Template Variables</h2>
@@ -201,8 +219,16 @@
         </thead>
         <tbody>
             <tr>
+                <td>{backend_ip}</td>
+                <td>IP address for connecting to the Backend</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port for connecting to the Backend</td>
+            </tr>
+            <tr>
                 <td>{base_dir}</td>
-                <td>Project root directory (where the .osp directory is located)</td>
+                <td>Root directory of the project (where the .osp directory is located)</td>
             </tr>
             <tr>
                 <td>{host}</td>
@@ -218,11 +244,11 @@
             </tr>
             <tr>
                 <td>{http_port}</td>
-                <td>Project request port using the HTTP protocol</td>
+                <td>Port for project requests via the HTTP protocol</td>
             </tr>
             <tr>
                 <td>{https_port}</td>
-                <td>Project request port using the HTTPS protocol</td>
+                <td>Port for project requests via the HTTPS protocol</td>
             </tr>
             <tr>
                 <td>{nginx_engine}</td>
@@ -238,27 +264,27 @@
             </tr>
             <tr>
                 <td>{project_dir}</td>
-                <td>Project root directory</td>
+                <td>Root directory of the project</td>
             </tr>
             <tr>
                 <td>{public_dir}</td>
-                <td>Project public directory</td>
+                <td>Public directory of the project</td>
             </tr>
             <tr>
                 <td>{scheme_port}</td>
-                <td>Project request port (":{http_port}" or ":{https_port}", depends on the SSL parameter in the project settings).<br><br>If {http_port} or {https_port} has the standard value of 80 or 443, then {scheme_port} will be empty.</td>
+                <td>Port for project requests (":{http_port}" or ":{https_port}", depends on the SSL parameter in the project settings).<br><br>If {http_port} or {https_port} has the standard value of 80 or 443, then {scheme_port} will be empty.</td>
             </tr>
             <tr>
                 <td>{root_dir}</td>
-                <td>Open Server Panel root directory (full path)</td>
+                <td>Root directory of Open Server Panel (full path)</td>
             </tr>
             <tr>
                 <td>{root_drive}</td>
-                <td>Root directory drive</td>
+                <td>Drive of the root directory</td>
             </tr>
             <tr>
                 <td>{root_path}</td>
-                <td>Path to the Open Server Panel root directory</td>
+                <td>Path to the root directory of Open Server Panel</td>
             </tr>
             <tr>
                 <td>{terminal_codepage}</td>
