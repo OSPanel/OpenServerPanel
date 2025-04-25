@@ -584,6 +584,14 @@
                   }
                },
                {
+                  "key":"http2",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
                   "key":"ssl_key_file",
                   "value":{
                      "_type":"UString",
@@ -647,7 +655,7 @@
                   }
                },
                {
-                  "key":"backend_enabled",
+                  "key":"backend",
                   "value":{
                      "_type":"Boolean",
                      "_value":false,
@@ -697,7 +705,7 @@
                   "key":"backend_port",
                   "value":{
                      "_type":"UString",
-                     "_value":"3000",
+                     "_value":"",
                      "_strict":true
                   }
                },
