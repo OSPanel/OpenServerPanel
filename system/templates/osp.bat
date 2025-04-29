@@ -226,10 +226,6 @@ if not defined OSP_TMPVAL set "OSP_ERR_MSG={lang_nvm_not_installed}" & goto erro
 if not exist "%OSP_DIR%\data\cli\env_NVM.bat" set "OSP_ERR_MSG={lang_err_no_env_config} NVM" & goto error
 if /i "%2"=="install" goto nodeinstall
 if /i "%2"=="list" goto nodelist
-if /i "%2"=="mode" goto nodemode
-if /i "%2"=="node_mirror" goto nodeurl
-if /i "%2"=="npm_mirror" goto nodeurl
-if /i "%2"=="proxy" goto nodeurl
 if /i "%2"=="uninstall" goto nodeinstall
 if /i "%2"=="add" goto nodeadd
 if /i "%2"=="use" goto nodeuse
@@ -251,30 +247,6 @@ set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
 if not exist "%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%" set "OSP_ERR_MSG={lang_nvm_node_not_installed}" & goto error
 call :env_reset post
 goto nodeenv
-:nodemode
-if /i "%3"=="" goto invalid
-set "OSP_TMP_NAME=%3"
-set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
-setlocal
-call :env_reset post
-call "%OSP_DIR%\data\cli\env_NVM.bat" use
-call "%OSP_DIR%\data\cli\nvm.bat" current > nul
-if /i "%4"=="" echo: & call "%OSP_DIR%\system\bin\getbit.exe" "%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\node.exe" & goto end
-endlocal
-if /i not "%4"=="" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
-setlocal
-call :env_reset post
-call "%OSP_DIR%\data\cli\env_NVM.bat" use
-call "%OSP_DIR%\data\cli\nvm.bat" use %OSP_TMP_NAME% %4
-endlocal
-goto end
-:nodeurl
-setlocal
-call :env_reset post
-call "%OSP_DIR%\data\cli\env_NVM.bat" use
-call "%OSP_DIR%\data\cli\nvm.bat" %2 %3
-endlocal
-goto end
 :nodelist
 if /i not "%3"=="" if /i not "%3"=="available" goto invalid
 setlocal
@@ -293,13 +265,6 @@ call :env_reset post
 call "%OSP_DIR%\data\cli\env_NVM.bat" use
 echo:
 if /i "%2"=="uninstall" goto nodeuninstall
-if /i "%4"=="64" goto nodeinst64
-if /i "%4"=="" goto nodeinst64
-:nodeinst32
-call "%OSP_DIR%\data\cli\nvm.bat" install %OSP_TMP_NAME% 32
-call "%OSP_DIR%\data\cli\nvm.bat" use %OSP_TMP_NAME% 32
-if /i "%4"=="32" goto nodeinstallend
-:nodeinst64
 call "%OSP_DIR%\data\cli\nvm.bat" install %OSP_TMP_NAME% 64
 call "%OSP_DIR%\data\cli\nvm.bat" use %OSP_TMP_NAME% 64
 goto nodeinstallend
