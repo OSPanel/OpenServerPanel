@@ -186,7 +186,7 @@ set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
 if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
 if /i not "%2"=="silent" echo: & echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
 TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
-"%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/exit > nul
+"%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/exit > nul
 if exist "%OSP_DIR%\temp\OSPanel.lock" goto error
 if /i not "%2"=="silent" echo: & echo {lang_exiting_program}
 goto end
@@ -272,7 +272,7 @@ goto nodeinstallend
 call "%OSP_DIR%\data\cli\nvm.bat" uninstall %OSP_TMP_NAME%
 :nodeinstallend
 endlocal
-"%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/update_node >nul 2>nul
+"%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/update_node >nul 2>nul
 goto end
 :nodeenv
 call "%OSP_DIR%\data\cli\env_NVM.bat" %2 & call :post_env %2 Node-%OSP_TMP_NAME% %4
@@ -306,14 +306,14 @@ goto end
 :: ADDONS/PROJECTS/MODULES/TASKS/STARTCHECK LIST
 :: -----------------------------------------------------------------------------------
 :request
-"%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/%1
+"%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/%1
 if %ERRORLEVEL% gtr 0 goto error
 goto end
 :: -----------------------------------------------------------------------------------
 :: INIT/ON/OFF/RESTART/STATUS
 :: -----------------------------------------------------------------------------------
 :mod_cmd
-if "%1"=="status" if "%2"=="" "%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/all
+if "%1"=="status" if "%2"=="" "%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/all
 if "%1"=="status" if "%2"=="" if %ERRORLEVEL% gtr 0 goto error
 if "%1"=="status" if "%2"=="" goto end
 if "%2"=="" goto eargument
@@ -335,15 +335,15 @@ setlocal EnableDelayedExpansion
 if %ERRORLEVEL%==1 set "OSP_ERR_MSG={err_failed_to_enable_ce}" & goto error
 for %%a in (%OSP_TMPVAL%) do (
     if /i "%1"=="restart" (
-        "%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/off/%%a/%3
+        "%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/off/%%a/%3
         if !errorlevel! gtr 0 (
             call :echo_error %1 %OSP_TMP_NAME% %3
         ) else (
-            "%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/on/%%a/%3
+            "%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/on/%%a/%3
             if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
         )
     ) else (
-        "%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/%1/%%a/%3
+        "%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/%1/%%a/%3
         if !errorlevel! gtr 0 call :echo_error %1 %OSP_TMP_NAME% %3
     )
     if !errorlevel!==0 if /i "%1"=="status" if exist "%OSP_DIR%\logs\%%a.log" for %%S in ("%OSP_DIR%\logs\%%a.log") do if not %%~zS==0 echo: & "%OSP_DIR%\system\bin\fd.exe" -e log -a -i -p %%a[\.\\A-Za-z0-9]+ "%OSP_DIR%\logs" -x "%OSP_DIR%\system\bin\tail.bat" {} 15 & echo %ESC%[0m
@@ -377,7 +377,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 :convert
 if "%2"=="" goto eargument
-"%OSP_DIR%\system\bin\curl.exe" -f -s {cmd_api_url}/convert/%2
+"%OSP_DIR%\system\bin\curl.exe" --noproxy '*' --proxy "" -f -s {cmd_api_url}/convert/%2
 if %ERRORLEVEL% gtr 0 goto error
 @goto end
 :: -----------------------------------------------------------------------------------
