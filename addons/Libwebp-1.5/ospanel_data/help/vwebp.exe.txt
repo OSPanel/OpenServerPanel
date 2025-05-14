@@ -1,0 +1,21 @@
+﻿Usage: vwebp in_file [options]
+
+Decodes the WebP image file and visualize it using OpenGL
+Options are:
+  -version ..... print version number and exit
+  -noicc ....... don't use the icc profile if present
+  -nofancy ..... don't use the fancy YUV420 upscaler
+  -nofilter .... disable in-loop filtering
+  -dither <int>  dithering strength (0..100), default=50
+  -noalphadither disable alpha plane dithering
+  -usebgcolor .. display background color
+  -mt .......... use multi-threading
+  -info ........ print info
+  -h ........... this help message
+
+Keyboard shortcuts:
+  'c' ................ toggle use of color profile
+  'b' ................ toggle background color display
+  'i' ................ overlay file information
+  'd' ................ disable blending & disposal (debug)
+  'q' / 'Q' / ESC .... quit

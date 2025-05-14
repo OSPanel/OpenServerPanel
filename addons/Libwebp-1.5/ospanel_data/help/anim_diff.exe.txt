@@ -1,0 +1,12 @@
+﻿Usage: anim_diff <image1> <image2> [options]
+
+Options:
+  -dump_frames <folder> dump decoded frames in PAM format
+  -min_psnr <float> ... minimum per-frame PSNR
+  -raw_comparison ..... if this flag is not used, RGB is
+                        premultiplied before comparison
+  -max_diff <int> ..... maximum allowed difference per channel
+                        between corresponding pixels in subsequent
+                        frames
+  -h .................. this help
+  -version ............ print version number and exit

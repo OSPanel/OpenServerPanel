@@ -1,0 +1,11 @@
+﻿Usage: get_disto [-ssim][-psnr][-alpha] compressed.webp orig.webp
+  -ssim ..... print SSIM distortion
+  -psnr ..... print PSNR distortion (default)
+  -alpha .... preserve alpha plane
+  -h ........ this message
+  -o <file> . save the diff map as a WebP lossless file
+  -scale .... scale the difference map to fit [0..255] range
+  -gray ..... use grayscale for difference map (-scale)
+
+Supported input formats:
+  WebP, JPEG, PNG, PNM (PGM, PPM, PAM), TIFF

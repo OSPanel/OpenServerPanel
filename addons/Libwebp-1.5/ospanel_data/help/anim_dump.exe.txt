@@ -1,0 +1,9 @@
+﻿Usage: anim_dump [options] files...
+
+Options:
+  -folder <string> .... dump folder (default: '.')
+  -prefix <string> .... prefix for dumped frames (default: 'dump_')
+  -tiff ............... save frames as TIFF
+  -pam ................ save frames as PAM
+  -h .................. this help
+  -version ............ print version number and exit

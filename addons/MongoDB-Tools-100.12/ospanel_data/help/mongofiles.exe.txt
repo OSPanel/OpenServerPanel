@@ -1,0 +1,74 @@
+﻿Usage:
+  mongofiles <options> <connection-string> <command> <filename or _id>
+
+Manipulate gridfs files using the command line.
+
+Connection strings must begin with mongodb:// or mongodb+srv://.
+
+Possible commands include:
+        list      - list all files; 'filename' is an optional prefix which listed filenames must begin with
+        search    - search all files; 'filename' is a regex which listed filenames must match
+        put       - add files with filenames specified in the supporting arguments
+        put_id    - add a file with filename 'filename' and a given '_id'
+        get       - get files with filenames specified in the supporting arguments
+        get_id    - get a file with the given '_id'
+        get_regex - get files matching the supplied 'regex'
+        delete    - delete all files with filename 'filename'
+        delete_id - delete a file with the given '_id'
+
+See http://docs.mongodb.com/database-tools/mongofiles/ for more information.
+
+general options:
+      /help                                       print usage
+      /version                                    print the tool version and exit
+      /config:                                    path to a configuration file
+
+verbosity options:
+  /v, /verbose:<level>                            more detailed log output (include multiple times for more verbosity,
+                                                  e.g. -vvvvv, or specify a numeric value, e.g. --verbose=N)
+      /quiet                                      hide all log output
+
+connection options:
+  /h, /host:<hostname>                            mongodb host to connect to (setname/host1,host2 for replica sets)
+      /port:<port>                                server port (can also use --host hostname:port)
+
+ssl options:
+      /ssl                                        connect to a mongod or mongos that has ssl enabled
+      /sslCAFile:<filename>                       the .pem file containing the root certificate chain from the
+                                                  certificate authority
+      /sslPEMKeyFile:<filename>                   the .pem file containing the certificate and key
+      /sslPEMKeyPassword:<password>               the password to decrypt the sslPEMKeyFile, if necessary
+      /sslCRLFile:<filename>                      the .pem file containing the certificate revocation list
+      /sslFIPSMode                                use FIPS mode of the installed openssl library
+      /tlsInsecure                                bypass the validation for server's certificate chain and host name
+
+authentication options:
+  /u, /username:<username>                        username for authentication
+  /p, /password:<password>                        password for authentication
+      /authenticationDatabase:<database-name>     database that holds the user's credentials
+      /authenticationMechanism:<mechanism>        authentication mechanism to use
+      /awsSessionToken:<aws-session-token>        session token to authenticate via AWS IAM
+
+kerberos options:
+      /gssapiServiceName:<service-name>           service name to use when authenticating using GSSAPI/Kerberos
+                                                  (default: mongodb)
+      /gssapiHostName:<host-name>                 hostname to use when authenticating using GSSAPI/Kerberos (default:
+                                                  <remote server's address>)
+
+uri options:
+      /uri:mongodb-uri                            mongodb uri connection string
+
+storage options:
+  /d, /db:<database-name>                         database to use
+  /l, /local:<filename>                           local filename for put|get
+  /t, /type:                                      content/MIME type for put (optional)
+  /r, /replace                                    remove other files with same name after put
+      /prefix:<prefix>                            GridFS prefix to use
+      /writeConcern:<write-concern>               write concern options e.g. --writeConcern majority, --writeConcern
+                                                  '{w: 3, wtimeout: 500, fsync: true, j: true}'
+      /regexOptions:<regex-options>               regex options used for get_regex
+
+query options:
+      /readPreference:<string>|<json>             specify either a preference mode (e.g. 'nearest') or a preference
+                                                  json object (e.g. '{mode: "nearest", tagSets: [{a: "b"}],
+                                                  maxStalenessSeconds: 123}')

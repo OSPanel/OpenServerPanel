@@ -1,0 +1,38 @@
+﻿Usage:
+
+  img2webp [file_options] [[frame_options] frame_file]... [-o webp_file]
+
+File-level options (only used at the start of compression):
+ -min_size ............ minimize size
+ -kmax <int> .......... maximum number of frame between key-frames
+                        (0=only keyframes)
+ -kmin <int> .......... minimum number of frame between key-frames
+                        (0=disable key-frames altogether)
+ -mixed ............... use mixed lossy/lossless automatic mode
+ -near_lossless <int> . use near-lossless image preprocessing
+                        (0..100=off), default=100
+ -sharp_yuv ........... use sharper (and slower) RGB->YUV conversion
+                        (lossy only)
+ -loop <int> .......... loop count (default: 0, = infinite loop)
+ -v ................... verbose mode
+ -h ................... this help
+ -version ............. print version number and exit
+
+Per-frame options (only used for subsequent images input):
+ -d <int> ............. frame duration in ms (default: 100)
+ -lossless ............ use lossless mode (default)
+ -lossy ............... use lossy mode
+ -q <float> ........... quality
+ -m <int> ............. compression method (0=fast, 6=slowest), default=4
+ -exact, -noexact ..... preserve or alter RGB values in transparent area
+                        (default: -noexact, may cause artifacts
+                                  with lossy animations)
+
+example: img2webp -loop 2 in0.png -lossy in1.jpg
+                  -d 80 in2.tiff -o out.webp
+
+Note: if a single file name is passed as the argument, the arguments will be
+tokenized from this file. The file name must not start with the character '-'.
+
+Supported input formats:
+  WebP, JPEG, PNG, PNM (PGM, PPM, PAM), TIFF
