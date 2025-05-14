@@ -28,7 +28,7 @@
 
 @if exist "%OSP_DIR%\system\bin\colortest.exe" (
     "%OSP_DIR%\system\bin\colortest.exe"
-    @if %ERRORLEVEL% gtr 0 (
+    @if %ERRORLEVEL% neq 0 (
         @if "{terminal_ansi_fix}"=="0" (
             @if /i not "%ConEmuANSI%"=="ON" (
                 @if not defined OSP_FIXED (
@@ -58,7 +58,7 @@
 :: Checking PowerShell
 
 @call "%OSP_DIR%\system\bin\getparent.exe" >nul 2>nul
-@if %ERRORLEVEL% gtr 0 (
+@if %ERRORLEVEL% neq 0 (
     @set "OSP_ERR_MSG={lang_err_powershell_detect}"
     goto error
 )
@@ -327,15 +327,13 @@ goto end
 
 :cacertinit
 
-if "%2"=="" (
-    set "OSP_ERR_MSG={lang_err_arg_not_specified} (init|show|deinit)"
-    goto error
-)
+if "%2"=="" goto eargument
 
 :: Checking and processing cacert command parameters
 
+if /i "%2"=="show" "%SystemRoot%\System32\certutil.exe" -user -store "Root" "Open Server Panel" 2>nul
+
 if /i "%2"=="show" (
-    "%SystemRoot%\System32\certutil.exe" -user -store "Root" "Open Server Panel" 2>nul
     if %ERRORLEVEL% neq 0 goto error
     goto end
 )
@@ -392,12 +390,10 @@ if %ERRORLEVEL% neq 0 (
 
 :: Copying to curl bundle
 
-if %ERRORLEVEL%==0 (
-    copy "%OSP_DIR%\system\ssl\cacert.pem" "%OSP_DIR%\bin\curl-ca-bundle.crt" /b /y >nul
-    if %ERRORLEVEL% neq 0 (
-        set "OSP_ERR_MSG={lang_err_copy_cacert_failed}"
-        goto error
-    )
+copy "%OSP_DIR%\system\ssl\cacert.pem" "%OSP_DIR%\bin\curl-ca-bundle.crt" /b /y >nul
+if %ERRORLEVEL% neq 0 (
+    set "OSP_ERR_MSG={lang_err_copy_cacert_failed}"
+    goto error
 )
 
 goto end
@@ -424,10 +420,7 @@ goto end
 :: -----------------------------------------------------------------------------------
 
 :node
-if "%2"=="" (
-    set "OSP_ERR_MSG={lang_err_arg_not_specified} (install|uninstall|list|add|use)"
-    goto error
-)
+if "%2"=="" goto eargument
 
 :: Checking for NVM presence
 
@@ -618,7 +611,7 @@ goto end
 
 :request
 "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/%1
-if %ERRORLEVEL% gtr 0 goto error
+if %ERRORLEVEL% neq 0 goto error
 goto end
 
 :: -----------------------------------------------------------------------------------
@@ -629,9 +622,10 @@ goto end
 
 :: Checking "status" without arguments
 
+if "%1"=="status" if "%2"=="" "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/all
+
 if "%1"=="status" if "%2"=="" (
-    "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/all
-    if %ERRORLEVEL% gtr 0 goto error
+    if %ERRORLEVEL% neq 0 goto error
     goto end
 )
 
@@ -644,9 +638,14 @@ if "%2"=="" goto eargument
 set "OSP_TMP_NAME=%2"
 if not "%OSP_MODULES_LIST%"=="" (
     for %%a in (%OSP_MODULES_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_cmd
+        )
     )
 )
+
+:found_cmd
 
 :: Another check for module existence
 
@@ -660,21 +659,20 @@ set "OSP_TMPVAL=%OSP_TMP_NAME%"
 if /i "%1"=="restart" (
     "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/off/%OSP_TMPVAL%/%3
     "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/on/%OSP_TMPVAL%/%3
-    if %ERRORLEVEL% gtr 0 goto error
 ) else (
     "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/%1/%OSP_TMPVAL%/%3
-    if %ERRORLEVEL% gtr 0 goto error
 )
+
+if %ERRORLEVEL% neq 0 goto error
 
 :: Displaying latest log entries after the status operation
 
-if %ERRORLEVEL%==0 if /i "%1"=="status" (
+if /i "%1"=="status" (
     if exist "%OSP_DIR%\logs\%OSP_TMPVAL%.log" (
         for %%S in ("%OSP_DIR%\logs\%OSP_TMPVAL%.log") do (
             if not %%~zS==0 (
                 echo:
                 "%OSP_DIR%\system\bin\fd.exe" -e log -a -i -p %OSP_TMPVAL%[\.\\A-Za-z0-9]+ "%OSP_DIR%\logs" -x "%OSP_DIR%\system\bin\tail.bat" {} 15
-                echo %ESC%[0m
             )
         )
     )
@@ -696,9 +694,14 @@ if "%2"=="" goto eargument
 set "OSP_TMP_NAME=%2"
 if not "%OSP_MODULES_LIST%"=="" (
     for %%a in (%OSP_MODULES_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_shell
+        )
     )
 )
+
+:found_shell
 
 :: Checking module existence
 
@@ -730,12 +733,14 @@ goto end
 :: IDN CONVERTER
 :: -----------------------------------------------------------------------------------
 
+:convert
+
 :: Checking for the presence of an argument
 
 if "%2"=="" goto eargument
 
 "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/convert/%2
-if %ERRORLEVEL% gtr 0 goto error
+if %ERRORLEVEL% neq 0 goto error
 goto end
 
 :: -----------------------------------------------------------------------------------
@@ -810,11 +815,20 @@ if not "%OSP_PROJECT_ENV%"=="" (
     )
 )
 
+set "OSP_DIR={root_dir}"
+
 :: Changing to Project Directory
 
 if not "%OSP_PROJECT_DIR%"=="" (
     cd /d "%OSP_PROJECT_DIR%"
+)
+
+if not "%OSP_PROJECT_DIR%"=="" (
     if %ERRORLEVEL% neq 0 (
+        set "OSP_PROJECT_ADDED="
+        set "OSP_PROJECT_ENV="
+        set "OSP_PROJECT_ENV_="
+        set "OSP_PROJECT_PATH="
         set "OSP_ERR_MSG={lang_err_change_dir_failed} %OSP_PROJECT_DIR%"
         goto error
     )
@@ -851,7 +865,6 @@ if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "O
 :: Clear Project Temporary Variables
 
 set "OSP_PROJECT_ADDED="
-set "OSP_PROJECT_DIR="
 set "OSP_PROJECT_ENV="
 set "OSP_PROJECT_ENV_="
 set "OSP_PROJECT_PATH="
@@ -894,15 +907,25 @@ set "OSP_TMP_NAME=%2"
 
 if not "%OSP_ADDONS_LIST%"=="" (
     for %%a in (%OSP_ADDONS_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_add_addons
+        )
     )
 )
 
+:found_add_addons
+
 if not "%OSP_MODULES_LIST%"=="" (
     for %%a in (%OSP_MODULES_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_add_modules
+        )
     )
 )
+
+:found_add_modules
 
 :: Check Module/Add-on Availability
 
@@ -963,15 +986,25 @@ if defined OSP_TMPVAL (
 set "OSP_TMP_NAME=%2"
 if not "%OSP_ADDONS_LIST%"=="" (
     for %%a in (%OSP_ADDONS_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_use_addons
+        )
     )
 )
 
+:found_use_addons
+
 if not "%OSP_MODULES_LIST%"=="" (
     for %%a in (%OSP_MODULES_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_use_modules
+        )
     )
 )
+
+:found_use_modules
 
 :: Check Module/Add-on Availability
 
@@ -1109,27 +1142,32 @@ goto error
 :: Substring Search with Special Character Escaping
 
 :strfind
-setlocal
+setlocal EnableDelayedExpansion
+
 set "pos="
 set "str=%~1"
 set "sub=%~2"
 
 :: Check for Empty Values
 
-if "%str%"=="" (
-    set "OSP_TMPVAL="
+if "!str!"=="" (
+    endlocal & set "OSP_TMPVAL="
     exit /b 0
 )
 
-if "%sub%"=="" (
-    set "OSP_TMPVAL="
+if "!sub!"=="" (
+    endlocal & set "OSP_TMPVAL="
     exit /b 0
 )
 
 :: Substring Search
 
-call set "Replaced=%%str:%sub%=%%"
-if /i not "%str%"=="%Replaced%" set "pos=yes"
+set "Replaced=!str:%sub%=!"
+
+if /i not "!str!"=="!Replaced!" (
+    set "pos=yes"
+)
+
 endlocal & set "OSP_TMPVAL=%pos%"
 exit /b 0
 
@@ -1160,9 +1198,14 @@ set "OSP_TMPVAL="
 
 if not "%OSP_MODULES_LIST%"=="" (
     for %%a in (%OSP_MODULES_LIST%) do (
-        if /i "%%a"=="%2" set "OSP_TMP_NAME_2=%%a"
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME_2=%%a"
+            goto found_post_env
+        )
     )
 )
+
+:found_post_env
 
 if defined OSP_TMP_NAME_2 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME_2%:"
 set "OSP_TMP_NAME_2="
@@ -1219,6 +1262,7 @@ if /i not "%1"=="shell" if /i not "%3"=="project" (
 @set "OSP_ERR_LEVEL="
 @set "OSP_TMPVAL="
 @set "OSP_TMP_NAME="
+@set "OSP_VERSION="
 @exit /b 0
 
 :end
