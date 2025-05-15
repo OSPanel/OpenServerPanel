@@ -1,0 +1,70 @@
+
+SQL*Loader: Release 12.2.0.1.0 - Production on Thu May 15 20:18:01 2025
+
+Copyright (c) 1982, 2017, Oracle and/or its affiliates.  All rights reserved.
+
+
+Usage: SQLLDR keyword=value [,keyword=value,...]
+
+Valid Keywords:
+
+    userid -- ORACLE username/password           
+   control -- control file name                  
+       log -- log file name                      
+       bad -- bad file name                      
+      data -- data file name                     
+   discard -- discard file name                  
+discardmax -- number of discards to allow          (Default all)
+      skip -- number of logical records to skip    (Default 0)
+      load -- number of logical records to load    (Default all)
+    errors -- number of errors to allow            (Default 50)
+      rows -- number of rows in conventional path bind array or between direct path data saves
+               (Default: Conventional path 64, Direct path all)
+  bindsize -- size of conventional path bind array in bytes  (Default 256000)
+    silent -- suppress messages during run (header,feedback,errors,discards,partitions)
+    direct -- use direct path                      (Default FALSE)
+   parfile -- parameter file: name of file that contains parameter specifications
+  parallel -- do parallel load                     (Default FALSE)
+      file -- file to allocate extents from      
+skip_unusable_indexes -- disallow/allow unusable indexes or index partitions  (Default FALSE)
+skip_index_maintenance -- do not maintain indexes, mark affected indexes as unusable  (Default FALSE)
+commit_discontinued -- commit loaded rows when load is discontinued  (Default FALSE)
+  readsize -- size of read buffer                  (Default 1048576)
+external_table -- use external table for load; NOT_USED, GENERATE_ONLY, EXECUTE
+columnarrayrows -- number of rows for direct path column array  (Default 5000)
+streamsize -- size of direct path stream buffer in bytes  (Default 256000)
+multithreading -- use multithreading in direct path  
+ resumable -- enable or disable resumable for current session  (Default FALSE)
+resumable_name -- text string to help identify resumable statement
+resumable_timeout -- wait time (in seconds) for RESUMABLE  (Default 7200)
+date_cache -- size (in entries) of date conversion cache  (Default 1000)
+no_index_errors -- abort load on any index errors  (Default FALSE)
+partition_memory -- direct path partition memory limit to start spilling (kb)  (Default 0)
+     table -- Table for express mode load
+date_format -- Date format for express mode load
+timestamp_format -- Timestamp format for express mode load
+terminated_by -- terminated by character for express mode load
+enclosed_by -- enclosed by character for express mode load
+optionally_enclosed_by -- optionally enclosed by character for express mode load
+characterset -- characterset for express mode load
+degree_of_parallelism -- degree of parallelism for express mode load and external table load
+      trim -- trim type for express mode load and external table load
+       csv -- csv format data files for express mode load
+    nullif -- table level nullif clause for express mode load
+field_names -- field names setting for first record of data files for express mode load
+dnfs_enable -- option for enabling or disabling Direct NFS (dNFS) for input data files  (Default FALSE)
+dnfs_readbuffers -- the number of Direct NFS (dNFS) read buffers  (Default 4)
+sdf_prefix -- prefix to append to start of every LOB File and Secondary Data File
+      help -- display help messages  (Default FALSE)
+empty_lobs_are_null -- set empty LOBs to null  (Default FALSE)
+  defaults -- direct path default value loading; EVALUATE_ONCE, EVALUATE_EVERY_ROW, IGNORE, IGNORE_UNSUPPORTED_EVALUATE_ONCE, IGNORE_UNSUPPORTED_EVALUATE_EVERY_ROW
+direct_path_lock_wait -- wait for access to table when currently locked  (Default FALSE)
+
+PLEASE NOTE: Command-line parameters may be specified either by
+position or by keywords.  An example of the former case is 'sqlldr
+scott/tiger foo'; an example of the latter is 'sqlldr control=foo
+userid=scott/tiger'.  One may specify parameters by position before
+but not after parameters specified by keywords.  For example,
+'sqlldr scott/tiger control=foo logfile=log' is allowed, but
+'sqlldr scott/tiger control=foo log' is not, even though the
+position of the parameter 'log' is correct.

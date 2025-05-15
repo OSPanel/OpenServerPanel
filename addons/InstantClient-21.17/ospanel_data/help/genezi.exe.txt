@@ -1,0 +1,25 @@
+Usage: genezi -c <space separated dir list> [space separated extension list]
+Usage: genezi -s <libname> <space separated dir list> [space separated extension list]
+Usage: genezi -d <space separated dir list> [space separated extension list]
+
+Example: genezi -c /home/oracle .msb
+Example: genezi -c /home/oracle ".msb .nlb .dat"
+Example: genezi -c "rdbms/mesg nls/data oracore/zoneinfo" ".msb .nlb .dat" > ociei.c
+Example: genezi -c "rdbms/mesg precomp/mesg/sql*.msb" ".msb" > ociei.c
+
+Example: genezi -s libociei.so /home/oracle .msb
+Example: genezi -s libociei.so /home/oracle ".msb .nlb .dat"
+Example: genezi -s libociei.so "rdbms/mesg nls/data oracore/zoneinfo" ".msb .nlb .dat" > store.out
+
+Example: genezi -d /home/oracle .msb
+Example: genezi -d /home/oracle ".msb .nlb .dat"
+Example: genezi -d "rdbms/mesg nls/data oracore/zoneinfo" ".msb .nlb .dat" > dir.out
+
+The dir list is platform specific.
+
+In particular, on Windows, the path separator is a backslash.
+
+Also, on Windows, the files must be specified with the directory using a wildcard as in:
+
+genezi.exe -c "network\mesg\*.msb nls\data\*.nlb nlsrtl\mesg\*.msb odbc\mesg\*.msb oracore\mesg\*.msb oracore\zoneinfo\*.dat rdbms\mesg\*.msb ldap\mesg\*.msb precomp\mesg\sql*.msb" ".msb .nlb .dat" > ociei1.c
+

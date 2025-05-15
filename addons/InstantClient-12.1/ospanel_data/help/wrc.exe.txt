@@ -1,0 +1,111 @@
+
+Workload Replay Client: Release 12.1.0.2.0 - Production on Thu May 15 20:14:55 2025
+
+Copyright (c) 1982, 2014, Oracle and/or its affiliates.  All rights reserved.
+
+
+FORMAT:
+=======
+  wrc [user/password[@server]] [MODE=mode-value] KEYWORD=value
+
+Examples:
+=========
+  wrc  REPLAYDIR=.
+  wrc  scott/tiger@myserver REPLAYDIR=.
+  wrc  MODE=calibrate REPLAYDIR=./capture
+The default privileged user is: system
+
+Mode:
+=====
+wrc can work in different modes to provide additional functionalities.
+The default MODE is REPLAY.
+
+Mode        Description
+----------------------------------------------------------------
+REPLAY          Default mode that replays the workload in REPLAYDIR
+VERSION         Print the wrc version
+CALIBRATE       Estimate the number of replay clients and CPUs
+                needed to replay the workload in REPLAYDIR
+LIST_HOSTS      List all the hosts that participated in the capture or replay
+GET_TABLES      List all objects referenced by captured SQL statements
+
+Options (listed by mode):
+=========================
+
+MODE=REPLAY (default)
+---------------------
+
+Keyword     Description
+----------------------------------------------------------------
+USERID      username
+PASSWORD    password
+SERVER      server connection identifier (Default: empty string)
+REPLAYDIR   replay directory (Default:.)
+WORKDIR     directory for trace files
+DEBUG       ON, OFF (Default: OFF)
+CONNECTION_OVERRIDE  TRUE, FALSE (Default: FALSE)
+            TRUE   All replay threads will be connecting to the database
+                   using the SERVER parameter; the settings in
+                   DBA_WORKLOAD_CONNECTION_MAP will be ignored
+            FALSE  Use the settings in DBA_WORKLOAD_CONNECTION_MAP
+SERIALIZE_CONNECTS  TRUE, FALSE (Default: TRUE)
+            TRUE   Replay threads will be connecting to the database in a
+                   serial fashion one after another. This setting is
+                   recommended when the replay clients use the bequeath
+                   protocol to communicate to the database server.
+            FALSE  Replay threads will be connecting to the database in a
+                   concurrent fashion mimicking the original capture behavior.
+DSCN_OFF    TRUE, FALSE (Default: FALSE)
+            TRUE   Ignore all dependencies due to block contention during
+                   capture when synchronizing the replay.
+            FALSE  Honor all captured dependencies.
+REPLACE_LITERALS   TRUE, FALSE (Default: FALSE)
+            TRUE   The client will replace all captured literal binds in a
+                   call with their actual values to avoid SQL compilation
+                   errors for workloads captured with CURSOR_SHARING=FORCE
+            FALSE  Treat literal binds as regular binds
+CLOB_CS     overriding character set for CLOBs:
+            AL16UTF16, AL16UTF16LE, UTF16, or a positive number; no default.
+BACKUP_CONNECTION_STRING  The fallback connection to use if during replay a
+            connection attempt fails; no default.
+
+
+MODE=VERSION
+------------
+Print the wrc version
+
+
+MODE=CALIBRATE
+--------------
+Provide an estimate of the number of replay clients needed
+
+Keyword     Description
+----------------------------------------------------------------
+REPLAYDIR   replay directory (Default:.)
+
+Advanced parameters:
+PROCESSES_PER_CPU     Maximum number of client processes than can be run
+                      per CPU (Default: 4)
+THREADS_PER_PROCESS   Maximum number of threads than can be run within
+                      a client process (Default: 50)
+
+
+MODE=LIST_HOSTS
+---------------
+Display all host names involved in the capture
+
+Keyword     Description
+----------------------------------------------------------------
+REPLAYDIR   the workload directory (Default:.)
+
+
+MODE=GET_TABLES
+---------------
+List all objects referenced by captured SQL statements
+
+Keyword     Description
+----------------------------------------------------------------
+REPLAYDIR   the workload directory (Default:.)
+
+Default trace path: C:\Users\User\Oracle\oradiag_User\diag\clients\user_User\host_1033216257_82\trace
+
