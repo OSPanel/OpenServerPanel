@@ -2,7 +2,7 @@
 
 caption        = {lang_launch_app}
 category       = projects
-command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
+command        = wt.exe nt -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded} start"
 hr_after       = on
 icon           = rocket
 need_start_cmd = on
@@ -30,7 +30,7 @@ icon           = up-right-from-square
 
 caption        = {lang_open_in_console}
 category       = projects
-command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
+command        = wt.exe nt -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp project {host_decoded}"
 icon           = terminal
 need_use_wt    = on
 
@@ -62,7 +62,7 @@ icon           = up-right-from-square
 
 caption        = {lang_launch_shell}
 category       = modules
-command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
+command        = wt.exe nt -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp shell {module_name}"
 icon           = rocket
 need_state     = on
 need_shell     = on
@@ -82,7 +82,7 @@ need_use_wt    = off
 
 caption        = {lang_open_in_console}
 category       = modules
-command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
+command        = wt.exe nt -d "{root_dir}" "%COMSPEC%" /k "osp reset init noprint & osp use {module_name}"
 icon           = terminal
 need_use_wt    = on
 
@@ -142,7 +142,7 @@ need_state     = on
 [16]
 
 caption        = {lang_cli}
-command        = wt.exe new-tab -p "Command Prompt" -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
+command        = wt.exe nt -d "{root_dir}" "%COMSPEC%" /k "osp reset init"
 icon           = terminal
 need_use_wt    = on
 
