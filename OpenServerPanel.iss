@@ -235,7 +235,7 @@ Source: "addons\Ghostscript-10.05\*";                             DestDir: "{app
 Source: "addons\FFMpeg-7.1\*";                                    DestDir: "{app}\addons\FFMpeg-7.1";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\ffmpeg71;                         Permissions: users-full
 Source: "addons\Blackfire-2.28\*";                                DestDir: "{app}\addons\Blackfire-2.28";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\blackfire228;                     Permissions: users-full
 Source: "addons\Libwebp-1.5\*";                                   DestDir: "{app}\addons\Libwebp-1.5";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\libwebp15;                        Permissions: users-full
-Source: "addons\MongoDB-Tools-100.12\*";                          DestDir: "{app}\addons\MongoDB-Tools-100.12";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\mdbtools10012;                    Permissions: users-full
+Source: "addons\MDBTools-100.12\*";                               DestDir: "{app}\addons\MDBTools-100.12";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\mdbtools10012;                    Permissions: users-full
 Source: "addons\InstantClient-11.2\*";                            DestDir: "{app}\addons\InstantClient-11.2";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic112;                      Permissions: users-full
 Source: "addons\InstantClient-12.1\*";                            DestDir: "{app}\addons\InstantClient-12.1";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic121;                      Permissions: users-full
 Source: "addons\InstantClient-12.2\*";                            DestDir: "{app}\addons\InstantClient-12.2";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic122;                      Permissions: users-full
@@ -500,7 +500,7 @@ var
   DllLoaded: Boolean;
 
 function IsNtfsCompressedFolder(FolderPath: WideString): Boolean;
-  external 'IsNtfsCompressedFolder@{#TempDllPath}:wstd';
+  external 'IsNtfsCompressedFolder@{tmp}\IsCompressed.dll:wstd';
              
 function GetDriveType(lpRootPathName: string): UInt;
   external 'GetDriveTypeW@kernel32.dll stdcall';
