@@ -3,7 +3,7 @@
 [main]
 
 architecture        = x64
-category            = MongoDB-Tools
+category            = MongoDB Tools
 enabled             = on
 license             = https://creativecommons.org/licenses/by-nc-sa/3.0/us/
 license_type        = CC BY-NC-SA 3.0 US
