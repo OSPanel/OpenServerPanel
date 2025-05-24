@@ -622,9 +622,15 @@ goto end
 
 :: Checking "status" without arguments
 
-if "%1"=="status" if "%2"=="" "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/all
+if /i "%1"=="status" if "%2"=="" "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/all
 
-if "%1"=="status" if "%2"=="" (
+if /i "%1"=="status" if "%2"=="" (
+    if %ERRORLEVEL% neq 0 goto error
+    goto end
+)
+
+if /i "%1"=="off" if /i "%2"=="all" "%OSP_DIR%\system\bin\ospurl.exe" -s -f {cmd_api_url}/off/all
+if /i "%1"=="off" if /i "%2"=="all" (
     if %ERRORLEVEL% neq 0 goto error
     goto end
 )
