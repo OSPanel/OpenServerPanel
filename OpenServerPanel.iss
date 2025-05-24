@@ -96,117 +96,126 @@ Name: "{autodesktop}\{#AppTitle}";        Filename: "{app}\bin\ospanel.exe";    
 
 [Components]
 
-Name: "core";                          Description: "{cm:CoreData}";      Types: full compact;                            Flags: disablenouninstallwarning   
-Name: "data";                          Description: "{cm:SubDataPacks}";                                                  Flags: disablenouninstallwarning
+Name: "core";                          Description: "{cm:CoreData}";        Types: full compact;                            Flags: disablenouninstallwarning 
+  
+Name: "data";                          Description: "{cm:SubDataPacks}";                                                    Flags: disablenouninstallwarning  
+Name: "data\browscap";                 Description: "{cm:Browscap}";        Types: full;                                    Flags: disablenouninstallwarning
+Name: "data\geobases";                 Description: "{cm:Geobases}";        Types: full compact;                            Flags: disablenouninstallwarning
 
-Name: "data\browscap";                 Description: "{cm:Browscap}";      Types: full;                                    Flags: disablenouninstallwarning
-Name: "data\geobases";                 Description: "{cm:Geobases}";      Types: full compact;                            Flags: disablenouninstallwarning
+Name: "addons";                        Description: "{cm:SubAddons}";                                                       Flags: disablenouninstallwarning
+  
+Name: "addons\blackfire";              Description: "Blackfire";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "addons\erlang26";               Description: "Erlang/OTP 26.2";      Types: full;                                    Flags: disablenouninstallwarning 
+Name: "addons\ffmpeg71";               Description: "FFMpeg 7.1";           Types: full compact;                            Flags: disablenouninstallwarning
+Name: "addons\gs1005";                 Description: "Ghostscript 10.05";    Types: full compact;                            Flags: disablenouninstallwarning
+Name: "addons\im71";                   Description: "ImageMagick 7.1";      Types: full compact;                            Flags: disablenouninstallwarning
+Name: "addons\libwebp15";              Description: "Libwebp 1.5";          Types: full compact;                            Flags: disablenouninstallwarning 
+Name: "addons\mdbtools10012";          Description: "MongoDB Tools 100.12"; Types: full;                                    Flags: disablenouninstallwarning 
+Name: "addons\nvm";                    Description: "NVM 1.1";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "addons\oicp";                   Description: "Oracle Instant Client Pack";                                           Flags: disablenouninstallwarning
+Name: "addons\oicp\oic112";            Description: "InstantClient 11.2";   Types: full;                                    Flags: disablenouninstallwarning
+Name: "addons\oicp\oic121";            Description: "InstantClient 12.1";   Types: full;                                    Flags: disablenouninstallwarning
+Name: "addons\oicp\oic122";            Description: "InstantClient 12.2";   Types: full;                                    Flags: disablenouninstallwarning
+Name: "addons\oicp\oic185";            Description: "InstantClient 18.5";   Types: full;                                    Flags: disablenouninstallwarning
+Name: "addons\oicp\oic1926";           Description: "InstantClient 19.26";  Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
+Name: "addons\oicp\oic2117";           Description: "InstantClient 21.17";  Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
+Name: "addons\oicp\oic238";            Description: "InstantClient 23.8";   Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "addons\perl532";                Description: "Perl 5.32";            Types: full;                                    Flags: disablenouninstallwarning
 
-Name: "addons";                        Description: "{cm:SubAddons}";                                                     Flags: disablenouninstallwarning  
+Name: "modules";                       Description: "{cm:SubModules}";                                                      Flags: disablenouninstallwarning   
 
-Name: "addons\blackfire";              Description: "Blackfire";          Types: full compact;                            Flags: disablenouninstallwarning
-Name: "addons\erlang26";               Description: "Erlang/OTP 26.2";    Types: full;                                    Flags: disablenouninstallwarning 
-Name: "addons\ffmpeg71";               Description: "FFMpeg-7.1";         Types: full compact;                            Flags: disablenouninstallwarning
-Name: "addons\gs1005";                 Description: "Ghostscript-10.05";  Types: full compact;                            Flags: disablenouninstallwarning
-Name: "addons\im71";                   Description: "ImageMagick-7.1";    Types: full compact;                            Flags: disablenouninstallwarning
-Name: "addons\nvm";                    Description: "NVM 1.1";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
-Name: "addons\perl532";                Description: "Perl 5.32";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\dns";                   Description: "DNS";                                                                  Flags: disablenouninstallwarning
+Name: "modules\dns\bind";              Description: "Bind 9.16";            Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
+Name: "modules\dns\unbound";           Description: "Unbound 1.22";         Types: full;                                    Flags: disablenouninstallwarning
 
-Name: "modules";                       Description: "{cm:SubModules}";                                                    Flags: disablenouninstallwarning   
+Name: "modules\mail";                  Description: "Mail";                                                                 Flags: disablenouninstallwarning
+Name: "modules\mail\mailpit";          Description: "Mailpit";              Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\mail\smtp4dev";         Description: "Smtp4dev";             Types: full compact;                            Flags: disablenouninstallwarning
 
-Name: "modules\dns";                   Description: "DNS";                                                                Flags: disablenouninstallwarning
-Name: "modules\dns\bind";              Description: "Bind 9.16";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
-Name: "modules\dns\unbound";           Description: "Unbound 1.22";       Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mariadb";               Description: "MariaDB";                                                              Flags: disablenouninstallwarning
+Name: "modules\mariadb\mariadb101";    Description: "MariaDB 10.1";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mariadb\mariadb102";    Description: "MariaDB 10.2";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mariadb\mariadb103";    Description: "MariaDB 10.3";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mariadb\mariadb104";    Description: "MariaDB 10.4";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mariadb\mariadb105";    Description: "MariaDB 10.5";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb106";    Description: "MariaDB 10.6";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb107";    Description: "MariaDB 10.7";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb108";    Description: "MariaDB 10.8";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb109";    Description: "MariaDB 10.9";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb1010";   Description: "MariaDB 10.10";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb1011";   Description: "MariaDB 10.11";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb110";    Description: "MariaDB 11.0";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb111";    Description: "MariaDB 11.1";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb112";    Description: "MariaDB 11.2";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb114";    Description: "MariaDB 11.4";         Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mariadb\mariadb117";    Description: "MariaDB 11.7";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "modules\mail";                  Description: "Mail";                                                               Flags: disablenouninstallwarning
-Name: "modules\mail\mailpit";          Description: "Mailpit";            Types: full compact;                            Flags: disablenouninstallwarning
-Name: "modules\mail\smtp4dev";         Description: "Smtp4dev";           Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\memcached";             Description: "Memcached";                                                            Flags: disablenouninstallwarning
+Name: "modules\memcached\memcached14"; Description: "Memcached 1.4";        Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\memcached\memcached16"; Description: "Memcached 1.6";        Types: full;                                    Flags: disablenouninstallwarning
 
-Name: "modules\mariadb";               Description: "MariaDB";                                                            Flags: disablenouninstallwarning
-Name: "modules\mariadb\mariadb101";    Description: "MariaDB 10.1";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mariadb\mariadb102";    Description: "MariaDB 10.2";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mariadb\mariadb103";    Description: "MariaDB 10.3";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mariadb\mariadb104";    Description: "MariaDB 10.4";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mariadb\mariadb105";    Description: "MariaDB 10.5";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb106";    Description: "MariaDB 10.6";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb107";    Description: "MariaDB 10.7";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb108";    Description: "MariaDB 10.8";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb109";    Description: "MariaDB 10.9";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb1010";   Description: "MariaDB 10.10";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb1011";   Description: "MariaDB 10.11";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb110";    Description: "MariaDB 11.0";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb111";    Description: "MariaDB 11.1";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb112";    Description: "MariaDB 11.2";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb114";    Description: "MariaDB 11.4";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mariadb\mariadb117";    Description: "MariaDB 11.7";       Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mongodb";               Description: "MongoDB";                                                              Flags: disablenouninstallwarning
+Name: "modules\mongodb\mongodb34";     Description: "MongoDB 3.4";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mongodb\mongodb36";     Description: "MongoDB 3.6";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mongodb\mongodb40";     Description: "MongoDB 4.0";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mongodb\mongodb42";     Description: "MongoDB 4.2";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mongodb\mongodb44";     Description: "MongoDB 4.4";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mongodb\mongodb50";     Description: "MongoDB 5.0";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mongodb\mongodb60";     Description: "MongoDB 6.0";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mongodb\mongodb70";     Description: "MongoDB 7.0";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mongodb\mongodb80";     Description: "MongoDB 8.0";          Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "modules\memcached";             Description: "Memcached";                                                          Flags: disablenouninstallwarning
-Name: "modules\memcached\memcached14"; Description: "Memcached 1.4";      Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\memcached\memcached16"; Description: "Memcached 1.6";      Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mysql";                 Description: "MySQL";                                                                Flags: disablenouninstallwarning
+Name: "modules\mysql\mysql56";         Description: "MySQL 5.6";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\mysql\mysql57";         Description: "MySQL 5.7";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mysql\mysql80";         Description: "MySQL 8.0";            Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\mysql\mysql84";         Description: "MySQL 8.4";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "modules\mongodb";               Description: "MongoDB";                                                            Flags: disablenouninstallwarning
-Name: "modules\mongodb\mongodb34";     Description: "MongoDB 3.4";        Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mongodb\mongodb36";     Description: "MongoDB 3.6";        Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mongodb\mongodb40";     Description: "MongoDB 4.0";        Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mongodb\mongodb42";     Description: "MongoDB 4.2";        Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mongodb\mongodb44";     Description: "MongoDB 4.4";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mongodb\mongodb50";     Description: "MongoDB 5.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mongodb\mongodb60";     Description: "MongoDB 6.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mongodb\mongodb70";     Description: "MongoDB 7.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mongodb\mongodb80";     Description: "MongoDB 8.0";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\nginx";                 Description: "Nginx";                                                                Flags: disablenouninstallwarning
+Name: "modules\nginx\nginx128";        Description: "Nginx 1.28";           Types: full compact;                            Flags: disablenouninstallwarning
 
-Name: "modules\mysql";                 Description: "MySQL";                                                              Flags: disablenouninstallwarning
-Name: "modules\mysql\mysql56";         Description: "MySQL 5.6";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\mysql\mysql57";         Description: "MySQL 5.7";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mysql\mysql80";         Description: "MySQL 8.0";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\mysql\mysql84";         Description: "MySQL 8.4";          Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php";                   Description: "PHP";                                                                  Flags: disablenouninstallwarning
+Name: "modules\php\php72";             Description: "PHP 7.2";              Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php72\php72fcgi";   Description: "PHP 7.2 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php73";             Description: "PHP 7.3";              Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php73\php73fcgi";   Description: "PHP 7.3 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php74";             Description: "PHP 7.4";              Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php74\php74fcgi";   Description: "PHP 7.4 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php80";             Description: "PHP 8.0";              Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php80\php80fcgi";   Description: "PHP 8.0 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php81";             Description: "PHP 8.1";              Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php81\php81fcgi";   Description: "PHP 8.1 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php82";             Description: "PHP 8.2";              Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\php\php82\php82fcgi";   Description: "PHP 8.2 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\php\php83";             Description: "PHP 8.3";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php\php83\php83fcgi";   Description: "PHP 8.3 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php\php84";             Description: "PHP 8.4";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php\php84\php84fcgi";   Description: "PHP 8.4 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "modules\nginx";                 Description: "Nginx";                                                              Flags: disablenouninstallwarning
-Name: "modules\nginx\nginx122";        Description: "Nginx 1.22";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\nginx\nginx127";        Description: "Nginx 1.27";         Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\psql";                  Description: "PostgreSQL";                                                           Flags: disablenouninstallwarning
+Name: "modules\psql\postgresql95";     Description: "PostgreSQL 9.5";       Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\psql\postgresql96";     Description: "PostgreSQL 9.6";       Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\psql\postgresql10";     Description: "PostgreSQL 10";        Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\psql\postgresql11";     Description: "PostgreSQL 11";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\psql\postgresql12";     Description: "PostgreSQL 12";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\psql\postgresql13";     Description: "PostgreSQL 13";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\psql\postgresql14";     Description: "PostgreSQL 14";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\psql\postgresql15";     Description: "PostgreSQL 15";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\psql\postgresql16";     Description: "PostgreSQL 16";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\psql\postgresql17";     Description: "PostgreSQL 17";        Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
-Name: "modules\php";                   Description: "PHP";                                                                Flags: disablenouninstallwarning
-Name: "modules\php\php72";             Description: "PHP 7.2";            Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php72\php72fcgi";   Description: "PHP 7.2 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php73";             Description: "PHP 7.3";            Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php73\php73fcgi";   Description: "PHP 7.3 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php74";             Description: "PHP 7.4";            Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php74\php74fcgi";   Description: "PHP 7.4 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php80";             Description: "PHP 8.0";            Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php80\php80fcgi";   Description: "PHP 8.0 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php81";             Description: "PHP 8.1";            Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php81\php81fcgi";   Description: "PHP 8.1 FCGI";       Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php82";             Description: "PHP 8.2";            Types: full compact;                            Flags: disablenouninstallwarning
-Name: "modules\php\php82\php82fcgi";   Description: "PHP 8.2 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning
-Name: "modules\php\php83";             Description: "PHP 8.3";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\php\php83\php83fcgi";   Description: "PHP 8.3 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\php\php84";             Description: "PHP 8.4";            Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\php\php84\php84fcgi";   Description: "PHP 8.4 FCGI";       Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\rabbitmq";              Description: "RabbitMQ";                                                             Flags: disablenouninstallwarning
+Name: "modules\rabbitmq\rabbitmq313";  Description: "RabbitMQ 3.13";        Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\rabbitmq\rabbitmq40";   Description: "RabbitMQ 4.0";         Types: full;                                    Flags: disablenouninstallwarning
 
-Name: "modules\psql";                  Description: "PostgreSQL";                                                         Flags: disablenouninstallwarning
-Name: "modules\psql\postgresql95";     Description: "PostgreSQL 9.5";     Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\psql\postgresql96";     Description: "PostgreSQL 9.6";     Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\psql\postgresql10";     Description: "PostgreSQL 10";      Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\psql\postgresql11";     Description: "PostgreSQL 11";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\psql\postgresql12";     Description: "PostgreSQL 12";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\psql\postgresql13";     Description: "PostgreSQL 13";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\psql\postgresql14";     Description: "PostgreSQL 14";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\psql\postgresql15";     Description: "PostgreSQL 15";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\psql\postgresql16";     Description: "PostgreSQL 16";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\psql\postgresql17";     Description: "PostgreSQL 17";      Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-
-Name: "modules\rabbitmq";              Description: "RabbitMQ";                                                           Flags: disablenouninstallwarning
-Name: "modules\rabbitmq\rabbitmq313";  Description: "RabbitMQ 3.13";      Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\rabbitmq\rabbitmq40";   Description: "RabbitMQ 4.0";       Types: full;                                    Flags: disablenouninstallwarning
-
-Name: "modules\redis";                 Description: "Redis";                                                              Flags: disablenouninstallwarning
-Name: "modules\redis\redis30";         Description: "Redis 3.0";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\redis\redis32";         Description: "Redis 3.2";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\redis\redis40";         Description: "Redis 4.0";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\redis\redis50";         Description: "Redis 5.0";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\redis\redis70";         Description: "Redis 7.0";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\redis\redis72";         Description: "Redis 7.2";          Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\redis\redis74";         Description: "Redis 7.4";          Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis";                 Description: "Redis";                                                                Flags: disablenouninstallwarning
+Name: "modules\redis\redis30";         Description: "Redis 3.0";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis\redis32";         Description: "Redis 3.2";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis\redis40";         Description: "Redis 4.0";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis\redis50";         Description: "Redis 5.0";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis\redis70";         Description: "Redis 7.0";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis\redis72";         Description: "Redis 7.2";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\redis\redis74";         Description: "Redis 7.4";            Types: full;                                    Flags: disablenouninstallwarning
 
 [Files]
 
@@ -224,6 +233,15 @@ Source: "addons\ImageMagick-7.1\*";                               DestDir: "{app
 Source: "addons\Ghostscript-10.05\*";                             DestDir: "{app}\addons\Ghostscript-10.05";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\gs1005;                           Permissions: users-full
 Source: "addons\FFMpeg-7.1\*";                                    DestDir: "{app}\addons\FFMpeg-7.1";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\ffmpeg71;                         Permissions: users-full
 Source: "addons\Blackfire\*";                                     DestDir: "{app}\addons\Blackfire";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\blackfire;                        Permissions: users-full
+Source: "addons\Libwebp-1.5\*";                                   DestDir: "{app}\addons\Libwebp-1.5";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\libwebp15;                        Permissions: users-full
+Source: "addons\MongoDB-Tools-100.12\*";                          DestDir: "{app}\addons\MongoDB-Tools-100.12";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\mdbtools10012;                    Permissions: users-full
+Source: "addons\InstantClient-11.2\*";                            DestDir: "{app}\addons\InstantClient-11.2";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic112;                      Permissions: users-full
+Source: "addons\InstantClient-12.1\*";                            DestDir: "{app}\addons\InstantClient-12.1";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic121;                      Permissions: users-full
+Source: "addons\InstantClient-12.2\*";                            DestDir: "{app}\addons\InstantClient-12.2";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic122;                      Permissions: users-full
+Source: "addons\InstantClient-18.5\*";                            DestDir: "{app}\addons\InstantClient-18.5";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic185;                      Permissions: users-full
+Source: "addons\InstantClient-19.26\*";                           DestDir: "{app}\addons\InstantClient-19.26";    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic1926;                     Permissions: users-full
+Source: "addons\InstantClient-21.17\*";                           DestDir: "{app}\addons\InstantClient-21.17";    Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic2117;                     Permissions: users-full
+Source: "addons\InstantClient-23.8\*";                            DestDir: "{app}\addons\InstantClient-23.8";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic238;                      Permissions: users-full
 
 Source: "user\browscap\*"; Excludes: "lite_php_browscap.ini";     DestDir: "{app}\user\browscap";                 Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite solidbreak; Components: data\browscap;                 Permissions: users-full
 Source: "user\geo\*";                                             DestDir: "{app}\user\geo";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: data\geobases;                           Permissions: users-full
@@ -312,8 +330,7 @@ Source: "modules\Redis-7.4\*";                                    DestDir: "{app
 
 Source: "modules\Bind\*";                                         DestDir: "{app}\modules\Bind";                  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\*";                                      DestDir: "{app}\modules\Unbound";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\dns\unbound;                     Permissions: users-full
-Source: "modules\Nginx-1.22\*";                                   DestDir: "{app}\modules\Nginx-1.22";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\nginx\nginx122;                  Permissions: users-full
-Source: "modules\Nginx-1.27\*";                                   DestDir: "{app}\modules\Nginx-1.27";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\nginx\nginx127;                  Permissions: users-full
+Source: "modules\Nginx-1.28\*";                                   DestDir: "{app}\modules\Nginx-1.28";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\nginx\nginx128;                  Permissions: users-full
 Source: "modules\RabbitMQ-3.13\*";                                DestDir: "{app}\modules\RabbitMQ-3.13";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\rabbitmq\rabbitmq313;            Permissions: users-full
 Source: "modules\RabbitMQ-4.0\*";                                 DestDir: "{app}\modules\RabbitMQ-4.0";          Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\rabbitmq\rabbitmq40;             Permissions: users-full
 Source: "modules\Mailpit\*";                                      DestDir: "{app}\modules\Mailpit";               Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\mail\mailpit;                    Permissions: users-full
@@ -392,8 +409,7 @@ Source: "modules\Redis-7.4\ospanel_data\default\*";               DestDir: "{app
 
 Source: "modules\Bind\ospanel_data\default\*";                    DestDir: "{app}\config\Bind\default";           Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\dns\bind;                        Permissions: users-full
 Source: "modules\Unbound\ospanel_data\default\*";                 DestDir: "{app}\config\Unbound\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\dns\unbound;                     Permissions: users-full
-Source: "modules\Nginx-1.22\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.22\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\nginx\nginx122;                  Permissions: users-full
-Source: "modules\Nginx-1.27\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.27\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\nginx\nginx127;                  Permissions: users-full
+Source: "modules\Nginx-1.28\ospanel_data\default\*";              DestDir: "{app}\config\Nginx-1.28\default";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\nginx\nginx128;                  Permissions: users-full
 Source: "modules\RabbitMQ-3.13\ospanel_data\default\*";           DestDir: "{app}\config\RabbitMQ-3.13\default";  Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\rabbitmq\rabbitmq313;            Permissions: users-full
 Source: "modules\RabbitMQ-4.0\ospanel_data\default\*";            DestDir: "{app}\config\RabbitMQ-4.0\default";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\rabbitmq\rabbitmq40;             Permissions: users-full
 Source: "modules\Mailpit\ospanel_data\default\*";                 DestDir: "{app}\config\Mailpit\default";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: modules\mail\mailpit;                    Permissions: users-full
