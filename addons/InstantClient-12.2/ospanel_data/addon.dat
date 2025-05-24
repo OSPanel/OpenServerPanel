@@ -3,7 +3,7 @@
 [main]
 
 architecture        = x64
-category            = InstantClient
+category            = Instant Client
 enabled             = on
 license             = https://www.oracle.com/downloads/licenses/standard-license.html
 license_type        = OTN License
