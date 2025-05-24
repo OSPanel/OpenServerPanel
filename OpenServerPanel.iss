@@ -1,5 +1,5 @@
-#define AppVersion      "6.2.9"
-#define AppVersion_     "6_2_9"
+#define AppVersion      "6.3.5"
+#define AppVersion_     "6_3_5"
 #define AppDomain       "ospanel.io"
 #define AppTitle        "Open Server Panel"
 #define CurrentYear     GetDateTimeString('yyyy', '', '')
@@ -104,7 +104,7 @@ Name: "data\geobases";                 Description: "{cm:Geobases}";        Type
 
 Name: "addons";                        Description: "{cm:SubAddons}";                                                       Flags: disablenouninstallwarning
   
-Name: "addons\blackfire";              Description: "Blackfire";            Types: full;                                    Flags: disablenouninstallwarning
+Name: "addons\blackfire228";           Description: "Blackfire 2.28";       Types: full;                                    Flags: disablenouninstallwarning
 Name: "addons\erlang26";               Description: "Erlang/OTP 26.2";      Types: full;                                    Flags: disablenouninstallwarning 
 Name: "addons\ffmpeg71";               Description: "FFMpeg 7.1";           Types: full compact;                            Flags: disablenouninstallwarning
 Name: "addons\gs1005";                 Description: "Ghostscript 10.05";    Types: full compact;                            Flags: disablenouninstallwarning
@@ -219,6 +219,7 @@ Name: "modules\redis\redis74";         Description: "Redis 7.4";            Type
 
 [Files]
 
+Source: "resources\IsCompressed.dll";   Flags: dontcopy
 Source: "system\default\menu.dat";      DestName: "menu.dat";     DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                                    Permissions: users-full
 Source: "system\default\program.dat";   DestName: "program.dat";  DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                                    Permissions: users-full
 Source: "licenses\licenses\*";                                    DestDir: "{app}\licenses";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                                    Permissions: users-full
@@ -232,7 +233,7 @@ Source: "addons\NVM\*";                                           DestDir: "{app
 Source: "addons\ImageMagick-7.1\*";                               DestDir: "{app}\addons\ImageMagick-7.1";        Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\im71;                             Permissions: users-full
 Source: "addons\Ghostscript-10.05\*";                             DestDir: "{app}\addons\Ghostscript-10.05";      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\gs1005;                           Permissions: users-full
 Source: "addons\FFMpeg-7.1\*";                                    DestDir: "{app}\addons\FFMpeg-7.1";             Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\ffmpeg71;                         Permissions: users-full
-Source: "addons\Blackfire\*";                                     DestDir: "{app}\addons\Blackfire";              Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\blackfire;                        Permissions: users-full
+Source: "addons\Blackfire-2.28\*";                                DestDir: "{app}\addons\Blackfire-2.28";         Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\blackfire228;                     Permissions: users-full
 Source: "addons\Libwebp-1.5\*";                                   DestDir: "{app}\addons\Libwebp-1.5";            Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\libwebp15;                        Permissions: users-full
 Source: "addons\MongoDB-Tools-100.12\*";                          DestDir: "{app}\addons\MongoDB-Tools-100.12";   Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\mdbtools10012;                    Permissions: users-full
 Source: "addons\InstantClient-11.2\*";                            DestDir: "{app}\addons\InstantClient-11.2";     Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: addons\oicp\oic112;                      Permissions: users-full
@@ -495,6 +496,11 @@ Type: dirifempty;     Name: "{app}"
 var
   ModePage: TInputOptionWizardPage;
   APPInstallMode: Boolean;
+  TempDllPath: string;
+  DllLoaded: Boolean;
+
+function IsNtfsCompressedFolder(FolderPath: WideString): Boolean;
+  external 'IsNtfsCompressedFolder@{#TempDllPath}:wstd';
              
 function GetDriveType(lpRootPathName: string): UInt;
   external 'GetDriveTypeW@kernel32.dll stdcall';
@@ -667,6 +673,12 @@ strExistingInstallPath: String;
 begin
   if CurPageID = wpSelectDir then
   begin
+    if not DllLoaded then begin 
+      TempDllPath := ExpandConstant('{tmp}\IsCompressed.dll');
+      ExtractTemporaryFile('IsCompressed.dll');
+      DllLoaded := True;
+    end;
+
     APPInstallMode := ModePage.Values[0];
     strExistingInstallPath := '';   
     if not APPInstallMode then WizardForm.NoIconsCheck.Checked := true else 
@@ -747,6 +759,16 @@ begin
       Result := False;
     end;
   end;
+
+  if (CurPageID = wpSelectDir) and DllLoaded then
+  begin
+    if IsNtfsCompressedFolder(WideString(WizardDirValue)) then
+    begin
+      Msg := ExpandConstant('{cm:DiskStateError}');
+      MsgBox(Msg, mbError, MB_OK);
+      Result := False;
+    end;
+  end;
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
@@ -799,4 +821,10 @@ end;
 function IsWindows10OrNewer: Boolean;
 begin
   Result := IsWindowsVersionOrNewer(10, 0);
+end;
+
+procedure DeinitializeSetup();
+begin
+  if DllLoaded and FileExists(TempDllPath) then
+    DeleteFile(TempDllPath);
 end;
