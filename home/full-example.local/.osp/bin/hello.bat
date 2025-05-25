@@ -1,3 +1,2 @@
-@echo off
-echo:
-echo Hello world!
+@echo:
+@echo Hello world!
