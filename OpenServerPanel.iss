@@ -219,7 +219,6 @@ Name: "modules\redis\redis74";         Description: "Redis 7.4";            Type
 
 [Files]
 
-Source: "resources\IsCompressed.dll";   Flags: dontcopy
 Source: "system\default\menu.dat";      DestName: "menu.dat";     DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                                    Permissions: users-full
 Source: "system\default\program.dat";   DestName: "program.dat";  DestDir: "{app}\system";                        Flags: sortfilesbyextension sortfilesbyname ignoreversion confirmoverwrite;                                  Components: core;                                    Permissions: users-full
 Source: "licenses\licenses\*";                                    DestDir: "{app}\licenses";                      Flags: sortfilesbyextension sortfilesbyname ignoreversion recursesubdirs createallsubdirs confirmoverwrite;  Components: core;                                    Permissions: users-full
@@ -477,7 +476,7 @@ Filename: "{app}\system\bin\syspreptool.exe"; Description: "{cm:RunSysPrep}"; Fl
 
 [UninstallRun]
 
-Filename: "{app}\system\ssl\del_root_from_certstore.bat"; WorkingDir: "{app}\system\ssl"; Flags: runhidden waituntilterminated skipifdoesntexist
+Filename: "{app}\system\ssl\del_root_from_certstore.bat"; WorkingDir: "{app}\system\ssl"; RunOnceId: "CleanupAfterUninstall"; Flags: runhidden waituntilterminated skipifdoesntexist
 
 [UninstallDelete]
 
@@ -496,12 +495,7 @@ Type: dirifempty;     Name: "{app}"
 var
   ModePage: TInputOptionWizardPage;
   APPInstallMode: Boolean;
-  TempDllPath: string;
-  DllLoaded: Boolean;
 
-function IsNtfsCompressedFolder(FolderPath: WideString): Boolean;
-  external 'IsNtfsCompressedFolder@{tmp}\IsCompressed.dll:wstd';
-             
 function GetDriveType(lpRootPathName: string): UInt;
   external 'GetDriveTypeW@kernel32.dll stdcall';
 
@@ -673,12 +667,6 @@ strExistingInstallPath: String;
 begin
   if CurPageID = wpSelectDir then
   begin
-    if not DllLoaded then begin 
-      TempDllPath := ExpandConstant('{tmp}\IsCompressed.dll');
-      ExtractTemporaryFile('IsCompressed.dll');
-      DllLoaded := True;
-    end;
-
     APPInstallMode := ModePage.Values[0];
     strExistingInstallPath := '';   
     if not APPInstallMode then WizardForm.NoIconsCheck.Checked := true else 
@@ -759,16 +747,6 @@ begin
       Result := False;
     end;
   end;
-
-  if (CurPageID = wpSelectDir) and DllLoaded then
-  begin
-    if IsNtfsCompressedFolder(WideString(WizardDirValue)) then
-    begin
-      Msg := ExpandConstant('{cm:DiskStateError}');
-      MsgBox(Msg, mbError, MB_OK);
-      Result := False;
-    end;
-  end;
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
@@ -821,10 +799,4 @@ end;
 function IsWindows10OrNewer: Boolean;
 begin
   Result := IsWindowsVersionOrNewer(10, 0);
-end;
-
-procedure DeinitializeSetup();
-begin
-  if DllLoaded and FileExists(TempDllPath) then
-    DeleteFile(TempDllPath);
 end;
