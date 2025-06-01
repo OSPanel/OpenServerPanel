@@ -33,6 +33,14 @@
                   }
                },
                {
+                  "key":"keep_active",
+                  "value":{
+                     "_type":"Boolean",
+                     "_value":true,
+                     "_strict":true
+                  }
+               },
+               {
                   "key":"update_check",
                   "value":{
                      "_type":"Boolean",
