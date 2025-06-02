@@ -124,6 +124,24 @@ Name: "addons\perl532";                Description: "Perl 5.32";            Type
 
 Name: "modules";                       Description: "{cm:SubModules}";                                                      Flags: disablenouninstallwarning   
 
+Name: "modules\php";                   Description: "Apache & PHP";                                                         Flags: disablenouninstallwarning
+Name: "modules\php\php72";             Description: "Apache 2.4 + PHP 7.2"; Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php72\php72fcgi";   Description: "PHP 7.2 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php73";             Description: "Apache 2.4 + PHP 7.3"; Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php73\php73fcgi";   Description: "PHP 7.3 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php74";             Description: "Apache 2.4 + PHP 7.4"; Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php74\php74fcgi";   Description: "PHP 7.4 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php80";             Description: "Apache 2.4 + PHP 8.0"; Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php80\php80fcgi";   Description: "PHP 8.0 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php81";             Description: "Apache 2.4 + PHP 8.1"; Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php81\php81fcgi";   Description: "PHP 8.1 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
+Name: "modules\php\php82";             Description: "Apache 2.4 + PHP 8.2"; Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\php\php82\php82fcgi";   Description: "PHP 8.2 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning
+Name: "modules\php\php83";             Description: "Apache 2.4 + PHP 8.3"; Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php\php83\php83fcgi";   Description: "PHP 8.3 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php\php84";             Description: "Apache 2.4 + PHP 8.4"; Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+Name: "modules\php\php84\php84fcgi";   Description: "PHP 8.4 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
+
 Name: "modules\dns";                   Description: "DNS";                                                                  Flags: disablenouninstallwarning
 Name: "modules\dns\bind";              Description: "Bind 9.16";            Types: full;                                    Flags: disablenouninstallwarning; check: IsWindows10OrNewer 
 Name: "modules\dns\unbound";           Description: "Unbound 1.22";         Types: full;                                    Flags: disablenouninstallwarning
@@ -173,24 +191,6 @@ Name: "modules\mysql\mysql84";         Description: "MySQL 8.4";            Type
 
 Name: "modules\nginx";                 Description: "Nginx";                                                                Flags: disablenouninstallwarning
 Name: "modules\nginx\nginx128";        Description: "Nginx 1.28";           Types: full compact;                            Flags: disablenouninstallwarning
-
-Name: "modules\php";                   Description: "PHP";                                                                  Flags: disablenouninstallwarning
-Name: "modules\php\php72";             Description: "PHP 7.2";              Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php72\php72fcgi";   Description: "PHP 7.2 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php73";             Description: "PHP 7.3";              Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php73\php73fcgi";   Description: "PHP 7.3 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php74";             Description: "PHP 7.4";              Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php74\php74fcgi";   Description: "PHP 7.4 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php80";             Description: "PHP 8.0";              Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php80\php80fcgi";   Description: "PHP 8.0 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php81";             Description: "PHP 8.1";              Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php81\php81fcgi";   Description: "PHP 8.1 FCGI";         Types: full;                                    Flags: disablenouninstallwarning
-Name: "modules\php\php82";             Description: "PHP 8.2";              Types: full compact;                            Flags: disablenouninstallwarning
-Name: "modules\php\php82\php82fcgi";   Description: "PHP 8.2 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning
-Name: "modules\php\php83";             Description: "PHP 8.3";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\php\php83\php83fcgi";   Description: "PHP 8.3 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\php\php84";             Description: "PHP 8.4";              Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
-Name: "modules\php\php84\php84fcgi";   Description: "PHP 8.4 FCGI";         Types: full compact;                            Flags: disablenouninstallwarning; check: IsWindows10OrNewer
 
 Name: "modules\psql";                  Description: "PostgreSQL";                                                           Flags: disablenouninstallwarning
 Name: "modules\psql\postgresql95";     Description: "PostgreSQL 9.5";       Types: full;                                    Flags: disablenouninstallwarning
