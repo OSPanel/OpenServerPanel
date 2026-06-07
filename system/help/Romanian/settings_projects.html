@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Setări globale ale proiectelor</h2>
+    <p>Parametrii specificați în această secțiune sunt utilizați dacă în setările proiectului nu sunt indicate alte valori.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Determină modulul serverului web utilizat pentru proiecte.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Indică engine-ul Node.js pentru rularea aplicațiilor Node.js.<br><br>
+                <strong>Instalarea Node.js:</strong> Instalați în prealabil versiunea necesară de Node.js folosind comanda <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Determină modulul PHP utilizat pentru procesarea fișierelor PHP.</td>
+        </tr>
+        <tr>
+            <th>Activare</th>
+        </tr>
+        <tr>
+            <td>
+                Determină starea implicită a proiectului (activat sau dezactivat).</td>
+        </tr>
+        <tr>
+            <th>Codare terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Codarea terminalului la lucrul cu mediul proiectului.<br><br>
+                <strong>Valori speciale:</strong><br>
+                - system: Se utilizează codarea sistemului.<br><br>
+                <strong>Important:</strong> Dacă valoarea nu este setată, la formarea mediului final al proiectului codarea terminalului va fi stabilită de ultimul mediu conectat în care este setată, de exemplu de mediul modulului PHP.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Setează adresa(le) IP utilizată(e) de toate proiectele fără setări individuale.<br><br>
+                <strong>Limitare:</strong> Proiectele care folosesc aceeași adresă IP trebuie să ruleze pe aceeași versiune de PHP.<br><br>
+                <strong>Suport pentru mai multe IP-uri:</strong> Puteți specifica mai multe adrese IP separate prin spațiu, inclusiv IPv6. În fișierul HOSTS domeniilor le va fi atribuit primul IP indicat.<br><br>
+                <strong>Atribuire automată:</strong> Dacă lăsați câmpul gol, adresa IP va fi atribuită automat.<br><br>
+                <strong>Recomandări:</strong>
+                <ul>
+                    <li>Gestionarea automată a adreselor IP este recomandată pentru majoritatea utilizatorilor.</li>
+                    <li>Setarea manuală a adresei IP trebuie utilizată doar în cazul unor cerințe specifice de configurare a rețelei.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Determină portul pentru conexiunile HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Determină portul pentru conexiunile HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Activează sau dezactivează suportul TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>Fișier certificat</th>
+        </tr>
+        <tr>
+            <td>
+                Indică calea către fișierul certificatului TLS. Puteți utiliza variabile șablon.<br><br>
+                <strong>Caractere permise:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Recomandare:</strong> Lăsați câmpul gol pentru generarea automată a certificatelor.</td>
+        </tr>
+        <tr>
+            <th>Fișier cheie</th>
+        </tr>
+        <tr>
+            <td>
+                Indică calea către fișierul cheii TLS. Puteți utiliza variabile șablon.<br><br>
+                <strong>Caractere permise:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Recomandare:</strong> Lăsați câmpul gol pentru generarea automată a cheii.</td>
+        </tr>
+        <tr>
+            <th>Adresă IP (backend)</th>
+        </tr>
+        <tr>
+            <td>Indică adresa IP prin care se realizează conectarea la partea de server (Backend).</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Determină numărul portului pentru conectarea la partea de server (Backend).</td>
+        </tr>
+        <tr>
+            <th>Activare (backend)</th>
+        </tr>
+        <tr>
+            <td>Permite redirecționarea automată a întregului trafic de intrare (HTTP și HTTPS) al proiectului către partea de server (Backend). Util pentru testare sau dezvoltare, când frontend-ul și backend-ul sunt separate.</td>
+        </tr>
+        <tr>
+            <th>Directorul proiectului</th>
+        </tr>
+        <tr>
+            <td>
+                Indică directorul rădăcină al proiectului. Se face trecerea în acest director prin comanda <strong>osp project &lt;DOMAIN&gt;</strong> simultan cu activarea mediului proiectului. Puteți utiliza variabile șablon.<br><br>
+                <strong>Caractere permise:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Director public</th>
+        </tr>
+        <tr>
+            <td>
+                Determină directorul public al proiectului. Puteți utiliza variabile șablon.<br><br>
+                <strong>Caractere permise:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Pseudonime</th>
+        </tr>
+        <tr>
+            <td>
+                Indică nume de domeniu suplimentare (aliasuri) pentru proiect (separate prin spațiu). Puteți utiliza variabile șablon.<br><br>
+                <strong>Limitare:</strong> Caracterul "*" nu este suportat în Windows de fișierul HOSTS și necesită configurarea DNS.</td>
+        </tr>
+        <tr>
+            <th>Mediul proiectului</th>
+        </tr>
+        <tr>
+            <td>
+                Lista de add-on-uri și module (separate prin spațiu) care formează mediul proiectului.<br><br>
+                <strong>HTTP, NODE și PHP:</strong> Mediile acestor engine-uri sunt conectate întotdeauna (dacă sunt setate pentru domeniu) și nu necesită specificare în acest parametru.</td>
+        </tr>
+        <tr>
+            <th>Comanda de pornire a proiectului</th>
+        </tr>
+        <tr>
+            <td>
+                Determină comanda pentru pornirea proiectului (de exemplu, <strong>nodemon app.js</strong>). Puteți utiliza variabile șablon.</td>
+        </tr>
+        <tr>
+            <th>URL-ul proiectului</th>
+        </tr>
+        <tr>
+            <td>
+                URL-ul utilizat la deschiderea proiectului <strong>Meniu&rarr;Proiect&rarr;Deschide în browser</strong>, precum și la deschiderea aliasurilor de domeniu ale proiectului. Puteți utiliza variabile șablon.<br><br>
+                <strong>Aplicare:</strong> Puteți seta URL-ul panoului de administrare al CMS.</td>
+        </tr>
+    </table>
+    <h2>Variabile șablon</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variabilă</th>
+                <th>Descriere</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>Adresa IP pentru conectarea la partea de server (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Portul de conectare la partea de server (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Directorul rădăcină al proiectului (unde se află directorul .osp)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Data/ora curentă (variabila este disponibilă doar pentru comanda de pornire a aplicației proiectului)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Numele domeniului (pentru domeniile internaționalizate se utilizează Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Numele vizibil al domeniului (fără Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Schematica cererii către proiect ("http" sau "https", depinde de parametrul TLS din setările proiectului)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Portul cererii către proiect prin protocolul HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Portul cererii către proiect prin protocolul HTTPS</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>Engine-ul HTTP</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Engine-ul NODE</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Engine-ul PHP</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Directorul rădăcină al proiectului</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Directorul public al proiectului</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Portul cererii către proiect (":{http_port}" sau ":{https_port}", depinde de parametrul TLS din setările proiectului).<br><br>Dacă {http_port} sau {https_port} are valoarea standard 80 sau 443, atunci {scheme_port} va fi gol.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Directorul rădăcină Open Server Panel (cale completă)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Unitatea directorului rădăcină</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Calea către directorul rădăcină Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Codarea consolei</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

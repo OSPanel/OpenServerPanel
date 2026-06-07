@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Modüllerin genel ayarları</h2>
+    <p>Bu bölümde belirtilen parametreler, belirli bir modülün ayarlarında ilgili seçenek için auto (varsayılan) değeri ayarlı olduğunda uygulanır.</p>
+    <table>
+        <tr>
+            <th>Sessiz çalışma modu</th>
+        </tr>
+        <tr>
+            <td>
+                Windows Error Reporting ve modülün kendi hata açılır iletilerini devre dışı bırakır.<br><br>
+                <strong>Öneri:</strong> Bu modu yalnızca modülün çalışmasındaki sorunları teşhis etmeniz gerektiğinde devre dışı bırakın.</td>
+        </tr>
+        <tr>
+            <th>Günlük dosyasına başlık ekle</th>
+        </tr>
+        <tr>
+            <td>
+                Modül her başlatıldığında günlük dosyasına otomatik olarak bir başlık eklenmesini etkinleştirir. Otomatik günlük temizleme kapalıyken çalışma oturumlarını ayırmak için faydalıdır.</td>
+        </tr>
+        <tr>
+            <th>Maksimum başarısız başlatma sayısı</th>
+        </tr>
+        <tr>
+            <td>
+                Modülün “Hata” durumuna geçmeden önce kaç ardışık başarısız başlatmaya izin verildiğini belirler.</td>
+        </tr>
+        <tr>
+            <th>Modülün sağlık kontrolü süresi</th>
+        </tr>
+        <tr>
+            <td>Modül başarıyla başlatıldıktan sonra çalışabilirliğinin test edildiği dönemi belirler.<br><br>
+                <strong>Sayımın başlangıcı:</strong> Modülün başarılı bir şekilde başlatıldığı andan itibaren.<br><br>
+                <strong>“Hata” durumuna geçiş:</strong> Modül deneme süresi içinde beklenmedik şekilde sonlanırsa, otomatik olarak yeniden başlatılmaz ve “Hata” durumuna geçer. Bu, modülün sistem seviyesinde başlatılamadığı durumlar için de geçerlidir.<br><br>
+                <strong>Kontrolü devre dışı bırakma:</strong> 0 değeri deneme süresini devre dışı bırakır ve modül her arızada her zaman yeniden başlatılır.<br><br>
+                <strong>Öneri:</strong> 0 veya çok kısa bir süre (30 saniyeden az) ayarlamayın, çünkü bu sonsuz yeniden başlatma döngülerine yol açabilir.</td>
+        </tr>
+        <tr>
+            <th>Modülün kapanmasını bekleme süresi</th>
+        </tr>
+        <tr>
+            <td>Modülün çalışmasını sonlandırmasına izin verilen azami süreyi belirler.<br><br>
+                <strong>Zorla sonlandırma:</strong> Modül belirtilen süre içinde kapanmazsa zorla durdurulur.<br><br>
+                <strong>Beklemeyi devre dışı bırakma:</strong> 0 değeri bekleme süresini devre dışı bırakır. Program modülün kapanmasını sınırsız süre bekler.<br><br>
+                <strong>Uyarı:</strong> Modülün zorla durdurulması veri bozulmasına, kaydedilmemiş değişikliklerin kaybına veya süreçlerin yanlış sonlanmasına yol açabilir. Bu ayarı dikkatle kullanın.</td>
+        </tr>
+        <tr>
+            <th>Günlük dosyasının maksimum boyutu</th>
+        </tr>
+        <tr>
+            <td>
+                Günlük dosyasının megabayt cinsinden maksimum boyutu. Belirtilen değer aşıldığında, günlük dosyası modülün bir sonraki başlatılışında yeniden oluşturulacaktır.<br><br>
+                Her modül başlatılışında günlükleri temizlemek için 0 değerini ayarlayın.<br><br>
+                Günlük temizlemeyi tamamen devre dışı bırakmak için 100 MB değerini ayarlayın.</td>
+        </tr>
+        <tr>
+            <th>Terminal kodlaması</th>
+        </tr>
+        <tr>
+            <td>
+                Modül ortamıyla çalışırken terminalin kodlaması.<br><br>
+                <strong>Özel değerler:</strong><br>
+                - system: Sistem kodlaması kullanılır.</td>
+        </tr>
+        <tr>
+            <th>Zaman dilimi</th>
+        </tr>
+        <tr>
+            <td>
+                Modülün zaman dilimini Etc/GMT formatında belirler (örneğin, Etc/GMT-3).<br><br>
+                <strong>Özel değerler:</strong><br>
+                - system: Sistem saat dilimi kullanılır.<br><br>
+                <strong>Önemli:</strong> Etc/GMT formatı UTC’ye göre ters bir ofsete sahiptir (örneğin, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Kullanılan eklenti ortamları</th>
+        </tr>
+        <tr>
+            <td>
+                Ortamları (varsa) modül ortamına eklenen eklentilerin listesini belirler (boşlukla ayrılır). Terminaldeki bilgi göstergeleri bu ek ortamları görüntülemez.<br><br>
+                <strong>Uyarı:</strong> Bu seçeneği yalnızca amacını tamamen anladığınızda kullanın.</td>
+        </tr>
+        <tr>
+            <th>İzin verilen sistem değişkenleri</th>
+        </tr>
+        <tr>
+            <td>
+                Modül ortamına aktarılacak Windows ortam değişkenlerinin listesini belirler (boşlukla ayrılır).<br><br>
+                <strong>Amacı:</strong> Modülün çalışma ortamını sistemde yüklü benzer yazılımdan izole etmeye olanak tanır.<br><br>
+                <strong>Uyarı:</strong> Bu listeyi etkisini tamamen anlamadan değiştirmeniz, modülün kararsız çalışmasına neden olabilir.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+DELETE FROM mysql.user WHERE User = '';
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db = 'test' OR Db LIKE 'test\_%';
+DELETE FROM mysql.user WHERE User = 'root' AND Host LIKE 'runner%';
+RENAME USER 'root'@'localhost' TO 'root'@'%';
+FLUSH PRIVILEGES;
+DROP USER IF EXISTS 'root'@'127.0.0.1';
+DROP USER IF EXISTS 'root'@'::1';
+DROP USER IF EXISTS 'root'@'localhost';
+DROP USER IF EXISTS 'root'@'user-pc';
+FLUSH PRIVILEGES;

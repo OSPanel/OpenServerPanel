@@ -1,0 +1,54 @@
+﻿[main]
+
+id                       =
+ignore_ver               =
+last_check               = 0
+last_check_ver           =
+last_check_time          = 0
+icon_cobalt_black        = 1A3151
+icon_cobalt_dir          = 1A3151
+icon_cobalt_green        = 00AA37
+icon_cobalt_red          = F93217
+icon_default_black       = 141414
+icon_default_dir         = 141414
+icon_default_green       = 00AA37
+icon_default_red         = F93217
+icon_dualtone_black      = 008FCF
+icon_dualtone_dir        = F08100
+icon_dualtone_green      = 00AA37
+icon_dualtone_red        = F93217
+min_menu_width           = 23
+mutex                    = OSPanel
+path_check               = on
+start_ip                 = 127.0.1.10
+tasks_timeuot            = 15
+
+[index.html]
+
+destination              = {root_dir}\system\public_html\index.html
+directory_separator      = /
+enabled                  = on
+encoding                 = UTF8
+
+[default.html]
+
+destination              = {root_dir}\system\public_html\default\index.html
+directory_separator      = /
+enabled                  = on
+encoding                 = UTF8
+
+[osp.bat]
+
+comment                  = ::
+destination              = {root_dir}\bin\osp.bat
+directory_separator      = \
+enabled                  = on
+encoding                 = UTF8
+
+[tail.bat]
+
+comment                  = ::
+destination              = {root_dir}\system\bin\tail.bat
+directory_separator      = \
+enabled                  = on
+encoding                 = UTF8

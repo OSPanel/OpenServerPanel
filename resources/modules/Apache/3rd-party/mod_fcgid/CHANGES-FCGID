@@ -1,0 +1,293 @@
+                                                         -*- coding: utf-8 -*-
+Changes with mod_fcgid 2.3.10
+
+  *) Send Content-Length to backend for chunked request bodies.  PR 53332.
+     [Dominic Benson, Joe Orton]
+
+  *) Fix memory consumption for large requests.  PR 51747.
+     [Dominic Benson, Jan Stürtz]
+
+  *) Use an alternate, lower severity log message when a failure to
+     forward a response is due to the client connection being aborted.
+     [Eric Covener]
+
+  *) Windows: "graceful kill fail, sending SIGKILL" log message is now
+     debug level instead of warning.  PR 54597.  [Mario Brandt]
+
+Changes with mod_fcgid 2.3.9
+
+  *) Revert fix for PR 53693, added in 2.3.8 but undocumented.  Fix
+     issues with a minor optimization added in 2.3.8.  [Jeff Trawick]
+
+Changes with mod_fcgid 2.3.8
+
+  *) SECURITY: CVE-2013-4365 (cve.mitre.org)
+     Fix possible heap buffer overwrite.  Reported and solved by:
+     [Robert Matthews <rob tigertech.com>]
+
+  *) Add experimental cmake-based build system for Windows.  [Jeff Trawick]
+
+  *) Correctly parse quotation and escaped spaces in FcgidWrapper and the
+     AAA Authenticator/Authorizor/Access directives' command line argument,
+     as currently documented.  PR 51194  [William Rowe]
+
+  *) Honor quoted FcgidCmdOptions arguments (notably for InitialEnv
+     assignments).  PR 51657  [William Rowe]
+
+  *) Conform script response parsing with mod_cgid and ensure no response
+     body is sent when ap_meets_conditions() determines that request
+     conditions are met.  [Chris Darroch]
+
+  *) Improve logging in access control hook functions.  [Chris Darroch]
+
+  *) Avoid making internal sub-requests and processing Location headers
+     when in FCGI_AUTHORIZER mode, as the auth hook functions already
+     treat Location headers returned by scripts as an error since
+     redirections are not meaningful in this mode.  [Chris Darroch]
+     
+Changes with mod_fcgid 2.3.7
+
+  *) Introduce FcgidWin32PreventOrphans directive on Windows to use OS
+     Job Control Objects to terminate all running fcgi's when the worker
+     process has been abruptly terminated. PR: 51078
+     [Thangaraj AntonyCrouse <thangaraj gmail.com>]
+
+  *) Periodically clean out the brigades which are pulling in the request 
+     body for handoff to the fcgid child. PR: 51749
+     [Dominic Benson <dominic.benson thirdlight.com>]
+
+  *) Resolve crash during graceful restarts. PR 50309
+     [Mario Brandt <JBlond gmail.com>]
+
+  *) Solve latency/cogestion of resolving effective user file access rights
+     when no such info is desired, for config related filename stats. 
+     PR: 51020 [Thangaraj AntonyCrouse <thangaraj gmail.com>, William Rowe]
+
+  *) Fix regression in 2.3.6 which broke process controls when using vhost-
+     specific configuration.  [Jeff Trawick]
+
+  *) Account for first process in class in the spawn score.  [Jeff Trawick]
+
+Changes with mod_fcgid 2.3.6
+
+  *) SECURITY: CVE-2010-3872 (cve.mitre.org)
+     Fix possible stack buffer overwrite.  Diagnosed by the reporter.
+     PR 49406.  [Edgar Frank <ef-lists email.de>]
+
+  *) Change the default for FcgidMaxRequestLen from 1GB to 128K.
+     Administrators should change this to an appropriate value based on
+     site requirements.  [Jeff Trawick]
+
+  *) Allow FastCGI apps more time to exit at shutdown before being
+     forcefully killed.  [Jeff Trawick]
+
+  *) Correct a problem that resulted in FcgidMaxProcesses being ignored
+     in some situations.  PR 48981.  [<rkosolapov gmail.com>]
+
+  *) Fix the search for processes with the proper vhost config when
+     ServerName isn't set in every vhost or a module updates 
+     r->server->server_hostname dynamically (e.g., mod_vhost_cdb)
+     or a module updates r->server dynamically (e.g., mod_vhost_ldap).
+     [Jeff Trawick]
+
+  *) FcgidPassHeader now maps header names to environment variable names
+     in the usual manner: The header name is converted to upper case and
+     is prefixed with HTTP_.  An additional environment variable is 
+     created with the legacy name.  PR 48964.  [Jeff Trawick]
+
+  *) Allow processes to be reused within multiple phases of a request
+     by releasing them into the free list as soon as possible.
+     [Chris Darroch]
+
+  *) Fix lookup of process command lines when using FcgidWrapper or
+     access control directives, including within .htaccess files.
+     [Chris Darroch]
+
+  *) Resolve a regression in 2.3.5 with httpd 2.0.x on some Unix platforms;
+     ownership of mutex files was incorrect, resulting in a startup failure.
+     PR 48651.  [Jeff Trawick, <pservit gmail.com>]
+
+  *) Return 500 instead of segfaulting when the application returns no output.
+     [Tatsuki Sugiura <sugi nemui.org>, Jeff Trawick]
+
+  *) In FCGI_AUTHORIZER role, avoid spawning a new process for every
+     different HTTP request.  [Chris Darroch]
+
+Changes with mod_fcgid 2.3.5
+
+  *) Stop using the unsuppressable "notice" log level for debug and 
+     informational messages.  PR 48536.  [Jeff Trawick]
+
+  *) Respect DEFAULT_REL_RUNTIMEDIR for default values of FcgidIPCDir and 
+     FcgidProcessTableFile.  [Jeff Trawick]
+
+  *) Resolve fatal EDEADLK errors with threaded MPMs on Solaris.  [Jeff Trawick]
+
+  *) Display information about active processes in the server-status page.
+     [Ryan Pan]
+
+  *) Fix compatibility of httpd.conf-editing logic with non-GNU awk.  PR 48067.
+     [Hans Werner Strube <strube physik3.gwdg.de>]
+
+  *) Fix startup errors creating shared memory in constrained systems, such
+     as OS X in its default configuration.  This is a regression since mod_fcgid
+     2.2.  [Jeff Trawick]
+
+  *) Recover from most "Resource temporarily unavailable" errors writing the
+     request to the FastCGI application.  These were common with large request
+     bodies on Mac OS X and intermittent on Solaris.  PR 48025.  [Jeff Trawick]
+
+  *) Fix a bug in fixconf.sed that resulted in a prefix of "FcgidFcgid" on the
+     updated directives.  [Dan Hulme <dhulme gmail.com>]
+
+  *) Fix possible corruption or truncation of request bodies which exceed
+     FcgidMaxRequestInMem.  This is a regression since mod_fcgid 2.2, which
+     effectively ignored FcgidMaxRequestInMem if larger than 8K.  PR 48021.
+     [Jeff Trawick]
+
+  *) Fix handling of the request body when a FastCGI access checker/
+     authenticator/authorizer (AAA) was configured.  The body wasn't available
+     for the request handler.  PR 47973.
+     [Jeff Trawick, Barry Scott <barry.scott onelan.co.uk>]
+
+  *) Fix handling of FcgidCmdOptions so that it can apply to wrapper scripts
+     which were defined with command-line arguments on the FcgidWrapper
+     directive.  [Jeff Trawick]
+
+Changes with mod_fcgid 2.3.4
+
+  *) Corrected unix 'make install' target regression in 2.3.3.  [Jeff Trawick]
+
+Changes with mod_fcgid 2.3.3
+
+  *) Add FcgidCmdOptions directive to associate some of the existing
+     configuration settings with a specific command.  [Jeff Trawick]
+
+  *) Allow/respect virtual host settings for the following directives:
+     FcgidBusyTimeout, FcgidMaxProcessesPerClass, FcgidMinProcessesPerClass,
+     FcgidIdleTimeout, and FcgidProcessLifetime.  [Jeff Trawick]
+
+Changes with mod_fcgid 2.3.2
+
+  *) Fix a make install DESTDIR problem handling the reference manual and
+     potentially other files (specific to 2.3.1).
+     [Paul Howarth <paul city-fan.org>]
+
+  *) Fix a mod_fcgid 2.3.1 failure with <sys/mutex.h> when building for
+     httpd 2.0.x on some platforms.  [Paul Howarth <paul city-fan.org>]
+
+  *) Termination of idle processes after inactivity timeout can now be 
+     disabled by setting FcgidIdleTimeout to 0.  Termination of idle 
+     processes based on the process lifetime can now be disabled by setting
+     FcgidProcessLifeTime to 0.  FcgidMaxRequestsPerProcess now accepts 0
+     for unlimited.  [Ricardo Cantu <ricardo smartcsc.com>]
+
+  *) All directives have been renamed in order to use a common prefix "Fcgid".
+     Underscores in directive names have been eliminated in favor of
+     CamelCase. The old directive names will still work but are deprecated.
+     To fix your configuration you can use the sed script build/fixconf.sed.
+     The following tables contains old and new directive names.
+
+     Old Name                           New Name
+     ...................................................................
+     BusyScanInterval                   FcgidBusyScanInterval
+     BusyTimeout                        FcgidBusyTimeout
+     DefaultInitEnv                     FcgidInitialEnv
+     DefaultMaxClassProcessCount        FcgidMaxProcessesPerClass
+     DefaultMinClassProcessCount        FcgidMinProcessesPerClass
+     ErrorScanInterval                  FcgidErrorScanInterval
+     FastCgiAccessChecker               FcgidAccessChecker
+     FastCgiAccessCheckerAuthoritative  FcgidAccessCheckerAuthoritative
+     FastCgiAuthenticator               FcgidAuthenticator
+     FastCgiAuthenticatorAuthoritative  FcgidAuthenticatorAuthoritative
+     FastCgiAuthorizer                  FcgidAuthorizer
+     FastCgiAuthorizerAuthoritative     FcgidAuthorizerAuthoritative
+     FCGIWrapper                        FcgidWrapper
+     IdleScanInterval                   FcgidIdleScanInterval
+     IdleTimeout                        FcgidIdleTimeout
+     IPCCommTimeout                     FcgidIOTimeout
+     IPCConnectTimeout                  FcgidConnectTimeout
+     MaxProcessCount                    FcgidMaxProcesses
+     MaxRequestInMem                    FcgidMaxRequestInMem
+     MaxRequestLen                      FcgidMaxRequestLen
+     MaxRequestsPerProcess              FcgidMaxRequestsPerProcess
+     OutputBufferSize                   FcgidOutputBufferSize
+     PassHeader                         FcgidPassHeader
+     PHP_Fix_Pathinfo_Enable            FcgidFixPathinfo
+     ProcessLifeTime                    FcgidProcessLifeTime
+     SharememPath                       FcgidProcessTableFile
+     SocketPath                         FcgidIPCDir
+     SpawnScore                         FcgidSpawnScore
+     SpawnScoreUpLimit                  FcgidSpawnScoreUpLimit
+     TerminationScore                   FcgidTerminationScore
+     TimeScore                          FcgidTimeScore
+     ZombieScanInterval                 FcgidZombieScanInterval
+
+  *) Separate classes by virtual host also on Windows.  [Rainer Jung]
+
+  *) Log client IP address with many more error log messages.  [Jeff Trawick]
+
+  *) Fix basic implementation of FcgidMaxRequestInMem and FcgidMaxRequestLen
+     directives.  [Jeff Trawick]
+
+  *) Merge per-directory directives so that they can be inherited or
+     overridden within other containers as expected.  Merge server config/
+     virtual host directives so that they can be inherited or overridden
+     within a virtual host as expected. [Jeff Trawick]
+
+  *) Use the virtual host settings for the request being processed instead
+     of those of the first FastCGI request handled by this httpd child process.
+     Affected directives: FcgidBusyTimeout, FcgidIOTimeout,
+     FcgidConnectTimeout, FcgidMaxRequestsPerProcess, and FcgidOutputBufferSize.
+     [Jeff Trawick]
+
+  *) Directives which previously were ignored in a virtual host context are no
+     longer allowed.  [Jeff Trawick]
+
+  *) Add an optional flag "virtual" to FcgidWrapper.
+     If virtual is set, the URLs passed to the wrapper are not
+     checked, whether they resolve to a file.  [Rainer Jung]
+
+  *) Make the second argument (suffix) for FcgidWrapper optional.
+     A wrapper defined without a suffix applies to all URLs, unless
+     there is another more specific wrapper with a suffix.  [Rainer Jung]
+
+Changes with mod_fcgid 2.3.1
+
+  *) Suppress "need AuthType to note auth failure" error-level messages when a
+     FastCGIAccessChecker fails without any other kind of authentication 
+     (Basic, Digest) configured.  [Eric Covener]
+  
+  *) Complete the unix port to 2.3-dev trunk.  [William Rowe]
+
+  *) Provide a default, mandatory environment as with mod_cgi (with the
+     inclusion of LD_LIBRARY_PATH or similar variables on other platforms),
+     unless overridden by DefaultInitEnv.  [William Rowe]
+
+  *) Handle DefaultInitEnv for case-insensitive platforms by forcing the env
+     variable names to uppercase on Win32, OS2 and Netware.  [William Rowe]
+
+  *) Don't try to set the ownership of the socket directory unless running
+     as root and the directory was just created.  This allows the default
+     httpd.conf (with some daemon User/Group) to be used by non-root.
+     [Jeff Trawick]
+
+  *) Fix formatting of several messages, including the oft-seen "mod_fcgid: 
+     Can't create shared memory for size %zu byte".  [Jeff Trawick]
+
+  *) Fix declared names of FastCgiAuthenticator and FastCgiAuthenticator-
+     Authoritative directives, allowing them to be used.  [Ulf Haueisen
+     <ulf dvlp.de>]
+
+  *) Fix vhost-specific DefaultInitEnv settings.  Previously, when setting 
+     multiple virtual hosts with the same SuexecUserGroup user and group, the
+     process manager use the same process pool for both virtual hosts. This 
+     means if one virtual host has a DefaultInitEnv and the other has 
+     different values set, a fastcgi request from any of these virtual host
+     can go to the same processes, which is inconsistent (a request from 
+     virtualhost a with DefaultInitEnv VAL "a", can go to a process spawned 
+     with virtualhost b with DefaultInitEnv VAL "b" set).  [Gabriel Barazer
+     <gabriel oxeva.fr>]
+
+Note: A log of changes released before moving to the ASF (releases 2.2 and 
+earlier) is in the file ChangeLog.

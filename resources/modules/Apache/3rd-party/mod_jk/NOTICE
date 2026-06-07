@@ -1,0 +1,12 @@
+Apache Tomcat Connectors
+Copyright 2002-2024 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+This software contains code derived from UNIX V7, Copyright(C)
+Caldera International Inc.
+
+The ISAPI Redirector component of this software uses and bundles
+the PCRE library which is under a BSD license. For copyright notices
+and license details see the file iis/pcre/LICENCE.

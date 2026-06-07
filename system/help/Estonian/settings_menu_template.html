@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Oma menüüpunktide loomine</h2>
+    <ol>
+        <li>Lisage uus sektsioon unikaalse identifikaatoriga [ID]</li>
+        <li>Paigutage sektsioonid soovitud järjekorda — see määrab menüüpunktide järjestuse menüüs</li>
+        <li>Salvestage muudatused ja taaskäivitage Open Server Panel, et muudatused rakenduksid</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Tähtis teave</h3>
+        Oma menüüpunktide loomisel veenduge, et sektsioonide identifikaatorid ei korduks. See võib põhjustada konflikte menüü töös.
+    </div>
+    <h2>Menüüpunktide sätted</h2>
+    <p><strong>Sorteerimise järjekord:</strong> Menüüpunktid sorditakse samas järjekorras, nagu vastavad sektsioonid on paigutatud mallis.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Menüüpunkti pealkiri. Toetab keelekonstante formaadis {lang_xxx}.<br><br>
+                    Vaikimisi: määramata
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Määrab menüüpunkti asukoha hierarhias. Toetab ühte pesastustasandit (näiteks "Minu Järjehoidjad\Töö").</p>
+                    <p>Spetsiaalsed kategooriad:</p>
+                    <ul>
+                        <li>projects, modules, addons - lisab punkti vastavasse toimingute menüüsse</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - lisab punkti konkreetse elemendi jaoks</li>
+                    </ul>
+                    <p>Kui kategooriat pole määratud, luuakse punkt juurmenüüs.</p>
+                    Vaikimisi: määramata
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Käsk, mida täita menüüpunkti aktiveerimisel. Käsuta punktid jäetakse tähelepanuta.<br><br>
+                    Vaikimisi: määramata
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Lülitab menüüpunkti nähtavuse sisse/välja.<br><br>
+                    Vaikimisi: on | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Juhtib käivitatava rakenduse akna nähtavust. Ei mõjuta alamprotsesse.<br><br>
+                    Vaikimisi: off | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Lisab menüüpunkti järele horisontaalse eraldaja.<br><br>
+                    Vaikimisi: off | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Lisab menüüpunkti ette horisontaalse eraldaja.<br><br>
+                    Vaikimisi: off | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikoon komplektist Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Vaikimisi: määramata
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Kuvab menüüpunkti ainult domeenialiaasile. Menüü mallis võib olla ainult üks punkt väärtusega need_alias=on!<br>
+                    Kehtib kategooriatele: projects<br><br>
+                    Vaikimisi: määramata | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Piirab menüüpunkti kuvamist kindla kategooria moodulite/täiendustega.</p>
+                    <p>Toetatavad formaadid:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Vaikimisi: määramata
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Kuvab menüüpunkti sõltuvalt vanemmooduli shell/cli olemasolust.<br>
+                    Kehtib kategooriatele: modules, modules\<имя_модуля><br><br>
+                        Vaikimisi: määramata | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Kuvab menüüpunkti sõltuvalt vanemmooduli olekust.<br>
+                    Kehtib kategooriatele: modules, modules\<имя_модуля><br><br>
+                        Vaikimisi: määramata | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Kuvab menüüpunkti, kui projekti sätetes on olemas käivituskäsk.<br>
+                    Kehtib kategooriatele: projects, projects\<имя_домена><br><br>
+                        Vaikimisi: määramata | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Kuvab menüüpunkti sõltuvalt Windows Terminali kasutamise sätetest Open Server Panelis.<br><br>
+                    Vaikimisi: määramata | Väärtused: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Töökataloog käsu täitmiseks. Võib muutuda käskude täitmise ajal.<br><br>
+                    Vaikimisi: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Mallimuutujad</h2>
+    Parameetrites "command" ja "work_directory" saab kasutada järgmisi mallimuutujaid:
+    <h3>Üldised muutujad</h3>
+    <table>
+        <tr>
+            <th>Muutuja</th>
+            <th>Kirjeldus</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Praegune kuupäev/kellaaeg (muutuja on saadaval ainult parameetri "command" jaoks)</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Paneli juurkataloog (täielik tee)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Juurkataloogi ketas</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Tee Open Server Paneli juurkataloogi</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Veebiliidese URL-aadress</td>
+        </tr>
+    </table>
+    <h3>Eri muutujad (ainult projects ja projects\&lt;имя_домена&gt; jaoks)</h3>
+    <table>
+        <tr>
+            <th>Muutuja</th>
+            <th>Kirjeldus</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Projekti baasikataloog</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domeeninimi (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Nähtav domeeninimi (ilma Punycode'ita)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Päringu skeem projekti juurde ("http" või "https", sõltub projekti sätetes olevast TLS parameetrist)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP-protokolli päringu port projekti juurde</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS-protokolli päringu port projekti juurde</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Menüüpunkti pealkiri (ainult kategooria projects puhul, kui need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP mootor</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js mootor</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP mootor</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projekti juurkataloog</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projekti URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Projekti avalik kataloog</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Projekti päringu port (":{http_port}" või ":{https_port}", sõltub projekti sätetes olevast TLS parameetrist). Kui {http_port} või {https_port} on vaikeväärtus 80 või 443, on {scheme_port} tühi.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Projekti rakenduse käivituskäsk (kui on seadistatud)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsooli koodileht</td>
+        </tr>
+    </table>
+    <h3>Eri muutujad (ainult addons ja addons\&lt;имя_дополнения&gt; jaoks)</h3>
+    <table>
+        <tr>
+            <th>Muutuja</th>
+            <th>Kirjeldus</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Täienduse nimi</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsooli koodileht</td>
+        </tr>
+    </table>
+    <h3>Eri muutujad (ainult modules ja modules\&lt;имя_модуля&gt; jaoks)</h3>
+    <table>
+        <tr>
+            <th>Muutuja</th>
+            <th>Kirjeldus</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Mooduli IP-aadress</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Vealogi taseme tase</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Mooduli nimi</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Mooduli port</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Mooduli aktiivse seadistusprofiili nimi</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Päringulogimise tase</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Mooduli shell/cli kesta käivituskäsk (kui on seadistatud)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsooli koodileht</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Ajavöönd</td>
+        </tr>
+    </table>
+    <h3>Eri käsuväärtused</h3>
+    <table>
+        <tr>
+            <th>Käsk</th>
+            <th>Kirjeldus</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Ava logivaaturi aken</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Ava IDN-konverter</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Ava programmi sätete aken</td>
+        </tr>
+    </table>
+    <p>Lisaks mallimuutujatele saab kasutada mis tahes Windowsi keskkonnamuutujaid, näiteks: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% jne.</p>
+    <h3>Kasutamise näide</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Minu Järjehoidjad\Otsingumootorid
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE valikud</h3>
+    <ul>
+        <li>/c: Täida käsk ja sule terminal.</li>
+        <li>/k: Täida käsk ja jäta terminal avatuks.</li>
+    </ul>
+</body>
+
+</html>

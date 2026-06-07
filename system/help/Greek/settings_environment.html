@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Καθολικές μεταβλητές περιβάλλοντος των modules</h2>
+    <p>Σε αυτήν την ενότητα μπορείτε να ορίσετε καθολικές μεταβλητές περιβάλλοντος για τα modules.<br><br>Αυτές οι μεταβλητές ισχύουν μόνο στο περιβάλλον των modules και δεν επηρεάζουν τις συστημικές μεταβλητές ή το περιβάλλον των έργων.<br><br>Στις τιμές επιτρέπεται η χρήση προτυποποιημένων μεταβλητών.</p>
+    <p>Εάν μια μεταβλητή υπάρχει στο συστημικό περιβάλλον αλλά δεν πρέπει να χρησιμοποιείται στο περιβάλλον των modules, χρησιμοποιήστε το ειδικό φίλτρο (βλ. Modules&rarr;Επιτρεπόμενες συστημικές μεταβλητές) ή αφαιρέστε τη μεταβλητή από το περιβάλλον, ορίζοντάς την σε κενή τιμή.</p>
+    <h2>Προτυποποιημένες μεταβλητές</h2>
+    <table>
+        <tr>
+            <th>Μεταβλητή</th>
+            <th>Περιγραφή</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Ριζικός κατάλογος του Open Server Panel (πλήρης διαδρομή)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Δίσκος του ριζικού καταλόγου</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Διαδρομή προς τον ριζικό κατάλογο του Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Κωδικοποίηση στο τερματικό (βλ. Modules&rarr;Κωδικοποίηση στο τερματικό)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Ζώνη ώρας σε μορφή Etc/GMT (βλ. Modules&rarr;Ζώνη ώρας)</td>
+        </tr>
+    </table>
+    <p>Εκτός από τις προτυποποιημένες μεταβλητές, μπορείτε να χρησιμοποιείτε οποιεσδήποτε μεταβλητές περιβάλλοντος των Windows, για παράδειγμα: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% κ.λπ.</p>
+</body>
+
+</html>

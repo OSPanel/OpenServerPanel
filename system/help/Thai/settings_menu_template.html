@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">การสร้างรายการเมนูของคุณเอง</h2>
+    <ol>
+        <li>เพิ่มเซกชันใหม่พร้อมตัวระบุ [ID] ที่ไม่ซ้ำกัน</li>
+        <li>จัดวางเซกชันตามลำดับที่ต้องการ — สิ่งนี้จะกำหนดลำดับของรายการในเมนู</li>
+        <li>บันทึกการเปลี่ยนแปลงและรีสตาร์ท Open Server Panel เพื่อให้การเปลี่ยนแปลงมีผล</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>ข้อมูลสำคัญ</h3>
+        เมื่อสร้างรายการเมนูของคุณเอง โปรดตรวจสอบให้แน่ใจว่า ID ของเซกชันไม่ซ้ำกัน หากซ้ำกันอาจทำให้เกิดความขัดแย้งในการทำงานของเมนูได้
+    </div>
+    <h2>การตั้งค่ารายการเมนู</h2>
+    <p><strong>ลำดับการจัดเรียง:</strong> รายการเมนูจะถูกจัดเรียงตามลำดับเดียวกับที่เซกชันที่เกี่ยวข้องถูกจัดวางไว้ในเทมเพลต</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    ชื่อของรายการเมนู รองรับคงที่ภาษาในรูปแบบ {lang_xxx}.<br><br>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>กำหนดตำแหน่งของรายการเมนูในลำดับชั้น รองรับการซ้อนระดับเดียว (เช่น "บุ๊กมาร์กของฉัน\งาน").</p>
+                    <p>หมวดพิเศษ:</p>
+                    <ul>
+                        <li>projects, modules, addons - เพิ่มรายการในเมนูการกระทำที่สอดคล้องกัน</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - เพิ่มรายการสำหรับองค์ประกอบเฉพาะ</li>
+                    </ul>
+                    <p>หากไม่ได้ระบุหมวด รายการจะถูกสร้างในเมนูราก</p>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    คำสั่งที่จะทำงานเมื่อเปิดใช้งานรายการเมนู รายการที่ไม่มีคำสั่งจะถูกเพิกเฉย<br><br>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    เปิด/ปิดการแสดงผลของรายการเมนู<br><br>
+                    ค่าเริ่มต้น: on | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    ควบคุมการมองเห็นของหน้าต่างแอปที่ถูกเรียก ใช้ไม่ได้กับโพรเซสลูก<br><br>
+                    ค่าเริ่มต้น: off | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    เพิ่มเส้นคั่นแนวนอนหลังรายการเมนู<br><br>
+                    ค่าเริ่มต้น: off | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    เพิ่มเส้นคั่นแนวนอนก่อนรายการเมนู<br><br>
+                    ค่าเริ่มต้น: off | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    ไอคอนจากชุด Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    แสดงรายการเมนูเฉพาะสำหรับโดเมน alias ในเทมเพลตเมนูสามารถมีได้เพียงรายการเดียวที่มี need_alias=on!<br>
+                    ใช้ได้กับหมวด: projects<br><br>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>จำกัดการแสดงรายการเมนูด้วย modules/addons ของหมวดที่กำหนด</p>
+                    <p>รูปแบบที่รองรับ:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    แสดงรายการเมนูขึ้นอยู่กับการมี shell/cli ของโมดูลหลัก<br>
+                    ใช้ได้กับหมวด: modules, modules\<имя_модуля><br><br>
+                        ค่าเริ่มต้น: ไม่ได้กำหนด | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    แสดงรายการเมนูขึ้นอยู่กับสถานะของโมดูลหลัก<br>
+                    ใช้ได้กับหมวด: modules, modules\<имя_модуля><br><br>
+                        ค่าเริ่มต้น: ไม่ได้กำหนด | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    แสดงรายการเมนูเมื่อมีคำสั่งเริ่มต้นในการตั้งค่าโปรเจกต์<br>
+                    ใช้ได้กับหมวด: projects, projects\<имя_домена><br><br>
+                        ค่าเริ่มต้น: ไม่ได้กำหนด | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    แสดงรายการเมนูขึ้นอยู่กับการตั้งค่าการใช้งาน Windows Terminal ใน Open Server Panel<br><br>
+                    ค่าเริ่มต้น: ไม่ได้กำหนด | ค่าที่รองรับ: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    ไดเรกทอรีทำงานสำหรับการรันคำสั่ง สามารถเปลี่ยนแปลงได้ระหว่างการรันคำสั่ง<br><br>
+                    ค่าเริ่มต้น: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>ตัวแปรเทมเพลต</h2>
+    ในพารามิเตอร์ "command" และ "work_directory" สามารถใช้ตัวแปรเทมเพลตต่อไปนี้ได้:
+    <h3>ตัวแปรทั่วไป</h3>
+    <table>
+        <tr>
+            <th>ตัวแปร</th>
+            <th>คำอธิบาย</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>วันที่/เวลา ปัจจุบัน (ตัวแปรนี้ใช้ได้เฉพาะกับพารามิเตอร์ "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>ไดเรกทอรีรากของ Open Server Panel (พาธแบบเต็ม)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>ไดรฟ์ของไดเรกทอรีราก</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>พาธไปยังไดเรกทอรีรากของ Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>ที่อยู่ URL ของเว็บอินเทอร์เฟซ</td>
+        </tr>
+    </table>
+    <h3>ตัวแปรพิเศษ (สำหรับ projects และ projects\&lt;имя_домена&gt; เท่านั้น)</h3>
+    <table>
+        <tr>
+            <th>ตัวแปร</th>
+            <th>คำอธิบาย</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>ไดเรกทอรีฐานของโปรเจกต์</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>ชื่อโดเมน (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>ชื่อโดเมนที่มองเห็นได้ (ไม่ใช่ Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>สคีมของการเรียกโปรเจกต์ ("http" หรือ "https" ขึ้นอยู่กับพารามิเตอร์ TLS ในการตั้งค่าโปรเจกต์)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>พอร์ตสำหรับเรียกโปรเจกต์ผ่านโปรโตคอล HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>พอร์ตสำหรับเรียกโปรเจกต์ผ่านโปรโตคอล HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>ชื่อของรายการเมนู (เฉพาะสำหรับหมวด projects เมื่อ need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>เอนจิน HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>เอนจิน Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>เอนจิน PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>ไดเรกทอรีรากของโปรเจกต์</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL ของโปรเจกต์</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>ไดเรกทอรีสาธารณะของโปรเจกต์</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>พอร์ตสำหรับเรียกโปรเจกต์ (":{http_port}" หรือ ":{https_port}" ขึ้นอยู่กับพารามิเตอร์ TLS ในการตั้งค่าโปรเจกต์) หาก {http_port} หรือ {https_port} มีค่าเริ่มต้นเป็น 80 หรือ 443 แล้ว {scheme_port} จะว่างเปล่า</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>คำสั่งเริ่มต้นแอปของโปรเจกต์ (หากมีการตั้งค่า)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>รหัสหน้า ของคอนโซล</td>
+        </tr>
+    </table>
+    <h3>ตัวแปรพิเศษ (สำหรับ addons และ addons\&lt;имя_дополнения&gt; เท่านั้น)</h3>
+    <table>
+        <tr>
+            <th>ตัวแปร</th>
+            <th>คำอธิบาย</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>ชื่อของส่วนเสริม</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>รหัสหน้า ของคอนโซล</td>
+        </tr>
+    </table>
+    <h3>ตัวแปรพิเศษ (สำหรับ modules และ modules\&lt;имя_модуля&gt; เท่านั้น)</h3>
+    <table>
+        <tr>
+            <th>ตัวแปร</th>
+            <th>คำอธิบาย</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>ที่อยู่ IP ของโมดูล</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>ระดับการบันทึกข้อผิดพลาด</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>ชื่อของโมดูล</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>พอร์ตของโมดูล</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>ชื่อโปรไฟล์การตั้งค่าปัจจุบันของโมดูล</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>ระดับการบันทึกคำขอ</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>คำสั่งเริ่มต้น shell/cli ของโมดูล (หากมีการตั้งค่า)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>รหัสหน้า ของคอนโซล</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>เขตเวลา</td>
+        </tr>
+    </table>
+    <h3>ค่าคำสั่งพิเศษ</h3>
+    <table>
+        <tr>
+            <th>คำสั่ง</th>
+            <th>คำอธิบาย</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>เปิดหน้าต่างดูบันทึก</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>เปิด IDN converter</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>เปิดหน้าต่างการตั้งค่าโปรแกรม</td>
+        </tr>
+    </table>
+    <p>นอกเหนือจากตัวแปรเทมเพลตแล้ว ยังสามารถใช้ตัวแปรสภาพแวดล้อมของ Windows ใดๆ ได้ เช่น: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% เป็นต้น</p>
+    <h3>ตัวอย่างการใช้งาน</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = บุ๊กมาร์กของฉัน\เครื่องมือค้นหา
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>ตัวเลือกของ CMD.EXE</h3>
+    <ul>
+        <li>/c: รันคำสั่งแล้วปิดเทอร์มินัล</li>
+        <li>/k: รันคำสั่งแล้วคงเทอร์มินัลไว้</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Modulok globális beállításai</h2>
+    <p>A jelen szakaszban megadott paraméterek akkor érvényesek, amikor az adott modul beállításaiban a megfelelő opció értéke auto (alapértelmezett).</p>
+    <table>
+        <tr>
+            <th>Csendes üzemmód</th>
+        </tr>
+        <tr>
+            <td>
+                Letiltja a Windows Error Reporting és magának a modulnak a felugró hibaüzeneteit.<br><br>
+                <strong>Ajánlás:</strong> Csak hibaelhárításkor kapcsolja ki ezt az üzemmódot.</td>
+        </tr>
+        <tr>
+            <th>Fejléc hozzáadása a naplófájlhoz</th>
+        </tr>
+        <tr>
+            <td>
+                Engedélyezi a fejléc automatikus hozzáadását a naplófájlhoz a modul minden indításakor. Hasznos az automatikus naplótisztítás kikapcsolása esetén a munkamenetek elválasztásához.</td>
+        </tr>
+        <tr>
+            <th>Maximális sikertelen indítások száma</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza, hány egymást követő sikertelen modulindítás megengedett, mielőtt a modul „Hiba” állapotba kerül.</td>
+        </tr>
+        <tr>
+            <th>A modul működőképességének ellenőrzési ideje</th>
+        </tr>
+        <tr>
+            <td>Meghatározza a modul működőképességének tesztelési időszakát a sikeres indítást követően.<br><br>
+                <strong>Időzítés kezdete:</strong> A modul sikeres indításának pillanatától.<br><br>
+                <strong>Átmenet „Hiba” állapotba:</strong> Ha a modul a próbaidő alatt váratlanul leáll, nem indul újra automatikusan, és „Hiba” állapotba kerül. Ez arra az esetre is vonatkozik, ha a modul rendszer szinten sem indítható.<br><br>
+                <strong>Ellenőrzés kikapcsolása:</strong> A 0 érték kikapcsolja a próbaidőt, és a modul mindig újraindul hiba esetén.<br><br>
+                <strong>Ajánlás:</strong> Ne állítson be 0-t vagy túl rövid időszakot (30 másodpercnél kevesebbet), mert ez végtelen újraindítási ciklusokhoz vezethet.</td>
+        </tr>
+        <tr>
+            <th>A modul leállásának várakozási ideje</th>
+        </tr>
+        <tr>
+            <td>Meghatározza a maximális időt, amely alatt a modulnak engedélyezett a leállás.<br><br>
+                <strong>Kényszerített leállítás:</strong> Ha a modul a megadott időn belül nem áll le, kényszerítetten leállításra kerül.<br><br>
+                <strong>Várakozás kikapcsolása:</strong> A 0 érték kikapcsolja a várakozási időt. A program korlátlan ideig vár a modul leállására.<br><br>
+                <strong>Figyelmeztetés:</strong> A modul kényszerített leállítása adatkárosodást, nem mentett módosítások elvesztését vagy folyamatok nem megfelelő befejezését okozhatja. Ezt a beállítást körültekintően használja.</td>
+        </tr>
+        <tr>
+            <th>Naplófájl maximális mérete</th>
+        </tr>
+        <tr>
+            <td>
+                A naplófájl maximális mérete megabájtban. A megadott érték túllépésekor a naplófájl a modul következő indításakor újralétrejön.<br><br>
+                Állítson be 0 értéket a naplók törléséhez a modul minden indításakor.<br><br>
+                Állítson be 100 MB-ot a naplótisztítás teljes kikapcsolásához.</td>
+        </tr>
+        <tr>
+            <th>Terminál kódolása</th>
+        </tr>
+        <tr>
+            <td>
+                A terminál kódolása a modul környezetében végzett munka során.<br><br>
+                <strong>Különleges értékek:</strong><br>
+                - system: A rendszer kódolása kerül használatra.</td>
+        </tr>
+        <tr>
+            <th>Időzóna</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a modul időzónáját Etc/GMT formátumban (például Etc/GMT-3).<br><br>
+                <strong>Különleges értékek:</strong><br>
+                - system: A rendszer időzónája kerül használatra.<br><br>
+                <strong>Fontos:</strong> Az Etc/GMT formátum eltolása ellentétes az UTC-hez képest (például Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Használt kiegészítő környezetek</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a kiegészítők listáját (szóközzel elválasztva), amelyek környezetei (ha vannak) csatlakoznak a modul környezetéhez. A terminál információs jelzői nem jelenítik meg ezeket a kiegészítő környezeteket.<br><br>
+                <strong>Figyelmeztetés:</strong> Csak akkor használja ezt az opciót, ha teljes mértékben érti a rendeltetését.</td>
+        </tr>
+        <tr>
+            <th>Engedélyezett rendszerkörnyezeti változók</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a Windows környezeti változóinak listáját (szóközzel elválasztva), amelyek átadásra kerülnek a modul környezetébe.<br><br>
+                <strong>Rendeltetés:</strong> Lehetővé teszi a modul munkakörnyezetének elszigetelését a rendszerben telepített hasonló szoftvertől.<br><br>
+                <strong>Figyelmeztetés:</strong> Ennek a listának a módosítása a hatásának teljes megértése nélkül a modul instabil működéséhez vezethet.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

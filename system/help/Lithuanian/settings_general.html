@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programos nustatymai</h2>
+    <table>
+        <tr>
+            <th>Paleisti kartu su Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungti Open Server Panel automatinį paleidimą įkrovus operacinę sistemą.</td>
+        </tr>
+        <tr>
+            <th>Uždelsimas</th>
+        </tr>
+        <tr>
+            <td>
+                Programos paleidimo uždelsimas (sekundėmis, nuo 0 iki 60).<br><br>Leidžia atidėti programos startą įkrovos metu kartu su Windows, kad sumažintumėte bendrą sistemos apkrovą. Tai ypač naudinga, jei reikia palaukti, kol pilnai inicializuosis trečiųjų šalių servisai ar tinklo sąsajos.</td>
+        </tr>
+        <tr>
+            <th>Tikrinti, ar yra naujų versijų</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungti Open Server Panel atnaujinimų tikrinimą (reikalingas prisijungimas prie interneto).</td>
+        </tr>
+        <tr>
+            <th>Įjungti užduočių planuoklę</th>
+        </tr>
+        <tr>
+            <td>
+                Aktyvuoti integruotą užduočių planuoklę. Jei parametras išjungtas, jokios suplanuotos užduotys nebus vykdomos, nepriklausomai nuo jų būsenos.</td>
+        </tr>
+        <tr>
+            <th>Naudoti HOSTS failą</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungti domenų vardų rašymą į HOSTS failą.<br><br>
+                <strong>Rekomendacijos, kai organizacijoje ribota prieiga prie HOSTS failo:</strong><br><br>
+                1. SuKonfigūruokite visus reikiamus modulius ir projektus.<br>
+                2. Kreipkitės į sistemų administratorių, kad atrakintų HOSTS ir užfiksuotų jo būseną.<br>
+                3. Po administratoriaus atliktų pakeitimų fiksavimo šią parinktį galima išjungti.<br><br>
+                <strong>Svarbu:</strong> Neišjunkite šio parametro, jei nesate tikri dėl pasekmių!</td>
+        </tr>
+        <tr>
+            <th>Paleisti modulius su projekto profiliu</th>
+        </tr>
+        <tr>
+            <td>Paleisti modulius kartu aktyvuojant profilį, kurio pavadinimas sutampa su projekto vardu.<br><br>Naudojama pasirinkus meniu punktą „Įjungti projekto modulius“, kad automatiškai būtų aktyvuotas profilis tokiu pačiu pavadinimu kaip ir esamas projektas, jei toks yra.</td>
+        </tr>
+        <tr>
+            <th>Neišjungti paslėptų projektų modulių</th>
+        </tr>
+        <tr>
+            <td>Neišjungti paslėptų projektų modulių pasirinkus meniu punktą „Išjungti visus modulius“. „Paslėpti“ reiškia tuos projektus, kuriems nustatyta kategorija „hidden“.<br><br>Pagal numatymą komanda „Išjungti visus modulius“ sustabdo absoliučiai visų modulių darbą, įskaitant tuos, kuriuos naudoja paslėpti tarnybiniai projektai (pavyzdžiui, PHPMyAdmin). Ši parinktis leidžia išsaugoti paslėptų tarnybinių projektų veikimą neišjungiant jiems būtinų modulių, tuo tarpu visi kiti moduliai bus išjungti.</td>
+        </tr>
+        <tr>
+            <th>Sąsajos kalba</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel naudotojo sąsajos kalba.<br><br>
+                Jei lokalizacijos failas nėra arba jame yra klaidų, bus naudojama anglų kalba.</td>
+        </tr>
+        <tr>
+            <th>API domenas</th>
+        </tr>
+        <tr>
+            <td>
+                Vietinis domenas API ir žiniatinklio sąsajai (kuriama)<br><br>
+                <strong>Rekomendacija:</strong> Jei naudojamas VPN arba proxy, pridėkite šį domeną į išimtis.</td>
+        </tr>
+        <tr>
+            <th>API IP adresas</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4 adresas API ir žiniatinklio sąsajai (kuriama).<br><br>
+                <strong>Rekomendacija:</strong> Jei naudojamas VPN arba proxy, pridėkite šį IP adresą į išimtis.</td>
+        </tr>
+        <tr>
+            <th>API prievadas</th>
+        </tr>
+        <tr>
+            <td>
+                Prievadas, naudojamas API ir žiniatinklio sąsajai (kuriama). Open Server Panel nepavyks paleisti, jei nurodytą prievadą jau naudoja kita programa.</td>
+        </tr>
+        <tr>
+            <th>Naudoti Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungti Windows Terminal naudojimą vietoje standartinės komandų sąsajos.<br><br>
+                <strong>Reikalavimai:</strong> Windows Terminal turi būti įdiegtas sistemoje ir įrašytas į aplinkos kintamąjį PATH.<br><br>
+                <strong>Windows Terminal kaip cmd.exe:</strong> Windows Terminal gali pakeisti cmd.exe ir būti įrašytas į aplinkos kintamąjį %COMSPEC% naujose Windows versijose. Jei taip yra, palikite šią parinktį įjungtą.<br><br>
+                <strong>Nauji Windows Terminal egzemplioriai:</strong> Jei Windows Terminal atidaro naujus langus vietoje kortelių, sukonfigūruokite jį taip: Nustatymai&rarr;Paleidimas&rarr;Naujo egzemplioriaus elgsena&rarr;Prijungti prie paskutinio naudoto lango.</td>
+        </tr>
+        <tr>
+            <th>Trumpas projekto antraštės tekstas</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungus šią parinktį terminalo lango antraštėje bus rodomas tik projekto pavadinimas vietoje išsamaus aplinkos aprašymo.</td>
+        </tr>
+        <tr>
+            <th>Įtraukti sisteminę aplinką į projekto aplinką</th>
+        </tr>
+        <tr>
+            <td>Naudoti sistemos (System) aplinką terminale, net jei ji nenustatyta projekto nustatymuose. Sisteminė aplinka leidžia naudoti sistemoje įdiegtas programas (pavyzdžiui, git.exe arba ssh.exe).<br><br>Išjunkite šią parinktį tik kilus konfliktams su sistemine programine įranga.</td>
+        </tr>
+        <tr>
+            <th>ANSI palaikymas</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungti ANSI kodų palaikymą spalvų valdymui terminale.<br><br>
+                Režimas „Automatiškai“ (pagal numatymą):<br>
+                - Pataisa taikoma tik Windows 10 iki 1903 versijos imtinai. Naujesnėse Windows versijose ANSI kodų palaikymas jau yra integruotas.<br>
+                - Pataisa netaikoma terminalams, kurie pagal numatymą palaiko ANSI (pavyzdžiui, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Katalogai projektų paieškai</th>
+        </tr>
+        <tr>
+            <td>
+                Katalogų sąrašas, kuriuose Open Server Panel ieškos projektų. Kelius atskirkite kabliataškiu (;).<br><br>
+                <strong>Išimtys:</strong> Paanalėjai node_modules ir vendor ignoruojami.</td>
+        </tr>
+        <tr>
+            <th>Gylis</th>
+        </tr>
+        <tr>
+            <td>
+                Didžiausias katalogų įdėjimo gylis ieškant projektų.<br><br>
+                Padidinus šią reikšmę, Open Server Panel paleidimas gali sulėtėti, jei nurodytuose kataloguose yra daug pakatalogių.</td>
+        </tr>
+        <tr>
+            <th>Maksimalus žurnalo failo dydis</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimalus žurnalo failo dydis megabaitais. Viršijus nurodytą reikšmę, žurnalo failas bus iš naujo sukurtas kitą kartą paleidus programą.<br><br>
+                Nustatykite reikšmę 0, kad žurnalai būtų išvalomi kiekvieną kartą paleidžiant programą.<br><br>
+                Nustatykite reikšmę 100 MB, kad visiškai išjungtumėte žurnalų valymą.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

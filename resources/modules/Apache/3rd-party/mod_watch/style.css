@@ -1,0 +1,79 @@
+.normal, body, p, ul, td, .NewsTD, .NewsTH {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #000000;
+	text-align: justify;
+}
+.small {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+}
+.copyright {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+}
+.big, h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #000000;
+}
+.large, h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 16pt;
+	color: #000000;
+}
+.huge, h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 26pt;
+}
+.title {
+	font-family: serif;
+	font-weight: bold;
+	font-size: 24pt;
+	color: #3099ff;
+}
+.plain {
+	font-family: serif;
+	font-size: 14pt;
+	color: #000000;
+}
+.snert {
+	font-family: serif;
+	font-weight: bold;
+	font-size: 16pt;
+	color: #000000;
+}
+.serif {
+	font-family: serif;
+}
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 10pt;
+}
+a:link {
+	color: #0000ff;
+}
+a:visited {
+	color: #000080;
+}
+.syntax {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11pt;
+	color:#000080;
+}
+.param {
+	color:#0000cc;
+	font-style: italic;
+	font-weight: normal
+}
+
+.warn {
+	color:#cc0000;
+	font-style: italic;
+}

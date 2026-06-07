@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globala projektinställningar</h2>
+    <p>Parametrarna i detta avsnitt används om inga andra värden anges i projektets inställningar.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Anger den webbservermodul som används för projekten.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Anger Node.js-motorn för att köra Node.js-applikationer.<br><br>
+                <strong>Installation av Node.js:</strong> Installera i förväg önskad version av Node.js med kommandot <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Anger den PHP-modul som används för att bearbeta PHP-filer.</td>
+        </tr>
+        <tr>
+            <th>Aktivera</th>
+        </tr>
+        <tr>
+            <td>
+                Anger projektets standardläge (på eller av).</td>
+        </tr>
+        <tr>
+            <th>Terminalkodning</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalens kodning vid arbete med projektets miljö.<br><br>
+                <strong>Specialvärden:</strong><br>
+                - system: Systemets kodning används.<br><br>
+                <strong>Viktigt:</strong> Om värdet inte är angivet kommer terminalens kodning i den slutliga projektmiljön att sättas av den senast anslutna miljön där den är angiven, till exempel PHP-modulens miljö.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Anger IP-adress(er) som används av alla projekt utan individuella inställningar.<br><br>
+                <strong>Begränsning:</strong> Projekt som använder samma IP-adress måste köras på samma PHP-version.<br><br>
+                <strong>Stöd för flera IP:</strong> Du kan ange flera IP-adresser separerade med mellanslag, inklusive IPv6. I HOSTS-filen tilldelas domäner den första angivna IP:n.<br><br>
+                <strong>Automatisk tilldelning:</strong> Om fältet lämnas tomt tilldelas IP-adress automatiskt.<br><br>
+                <strong>Rekommendationer:</strong>
+                <ul>
+                    <li>Automatisk hantering av IP-adresser rekommenderas för de flesta användare.</li>
+                    <li>Manuell angivelse av IP-adress bör användas endast vid specifika nätverkskrav.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Anger porten för HTTP-anslutningar.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Anger porten för HTTPS-anslutningar.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiverar eller inaktiverar stöd för TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>Certifikatfil</th>
+        </tr>
+        <tr>
+            <td>
+                Anger sökvägen till TLS-certifikatfilen. Mallvariabler kan användas.<br><br>
+                <strong>Tillåtna tecken:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Rekommendation:</strong> Lämna fältet tomt för automatisk generering av certifikat.</td>
+        </tr>
+        <tr>
+            <th>Nyckelfil</th>
+        </tr>
+        <tr>
+            <td>
+                Anger sökvägen till TLS-nyckelfilen. Mallvariabler kan användas.<br><br>
+                <strong>Tillåtna tecken:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Rekommendation:</strong> Lämna fältet tomt för automatisk generering av nyckel.</td>
+        </tr>
+        <tr>
+            <th>IP-adress (backend)</th>
+        </tr>
+        <tr>
+            <td>Anger IP-adressen som används för anslutning till serverdelen (Backend).</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Anger portnumret för anslutning till serverdelen (Backend).</td>
+        </tr>
+        <tr>
+            <th>Aktivera (backend)</th>
+        </tr>
+        <tr>
+            <td>Möjliggör automatisk vidarebefordran av all inkommande trafik (HTTP och HTTPS) för projektet till serverdelen (Backend). Användbart för testning eller utveckling när frontend och backend är separerade.</td>
+        </tr>
+        <tr>
+            <th>Projektkatalog</th>
+        </tr>
+        <tr>
+            <td>
+                Anger projektets rotkatalog. Växling till denna katalog sker med kommandot <strong>osp project &lt;DOMAIN&gt;</strong> samtidigt som projektmiljön aktiveras. Mallvariabler kan användas.<br><br>
+                <strong>Tillåtna tecken:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Publik katalog</th>
+        </tr>
+        <tr>
+            <td>
+                Anger projektets publika katalog. Mallvariabler kan användas.<br><br>
+                <strong>Tillåtna tecken:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Alias</th>
+        </tr>
+        <tr>
+            <td>
+                Anger ytterligare domännamn (alias) för projektet (separeras med mellanslag). Mallvariabler kan användas.<br><br>
+                <strong>Begränsning:</strong> Tecknet "*" stöds inte av HOSTS-filen i Windows och kräver DNS-konfiguration.</td>
+        </tr>
+        <tr>
+            <th>Projektmiljö</th>
+        </tr>
+        <tr>
+            <td>
+                Lista över tillägg och moduler (separeras med mellanslag) som formar projektets miljö.<br><br>
+                <strong>HTTP, NODE och PHP:</strong> Miljöerna för dessa motorer ansluts alltid (om de är angivna för domänen) och behöver inte anges i denna parameter.</td>
+        </tr>
+        <tr>
+            <th>Projektets startkommando</th>
+        </tr>
+        <tr>
+            <td>
+                Anger kommandot för att starta projektet (t.ex. <strong>nodemon app.js</strong>). Mallvariabler kan användas.</td>
+        </tr>
+        <tr>
+            <th>Projektets URL</th>
+        </tr>
+        <tr>
+            <td>
+                URL som används när projektet öppnas via <strong>Meny&rarr;Projekt&rarr;Öppna i webbläsare</strong>, samt när projektets domänalias öppnas. Mallvariabler kan användas.<br><br>
+                <strong>Användning:</strong> Du kan ange URL till CMS administrationspanel.</td>
+        </tr>
+    </table>
+    <h2>Mallvariabler</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variabel</th>
+                <th>Beskrivning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP-adress för anslutning till serverdelen (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port för anslutning till serverdelen (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projektets rotkatalog (där katalogen .osp finns)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Aktuellt datum/tid (variabeln är endast tillgänglig för projektets applikationsstartkommando)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domännamn (för internationaliserade domäner används Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Synligt domännamn (utan Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Förfrågans schema till projektet ("http" eller "https", beror på parametern TLS i projektinställningarna)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Port för förfrågan till projektet via HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Port för förfrågan till projektet via HTTPS</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP-motor</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE-motor</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP-motor</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projektets rotkatalog</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projektets publika katalog</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Port för förfrågan till projektet (":{http_port}" eller ":{https_port}", beror på parametern TLS i projektinställningarna).<br><br>Om {http_port} eller {https_port} har standardvärdet 80 eller 443 kommer {scheme_port} att vara tom.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panels rotkatalog (fullständig sökväg)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Enheten för rotkatalogen</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Sökväg till Open Server Panels rotkatalog</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolens kodning</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

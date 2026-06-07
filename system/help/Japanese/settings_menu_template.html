@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">独自のメニュー項目の作成</h2>
+    <ol>
+        <li>一意の識別子 [ID] を持つ新しいセクションを追加します</li>
+        <li>セクションを希望の順序に配置します — これがメニュー内の項目の順序を決定します</li>
+        <li>変更を保存し、Open Server Panel を再起動して変更を適用します</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>重要な情報</h3>
+        独自のメニュー項目を作成する際は、セクションの識別子が重複しないように注意してください。重複するとメニューの動作に競合が発生する可能性があります。
+    </div>
+    <h2>メニュー項目の設定</h2>
+    <p><strong>並び替え順序:</strong> メニュー項目は、テンプレート内で対応するセクションが配置されているのと同じ順序で並び替えられます。</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    メニュー項目のタイトル。{lang_xxx} 形式の言語定数をサポートします。<br><br>
+                    既定値: 未設定
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>階層内でのメニュー項目の位置を定義します。1 階層のネストのみをサポートします（例: "マイブックマーク\仕事"）。</p>
+                    <p>特別なカテゴリー:</p>
+                    <ul>
+                        <li>projects, modules, addons - 対応するアクションメニューに項目を追加</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - 特定の要素に対する項目を追加</li>
+                    </ul>
+                    <p>カテゴリーが指定されていない場合、項目はルートメニューに作成されます。</p>
+                    既定値: 未設定
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    メニュー項目のアクティブ化時に実行するコマンド。コマンドのない項目は無視されます。<br><br>
+                    既定値: 未設定
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    メニュー項目の表示を有効/無効にします。<br><br>
+                    既定値: on | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    起動されるアプリケーションのウィンドウの可視性を制御します。子プロセスには影響しません。<br><br>
+                    既定値: off | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    メニュー項目の後に水平区切り線を追加します。<br><br>
+                    既定値: off | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    メニュー項目の前に水平区切り線を追加します。<br><br>
+                    既定値: off | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Font Awesome Free (Solid/Regular/Brands) のアイコン。<br><br>
+                    既定値: 未設定
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    ドメインエイリアスに対してのみメニュー項目を表示します。メニューテンプレートには need_alias=on の項目は 1 つのみ設定可能です。<br>
+                    適用対象カテゴリー: projects<br><br>
+                    既定値: 未設定 | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>特定のカテゴリーのモジュール/アドオンに対してメニュー項目の表示を制限します。</p>
+                    <p>サポートされる形式:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    既定値: 未設定
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    親モジュールに shell/cli があるかどうかに応じてメニュー項目を表示します。<br>
+                    適用対象カテゴリー: modules, modules\<имя_модуля><br><br>
+                        既定値: 未設定 | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    親モジュールの状態に応じてメニュー項目を表示します。<br>
+                    適用対象カテゴリー: modules, modules\<имя_модуля><br><br>
+                        既定値: 未設定 | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    プロジェクトの設定に起動コマンドがある場合にメニュー項目を表示します。<br>
+                    適用対象カテゴリー: projects, projects\<имя_домена><br><br>
+                        既定値: 未設定 | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Open Server Panel で Windows Terminal を使用する設定に応じてメニュー項目を表示します。<br><br>
+                    既定値: 未設定 | 値: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    コマンドを実行する作業ディレクトリ。コマンドの実行中に変更される場合があります。<br><br>
+                    既定値: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>テンプレート変数</h2>
+    パラメーター "command" および "work_directory" では、以下のテンプレート変数を使用できます:
+    <h3>共通変数</h3>
+    <table>
+        <tr>
+            <th>変数</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>現在の日時（変数はパラメーター "command" のみで使用可能）</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel のルートディレクトリ（フルパス）</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>ルートディレクトリのドライブ</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel のルートディレクトリへのパス</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Web インターフェイスの URL アドレス</td>
+        </tr>
+    </table>
+    <h3>特別な変数（projects および projects\&lt;имя_домена&gt; のみ）</h3>
+    <table>
+        <tr>
+            <th>変数</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>プロジェクトのベースディレクトリ</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>ドメイン名（Punycode）</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>表示用のドメイン名（Punycode なし）</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>プロジェクトへのリクエストスキーム（"http" または "https"。プロジェクト設定の TLS パラメーターに依存）</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP プロトコルでのプロジェクトへのリクエストポート</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS プロトコルでのプロジェクトへのリクエストポート</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>メニュー項目のタイトル（カテゴリー projects かつ need_alias=ON の場合のみ）</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP エンジン</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js エンジン</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP エンジン</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>プロジェクトのルートディレクトリ</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>プロジェクトの URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>プロジェクトの公開ディレクトリ</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>プロジェクトへのリクエストポート（":{http_port}" または ":{https_port}"。プロジェクト設定の TLS パラメーターに依存）。{http_port} または {https_port} が標準値 80 または 443 の場合、{scheme_port} は空になります。</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>プロジェクトアプリケーションの起動コマンド（設定されている場合）</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>コンソールの文字コード</td>
+        </tr>
+    </table>
+    <h3>特別な変数（addons および addons\&lt;имя_дополнения&gt; のみ）</h3>
+    <table>
+        <tr>
+            <th>変数</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>アドオン名</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>コンソールの文字コード</td>
+        </tr>
+    </table>
+    <h3>特別な変数（modules および modules\&lt;имя_модуля&gt; のみ）</h3>
+    <table>
+        <tr>
+            <th>変数</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>モジュールの IP アドレス</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>エラーログのレベル</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>モジュール名</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>モジュールのポート</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>モジュールの現在の設定プロファイル名</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>クエリログのレベル</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>モジュールの shell/cli シェル起動コマンド（設定されている場合）</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>コンソールの文字コード</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>タイムゾーン</td>
+        </tr>
+    </table>
+    <h3>特別なコマンド値</h3>
+    <table>
+        <tr>
+            <th>コマンド</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>ログビューアを開く</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN コンバーターを開く</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>プログラム設定ウィンドウを開く</td>
+        </tr>
+    </table>
+    <p>テンプレート変数に加えて、%SYSTEMROOT%、%SYSTEMDRIVE%、%USERNAME%、%PATH% など、任意の Windows 環境変数を使用できます。</p>
+    <h3>使用例</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = マイブックマーク\検索エンジン
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE のオプション</h3>
+    <ul>
+        <li>/c: コマンドを実行してターミナルを閉じます。</li>
+        <li>/k: コマンドを実行してターミナルを開いたままにします。</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>Read Me File for the Apache Haus build of Mod Limit IP Connection 0.24 x64</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+			/*<![CDATA[*/
+			body {
+				background-color: #fff;
+				color: #000;
+				font-size: 0.9em;
+				font-family: sans-serif,helvetica;
+				margin: 0;
+				padding: 0;
+				background-position: center center;
+				background-attachment: fixed;
+				background-repeat: repeat;
+			}
+			:link {
+				color: #c00;
+			}
+			:visited {
+				color: #c00;
+			}
+			a:hover {
+				color: #f50;
+			}
+			h1 {
+				font-family: sans-serif,helvetica;
+				font-weight: normal;
+				font-size: 1.75em;
+				text-align: center;
+				margin: 0;
+				padding: 0.6em 2em 0.4em;
+				background-color: #22437f;
+				color: #fff;
+				border-bottom: 2px solid #000;
+			}
+			h1 strong {
+				font-weight: bold;
+			}
+			h2 {
+				font-size: 1.1em;
+				font-weight: bold;
+			}
+			hr {
+				display: none;
+			}
+			.content {
+				padding: 1em 4em;
+			}
+			.content-columns {
+				/* Setting relative positioning allows for 
+				absolute positioning for sub-classes */
+				background-color: #fff;
+				position: relative;
+				padding-top: 1em;
+			}
+				/* Non-IE/Win */
+			}
+			img {
+				padding: 2px;
+				margin: 2px;
+			}
+			.small {
+				color: #000;
+				font-size: 9px;
+				font-family: sans-serif,helvetica;
+			}
+			.border_table {
+				background-image: url("/icons/feather.gif");
+				background-position: center  200px;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+			}
+			.large {
+				font-size: 18px;
+				font-weight: bold;
+				font-family: sans-serif,helvetica;
+			}
+			.footer {
+				padding: 4px 4px 4px 4px;
+				color: #FFFFFF;
+				background-color: #22437f;
+				font-size: 9px;
+				font-weight: bold;
+				font-family: Tahoma, Arial, Helvetica, Sans-Serif;
+			}
+			xmp {
+				padding: 20px 20px 20px 20px;
+				border: 2px groove #2E2814;
+				color: #000;
+				background-color: #CDC7BA;
+				font-size: 12px;
+				font-family: Tahoma, Arial, Helvetica, Sans-Serif;
+			}
+
+			/*]]>*/
+		</style></head><body>
+<center><h1><strong><font color="white"> <i>Apache Haus Distribution of  mod_limitipconn/0.24 x64</i></font></strong></h1></center>
+
+<center><table class="border_table" cellpadding="0" cellspacing="0" width="800">
+	<tbody><tr><td class="large"><blockquote>Read Me File for the Apache Haus Distribution of mod_limitipconn 0.24 x64</blockquote></td></tr>
+	<tr><td>
+		<div class="content">
+			<div class="content-middle">
+<table width="800" cellpadding="0" cellspacing="0" border="0">
+<tr>	<td colspan=2>Date: March 26, 2022</td></tr>
+<tr valign=top>	<td>
+<table width="400" cellpadding="0" cellspacing="0" border="0">
+<tr>	<td>Application:</td>	<td>mod_limitipconn 0.24 x64</td></tr>
+<tr>	<td>Distribution File:</td>	<td>mod_limitipconn-0.24-2.4.x-x64-vs17.zip</td></tr>
+<tr>	<td>Original source by:</td>	<td>Apache Software Foundation</td></tr>
+<tr>	<td>Original Home:</td>	<td>http://httpd.apache.org/mod_fcgid/</td></tr>
+<tr>	<td>&nbsp;</td>	<td>&nbsp;</td></tr>
+<tr>	<td>Win32 binary by:</td>	<td>The Apache Haus</td></tr>
+<tr>	<td>Mail:</td>	<td>info@apachehaus.com</td></tr>
+<tr>	<td>Home:</td>	<td>http://www.apachehaus.com</td></tr>
+<tr>	<td>&nbsp;</td>	<td>&nbsp;</td></tr>
+<tr>	<td colspan=2><b>** This build for x64 Apache 2.4.x VS17 only! **</b></td></tr>
+</table>
+</td>	<td>
+<table width="400" cellpadding="0" cellspacing="0" border="0" class="">
+<tr>	<td colspan=2>Supported Windows Versions:</td></tr>
+<tr>	<td>&nbsp;</td>	<td>&nbsp;</td></tr>
+<tr>	<td>Windows 8/10 x64</td>	<td> </td></tr>
+<tr>	<td>Windows Server 2012/2016/2019 x64</td>	<td> </td></tr>
+</table>
+     </td>
+</tr>
+<tr>
+	<td colspan=2><br>
+	<h2>Package Contents:</h2>
+readme_first.html [this file]<br>
+ChangeLog<br>
+LICENSE<br>
+README (original file with more info)<br>
+mod_limitipconn.so
+	</td>
+</tr>
+<tr>
+	<td colspan=2><br><br>
+
+	<h2>NOTES:</h2>
+  This module has an included official patch to add a LocalIP directive to exempt a designated IP address from connection limits.<br />
+  <a href="http://dominia.org/djao/limit/contrib/dg/mod_limitipconn_local_IP_patch_2.diff">http://dominia.org/djao/limit/contrib/dg/mod_limitipconn_local_IP_patch_2.diff</a>
+	<br /><br />
+
+	<p>Modules built on Visual C++ 2022 do not run on Windows XP or Windows Server 2003
+
+  The module is built with Visual Studio&reg; 2022 (VS17) x64, be sure to install the 
+  new Visual C++ 2022 x64 Redistributable Package,<br/>download from;<br/><br/>
+
+<a href="https://aka.ms/vs/17/release/VC_redist.x64.exe">https://aka.ms/vs/17/release/VC_redist.x64.exe</a></p>
+
+<br>
+	<h2>INTRODUCTION</h2> 
+
+  This is an Apache 2.4 C module whose purpose is to limit the maximum
+  number of simultaneous connections per IP address. The module allows
+  inclusion and exclusion of files based on MIME type.<br><br>
+
+	</td>
+</tr>
+</table><br>
+
+<a name = "newinstall"> </a> 
+
+<h2>INSTALL</h2>
+
+<p>To install this module on your Apache 2.4.x server you need to
+copy the necessary files to your Apache folder and add items to your Apache's
+httpd.conf file. C:\Apache24 will be used as our ServerRoot for the examples below.
+</p>
+
+1. Install the Visual C++ 2022 (VS17) Redistributable Package<br>&nbsp; &nbsp;
+Download, if you have not done so already, from the<br>&nbsp; &nbsp; address above.<br><br>
+2. Copy mod_limitipconn.so to your Apache 2.4.x modules folder
+<br>&nbsp; &nbsp; 
+<i>C:/Apache24/modules/mod_limitipconn.so</i> for example<br><br>
+3. Add to your httpd.conf (example: C:/Apache24/conf/httpd.conf):<br><br>&nbsp; &nbsp; <i>ExtendedStatus On<br>&nbsp; &nbsp; LoadModule limitipconn_module modules/mod_limitipconn.so</i><br><br>
+
+4. Add to your httpd.conf file near the bottom with the other included files the module configuration, see sample below<br><br><br><br>
+
+<b>Sample mod_limitipconn Configuration:</b><br><br>
+
+<xmp><IfModule mod_limitipconn.c>
+
+    # Set a server-wide limit of 10 simultaneous downloads per IP,
+    # no matter what.
+    MaxConnPerIP 10
+
+    <Location /somewhere>
+        # This section affects all files under http://your.server/somewhere
+        MaxConnPerIP 3
+
+        # exempting images from the connection limit is often a good
+        # idea if your web page has lots of inline images, since these
+        # pages often generate a flurry of concurrent image requests
+        NoIPLimit image/*
+
+				# exclude local IP addresses from limits
+        LocalIP 127.0.0.1 192.168.1.100
+    </Location>
+
+    <Directory /home/*/public_html>
+        # This section affects all files under /home/*/public_html
+        MaxConnPerIP 1
+        # In this case, all MIME types other than audio/mpeg and video*
+        # are exempt from the limit check
+        OnlyIPLimit audio/mpeg video
+    </Directory>
+
+</IfModule>
+</xmp>
+
+	</td></tr>
+	<tr><td><div class="footer" align="center">mod_limitipconn/0.24 x64</div></td></tr>
+	</tbody></table><br><br>
+</body></html

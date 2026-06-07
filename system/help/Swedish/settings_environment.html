@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globala miljövariabler för moduler</h2>
+    <p>I det här avsnittet kan du ange globala miljövariabler för moduler.<br><br>Dessa variabler gäller endast i modulernas miljö och påverkar inte systemvariabler eller projektmiljöer.<br><br>Mallvariabler kan användas i värden.</p>
+    <p>Om en variabel finns i systemmiljön men inte ska användas i modulernas miljö, använd ett särskilt filter (se Moduler&rarr;Tillåtna systemvariabler) eller ta bort variabeln från miljön genom att ange ett tomt värde.</p>
+    <h2>Mallvariabler</h2>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivning</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Rotkatalogen för Open Server Panel (fullständig sökväg)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Enheten för rotkatalogen</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Sökväg till rotkatalogen för Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodning i terminalen (se Moduler&rarr;Kodning i terminalen)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Tidszon i formatet Etc/GMT (se Moduler&rarr;Tidszon)</td>
+        </tr>
+    </table>
+    <p>Förutom mallvariabler kan du använda valfria Windows-miljövariabler, till exempel: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% osv.</p>
+</body>
+
+</html>

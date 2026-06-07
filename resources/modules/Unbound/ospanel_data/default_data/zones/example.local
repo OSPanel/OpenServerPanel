@@ -1,0 +1,9 @@
+local-zone: "example.local." static
+    local-data: "example.local. IN SOA example.local. root.example.local. 2021012101 900 300 604800 900"
+    local-data: "example.local. IN NS  ns1.example.local."
+    local-data: "example.local. IN NS  ns1.example.local."
+    local-data: "example.local. IN A   127.0.0.1"
+    local-data: "ns1            IN A   127.0.0.1"
+    local-data: "ns2            IN A   127.0.0.1"
+    local-data: "www            IN A   127.0.0.1"
+    local-data: 'example.local. IN CAA 0 issue "letsencrypt.org"'

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Paramètres du programme</h2>
+    <table>
+        <tr>
+            <th>Lancer avec Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Activer le démarrage automatique d’Open Server Panel au chargement du système d’exploitation.</td>
+        </tr>
+        <tr>
+            <th>Délai</th>
+        </tr>
+        <tr>
+            <td>
+                Délai de démarrage du programme (en secondes, de 0 à 60).<br><br>Permet de différer le lancement de l’application lors du chargement avec Windows afin de réduire la charge globale sur le système. C’est particulièrement utile si vous devez attendre l’initialisation complète de services tiers ou d’interfaces réseau.</td>
+        </tr>
+        <tr>
+            <th>Vérifier la présence de nouvelles versions</th>
+        </tr>
+        <tr>
+            <td>
+                Activer la vérification des mises à jour d’Open Server Panel (connexion Internet requise).</td>
+        </tr>
+        <tr>
+            <th>Activer le Planificateur de tâches</th>
+        </tr>
+        <tr>
+            <td>
+                Activer le planificateur de tâches intégré. Si le paramètre est désactivé, aucune tâche planifiée ne sera exécutée, quel que soit son statut.</td>
+        </tr>
+        <tr>
+            <th>Utiliser le fichier HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Activer l’écriture des noms de domaine dans le fichier HOSTS.<br><br>
+                <strong>Recommandations en cas d’accès limité au fichier HOSTS dans l’organisation :</strong><br><br>
+                1. Configurez tous les modules et projets nécessaires.<br>
+                2. Contactez l’administrateur système pour déverrouiller HOSTS et fixer son état.<br>
+                3. Après la fixation des modifications par l’administrateur, vous pouvez désactiver cette option.<br><br>
+                <strong>Important :</strong> Ne désactivez pas ce paramètre si vous n’êtes pas sûr des conséquences !</td>
+        </tr>
+        <tr>
+            <th>Lancer les modules avec le profil du projet</th>
+        </tr>
+        <tr>
+            <td>Lancer les modules avec activation simultanée du profil correspondant au nom du projet.<br><br>Utilisé lors du choix du menu « Activer les modules du projet » pour activer automatiquement le profil portant le même nom que le projet actuel, s’il existe.</td>
+        </tr>
+        <tr>
+            <th>Ne pas arrêter les modules des projets masqués</th>
+        </tr>
+        <tr>
+            <td>Ne pas arrêter les modules des projets masqués lors du choix du menu « Désactiver tous les modules ». Par « masqués », on entend les projets pour lesquels la catégorie « hidden » est définie.<br><br>Par défaut, la commande « Désactiver tous les modules » arrête absolument tous les modules, y compris ceux utilisés par des projets de service masqués (par exemple, PHPMyAdmin). Cette option permet de conserver le fonctionnement des projets de service masqués sans désactiver les modules nécessaires, tandis que tous les autres modules seront arrêtés.</td>
+        </tr>
+        <tr>
+            <th>Langue de l’interface</th>
+        </tr>
+        <tr>
+            <td>
+                Langue de l’interface utilisateur d’Open Server Panel.<br><br>
+                Si le fichier de localisation est absent ou contient des erreurs, l’anglais sera utilisé.</td>
+        </tr>
+        <tr>
+            <th>Domaine de l’API</th>
+        </tr>
+        <tr>
+            <td>
+                Domaine local pour l’API et l’interface web (en développement)<br><br>
+                <strong>Recommandation :</strong> Si un VPN ou un proxy est utilisé, ajoutez ce domaine aux exceptions.</td>
+        </tr>
+        <tr>
+            <th>Adresse IP de l’API</th>
+        </tr>
+        <tr>
+            <td>
+                Adresse IPv4 pour l’API et l’interface web (en développement).<br><br>
+                <strong>Recommandation :</strong> Si un VPN ou un proxy est utilisé, ajoutez cette adresse IP aux exceptions.</td>
+        </tr>
+        <tr>
+            <th>Port de l’API</th>
+        </tr>
+        <tr>
+            <td>
+                Port utilisé pour l’API et l’interface web (en développement). Open Server Panel ne pourra pas démarrer si le port indiqué est déjà utilisé par une autre application.</td>
+        </tr>
+        <tr>
+            <th>Utiliser Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Activer l’utilisation de Windows Terminal au lieu de l’interface de commande standard.<br><br>
+                <strong>Exigences :</strong> Windows Terminal doit être installé sur le système et présent dans la variable d’environnement PATH.<br><br>
+                <strong>Windows Terminal comme cmd.exe :</strong> Windows Terminal peut remplacer cmd.exe et être défini dans la variable d’environnement %COMSPEC% dans les nouvelles versions de Windows. Si c’est le cas, laissez cette option activée.<br><br>
+                <strong>Nouveaux instances de Windows Terminal :</strong> Si Windows Terminal ouvre de nouvelles fenêtres au lieu d’onglets, configurez-le ainsi : Paramètres&rarr;Démarrage&rarr;Comportement d’une nouvelle instance&rarr;Joindre à la dernière fenêtre utilisée.</td>
+        </tr>
+        <tr>
+            <th>Titre court du projet</th>
+        </tr>
+        <tr>
+            <td>
+                Lorsque cette option est activée, seul le nom du projet sera affiché dans le titre de la fenêtre du terminal au lieu de la description détaillée de l’environnement.</td>
+        </tr>
+        <tr>
+            <th>Inclure l’environnement système dans l’environnement du projet</th>
+        </tr>
+        <tr>
+            <td>Utiliser l’environnement du système (System) dans le terminal, même s’il n’est pas défini dans les paramètres du projet. L’environnement système permet d’utiliser les programmes installés sur le système (par exemple, git.exe ou ssh.exe).<br><br>Désactivez cette option uniquement en cas de conflits avec des logiciels système.</td>
+        </tr>
+        <tr>
+            <th>Prise en charge ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Activer la prise en charge des codes ANSI pour la gestion des couleurs dans le terminal.<br><br>
+                Mode « Automatique » (par défaut) :<br>
+                - La correction s’applique uniquement à Windows 10 jusqu’à la version 1903 incluse. Dans les versions plus récentes de Windows, la prise en charge des codes ANSI est déjà intégrée.<br>
+                - La correction ne s’applique pas aux terminaux prenant en charge ANSI par défaut (par exemple, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Répertoires pour la recherche de projets</th>
+        </tr>
+        <tr>
+            <td>
+                Liste des répertoires dans lesquels Open Server Panel recherchera des projets. Séparez les chemins par un point-virgule (;).<br><br>
+                <strong>Exceptions :</strong> Les sous-répertoires node_modules et vendor sont ignorés.</td>
+        </tr>
+        <tr>
+            <th>Profondeur</th>
+        </tr>
+        <tr>
+            <td>
+                Profondeur maximale d’imbrication des répertoires lors de la recherche de projets.<br><br>
+                L’augmentation de cette valeur peut ralentir le démarrage d’Open Server Panel si les répertoires spécifiés contiennent un grand nombre de sous-répertoires.</td>
+        </tr>
+        <tr>
+            <th>Taille maximale du fichier journal</th>
+        </tr>
+        <tr>
+            <td>
+                Taille maximale du fichier journal en mégaoctets. En cas de dépassement de la valeur indiquée, le fichier journal sera recréé au prochain démarrage du programme.<br><br>
+                Définissez la valeur 0 pour effacer les journaux à chaque démarrage du programme.<br><br>
+                Définissez la valeur 100 Mo pour désactiver complètement l’effacement des journaux.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

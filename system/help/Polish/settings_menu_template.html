@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Tworzenie własnych pozycji menu</h2>
+    <ol>
+        <li>Dodaj nową sekcję z unikalnym identyfikatorem [ID]</li>
+        <li>Ułóż sekcje w żądanej kolejności — to określi kolejność pozycji w menu</li>
+        <li>Zapisz zmiany i uruchom ponownie Open Server Panel, aby zastosować zmiany</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Ważne informacje</h3>
+        Podczas tworzenia własnych pozycji menu upewnij się, że identyfikatory sekcji się nie powtarzają. Może to prowadzić do konfliktów w działaniu menu.
+    </div>
+    <h2>Ustawienia pozycji menu</h2>
+    <p><strong>Kolejność sortowania:</strong> Pozycje menu są sortowane w takiej samej kolejności, w jakiej rozmieszczone są odpowiednie sekcje w szablonie.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Tytuł pozycji menu. Wspiera stałe językowe w formacie {lang_xxx}.<br><br>
+                    Domyślnie: nie ustawiono
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Określa położenie pozycji menu w hierarchii. Obsługuje jeden poziom zagnieżdżenia (np. "Moje Zakładki\Praca").</p>
+                    <p>Specjalne kategorie:</p>
+                    <ul>
+                        <li>projects, modules, addons - dodaje pozycję do odpowiedniego menu działań</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - dodaje pozycję dla konkretnego elementu</li>
+                    </ul>
+                    <p>Jeśli kategoria nie jest podana, pozycja tworzona jest w menu głównym.</p>
+                    Domyślnie: nie ustawiono
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Komenda do wykonania po aktywacji pozycji menu. Pozycje bez komendy są ignorowane.<br><br>
+                    Domyślnie: nie ustawiono
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Włącza/wyłącza wyświetlanie pozycji menu.<br><br>
+                    Domyślnie: on | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Kontroluje widoczność okna wywoływanej aplikacji. Nie wpływa na procesy potomne.<br><br>
+                    Domyślnie: off | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Dodaje poziomy separator po pozycji menu.<br><br>
+                    Domyślnie: off | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Dodaje poziomy separator przed pozycją menu.<br><br>
+                    Domyślnie: off | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikona z zestawu Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Domyślnie: nie ustawiono
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Wyświetla pozycję menu tylko dla aliasu domenowego. W szablonie menu może być tylko jedna pozycja z need_alias=on!<br>
+                    Dotyczy kategorii: projects<br><br>
+                    Domyślnie: nie ustawiono | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Ogranicza wyświetlanie pozycji menu do modułów/dodatków określonej kategorii.</p>
+                    <p>Obsługiwane formaty:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Domyślnie: nie ustawiono
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Wyświetla pozycję menu w zależności od dostępności shell/cli u nadrzędnego modułu.<br>
+                    Dotyczy kategorii: modules, modules\<имя_модуля><br><br>
+                        Domyślnie: nie ustawiono | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Wyświetla pozycję menu w zależności od stanu nadrzędnego modułu.<br>
+                    Dotyczy kategorii: modules, modules\<имя_модуля><br><br>
+                        Domyślnie: nie ustawiono | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Wyświetla pozycję menu, gdy w ustawieniach projektu dostępna jest komenda uruchomienia.<br>
+                    Dotyczy kategorii: projects, projects\<имя_домена><br><br>
+                        Domyślnie: nie ustawiono | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Wyświetla pozycję menu w zależności od ustawienia użycia Windows Terminal w Open Server Panel.<br><br>
+                    Domyślnie: nie ustawiono | Wartości: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Katalog roboczy do wykonania komendy. Może zmieniać się w trakcie wykonywania komend.<br><br>
+                    Domyślnie: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Zmienne szablonowe</h2>
+    W parametrach "command" i "work_directory" można używać następujących zmiennych szablonowych:
+    <h3>Zmienne ogólne</h3>
+    <table>
+        <tr>
+            <th>Zmienna</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Aktualna data/godzina (zmienna dostępna tylko dla parametru "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Katalog główny Open Server Panel (pełna ścieżka)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Dysk katalogu głównego</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Ścieżka do katalogu głównego Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Adres URL interfejsu web</td>
+        </tr>
+    </table>
+    <h3>Zmienne specjalne (tylko dla projects i projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Zmienna</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Katalog bazowy projektu</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Nazwa domeny (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Widoczna nazwa domeny (bez Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Schemat żądania do projektu ("http" lub "https", zależy od parametru TLS w ustawieniach projektu)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Port żądania do projektu przez protokół HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Port żądania do projektu przez protokół HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Tytuł pozycji menu (tylko dla kategorii projects z need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>Silnik HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Silnik Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Silnik PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Katalog główny projektu</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL projektu</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Katalog publiczny projektu</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Port żądania do projektu (":{http_port}" lub ":{https_port}", zależy od parametru TLS w ustawieniach projektu). Jeśli {http_port} lub {https_port} ma standardową wartość 80 lub 443, to {scheme_port} będzie pusty.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Komenda uruchomienia aplikacji projektu (jeśli skonfigurowana)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodowanie konsoli</td>
+        </tr>
+    </table>
+    <h3>Zmienne specjalne (tylko dla addons i addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Zmienna</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Nazwa dodatku</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodowanie konsoli</td>
+        </tr>
+    </table>
+    <h3>Zmienne specjalne (tylko dla modules i modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Zmienna</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Adres IP modułu</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Poziom logowania błędów</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Nazwa modułu</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Port modułu</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Nazwa bieżącego profilu ustawień modułu</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Poziom logowania zapytań</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Komenda uruchomienia powłoki shell/cli modułu (jeśli skonfigurowana)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodowanie konsoli</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Strefa czasowa</td>
+        </tr>
+    </table>
+    <h3>Specjalne wartości komend</h3>
+    <table>
+        <tr>
+            <th>Komenda</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Otwórz okno podglądu logów</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Otwórz konwerter IDN</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Otwórz okno ustawień programu</td>
+        </tr>
+    </table>
+    <p>Oprócz zmiennych szablonowych można używać dowolnych zmiennych środowiskowych Windows, na przykład: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% itd.</p>
+    <h3>Przykład użycia</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Moje Zakładki\Wyszukiwarki
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Opcje CMD.EXE</h3>
+    <ul>
+        <li>/c: Wykonaj komendę i zamknij terminal.</li>
+        <li>/k: Wykonaj komendę i pozostaw terminal otwarty.</li>
+    </ul>
+</body>
+
+</html>

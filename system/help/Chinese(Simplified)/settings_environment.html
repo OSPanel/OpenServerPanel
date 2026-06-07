@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">模块环境的全局变量</h2>
+    <p>在本节中可以为模块设置全局环境变量。<br><br>这些变量仅在模块环境中生效，不会影响系统变量或项目环境。<br><br>值中允许使用模板变量。</p>
+    <p>如果某个变量存在于系统环境中，但不应在模块环境中使用，请使用专用过滤器（参见 模块&rarr;允许的系统变量）或通过将其设为空值从环境中删除该变量。</p>
+    <h2>模板变量</h2>
+    <table>
+        <tr>
+            <th>变量</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel 根目录（完整路径）</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>根目录所在的磁盘</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel 根目录路径</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>终端编码（参见 模块&rarr;终端编码）</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Etc/GMT 格式的时区（参见 模块&rarr;时区）</td>
+        </tr>
+    </table>
+    <p>除了模板变量外，还可以使用任意 Windows 环境变量，例如：%SYSTEMROOT%、%SYSTEMDRIVE%、%USERNAME%、%PATH% 等。</p>
+</body>
+
+</html>

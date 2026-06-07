@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale module-omgevingsvariabelen</h2>
+    <p>In deze sectie kunt u globale omgevingsvariabelen voor modules instellen.<br><br>Deze variabelen zijn alleen van toepassing in de moduleomgeving en hebben geen invloed op systeemvariabelen of projectomgevingen.<br><br>In waarden is het toegestaan sjabloonvariabelen te gebruiken.</p>
+    <p>Als een variabele in de systeemomgeving aanwezig is maar niet in de moduleomgeving gebruikt mag worden, gebruik dan het speciale filter (zie Modules&rarr;Toegestane systeemvariabelen) of verwijder de variabele uit de omgeving door haar een lege waarde toe te kennen.</p>
+    <h2>Sjabloonvariabelen</h2>
+    <table>
+        <tr>
+            <th>Variabele</th>
+            <th>Beschrijving</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Hoofdcatalogus van Open Server Panel (volledig pad)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Schijf van de hoofdcatalogus</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Pad naar de hoofdcatalogus van Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codering in de terminal (zie Modules&rarr;Codering in de terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Tijdzone in het formaat Etc/GMT (zie Modules&rarr;Tijdzone)</td>
+        </tr>
+    </table>
+    <p>Naast sjabloonvariabelen kunt u elke Windows-omgevingsvariabele gebruiken, bijvoorbeeld: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, enz.</p>
+</body>
+
+</html>

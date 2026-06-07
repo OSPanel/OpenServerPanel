@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Projektien globaalit asetukset</h2>
+    <p>Tässä osiossa määritettyjä parametreja käytetään, jos projektin asetuksissa ei ole määritetty muita arvoja.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää projekteissa käytettävän web-palvelinmoduulin.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää Node.js-moottorin Node.js-sovellusten suorittamiseen.<br><br>
+                <strong>Node.js:n asennus:</strong> Asenna tarvittava Node.js-versio etukäteen komennolla <b>osp node &lt;latest|lts|numero&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää käytettävän PHP-moduulin PHP-tiedostojen käsittelyyn.</td>
+        </tr>
+        <tr>
+            <th>Ota käyttöön</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää projektin oletustilan (päälle tai pois päältä).</td>
+        </tr>
+        <tr>
+            <th>Päätteen merkistökoodaus</th>
+        </tr>
+        <tr>
+            <td>
+                Päätteen merkistökoodaus projektin ympäristössä työskenneltäessä.<br><br>
+                <strong>Erityisarvot:</strong><br>
+                - system: Käytetään järjestelmän merkistökoodausta.<br><br>
+                <strong>Tärkeää:</strong> Jos arvoa ei ole asetettu, projektin lopullista ympäristöä muodostettaessa päätteen merkistökoodaus asetetaan viimeisimmän liitetyn ympäristön mukaisesti, jossa se on määritetty, esimerkiksi PHP-moduulin ympäristön mukaisesti.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Asettaa IP-osoitteen/-osoitteet, joita käyttävät kaikki projektit ilman yksilöllisiä asetuksia.<br><br>
+                <strong>Rajoitus:</strong> Sama IP-osoitetta käyttävien projektien on toimittava samalla PHP-versiolla.<br><br>
+                <strong>Useiden IP:iden tuki:</strong> Voit määrittää useita IP-osoitteita välilyönnillä erotettuina, mukaan lukien IPv6. HOSTS-tiedostossa domaineille osoitetaan ensimmäinen määritetty IP.<br><br>
+                <strong>Automaattinen määrittäminen:</strong> Jos kenttä jätetään tyhjäksi, IP-osoite määritetään automaattisesti.<br><br>
+                <strong>Suositukset:</strong>
+                <ul>
+                    <li>Automaattista IP-osoitteiden hallintaa suositellaan useimmille käyttäjille.</li>
+                    <li>Manuaalista IP-osoitteen asettamista tulisi käyttää vain erityisten verkkokonfiguraatiovaatimusten yhteydessä.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää HTTP-yhteyksien portin.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää HTTPS-yhteyksien portin.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Ottaa käyttöön tai poistaa käytöstä TLS-tuen.</td>
+        </tr>
+        
+        <tr>
+            <th>Sertifikaattitiedosto</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää polun TLS-sertifikaattitiedostoon. Voit käyttää mallimuuttujia.<br><br>
+                <strong>Sallitut merkit:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Suositus:</strong> Jätä kenttä tyhjäksi sertifikaattien automaattista luontia varten.</td>
+        </tr>
+        <tr>
+            <th>Avaintiedosto</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää polun TLS-avaintiedostoon. Voit käyttää mallimuuttujia.<br><br>
+                <strong>Sallitut merkit:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Suositus:</strong> Jätä kenttä tyhjäksi avaimen automaattista luontia varten.</td>
+        </tr>
+        <tr>
+            <th>IP-osoite (backend)</th>
+        </tr>
+        <tr>
+            <td>Määrittää IP-osoitteen, jota pitkin muodostetaan yhteys palvelinpuoleen (Backend).</td>
+        </tr>
+        <tr>
+            <th>Portti (backend)</th>
+        </tr>
+        <tr>
+            <td>Määrittää porttinumeron yhteydelle palvelinpuoleen (Backend).</td>
+        </tr>
+        <tr>
+            <th>Ota käyttöön (backend)</th>
+        </tr>
+        <tr>
+            <td>Mahdollistaa kaiken projektin tulevan liikenteen (HTTP ja HTTPS) automaattisen ohjaamisen palvelinpuolelle (Backend). Hyödyllinen testauksessa tai kehityksessä, kun frontend ja backend ovat erillään.</td>
+        </tr>
+        <tr>
+            <th>Projektihakemisto</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää projektin juurihakemiston. Siirtyminen tähän hakemistoon tapahtuu komennolla <strong>osp project &lt;DOMAIN&gt;</strong> samanaikaisesti projektin ympäristön aktivoinnin kanssa. Voit käyttää mallimuuttujia.<br><br>
+                <strong>Sallitut merkit:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Julkinen hakemisto</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää projektin julkisen hakemiston. Voit käyttää mallimuuttujia.<br><br>
+                <strong>Sallitut merkit:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Aliakset</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää projektin lisäverkkotunnukset (aliakset) välilyönnillä erotettuina. Voit käyttää mallimuuttujia.<br><br>
+                <strong>Rajoitus:</strong> Merkkiä "*" ei tueta Windowsin HOSTS-tiedostossa ja se edellyttää DNS-määritystä.</td>
+        </tr>
+        <tr>
+            <th>Projektin ympäristö</th>
+        </tr>
+        <tr>
+            <td>
+                Luettelo lisäosista ja moduuleista (välilyönnillä erotettuina), jotka muodostavat projektin ympäristön.<br><br>
+                <strong>HTTP, NODE ja PHP:</strong> Näiden moottorien ympäristöt liitetään aina (jos ne on määritetty domainille) eikä niitä tarvitse ilmoittaa tässä parametrissa.</td>
+        </tr>
+        <tr>
+            <th>Projektin käynnityskomento</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää komennon projektin käynnistämiseen (esimerkiksi <strong>nodemon app.js</strong>). Voit käyttää mallimuuttujia.</td>
+        </tr>
+        <tr>
+            <th>Projektin URL</th>
+        </tr>
+        <tr>
+            <td>
+                URL, jota käytetään, kun projekti avataan <strong>Valikko&rarr;Projekti&rarr;Avaa selaimessa</strong>, sekä avattaessa projektin domain-aliasia. Voit käyttää mallimuuttujia.<br><br>
+                <strong>Käyttö:</strong> Voit määrittää CMS:n hallintapaneelin URL-osoitteen.</td>
+        </tr>
+    </table>
+    <h2>Mallimuuttujat</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Muuttuja</th>
+                <th>Kuvaus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>Yhteyden IP-osoite palvelinpuolelle (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Yhteyden portti palvelinpuolelle (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projektin juurihakemisto (missä .osp-hakemisto sijaitsee)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Nykyinen päivämäärä/aika (muuttuja on käytettävissä vain projektisovelluksen käynnityskomennossa)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Verkkotunnuksen nimi (kansainvälisten domainien osalta käytetään Punycodea)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Näkyvä verkkotunnuksen nimi (ilman Punycodea)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Projektin pyyntöjen skeema ("http" tai "https", riippuu projektin asetusten TLS-parametrista)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Projektin pyyntöportti HTTP-protokollalla</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Projektin pyyntöportti HTTPS-protokollalla</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP-moottori</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE-moottori</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP-moottori</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projektin juurihakemisto</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projektin julkinen hakemisto</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Projektin pyyntöportti (":{http_port}" tai ":{https_port}", riippuu projektin asetusten TLS-parametrista).<br><br>Jos {http_port} tai {https_port} on oletusarvo 80 tai 443, {scheme_port} on tyhjä.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panelin juurihakemisto (koko polku)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Juurihakemiston asema</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Polku Open Server Panelin juurihakemistoon</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolin merkistökoodaus</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

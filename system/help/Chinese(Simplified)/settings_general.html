@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">程序设置</h2>
+    <table>
+        <tr>
+            <th>随 Windows 启动</th>
+        </tr>
+        <tr>
+            <td>
+                在操作系统启动时启用 Open Server Panel 的自动启动。</td>
+        </tr>
+        <tr>
+            <th>延迟</th>
+        </tr>
+        <tr>
+            <td>
+                程序启动延迟（以秒为单位，0 到 60）。<br><br>允许在随 Windows 启动时推迟应用程序的启动，以降低系统的总体负载。这在需要等待第三方服务或网络接口完全初始化时尤其有用。</td>
+        </tr>
+        <tr>
+            <th>检查新版本</th>
+        </tr>
+        <tr>
+            <td>
+                启用 Open Server Panel 的更新检查（需要连接互联网）。</td>
+        </tr>
+        <tr>
+            <th>启用任务计划程序</th>
+        </tr>
+        <tr>
+            <td>
+                激活内置任务计划程序。如果该参数被禁用，则无论任务状态如何，都不会执行任何计划任务。</td>
+        </tr>
+        <tr>
+            <th>使用 HOSTS 文件</th>
+        </tr>
+        <tr>
+            <td>
+                启用将域名写入 HOSTS 文件。<br><br>
+                <strong>组织中对 HOSTS 文件访问受限时的建议：</strong><br><br>
+                1. 配置所有必要的模块和项目。<br>
+                2. 联系系统管理员以解锁 HOSTS 并固定其状态。<br>
+                3. 管理员固定更改后，可关闭此选项。<br><br>
+                <strong>重要：</strong> 如果不确定后果，请不要关闭此参数！</td>
+        </tr>
+        <tr>
+            <th>按项目配置文件启动模块</th>
+        </tr>
+        <tr>
+            <td>启动模块的同时激活与项目名称相同的配置文件。<br><br>在选择“启用项目模块”菜单项时使用，以便如果存在与当前项目同名的配置文件，则自动激活该配置文件。</td>
+        </tr>
+        <tr>
+            <th>不关闭隐藏项目的模块</th>
+        </tr>
+        <tr>
+            <td>在选择“关闭所有模块”菜单项时，不关闭隐藏项目的模块。这里的“隐藏”指设置了类别“hidden”的项目。<br><br>默认情况下，“关闭所有模块”命令会停止所有模块的运行，包括被隐藏的服务性项目使用的模块（例如，PHPMyAdmin）。该选项允许在关闭其他所有模块的同时，保持隐藏的服务性项目所需的模块继续运行。</td>
+        </tr>
+        <tr>
+            <th>界面语言</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel 的用户界面语言。<br><br>
+                如果缺少本地化文件或其中存在错误，将使用英语。</td>
+        </tr>
+        <tr>
+            <th>API 域名</th>
+        </tr>
+        <tr>
+            <td>
+                用于 API 和 Web 界面的本地域名（开发中）<br><br>
+                <strong>建议：</strong> 如果使用 VPN 或代理，请将该域名加入例外。</td>
+        </tr>
+        <tr>
+            <th>API IP 地址</th>
+        </tr>
+        <tr>
+            <td>
+                用于 API 和 Web 界面的 IPv4 地址（开发中）。<br><br>
+                <strong>建议：</strong> 如果使用 VPN 或代理，请将该 IP 地址加入例外。</td>
+        </tr>
+        <tr>
+            <th>API 端口</th>
+        </tr>
+        <tr>
+            <td>
+                用于 API 和 Web 界面的端口（开发中）。如果所指定端口已被其他应用程序占用，Open Server Panel 将无法启动。</td>
+        </tr>
+        <tr>
+            <th>使用 Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                启用使用 Windows Terminal 代替标准命令界面。<br><br>
+                <strong>要求：</strong> 系统中必须安装 Windows Terminal，并在环境变量 PATH 中配置。<br><br>
+                <strong>Windows Terminal 作为 cmd.exe：</strong> Windows Terminal 可替代 cmd.exe，并在新版本 Windows 中配置到环境变量 %COMSPEC%。如果是这样，请保持此选项开启。<br><br>
+                <strong>Windows Terminal 新实例：</strong> 如果 Windows Terminal 打开新窗口而非新标签，请按以下方式进行设置：设置&rarr;启动&rarr;新实例行为&rarr;附加到最后使用的窗口。</td>
+        </tr>
+        <tr>
+            <th>简短项目标题</th>
+        </tr>
+        <tr>
+            <td>
+                启用该选项后，终端窗口标题将仅显示项目名称，而非环境的详细描述。</td>
+        </tr>
+        <tr>
+            <th>在项目环境中包含系统环境</th>
+        </tr>
+        <tr>
+            <td>在终端中使用系统环境（System），即使它未在项目设置中指定。系统环境允许使用系统中安装的程序（例如，git.exe 或 ssh.exe）。<br><br>仅在与系统软件发生冲突时才关闭此选项。</td>
+        </tr>
+        <tr>
+            <th>ANSI 支持</th>
+        </tr>
+        <tr>
+            <td>
+                启用用于控制终端颜色的 ANSI 代码支持。<br><br>
+                “自动”模式（默认）：<br>
+                - 仅对包含 Windows 10 1903 及更早版本应用修复。在更新版本的 Windows 中已内置对 ANSI 代码的支持。<br>
+                - 对默认支持 ANSI 的终端（例如，Windows Terminal）不应用修复。
+            </td>
+        </tr>
+        <tr>
+            <th>项目搜索目录</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel 搜索项目的目录列表。请用分号（;）分隔路径。<br><br>
+                <strong>排除项：</strong> 将忽略子目录 node_modules 和 vendor。</td>
+        </tr>
+        <tr>
+            <th>深度</th>
+        </tr>
+        <tr>
+            <td>
+                搜索项目时目录嵌套的最大深度。<br><br>
+                如果指定目录中包含大量子目录，增大该值可能会减慢 Open Server Panel 的启动速度。</td>
+        </tr>
+        <tr>
+            <th>日志文件最大大小</th>
+        </tr>
+        <tr>
+            <td>
+                日志文件的最大大小（MB）。当超过指定值时，日志文件将在下次程序启动时重新创建。<br><br>
+                设置为 0，可在每次程序启动时清空日志。<br><br>
+                设置为 100 MB，可完全禁用日志清理。</td>
+        </tr>
+    </table>
+</body>
+
+</html>

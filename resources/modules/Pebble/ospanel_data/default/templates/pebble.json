@@ -1,0 +1,15 @@
+{
+  "pebble": {
+    "listenAddress": "{ip}:14000",
+    "managementListenAddress": "{ip}:15000",
+
+    "certificate": "{root_dir}/data/ssl/modules/{module_name}/cert.crt",
+    "privateKey": "{root_dir}/data/ssl/modules/{module_name}/cert.key",
+
+    "httpPort": 80,
+    "tlsPort": 443,
+
+    "ocspResponderURL": "",
+    "externalAccountBindingRequired": false
+  }
+}

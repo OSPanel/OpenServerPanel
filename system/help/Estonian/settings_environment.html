@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Moodulite globaalsed keskkonnamuutujad</h2>
+    <p>Selles jaotises saab määrata moodulite globaalsed keskkonnamuutujad.<br><br>Need muutujad kehtivad ainult moodulite keskkonnas ega mõjuta süsteemimuutujaid ega projektide keskkonda.<br><br>Väärtustes on lubatud kasutada mallmuutujaid.</p>
+    <p>Kui muutuja on süsteemi keskkonnas olemas, kuid seda ei tohi moodulite keskkonnas kasutada, kasutage spetsiaalset filtrit (vt Moodulid&rarr;Lubatud süsteemimuutujad) või eemaldage muutuja keskkonnast, määrates selle väärtuseks tühja stringi.</p>
+    <h2>Mallmuutujad</h2>
+    <table>
+        <tr>
+            <th>Muutuja</th>
+            <th>Kirjeldus</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Paneli juurkataloog (täielik rada)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Juurkataloogi kettaseade</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Paneli juurkataloogi rada</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodeering terminalis (vt Moodulid&rarr;Kodeering terminalis)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Ajavöönd vormingus Etc/GMT (vt Moodulid&rarr;Ajavöönd)</td>
+        </tr>
+    </table>
+    <p>Lisaks mallmuutujatele võib kasutada mis tahes Windowsi keskkonnamuutujaid, näiteks: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% jne.</p>
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globalūs projektų nustatymai</h2>
+    <p>Parametrai, nurodyti šiame skyriuje, naudojami tuo atveju, jei projekto nustatymuose nenurodyta kitų reikšmių.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato naudojamą žiniatinklio serverio modulį projektams.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Nurodo Node.js variklį Node.js programoms paleisti.<br><br>
+                <strong>Node.js įdiegimas:</strong> Iš anksto įdiekite reikiamą Node.js versiją komanda <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato naudojamą PHP modulį PHP failams apdoroti.</td>
+        </tr>
+        <tr>
+            <th>Įjungti</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato numatytąją projekto būseną (įjungtas arba išjungtas).</td>
+        </tr>
+        <tr>
+            <th>Terminalo koduotė</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalo koduotė dirbant projekto aplinkoje.<br><br>
+                <strong>Specialios reikšmės:</strong><br>
+                - system: Naudojama sisteminė koduotė.<br><br>
+                <strong>Svarbu:</strong> Jei reikšmė nenurodyta, formuojant galutinę projekto aplinką terminalo koduotė bus nustatyta paskutinės prijungtos aplinkos, kurioje ji nurodyta, pavyzdžiui, PHP modulio aplinkos.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Nurodo IP adresą(-us), naudojamą visiems projektams be individualių nustatymų.<br><br>
+                <strong>Apribojimas:</strong> Projektai, naudojantys tą patį IP adresą, turi veikti toje pačioje PHP versijoje.<br><br>
+                <strong>Kelių IP palaikymas:</strong> Galima nurodyti kelis IP adresus per tarpą, įskaitant IPv6. HOSTS faile domenams bus priskirtas pirmasis nurodytas IP.<br><br>
+                <strong>Automatinis priskyrimas:</strong> Jei lauką paliksite tuščią, IP adresas bus priskiriamas automatiškai.<br><br>
+                <strong>Rekomendacijos:</strong>
+                <ul>
+                    <li>Automatinis IP adresų valdymas rekomenduojamas daugumai naudotojų.</li>
+                    <li>Rankinį IP adreso nurodymą naudokite tik esant specifiniams tinklo konfigūracijos reikalavimams.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato prievadą ryšiams per HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato prievadą ryšiams per HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungia arba išjungia TLS palaikymą.</td>
+        </tr>
+        
+        <tr>
+            <th>Sertifikato failas</th>
+        </tr>
+        <tr>
+            <td>
+                Nurodo kelią į TLS sertifikato failą. Galima naudoti šabloninius kintamuosius.<br><br>
+                <strong>Leistini simboliai:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Rekomendacija:</strong> Palikite lauką tuščią, kad sertifikatai būtų generuojami automatiškai.</td>
+        </tr>
+        <tr>
+            <th>Rakto failas</th>
+        </tr>
+        <tr>
+            <td>
+                Nurodo kelią į TLS rakto failą. Galima naudoti šabloninius kintamuosius.<br><br>
+                <strong>Leistini simboliai:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Rekomendacija:</strong> Palikite lauką tuščią, kad raktas būtų generuojamas automatiškai.</td>
+        </tr>
+        <tr>
+            <th>IP adresas (backend)</th>
+        </tr>
+        <tr>
+            <td>Nurodo IP adresą, kuriuo vykdomas prisijungimas prie serverinės dalies (Backend).</td>
+        </tr>
+        <tr>
+            <th>Prievadas (backend)</th>
+        </tr>
+        <tr>
+            <td>Nustato prievado numerį prisijungimui prie serverinės dalies (Backend).</td>
+        </tr>
+        <tr>
+            <th>Įjungti (backend)</th>
+        </tr>
+        <tr>
+            <td>Leidžia automatiškai nukreipti visą įeinantį projekto srautą (HTTP ir HTTPS) į serverinę dalį (Backend). Naudinga testuojant ar kuriant, kai frontendas ir backendas yra atskirti.</td>
+        </tr>
+        <tr>
+            <th>Projekto katalogas</th>
+        </tr>
+        <tr>
+            <td>
+                Nurodo projekto šakninį katalogą. Perėjimas į šį katalogą atliekamas komanda <strong>osp project &lt;DOMAIN&gt;</strong> kartu su projekto aplinkos aktyvavimu. Galima naudoti šabloninius kintamuosius.<br><br>
+                <strong>Leistini simboliai:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Viešasis katalogas</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato projekto viešąjį katalogą. Galima naudoti šabloninius kintamuosius.<br><br>
+                <strong>Leistini simboliai:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Pseudonimai</th>
+        </tr>
+        <tr>
+            <td>
+                Nurodo papildomus projekto domenų vardus (aliasus) per tarpą. Galima naudoti šabloninius kintamuosius.<br><br>
+                <strong>Apribojimas:</strong> Simbolis "*" Windows HOSTS faile nepalaikomas ir reikalauja DNS konfigūracijos.</td>
+        </tr>
+        <tr>
+            <th>Projekto aplinka</th>
+        </tr>
+        <tr>
+            <td>
+                Papildinių ir modulių sąrašas (per tarpą), formuojantis projekto aplinką.<br><br>
+                <strong>HTTP, NODE ir PHP:</strong> Šių variklių aplinkos prijungiamos visada (jei nurodytos domenui) ir nereikalauja nurodymo šiame parametre.</td>
+        </tr>
+        <tr>
+            <th>Projekto paleidimo komanda</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato projekto paleidimo komandą (pavyzdžiui, <strong>nodemon app.js</strong>). Galima naudoti šabloninius kintamuosius.</td>
+        </tr>
+        <tr>
+            <th>Projekto URL</th>
+        </tr>
+        <tr>
+            <td>
+                URL, naudojamas atidarant projektą <strong>Meniu&rarr;Projektas&rarr;Atidaryti naršyklėje</strong>, taip pat atidarant projekto domenų pseudonimus (aliasus). Galima naudoti šabloninius kintamuosius.<br><br>
+                <strong>Taikymas:</strong> Galima nurodyti CMS administravimo skydelio URL.</td>
+        </tr>
+    </table>
+    <h2>Šabloniniai kintamieji</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Kintamasis</th>
+                <th>Aprašymas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP adresas prisijungimui prie serverinės dalies (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Prievadas prisijungimui prie serverinės dalies (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projekto šakninė direktorija (kur yra katalogas .osp)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Dabartinė data/laikas (kintamasis prieinamas tik projekto programos paleidimo komandai)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domeno vardas (tarptautiniams domenams naudojamas Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Matomas domeno vardas (be Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Užklausos į projektą schema ("http" arba "https", priklauso nuo TLS parametro projekto nustatymuose)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Užklausos į projektą per HTTP prievadas</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Užklausos į projektą per HTTPS prievadas</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP variklis</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE variklis</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP variklis</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projekto šakninė direktorija</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projekto viešasis katalogas</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Užklausos į projektą prievadas (":{http_port}" arba ":{https_port}", priklauso nuo TLS parametro projekto nustatymuose).<br><br>Jei {http_port} arba {https_port} turi standartinę reikšmę 80 arba 443, tuomet {scheme_port} bus tuščias.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panel šakninė direktorija (pilnas kelias)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Šakninio katalogo diskas</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Kelias į Open Server Panel šakninę direktoriją</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolės koduotė</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

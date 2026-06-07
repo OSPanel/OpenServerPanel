@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Vytváření vlastních položek menu</h2>
+    <ol>
+        <li>Přidejte novou sekci s jedinečným identifikátorem [ID]</li>
+        <li>Umístěte sekce v požadovaném pořadí — to určí pořadí položek v menu</li>
+        <li>Uložte změny a restartujte Open Server Panel pro použití změn</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Důležité informace</h3>
+        Při vytváření vlastních položek menu dbejte na to, aby se identifikátory sekcí neopakovaly. Může to vést ke konfliktům v chodu menu.
+    </div>
+    <h2>Nastavení položek menu</h2>
+    <p><strong>Pořadí řazení:</strong> Položky menu se řadí ve stejném pořadí, v jakém jsou umístěny odpovídající sekce v šabloně.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Název položky menu. Podporuje jazykové konstanty ve formátu {lang_xxx}.<br><br>
+                    Ve výchozím nastavení: není zadáno
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Určuje umístění položky menu v hierarchii. Podporuje jednu úroveň vnoření (například "Moje záložky\Práce").</p>
+                    <p>Speciální kategorie:</p>
+                    <ul>
+                        <li>projects, modules, addons - přidá položku do odpovídající nabídky akcí</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - přidá položku pro konkrétní prvek</li>
+                    </ul>
+                    <p>Pokud kategorie není uvedena, položka se vytvoří v kořenovém menu.</p>
+                    Ve výchozím nastavení: není zadáno
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Příkaz ke spuštění při aktivaci položky menu. Položky bez příkazu jsou ignorovány.<br><br>
+                    Ve výchozím nastavení: není zadáno
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Zapíná/vypíná zobrazení položky menu.<br><br>
+                    Ve výchozím nastavení: on | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Řídí viditelnost okna volané aplikace. Nemá vliv na podřízené procesy.<br><br>
+                    Ve výchozím nastavení: off | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Přidá vodorovný oddělovač za položkou menu.<br><br>
+                    Ve výchozím nastavení: off | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Přidá vodorovný oddělovač před položkou menu.<br><br>
+                    Ve výchozím nastavení: off | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikona ze sady Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Ve výchozím nastavení: není zadáno
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Zobrazuje položku menu pouze pro doménový alias. V šabloně menu může být pouze jedna položka s need_alias=on!<br>
+                    Použitelné pro kategorie: projects<br><br>
+                    Ve výchozím nastavení: není zadáno | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Omezuje zobrazení položky menu na moduly/doplňky určité kategorie.</p>
+                    <p>Podporované formáty:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Ve výchozím nastavení: není zadáno
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Zobrazuje položku menu v závislosti na dostupnosti shell/cli u nadřazeného modulu.<br>
+                    Použitelné pro kategorie: modules, modules\<имя_модуля><br><br>
+                        Ve výchozím nastavení: není zadáno | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Zobrazuje položku menu v závislosti na stavu nadřazeného modulu.<br>
+                    Použitelné pro kategorie: modules, modules\<имя_модуля><br><br>
+                        Ve výchozím nastavení: není zadáno | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Zobrazuje položku menu při přítomnosti startovacího příkazu v nastavení projektu.<br>
+                    Použitelné pro kategorie: projects, projects\<имя_домена><br><br>
+                        Ve výchozím nastavení: není zadáno | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Zobrazuje položku menu v závislosti na nastavení používání Windows Terminal v Open Server Panel.<br><br>
+                    Ve výchozím nastavení: není zadáno | Hodnoty: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Pracovní adresář pro provedení příkazu. Může se měnit během provádění příkazů.<br><br>
+                    Ve výchozím nastavení: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Šablonové proměnné</h2>
+    V parametrech "command" a "work_directory" lze použít následující šablonové proměnné:
+    <h3>Obecné proměnné</h3>
+    <table>
+        <tr>
+            <th>Proměnná</th>
+            <th>Popis</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Aktuální datum/čas (proměnná je dostupná pouze pro parametr "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Kořenový adresář Open Server Panel (plná cesta)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Disk kořenového adresáře</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Cesta ke kořenovému adresáři Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL adresa webového rozhraní</td>
+        </tr>
+    </table>
+    <h3>Speciální proměnné (pouze pro projects a projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Proměnná</th>
+            <th>Popis</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Základní adresář projektu</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Název domény (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Viditelný název domény (bez Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Schéma požadavku k projektu ("http" nebo "https", závisí na parametru TLS v nastaveních projektu)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Port požadavku k projektu přes protokol HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Port požadavku k projektu přes protokol HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Název položky menu (pouze pro kategorii projects s need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>Engine HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Engine Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Engine PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Kořenový adresář projektu</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL projektu</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Veřejný adresář projektu</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Port požadavku k projektu (":{http_port}" nebo ":{https_port}", závisí na parametru TLS v nastaveních projektu). Pokud {http_port} nebo {https_port} má standardní hodnotu 80 nebo 443, pak {scheme_port} bude prázdný.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Startovací příkaz aplikace projektu (pokud je nastaven)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kódování konzole</td>
+        </tr>
+    </table>
+    <h3>Speciální proměnné (pouze pro addons a addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Proměnná</th>
+            <th>Popis</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Název doplňku</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kódování konzole</td>
+        </tr>
+    </table>
+    <h3>Speciální proměnné (pouze pro modules a modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Proměnná</th>
+            <th>Popis</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP adresa modulu</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Úroveň logování chyb</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Název modulu</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Port modulu</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Název aktuálního profilu nastavení modulu</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Úroveň logování dotazů</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Příkaz pro spuštění shell/cli rozhraní modulu (pokud je nastaven)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kódování konzole</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Časové pásmo</td>
+        </tr>
+    </table>
+    <h3>Speciální hodnoty příkazů</h3>
+    <table>
+        <tr>
+            <th>Příkaz</th>
+            <th>Popis</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Otevřít okno prohlížeče logů</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Otevřít IDN převodník</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Otevřít okno nastavení programu</td>
+        </tr>
+    </table>
+    <p>Kromě šablonových proměnných lze použít libovolné proměnné prostředí Windows, například: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% atd.</p>
+    <h3>Příklad použití</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Moje záložky\Vyhledávače
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Možnosti CMD.EXE</h3>
+    <ul>
+        <li>/c: Spustit příkaz a zavřít terminál.</li>
+        <li>/k: Spustit příkaz a ponechat terminál otevřený.</li>
+    </ul>
+</body>
+
+</html>

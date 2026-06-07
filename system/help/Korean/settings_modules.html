@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">모듈 전역 설정</h2>
+    <p>이 섹션에서 지정한 매개변수는 특정 모듈의 해당 옵션이 auto(기본값)로 설정된 경우에 적용됩니다.</p>
+    <table>
+        <tr>
+            <th>조용한 실행 모드</th>
+        </tr>
+        <tr>
+            <td>
+                Windows Error Reporting 및 모듈 자체의 오류 팝업 메시지를 비활성화합니다.<br><br>
+                <strong>권장 사항:</strong> 모듈 문제를 진단해야 할 때에만 이 모드를 비활성화하세요.</td>
+        </tr>
+        <tr>
+            <th>로그 파일에 헤더 추가</th>
+        </tr>
+        <tr>
+            <td>
+                모듈이 시작될 때마다 로그 파일에 헤더를 자동으로 추가합니다. 자동 로그 정리가 꺼져 있을 때 작업 세션을 구분하는 데 유용합니다.</td>
+        </tr>
+        <tr>
+            <th>최대 연속 실패 실행 횟수</th>
+        </tr>
+        <tr>
+            <td>
+                모듈이 “오류” 상태로 전환되기 전에 허용되는 연속 실패 실행 횟수를 정의합니다.</td>
+        </tr>
+        <tr>
+            <th>모듈 정상 동작 확인 시간</th>
+        </tr>
+        <tr>
+            <td>모듈이 성공적으로 시작된 후 정상 동작을 테스트하는 기간을 정의합니다.<br><br>
+                <strong>카운트 시작:</strong> 모듈이 성공적으로 시작된 시점부터.<br><br>
+                <strong>“오류” 상태 전환:</strong> 모듈이 시험 기간 중 비정상 종료되면 자동으로 재시작되지 않으며 “오류” 상태로 전환됩니다. 이는 모듈을 시스템 수준에서 시작하지 못한 경우에도 해당됩니다.<br><br>
+                <strong>검사 비활성화:</strong> 값이 0이면 시험 기간이 비활성화되며, 모듈은 장애 시 항상 재시작됩니다.<br><br>
+                <strong>권장 사항:</strong> 0 또는 너무 짧은 기간(30초 미만)으로 설정하지 마십시오. 무한 재시작 루프로 이어질 수 있습니다.</td>
+        </tr>
+        <tr>
+            <th>모듈 종료 대기 시간</th>
+        </tr>
+        <tr>
+            <td>모듈이 작업을 종료하는 데 허용되는 최대 시간을 정의합니다.<br><br>
+                <strong>강제 종료:</strong> 지정한 시간 내에 모듈이 종료되지 않으면 강제로 중지됩니다.<br><br>
+                <strong>대기 비활성화:</strong> 값이 0이면 대기 기간이 비활성화됩니다. 프로그램은 모듈 종료를 무기한 대기합니다.<br><br>
+                <strong>경고:</strong> 모듈을 강제 중지하면 데이터 손상, 저장되지 않은 변경 사항의 손실 또는 프로세스의 비정상 종료로 이어질 수 있습니다. 이 설정은 주의해서 사용하십시오.</td>
+        </tr>
+        <tr>
+            <th>로그 파일 최대 크기</th>
+        </tr>
+        <tr>
+            <td>
+                로그 파일의 최대 크기(메가바이트). 지정된 값을 초과하면 다음 모듈 시작 시 로그 파일이 다시 생성됩니다.<br><br>
+                값을 0으로 설정하면 모듈이 시작될 때마다 로그를 지웁니다.<br><br>
+                값을 100MB로 설정하면 로그 정리를 완전히 비활성화합니다.</td>
+        </tr>
+        <tr>
+            <th>터미널 인코딩</th>
+        </tr>
+        <tr>
+            <td>
+                모듈 환경에서 사용하는 터미널 인코딩입니다.<br><br>
+                <strong>특수 값:</strong><br>
+                - system: 시스템 인코딩이 사용됩니다.</td>
+        </tr>
+        <tr>
+            <th>시간대</th>
+        </tr>
+        <tr>
+            <td>
+                Etc/GMT 형식의 모듈 시간대를 지정합니다(예: Etc/GMT-3).<br><br>
+                <strong>특수 값:</strong><br>
+                - system: 시스템 시간대가 사용됩니다.<br><br>
+                <strong>중요:</strong> Etc/GMT 형식은 UTC 대비 반대 부호의 오프셋을 사용합니다(예: Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>사용할 애드온 환경</th>
+        </tr>
+        <tr>
+            <td>
+                모듈 환경에 연결할 애드온 목록을 정의합니다(공백으로 구분). 해당되는 경우, 이들의 환경이 모듈 환경에 결합됩니다. 터미널의 정보 표시기에는 이러한 추가 환경이 표시되지 않습니다.<br><br>
+                <strong>경고:</strong> 이 옵션의 용도를 충분히 이해하는 경우에만 사용하세요.</td>
+        </tr>
+        <tr>
+            <th>허용된 시스템 변수</th>
+        </tr>
+        <tr>
+            <td>
+                모듈 환경으로 전달할 Windows 환경 변수 목록을 정의합니다(공백으로 구분).<br><br>
+                <strong>목적:</strong> 모듈의 작업 환경을 시스템에 설치된 유사한 소프트웨어와 격리할 수 있습니다.<br><br>
+                <strong>경고:</strong> 이 목록을 충분한 이해 없이 변경하면 모듈의 불안정한 동작을 초래할 수 있습니다.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

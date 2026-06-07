@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">建立自訂功能表項目</h2>
+    <ol>
+        <li>新增具有唯一識別碼 [ID] 的新區段</li>
+        <li>按所需順序排列各區段——這將決定功能表項目的順序</li>
+        <li>儲存變更並重新啟動 Open Server Panel 以套用變更</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>重要資訊</h3>
+        建立自訂功能表項目時，請確保區段識別碼不重複。否則可能導致功能表運作衝突。
+    </div>
+    <h2>功能表項目設定</h2>
+    <p><strong>排序順序：</strong> 功能表項目依照樣板中相應區段的排列順序進行排序。</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    功能表項目的標題。支援格式為 {lang_xxx} 的語言常數。<br><br>
+                    預設：未設定
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>定義功能表項目在階層中的位置。支援一級巢狀（例如，「我的書籤\工作」）。</p>
+                    <p>特殊類別：</p>
+                    <ul>
+                        <li>projects, modules, addons - 將項目加入相應的動作功能表</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - 為特定元素新增項目</li>
+                    </ul>
+                    <p>若未指定類別，項目將建立於根功能表。</p>
+                    預設：未設定
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    啟用功能表項目時要執行的指令。沒有指令的項目會被忽略。<br><br>
+                    預設：未設定
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    啟用/停用功能表項目的顯示。<br><br>
+                    預設：on | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    控制所呼叫應用程式視窗的可見性。不影響子進程。<br><br>
+                    預設：off | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    在功能表項目之後新增水平分隔線。<br><br>
+                    預設：off | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    在功能表項目之前新增水平分隔線。<br><br>
+                    預設：off | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    來自 Font Awesome Free (Solid/Regular/Brands) 的圖示。<br><br>
+                    預設：未設定
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    僅在網域別名下顯示功能表項目。樣板功能表中只能有一個 need_alias=on 的項目！<br>
+                    適用類別：projects<br><br>
+                    預設：未設定 | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>限制僅對特定類別的模組/外掛顯示功能表項目。</p>
+                    <p>支援格式：</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    預設：未設定
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    依據父模組是否具有 shell/cli 顯示功能表項目。<br>
+                    適用類別：modules, modules\<имя_модуля><br><br>
+                        預設：未設定 | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    依據父模組的狀態顯示功能表項目。<br>
+                    適用類別：modules, modules\<имя_модуля><br><br>
+                        預設：未設定 | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    當專案設定中存在啟動指令時顯示功能表項目。<br>
+                    適用類別：projects, projects\<имя_домена><br><br>
+                        預設：未設定 | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    依據 Open Server Panel 中使用 Windows Terminal 的設定顯示功能表項目。<br><br>
+                    預設：未設定 | 值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    執行指令的工作目錄。在執行過程中可能變更。<br><br>
+                    預設：{root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>樣板變數</h2>
+    在參數「command」與「work_directory」中可使用以下樣板變數：
+    <h3>通用變數</h3>
+    <table>
+        <tr>
+            <th>變數</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>目前日期/時間（僅適用於參數「command」）</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel 的根目錄（完整路徑）</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>根目錄所在的磁碟機</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel 的根目錄路徑</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Web 介面 URL 位址</td>
+        </tr>
+    </table>
+    <h3>特殊變數（僅適用於 projects 與 projects\&lt;имя_домена&gt;）</h3>
+    <table>
+        <tr>
+            <th>變數</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>專案的基本目錄</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>網域名稱（Punycode）</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>可見的網域名稱（非 Punycode）</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>對專案的請求方案（"http" 或 "https"，取決於專案設定中的 TLS 參數）</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>透過 HTTP 協定對專案的請求埠</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>透過 HTTPS 協定對專案的請求埠</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>功能表項目的標題（僅適用於類別 projects 且 need_alias=ON）</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP 引擎</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js 引擎</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP 引擎</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>專案根目錄</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>專案 URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>專案公開目錄</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>對專案的請求埠（":{http_port}" 或 ":{https_port}"，取決於專案設定中的 TLS 參數）。如果 {http_port} 或 {https_port} 為標準值 80 或 443，則 {scheme_port} 為空。</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>專案應用程式的啟動指令（若已設定）</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>主控台編碼</td>
+        </tr>
+    </table>
+    <h3>特殊變數（僅適用於 addons 與 addons\&lt;имя_дополнения&gt;）</h3>
+    <table>
+        <tr>
+            <th>變數</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>外掛名稱</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>主控台編碼</td>
+        </tr>
+    </table>
+    <h3>特殊變數（僅適用於 modules 與 modules\&lt;имя_модуля&gt;）</h3>
+    <table>
+        <tr>
+            <th>變數</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>模組的 IP 位址</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>錯誤日誌等級</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>模組名稱</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>模組埠</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>模組目前設定設定檔名稱</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>查詢日誌等級</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>模組的 shell/cli 啟動指令（若已設定）</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>主控台編碼</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>時區</td>
+        </tr>
+    </table>
+    <h3>特殊指令值</h3>
+    <table>
+        <tr>
+            <th>指令</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>開啟日誌檢視視窗</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>開啟 IDN 轉換器</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>開啟程式設定視窗</td>
+        </tr>
+    </table>
+    <p>除了樣板變數之外，亦可使用任何 Windows 環境變數，例如：%SYSTEMROOT%、%SYSTEMDRIVE%、%USERNAME%、%PATH% 等。</p>
+    <h3>使用範例</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = 我的書籤\搜尋引擎
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE 選項</h3>
+    <ul>
+        <li>/c：執行指令後關閉終端機。</li>
+        <li>/k：執行指令後保留終端機開啟。</li>
+    </ul>
+</body>
+
+</html>

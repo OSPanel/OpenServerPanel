@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">模組環境的全域變數</h2>
+    <p>在本節中可以為模組設定全域環境變數。<br><br>這些變數僅在模組環境中生效，不會影響系統變數或專案環境。<br><br>在值中允許使用樣板變數。</p>
+    <p>如果變數存在於系統環境中，但不應在模組環境中使用，請使用專用的篩選器（見 模組&rarr;允許的系統變數）或將其值設為空以從環境中移除該變數。</p>
+    <h2>樣板變數</h2>
+    <table>
+        <tr>
+            <th>變數</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel 的根目錄（完整路徑）</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>根目錄所在的磁碟</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel 的根目錄路徑</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>終端的編碼（見 模組&rarr;終端的編碼）</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Etc/GMT 格式的時區（見 模組&rarr;時區）</td>
+        </tr>
+    </table>
+    <p>除了樣板變數之外，還可以使用任何 Windows 環境變數，例如：%SYSTEMROOT%、%SYSTEMDRIVE%、%USERNAME%、%PATH% 等。</p>
+</body>
+
+</html>

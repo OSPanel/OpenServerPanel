@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Pengaturan global proyek</h2>
+    <p>Parameter yang ditentukan di bagian ini digunakan jika tidak ada nilai lain yang ditentukan dalam pengaturan proyek.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan modul web server yang digunakan untuk proyek.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan engine Node.js untuk menjalankan aplikasi Node.js.<br><br>
+                <strong>Instalasi Node.js:</strong> Instal terlebih dahulu versi Node.js yang diperlukan menggunakan perintah <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan modul PHP yang digunakan untuk memproses file PHP.</td>
+        </tr>
+        <tr>
+            <th>Aktifkan</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan status default proyek (diaktifkan atau dinonaktifkan).</td>
+        </tr>
+        <tr>
+            <th>Enkoding terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Enkoding terminal saat bekerja dengan lingkungan proyek.<br><br>
+                <strong>Nilai khusus:</strong><br>
+                - system: Menggunakan enkoding sistem.<br><br>
+                <strong>Penting:</strong> Jika nilai tidak ditentukan, saat membentuk lingkungan akhir proyek, enkoding terminal akan ditetapkan oleh lingkungan terakhir yang dihubungkan, di mana enkoding ditentukan, misalnya oleh lingkungan modul PHP.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Menetapkan alamat IP yang digunakan oleh semua proyek tanpa pengaturan individual.<br><br>
+                <strong>Pembatasan:</strong> Proyek yang menggunakan alamat IP yang sama harus berjalan pada satu versi PHP.<br><br>
+                <strong>Dukungan multi-IP:</strong> Anda dapat menentukan beberapa alamat IP dipisahkan spasi, termasuk IPv6. Di file HOSTS, domain akan ditetapkan ke IP pertama yang ditentukan.<br><br>
+                <strong>Penetapan otomatis:</strong> Jika kolom dibiarkan kosong, alamat IP akan ditetapkan secara otomatis.<br><br>
+                <strong>Rekomendasi:</strong>
+                <ul>
+                    <li>Pengelolaan alamat IP otomatis direkomendasikan untuk sebagian besar pengguna.</li>
+                    <li>Penetapan IP secara manual hanya digunakan untuk kebutuhan konfigurasi jaringan yang spesifik.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan port untuk koneksi HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan port untuk koneksi HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Mengaktifkan atau menonaktifkan dukungan TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>File sertifikat</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan path ke file sertifikat TLS. Anda dapat menggunakan variabel template.<br><br>
+                <strong>Karakter yang diizinkan:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Rekomendasi:</strong> Biarkan kolom kosong untuk pembuatan sertifikat otomatis.</td>
+        </tr>
+        <tr>
+            <th>File kunci</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan path ke file kunci TLS. Anda dapat menggunakan variabel template.<br><br>
+                <strong>Karakter yang diizinkan:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Rekomendasi:</strong> Biarkan kolom kosong untuk pembuatan kunci otomatis.</td>
+        </tr>
+        <tr>
+            <th>Alamat IP (backend)</th>
+        </tr>
+        <tr>
+            <td>Menentukan alamat IP yang digunakan untuk terhubung ke sisi server (Backend).</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Menentukan nomor port untuk terhubung ke sisi server (Backend).</td>
+        </tr>
+        <tr>
+            <th>Aktifkan (backend)</th>
+        </tr>
+        <tr>
+            <td>Memungkinkan untuk secara otomatis mengarahkan seluruh trafik masuk (HTTP dan HTTPS) proyek ke sisi server (Backend). Berguna untuk pengujian atau pengembangan ketika frontend dan backend dipisahkan.</td>
+        </tr>
+        <tr>
+            <th>Direktori proyek</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan direktori root proyek. Berpindah ke direktori ini dilakukan dengan perintah <strong>osp project &lt;DOMAIN&gt;</strong> bersamaan dengan aktivasi lingkungan proyek. Anda dapat menggunakan variabel template.<br><br>
+                <strong>Karakter yang diperbolehkan:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Direktori publik</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan direktori publik proyek. Anda dapat menggunakan variabel template.<br><br>
+                <strong>Karakter yang diperbolehkan:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Alias</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan nama domain tambahan (alias) untuk proyek (dipisahkan spasi). Anda dapat menggunakan variabel template.<br><br>
+                <strong>Pembatasan:</strong> Simbol "*" tidak didukung oleh file HOSTS di Windows dan memerlukan pengaturan DNS.</td>
+        </tr>
+        <tr>
+            <th>Lingkungan proyek</th>
+        </tr>
+        <tr>
+            <td>
+                Daftar add-on dan modul (dipisahkan spasi) yang membentuk lingkungan proyek.<br><br>
+                <strong>HTTP, NODE dan PHP:</strong> Lingkungan engine ini selalu dihubungkan (jika ditentukan untuk domain) dan tidak perlu dicantumkan di parameter ini.</td>
+        </tr>
+        <tr>
+            <th>Perintah menjalankan proyek</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan perintah untuk menjalankan proyek (misalnya, <strong>nodemon app.js</strong>). Anda dapat menggunakan variabel template.</td>
+        </tr>
+        <tr>
+            <th>URL proyek</th>
+        </tr>
+        <tr>
+            <td>
+                URL yang digunakan saat membuka proyek melalui <strong>Menu&rarr;Proyek&rarr;Buka di browser</strong>, serta saat membuka alias domain proyek. Anda dapat menggunakan variabel template.<br><br>
+                <strong>Penerapan:</strong> Anda dapat menentukan URL panel administrasi CMS.</td>
+        </tr>
+    </table>
+    <h2>Variabel template</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variabel</th>
+                <th>Deskripsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>Alamat IP untuk koneksi ke sisi server (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port untuk koneksi ke sisi server (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Direktori root proyek (tempat direktori .osp berada)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Tanggal/waktu saat ini (variabel hanya tersedia untuk perintah menjalankan aplikasi proyek)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Nama domain (untuk domain internasional digunakan Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Nama domain yang terlihat (tanpa Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Skema permintaan ke proyek ("http" atau "https", tergantung parameter TLS di pengaturan proyek)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Port permintaan ke proyek melalui protokol HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Port permintaan ke proyek melalui protokol HTTPS</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>Engine HTTP</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Engine NODE</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Engine PHP</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Direktori root proyek</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Direktori publik proyek</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Port permintaan ke proyek (":{http_port}" atau ":{https_port}", bergantung pada parameter TLS di pengaturan proyek).<br><br>Jika {http_port} atau {https_port} memiliki nilai standar 80 atau 443, maka {scheme_port} akan kosong.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Direktori root Open Server Panel (path penuh)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Drive direktori root</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Path ke direktori root Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Enkoding konsol</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

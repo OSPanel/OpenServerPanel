@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globální proměnné prostředí modulů</h2>
+    <p>V této části můžete zadat globální proměnné prostředí pro moduly.<br><br>Tyto proměnné platí pouze v prostředí modulů a nemají vliv na systémové proměnné ani prostředí projektů.<br><br>Ve hodnotách je povoleno používat šablonové proměnné.</p>
+    <p>Pokud je proměnná přítomna v systémovém prostředí, ale nemá být používána v prostředí modulů, použijte speciální filtr (viz Moduly&rarr;Povolené systémové proměnné) nebo proměnnou ze prostředí odstraňte tím, že jí zadáte prázdnou hodnotu.</p>
+    <h2>Šablonové proměnné</h2>
+    <table>
+        <tr>
+            <th>Proměnná</th>
+            <th>Popis</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Kořenový adresář Open Server Panel (plná cesta)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Disk kořenového adresáře</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Cesta ke kořenovému adresáři Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kódování v terminálu (viz Moduly&rarr;Kódování v terminálu)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Časové pásmo ve formátu Etc/GMT (viz Moduly&rarr;Časové pásmo)</td>
+        </tr>
+    </table>
+    <p>Kromě šablonových proměnných lze použít libovolné proměnné prostředí Windows, například: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% atd.</p>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<FilesMatch "ajax_auth.php">
+	order deny,allow
+	Require valid-user 
+	AuthType SSPI
+	NTLMAuth On
+	NTLMAuthoritative On
+	require user "NT AUTHORITY\ANONYMOUS LOGON" denied 
+</FilesMatch>
+
+<Files "ajax_bounce.php">
+	order deny,allow
+	Require valid-user
+	AuthType SSPI 
+	NTLMAuth On
+	NTLMAuthoritative On
+	NTLMNotForced On
+</Files>

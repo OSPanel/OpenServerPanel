@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Өз меню тармақтарын жасау</h2>
+    <ol>
+        <li>Бірегей идентификаторы [ID] бар жаңа секция қосыңыз</li>
+        <li>Секцияларды қалаған ретпен орналастырыңыз — бұл менюдегі тармақтардың ретін анықтайды</li>
+        <li>Өзгерістерді сақтап, өзгерістерді қолдану үшін Open Server Panel-ді қайта іске қосыңыз</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Маңызды ақпарат</h3>
+        Өз меню тармақтарын жасағанда, секция идентификаторларының қайталанбайтынына назар аударыңыз. Бұл меню жұмысының қайшылықтарына әкелуі мүмкін.
+    </div>
+    <h2>Меню тармақтарының баптаулары</h2>
+    <p><strong>Сұрыптау реті:</strong> Меню тармақтары шаблондағы сәйкес секциялардың ретіне сай сұрыпталады.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Меню тармағының тақырыбы. {lang_xxx} форматындағы тілдік константаларды қолдайды.<br><br>
+                    Әдепкі: көрсетілмеген
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Меню тармағының иерархиядағы орналасуын анықтайды. Бір деңгейлі ішіне салуды қолдайды (мысалы, "Менің Бетбелгілерім\Жұмыс").</p>
+                    <p>Арнайы санаттар:</p>
+                    <ul>
+                        <li>projects, modules, addons - тиісті әрекеттер менюіне тармақ қосады</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - нақты элемент үшін тармақ қосады</li>
+                    </ul>
+                    <p>Егер санат көрсетілмесе, тармақ түбір менюде жасалады.</p>
+                    Әдепкі: көрсетілмеген
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Меню тармағын белсендіру кезінде орындалатын команда. Командасы жоқ тармақтар еленбейді.<br><br>
+                    Әдепкі: көрсетілмеген
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Меню тармағын көрсету/жасыруды қосады/сөндіреді.<br><br>
+                    Әдепкі: on | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Шақырылатын қосымшаның терезесінің көрінуін басқарады. Еншілес процестерге әсер етпейді.<br><br>
+                    Әдепкі: off | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Меню тармағынан кейін көлденең бөлгіш қосады.<br><br>
+                    Әдепкі: off | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Меню тармағының алдына көлденең бөлгіш қосады.<br><br>
+                    Әдепкі: off | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Font Awesome Free (Solid/Regular/Brands) жинағынан белгіше.<br><br>
+                    Әдепкі: көрсетілмеген
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Меню тармағын тек домендік бүркеншік ат үшін көрсетеді. Меню шаблонында need_alias=on бар тек бір тармақ болуы керек!<br>
+                    Қолданылуы мүмкін санаттар: projects<br><br>
+                    Әдепкі: көрсетілмеген | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Меню тармағын белгілі бір санаттағы модульдер/қосымшалармен шектеп көрсетеді.</p>
+                    <p>Қолданылатын форматтар:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Әдепкі: көрсетілмеген
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Меню тармағын ата-модульде shell/cli бар-жоғына байланысты көрсетеді.<br>
+                    Қолданылуы мүмкін санаттар: modules, modules\<имя_модуля><br><br>
+                        Әдепкі: көрсетілмеген | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Меню тармағын ата-модульдің күйіне байланысты көрсетеді.<br>
+                    Қолданылуы мүмкін санаттар: modules, modules\<имя_модуля><br><br>
+                        Әдепкі: көрсетілмеген | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Жоба баптауларында іске қосу командасы бар кезде меню тармағын көрсетеді.<br>
+                    Қолданылуы мүмкін санаттар: projects, projects\<имя_домена><br><br>
+                        Әдепкі: көрсетілмеген | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Меню тармағын Open Server Panel-дегі Windows Terminal пайдалану баптауына байланысты көрсетеді.<br><br>
+                    Әдепкі: көрсетілмеген | Мәндері: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Команданы орындауға арналған жұмыс каталогы. Командалар орындалу барысында өзгеруі мүмкін.<br><br>
+                    Әдепкі: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Шаблон айнымалылары</h2>
+    "command" және "work_directory" параметрлерінде келесі шаблон айнымалыларын қолдануға болады:
+    <h3>Жалпы айнымалылар</h3>
+    <table>
+        <tr>
+            <th>Айнымалы</th>
+            <th>Сипаттамасы</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Ағымдағы күн/уақыт ("command" параметрі үшін ғана қолжетімді айнымалы)</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel түбір каталогы (толық жол)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Түбір каталогының дискі</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel түбір каталогына жол</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Веб-интерфейс URL-мекенжайы</td>
+        </tr>
+    </table>
+    <h3>Арнайы айнымалылар (тек projects және projects\&lt;имя_домена&gt; үшін)</h3>
+    <table>
+        <tr>
+            <th>Айнымалы</th>
+            <th>Сипаттамасы</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Жобаның базалық каталогы</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Домен атауы (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Көрінетін домен атауы (Punycodeсыз)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Жобаға сұрау сұлбасы ("http" немесе "https", жобаның TLS параметріне байланысты)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Жобаға HTTP протоколы бойынша сұрау порты</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Жобаға HTTPS протоколы бойынша сұрау порты</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Меню тармағының тақырыбы (тек need_alias=ON бар projects санаты үшін)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP қозғалтқышы</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js қозғалтқышы</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP қозғалтқышы</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Жобаның түбір каталогы</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Жобаның URL-ы</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Жобаның жалпыға қолжетімді каталогы</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Жобаға сұрау порты (":{http_port}" немесе ":{https_port}", жобаның TLS параметріне байланысты). Егер {http_port} немесе {https_port} стандартты 80 не 443 болса, {scheme_port} бос болады.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Жоба қосымшасын іске қосу командасы (егер бапталған болса)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Консоль кодтамасы</td>
+        </tr>
+    </table>
+    <h3>Арнайы айнымалылар (тек addons және addons\&lt;имя_дополнения&gt; үшін)</h3>
+    <table>
+        <tr>
+            <th>Айнымалы</th>
+            <th>Сипаттамасы</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Қосымшаның атауы</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Консоль кодтамасы</td>
+        </tr>
+    </table>
+    <h3>Арнайы айнымалылар (тек modules және modules\&lt;имя_модуля&gt; үшін)</h3>
+    <table>
+        <tr>
+            <th>Айнымалы</th>
+            <th>Сипаттамасы</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Модульдің IP-мекенжайы</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Қателерді журналдау деңгейі</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Модуль атауы</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Модуль порты</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Модуль баптауларының ағымдағы профилі атауы</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Сұрауларды журналдау деңгейі</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Модульдің shell/cli қабығын іске қосу командасы (егер бапталған болса)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Консоль кодтамасы</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Уақыт белдеуі</td>
+        </tr>
+    </table>
+    <h3>Арнайы командалар мәндері</h3>
+    <table>
+        <tr>
+            <th>Команда</th>
+            <th>Сипаттамасы</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Журналдарды қарау терезесін ашу</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN-конвертерін ашу</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Бағдарлама баптаулары терезесін ашу</td>
+        </tr>
+    </table>
+    <p>Шаблон айнымалыларынан бөлек, кез келген Windows орта айнымалыларын пайдалануға болады, мысалы: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% және т.б.</p>
+    <h3>Пайдалану мысалы</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Менің Бетбелгілерім\Іздеу жүйелері
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE опциялары</h3>
+    <ul>
+        <li>/c: Команданы орындап, терминалды жабу.</li>
+        <li>/k: Команданы орындап, терминалды ашық қалдыру.</li>
+    </ul>
+</body>
+
+</html>

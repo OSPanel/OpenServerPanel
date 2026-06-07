@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Moduļu globālie vides mainīgie</h2>
+    <p>Šajā sadaļā var norādīt moduļu globālos vides mainīgos.<br><br>Šie mainīgie darbojas tikai moduļu vidē un neietekmē sistēmas mainīgos vai projektu vidi.<br><br>Vērtībās ir atļauta veidnes mainīgo izmantošana.</p>
+    <p>Ja mainīgais ir pieejams sistēmas vidē, bet to nevajadzētu izmantot moduļu vidē, izmantojiet īpašu filtru (skat. Moduļi&rarr;Atļautie sistēmas mainīgie) vai noņemiet mainīgo no vides, piešķirot tam tukšu vērtību.</p>
+    <h2>Veidnes mainīgie</h2>
+    <table>
+        <tr>
+            <th>Mainīgais</th>
+            <th>Apraksts</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel saknes katalogs (pilns ceļš)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Saknes kataloga disks</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Ceļš uz Open Server Panel saknes katalogu</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodējums terminālī (skat. Moduļi&rarr;Kodējums terminālī)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Laika josla formātā Etc/GMT (skat. Moduļi&rarr;Laika josla)</td>
+        </tr>
+    </table>
+    <p>Papildus veidnes mainīgajiem var izmantot jebkurus Windows vides mainīgos, piemēram: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% utt.</p>
+</body>
+
+</html>

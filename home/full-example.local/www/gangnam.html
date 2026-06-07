@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gangnam Style</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            position: relative;
+            transition: background 0.5s ease;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a0a2e 0%, #0f0728 100%);
+                color: #fbbf24;
+            }
+            
+            .grid-background {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: 
+                    linear-gradient(rgba(251, 191, 36, 0.08) 1.5px, transparent 1.5px),
+                    linear-gradient(90deg, rgba(251, 191, 36, 0.08) 1.5px, transparent 1.5px);
+                background-size: 50px 50px;
+                background-position: center center;
+            }
+            
+            .text-gradient {
+                background: linear-gradient(45deg, #fbbf24, #f59e0b, #ec4899, #a855f7);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: gradientShift 3s ease infinite;
+            }
+            
+            .exclamation {
+                color: #ec4899;
+                -webkit-text-fill-color: #ec4899;
+            }
+            
+            .dance-icon svg {
+                fill: #fbbf24;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+                color: #78350f;
+            }
+            
+            .grid-background {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: 
+                    linear-gradient(rgba(245, 158, 11, 0.12) 1.5px, transparent 1.5px),
+                    linear-gradient(90deg, rgba(245, 158, 11, 0.12) 1.5px, transparent 1.5px);
+                background-size: 50px 50px;
+                background-position: center center;
+            }
+            
+            .text-gradient {
+                background: linear-gradient(45deg, #f59e0b, #dc2626, #ec4899, #8b5cf6);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: gradientShift 3s ease infinite;
+            }
+            
+            .exclamation {
+                color: #dc2626;
+                -webkit-text-fill-color: #dc2626;
+            }
+            
+            .dance-icon svg {
+                fill: #f59e0b;
+            }
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            z-index: 10;
+            perspective: 1000px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            position: relative;
+            letter-spacing: 0.05em;
+            transform-style: preserve-3d;
+            animation: bounceRotate 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dance-icon {
+            display: inline-block;
+            width: 4.5rem;
+            height: 4.5rem;
+            margin: 0 0.5rem;
+            animation: danceMove 1s ease-in-out infinite;
+        }
+
+        .dance-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .exclamation {
+            display: inline-block;
+            font-size: 5rem;
+            margin-left: 0.2rem;
+            animation: pulse 0.8s ease-in-out infinite;
+            background: none !important;
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .particle {
+                animation: explodeParticleDark 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .particle {
+                animation: explodeParticleLight 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            }
+        }
+
+        @keyframes explodeParticleDark {
+            0% {
+                transform: translate(0, 0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--target-x), var(--target-y)) scale(1) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes explodeParticleLight {
+            0% {
+                transform: translate(0, 0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(var(--target-x), var(--target-y)) scale(1) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounceRotate {
+            0%, 100% {
+                transform: translateY(0) rotateZ(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotateZ(-3deg);
+            }
+            50% {
+                transform: translateY(0) rotateZ(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotateZ(3deg);
+            }
+        }
+
+        @keyframes danceMove {
+            0%, 100% {
+                transform: translateX(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateX(-10px) rotate(-15deg) scale(1.1);
+            }
+            50% {
+                transform: translateX(0) rotate(0deg) scale(1);
+            }
+            75% {
+                transform: translateX(10px) rotate(15deg) scale(1.1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .dance-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .exclamation {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+    
+    <div class="container">
+        <h1>
+            <span class="dance-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="6" r="2"/>
+                    <path d="M12 9c-1 0-2 .5-2 1.5v3c0 .5.5 1 1 1h2c.5 0 1-.5 1-1v-3c0-1-1-1.5-2-1.5z"/>
+                    <path d="M10 14.5l-2 5c-.2.5.1 1 .6 1h.9c.3 0 .6-.2.7-.5l1.8-4.5"/>
+                    <path d="M14 14.5l2 5c.2.5-.1 1-.6 1h-.9c-.3 0-.6-.2-.7-.5l-1.8-4.5"/>
+                    <path d="M9 11l-2-1c-.5-.3-1.2 0-1.2.7v.8c0 .3.1.5.3.7l2.9 2.3"/>
+                    <path d="M15 11l2-1c.5-.3 1.2 0 1.2.7v.8c0 .3-.1.5-.3.7l-2.9 2.3"/>
+                </svg>
+            </span>
+            <span class="text-gradient">Gangnam Style</span><span class="exclamation">!</span>
+            <span class="dance-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="6" r="2"/>
+                    <path d="M12 9c-1 0-2 .5-2 1.5v3c0 .5.5 1 1 1h2c.5 0 1-.5 1-1v-3c0-1-1-1.5-2-1.5z"/>
+                    <path d="M10 14.5l-1.5 5.2c-.1.4.1.8.6.8h.9c.3 0 .6-.2.7-.5l1.3-4"/>
+                    <path d="M14 14.5l1.5 5.2c.1.4-.1.8-.6.8h-.9c-.3 0-.6-.2-.7-.5l-1.3-4"/>
+                    <path d="M10 10l-3 1c-.5.2-.7.8-.4 1.2l.5.6c.2.2.5.3.8.2l3.1-1"/>
+                    <path d="M14 10l3 1c.5.2.7.8.4 1.2l-.5.6c-.2.2-.5.3-.8.2l-3.1-1"/>
+                </svg>
+            </span>
+        </h1>
+    </div>
+
+    <script>
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        const colorsDark = [
+            '#fbbf24',
+            '#f59e0b',
+            '#ec4899',
+            '#a855f7',
+            '#ef4444',
+            '#10b981',
+            '#06b6d4',
+            '#8b5cf6',
+            '#f97316',
+            '#d946ef',
+        ];
+
+        const colorsLight = [
+            '#f59e0b',
+            '#dc2626',
+            '#ec4899',
+            '#8b5cf6',
+            '#a855f7',
+            '#10b981',
+            '#06b6d4',
+            '#f97316',
+            '#d946ef',
+            '#ef4444',
+        ];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            particle.style.left = centerX + 'px';
+            particle.style.top = centerY + 'px';
+            
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 300 + Math.random() * 500;
+            const targetX = Math.cos(angle) * distance;
+            const targetY = Math.sin(angle) * distance;
+            
+            particle.style.setProperty('--target-x', targetX + 'px');
+            particle.style.setProperty('--target-y', targetY + 'px');
+            
+            const colors = isDark ? colorsDark : colorsLight;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            particle.style.backgroundColor = color;
+            
+            particle.style.animationDelay = Math.random() * 0.2 + 's';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 2500);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                for (let i = 0; i < 250; i++) {
+                    setTimeout(() => createParticle(), i * 8);
+                }
+            }, 500);
+        });
+
+        setInterval(() => {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => createParticle(), i * 10);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

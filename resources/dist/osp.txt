@@ -1,0 +1,92 @@
+Usage: osp <command> [<arguments>]
+
+Environment management:
+
+add     <MODULE|ADDON>      Merge the environment of the module/addon with the current environment
+info                        Show information about current environment
+project <DOMAIN>   [start]  Activate project environment and go to its root directory
+                            Use [start] to launch the project (if configured)
+                            Don't specify any arguments to launch the project selector
+                            Use "auto" domain to determine the project by the current directory
+reset   [init]              Reset current console environment (original system environment)
+                            Use [init] to initialize the command line interface
+use     <MODULE|ADDON>      Apply the environment of the specified module or addon
+                            When the module is disabled, some functions (utilities, commands,
+                            database operations) may be unavailable!
+
+Module management:
+
+init    <MODULE> [PROFILE]  Reload module settings and recreate temporary files (configs)
+                            If necessary, specify a new active settings profile for the module
+                            This command is not available for modules in active state!
+                            Apply the module environment again (command "use" or "add"), if it
+                            is currently active, and the settings or settings profile has changed!
+off     <MODULE>            Disable module
+on      <MODULE> [PROFILE]  Enable module (if necessary, specify a new active profile)
+restart <MODULE> [PROFILE]  Restart module (if necessary, specify a new active profile)
+shell   <MODULE>            Launch shell or module command line interface (if available)
+status  <MODULE>            Show information about module status
+
+Node.js management:
+
+node    install <N>         Install Node.js version. Version number <N> options:
+                            - specific version number
+                            - "latest" for the latest version
+                            - "lts" for the latest LTS version
+                            After installation, use commands "osp use Node-x.x.x" or
+                            "osp add Node-x.x.x" with the full version number
+node    list   [available]  Show list of installed Node.js versions
+                            Use flag [available] to view available Node.js versions
+node    uninstall <N>       Uninstall previously installed Node.js version
+
+Other commands:
+
+addons                      Show information about addons
+cacert  <init|show|deinit>  Generate and install|show|remove root certificate (CA)
+                            When installing a new one, all old root certificates will be removed
+                            Restart your browser to apply the new root certificate
+convert <DOMAIN>            Convert domain name from/to Punycode
+exit                        Terminate the program (current environment will be reset)
+log     <PATTERN> [N]       Show logs by file path filter (last N lines)
+                            Use regular expression to select displayed logs
+                            Show all PHP-8.0 module logs: osp log php-8\.0
+                            Show all domain access logs: osp log domains\\(.+)_access
+                            Show all program logs: osp log "\\(general|api|scheduler)"
+                            Show all available logs (last 15 lines): osp log . 15
+modules                     Show information about modules
+projects                    Show information about projects
+status                      Show status of all systems (tasks, domains, addons, and modules)
+sysprep [silent|ssd]        Launch System Preparation Tool
+                            Add [silent] to run system preparation in silent mode
+                            Flag [ssd] is similar to [silent] (but with optimization for SSD)
+                            Silent mode preparation is performed automatically, progress
+                            is not displayed. After completion, the system will be restarted!
+tasks                       Show information about scheduler tasks
+version                     Show program version information
+
+Usage examples:
+
+osp exit & ospanel          Restarting program
+osp use PostgreSQL-9.6      Application in the PostgreSQL-9.6 module environment console
+osp on PHP-8.1 myprofile    Enabling PHP-8.1 module with changing settings profile to MyProfile
+osp restart mysql-8.0       Restarting MySQL-8.0 module (module name is accepted in any case)
+osp reset & osp add bind    Combining system environment with Bind environment
+
+Available utilities:
+
+aria2c                      Utility for downloading files via HTTP(S), (S)FTP and BitTorrent prot.
+bat                         Cat (linux) clone with syntax highlighting and Git integration
+brotli                      Open source lossless data compression utility
+curl                        Command line tool for transferring data with URLs
+dust                        Utility similar to du (linux), but more intuitive and understandable!
+fd                          Simple and fast utility for finding entries in the file system
+goipelookup                 Program for determining geolocation by IP address
+goipelookup6                Program for determining geolocation by IP address v6   
+jq                          Lightweight and flexible command-line JSON processor
+mmdbinspect                 Tool for searching records in one or more .mmdb databases
+oha                         HTTP service load testing tool
+sass                        Dart Sass — popular SASS/SCSS file compiler
+sd                          Intuitive program for finding and replacing text in files
+sqlite3                     Console client for working with SQLite databases
+wget                        Non-interactive console program for downloading files
+xh                          Convenient and fast tool for sending HTTP requests

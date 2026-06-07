@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Savējo izvēlnes vienumu izveide</h2>
+    <ol>
+        <li>Pievienojiet jaunu sadaļu ar unikālu identifikatoru [ID]</li>
+        <li>Novietojiet sadaļas vēlamajā secībā — tas noteiks vienumu kārtību izvēlnē</li>
+        <li>Saglabājiet izmaiņas un pārstartējiet Open Server Panel, lai piemērotu izmaiņas</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Svarīga informācija</h3>
+        Veidojot savus izvēlnes vienumus, pārliecinieties, ka sadaļu identifikatori neatkārtojas. Tas var izraisīt konfliktus izvēlnes darbībā.
+    </div>
+    <h2>Izvēlnes vienumu iestatījumi</h2>
+    <p><strong>Kārtošanas secība:</strong> Izvēlnes vienumi tiek kārtoti tajā pašā secībā, kādā atbilstošās sadaļas ir izvietotas šablonā.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Izvēlnes vienuma virsraksts. Atbalsta valodu konstantes formātā {lang_xxx}.<br><br>
+                    Pēc noklusējuma: nav norādīts
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Nosaka izvēlnes vienuma novietojumu hierarhijā. Atbalsta vienu ligzdotības līmeni (piemēram, "Manas grāmatzīmes\Darbs").</p>
+                    <p>Speciālās kategorijas:</p>
+                    <ul>
+                        <li>projects, modules, addons - pievieno vienumu atbilstošajai darbību izvēlnei</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - pievieno vienumu konkrētam elementam</li>
+                    </ul>
+                    <p>Ja kategorija nav norādīta, vienums tiek izveidots saknes izvēlnē.</p>
+                    Pēc noklusējuma: nav norādīts
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Komanda, kas tiek izpildīta, aktivizējot izvēlnes vienumu. Vienumi bez komandas tiek ignorēti.<br><br>
+                    Pēc noklusējuma: nav norādīts
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Ieslēdz/izslēdz izvēlnes vienuma rādīšanu.<br><br>
+                    Pēc noklusējuma: on | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Kontrolē izsauktās lietotnes loga redzamību. Neietekmē bērnprocesus.<br><br>
+                    Pēc noklusējuma: off | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Pievieno horizontālu atdalītāju pēc izvēlnes vienuma.<br><br>
+                    Pēc noklusējuma: off | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Pievieno horizontālu atdalītāju pirms izvēlnes vienuma.<br><br>
+                    Pēc noklusējuma: off | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikona no Font Awesome Free (Solid/Regular/Brands) kopas.<br><br>
+                    Pēc noklusējuma: nav norādīts
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Rāda izvēlnes vienumu tikai domēna aliasam. Izvēlnes šablonā var būt tikai viens vienums ar need_alias=on!<br>
+                    Piemērojams kategorijām: projects<br><br>
+                    Pēc noklusējuma: nav norādīts | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Ierobežo izvēlnes vienuma rādīšanu noteiktas kategorijas moduļiem/papildinājumiem.</p>
+                    <p>Atbalstītie formāti:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Pēc noklusējuma: nav norādīts
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Rāda izvēlnes vienumu atkarībā no vecākmodeļa shell/cli esamības.<br>
+                    Piemērojams kategorijām: modules, modules\<имя_модуля><br><br>
+                        Pēc noklusējuma: nav norādīts | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Rāda izvēlnes vienumu atkarībā no vecākmodeļa stāvokļa.<br>
+                    Piemērojams kategorijām: modules, modules\<имя_модуля><br><br>
+                        Pēc noklusējuma: nav norādīts | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Rāda izvēlnes vienumu, ja projekta iestatījumos ir norādīta palaišanas komanda.<br>
+                    Piemērojams kategorijām: projects, projects\<имя_домена><br><br>
+                        Pēc noklusējuma: nav norādīts | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Rāda izvēlnes vienumu atkarībā no Windows Terminal izmantošanas iestatījuma Open Server Panel vidē.<br><br>
+                    Pēc noklusējuma: nav norādīts | Vērtības: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Darba direktorija komandas izpildei. Var mainīties komandu izpildes laikā.<br><br>
+                    Pēc noklusējuma: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Šablona mainīgie</h2>
+    Parametros "command" un "work_directory" var izmantot šādus šablona mainīgos:
+    <h3>Kopīgie mainīgie</h3>
+    <table>
+        <tr>
+            <th>Mainīgais</th>
+            <th>Apraksts</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Pašreizējais datums/laiks (mainīgais pieejams tikai parametram "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel saknes katalogs (pilns ceļš)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Saknes kataloga disks</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Ceļš uz Open Server Panel saknes katalogu</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Tīmekļa interfeisa URL adrese</td>
+        </tr>
+    </table>
+    <h3>Īpašie mainīgie (tikai projects un projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Mainīgais</th>
+            <th>Apraksts</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Projekta bāzes katalogs</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domēna nosaukums (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Redzamais domēna nosaukums (bez Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Pieprasījuma shēma projektam ("http" vai "https", atkarīgs no TLS parametra projekta iestatījumos)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP pieprasījuma ports projektam</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS pieprasījuma ports projektam</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Izvēlnes vienuma virsraksts (tikai projekta kategorijai ar need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP dzinējs</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js dzinējs</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP dzinējs</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projekta saknes katalogs</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projekta URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Projekta publiskais katalogs</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Pieprasījuma ports projektam (":{http_port}" vai ":{https_port}", atkarīgs no TLS parametra projekta iestatījumos). Ja {http_port} vai {https_port} ir standarta vērtība 80 vai 443, tad {scheme_port} būs tukšs.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Projekta lietotnes palaišanas komanda (ja iestatīta)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsoles kodējums</td>
+        </tr>
+    </table>
+    <h3>Īpašie mainīgie (tikai addons un addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Mainīgais</th>
+            <th>Apraksts</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Papildinājuma nosaukums</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsoles kodējums</td>
+        </tr>
+    </table>
+    <h3>Īpašie mainīgie (tikai modules un modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Mainīgais</th>
+            <th>Apraksts</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Moduļa IP adrese</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Kļūdu žurnalēšanas līmenis</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Moduļa nosaukums</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Moduļa ports</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Moduļa pašreizējā profila nosaukums</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Pieprasījumu žurnalēšanas līmenis</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Moduļa shell/cli čaulas palaišanas komanda (ja iestatīta)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsoles kodējums</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Laika josla</td>
+        </tr>
+    </table>
+    <h3>Īpašas komandu vērtības</h3>
+    <table>
+        <tr>
+            <th>Komanda</th>
+            <th>Apraksts</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Atvērt žurnālu skatītāju</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Atvērt IDN pārveidotāju</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Atvērt programmas iestatījumu logu</td>
+        </tr>
+    </table>
+    <p>Bez šablona mainīgajiem var izmantot jebkurus Windows vides mainīgos, piemēram: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% u.c.</p>
+    <h3>Lietošanas piemērs</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Manas grāmatzīmes\Meklētājprogrammas
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE opcijas</h3>
+    <ul>
+        <li>/c: Izpildīt komandu un aizvērt termināli.</li>
+        <li>/k: Izpildīt komandu un atstāt termināli atvērtu.</li>
+    </ul>
+</body>
+
+</html>

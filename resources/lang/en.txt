@@ -1,0 +1,11 @@
+﻿IMPORTANT! READ BEFORE INSTALLATION:
+
+How to install the software correctly:
+
+• Do not install the new version in the same directory as the old one — this will result in the loss of all databases and settings.
+
+• Do not install the software on USB flash drives — this causes rapid wear and extremely slow performance.
+
+• Do not use external hard drives with USB 2.0 interface — performance will be unacceptably slow.
+
+• For maximum performance, we recommend installing the software on an internal SSD. If unavailable, use a regular internal hard drive.

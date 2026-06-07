@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globala modulinställningar</h2>
+    <p>Parametrarna som anges i detta avsnitt tillämpas i de fall då värdet auto (standard) är inställt för motsvarande alternativ i en specifik moduls inställningar.</p>
+    <table>
+        <tr>
+            <th>Tyst läge</th>
+        </tr>
+        <tr>
+            <td>
+                Inaktiverar popup-felmeddelanden från Windows Error Reporting och själva modulen.<br><br>
+                <strong>Rekommendation:</strong> Inaktivera detta läge endast när det behövs för felsökning av modulens drift.</td>
+        </tr>
+        <tr>
+            <th>Lägg till rubrik i loggfilen</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiverar automatisk tilläggning av en rubrik i loggfilen vid varje modulstart. Användbart när automatisk loggrensning är avstängd för att separera arbetssessioner.</td>
+        </tr>
+        <tr>
+            <th>Maximalt antal misslyckade starter</th>
+        </tr>
+        <tr>
+            <td>
+                Anger hur många på varandra följande misslyckade modulstarter som tillåts innan den går över till tillståndet ”Fel”.</td>
+        </tr>
+        <tr>
+            <th>Tid för kontroll av modulens funktion</th>
+        </tr>
+        <tr>
+            <td>Anger testperioden för modulens funktion efter en lyckad start.<br><br>
+                <strong>Startpunkt:</strong> Från och med den lyckade modulstarten.<br><br>
+                <strong>Övergång till tillståndet ”Fel”:</strong> Om modulen kraschar under prövotiden kommer den inte att startas om automatiskt och går över till tillståndet ”Fel”. Detta gäller även i fall då modulen inte kan startas på systemnivå.<br><br>
+                <strong>Inaktivera kontrollen:</strong> Värdet 0 inaktiverar prövotiden och modulen kommer alltid att startas om vid fel.<br><br>
+                <strong>Rekommendation:</strong> Sätt inte värdet 0 eller en alltför kort period (mindre än 30 sekunder), eftersom detta kan leda till oändliga omstartsloopar.</td>
+        </tr>
+        <tr>
+            <th>Tidsgräns för modulens avstängning</th>
+        </tr>
+        <tr>
+            <td>Anger maximal tid som modulen tillåts för att avsluta sitt arbete.<br><br>
+                <strong>Tvingad avstängning:</strong> Om modulen inte avslutar inom angiven tid kommer den att stoppas med tvång.<br><br>
+                <strong>Inaktivera väntan:</strong> Värdet 0 inaktiverar väntetiden. Programmet kommer att vänta på att modulen avslutar på obestämd tid.<br><br>
+                <strong>Varning:</strong> Tvingad stopp av modulen kan leda till dataskador, förlust av osparade ändringar eller felaktigt avslut av processer. Använd denna inställning med försiktighet.</td>
+        </tr>
+        <tr>
+            <th>Maximal storlek på loggfil</th>
+        </tr>
+        <tr>
+            <td>
+                Maximal storlek på loggfilen i megabyte. När det angivna värdet överskrids kommer loggfilen återskapas vid nästa modulstart.<br><br>
+                Ställ in värdet 0 för att rensa loggar vid varje modulstart.<br><br>
+                Ställ in värdet 100 MB för att helt inaktivera loggrensning.</td>
+        </tr>
+        <tr>
+            <th>Terminalkodning</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalens kodning vid arbete med modulens miljö.<br><br>
+                <strong>Specialvärden:</strong><br>
+                - system: Systemets kodning används.</td>
+        </tr>
+        <tr>
+            <th>Tidszon</th>
+        </tr>
+        <tr>
+            <td>
+                Anger modulens tidszon i formatet Etc/GMT (t.ex. Etc/GMT-3).<br><br>
+                <strong>Specialvärden:</strong><br>
+                - system: Systemets tidszon används.<br><br>
+                <strong>Viktigt:</strong> Formatet Etc/GMT har omvänt offset i förhållande till UTC (t.ex. Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Använda tilläggsmiljöer</th>
+        </tr>
+        <tr>
+            <td>
+                Anger en lista över tillägg (anges separerade med mellanslag) vars miljöer (om sådana finns) kopplas till modulens miljö. Informationsindikatorer i terminalen visar inte dessa extra miljöer.<br><br>
+                <strong>Varning:</strong> Använd detta alternativ endast om du fullt ut förstår dess syfte.</td>
+        </tr>
+        <tr>
+            <th>Tillåtna systemvariabler</th>
+        </tr>
+        <tr>
+            <td>
+                Anger en lista över Windows-miljövariabler (anges separerade med mellanslag) som överförs till modulens miljö.<br><br>
+                <strong>Syfte:</strong> Gör det möjligt att isolera modulens arbetsmiljö från motsvarande programvara installerad i systemet.<br><br>
+                <strong>Varning:</strong> Att ändra denna lista utan full förståelse för dess påverkan kan leda till instabil moduldrift.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

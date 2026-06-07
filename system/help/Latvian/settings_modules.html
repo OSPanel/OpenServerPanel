@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Moduļu globālie iestatījumi</h2>
+    <p>Šajā sadaļā norādītie parametri tiek piemēroti gadījumos, kad konkrētā moduļa iestatījumos atbilstošajai opcijai ir iestatīta vērtība auto (pēc noklusējuma).</p>
+    <table>
+        <tr>
+            <th>Klusais darbības režīms</th>
+        </tr>
+        <tr>
+            <td>
+                Atspējo uznirstošos kļūdu ziņojumus no Windows Error Reporting un paša moduļa.<br><br>
+                <strong>Ieteikums:</strong> Atspējojiet šo režīmu tikai moduļa darbības problēmu diagnostikas nepieciešamības gadījumā.</td>
+        </tr>
+        <tr>
+            <th>Pievienot virsrakstu žurnāla failam</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēdz automātisku virsraksta pievienošanu žurnāla failam katrā moduļa palaišanas reizē. Noderīgi, ja automātiskā žurnālu tīrīšana ir izslēgta, lai atdalītu darba sesijas.</td>
+        </tr>
+        <tr>
+            <th>Maksimālais neveiksmīgo palaišanu skaits</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka, cik secīgas neveiksmīgas moduļa palaišanas ir atļautas, pirms tas pāriet stāvoklī «Kļūda».</td>
+        </tr>
+        <tr>
+            <th>Moduļa darbspējas pārbaudes laiks</th>
+        </tr>
+        <tr>
+            <td>Nosaka moduļa darbspējas testēšanas periodu pēc tā veiksmīgas palaišanas.<br><br>
+                <strong>Skaitīšanas sākums:</strong> No moduļa veiksmīgas palaišanas brīža.<br><br>
+                <strong>Pāreja stāvoklī «Kļūda»:</strong> Ja modulis avārijas kārtā beigs darbu izmēģinājuma laikā, tas netiks automātiski pārstartēts un pāries stāvoklī «Kļūda». Tas attiecas arī uz gadījumiem, kad moduli neizdodas palaist sistēmas līmenī.<br><br>
+                <strong>Pārbaudes atspējošana:</strong> Vērtība 0 atspējo izmēģinājuma periodu, un modulis vienmēr tiks pārstartēts kļūmes gadījumā.<br><br>
+                <strong>Ieteikums:</strong> Nenorādiet vērtību 0 vai pārāk īsu periodu (mazāk par 30 sekundēm), jo tas var novest pie bezgalīgiem pārstartēšanas cikliem.</td>
+        </tr>
+        <tr>
+            <th>Moduļa izslēgšanas gaidīšanas laiks</th>
+        </tr>
+        <tr>
+            <td>Nosaka maksimālo laiku, kura laikā modulim ir atļauts pabeigt savu darbu.<br><br>
+                <strong>Piespiedu izslēgšana:</strong> Ja modulis nenoslēdz darbu noteiktajā termiņā, tas tiks piespiedu kārtā apturēts.<br><br>
+                <strong>Gaidīšanas atspējošana:</strong> Vērtība 0 atspējo gaidīšanas periodu. Programma gaidīs moduļa darba pabeigšanu neierobežotu laiku.<br><br>
+                <strong>Brīdinājums:</strong> Piespiedu moduļa apturēšana var novest pie datu bojājumiem, nesaglabāto izmaiņu zuduma vai nekorektas procesu pabeigšanas. Izmantojiet šo iestatījumu piesardzīgi.</td>
+        </tr>
+        <tr>
+            <th>Maksimālais žurnāla faila izmērs</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimālais žurnāla faila izmērs megabaitos. Pārsniedzot norādīto vērtību, log-fails tiks pārradīts nākamajā moduļa palaišanas reizē.<br><br>
+                Iestatiet vērtību 0, lai tīrītu žurnālus katrā moduļa palaišanas reizē.<br><br>
+                Iestatiet vērtību 100 MB, lai pilnībā atspējotu žurnālu tīrīšanu.</td>
+        </tr>
+        <tr>
+            <th>Termināļa kodējums</th>
+        </tr>
+        <tr>
+            <td>
+                Termināļa kodējums, strādājot ar moduļa vidi.<br><br>
+                <strong>Speciālās vērtības:</strong><br>
+                - system: Tiek izmantots sistēmas kodējums.</td>
+        </tr>
+        <tr>
+            <th>Laika josla</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka moduļa laika joslu formātā Etc/GMT (piemēram, Etc/GMT-3).<br><br>
+                <strong>Speciālās vērtības:</strong><br>
+                - system: Tiek izmantota sistēmas laika josla.<br><br>
+                <strong>Svarīgi:</strong> Formātam Etc/GMT ir apgriezta nobīde attiecībā pret UTC (piemēram, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Izmantotās papildinājumu vides</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka papildinājumu sarakstu (norāda ar atstarpēm), kuru vides (ja tādas ir) tiek pievienotas moduļa videi. Informācijas indikatori terminālī šīs papildu vides nerāda.<br><br>
+                <strong>Brīdinājums:</strong> Izmantojiet šo opciju tikai pilnībā saprotot tās nozīmi.</td>
+        </tr>
+        <tr>
+            <th>Atļautie sistēmas mainīgie</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka Windows vides mainīgo sarakstu (norāda ar atstarpēm), kas tiek nodoti moduļa videi.<br><br>
+                <strong>Mērķis:</strong> Ļauj izolēt moduļa darba vidi no sistēmā instalētās līdzīgas programmatūras.<br><br>
+                <strong>Brīdinājums:</strong> Šī saraksta maiņa bez pilnīgas izpratnes par tās ietekmi var novest pie moduļa nestabilas darbības.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

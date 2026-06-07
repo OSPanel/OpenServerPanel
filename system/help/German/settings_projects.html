@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale Projekteinstellungen</h2>
+    <p>Die in diesem Abschnitt festgelegten Parameter werden verwendet, wenn in den Projekteinstellungen keine anderen Werte angegeben sind.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Legt das verwendete Webserver-Modul für Projekte fest.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Gibt die Node.js-Engine zum Starten von Node.js-Anwendungen an.<br><br>
+                <strong>Installation von Node.js:</strong> Installieren Sie zuvor die gewünschte Node.js-Version mit dem Befehl <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Legt das verwendete PHP-Modul zur Verarbeitung von PHP-Dateien fest.</td>
+        </tr>
+        <tr>
+            <th>Aktivieren</th>
+        </tr>
+        <tr>
+            <td>
+                Legt den Standardzustand des Projekts fest (ein- oder ausgeschaltet).</td>
+        </tr>
+        <tr>
+            <th>Terminal-Codierung</th>
+        </tr>
+        <tr>
+            <td>
+                Codierung des Terminals bei der Arbeit mit der Projektumgebung.<br><br>
+                <strong>Spezielle Werte:</strong><br>
+                - system: Es wird die Systemcodierung verwendet.<br><br>
+                <strong>Wichtig:</strong> Wenn kein Wert angegeben ist, wird die Terminal-Codierung bei der Bildung der endgültigen Projektumgebung von der zuletzt eingebundenen Umgebung übernommen, in der sie festgelegt ist, z. B. von der Umgebung des PHP-Moduls.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Legt die IP-Adresse(n) fest, die von allen Projekten ohne individuelle Einstellungen verwendet werden.<br><br>
+                <strong>Einschränkung:</strong> Projekte, die dieselbe IP-Adresse verwenden, müssen auf derselben PHP-Version laufen.<br><br>
+                <strong>Unterstützung mehrerer IPs:</strong> Es können mehrere IP-Adressen durch Leerzeichen angegeben werden, einschließlich IPv6. In der HOSTS-Datei wird den Domains die zuerst angegebene IP zugewiesen.<br><br>
+                <strong>Automatische Zuweisung:</strong> Wenn das Feld leer bleibt, wird die IP-Adresse automatisch zugewiesen.<br><br>
+                <strong>Empfehlungen:</strong>
+                <ul>
+                    <li>Die automatische Verwaltung der IP-Adressen wird den meisten Nutzern empfohlen.</li>
+                    <li>Die manuelle Festlegung der IP-Adresse sollte nur bei spezifischen Anforderungen der Netzwerkkonfiguration verwendet werden.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Legt den Port für HTTP-Verbindungen fest.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Legt den Port für HTTPS-Verbindungen fest.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiviert oder deaktiviert die Unterstützung von TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>Zertifikat-Datei</th>
+        </tr>
+        <tr>
+            <td>
+                Gibt den Pfad zur TLS-Zertifikatdatei an. Platzhaltervariablen können verwendet werden.<br><br>
+                <strong>Zulässige Zeichen:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Empfehlung:</strong> Lassen Sie das Feld leer für die automatische Generierung von Zertifikaten.</td>
+        </tr>
+        <tr>
+            <th>Schlüssel-Datei</th>
+        </tr>
+        <tr>
+            <td>
+                Gibt den Pfad zur TLS-Schlüsseldatei an. Platzhaltervariablen können verwendet werden.<br><br>
+                <strong>Zulässige Zeichen:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Empfehlung:</strong> Lassen Sie das Feld leer für die automatische Generierung des Schlüssels.</td>
+        </tr>
+        <tr>
+            <th>IP-Adresse (Backend)</th>
+        </tr>
+        <tr>
+            <td>Gibt die IP-Adresse an, über die die Verbindung zum Backend hergestellt wird.</td>
+        </tr>
+        <tr>
+            <th>Port (Backend)</th>
+        </tr>
+        <tr>
+            <td>Legt die Portnummer für die Verbindung zum Backend fest.</td>
+        </tr>
+        <tr>
+            <th>Aktivieren (Backend)</th>
+        </tr>
+        <tr>
+            <td>Ermöglicht das automatische Weiterleiten des gesamten eingehenden Projektverkehrs (HTTP und HTTPS) an das Backend. Nützlich für Tests oder Entwicklung, wenn Frontend und Backend getrennt sind.</td>
+        </tr>
+        <tr>
+            <th>Projektverzeichnis</th>
+        </tr>
+        <tr>
+            <td>
+                Gibt das Projektstammverzeichnis an. Der Wechsel in dieses Verzeichnis erfolgt mit dem Befehl <strong>osp project &lt;DOMAIN&gt;</strong> gleichzeitig mit der Aktivierung der Projektumgebung. Platzhaltervariablen können verwendet werden.<br><br>
+                <strong>Zulässige Zeichen:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Öffentliches Verzeichnis</th>
+        </tr>
+        <tr>
+            <td>
+                Legt das öffentliche Verzeichnis des Projekts fest. Platzhaltervariablen können verwendet werden.<br><br>
+                <strong>Zulässige Zeichen:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Aliasse</th>
+        </tr>
+        <tr>
+            <td>
+                Gibt zusätzliche Domainnamen (Aliasse) für das Projekt an (durch Leerzeichen getrennt). Platzhaltervariablen können verwendet werden.<br><br>
+                <strong>Einschränkung:</strong> Das Zeichen "*" wird unter Windows von der HOSTS-Datei nicht unterstützt und erfordert eine DNS-Konfiguration.</td>
+        </tr>
+        <tr>
+            <th>Projektumgebung</th>
+        </tr>
+        <tr>
+            <td>
+                Liste der Add-ons und Module (durch Leerzeichen), die die Projektumgebung bilden.<br><br>
+                <strong>HTTP, NODE und PHP:</strong> Die Umgebungen dieser Engines werden immer eingebunden (sofern für die Domain festgelegt) und müssen in diesem Parameter nicht angegeben werden.</td>
+        </tr>
+        <tr>
+            <th>Projekt-Startbefehl</th>
+        </tr>
+        <tr>
+            <td>
+                Legt den Befehl zum Starten des Projekts fest (z. B. <strong>nodemon app.js</strong>). Platzhaltervariablen können verwendet werden.</td>
+        </tr>
+        <tr>
+            <th>Projekt-URL</th>
+        </tr>
+        <tr>
+            <td>
+                Die URL, die beim Öffnen des Projekts über <strong>Menü&rarr;Projekt&rarr;Im Browser öffnen</strong> sowie beim Öffnen von Domainaliasen des Projekts verwendet wird. Platzhaltervariablen können verwendet werden.<br><br>
+                <strong>Verwendung:</strong> Es kann die URL des Admin-Panels einer CMS angegeben werden.</td>
+        </tr>
+    </table>
+    <h2>Platzhaltervariablen</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Beschreibung</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP-Adresse der Verbindung zum Backend</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port der Verbindung zum Backend</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Stammverzeichnis des Projekts (wo sich das Verzeichnis .osp befindet)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Aktuelles Datum/Uhrzeit (Variable ist nur für den Startbefehl der Projektanwendung verfügbar)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domainname (für internationalisierte Domains wird Punycode verwendet)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Sichtbarer Domainname (ohne Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Anfrageschema zum Projekt ("http" oder "https", abhängig vom TLS-Parameter in den Projekteinstellungen)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Port der Anfrage zum Projekt über das HTTP-Protokoll</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Port der Anfrage zum Projekt über das HTTPS-Protokoll</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP-Engine</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE-Engine</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP-Engine</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Stammverzeichnis des Projekts</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Öffentliches Verzeichnis des Projekts</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Anfrageport zum Projekt (":{http_port}" oder ":{https_port}", abhängig vom TLS-Parameter in den Projekteinstellungen).<br><br>Wenn {http_port} oder {https_port} den Standardwert 80 bzw. 443 hat, ist {scheme_port} leer.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Stammverzeichnis von Open Server Panel (vollständiger Pfad)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Laufwerk des Stammverzeichnisses</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Pfad zum Stammverzeichnis von Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolencodierung</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

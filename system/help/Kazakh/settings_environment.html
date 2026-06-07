@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Модульдік ортаның жаһандық айнымалылары</h2>
+    <p>Осы бөлімде модульдер үшін жаһандық орта айнымалыларын орнатуға болады.<br><br>Бұл айнымалылар тек модульдік ортада әрекет етеді және жүйелік айнымалыларға немесе жобалар ортасына әсер етпейді.<br><br>Мәндерде үлгілік айнымалыларды қолдануға болады.</p>
+    <p>Егер айнымалы жүйелік ортада бар болса, бірақ модульдік ортада қолданылмауы тиіс болса, арнайы сүзгіні пайдаланыңыз (қараңыз: Модульдер&rarr;Рұқсат етілген жүйелік айнымалылар) немесе айнымалыға бос мән беріп, оны ортадан алып тастаңыз.</p>
+    <h2>Үлгілік айнымалылар</h2>
+    <table>
+        <tr>
+            <th>Айнымалы</th>
+            <th>Сипаттама</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel түбірлік каталогы (толық жол)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Түбірлік каталог орналасқан диск</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel түбірлік каталогына жол</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Терминалдағы кодировка (қараңыз: Модульдер&rarr;Терминалдағы кодировка)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Etc/GMT форматындағы уақыт белдеуі (қараңыз: Модульдер&rarr;Уақыт белдеуі)</td>
+        </tr>
+    </table>
+    <p>Үлгілік айнымалылардан бөлек, Windows ортасының кез келген айнымалыларын қолдануға болады, мысалы: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% және т.б.</p>
+</body>
+
+</html>

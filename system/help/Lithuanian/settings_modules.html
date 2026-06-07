@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Modulių globalieji nustatymai</h2>
+    <p>Šioje skiltyje nurodyti parametrai taikomi tais atvejais, kai konkretaus modulio nustatymuose atitinkamai parinkčiai nustatyta reikšmė auto (pagal numatymą).</p>
+    <table>
+        <tr>
+            <th>Tylus veikimo režimas</th>
+        </tr>
+        <tr>
+            <td>
+                Išjungia iškylančiuosius klaidų pranešimus iš Windows Error Reporting ir paties modulio.<br><br>
+                <strong>Rekomendacija:</strong> Išjunkite šį režimą tik tada, kai reikia diagnozuoti modulio darbo problemas.</td>
+        </tr>
+        <tr>
+            <th>Pridėti antraštę į žurnalo failą</th>
+        </tr>
+        <tr>
+            <td>
+                Įjungia automatinį antraštės pridėjimą į žurnalo failą kiekvieno modulio paleidimo metu. Naudinga, kai automatinis žurnalų valymas išjungtas, kad būtų atskirtos darbo sesijos.</td>
+        </tr>
+        <tr>
+            <th>Maksimalus nesėkmingų paleidimų skaičius</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato, kiek iš eilės nesėkmingų modulio paleidimų leidžiama prieš jam pereinant į būseną „Klaida“.</td>
+        </tr>
+        <tr>
+            <th>Modulio darbingumo tikrinimo laikas</th>
+        </tr>
+        <tr>
+            <td>Nustato modulio darbingumo testavimo laikotarpį po sėkmingo paleidimo.<br><br>
+                <strong>Pradžia:</strong> Nuo sėkmingo modulio paleidimo momento.<br><br>
+                <strong>Pereiti į būseną „Klaida“:</strong> Jei modulis per bandomąjį laikotarpį užsibaigs avarija, jis nebus automatiškai paleistas iš naujo ir pereis į būseną „Klaida“. Tai taip pat taikoma atvejams, kai modulio nepavyksta paleisti sistemos lygiu.<br><br>
+                <strong>Tikrinimo išjungimas:</strong> Reikšmė 0 išjungia bandomąjį laikotarpį ir modulis visada bus paleidžiamas iš naujo gedimo atveju.<br><br>
+                <strong>Rekomendacija:</strong> Nenustatykite reikšmės 0 arba per trumpo laikotarpio (mažiau nei 30 sekundžių), nes tai gali sukelti begalinius paleidimų iš naujo ciklus.</td>
+        </tr>
+        <tr>
+            <th>Modulio darbo užbaigimo laukimo laikas</th>
+        </tr>
+        <tr>
+            <td>Nustato maksimalų laiką, per kurį moduliui leidžiama užbaigti savo darbą.<br><br>
+                <strong>Priverstinis užbaigimas:</strong> Jei modulis per nurodytą laiką neužbaigs darbo, jis bus priverstinai sustabdytas.<br><br>
+                <strong>Laukimo išjungimas:</strong> Reikšmė 0 išjungia laukimo laikotarpį. Programa lauks modulio darbo užbaigimo neribotą laiką.<br><br>
+                <strong>Įspėjimas:</strong> Priverstinis modulio sustabdymas gali sukelti duomenų sugadinimą, neįrašytų pakeitimų praradimą arba neteisingą procesų užbaigimą. Naudokite šį nustatymą atsargiai.</td>
+        </tr>
+        <tr>
+            <th>Maksimalus žurnalo failo dydis</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimalus žurnalo failo dydis megabaitais. Viršijus nurodytą reikšmę, žurnalo failas bus iš naujo sukurtas kitą kartą paleidžiant modulį.<br><br>
+                Nustatykite reikšmę 0, kad žurnalai būtų išvalomi kiekvieno modulio paleidimo metu.<br><br>
+                Nustatykite reikšmę 100 MB, kad visiškai išjungtumėte žurnalų valymą.</td>
+        </tr>
+        <tr>
+            <th>Terminalo koduotė</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalo koduotė dirbant su modulio aplinka.<br><br>
+                <strong>Specialios reikšmės:</strong><br>
+                - system: Naudojama sisteminė koduotė.</td>
+        </tr>
+        <tr>
+            <th>Laiko juosta</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato modulio laiko juostą Etc/GMT formatu (pvz., Etc/GMT-3).<br><br>
+                <strong>Specialios reikšmės:</strong><br>
+                - system: Naudojama sisteminė laiko juosta.<br><br>
+                <strong>Svarbu:</strong> Etc/GMT formatas turi atvirkštinį poslinkį UTC atžvilgiu (pvz., Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Naudojamos papildinių aplinkos</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato papildinių sąrašą (nurodomi per tarpą), kurių aplinkos (jei tokių yra) prijungiamos prie modulio aplinkos. Informaciniai indikatoriai terminale šių papildomų aplinkų nerodo.<br><br>
+                <strong>Įspėjimas:</strong> Naudokite šią parinktį tik pilnai suprasdami jos paskirtį.</td>
+        </tr>
+        <tr>
+            <th>Leistini sisteminiai kintamieji</th>
+        </tr>
+        <tr>
+            <td>
+                Nustato Windows aplinkos kintamųjų sąrašą (nurodomi per tarpą), kurie perduodami į modulio aplinką.<br><br>
+                <strong>Paskirtis:</strong> Leidžia izoliuoti modulio darbo aplinką nuo analogiškos sistemoje įdiegtos programinės įrangos.<br><br>
+                <strong>Įspėjimas:</strong> Šio sąrašo keitimas nesuprantant viso jo poveikio gali sukelti nestabilų modulio darbą.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">プログラム設定</h2>
+    <table>
+        <tr>
+            <th>Windows と同時に起動</th>
+        </tr>
+        <tr>
+            <td>
+                オペレーティングシステムの起動時に Open Server Panel の自動起動を有効にします。</td>
+        </tr>
+        <tr>
+            <th>遅延</th>
+        </tr>
+        <tr>
+            <td>
+                プログラム起動の遅延（秒、0 〜 60）。<br><br>Windows と同時起動時にアプリの開始を遅らせ、システム全体の負荷を軽減します。外部サービスやネットワークインターフェースの完全な初期化を待つ必要がある場合に特に有用です。</td>
+        </tr>
+        <tr>
+            <th>新しいバージョンの有無を確認</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel の更新チェックを有効にします（インターネット接続が必要）。</td>
+        </tr>
+        <tr>
+            <th>タスクスケジューラを有効にする</th>
+        </tr>
+        <tr>
+            <td>
+                内蔵タスクスケジューラを有効化します。この設定が無効な場合、ステータスに関わらず一切のスケジュール済みタスクは実行されません。</td>
+        </tr>
+        <tr>
+            <th>HOSTS ファイルを使用する</th>
+        </tr>
+        <tr>
+            <td>
+                ドメイン名を HOSTS ファイルに書き込みます。<br><br>
+                <strong>組織内で HOSTS ファイルへのアクセスが制限されている場合の推奨事項:</strong><br><br>
+                1. 必要なモジュールとプロジェクトをすべて設定します。<br>
+                2. システム管理者に連絡し、HOSTS のブロック解除と状態の固定を依頼します。<br>
+                3. 管理者による変更の固定後は、このオプションを無効にできます。<br><br>
+                <strong>重要:</strong> 結果に確信がない場合は、この設定を無効にしないでください！</td>
+        </tr>
+        <tr>
+            <th>プロジェクトのプロファイルでモジュールを起動</th>
+        </tr>
+        <tr>
+            <td>プロジェクト名と一致するプロファイルを同時に有効化してモジュールを起動します。<br><br>メニュー項目「プロジェクトのモジュールを有効にする」を選択した際、現在のプロジェクトと同名のプロファイルが存在する場合、自動的にそのプロファイルを有効化するために使用します。</td>
+        </tr>
+        <tr>
+            <th>非表示プロジェクトのモジュールを停止しない</th>
+        </tr>
+        <tr>
+            <td>メニュー項目「すべてのモジュールを無効にする」を選択しても、非表示プロジェクトのモジュールを停止しません。ここでの「非表示」とは、カテゴリに「hidden」が設定されたプロジェクトを指します。<br><br>デフォルトでは「すべてのモジュールを無効にする」コマンドは、非表示のシステムプロジェクト（例: PHPMyAdmin）で使用されているものも含め、すべてのモジュールを停止します。このオプションにより、必要なモジュールを無効にせずに非表示のシステムプロジェクトの動作を維持しつつ、その他すべてのモジュールを停止できます。</td>
+        </tr>
+        <tr>
+            <th>インターフェイスの言語</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel のユーザーインターフェイス言語。<br><br>
+                ローカライズファイルが存在しない、またはエラーを含む場合は、英語が使用されます。</td>
+        </tr>
+        <tr>
+            <th>API ドメイン</th>
+        </tr>
+        <tr>
+            <td>
+                API および Web インターフェイス用のローカルドメイン（開発中）<br><br>
+                <strong>推奨:</strong> VPN やプロキシを使用している場合、このドメインを除外設定に追加してください。</td>
+        </tr>
+        <tr>
+            <th>API の IP アドレス</th>
+        </tr>
+        <tr>
+            <td>
+                API および Web インターフェイス用の IPv4 アドレス（開発中）。<br><br>
+                <strong>推奨:</strong> VPN やプロキシを使用している場合、この IP アドレスを除外設定に追加してください。</td>
+        </tr>
+        <tr>
+            <th>API ポート</th>
+        </tr>
+        <tr>
+            <td>
+                API および Web インターフェイスで使用されるポート（開発中）。指定したポートが他のアプリケーションで使用中の場合、Open Server Panel は起動できません。</td>
+        </tr>
+        <tr>
+            <th>Windows Terminal を使用</th>
+        </tr>
+        <tr>
+            <td>
+                標準のコマンドインターフェイスの代わりに Windows Terminal の使用を有効にします。<br><br>
+                <strong>要件:</strong> Windows Terminal がシステムにインストールされ、環境変数 PATH に設定されている必要があります。<br><br>
+                <strong>cmd.exe としての Windows Terminal:</strong> Windows Terminal は cmd.exe を置き換え、新しい Windows バージョンでは環境変数 %COMSPEC% に設定されている場合があります。その場合は、このオプションを有効のままにしてください。<br><br>
+                <strong>Windows Terminal の新しいインスタンス:</strong> Windows Terminal がタブではなく新しいウィンドウを開く場合は、次のように設定してください: 設定&rarr;起動&rarr;新しいインスタンスの動作&rarr;最後に使用したウィンドウに結合。</td>
+        </tr>
+        <tr>
+            <th>短いプロジェクトタイトル</th>
+        </tr>
+        <tr>
+            <td>
+                このオプションを有効にすると、ターミナルウィンドウのタイトルに詳細な環境説明ではなく、プロジェクト名のみが表示されます。</td>
+        </tr>
+        <tr>
+            <th>システム環境をプロジェクト環境に含める</th>
+        </tr>
+        <tr>
+            <td>プロジェクト設定で指定されていない場合でも、ターミナルでシステム（System）環境を使用します。システム環境により、システムにインストールされたプログラム（例: git.exe や ssh.exe）を使用できます。<br><br>システムのソフトウェアと競合が発生した場合にのみ、このオプションを無効にしてください。</td>
+        </tr>
+        <tr>
+            <th>ANSI サポート</th>
+        </tr>
+        <tr>
+            <td>
+                ターミナルの色制御用 ANSI コードのサポートを有効にします。<br><br>
+                「自動」（デフォルト）モード:<br>
+                - 修正は Windows 10 バージョン 1903 までにのみ適用されます。より新しい Windows では ANSI コードのサポートが既に組み込まれています。<br>
+                - デフォルトで ANSI をサポートするターミナル（例: Windows Terminal）には修正は適用されません。
+            </td>
+        </tr>
+        <tr>
+            <th>プロジェクト検索用ディレクトリ</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel がプロジェクトを検索するディレクトリの一覧。パスはセミコロン（;）で区切ってください。<br><br>
+                <strong>除外:</strong> サブディレクトリ node_modules および vendor は無視されます。</td>
+        </tr>
+        <tr>
+            <th>深さ</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクト検索時のディレクトリの最大ネスト深度。<br><br>
+                指定値を増やすと、指定ディレクトリ内に多数のサブディレクトリがある場合、Open Server Panel の起動が遅くなる可能性があります。</td>
+        </tr>
+        <tr>
+            <th>ログファイルの最大サイズ</th>
+        </tr>
+        <tr>
+            <td>
+                ログファイルの最大サイズ（MB）。指定値を超えた場合、次回のプログラム起動時にログファイルは再作成されます。<br><br>
+                値を 0 に設定すると、プログラム起動のたびにログを消去します。<br><br>
+                値を 100 MB に設定すると、ログの消去を完全に無効にします。</td>
+        </tr>
+    </table>
+</body>
+
+</html>

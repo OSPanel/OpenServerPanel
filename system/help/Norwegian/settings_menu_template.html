@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Opprette egne menyelementer</h2>
+    <ol>
+        <li>Legg til en ny seksjon med en unik identifikator [ID]</li>
+        <li>Plasser seksjonene i ønsket rekkefølge — dette bestemmer rekkefølgen på elementene i menyen</li>
+        <li>Lagre endringene og start Open Server Panel på nytt for å anvende endringene</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Viktig informasjon</h3>
+        Når du oppretter egne menyelementer, sørg for at seksjonsidentifikatorene er unike. Duplisering kan føre til konflikter i menyfunksjonen.
+    </div>
+    <h2>Innstillinger for menyelementer</h2>
+    <p><strong>Sorteringsrekkefølge:</strong> Menyelementer sorteres i samme rekkefølge som de tilsvarende seksjonene i malen.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Tittel på menyelementet. Støtter språkkonstanter i formatet {lang_xxx}.<br><br>
+                    Som standard: ikke angitt
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Bestemmer plasseringen av menyelementet i hierarkiet. Støtter ett nivå med nestinger (for eksempel "Mine bokmerker\Arbeid").</p>
+                    <p>Spesielle kategorier:</p>
+                    <ul>
+                        <li>projects, modules, addons - legger til elementet i den tilsvarende handlingsmenyen</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - legger til element for et spesifikt objekt</li>
+                    </ul>
+                    <p>Hvis kategori ikke er angitt, opprettes elementet i rotmenyen.</p>
+                    Som standard: ikke angitt
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Kommandoen som kjøres når menyelementet aktiveres. Elementer uten kommando ignoreres.<br><br>
+                    Som standard: ikke angitt
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Aktiverer/deaktiverer visning av menyelementet.<br><br>
+                    Som standard: on | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Styrer synligheten til vinduet for det startede programmet. Påvirker ikke underprosesser.<br><br>
+                    Som standard: off | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Legger til en horisontal skillelinje etter menyelementet.<br><br>
+                    Som standard: off | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Legger til en horisontal skillelinje før menyelementet.<br><br>
+                    Som standard: off | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikon fra Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Som standard: ikke angitt
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Viser menyelementet kun for et domenealias. Det kan bare være ett element med need_alias=on i meny-malen!<br>
+                    Gjelder for kategorier: projects<br><br>
+                    Som standard: ikke angitt | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Begrenser visning av menyelementet til modules/addons i en bestemt kategori.</p>
+                    <p>Støttede formater:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Som standard: ikke angitt
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Viser menyelementet avhengig av om overordnet modul har shell/cli.<br>
+                    Gjelder for kategorier: modules, modules\<имя_модуля><br><br>
+                        Som standard: ikke angitt | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Viser menyelementet avhengig av tilstanden til overordnet modul.<br>
+                    Gjelder for kategorier: modules, modules\<имя_модуля><br><br>
+                        Som standard: ikke angitt | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Viser menyelementet hvis det finnes en startkommando i prosjektinnstillingene.<br>
+                    Gjelder for kategorier: projects, projects\<имя_домена><br><br>
+                        Som standard: ikke angitt | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Viser menyelementet avhengig av innstillingen for bruk av Windows Terminal i Open Server Panel.<br><br>
+                    Som standard: ikke angitt | Verdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Arbeidskatalog for å kjøre kommandoen. Kan endres under kommandokjøring.<br><br>
+                    Som standard: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Maler-variabler</h2>
+    I parameterne "command" og "work_directory" kan du bruke følgende malvariabler:
+    <h3>Generelle variabler</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Nåværende dato/tid (variabelen er kun tilgjengelig for parameteren "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Rotkatalogen til Open Server Panel (full sti)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Stasjonen for rotkatalogen</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Sti til rotkatalogen til Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL-adresse til webgrensesnittet</td>
+        </tr>
+    </table>
+    <h3>Spesielle variabler (kun for projects og projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Prosjektets basiskatalog</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domenenavn (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Synlig domenenavn (uten Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Forespørselsskjema til prosjektet ("http" eller "https", avhenger av TLS-parameteren i prosjektinnstillingene)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Port for forespørsel til prosjektet via HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Port for forespørsel til prosjektet via HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Tittel på menyelementet (kun for kategorien projects med need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP-motor</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js-motor</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP-motor</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Prosjektets rotkatalog</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Prosjektets URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Prosjektets offentlige katalog</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Port for forespørsel til prosjektet (":{http_port}" eller ":{https_port}", avhenger av TLS-parameteren i prosjektinnstillingene). Hvis {http_port} eller {https_port} har standardverdien 80 eller 443, vil {scheme_port} være tom.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Startkommando for prosjektets applikasjon (hvis konfigurert)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsollens tegnsett</td>
+        </tr>
+    </table>
+    <h3>Spesielle variabler (kun for addons og addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Navn på tillegg</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsollens tegnsett</td>
+        </tr>
+    </table>
+    <h3>Spesielle variabler (kun for modules og modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Modulens IP-adresse</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Nivå for feillogging</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Modulnavn</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Modulens port</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Navn på gjeldende modulprofil</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Nivå for forespørselslogging</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Kommando for å starte modulens shell/cli (hvis konfigurert)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsollens tegnsett</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Tidssone</td>
+        </tr>
+    </table>
+    <h3>Spesielle kommandoverdier</h3>
+    <table>
+        <tr>
+            <th>Kommando</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Åpne loggvisningsvinduet</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Åpne IDN-konverter</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Åpne programinnstillinger</td>
+        </tr>
+    </table>
+    <p>I tillegg til malvariabler kan du bruke alle Windows-miljøvariabler, for eksempel: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% osv.</p>
+    <h3>Eksempel på bruk</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Mine bokmerker\Søkemotorer
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Alternativer for CMD.EXE</h3>
+    <ul>
+        <li>/c: Kjør kommandoen og lukk terminalen.</li>
+        <li>/k: Kjør kommandoen og la terminalen stå åpen.</li>
+    </ul>
+</body>
+
+</html>

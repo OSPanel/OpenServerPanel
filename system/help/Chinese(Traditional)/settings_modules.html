@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">模組的全域設定</h2>
+    <p>此區段中設定的參數適用於當特定模組的對應選項設為 auto（預設）時的情況。</p>
+    <table>
+        <tr>
+            <th>靜默模式</th>
+        </tr>
+        <tr>
+            <td>
+                關閉 Windows Error Reporting 與模組本身的錯誤彈出訊息。<br><br>
+                <strong>建議：</strong> 僅在需要診斷模組運作問題時停用此模式。</td>
+        </tr>
+        <tr>
+            <th>在日誌檔案中新增標題</th>
+        </tr>
+        <tr>
+            <td>
+                啟用後，模組每次啟動都會自動在日誌檔案中新增標題。當停用自動清理日誌時，可用於劃分工作階段。</td>
+        </tr>
+        <tr>
+            <th>最大失敗啟動次數</th>
+        </tr>
+        <tr>
+            <td>
+                定義在模組轉為「錯誤」狀態之前，允許連續失敗啟動的次數。</td>
+        </tr>
+        <tr>
+            <th>模組健全性檢查時間</th>
+        </tr>
+        <tr>
+            <td>定義模組成功啟動後的健全性測試期間。<br><br>
+                <strong>起始點：</strong> 自模組成功啟動之時算起。<br><br>
+                <strong>轉為「錯誤」狀態：</strong> 若模組在試用期內異常終止，將不會自動重新啟動並轉為「錯誤」狀態。這同樣適用於無法在系統層級啟動模組的情況。<br><br>
+                <strong>停用檢查：</strong> 值為 0 會停用試用期，模組在發生故障時將一律重新啟動。<br><br>
+                <strong>建議：</strong> 請勿設定為 0 或過短的期間（少於 30 秒），以免導致無限重啟循環。</td>
+        </tr>
+        <tr>
+            <th>模組結束運作的等待時間</th>
+        </tr>
+        <tr>
+            <td>定義允許模組結束其運作的最長時間。<br><br>
+                <strong>強制結束：</strong> 若模組未在指定時間內結束，將被強制停止。<br><br>
+                <strong>停用等待：</strong> 值為 0 會停用等待期間。程式將無限期等待模組結束。<br><br>
+                <strong>警告：</strong> 強制停止模組可能導致資料損毀、遺失未儲存變更或不正確的程序結束。請謹慎使用此設定。</td>
+        </tr>
+        <tr>
+            <th>日誌檔案的最大大小</th>
+        </tr>
+        <tr>
+            <td>
+                日誌檔案的最大大小（以 MB 為單位）。超過指定值時，日誌檔案會在下次啟動模組時重新建立。<br><br>
+                設為 0 可在每次啟動模組時清理日誌。<br><br>
+                設為 100 MB 可完全停用日誌清理。</td>
+        </tr>
+        <tr>
+            <th>終端機編碼</th>
+        </tr>
+        <tr>
+            <td>
+                與模組環境互動時的終端機編碼。<br><br>
+                <strong>特殊值：</strong><br>
+                - system: 使用系統編碼。</td>
+        </tr>
+        <tr>
+            <th>時區</th>
+        </tr>
+        <tr>
+            <td>
+                以 Etc/GMT 格式（例如 Etc/GMT-3）定義模組的時區。<br><br>
+                <strong>特殊值：</strong><br>
+                - system: 使用系統時區。<br><br>
+                <strong>重要：</strong> Etc/GMT 格式相對於 UTC 採反向位移（例如，Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow）。</td>
+        </tr>
+        <tr>
+            <th>使用的附加元件環境</th>
+        </tr>
+        <tr>
+            <td>
+                定義附加元件清單（以空白分隔），其環境（若存在）會連接至模組環境。終端機中的資訊指示器不會顯示這些額外的環境。<br><br>
+                <strong>警告：</strong> 僅在完全理解其用途時使用此選項。</td>
+        </tr>
+        <tr>
+            <th>允許的系統變數</th>
+        </tr>
+        <tr>
+            <td>
+                定義要傳遞到模組環境的 Windows 環境變數清單（以空白分隔）。<br><br>
+                <strong>用途：</strong> 可將模組的工作環境與系統中已安裝的同類軟體隔離。<br><br>
+                <strong>警告：</strong> 在未完全理解其影響的情況下更改此清單，可能導致模組運作不穩定。
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Pengaturan global modul</h2>
+    <p>Parameter yang ditentukan di bagian ini diterapkan ketika di pengaturan modul tertentu untuk opsi terkait ditetapkan nilai auto (default).</p>
+    <table>
+        <tr>
+            <th>Mode kerja senyap</th>
+        </tr>
+        <tr>
+            <td>
+                Menonaktifkan pesan pop-up kesalahan dari Windows Error Reporting dan dari modul itu sendiri.<br><br>
+                <strong>Rekomendasi:</strong> Nonaktifkan mode ini hanya bila diperlukan untuk mendiagnosis masalah dalam operasi modul.</td>
+        </tr>
+        <tr>
+            <th>Tambahkan header ke file log</th>
+        </tr>
+        <tr>
+            <td>
+                Mengaktifkan penambahan otomatis header ke file log setiap kali modul dijalankan. Berguna saat pembersihan log otomatis dinonaktifkan untuk memisahkan sesi kerja.</td>
+        </tr>
+        <tr>
+            <th>Jumlah maksimum peluncuran yang gagal</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan berapa banyak peluncuran modul berturut-turut yang gagal diperbolehkan sebelum modul berpindah ke status “Kesalahan”.</td>
+        </tr>
+        <tr>
+            <th>Waktu pemeriksaan kesehatan modul</th>
+        </tr>
+        <tr>
+            <td>Menentukan periode pengujian kesehatan modul setelah peluncuran yang berhasil.<br><br>
+                <strong>Mulai penghitungan:</strong> Sejak momen peluncuran modul yang berhasil.<br><br>
+                <strong>Peralihan ke status “Kesalahan”:</strong> Jika modul berhenti secara tiba-tiba selama masa uji, modul tidak akan dimulai ulang secara otomatis dan akan berpindah ke status “Kesalahan”. Ini juga berlaku ketika modul gagal diluncurkan pada tingkat sistem.<br><br>
+                <strong>Menonaktifkan pemeriksaan:</strong> Nilai 0 menonaktifkan masa uji, dan modul selalu akan dimulai ulang saat terjadi kegagalan.<br><br>
+                <strong>Rekomendasi:</strong> Jangan menetapkan nilai 0 atau periode yang terlalu pendek (kurang dari 30 detik), karena ini dapat menyebabkan loop restart tanpa akhir.</td>
+        </tr>
+        <tr>
+            <th>Waktu tunggu penghentian modul</th>
+        </tr>
+        <tr>
+            <td>Menentukan waktu maksimum di mana modul diizinkan untuk mengakhiri pekerjaannya.<br><br>
+                <strong>Penghentian paksa:</strong> Jika modul tidak berhenti dalam waktu yang ditentukan, modul akan dihentikan secara paksa.<br><br>
+                <strong>Menonaktifkan waktu tunggu:</strong> Nilai 0 menonaktifkan periode menunggu. Program akan menunggu modul berhenti tanpa batas waktu.<br><br>
+                <strong>Peringatan:</strong> Penghentian paksa modul dapat menyebabkan kerusakan data, kehilangan perubahan yang belum disimpan, atau penghentian proses yang tidak benar. Gunakan pengaturan ini dengan hati-hati.</td>
+        </tr>
+        <tr>
+            <th>Ukuran maksimum file log</th>
+        </tr>
+        <tr>
+            <td>
+                Ukuran maksimum file log dalam megabyte. Saat nilai yang ditentukan terlampaui, file log akan dibuat ulang pada peluncuran modul berikutnya.<br><br>
+                Tetapkan nilai 0 untuk membersihkan log pada setiap peluncuran modul.<br><br>
+                Tetapkan nilai 100 MB untuk sepenuhnya menonaktifkan pembersihan log.</td>
+        </tr>
+        <tr>
+            <th>Encoding terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Encoding terminal saat bekerja dengan lingkungan modul.<br><br>
+                <strong>Nilai khusus:</strong><br>
+                - system: Menggunakan encoding sistem.</td>
+        </tr>
+        <tr>
+            <th>Zona waktu</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan zona waktu modul dalam format Etc/GMT (misalnya, Etc/GMT-3).<br><br>
+                <strong>Nilai khusus:</strong><br>
+                - system: Menggunakan zona waktu sistem.<br><br>
+                <strong>Penting:</strong> Format Etc/GMT memiliki offset terbalik relatif terhadap UTC (misalnya, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Lingkungan add-on yang digunakan</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan daftar add-on (ditentukan dipisahkan spasi) yang lingkungannya (jika ada) dilampirkan ke lingkungan modul. Indikator informasi di terminal tidak menampilkan lingkungan tambahan ini.<br><br>
+                <strong>Peringatan:</strong> Gunakan opsi ini hanya jika Anda sepenuhnya memahami tujuannya.</td>
+        </tr>
+        <tr>
+            <th>Variabel sistem yang diizinkan</th>
+        </tr>
+        <tr>
+            <td>
+                Menentukan daftar variabel lingkungan Windows (ditentukan dipisahkan spasi) yang diteruskan ke lingkungan modul.<br><br>
+                <strong>Tujuan:</strong> Memungkinkan untuk mengisolasi lingkungan kerja modul dari perangkat lunak serupa yang terpasang di sistem.<br><br>
+                <strong>Peringatan:</strong> Mengubah daftar ini tanpa pemahaman penuh terhadap dampaknya dapat menyebabkan operasi modul yang tidak stabil.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

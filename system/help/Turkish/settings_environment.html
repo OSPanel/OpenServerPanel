@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Modüllerin global ortam değişkenleri</h2>
+    <p>Bu bölümde modüller için global ortam değişkenleri ayarlanabilir.<br><br>Bu değişkenler yalnızca modül ortamında geçerlidir ve sistem değişkenlerini veya projelerin ortamını etkilemez.<br><br>Değerlerde şablon değişkenleri kullanılmasına izin verilir.</p>
+    <p>Bir değişken sistem ortamında mevcutsa ancak modül ortamında kullanılmaması gerekiyorsa, özel filtreyi kullanın (bkz. Modüller&rarr;İzin verilen sistem değişkenleri) veya değişkene boş bir değer atayarak ortamdan kaldırın.</p>
+    <h2>Şablon değişkenleri</h2>
+    <table>
+        <tr>
+            <th>Değişken</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel'in kök dizini (tam yol)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Kök dizinin sürücüsü</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel'in kök dizinine giden yol</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Terminaldeki kodlama (bkz. Modüller&rarr;Terminaldeki kodlama)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Etc/GMT formatında saat dilimi (bkz. Modüller&rarr;Saat dilimi)</td>
+        </tr>
+    </table>
+    <p>Şablon değişkenlerine ek olarak, %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% vb. gibi herhangi bir Windows ortam değişkeni kullanılabilir.</p>
+</body>
+
+</html>

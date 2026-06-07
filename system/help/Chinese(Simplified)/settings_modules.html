@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">模块全局设置</h2>
+    <p>在此部分中设置的参数适用于当特定模块的相应选项设置为 auto（默认）时的情况。</p>
+    <table>
+        <tr>
+            <th>静默模式</th>
+        </tr>
+        <tr>
+            <td>
+                关闭来自 Windows Error Reporting 和模块自身的错误弹窗。<br><br>
+                <strong>建议：</strong> 仅在需要对模块进行问题诊断时才关闭此模式。</td>
+        </tr>
+        <tr>
+            <th>在日志文件中添加标题</th>
+        </tr>
+        <tr>
+            <td>
+                启用在每次启动模块时自动向日志文件添加标题。对关闭自动清理日志以区分工作会话很有用。</td>
+        </tr>
+        <tr>
+            <th>最大连续启动失败次数</th>
+        </tr>
+        <tr>
+            <td>
+                确定在模块进入“错误”状态之前，允许的连续启动失败次数。</td>
+        </tr>
+        <tr>
+            <th>模块健康检查时间</th>
+        </tr>
+        <tr>
+            <td>确定模块成功启动后进行健康性测试的时间周期。<br><br>
+                <strong>起始点：</strong> 自模块成功启动之时起。<br><br>
+                <strong>进入“错误”状态：</strong> 如果模块在试用期内异常退出，它将不会被自动重启，并会进入“错误”状态。这也适用于模块无法在系统层面启动的情况。<br><br>
+                <strong>关闭检查：</strong> 值为 0 将关闭试用期，模块在故障时将始终被重启。<br><br>
+                <strong>建议：</strong> 不要设置为 0 或过短的周期（少于 30 秒），否则可能导致无限重启循环。</td>
+        </tr>
+        <tr>
+            <th>模块关闭的等待时间</th>
+        </tr>
+        <tr>
+            <td>确定允许模块完成其工作的最长期限。<br><br>
+                <strong>强制结束：</strong> 如果模块未在指定期限内结束，将被强制停止。<br><br>
+                <strong>关闭等待：</strong> 值为 0 将关闭等待期。程序将无限期等待模块结束。<br><br>
+                <strong>警告：</strong> 强制停止模块可能导致数据损坏、未保存更改丢失或进程异常结束。请谨慎使用该设置。</td>
+        </tr>
+        <tr>
+            <th>日志文件的最大大小</th>
+        </tr>
+        <tr>
+            <td>
+                日志文件的最大大小（以 MB 为单位）。超过指定值时，日志文件将在下次启动模块时被重新创建。<br><br>
+                设置为 0 可在每次启动模块时清理日志。<br><br>
+                设置为 100 MB 可完全关闭日志清理。</td>
+        </tr>
+        <tr>
+            <th>终端编码</th>
+        </tr>
+        <tr>
+            <td>
+                模块环境交互时的终端编码。<br><br>
+                <strong>特殊值：</strong><br>
+                - system: 使用系统编码。</td>
+        </tr>
+        <tr>
+            <th>时区</th>
+        </tr>
+        <tr>
+            <td>
+                以 Etc/GMT 格式（例如，Etc/GMT-3）设置模块的时区。<br><br>
+                <strong>特殊值：</strong><br>
+                - system: 使用系统时区。<br><br>
+                <strong>重要：</strong> Etc/GMT 格式相对于 UTC 具有反向偏移（例如，Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow）。</td>
+        </tr>
+        <tr>
+            <th>使用的附加组件环境</th>
+        </tr>
+        <tr>
+            <td>
+                指定附加组件列表（以空格分隔），其环境（如果有）将附加到模块环境。终端中的信息指示器不会显示这些附加环境。<br><br>
+                <strong>警告：</strong> 仅在完全理解其用途时才使用此选项。</td>
+        </tr>
+        <tr>
+            <th>允许的系统变量</th>
+        </tr>
+        <tr>
+            <td>
+                指定要传递到模块环境的 Windows 环境变量列表（以空格分隔）。<br><br>
+                <strong>用途：</strong> 允许将模块的工作环境与系统中安装的同类软件隔离。<br><br>
+                <strong>警告：</strong> 未充分理解其影响而更改此列表，可能导致模块工作不稳定。
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

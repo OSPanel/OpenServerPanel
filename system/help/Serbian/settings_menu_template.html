@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Креирање сопствених ставки менија</h2>
+    <ol>
+        <li>Додајте нови одељак са јединственим идентификатором [ID]</li>
+        <li>Поставите одељке у жељеном редоследу — то ће одредити редослед ставки у менију</li>
+        <li>Сачувајте измене и поново покрените Open Server Panel да бисте применили измене</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Важне информације</h3>
+        Приликом креирања сопствених ставки менија водите рачуна да се идентификатори одељака не понављају. То може довести до конфликата у раду менија.
+    </div>
+    <h2>Подешавања ставки менија</h2>
+    <p><strong>Редослед сортирања:</strong> Ставке менија се сортирају истим редоследом као и одговарајући одељци у шаблону.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Наслов ставке менија. Подржава језичке константе у формату {lang_xxx}.<br><br>
+                    Подразумевано: није задато
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Одређује распоред ставке менија у хијерархији. Подржава један ниво угнежђености (на пример, "Моје Обележиваче\Посао").</p>
+                    <p>Специјалне категорије:</p>
+                    <ul>
+                        <li>projects, modules, addons - додаје ставку у одговарајући мени радњи</li>
+                        <li>projects\<име_домена>, modules\<име_модула>, addons\<име_додатка> - додаје ставку за конкретан елемент</li>
+                    </ul>
+                    <p>Ако категорија није наведена, ставка се креира у кореном менију.</p>
+                    Подразумевано: није задато
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Команда за извршавање при активирању ставке менија. Ставке без команде се игноришу.<br><br>
+                    Подразумевано: није задато
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Укључује/искључује приказ ставке менија.<br><br>
+                    Подразумевано: on | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Управља видљивошћу прозора покренуте апликације. Не утиче на дочерне процесе.<br><br>
+                    Подразумевано: off | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Додаје хоризонтални раздвајач после ставке менија.<br><br>
+                    Подразумевано: off | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Додаје хоризонтални раздвајач пре ставке менија.<br><br>
+                    Подразумевано: off | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Иконица из скупа Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Подразумевано: није задато
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Приказује ставку менија само за доменски алијас. У шаблону менија може бити само једна ставка са need_alias=on!<br>
+                    Применљиво за категорије: projects<br><br>
+                    Подразумевано: није задато | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Ограничава приказ ставке менија модулима/додацима одређене категорије.</p>
+                    <p>Подржани формати:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<име_модула>, addons\<име_додатка>
+                        </li>
+                    </ul>
+                    Подразумевано: није задато
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Приказује ставку менија у зависности од постојања shell/cli код матичног модула.<br>
+                    Применљиво за категорије: modules, modules\<име_модула><br><br>
+                        Подразумевано: није задато | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Приказује ставку менија у зависности од стања матичног модула.<br>
+                    Применљиво за категорије: modules, modules\<име_модула><br><br>
+                        Подразумевано: није задато | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Приказује ставку менија ако постоји команда покретања у подешавањима пројекта.<br>
+                    Применљиво за категорије: projects, projects\<име_домена><br><br>
+                        Подразумевано: није задато | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Приказује ставку менија у зависности од подешавања коришћења Windows Terminal у Open Server Panel.<br><br>
+                    Подразумевано: није задато | Вредности: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Радни директоријум за извршавање команде. Може се мењати током извршавања команди.<br><br>
+                    Подразумевано: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Шаблонске променљиве</h2>
+    У параметрима "command" и "work_directory" можете користити следеће шаблонске променљиве:
+    <h3>Опште променљиве</h3>
+    <table>
+        <tr>
+            <th>Променљива</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Тренутни датум/време (променљива доступна само за параметар "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Корени директоријум Open Server Panel (пуна путања)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Диск кореног директоријума</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Путања до кореног директоријума Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL адреса веб-интерфејса</td>
+        </tr>
+    </table>
+    <h3>Посебне променљиве (само за projects и projects\&lt;име_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Променљива</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Базни директоријум пројекта</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Име домена (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Видљиво име домена (без Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Шема захтева ка пројекту ("http" или "https", зависи од параметра TLS у подешавањима пројекта)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Порт захтева ка пројекту путем протокола HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Порт захтева ка пројекту путем протокола HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Наслов ставке менија (само за категорију projects са need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP енџин</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js енџин</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP енџин</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Корени директоријум пројекта</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL пројекта</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Публични директоријум пројекта</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Порт захтева ка пројекту (":{http_port}" или ":{https_port}", зависи од параметра TLS у подешавањима пројекта). Ако {http_port} или {https_port} има стандардну вредност 80 или 443, онда ће {scheme_port} бити празан.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Команда покретања апликације пројекта (ако је подешена)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодирање конзоле</td>
+        </tr>
+    </table>
+    <h3>Посебне променљиве (само за addons и addons\&lt;име_додатка&gt;)</h3>
+    <table>
+        <tr>
+            <th>Променљива</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Име додатка</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодирање конзоле</td>
+        </tr>
+    </table>
+    <h3>Посебне променљиве (само за modules и modules\&lt;име_модула&gt;)</h3>
+    <table>
+        <tr>
+            <th>Променљива</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP адреса модула</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Ниво евидентирања грешака</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Име модула</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Порт модула</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Име тренутног профила подешавања модула</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Ниво евидентирања захтева</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Команда покретања shell/cli љуске модула (ако је подешена)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодирање конзоле</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Временска зона</td>
+        </tr>
+    </table>
+    <h3>Посебне вредности команди</h3>
+    <table>
+        <tr>
+            <th>Команда</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Отвори прозор за преглед дневника</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Отвори IDN конвертер</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Отвори прозор подешавања програма</td>
+        </tr>
+    </table>
+    <p>Поред шаблонских променљивих, можете користити било које Windows променљиве окружења, на пример: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% итд.</p>
+    <h3>Пример употребе</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Моје Обележиваче\Претраживачи
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Опције CMD.EXE</h3>
+    <ul>
+        <li>/c: Изврши команду и затвори терминал.</li>
+        <li>/k: Изврши команду и остави терминал отвореним.</li>
+    </ul>
+</body>
+
+</html>

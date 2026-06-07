@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Projektek globális beállításai</h2>
+    <p>A jelen szakaszban megadott paraméterek akkor kerülnek felhasználásra, ha a projekt beállításaiban nincsenek más értékek megadva.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a projektekhez használt webszerver-modult.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja a Node.js engine-t a Node.js alkalmazások futtatásához.<br><br>
+                <strong>Node.js telepítése:</strong> Előzetesen telepítse a szükséges Node.js verziót az <b>osp node &lt;latest|lts|номер&gt;</b> paranccsal.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a PHP-fájlok feldolgozásához használt PHP modult.</td>
+        </tr>
+        <tr>
+            <th>Engedélyezés</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a projekt alapértelmezett állapotát (engedélyezve vagy letiltva).</td>
+        </tr>
+        <tr>
+            <th>Terminál kódolása</th>
+        </tr>
+        <tr>
+            <td>
+                A terminál kódolása a projekt környezetében végzett munka során.<br><br>
+                <strong>Speciális értékek:</strong><br>
+                - system: A rendszer kódolása kerül használatra.<br><br>
+                <strong>Fontos:</strong> Ha az érték nincs megadva, a projekt végső környezetének kialakításakor a terminál kódolását az utoljára csatlakoztatott környezet állítja be, amelyben meg van adva, például a PHP modul környezete.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja az IP-címet/címeket, amelyet minden egyedi beállítás nélküli projekt használ.<br><br>
+                <strong>Korlátozás:</strong> Az azonos IP-címet használó projekteknek ugyanazon a PHP verzión kell futniuk.<br><br>
+                <strong>Több IP támogatása:</strong> Megadható több IP-cím szóközzel elválasztva, beleértve az IPv6-ot is. A HOSTS fájlban a domainekhez az első megadott IP kerül hozzárendelésre.<br><br>
+                <strong>Automatikus hozzárendelés:</strong> Ha a mezőt üresen hagyja, az IP-cím automatikusan lesz hozzárendelve.<br><br>
+                <strong>Ajánlások:</strong>
+                <ul>
+                    <li>Az IP-címek automatikus kezelése a felhasználók többségének ajánlott.</li>
+                    <li>Kézi IP-cím megadását csak speciális hálózati konfigurációs követelmények esetén használja.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a HTTP kapcsolatok portját.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a HTTPS kapcsolatok portját.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Engedélyezi vagy letiltja a TLS támogatást.</td>
+        </tr>
+        
+        <tr>
+            <th>Tanúsítvány fájl</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja a TLS tanúsítvány fájl elérési útját. Sablonváltozók használhatók.<br><br>
+                <strong>Megengedett karakterek:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Ajánlás:</strong> Hagyja üresen a mezőt a tanúsítványok automatikus generálásához.</td>
+        </tr>
+        <tr>
+            <th>Kulcs fájl</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja a TLS kulcs fájl elérési útját. Sablonváltozók használhatók.<br><br>
+                <strong>Megengedett karakterek:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Ajánlás:</strong> Hagyja üresen a mezőt a kulcs automatikus generálásához.</td>
+        </tr>
+        <tr>
+            <th>IP-cím (backend)</th>
+        </tr>
+        <tr>
+            <td>Megadja azt az IP-címet, amelyen a szerveroldali részhez (Backend) történik a csatlakozás.</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Meghatározza a port számát a szerveroldali részhez (Backend) való csatlakozáshoz.</td>
+        </tr>
+        <tr>
+            <th>Engedélyezés (backend)</th>
+        </tr>
+        <tr>
+            <td>Lehetővé teszi az összes bejövő projektforgalom (HTTP és HTTPS) automatikus továbbítását a szerveroldali részhez (Backend). Hasznos teszteléshez vagy fejlesztéshez, amikor a frontend és a backend szét van választva.</td>
+        </tr>
+        <tr>
+            <th>Projekt könyvtár</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja a projekt gyökérkönyvtárát. Ebbe a könyvtárba történik az átlépés az <strong>osp project &lt;DOMAIN&gt;</strong> paranccsal a projekt környezetének aktiválásával egyidejűleg. Sablonváltozók használhatók.<br><br>
+                <strong>Engedélyezett karakterek:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Nyilvános könyvtár</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja a projekt nyilvános könyvtárát. Sablonváltozók használhatók.<br><br>
+                <strong>Engedélyezett karakterek:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Aliasok</th>
+        </tr>
+        <tr>
+            <td>
+                Megadja a projekthez tartozó további domain neveket (aliasok, szóközzel elválasztva). Sablonváltozók használhatók.<br><br>
+                <strong>Korlátozás:</strong> A "*" karaktert a Windows HOSTS fájl nem támogatja, és DNS beállítást igényel.</td>
+        </tr>
+        <tr>
+            <th>Projekt környezete</th>
+        </tr>
+        <tr>
+            <td>
+                Kiegészítők és modulok felsorolása (szóközzel elválasztva), amelyek a projekt környezetét alkotják.<br><br>
+                <strong>HTTP, NODE és PHP:</strong> E motorok környezetei mindig csatlakoznak (ha meg vannak adva a domainhez), és nem szükséges megadni ebben a paraméterben.</td>
+        </tr>
+        <tr>
+            <th>A projekt indítási parancsa</th>
+        </tr>
+        <tr>
+            <td>
+                Meghatározza a projekt indításához használt parancsot (például <strong>nodemon app.js</strong>). Sablonváltozók használhatók.</td>
+        </tr>
+        <tr>
+            <th>A projekt URL-je</th>
+        </tr>
+        <tr>
+            <td>
+                Az URL, amelyet a projekt megnyitásakor használ a <strong>Menü&rarr;Projekt&rarr;Megnyitás a böngészőben</strong>, valamint a projekt domain aliasainak megnyitásakor. Sablonváltozók használhatók.<br><br>
+                <strong>Alkalmazás:</strong> Megadható például egy CMS adminisztrációs panel URL-je.</td>
+        </tr>
+    </table>
+    <h2>Sablonváltozók</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Változó</th>
+                <th>Leírás</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP-cím a szerveroldali részhez (Backend) való csatlakozáshoz</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port a szerveroldali részhez (Backend) való csatlakozáshoz</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>A projekt gyökérkönyvtára (ahol a .osp könyvtár található)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Aktuális dátum/idő (a változó csak a projekt alkalmazásindító parancsához érhető el)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domain név (nemzetközi domaineknél Punycode kerül használatra)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Látható domain név (Punycode nélkül)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>A projekthez intézett kérés sémája ("http" vagy "https", a projekt beállításaiban szereplő TLS paramétertől függ)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Port a projekthez intézett HTTP protokollú kéréshez</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Port a projekthez intézett HTTPS protokollú kéréshez</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP engine</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE engine</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP engine</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>A projekt gyökérkönyvtára</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>A projekt nyilvános könyvtára</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>A projekthez intézett kérés portja (":{http_port}" vagy ":{https_port}", a projekt beállításaiban szereplő TLS paramétertől függ).<br><br>Ha a {http_port} vagy {https_port} standard értéke 80 vagy 443, akkor a {scheme_port} üres lesz.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Az Open Server Panel gyökérkönyvtára (teljes elérési út)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>A gyökérkönyvtár meghajtója</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Az Open Server Panel gyökérkönyvtárának elérési útja</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konzol kódolása</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

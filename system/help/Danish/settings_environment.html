@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale miljøvariabler for moduler</h2>
+    <p>I dette afsnit kan du angive globale miljøvariabler for moduler.<br><br>Disse variabler gælder kun i modulmiljøet og påvirker ikke systemvariabler eller projekternes miljø.<br><br>Det er tilladt at bruge skabelonvariabler i værdierne.</p>
+    <p>Hvis en variabel findes i systemmiljøet, men ikke skal bruges i modulmiljøet, skal du bruge det særlige filter (se Moduler&rarr;Tilladte systemvariabler) eller fjerne variablen fra miljøet ved at give den en tom værdi.</p>
+    <h2>Skabelonvariabler</h2>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Rodkatalog for Open Server Panel (fuld sti)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Drev for rodkataloget</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Sti til rodkataloget for Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Tegnkodning i terminalen (se Moduler&rarr;Tegnkodning i terminalen)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Tidszone i formatet Etc/GMT (se Moduler&rarr;Tidszone)</td>
+        </tr>
+    </table>
+    <p>Ud over skabelonvariabler kan du bruge enhver Windows-miljøvariabel, for eksempel: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% osv.</p>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globální nastavení modulů</h2>
+    <p>Parametry zadané v této části se používají v případech, kdy je v nastavení konkrétního modulu pro odpovídající možnost nastavena hodnota auto (ve výchozím nastavení).</p>
+    <table>
+        <tr>
+            <th>Tichý režim</th>
+        </tr>
+        <tr>
+            <td>
+                Vypíná vyskakovací chybová hlášení od Windows Error Reporting a samotného modulu.<br><br>
+                <strong>Doporučení:</strong> Tento režim vypínejte pouze v případě potřeby diagnostiky problémů v činnosti modulu.</td>
+        </tr>
+        <tr>
+            <th>Přidávat záhlaví do souboru protokolu</th>
+        </tr>
+        <tr>
+            <td>
+                Zapíná automatické přidání záhlaví do log souboru při každém spuštění modulu. Užitečné při vypnutém automatickém čištění logů pro oddělení pracovních sezení.</td>
+        </tr>
+        <tr>
+            <th>Maximální počet neúspěšných spuštění</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje, kolik po sobě jdoucích neúspěšných spuštění modulu je dovoleno před tím, než přejde do stavu „Chyba“.</td>
+        </tr>
+        <tr>
+            <th>Doba kontroly provozuschopnosti modulu</th>
+        </tr>
+        <tr>
+            <td>Určuje období testování provozuschopnosti modulu po jeho úspěšném spuštění.<br><br>
+                <strong>Začátek odpočtu:</strong> Od okamžiku úspěšného spuštění modulu.<br><br>
+                <strong>Přechod do stavu „Chyba“:</strong> Pokud modul havarijně ukončí činnost během zkušební doby, nebude automaticky restartován a přejde do stavu „Chyba“. Týká se to také případů, kdy se modul nepodaří spustit na úrovni systému.<br><br>
+                <strong>Vypnutí kontroly:</strong> Hodnota 0 vypíná zkušební dobu a modul se bude vždy restartovat při selhání.<br><br>
+                <strong>Doporučení:</strong> Nenastavujte hodnotu 0 ani příliš krátké období (méně než 30 sekund), protože to může vést k nekonečným cyklům restartu.</td>
+        </tr>
+        <tr>
+            <th>Časový limit ukončení modulu</th>
+        </tr>
+        <tr>
+            <td>Určuje maximální dobu, po kterou je modulu povoleno ukončit svou činnost.<br><br>
+                <strong>Nucené ukončení:</strong> Pokud modul neukončí činnost ve stanovené lhůtě, bude nuceně zastaven.<br><br>
+                <strong>Vypnutí čekání:</strong> Hodnota 0 vypíná čekací období. Program bude čekat na ukončení modulu neomezeně dlouho.<br><br>
+                <strong>Upozornění:</strong> Nucené zastavení modulu může vést k poškození dat, ztrátě neuložených změn nebo nesprávnému ukončení procesů. Používejte toto nastavení opatrně.</td>
+        </tr>
+        <tr>
+            <th>Maximální velikost souboru protokolu</th>
+        </tr>
+        <tr>
+            <td>
+                Maximální velikost log souboru v megabajtech. Při překročení uvedené hodnoty bude log soubor znovu vytvořen při dalším spuštění modulu.<br><br>
+                Nastavte hodnotu 0 pro čištění logů při každém spuštění modulu.<br><br>
+                Nastavte hodnotu 100 MB pro úplné vypnutí čištění logů.</td>
+        </tr>
+        <tr>
+            <th>Kódování terminálu</th>
+        </tr>
+        <tr>
+            <td>
+                Kódování terminálu při práci s prostředím modulu.<br><br>
+                <strong>Speciální hodnoty:</strong><br>
+                - system: Použije se systémové kódování.</td>
+        </tr>
+        <tr>
+            <th>Časové pásmo</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje časové pásmo modulu ve formátu Etc/GMT (například Etc/GMT-3).<br><br>
+                <strong>Speciální hodnoty:</strong><br>
+                - system: Použije se systémové časové pásmo.<br><br>
+                <strong>Důležité:</strong> Formát Etc/GMT má opačný offset vůči UTC (například Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Používaná prostředí doplňků</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje seznam doplňků (uvádějí se mezerou), jejichž prostředí (pokud existují) se připojují k prostředí modulu. Informační indikátory v terminálu tato dodatečná prostředí nezobrazují.<br><br>
+                <strong>Upozornění:</strong> Tuto možnost používejte pouze při plném pochopení jejího účelu.</td>
+        </tr>
+        <tr>
+            <th>Povolené systémové proměnné</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje seznam proměnných prostředí Windows (uvádějí se mezerou), které se předávají do prostředí modulu.<br><br>
+                <strong>Účel:</strong> Umožňuje izolovat pracovní prostředí modulu od obdobného software nainstalovaného v systému.<br><br>
+                <strong>Upozornění:</strong> Změna tohoto seznamu bez plného pochopení jejího vlivu může vést k nestabilnímu chování modulu.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

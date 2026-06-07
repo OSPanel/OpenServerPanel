@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globalna podešavanja modula</h2>
+    <p>Parametri navedeni u ovom odeljku primenjuju se u slučajevima kada je u podešavanjima konkretnog modula za odgovarajuću opciju postavljena vrednost auto (podrazumevano).</p>
+    <table>
+        <tr>
+            <th>Tihi režim rada</th>
+        </tr>
+        <tr>
+            <td>
+                Isključuje iskačuće poruke o greškama od Windows Error Reporting i samog modula.<br><br>
+                <strong>Preporuka:</strong> Isključujte ovaj režim samo kada je potrebno dijagnostikovati probleme u radu modula.</td>
+        </tr>
+        <tr>
+            <th>Dodavati zaglavlje u fajl dnevnika</th>
+        </tr>
+        <tr>
+            <td>
+                Omogućava automatsko dodavanje zaglavlja u fajl dnevnika pri svakom pokretanju modula. Korisno kada je isključeno automatsko čišćenje logova za razdvajanje radnih sesija.</td>
+        </tr>
+        <tr>
+            <th>Maksimalan broj neuspešnih pokretanja</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje koliko uzastopnih neuspešnih pokretanja modula je dozvoljeno pre nego što pređe u stanje „Greška“.</td>
+        </tr>
+        <tr>
+            <th>Vreme provere ispravnosti modula</th>
+        </tr>
+        <tr>
+            <td>Određuje period testiranja ispravnosti modula nakon njegovog uspešnog pokretanja.<br><br>
+                <strong>Početak odbrojavanja:</strong> Od trenutka uspešnog pokretanja modula.<br><br>
+                <strong>Prelazak u stanje „Greška“:</strong> Ako modul doživi pad rada tokom probnog perioda, neće biti automatski ponovo pokrenut i preći će u stanje „Greška“. Ovo se takođe odnosi na slučajeve kada modul ne uspe da se pokrene na nivou sistema.<br><br>
+                <strong>Isključivanje provere:</strong> Vrednost 0 isključuje probni period i modul će se uvek ponovo pokretati pri kvaru.<br><br>
+                <strong>Preporuka:</strong> Ne postavljajte vrednost 0 ili suviše kratak period (manje od 30 sekundi), jer to može dovesti do beskonačnih ciklusa ponovnog pokretanja.</td>
+        </tr>
+        <tr>
+            <th>Vreme čekanja završetka rada modula</th>
+        </tr>
+        <tr>
+            <td>Određuje krajnje vreme tokom kojeg je modulu dozvoljeno da završi svoj rad.<br><br>
+                <strong>Prinudno završavanje:</strong> Ako modul ne završi rad u naznačenom roku, biće prinudno zaustavljen.<br><br>
+                <strong>Isključivanje čekanja:</strong> Vrednost 0 isključuje period čekanja. Program će čekati završetak rada modula neograničeno vreme.<br><br>
+                <strong>Upozorenje:</strong> Prinudno zaustavljanje modula može dovesti do oštećenja podataka, gubitka nesačuvanih izmena ili nekorektnog završetka procesa. Koristite ovo podešavanje sa oprezom.</td>
+        </tr>
+        <tr>
+            <th>Maksimalna veličina fajla dnevnika</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimalna veličina fajla dnevnika u megabajtima. Pri prekoračenju naznačene vrednosti log-fajl će biti ponovo kreiran pri sledećem pokretanju modula.<br><br>
+                Postavite vrednost 0 da biste čistili dnevnike pri svakom pokretanju modula.<br><br>
+                Postavite vrednost 100 MB da biste u potpunosti isključili čišćenje dnevnika.</td>
+        </tr>
+        <tr>
+            <th>Kodiranje terminala</th>
+        </tr>
+        <tr>
+            <td>
+                Kodiranje terminala pri radu sa okruženjem modula.<br><br>
+                <strong>Specijalne vrednosti:</strong><br>
+                - system: Koristi se sistemsko kodiranje.</td>
+        </tr>
+        <tr>
+            <th>Vremenska zona</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje vremensku zonu modula u formatu Etc/GMT (na primer, Etc/GMT-3).<br><br>
+                <strong>Specijalne vrednosti:</strong><br>
+                - system: Koristi se sistemska vremenska zona.<br><br>
+                <strong>Važno:</strong> Format Etc/GMT ima obrnuto pomeranje u odnosu na UTC (na primer, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Korišćena okruženja dodataka</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje listu dodataka (navode se razmakom), čija se okruženja (ako ih ima) pridružuju okruženju modula. Informacioni indikatori u terminalu ne prikazuju ova dodatna okruženja.<br><br>
+                <strong>Upozorenje:</strong> Koristite ovu opciju samo uz potpuno razumevanje njene namene.</td>
+        </tr>
+        <tr>
+            <th>Dozvoljene sistemske promenljive</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje spisak promenljivih okruženja Windows (navode se razmakom) koje se prosleđuju u okruženje modula.<br><br>
+                <strong>Namenа:</strong> Omogućava izolovanje radnog okruženja modula od sličnog softvera instaliranog u sistemu.<br><br>
+                <strong>Upozorenje:</strong> Izmena ovog spiska bez potpunog razumevanja njegovog uticaja može dovesti do nestabilnog rada modula.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

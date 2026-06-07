@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Biến môi trường toàn cục của mô-đun</h2>
+    <p>Trong phần này, bạn có thể đặt các biến môi trường toàn cục cho các mô-đun.<br><br>Những biến này chỉ có hiệu lực trong môi trường của mô-đun và không ảnh hưởng đến các biến hệ thống hoặc môi trường của dự án.<br><br>Có thể sử dụng các biến mẫu trong các giá trị.</p>
+    <p>Nếu một biến có trong môi trường hệ thống nhưng không nên được sử dụng trong môi trường của mô-đun, hãy sử dụng bộ lọc đặc biệt (xem Mô-đun&rarr;Các biến hệ thống được phép) hoặc xóa biến khỏi môi trường bằng cách đặt giá trị trống cho nó.</p>
+    <h2>Biến mẫu</h2>
+    <table>
+        <tr>
+            <th>Biến</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Thư mục gốc của Open Server Panel (đường dẫn đầy đủ)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Ổ đĩa của thư mục gốc</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Đường dẫn đến thư mục gốc của Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Bảng mã trong terminal (xem Mô-đun&rarr;Bảng mã trong terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Múi giờ ở định dạng Etc/GMT (xem Mô-đun&rarr;Múi giờ)</td>
+        </tr>
+    </table>
+    <p>Ngoài các biến mẫu, bạn có thể sử dụng bất kỳ biến môi trường Windows nào, ví dụ: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% v.v.</p>
+</body>
+
+</html>

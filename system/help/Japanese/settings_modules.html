@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">モジュールのグローバル設定</h2>
+    <p>このセクションで指定したパラメータは、個別モジュールの設定で該当オプションが auto（デフォルト）に設定されている場合に適用されます。</p>
+    <table>
+        <tr>
+            <th>サイレントモード</th>
+        </tr>
+        <tr>
+            <td>
+                Windows Error Reporting およびモジュール自身のエラーポップアップを無効にします。<br><br>
+                <strong>推奨:</strong> モジュールの問題を診断する必要がある場合にのみ、このモードを無効にしてください。</td>
+        </tr>
+        <tr>
+            <th>ログファイルにヘッダーを追加</th>
+        </tr>
+        <tr>
+            <td>
+                モジュールの起動ごとにログファイルへヘッダーを自動追加します。自動ログクリアを無効にしている場合のセッション区切りに有用です。</td>
+        </tr>
+        <tr>
+            <th>最大連続失敗起動回数</th>
+        </tr>
+        <tr>
+            <td>
+                モジュールが「エラー」状態へ移行する前に許容される連続失敗起動回数を定義します。</td>
+        </tr>
+        <tr>
+            <th>モジュール健全性チェック時間</th>
+        </tr>
+        <tr>
+            <td>モジュールの正常起動後に行う健全性テストの期間を定義します。<br><br>
+                <strong>カウント開始:</strong> モジュールの正常起動時点から。<br><br>
+                <strong>「エラー」状態への移行:</strong> 試験期間中にモジュールが異常終了した場合、自動再起動は行われず「エラー」状態に移行します。これは、モジュールがシステムレベルで起動できない場合にも該当します。<br><br>
+                <strong>チェックの無効化:</strong> 値 0 は試験期間を無効にし、障害発生時に常に再起動します。<br><br>
+                <strong>推奨:</strong> 値を 0 や短すぎる期間（30 秒未満）に設定しないでください。無限再起動ループの原因となる可能性があります。</td>
+        </tr>
+        <tr>
+            <th>モジュール終了待機時間</th>
+        </tr>
+        <tr>
+            <td>モジュールに終了が許可される上限時間を定義します。<br><br>
+                <strong>強制終了:</strong> 指定時間内に終了しない場合、強制的に停止されます。<br><br>
+                <strong>待機の無効化:</strong> 値 0 は待機期間を無効にします。プログラムはモジュールの終了を無制限に待機します。<br><br>
+                <strong>警告:</strong> モジュールの強制停止は、データ破損、未保存変更の喪失、プロセスの不正終了を引き起こす可能性があります。この設定は慎重に使用してください。</td>
+        </tr>
+        <tr>
+            <th>ログファイルの最大サイズ</th>
+        </tr>
+        <tr>
+            <td>
+                ログファイルの最大サイズ（MB）。指定値を超えると、次回モジュール起動時にログファイルは再作成されます。<br><br>
+                値を 0 に設定すると、モジュール起動のたびにログをクリアします。<br><br>
+                値を 100 MB に設定すると、ログクリアを完全に無効にします。</td>
+        </tr>
+        <tr>
+            <th>ターミナルのエンコーディング</th>
+        </tr>
+        <tr>
+            <td>
+                モジュール環境で使用するターミナルのエンコーディング。<br><br>
+                <strong>特別な値:</strong><br>
+                - system: システムのエンコーディングを使用します。</td>
+        </tr>
+        <tr>
+            <th>タイムゾーン</th>
+        </tr>
+        <tr>
+            <td>
+                Etc/GMT 形式（例: Etc/GMT-3）でモジュールのタイムゾーンを定義します。<br><br>
+                <strong>特別な値:</strong><br>
+                - system: システムのタイムゾーンを使用します。<br><br>
+                <strong>重要:</strong> Etc/GMT 形式は UTC に対して反転したオフセットを持ちます（例: Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow）。</td>
+        </tr>
+        <tr>
+            <th>使用するアドオン環境</th>
+        </tr>
+        <tr>
+            <td>
+                環境を持つアドオンのリスト（スペース区切り）を定義し、それら（存在する場合）をモジュール環境に結合します。ターミナルの情報インジケーターには、これらの追加環境は表示されません。<br><br>
+                <strong>警告:</strong> このオプションは、その目的を完全に理解している場合のみ使用してください。</td>
+        </tr>
+        <tr>
+            <th>許可するシステム環境変数</th>
+        </tr>
+        <tr>
+            <td>
+                モジュール環境へ引き渡す Windows の環境変数の一覧（スペース区切り）を定義します。<br><br>
+                <strong>目的:</strong> システムにインストールされた同種のソフトウェアからモジュールの作業環境を分離できます。<br><br>
+                <strong>警告:</strong> 影響を十分に理解せずにこの一覧を変更すると、モジュールの不安定な動作につながる可能性があります。
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">საკუთარი მენიუს პუნქტების შექმნა</h2>
+    <ol>
+        <li>დაამატეთ ახალი სექცია უნიკალური იდენტიფიკატორით [ID]</li>
+        <li>მოაწყვეთ სექციები სასურველ რიგში — ეს განსაზღვრავს პუნქტების რიგს მენიუში</li>
+        <li>შეინახეთ ცვლილებები და გადატვირთეთ Open Server Panel ცვლილებების გამოსაყენებლად</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>მნიშვნელოვანი ინფორმაცია</h3>
+        საკუთარი მენიუს პუნქტების შექმნისას დარწმუნდით, რომ სექციების იდენტიფიკატორები არ მეორდება. ეს შეიძლება გამოიწვიოს კონფლიქტები მენიუს მუშაობაში.
+    </div>
+    <h2>მენიუს პუნქტების პარამეტრები</h2>
+    <p><strong>დალაგების რიგი:</strong> მენიუს პუნქტები ისევე ლაგდება, როგორც შესაბამისი სექციები განლაგებულია შაბლონში.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    მენიუს პუნქტის სათაური. უჭერს მხარს ენობრივ კონსტანტებს ფორმატში {lang_xxx}.<br><br>
+                    ნაგულისხმევი: არ არის მითითებული
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>განსაზღვრავს მენიუს პუნქტის მდებარეობას იერარქიაში. მხარდაჭერილია ერთი დონის ჩადგმა (მაგალითად, "ჩემი სანიშნეები\სამუშაო").</p>
+                    <p>სპეციალური კატეგორიები:</p>
+                    <ul>
+                        <li>projects, modules, addons - ამატებს პუნქტს შესაბამის ქმედებების მენიუში</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - ამატებს პუნქტს კონკრეტული ელემენტისთვის</li>
+                    </ul>
+                    <p>თუ კატეგორია არ არის მითითებული, პუნქტი შეიქმნება ფესვურ მენიუში.</p>
+                    ნაგულისხმევი: არ არის მითითებული
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    ბრძანება, რომელიც შესრულდება მენიუს პუნქტის აქტივაციისას. ბრძანების გარეშე პუნქტები იგნორირდება.<br><br>
+                    ნაგულისხმევი: არ არის მითითებული
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    აჩენს/რთავს მენიუს პუნქტის გამოსახვას.<br><br>
+                    ნაგულისხმევი: on | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    მართავს გამოძახებული აპლიკაციის ფანჯრის ხილვადობას. არ მოქმედებს შვილ პროცესებზე.<br><br>
+                    ნაგულისხმევი: off | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    ამატებს ჰორიზონტალურ გამყოფს მენიუს პუნქტის შემდეგ.<br><br>
+                    ნაგულისხმევი: off | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    ამატებს ჰორიზონტალურ გამყოფს მენიუს პუნქტამდე.<br><br>
+                    ნაგულისხმევი: off | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    ხატულა ნაკრებიდან Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    ნაგულისხმევი: არ არის მითითებული
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    აჩვენებს მენიუს პუნქტს მხოლოდ დომენის ფსევდონიმისთვის. მენიუს შაბლონში შეიძლება იყოს მხოლოდ ერთი პუნქტი need_alias=on!-ით!<br>
+                    გამოიყენება კატეგორიებისთვის: projects<br><br>
+                    ნაგულისხმევი: არ არის მითითებული | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>ზღუდავს მენიუს პუნქტის ჩვენებას კონკრეტული კატეგორიის მოდულებით/დამატებებით.</p>
+                    <p>მხარდაჭერილი ფორმატები:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    ნაგულისხმევი: არ არის მითითებული
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    აჩვენებს მენიუს პუნქტს მშობელი მოდულის shell/cli არსებობაზე დამოკიდებულებით.<br>
+                    გამოიყენება კატეგორიებისთვის: modules, modules\<имя_модуля><br><br>
+                        ნაგულისხმევი: არ არის მითითებული | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    აჩვენებს მენიუს პუნქტს მშობელი მოდულის მდგომარეობაზე დამოკიდებულებით.<br>
+                    გამოიყენება კატეგორიებისთვის: modules, modules\<имя_модуля><br><br>
+                        ნაგულისხმევი: არ არის მითითებული | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    აჩვენებს მენიუს პუნქტს მაშინ, როცა პროექტის პარამეტრებში მითითებულია запуска ბრძანება.<br>
+                    გამოიყენება კატეგორიებისთვის: projects, projects\<имя_домена><br><br>
+                        ნაგულისხმევი: არ არის მითითებული | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    აჩვენებს მენიუს პუნქტს Open Server Panel-ში Windows Terminal-ის გამოყენების პარამეტრზე დამოკიდებულებით.<br><br>
+                    ნაგულისხმევი: არ არის მითითებული | მნიშვნელობები: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    სამუშაო დირექტორია ბრძანების შესრულებისთვის. შეიძლება შეიცვალოს ბრძანებების შესრულების დროს.<br><br>
+                    ნაგულისხმევი: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>შაბლონური ცვლადები</h2>
+    პარამეტრებში "command" და "work_directory" შეგიძლიათ გამოიყენოთ შემდეგი შაბლონური ცვლადები:
+    <h3>ზოგადი ცვლადები</h3>
+    <table>
+        <tr>
+            <th>ცვლადი</th>
+            <th>აღწერა</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>მიმდინარე თარიღი/დრო (ცვლადი ხელმისაწვდომია მხოლოდ პარამეტრისთვის "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel-ის ფესვური კატალოგი (სრული ბილიკი)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>ფესვური კატალოგის დისკი</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>ბილიკი Open Server Panel-ის ფესვურ კატალოგამდე</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>ვებ-ინტერფეისის URL-მისამართი</td>
+        </tr>
+    </table>
+    <h3>სპეციალური ცვლადები (მხოლოდ projects და projects\&lt;имя_домена&gt;-სთვის)</h3>
+    <table>
+        <tr>
+            <th>ცვლადი</th>
+            <th>აღწერა</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>პროექტის საბაზო კატალოგი</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>დომენის სახელი (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>დომენის ხილული სახელი (უს Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>შეკითხვის სქემა პროექტთან ("http" ან "https", დამოკიდებულია TLS პარამეტრზე პროექტის პარამეტრებში)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>პროექტთან HTTP პროტოკოლით შეკითხვის პორტი</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>პროექტთან HTTPS პროტოკოლით შეკითხვის პორტი</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>მენიუს პუნქტის სათაური (მხოლოდ კატეგორიისთვის projects need_alias=ON-ის შემთხვევაში)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP ძრავა</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js ძრავა</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP ძრავა</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>პროექტის ფესვური კატალოგი</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>პროექტის URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>პროექტის საჯარო კატალოგი</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>პროექტთან შეკითხვის პორტი (":{http_port}" ან ":{https_port}", დამოკიდებულია TLS პარამეტრზე პროექტის პარამეტრებში). თუ {http_port} ან {https_port} აქვს სტანდარტული მნიშვნელობა 80 ან 443, მაშინ {scheme_port} იქნება ცარიელი.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>პროექტის აპლიკაციის გაშვების ბრძანება (თუ არის გამართული)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>კონსოლის კოდირება</td>
+        </tr>
+    </table>
+    <h3>სპეციალური ცვლადები (მხოლოდ addons და addons\&lt;имя_дополнения&gt;-სთვის)</h3>
+    <table>
+        <tr>
+            <th>ცვლადი</th>
+            <th>აღწერა</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>დამატების სახელი</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>კონსოლის კოდირება</td>
+        </tr>
+    </table>
+    <h3>სპეციალური ცვლადები (მხოლოდ modules და modules\&lt;имя_модуля&gt;-სთვის)</h3>
+    <table>
+        <tr>
+            <th>ცვლადი</th>
+            <th>აღწერა</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>მოდულის IP-მისამართი</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>შეცდომების ჟურნალის დონის მნიშვნელობა</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>მოდულის სახელი</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>მოდულის პორტი</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>მოდულის მიმდინარე პროფილის სახელი</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>მოთხოვნების ჟურნალის დონის მნიშვნელობა</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>მოდულის shell/cli გარსის გაშვების ბრძანება (თუ არის გამართული)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>კონსოლის კოდირება</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>დროის სარტყელი</td>
+        </tr>
+    </table>
+    <h3>ბრძანებების სპეციალური მნიშვნელობები</h3>
+    <table>
+        <tr>
+            <th>ბრძანება</th>
+            <th>აღწერა</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>ჟურნალების სანახავი ფანჯრის გახსნა</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN-კონვერტერის გახსნა</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>პროგრამის პარამეტრების ფანჯრის გახსნა</td>
+        </tr>
+    </table>
+    <p>შაბლონური ცვლადების გარდა, შეგიძლიათ გამოიყენოთ Windows-ის ნებისმიერი გარემოს ცვლადი, მაგალითად: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% და ა.შ.</p>
+    <h3>გამოყენების მაგალითი</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = ჩემი სანიშნეები\საძიებო სისტემები
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE ოპციები</h3>
+    <ul>
+        <li>/c: შეასრულოს ბრძანება და დახუროს ტერმინალი.</li>
+        <li>/k: შეასრულოს ბრძანება და დატოვოს ტერმინალი ღია.</li>
+    </ul>
+</body>
+
+</html>

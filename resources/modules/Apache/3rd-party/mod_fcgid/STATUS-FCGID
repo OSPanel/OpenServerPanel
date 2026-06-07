@@ -1,0 +1,82 @@
+MOD_FCGID STATUS:                                                   -*-text-*-
+Last modified at [$Date: 2013-10-08 14:00:09 +0200 (di, 08 okt 2013) $]
+
+The current version of this file can be found at:
+
+  * http://svn.apache.org/repos/asf/httpd/mod_fcgid/trunk/STATUS
+
+Consult the following STATUS files for information on related projects:
+
+  * http://svn.apache.org/repos/asf/httpd/httpd/trunk/STATUS
+  * http://svn.apache.org/repos/asf/apr/apr/trunk/STATUS
+
+Release history:
+    [NOTE that x.{odd}.z versions are strictly Alpha/Beta releases,
+          while x.{even}.z versions are Stable/GA releases.]
+
+    2.3.10  : in development
+    2.3.9   : released October 8, 2013
+    2.3.8   : not released
+    2.3.7   : released April 23, 2012
+    2.3.6   : released November 6, 2010
+    2.3.5   : released January 28, 2010
+    2.3.4   : released October 15, 2009
+    2.3.3   : not released
+    2.3.2   : not released
+    2.3.1   : released September 16, 2009
+    2.3.0   : not released
+    2.2.x   : Final release branch external to the ASF
+
+Contributors looking for a mission:
+
+  * Just do an egrep on "TODO" or "XXX" in the source.
+
+  * Review the bug database at: http://issues.apache.org/bugzilla/
+
+  * Review the "PatchAvailable" bugs in the bug database:
+
+    https://issues.apache.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&product=Apache+httpd-2&component=mod_fcgid&keywords=PatchAvailable
+
+    After testing, you can append a comment saying "Reviewed and tested".
+
+  * Open bugs in the bug database
+
+    https://issues.apache.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&product=Apache+httpd-2&component=mod_fcgid
+
+
+RELEASE SHOWSTOPPERS:
+
+
+
+CURRENT RELEASE NOTES:
+
+
+
+CURRENT VOTES:
+
+
+
+REALLY NICE TO WRAP THESE UP:
+
+  * For in-tree builds, extending config_vars.mk with our local
+    [exp_]vars and installing that tree.
+
+  * Create a manual module page.
+
+  * Create and install an conf/extra/httpd-fcgid.conf.
+
+  * Win32 stderr is broken.  It's not possible to capture errors immediately
+    upon invocation; this is apparently a design failure in std handle passing.
+
+  * defining the process class
+
+    a few references:
+
+    http://mail-archives.apache.org/mod_mbox/httpd-dev/201004.mbox/%3Cq2l81403a941004131831lce28460bqfc9fa53c2058e79b@mail.gmail.com%3E
+    http://mail-archives.apache.org/mod_mbox/httpd-dev/201002.mbox/%3C4B7EA227.90100@binero.se%3E
+    http://mail-archives.apache.org/mod_mbox/httpd-dev/200909.mbox/%3C4ABA234F.3000002@kippdata.de%3E
+    http://mail-archives.apache.org/mod_mbox/httpd-dev/200909.mbox/%3C4239a4320909210011w6c716fe6kec5915edc49bc546@mail.gmail.com%3E
+    https://issues.apache.org/bugzilla/show_bug.cgi?id=49902
+
+REFERENCES:
+

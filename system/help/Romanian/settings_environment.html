@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Variabile globale de mediu ale modulelor</h2>
+    <p>În această secțiune puteți seta variabile globale de mediu pentru module.<br><br>Aceste variabile sunt valabile doar în mediul modulelor și nu afectează variabilele de sistem sau mediul proiectelor.<br><br>În valori este permisă utilizarea variabilelor șablon.</p>
+    <p>Dacă o variabilă este prezentă în mediul de sistem, dar nu trebuie utilizată în mediul modulelor, folosiți filtrul special (vezi Module&rarr;Variabile de sistem permise) sau eliminați variabila din mediu atribuindu-i o valoare goală.</p>
+    <h2>Variabile șablon</h2>
+    <table>
+        <tr>
+            <th>Variabilă</th>
+            <th>Descriere</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Directorul rădăcină Open Server Panel (cale completă)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Unitatea directorului rădăcină</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Calea către directorul rădăcină Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codificarea în terminal (vezi Module&rarr;Codificarea în terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Fus orar în format Etc/GMT (vezi Module&rarr;Fus orar)</td>
+        </tr>
+    </table>
+    <p>Pe lângă variabilele șablon, se pot utiliza orice variabile de mediu Windows, de exemplu: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% etc.</p>
+</body>
+
+</html>

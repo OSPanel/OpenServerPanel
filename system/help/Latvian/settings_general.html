@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programmas iestatījumi</h2>
+    <table>
+        <tr>
+            <th>Palaist kopā ar Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēgt Open Server Panel autorunināšanu operētājsistēmas ielādes laikā.</td>
+        </tr>
+        <tr>
+            <th>Aizture</th>
+        </tr>
+        <tr>
+            <td>
+                Programmas palaišanas aizture (sekundēs, no 0 līdz 60).<br><br>Ļauj atlikt lietotnes startu ielādes laikā kopā ar Windows, lai samazinātu kopējo sistēmas noslodzi. Tas ir īpaši noderīgi, ja nepieciešams sagaidīt pilnīgu trešo pušu servisu vai tīkla interfeisu inicializāciju.</td>
+        </tr>
+        <tr>
+            <th>Pārbaudīt jaunu versiju esamību</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēgt Open Server Panel atjauninājumu pārbaudi (nepieciešams interneta savienojums).</td>
+        </tr>
+        <tr>
+            <th>Ieslēgt uzdevumu plānotāju</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivizēt iebūvēto uzdevumu plānotāju. Ja parametrs ir izslēgts, nekādi ieplānotie uzdevumi netiks izpildīti neatkarīgi no to statusa.</td>
+        </tr>
+        <tr>
+            <th>Izmantot HOSTS failu</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēgt domēna vārdu ierakstīšanu HOSTS failā.<br><br>
+                <strong>Ieteikumi situācijās ar ierobežotu piekļuvi HOSTS failam organizācijā:</strong><br><br>
+                1. Nokonfigurējiet visus nepieciešamos moduļus un projektus.<br>
+                2. Vērsieties pie sistēmas administratora, lai atbloķētu HOSTS un fiksētu tā stāvokli.<br>
+                3. Pēc administratora veiktās fiksācijas šo opciju var izslēgt.<br><br>
+                <strong>Svarīgi:</strong> Neizslēdziet šo parametru, ja neesat pārliecināti par sekām!</td>
+        </tr>
+        <tr>
+            <th>Palaist moduļus ar projekta profilu</th>
+        </tr>
+        <tr>
+            <td>Palaist moduļus, vienlaicīgi aktivizējot profilu, kas sakrīt ar projekta nosaukumu.<br><br>Tiek izmantots, izvēloties izvēlnes punktu «Ieslēgt projekta moduļus», lai automātiski aktivizētu profilu ar tādu pašu nosaukumu kā aktuālajam projektam, ja tāds pastāv.</td>
+        </tr>
+        <tr>
+            <th>Neizslēgt slēpto projektu moduļus</th>
+        </tr>
+        <tr>
+            <td>Neizslēgt slēpto projektu moduļus, izvēloties izvēlnes punktu «Izslēgt visus moduļus». Ar "slēptiem" tiek saprasti tie projekti, kuriem norādīta kategorija "hidden".<br><br>Pēc noklusējuma komanda «Izslēgt visus moduļus» aptur pilnīgi visu moduļu darbību, tostarp tos, kurus izmanto slēptie dienestu projekti (piemēram, PHPMyAdmin). Šī opcija ļauj saglabāt slēpto dienestu projektu darbspēju, neizslēdzot tiem nepieciešamos moduļus, kamēr visi pārējie moduļi tiks izslēgti.</td>
+        </tr>
+        <tr>
+            <th>Saskarnes valoda</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel lietotāja saskarnes valoda.<br><br>
+                Ja lokalizācijas fails nav pieejams vai satur kļūdas, tiks izmantota angļu valoda.</td>
+        </tr>
+        <tr>
+            <th>API domēns</th>
+        </tr>
+        <tr>
+            <td>
+                Lokālais domēns API un tīmekļa saskarnei (izstrādē)<br><br>
+                <strong>Ieteikums:</strong> Ja tiek izmantots VPN vai starpniekserveris, pievienojiet šo domēnu izņēmumiem.</td>
+        </tr>
+        <tr>
+            <th>API IP adrese</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4 adrese API un tīmekļa saskarnei (izstrādē).<br><br>
+                <strong>Ieteikums:</strong> Ja tiek izmantots VPN vai starpniekserveris, pievienojiet šo IP adresi izņēmumiem.</td>
+        </tr>
+        <tr>
+            <th>API ports</th>
+        </tr>
+        <tr>
+            <td>
+                Ports, ko izmanto API un tīmekļa saskarnei (izstrādē). Open Server Panel nevarēs palaisties, ja norādīto portu jau izmanto cita lietotne.</td>
+        </tr>
+        <tr>
+            <th>Izmantot Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēgt Windows Terminal izmantošanu standarta komandrindas interfeisa vietā.<br><br>
+                <strong>Prasības:</strong> Windows Terminal jābūt instalētam sistēmā un norādītam vides mainīgajā PATH.<br><br>
+                <strong>Windows Terminal kā cmd.exe:</strong> Windows Terminal var aizstāt cmd.exe un būt norādīts vides mainīgajā %COMSPEC% jaunākajās Windows versijās. Ja tā ir, atstājiet šo opciju ieslēgtu.<br><br>
+                <strong>Jauni Windows Terminal eksemplāri:</strong> Ja Windows Terminal atver jaunus logus tā vietā, lai atvērtu cilnes, konfigurējiet to: Iestatījumi&rarr;Palaišana&rarr;Jauna eksemplāra uzvedība&rarr;Pievienot pēdējam izmantotajam logam.</td>
+        </tr>
+        <tr>
+            <th>Īss projekta virsraksts</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivizējot šo opciju, termināla loga virsrakstā tiks rādīts tikai projekta nosaukums, nevis detalizēts vides apraksts.</td>
+        </tr>
+        <tr>
+            <th>Iekļaut sistēmas vidi projekta vidē</th>
+        </tr>
+        <tr>
+            <td>Izmantot sistēmas (System) vidi terminālī, pat ja tā nav norādīta projekta iestatījumos. Sistēmas vide ļauj izmantot sistēmā instalētās programmas (piemēram, git.exe vai ssh.exe).<br><br>Izslēdziet šo opciju tikai tad, ja rodas konflikti ar sistēmas programmatūru.</td>
+        </tr>
+        <tr>
+            <th>ANSI atbalsts</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēgt ANSI kodu atbalstu krāsu pārvaldībai terminālī.<br><br>
+                Režīms "Automātiski" (pēc noklusējuma):<br>
+                - Labojums tiek piemērots tikai Windows 10 līdz versijai 1903 ieskaitot. Jaunākās Windows versijās ANSI kodu atbalsts jau ir iebūvēts.<br>
+                - Labojums netiek piemērots termināļiem, kas pēc noklusējuma atbalsta ANSI (piemēram, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Katalogi projektu meklēšanai</th>
+        </tr>
+        <tr>
+            <td>
+                Katalogu saraksts, kuros Open Server Panel meklēs projektus. Ceļus atdaliet ar semikolu (;).<br><br>
+                <strong>Izņēmumi:</strong> Apakškatalogi node_modules un vendor tiek ignorēti.</td>
+        </tr>
+        <tr>
+            <th>Dziļums</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimālais katalogu ligzdotības dziļums, meklējot projektus.<br><br>
+                Šīs vērtības palielināšana var palēnināt Open Server Panel palaišanu, ja norādītajos katalogos ir liels skaits apakškatalogu.</td>
+        </tr>
+        <tr>
+            <th>Maksimālais žurnāla faila izmērs</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimālais žurnāla faila izmērs megabaitos. Pārsniedzot norādīto vērtību, žurnāla fails tiks pārizveidots nākamajā programmas palaišanas reizē.<br><br>
+                Iestatiet vērtību 0, lai dzēstu žurnālus katrā programmas palaišanas reizē.<br><br>
+                Iestatiet vērtību 100 MB, lai pilnībā atspējotu žurnālu tīrīšanu.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

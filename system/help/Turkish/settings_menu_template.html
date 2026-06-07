@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Kendi menü öğelerinizi oluşturma</h2>
+    <ol>
+        <li>Benzersiz bir tanımlayıcı [ID] ile yeni bir bölüm ekleyin</li>
+        <li>Bölümleri istenen sırada yerleştirin — bu, menüdeki öğelerin sırasını belirleyecektir</li>
+        <li>Değişiklikleri kaydedin ve değişikliklerin uygulanması için Open Server Panel’i yeniden başlatın</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Önemli bilgi</h3>
+        Kendi menü öğelerinizi oluştururken bölüm tanımlayıcılarının tekrarlanmamasına dikkat edin. Bu, menünün çalışmasında çatışmalara yol açabilir.
+    </div>
+    <h2>Menü öğeleri ayarları</h2>
+    <p><strong>Sıralama düzeni:</strong> Menü öğeleri, şablonda ilgili bölümlerin yer aldığı sırayla sıralanır.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Menü öğesinin başlığı. {lang_xxx} biçimindeki dil sabitlerini destekler.<br><br>
+                    Varsayılan: belirtilmemiş
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Menü öğesinin hiyerarşideki konumunu belirler. Bir seviye iç içe geçmeyi destekler (örneğin, "Yer İmlerim\İş").</p>
+                    <p>Özel kategoriler:</p>
+                    <ul>
+                        <li>projects, modules, addons - ilgili eylem menüsüne öğe ekler</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - belirli bir öğe için öğe ekler</li>
+                    </ul>
+                    <p>Kategori belirtilmemişse, öğe kök menüde oluşturulur.</p>
+                    Varsayılan: belirtilmemiş
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Menü öğesi etkinleştirildiğinde yürütülecek komut. Komutu olmayan öğeler yok sayılır.<br><br>
+                    Varsayılan: belirtilmemiş
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Menü öğesinin görüntülenmesini açar/kapatır.<br><br>
+                    Varsayılan: on | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Çağrılan uygulamanın penceresinin görünürlüğünü yönetir. Alt süreçleri etkilemez.<br><br>
+                    Varsayılan: off | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Menü öğesinden sonra yatay ayırıcı ekler.<br><br>
+                    Varsayılan: off | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Menü öğesinden önce yatay ayırıcı ekler.<br><br>
+                    Varsayılan: off | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Font Awesome Free (Solid/Regular/Brands) setinden ikon.<br><br>
+                    Varsayılan: belirtilmemiş
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Menü öğesini yalnızca alan adı takma adı için görüntüler. Menü şablonunda need_alias=on olan yalnızca bir öğe olabilir!<br>
+                    Şu kategoriler için geçerlidir: projects<br><br>
+                    Varsayılan: belirtilmemiş | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Menü öğesinin görüntülenmesini belirli bir kategoriye ait modüller/eklentilerle sınırlar.</p>
+                    <p>Desteklenen biçimler:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Varsayılan: belirtilmemiş
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Menü öğesini, üst modülün shell/cli bulunmasına bağlı olarak görüntüler.<br>
+                    Şu kategoriler için geçerlidir: modules, modules\<имя_модуля><br><br>
+                        Varsayılan: belirtilmemiş | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Menü öğesini, üst modülün durumuna bağlı olarak görüntüler.<br>
+                    Şu kategoriler için geçerlidir: modules, modules\<имя_модуля><br><br>
+                        Varsayılan: belirtilmemiş | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Proje ayarlarında başlatma komutu mevcutsa menü öğesini görüntüler.<br>
+                    Şu kategoriler için geçerlidir: projects, projects\<имя_домена><br><br>
+                        Varsayılan: belirtilmemiş | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Menü öğesini, Open Server Panel’de Windows Terminal kullanım ayarına bağlı olarak görüntüler.<br><br>
+                    Varsayılan: belirtilmemiş | Değerler: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Komutun yürütülmesi için çalışma dizini. Komutların yürütülmesi sırasında değiştirilebilir.<br><br>
+                    Varsayılan: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Şablon değişkenleri</h2>
+    "command" ve "work_directory" parametrelerinde aşağıdaki şablon değişkenlerini kullanabilirsiniz:
+    <h3>Genel değişkenler</h3>
+    <table>
+        <tr>
+            <th>Değişken</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Geçerli tarih/saat (değişken yalnızca "command" parametresi için kullanılabilir)</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel’in kök dizini (tam yol)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Kök dizinin sürücüsü</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel’in kök dizinine giden yol</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Web arayüzünün URL adresi</td>
+        </tr>
+    </table>
+    <h3>Özel değişkenler (yalnızca projects ve projects\&lt;имя_домена&gt; için)</h3>
+    <table>
+        <tr>
+            <th>Değişken</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Projenin temel dizini</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Alan adı (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Görünür alan adı (Punycode olmadan)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Projeye istek şeması ("http" veya "https", proje ayarlarında TLS parametresine bağlıdır)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Projeye HTTP protokolü üzerinden istek için port</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Projeye HTTPS protokolü üzerinden istek için port</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Menü öğesinin başlığı (yalnızca need_alias=ON ile projects kategorisi için)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP motoru</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js motoru</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP motoru</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projenin kök dizini</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projenin URL’si</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Projenin public dizini</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Projeye istek için port (":{http_port}" veya ":{https_port}", proje ayarlarında TLS parametresine bağlıdır). {http_port} veya {https_port} 80 veya 443 gibi standart bir değere sahipse, {scheme_port} boş olur.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Proje uygulamasının başlatma komutu (ayarlanmışsa)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsol kodlaması</td>
+        </tr>
+    </table>
+    <h3>Özel değişkenler (yalnızca addons ve addons\&lt;имя_дополнения&gt; için)</h3>
+    <table>
+        <tr>
+            <th>Değişken</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Eklentinin adı</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsol kodlaması</td>
+        </tr>
+    </table>
+    <h3>Özel değişkenler (yalnızca modules ve modules\&lt;имя_модуля&gt; için)</h3>
+    <table>
+        <tr>
+            <th>Değişken</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Modülün IP adresi</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Hata günlükleme seviyesi</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Modül adı</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Modülün portu</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Modülün geçerli ayar profili adı</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>İstek günlükleme seviyesi</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Modülün shell/cli kabuğunu başlatma komutu (ayarlanmışsa)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsol kodlaması</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Saat dilimi</td>
+        </tr>
+    </table>
+    <h3>Özel komut değerleri</h3>
+    <table>
+        <tr>
+            <th>Komut</th>
+            <th>Açıklama</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Günlük görüntüleme penceresini aç</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN dönüştürücüsünü aç</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Program ayarları penceresini aç</td>
+        </tr>
+    </table>
+    <p>Şablon değişkenlerine ek olarak, %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% vb. gibi herhangi bir Windows ortam değişkenini kullanabilirsiniz.</p>
+    <h3>Kullanım örneği</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Yer İmlerim\Arama motorları
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE seçenekleri</h3>
+    <ul>
+        <li>/c: Komutu çalıştır ve terminali kapat.</li>
+        <li>/k: Komutu çalıştır ve terminali açık bırak.</li>
+    </ul>
+</body>
+
+</html>

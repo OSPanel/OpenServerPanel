@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globalna podešavanja projekata</h2>
+    <p>Parametri zadati u ovom odeljku koriste se ako u podešavanjima projekta nisu navedene druge vrednosti.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje korišćeni modul veb-servera za projekte.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Navodi engine Node.js za pokretanje Node.js aplikacija.<br><br>
+                <strong>Instalacija Node.js:</strong> Prethodno instalirajte potrebnu verziju Node.js pomoću komande <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje korišćeni PHP modul za obradu PHP fajlova.</td>
+        </tr>
+        <tr>
+            <th>Uključiti</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje podrazumevano stanje projekta (uključen ili isključen).</td>
+        </tr>
+        <tr>
+            <th>Kodiranje terminala</th>
+        </tr>
+        <tr>
+            <td>
+                Kodiranje terminala pri radu sa okruženjem projekta.<br><br>
+                <strong>Specijalne vrednosti:</strong><br>
+                - system: Koristi se sistemsko kodiranje.<br><br>
+                <strong>Važno:</strong> Ako vrednost nije zadana, pri formiranju konačnog okruženja projekta kodiranje terminala biće postavljeno poslednjim priključenim okruženjem u kom je zadato, na primer okruženjem PHP modula.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Zadaje IP adresu(e) koju koriste svi projekti bez individualnih podešavanja.<br><br>
+                <strong>Ograničenje:</strong> Projekti koji koriste istu IP adresu moraju raditi na jednoj verziji PHP.<br><br>
+                <strong>Podrška za više IP:</strong> Možete navesti više IP adresa razdvojenih razmakom, uključujući IPv6. U fajlu HOSTS domenima će biti dodeljena prva navedena IP.<br><br>
+                <strong>Automatsko dodeljivanje:</strong> Ako ostavite polje praznim, IP adresa će biti dodeljena automatski.<br><br>
+                <strong>Preporuke:</strong>
+                <ul>
+                    <li>Automatsko upravljanje IP adresama preporučuje se većini korisnika.</li>
+                    <li>Ručno zadavanje IP adrese koristite samo pri specifičnim zahtevima mrežne konfiguracije.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje port za veze preko HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje port za veze preko HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Uključuje ili isključuje podršku za TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>Fajl sertifikata</th>
+        </tr>
+        <tr>
+            <td>
+                Navodi putanju do fajla TLS sertifikata. Mogu se koristiti šablonske promenljive.<br><br>
+                <strong>Dozvoljeni simboli:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Preporuka:</strong> Ostavite polje praznim za automatsko generisanje sertifikata.</td>
+        </tr>
+        <tr>
+            <th>Fajl ključa</th>
+        </tr>
+        <tr>
+            <td>
+                Navodi putanju do fajla TLS ključa. Mogu se koristiti šablonske promenljive.<br><br>
+                <strong>Dozvoljeni simboli:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Preporuka:</strong> Ostavite polje praznim za automatsko generisanje ključa.</td>
+        </tr>
+        <tr>
+            <th>IP adresa (backend)</th>
+        </tr>
+        <tr>
+            <td>Navodi IP adresu preko koje se ostvaruje povezivanje sa serverskim delom (Backend).</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Određuje broj porta za povezivanje sa serverskim delom (Backend).</td>
+        </tr>
+        <tr>
+            <th>Uključiti (backend)</th>
+        </tr>
+        <tr>
+            <td>Omogućava automatsko preusmeravanje celog dolaznog saobraćaja (HTTP i HTTPS) projekta na serverski deo (Backend). Korisno za testiranje ili razvoj kada su frontend i backend odvojeni.</td>
+        </tr>
+        <tr>
+            <th>Katalog projekta</th>
+        </tr>
+        <tr>
+            <td>
+                Navodi korenski katalog projekta. Prelazak u ovaj katalog vrši se komandom <strong>osp project &lt;DOMAIN&gt;</strong> istovremeno sa aktivacijom okruženja projekta. Mogu se koristiti šablonske promenljive.<br><br>
+                <strong>Dozvoljeni simboli:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Javni katalog</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje javni katalog projekta. Mogu se koristiti šablonske promenljive.<br><br>
+                <strong>Dozvoljeni simboli:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Pseudonimi</th>
+        </tr>
+        <tr>
+            <td>
+                Navodi dodatna imena domena (aliasi) za projekat (razdvojena razmakom). Mogu se koristiti šablonske promenljive.<br><br>
+                <strong>Ograničenje:</strong> Simbol "*" nije podržan u Windows fajlu HOSTS i zahteva podešavanje DNS-a.</td>
+        </tr>
+        <tr>
+            <th>Okruženje projekta</th>
+        </tr>
+        <tr>
+            <td>
+                Spisak dodataka i modula (razdvojenih razmakom) koji formiraju okruženje projekta.<br><br>
+                <strong>HTTP, NODE i PHP:</strong> Okruženja ovih engine-a se uvek priključuju (ako su zadati za domen) i ne zahtevaju navođenje u ovom parametru.</td>
+        </tr>
+        <tr>
+            <th>Komanda za pokretanje projekta</th>
+        </tr>
+        <tr>
+            <td>
+                Određuje komandu za pokretanje projekta (na primer, <strong>nodemon app.js</strong>). Mogu se koristiti šablonske promenljive.</td>
+        </tr>
+        <tr>
+            <th>URL projekta</th>
+        </tr>
+        <tr>
+            <td>
+                URL koji se koristi pri otvaranju projekta <strong>Meni&rarr;Projekat&rarr;Otvori u pregledaču</strong>, kao i pri otvaranju domenih pseudonima projekta (aliasa). Mogu se koristiti šablonske promenljive.<br><br>
+                <strong>Primena:</strong> Možete zadati URL admin panela CMS-a.</td>
+        </tr>
+    </table>
+    <h2>Šablonske promenljive</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Promenljiva</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP adresa povezivanja sa serverskim delom (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port povezivanja sa serverskim delom (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Korenski katalog projekta (gde se nalazi katalog .osp)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Trenutni datum/vreme (promenljiva dostupna samo za komandu pokretanja aplikacije projekta)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Ime domena (za internacionalizovane domene koristi se Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Vidljivo ime domena (bez Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Šema zahteva ka projektu ("http" ili "https", zavisi od parametra TLS u podešavanjima projekta)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Port zahteva ka projektu preko protokola HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Port zahteva ka projektu preko protokola HTTPS</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>Engine HTTP</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Engine NODE</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Engine PHP</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Korenski katalog projekta</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Javni katalog projekta</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Port zahteva ka projektu (":{http_port}" ili ":{https_port}", zavisi od parametra TLS u podešavanjima projekta).<br><br>Ako {http_port} ili {https_port} ima standardnu vrednost 80 ili 443, tada {scheme_port} će biti prazan.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Korenski katalog Open Server Panel (puna putanja)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Disk korenskog kataloga</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Putanja do korenskog kataloga Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Kodiranje konzole</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Modulių aplinkos globalieji kintamieji</h2>
+    <p>Šiame skyriuje galite nustatyti modulių aplinkos globaliuosius kintamuosius.<br><br>Šie kintamieji galioja tik modulių aplinkoje ir neturi įtakos sistemos kintamiesiems ar projektų aplinkai.<br><br>Reikšmėse leidžiama naudoti šabloninius kintamuosius.</p>
+    <p>Jei kintamasis yra sistemos aplinkoje, bet neturėtų būti naudojamas modulių aplinkoje, pasinaudokite specialiu filtru (žr. Moduliai&rarr;Leidžiami sistemos kintamieji) arba pašalinkite kintamąjį iš aplinkos, priskirdami jam tuščią reikšmę.</p>
+    <h2>Šabloniniai kintamieji</h2>
+    <table>
+        <tr>
+            <th>Kintamasis</th>
+            <th>Aprašymas</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel šakninė direktorija (pilnas kelias)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Šakninės direktorijos diskas</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Kelias į Open Server Panel šakninę direktoriją</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Koduotė terminale (žr. Moduliai&rarr;Koduotė terminale)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Laiko juosta Etc/GMT formatu (žr. Moduliai&rarr;Laiko juosta)</td>
+        </tr>
+    </table>
+    <p>Be šabloninių kintamųjų, galima naudoti bet kuriuos Windows aplinkos kintamuosius, pavyzdžiui: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% ir t. t.</p>
+</body>
+
+</html>

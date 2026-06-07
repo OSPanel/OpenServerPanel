@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Variables de entorno globales de los módulos</h2>
+    <p>En esta sección se pueden establecer variables de entorno globales para los módulos.<br><br>Estas variables solo funcionan en el entorno de los módulos y no afectan a las variables del sistema ni al entorno de los proyectos.<br><br>En los valores se permite el uso de variables de plantilla.</p>
+    <p>Si una variable está presente en el entorno del sistema pero no debe usarse en el entorno de los módulos, utilice el filtro especial (ver Módulos&rarr;Variables del sistema permitidas) o elimine la variable del entorno asignándole un valor vacío.</p>
+    <h2>Variables de plantilla</h2>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Directorio raíz de Open Server Panel (ruta completa)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Unidad del directorio raíz</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Ruta al directorio raíz de Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codificación en la terminal (ver Módulos&rarr;Codificación en la terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Zona horaria en formato Etc/GMT (ver Módulos&rarr;Zona horaria)</td>
+        </tr>
+    </table>
+    <p>Además de las variables de plantilla, se pueden utilizar cualquier variable de entorno de Windows, por ejemplo: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
+</body>
+
+</html>

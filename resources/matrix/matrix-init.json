@@ -1,0 +1,2020 @@
+{
+  "php_extensions_matrix": {
+    "headers": [
+      "Parameter",
+      "Extension",
+      "Use",
+      "PHP 7.2",
+      "PHP 7.3",
+      "PHP 7.4",
+      "PHP 8.0",
+      "PHP 8.1",
+      "PHP 8.2",
+      "PHP 8.3",
+      "PHP 8.4",
+      "PHP 8.5"
+    ],
+    "data": [
+      {
+        "parameter": "assert.active",
+        "extension": "Assertion",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "assert.bail",
+        "extension": "Assertion",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "assert.callback",
+        "extension": "Assertion",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "assert.exception",
+        "extension": "Assertion",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "assert.quiet_eval",
+        "extension": "Assertion",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "assert.warning",
+        "extension": "Assertion",
+        "use": true,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "zend.assertions",
+        "extension": "Assertion",
+        "use": false,
+        "php_versions": {
+          "7.2": "1",
+          "7.3": "1",
+          "7.4": "1",
+          "8.0": "1",
+          "8.1": "1",
+          "8.2": "1",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "cgi.check_shebang_line",
+        "extension": "CGI",
+        "use": true,
+        "php_versions": {
+          "7.2": "0",
+          "7.3": "0",
+          "7.4": "0",
+          "8.0": "0",
+          "8.1": "0",
+          "8.2": "0",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      },
+      {
+        "parameter": "cgi.discard_path",
+        "extension": "CGI",
+        "use": false,
+        "php_versions": {
+          "7.2": "0",
+          "7.3": "0",
+          "7.4": "0",
+          "8.0": "0",
+          "8.1": "0",
+          "8.2": "0",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      },
+      {
+        "parameter": "cgi.fix_pathinfo",
+        "extension": "CGI",
+        "use": true,
+        "php_versions": {
+          "7.2": "1",
+          "7.3": "1",
+          "7.4": "1",
+          "8.0": "1",
+          "8.1": "1",
+          "8.2": "1",
+          "8.3": "1",
+          "8.4": "1",
+          "8.5": "1"
+        }
+      },
+      {
+        "parameter": "cgi.force_redirect",
+        "extension": "CGI",
+        "use": false,
+        "php_versions": {
+          "7.2": "1",
+          "7.3": "1",
+          "7.4": "1",
+          "8.0": "1",
+          "8.1": "1",
+          "8.2": "1",
+          "8.3": "1",
+          "8.4": "1",
+          "8.5": "1"
+        }
+      },
+      {
+        "parameter": "cgi.nph",
+        "extension": "CGI",
+        "use": false,
+        "php_versions": {
+          "7.2": "0",
+          "7.3": "0",
+          "7.4": "0",
+          "8.0": "0",
+          "8.1": "0",
+          "8.2": "0",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      },
+      {
+        "parameter": "cgi.redirect_status_env",
+        "extension": "CGI",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "cgi.rfc2616_headers",
+        "extension": "CGI",
+        "use": false,
+        "php_versions": {
+          "7.2": "0",
+          "7.3": "0",
+          "7.4": "0",
+          "8.0": "0",
+          "8.1": "0",
+          "8.2": "0",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      },
+      {
+        "parameter": "doc_root",
+        "extension": "Directories",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "extension_dir",
+        "extension": "Directories",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"{root_dir}/modules/{module_name}/ext\"",
+          "7.3": "\"{root_dir}/modules/{module_name}/ext\"",
+          "7.4": "\"{root_dir}/modules/{module_name}/ext\"",
+          "8.0": "\"{root_dir}/modules/{module_name}/ext\"",
+          "8.1": "\"{root_dir}/modules/{module_name}/ext\"",
+          "8.2": "\"{root_dir}/modules/{module_name}/ext\"",
+          "8.3": "\"{root_dir}/modules/{module_name}/ext\"",
+          "8.4": "\"{root_dir}/modules/{module_name}/ext\"",
+          "8.5": "\"{root_dir}/modules/{module_name}/ext\""
+        }
+      },
+      {
+        "parameter": "include_path",
+        "extension": "Directories",
+        "use": true,
+        "php_versions": {
+          "7.2": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "7.3": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "7.4": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.0": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.1": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.2": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.3": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.4": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.5": "\".;{root_dir}/data/{module_name}/{profile_name}/composer\""
+        }
+      },
+      {
+        "parameter": "sys_temp_dir",
+        "extension": "Directories",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "7.3": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "7.4": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "8.0": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "8.1": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "8.2": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "8.3": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "8.4": "\"{root_dir}/temp/{module_name}/{profile_name}\"",
+          "8.5": "\"{root_dir}/temp/{module_name}/{profile_name}\""
+        }
+      },
+      {
+        "parameter": "upload_tmp_dir",
+        "extension": "Directories",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"{root_dir}/temp/upload\"",
+          "7.3": "\"{root_dir}/temp/upload\"",
+          "7.4": "\"{root_dir}/temp/upload\"",
+          "8.0": "\"{root_dir}/temp/upload\"",
+          "8.1": "\"{root_dir}/temp/upload\"",
+          "8.2": "\"{root_dir}/temp/upload\"",
+          "8.3": "\"{root_dir}/temp/upload\"",
+          "8.4": "\"{root_dir}/temp/upload\"",
+          "8.5": "\"{root_dir}/temp/upload\""
+        }
+      },
+      {
+        "parameter": "user_dir",
+        "extension": "Directories",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "default_charset",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"UTF-8\"",
+          "7.3": "\"UTF-8\"",
+          "7.4": "\"UTF-8\"",
+          "8.0": "\"UTF-8\"",
+          "8.1": "\"UTF-8\"",
+          "8.2": "\"UTF-8\"",
+          "8.3": "\"UTF-8\"",
+          "8.4": "\"UTF-8\"",
+          "8.5": "\"UTF-8\""
+        }
+      },
+      {
+        "parameter": "default_mimetype",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"text/html\"",
+          "7.3": "\"text/html\"",
+          "7.4": "\"text/html\"",
+          "8.0": "\"text/html\"",
+          "8.1": "\"text/html\"",
+          "8.2": "\"text/html\"",
+          "8.3": "\"text/html\"",
+          "8.4": "\"text/html\"",
+          "8.5": "\"text/html\""
+        }
+      },
+      {
+        "parameter": "input_encoding",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "internal_encoding",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "output_encoding",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "zend.detect_unicode",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "zend.multibyte",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "zend.script_encoding",
+        "extension": "Encodings",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "display_errors",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "display_startup_errors",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "docref_ext",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "docref_root",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "error_append_string",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "error_log",
+        "extension": "Error reporting",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "7.3": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "7.4": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "8.0": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "8.1": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "8.2": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "8.3": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "8.4": "\"{root_dir}/logs/{module_name}/php_error.log\"",
+          "8.5": "\"{root_dir}/logs/{module_name}/php_error.log\""
+        }
+      },
+      {
+        "parameter": "error_prepend_string",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "error_reporting",
+        "extension": "Error reporting",
+        "use": true,
+        "php_versions": {
+          "7.2": "E_ALL & ~E_NOTICE",
+          "7.3": "E_ALL & ~E_NOTICE",
+          "7.4": "E_ALL & ~E_NOTICE",
+          "8.0": "E_ALL & ~E_NOTICE",
+          "8.1": "E_ALL & ~E_NOTICE",
+          "8.2": "E_ALL & ~E_NOTICE",
+          "8.3": "E_ALL & ~E_NOTICE",
+          "8.4": "E_ALL & ~E_NOTICE & ~E_DEPRECATED",
+          "8.5": "E_ALL & ~E_NOTICE & ~E_DEPRECATED"
+        }
+      },
+      {
+        "parameter": "html_errors",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "ignore_repeated_errors",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "ignore_repeated_source",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "log_errors",
+        "extension": "Error reporting",
+        "use": true,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "log_errors_max_len",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "1024",
+          "7.3": "1024",
+          "7.4": "1024",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "report_memleaks",
+        "extension": "Error reporting",
+        "use": true,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "report_zend_debug",
+        "extension": "Error reporting",
+        "use": true,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "track_errors",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "windows.show_crt_warning",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "xmlrpc_error_number",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "0",
+          "7.3": "0",
+          "7.4": "0",
+          "8.0": "0",
+          "8.1": "0",
+          "8.2": "0",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      },
+      {
+        "parameter": "xmlrpc_errors",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "zend.exception_ignore_args",
+        "extension": "Error reporting",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "zend.exception_string_param_max_len",
+        "extension": "Error reporting",
+        "use": true,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "1024",
+          "8.1": "1024",
+          "8.2": "1024",
+          "8.3": "1024",
+          "8.4": "1024",
+          "8.5": "1024"
+        }
+      },
+      {
+        "parameter": "allow_url_fopen",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "allow_url_include",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "auto_detect_line_endings",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "auto_globals_jit",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "engine",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "1",
+          "7.3": "1",
+          "7.4": "1",
+          "8.0": "1",
+          "8.1": "1",
+          "8.2": "1",
+          "8.3": "1",
+          "8.4": "1",
+          "8.5": "1"
+        }
+      },
+      {
+        "parameter": "enable_dl",
+        "extension": "Flags",
+        "use": true,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "enable_post_data_reading",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "expose_php",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "fatal_error_backtraces",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "file_uploads",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "ignore_user_abort",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "implicit_flush",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "last_modified",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "0",
+          "7.3": "0",
+          "7.4": "0",
+          "8.0": "0",
+          "8.1": "0",
+          "8.2": "0",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      },
+      {
+        "parameter": "register_argc_argv",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "short_open_tag",
+        "extension": "Flags",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "default_socket_timeout",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "60",
+          "7.3": "60",
+          "7.4": "60",
+          "8.0": "60",
+          "8.1": "60",
+          "8.2": "60",
+          "8.3": "60",
+          "8.4": "60",
+          "8.5": "60"
+        }
+      },
+      {
+        "parameter": "hard_timeout",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "2",
+          "7.3": "2",
+          "7.4": "2",
+          "8.0": "2",
+          "8.1": "2",
+          "8.2": "2",
+          "8.3": "2",
+          "8.4": "2",
+          "8.5": "2"
+        }
+      },
+      {
+        "parameter": "max_execution_time",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "900",
+          "7.3": "900",
+          "7.4": "900",
+          "8.0": "900",
+          "8.1": "900",
+          "8.2": "900",
+          "8.3": "900",
+          "8.4": "900",
+          "8.5": "900"
+        }
+      },
+      {
+        "parameter": "max_file_uploads",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "50",
+          "7.3": "50",
+          "7.4": "50",
+          "8.0": "50",
+          "8.1": "50",
+          "8.2": "50",
+          "8.3": "50",
+          "8.4": "50",
+          "8.5": "50"
+        }
+      },
+      {
+        "parameter": "max_input_nesting_level",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "64",
+          "7.3": "64",
+          "7.4": "64",
+          "8.0": "64",
+          "8.1": "64",
+          "8.2": "64",
+          "8.3": "64",
+          "8.4": "64",
+          "8.5": "64"
+        }
+      },
+      {
+        "parameter": "max_input_time",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "120",
+          "7.3": "120",
+          "7.4": "120",
+          "8.0": "120",
+          "8.1": "120",
+          "8.2": "120",
+          "8.3": "120",
+          "8.4": "120",
+          "8.5": "120"
+        }
+      },
+      {
+        "parameter": "max_input_vars",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "10000",
+          "7.3": "10000",
+          "7.4": "10000",
+          "8.0": "10000",
+          "8.1": "10000",
+          "8.2": "10000",
+          "8.3": "10000",
+          "8.4": "10000",
+          "8.5": "10000"
+        }
+      },
+      {
+        "parameter": "max_memory_limit",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "-1"
+        }
+      },
+      {
+        "parameter": "max_multipart_body_parts",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "-1",
+          "7.3": "-1",
+          "7.4": "-1",
+          "8.0": "-1",
+          "8.1": "-1",
+          "8.2": "-1",
+          "8.3": "-1",
+          "8.4": "-1",
+          "8.5": "-1"
+        }
+      },
+      {
+        "parameter": "memory_limit",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "1024M",
+          "7.3": "1024M",
+          "7.4": "1024M",
+          "8.0": "1024M",
+          "8.1": "1024M",
+          "8.2": "1024M",
+          "8.3": "1024M",
+          "8.4": "1024M",
+          "8.5": "1024M"
+        }
+      },
+      {
+        "parameter": "output_buffering",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "post_max_size",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "160M",
+          "7.3": "160M",
+          "7.4": "160M",
+          "8.0": "160M",
+          "8.1": "160M",
+          "8.2": "160M",
+          "8.3": "160M",
+          "8.4": "160M",
+          "8.5": "160M"
+        }
+      },
+      {
+        "parameter": "precision",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "14",
+          "7.3": "14",
+          "7.4": "14",
+          "8.0": "14",
+          "8.1": "14",
+          "8.2": "14",
+          "8.3": "14",
+          "8.4": "14",
+          "8.5": "14"
+        }
+      },
+      {
+        "parameter": "realpath_cache_size",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "4096K",
+          "7.3": "4096K",
+          "7.4": "4096K",
+          "8.0": "4096K",
+          "8.1": "4096K",
+          "8.2": "4096K",
+          "8.3": "4096K",
+          "8.4": "4096K",
+          "8.5": "4096K"
+        }
+      },
+      {
+        "parameter": "realpath_cache_ttl",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "120",
+          "7.3": "120",
+          "7.4": "120",
+          "8.0": "120",
+          "8.1": "120",
+          "8.2": "120",
+          "8.3": "120",
+          "8.4": "120",
+          "8.5": "120"
+        }
+      },
+      {
+        "parameter": "serialize_precision",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "-1",
+          "7.3": "-1",
+          "7.4": "-1",
+          "8.0": "-1",
+          "8.1": "-1",
+          "8.2": "-1",
+          "8.3": "-1",
+          "8.4": "-1",
+          "8.5": "-1"
+        }
+      },
+      {
+        "parameter": "unserialize_max_depth",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "4096",
+          "8.0": "4096",
+          "8.1": "4096",
+          "8.2": "4096",
+          "8.3": "4096",
+          "8.4": "4096",
+          "8.5": "4096"
+        }
+      },
+      {
+        "parameter": "upload_max_filesize",
+        "extension": "Limits",
+        "use": true,
+        "php_versions": {
+          "7.2": "128M",
+          "7.3": "128M",
+          "7.4": "128M",
+          "8.0": "128M",
+          "8.1": "128M",
+          "8.2": "128M",
+          "8.3": "128M",
+          "8.4": "128M",
+          "8.5": "128M"
+        }
+      },
+      {
+        "parameter": "user_ini.cache_ttl",
+        "extension": "Limits",
+        "use": false,
+        "php_versions": {
+          "7.2": "300",
+          "7.3": "300",
+          "7.4": "300",
+          "8.0": "300",
+          "8.1": "300",
+          "8.2": "300",
+          "8.3": "300",
+          "8.4": "300",
+          "8.5": "300"
+        }
+      },
+      {
+        "parameter": "mail.add_x_header",
+        "extension": "Mail",
+        "use": true,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "mail.cr_lf_mode",
+        "extension": "Mail",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "(none)",
+          "8.4": "(none)",
+          "8.5": "crlf"
+        }
+      },
+      {
+        "parameter": "mail.force_extra_parameters",
+        "extension": "Mail",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "mail.log",
+        "extension": "Mail",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "7.3": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "7.4": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "8.0": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "8.1": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "8.2": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "8.3": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "8.4": "\"{root_dir}/logs/{module_name}/php_mail.log\"",
+          "8.5": "\"{root_dir}/logs/{module_name}/php_mail.log\""
+        }
+      },
+      {
+        "parameter": "mail.mixed_lf_and_crlf",
+        "extension": "Mail",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "sendmail_from",
+        "extension": "Mail",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "sendmail_path",
+        "extension": "Mail",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "SMTP",
+        "extension": "Mail",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"localhost\"",
+          "7.3": "\"localhost\"",
+          "7.4": "\"localhost\"",
+          "8.0": "\"localhost\"",
+          "8.1": "\"localhost\"",
+          "8.2": "\"localhost\"",
+          "8.3": "\"localhost\"",
+          "8.4": "\"localhost\"",
+          "8.5": "\"localhost\""
+        }
+      },
+      {
+        "parameter": "smtp_port",
+        "extension": "Mail",
+        "use": true,
+        "php_versions": {
+          "7.2": "25",
+          "7.3": "25",
+          "7.4": "25",
+          "8.0": "25",
+          "8.1": "25",
+          "8.2": "25",
+          "8.3": "25",
+          "8.4": "25",
+          "8.5": "25"
+        }
+      },
+      {
+        "parameter": "disable_classes",
+        "extension": "Security",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(none)"
+        }
+      },
+      {
+        "parameter": "disable_functions",
+        "extension": "Security",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "7.3": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "7.4": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "8.0": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "8.1": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "8.2": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "8.3": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "8.4": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\"",
+          "8.5": "\"apache_setenv,dl,exec,passthru,pcntl_exec,pcntl_fork,popen,proc_open,putenv,shell_exec,symlink,system,virtual\""
+        }
+      },
+      {
+        "parameter": "open_basedir",
+        "extension": "Security",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "7.3": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "7.4": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.0": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.1": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.2": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.3": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.4": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\"",
+          "8.5": "\"{root_dir}/home;{root_dir}/temp;{root_dir}/data/{module_name}/{profile_name}/composer\""
+        }
+      },
+      {
+        "parameter": "syslog.facility",
+        "extension": "Syslog",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "LOG_USER",
+          "7.4": "LOG_USER",
+          "8.0": "LOG_USER",
+          "8.1": "LOG_USER",
+          "8.2": "LOG_USER",
+          "8.3": "LOG_USER",
+          "8.4": "LOG_USER",
+          "8.5": "LOG_USER"
+        }
+      },
+      {
+        "parameter": "syslog.filter",
+        "extension": "Syslog",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "no-ctrl",
+          "7.4": "no-ctrl",
+          "8.0": "no-ctrl",
+          "8.1": "no-ctrl",
+          "8.2": "no-ctrl",
+          "8.3": "no-ctrl",
+          "8.4": "no-ctrl",
+          "8.5": "no-ctrl"
+        }
+      },
+      {
+        "parameter": "syslog.ident",
+        "extension": "Syslog",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "php",
+          "7.4": "php",
+          "8.0": "php",
+          "8.1": "php",
+          "8.2": "php",
+          "8.3": "php",
+          "8.4": "php",
+          "8.5": "php"
+        }
+      },
+      {
+        "parameter": "zlib.output_compression",
+        "extension": "Zlib",
+        "use": false,
+        "php_versions": {
+          "7.2": "Off",
+          "7.3": "Off",
+          "7.4": "Off",
+          "8.0": "Off",
+          "8.1": "Off",
+          "8.2": "Off",
+          "8.3": "Off",
+          "8.4": "Off",
+          "8.5": "Off"
+        }
+      },
+      {
+        "parameter": "zlib.output_compression_level",
+        "extension": "Zlib",
+        "use": false,
+        "php_versions": {
+          "7.2": "-1",
+          "7.3": "-1",
+          "7.4": "-1",
+          "8.0": "-1",
+          "8.1": "-1",
+          "8.2": "-1",
+          "8.3": "-1",
+          "8.4": "-1",
+          "8.5": "-1"
+        }
+      },
+      {
+        "parameter": "zlib.output_handler",
+        "extension": "Zlib",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "arg_separator.input",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"&\"",
+          "7.3": "\"&\"",
+          "7.4": "\"&\"",
+          "8.0": "\"&\"",
+          "8.1": "\"&\"",
+          "8.2": "\"&\"",
+          "8.3": "\"&\"",
+          "8.4": "\"&\"",
+          "8.5": "\"&\""
+        }
+      },
+      {
+        "parameter": "arg_separator.output",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"&\"",
+          "7.3": "\"&\"",
+          "7.4": "\"&\"",
+          "8.0": "\"&\"",
+          "8.1": "\"&\"",
+          "8.2": "\"&\"",
+          "8.3": "\"&\"",
+          "8.4": "\"&\"",
+          "8.5": "\"&\""
+        }
+      },
+      {
+        "parameter": "auto_append_file",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "auto_prepend_file",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "browscap",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "7.3": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "7.4": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "8.0": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "8.1": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "8.2": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "8.3": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "8.4": "\"{root_dir}/modules/{module_name}/browscap.ini\"",
+          "8.5": "\"{root_dir}/modules/{module_name}/browscap.ini\""
+        }
+      },
+      {
+        "parameter": "cli_server.color",
+        "extension": "Other",
+        "use": true,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "fiber.stack_size",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "from",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"john@doe.com\"",
+          "7.3": "\"john@doe.com\"",
+          "7.4": "\"john@doe.com\"",
+          "8.0": "\"john@doe.com\"",
+          "8.1": "\"john@doe.com\"",
+          "8.2": "\"john@doe.com\"",
+          "8.3": "\"john@doe.com\"",
+          "8.4": "\"john@doe.com\"",
+          "8.5": "\"john@doe.com\""
+        }
+      },
+      {
+        "parameter": "highlight.comment",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"#FF8000\"",
+          "7.3": "\"#FF8000\"",
+          "7.4": "\"#FF8000\"",
+          "8.0": "\"#FF8000\"",
+          "8.1": "\"#FF8000\"",
+          "8.2": "\"#FF8000\"",
+          "8.3": "\"#FF8000\"",
+          "8.4": "\"#FF8000\"",
+          "8.5": "\"#FF8000\""
+        }
+      },
+      {
+        "parameter": "highlight.default",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"#0000BB\"",
+          "7.3": "\"#0000BB\"",
+          "7.4": "\"#0000BB\"",
+          "8.0": "\"#0000BB\"",
+          "8.1": "\"#0000BB\"",
+          "8.2": "\"#0000BB\"",
+          "8.3": "\"#0000BB\"",
+          "8.4": "\"#0000BB\"",
+          "8.5": "\"#0000BB\""
+        }
+      },
+      {
+        "parameter": "highlight.html",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"#000000\"",
+          "7.3": "\"#000000\"",
+          "7.4": "\"#000000\"",
+          "8.0": "\"#000000\"",
+          "8.1": "\"#000000\"",
+          "8.2": "\"#000000\"",
+          "8.3": "\"#000000\"",
+          "8.4": "\"#000000\"",
+          "8.5": "\"#000000\""
+        }
+      },
+      {
+        "parameter": "highlight.keyword",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"#007700\"",
+          "7.3": "\"#007700\"",
+          "7.4": "\"#007700\"",
+          "8.0": "\"#007700\"",
+          "8.1": "\"#007700\"",
+          "8.2": "\"#007700\"",
+          "8.3": "\"#007700\"",
+          "8.4": "\"#007700\"",
+          "8.5": "\"#007700\""
+        }
+      },
+      {
+        "parameter": "highlight.string",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"#DD0000\"",
+          "7.3": "\"#DD0000\"",
+          "7.4": "\"#DD0000\"",
+          "8.0": "\"#DD0000\"",
+          "8.1": "\"#DD0000\"",
+          "8.2": "\"#DD0000\"",
+          "8.3": "\"#DD0000\"",
+          "8.4": "\"#DD0000\"",
+          "8.5": "\"#DD0000\""
+        }
+      },
+      {
+        "parameter": "output_handler",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "request_order",
+        "extension": "Other",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"GP\"",
+          "7.3": "\"GP\"",
+          "7.4": "\"GP\"",
+          "8.0": "\"GP\"",
+          "8.1": "\"GP\"",
+          "8.2": "\"GP\"",
+          "8.3": "\"GP\"",
+          "8.4": "\"GP\"",
+          "8.5": "\"GP\""
+        }
+      },
+      {
+        "parameter": "unserialize_callback_func",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "url_rewriter.hosts",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "url_rewriter.tags",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\"form=\"",
+          "7.3": "\"form=\"",
+          "7.4": "\"form=\"",
+          "8.0": "\"form=\"",
+          "8.1": "\"form=\"",
+          "8.2": "\"form=\"",
+          "8.3": "\"form=\"",
+          "8.4": "\"form=\"",
+          "8.5": "\"form=\""
+        }
+      },
+      {
+        "parameter": "user_agent",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(empty)",
+          "7.3": "(empty)",
+          "7.4": "(empty)",
+          "8.0": "(empty)",
+          "8.1": "(empty)",
+          "8.2": "(empty)",
+          "8.3": "(empty)",
+          "8.4": "(empty)",
+          "8.5": "(empty)"
+        }
+      },
+      {
+        "parameter": "user_ini.filename",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "\".user.ini\"",
+          "7.3": "\".user.ini\"",
+          "7.4": "\".user.ini\"",
+          "8.0": "\".user.ini\"",
+          "8.1": "\".user.ini\"",
+          "8.2": "\".user.ini\"",
+          "8.3": "\".user.ini\"",
+          "8.4": "\".user.ini\"",
+          "8.5": "\".user.ini\""
+        }
+      },
+      {
+        "parameter": "variables_order",
+        "extension": "Other",
+        "use": true,
+        "php_versions": {
+          "7.2": "\"GPCS\"",
+          "7.3": "\"GPCS\"",
+          "7.4": "\"GPCS\"",
+          "8.0": "\"GPCS\"",
+          "8.1": "\"GPCS\"",
+          "8.2": "\"GPCS\"",
+          "8.3": "\"GPCS\"",
+          "8.4": "\"GPCS\"",
+          "8.5": "\"GPCS\""
+        }
+      },
+      {
+        "parameter": "zend.enable_gc",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "On",
+          "7.3": "On",
+          "7.4": "On",
+          "8.0": "On",
+          "8.1": "On",
+          "8.2": "On",
+          "8.3": "On",
+          "8.4": "On",
+          "8.5": "On"
+        }
+      },
+      {
+        "parameter": "zend.max_allowed_stack_size",
+        "extension": "Other",
+        "use": true,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "-1",
+          "8.4": "-1",
+          "8.5": "-1"
+        }
+      },
+      {
+        "parameter": "zend.reserved_stack_size",
+        "extension": "Other",
+        "use": false,
+        "php_versions": {
+          "7.2": "(none)",
+          "7.3": "(none)",
+          "7.4": "(none)",
+          "8.0": "(none)",
+          "8.1": "(none)",
+          "8.2": "(none)",
+          "8.3": "0",
+          "8.4": "0",
+          "8.5": "0"
+        }
+      }
+    ]
+  }
+}

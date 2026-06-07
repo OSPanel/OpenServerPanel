@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Moduulien globaalit asetukset</h2>
+    <p>Tässä osiossa määritetyt parametrit sovelletaan tapauksissa, kun yksittäisen moduulin asetuksissa vastaavalle vaihtoehdolle on asetettu arvo auto (oletus).</p>
+    <table>
+        <tr>
+            <th>Hiljainen tila</th>
+        </tr>
+        <tr>
+            <td>
+                Poistaa käytöstä Windows Error Reportingin ja itse moduulin ponnahdusvirheilmoitukset.<br><br>
+                <strong>Suositus:</strong> Poista tämä tila käytöstä vain, kun on tarpeen diagnosoida moduulin toimintaan liittyviä ongelmia.</td>
+        </tr>
+        <tr>
+            <th>Lisää otsikko lokitiedostoon</th>
+        </tr>
+        <tr>
+            <td>
+                Ottaa käyttöön automaattisen otsikon lisäämisen lokitiedostoon jokaisen moduulin käynnistyksen yhteydessä. Hyödyllistä, kun lokien automaattinen tyhjennys on pois käytöstä työistuntojen erottamiseksi.</td>
+        </tr>
+        <tr>
+            <th>Enimmäismäärä epäonnistuneita käynnistyksiä</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää, kuinka monta peräkkäistä epäonnistunutta moduulin käynnistystä sallitaan ennen kuin se siirtyy tilaan ”Virhe”.</td>
+        </tr>
+        <tr>
+            <th>Moduulin toimintakunnon tarkistusaika</th>
+        </tr>
+        <tr>
+            <td>Määrittää moduulin toimintakunnon testausjakson sen onnistuneen käynnistyksen jälkeen.<br><br>
+                <strong>Ajastuksen alku:</strong> Moduulin onnistuneesta käynnistyksestä.<br><br>
+                <strong>Siirtyminen tilaan ”Virhe”:</strong> Jos moduuli kaatuu testijakson aikana, sitä ei käynnistetä automaattisesti uudelleen ja se siirtyy tilaan ”Virhe”. Tämä koskee myös tapauksia, joissa moduulia ei onnistuta käynnistämään järjestelmätasolla.<br><br>
+                <strong>Tarkistuksen poistaminen käytöstä:</strong> Arvo 0 poistaa testijakson, ja moduuli käynnistetään aina uudelleen vikatilanteessa.<br><br>
+                <strong>Suositus:</strong> Älä aseta arvoa 0 tai liian lyhyttä jaksoa (alle 30 sekuntia), sillä se voi johtaa loputtomiin uudelleenkäynnistyssilmukoihin.</td>
+        </tr>
+        <tr>
+            <th>Moduulin sammutuksen aikakatkaisu</th>
+        </tr>
+        <tr>
+            <td>Määrittää enimmäisajan, jonka kuluessa moduulin on sallittua päättää toimintansa.<br><br>
+                <strong>Pakotettu lopetus:</strong> Jos moduuli ei lopeta toimintaa määräajassa, se pysäytetään pakotetusti.<br><br>
+                <strong>Odotuksen poistaminen käytöstä:</strong> Arvo 0 poistaa odotusajan. Ohjelma odottaa moduulin sammumista rajoittamattoman ajan.<br><br>
+                <strong>Varoitus:</strong> Moduulin pakotettu pysäyttäminen voi johtaa tietojen vioittumiseen, tallentamattomien muutosten menetykseen tai prosessien virheelliseen päättymiseen. Käytä tätä asetusta varoen.</td>
+        </tr>
+        <tr>
+            <th>Lokitiedoston enimmäiskoko</th>
+        </tr>
+        <tr>
+            <td>
+                Lokitiedoston enimmäiskoko megatavuina. Kun määritetty arvo ylittyy, lokitiedosto luodaan uudelleen seuraavan moduulin käynnistyksen yhteydessä.<br><br>
+                Aseta arvo 0, jotta lokit tyhjennetään jokaisen moduulin käynnistyksen yhteydessä.<br><br>
+                Aseta arvo 100 Mt, jotta lokien tyhjennys poistetaan kokonaan käytöstä.</td>
+        </tr>
+        <tr>
+            <th>Terminaalin merkistö</th>
+        </tr>
+        <tr>
+            <td>
+                Terminaalin merkistö moduulin ympäristössä työskenneltäessä.<br><br>
+                <strong>Erityisarvot:</strong><br>
+                - system: Käytetään järjestelmän merkistöä.</td>
+        </tr>
+        <tr>
+            <th>Aikavyöhyke</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää moduulin aikavyöhykkeen muodossa Etc/GMT (esimerkiksi Etc/GMT-3).<br><br>
+                <strong>Erityisarvot:</strong><br>
+                - system: Käytetään järjestelmän aikavyöhykettä.<br><br>
+                <strong>Tärkeää:</strong> Etc/GMT-muodossa siirtymä UTC:hen nähden on käänteinen (esimerkiksi Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Käytetyt lisäosaympäristöt</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää luettelon lisäosista (erotetaan välilyönneillä), joiden ympäristöt (jos sellaisia on) liitetään moduulin ympäristöön. Terminaalin tilailmaisimet eivät näytä näitä lisäympäristöjä.<br><br>
+                <strong>Varoitus:</strong> Käytä tätä vaihtoehtoa vain, jos ymmärrät täysin sen käyttötarkoituksen.</td>
+        </tr>
+        <tr>
+            <th>Sallitut järjestelmämuuttujat</th>
+        </tr>
+        <tr>
+            <td>
+                Määrittää luettelon Windows-ympäristömuuttujista (erotetaan välilyönneillä), jotka välitetään moduulin ympäristöön.<br><br>
+                <strong>Tarkoitus:</strong> Mahdollistaa moduulin työympäristön eristämisen järjestelmään asennetusta vastaavasta ohjelmistosta.<br><br>
+                <strong>Varoitus:</strong> Tämän luettelon muuttaminen ilman sen vaikutusten täydellistä ymmärrystä voi johtaa moduulin epävakaaseen toimintaan.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

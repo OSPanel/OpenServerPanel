@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Program settings</h2>
+    <table>
+        <tr>
+            <th>Start with Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Enable Open Server Panel autorun when the operating system loads.</td>
+        </tr>
+        <tr>
+            <th>Delay</th>
+        </tr>
+        <tr>
+            <td>
+                Program startup delay (in seconds, from 0 to 60).<br><br>Allows you to postpone the app start during Windows startup to reduce overall system load. This is especially useful if you need to wait for full initialization of third-party services or network interfaces.</td>
+        </tr>
+        <tr>
+            <th>Check for new versions</th>
+        </tr>
+        <tr>
+            <td>
+                Enable Open Server Panel updates check (Internet connection required).</td>
+        </tr>
+        <tr>
+            <th>Enable task scheduler</th>
+        </tr>
+        <tr>
+            <td>
+                Activate the built-in task scheduler. If this option is disabled, no scheduled tasks will be executed regardless of their status.</td>
+        </tr>
+        <tr>
+            <th>Use HOSTS file</th>
+        </tr>
+        <tr>
+            <td>
+                Enable writing domain names to the HOSTS file.<br><br>
+                <strong>Recommendations when access to the HOSTS file is restricted in your organization:</strong><br><br>
+                1. Configure all required modules and projects.<br>
+                2. Contact your system administrator to unblock HOSTS and lock in its state.<br>
+                3. After the administrator finalizes the changes, you can disable this option.<br><br>
+                <strong>Important:</strong> Do not disable this option unless you are sure of the consequences!</td>
+        </tr>
+        <tr>
+            <th>Start modules with project profile</th>
+        </tr>
+        <tr>
+            <td>Start modules while simultaneously activating the profile that matches the project name.<br><br>Used when selecting the “Enable project modules” menu item to automatically activate the profile with the same name as the current project, if it exists.</td>
+        </tr>
+        <tr>
+            <th>Do not stop modules of hidden projects</th>
+        </tr>
+        <tr>
+            <td>Do not stop modules of hidden projects when selecting the “Disable all modules” menu item. By "hidden" we mean projects for which the "hidden" category is set.<br><br>By default, the “Disable all modules” command stops absolutely all modules, including those used by hidden service projects (for example, PHPMyAdmin). This option allows you to keep hidden service projects operational without disabling the modules they require, while all other modules will be turned off.</td>
+        </tr>
+        <tr>
+            <th>Interface language</th>
+        </tr>
+        <tr>
+            <td>
+                The Open Server Panel user interface language.<br><br>
+                If the localization file is missing or contains errors, English will be used.</td>
+        </tr>
+        <tr>
+            <th>API domain</th>
+        </tr>
+        <tr>
+            <td>
+                Local domain for the API and web interface (in development)<br><br>
+                <strong>Recommendation:</strong> If a VPN or proxy is used, add this domain to the exclusions.</td>
+        </tr>
+        <tr>
+            <th>API IP address</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4 address for the API and web interface (in development).<br><br>
+                <strong>Recommendation:</strong> If a VPN or proxy is used, add this IP address to the exclusions.</td>
+        </tr>
+        <tr>
+            <th>API port</th>
+        </tr>
+        <tr>
+            <td>
+                The port used for the API and web interface (in development). Open Server Panel will not be able to start if the specified port is already used by another application.</td>
+        </tr>
+        <tr>
+            <th>Use Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Enable using Windows Terminal instead of the standard command interface.<br><br>
+                <strong>Requirements:</strong> Windows Terminal must be installed in the system and present in the PATH environment variable.<br><br>
+                <strong>Windows Terminal as cmd.exe:</strong> Windows Terminal can replace cmd.exe and be set in the %COMSPEC% environment variable in newer versions of Windows. If so, leave this option enabled.<br><br>
+                <strong>New Windows Terminal instances:</strong> If Windows Terminal opens new windows instead of tabs, configure it as follows: Settings&rarr;Startup&rarr;New instance behavior&rarr;Attach to most recently used window.</td>
+        </tr>
+        <tr>
+            <th>Short project title</th>
+        </tr>
+        <tr>
+            <td>
+                When this option is enabled, only the project name will be shown in the terminal window title instead of a detailed environment description.</td>
+        </tr>
+        <tr>
+            <th>Include system environment in the project environment</th>
+        </tr>
+        <tr>
+            <td>Use the system (System) environment in the terminal even if it is not set in the project settings. The system environment allows you to use programs installed in the system (for example, git.exe or ssh.exe).<br><br>Disable this option only if conflicts with system software occur.</td>
+        </tr>
+        <tr>
+            <th>ANSI support</th>
+        </tr>
+        <tr>
+            <td>
+                Enable ANSI code support for color control in the terminal.<br><br>
+                "Automatic" mode (default):<br>
+                - The fix is applied only to Windows 10 up to and including version 1903. In newer versions of Windows, ANSI code support is already built-in.<br>
+                - The fix is not applied to terminals that support ANSI by default (for example, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Directories for searching projects</th>
+        </tr>
+        <tr>
+            <td>
+                A list of directories where Open Server Panel will search for projects. Separate paths with a semicolon (;).<br><br>
+                <strong>Exclusions:</strong> The node_modules and vendor subdirectories are ignored.</td>
+        </tr>
+        <tr>
+            <th>Depth</th>
+        </tr>
+        <tr>
+            <td>
+                The maximum directory nesting depth when searching for projects.<br><br>
+                Increasing this value may slow down the startup of Open Server Panel if the specified directories contain a large number of subdirectories.</td>
+        </tr>
+        <tr>
+            <th>Maximum log file size</th>
+        </tr>
+        <tr>
+            <td>
+                The maximum log file size in megabytes. If the specified value is exceeded, the log file will be recreated at the next program startup.<br><br>
+                Set the value to 0 to clear logs at every program startup.<br><br>
+                Set the value to 100 MB to completely disable log clearing.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

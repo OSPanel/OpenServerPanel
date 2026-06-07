@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Program ayarları</h2>
+    <table>
+        <tr>
+            <th>Windows ile birlikte başlat</th>
+        </tr>
+        <tr>
+            <td>
+                İşletim sistemi yüklenirken Open Server Panel'in otomatik başlatılmasını etkinleştir.</td>
+        </tr>
+        <tr>
+            <th>Gecikme</th>
+        </tr>
+        <tr>
+            <td>
+                Programın başlatılma gecikmesi (saniye cinsinden, 0 ile 60 arası).<br><br>Windows ile birlikte yükleme sırasında uygulamanın başlangıcını ertelemeye olanak tanır ve sistem üzerindeki genel yükü azaltır. Bu, özellikle üçüncü taraf servislerin veya ağ arayüzlerinin tam başlatılmasını beklemek gerektiğinde faydalıdır.</td>
+        </tr>
+        <tr>
+            <th>Yeni sürümlerin varlığını kontrol et</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel güncellemelerini kontrol etmeyi etkinleştir (İnternet bağlantısı gerekir).</td>
+        </tr>
+        <tr>
+            <th>Görev zamanlayıcıyı etkinleştir</th>
+        </tr>
+        <tr>
+            <td>
+                Dahili görev zamanlayıcıyı etkinleştir. Parametre devre dışı bırakılırsa, durumlarından bağımsız olarak hiçbir zamanlanmış görev yürütülmez.</td>
+        </tr>
+        <tr>
+            <th>HOSTS dosyasını kullan</th>
+        </tr>
+        <tr>
+            <td>
+                Alan adlarını HOSTS dosyasına yazmayı etkinleştir.<br><br>
+                <strong>Kuruluşta HOSTS dosyasına erişim kısıtlıyken öneriler:</strong><br><br>
+                1. Gerekli tüm modülleri ve projeleri yapılandırın.<br>
+                2. HOSTS'u kilitlerinin kaldırılması ve durumunun sabitlenmesi için sistem yöneticisine başvurun.<br>
+                3. Yönetici değişiklikleri sabitledikten sonra bu seçeneği devre dışı bırakabilirsiniz.<br><br>
+                <strong>Önemli:</strong> Sonuçlarından emin değilseniz bu parametreyi devre dışı bırakmayın!</td>
+        </tr>
+        <tr>
+            <th>Modülleri proje profili ile başlat</th>
+        </tr>
+        <tr>
+            <td>Modülleri, proje adıyla aynı ada sahip profilin eşzamanlı etkinleştirilmesiyle başlat.<br><br>Menüden “Proje modüllerini etkinleştir” seçildiğinde, mevcut projeyle aynı ada sahip bir profil varsa otomatik olarak etkinleştirmek için kullanılır.</td>
+        </tr>
+        <tr>
+            <th>Gizli projelerin modüllerini kapatma</th>
+        </tr>
+        <tr>
+            <td>Menüde “Tüm modülleri kapat” seçildiğinde gizli projelerin modüllerini kapatma. "Gizli" ile "hidden" kategorisi atanan projeler kastedilmektedir.<br><br>Varsayılan olarak “Tüm modülleri kapat” komutu, gizli yardımcı projeler (örneğin, PHPMyAdmin) tarafından kullanılanlar da dahil olmak üzere tüm modüllerin çalışmasını durdurur. Bu seçenek, gerekli modülleri kapatmadan gizli yardımcı projelerin çalışabilirliğini korumanıza olanak tanır; bu sırada diğer tüm modüller kapatılır.</td>
+        </tr>
+        <tr>
+            <th>Arayüz dili</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel kullanıcı arayüzünün dili.<br><br>
+                Yerelleştirme dosyası yoksa veya hatalar içeriyorsa İngilizce dil kullanılacaktır.</td>
+        </tr>
+        <tr>
+            <th>API alan adı</th>
+        </tr>
+        <tr>
+            <td>
+                API ve web arayüzü için yerel alan adı (geliştirme aşamasında)<br><br>
+                <strong>Öneri:</strong> VPN veya proxy kullanılıyorsa, bu alan adını istisnalara ekleyin.</td>
+        </tr>
+        <tr>
+            <th>API IP adresi</th>
+        </tr>
+        <tr>
+            <td>
+                API ve web arayüzü için IPv4 adresi (geliştirme aşamasında).<br><br>
+                <strong>Öneri:</strong> VPN veya proxy kullanılıyorsa, bu IP adresini istisnalara ekleyin.</td>
+        </tr>
+        <tr>
+            <th>API portu</th>
+        </tr>
+        <tr>
+            <td>
+                API ve web arayüzü için kullanılan port (geliştirme aşamasında). Belirtilen port başka bir uygulama tarafından zaten kullanılıyorsa Open Server Panel başlatılamaz.</td>
+        </tr>
+        <tr>
+            <th>Windows Terminal kullan</th>
+        </tr>
+        <tr>
+            <td>
+                Standart komut arayüzü yerine Windows Terminal kullanımını etkinleştir.<br><br>
+                <strong>Gereksinimler:</strong> Windows Terminal sistemde kurulu olmalı ve PATH ortam değişkenine eklenmiş olmalıdır.<br><br>
+                <strong>cmd.exe olarak Windows Terminal:</strong> Windows Terminal, kendisi cmd.exe'nin yerini alabilir ve Windows'un yeni sürümlerinde %COMSPEC% ortam değişkenine yazılabilir. Durum böyleyse, bu seçeneği açık bırakın.<br><br>
+                <strong>Windows Terminal'in yeni örnekleri:</strong> Windows Terminal sekmeler yerine yeni pencereler açıyorsa şu şekilde yapılandırın: Ayarlar&rarr;Başlatma&rarr;Yeni örnek davranışı&rarr;Son kullanılan pencereye ekle.</td>
+        </tr>
+        <tr>
+            <th>Kısa proje başlığı</th>
+        </tr>
+        <tr>
+            <td>
+                Bu seçenek etkinleştirildiğinde, terminal penceresinin başlığında ortamın ayrıntılı açıklaması yerine yalnızca projenin adı görüntülenecektir.</td>
+        </tr>
+        <tr>
+            <th>Sistem ortamını proje ortamına dahil et</th>
+        </tr>
+        <tr>
+            <td>Proje ayarlarında belirtilmemiş olsa bile terminalde sistem (System) ortamını kullan. Sistem ortamı, sistemde yüklü programların (örneğin, git.exe veya ssh.exe) kullanılmasını sağlar.<br><br>Bu seçeneği yalnızca sistem yazılımlarıyla çakışmalar oluştuğunda devre dışı bırakın.</td>
+        </tr>
+        <tr>
+            <th>ANSI desteği</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalde renkleri yönetmek için ANSI kod desteğini etkinleştir.<br><br>
+                "Otomatik" modu (varsayılan):<br>
+                - Düzeltme yalnızca Windows 10 sürüm 1903 dahil olmak üzere bu sürüme kadar uygulanır. Daha yeni Windows sürümlerinde ANSI kod desteği zaten yerleşiktir.<br>
+                - Düzeltme, varsayılan olarak ANSI destekleyen terminaller için uygulanmaz (örneğin, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Projeleri aramak için dizinler</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel'in projeleri arayacağı dizinlerin listesi. Yolları noktalı virgül (;) ile ayırın.<br><br>
+                <strong>İstisnalar:</strong> node_modules ve vendor alt dizinleri yok sayılır.</td>
+        </tr>
+        <tr>
+            <th>Derinlik</th>
+        </tr>
+        <tr>
+            <td>
+                Projeleri ararken dizinlerin maksimum iç içe olma derinliği.<br><br>
+                Bu değerin artırılması, belirtilen dizinlerde çok sayıda alt dizin bulunuyorsa Open Server Panel'in başlatılmasını yavaşlatabilir.</td>
+        </tr>
+        <tr>
+            <th>Maksimum günlük dosyası boyutu</th>
+        </tr>
+        <tr>
+            <td>
+                Günlük dosyasının megabayt cinsinden maksimum boyutu. Belirtilen değer aşıldığında, günlük dosyası programın bir sonraki başlatılışında yeniden oluşturulacaktır.<br><br>
+                Program her başlatıldığında günlükleri temizlemek için değeri 0 olarak ayarlayın.<br><br>
+                Günlük temizlemeyi tamamen devre dışı bırakmak için değeri 100 MB olarak ayarlayın.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Ohjelman asetukset</h2>
+    <table>
+        <tr>
+            <th>Käynnistä yhdessä Windowsin kanssa</th>
+        </tr>
+        <tr>
+            <td>
+                Ota käyttöön Open Server Panelin automaattinen käynnistys käyttöjärjestelmän latautuessa.</td>
+        </tr>
+        <tr>
+            <th>Viive</th>
+        </tr>
+        <tr>
+            <td>
+                Ohjelman käynnistysviive (sekunteina, 0–60).<br><br>Mahdollistaa sovelluksen käynnistyksen lykkäämisen Windowsin käynnistyksen yhteydessä, jotta järjestelmän kokonaiskuormitus vähenee. Tämä on erityisen hyödyllistä, jos on odotettava ulkoisten palveluiden tai verkkoliitäntöjen täydellistä alustusta.</td>
+        </tr>
+        <tr>
+            <th>Tarkista uusien versioiden saatavuus</th>
+        </tr>
+        <tr>
+            <td>
+                Ota käyttöön Open Server Panelin päivitysten tarkistus (Internet-yhteys vaaditaan).</td>
+        </tr>
+        <tr>
+            <th>Ota käyttöön Tehtäväajastin</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivoi sisäänrakennettu tehtäväajastin. Jos asetus on pois päältä, yhtään ajastettua tehtävää ei suoriteta niiden tilasta riippumatta.</td>
+        </tr>
+        <tr>
+            <th>Käytä HOSTS-tiedostoa</th>
+        </tr>
+        <tr>
+            <td>
+                Ota käyttöön verkkotunnusten kirjoitus HOSTS-tiedostoon.<br><br>
+                <strong>Suositukset, kun organisaatiossa on rajoitettu pääsy HOSTS-tiedostoon:</strong><br><br>
+                1. Määritä kaikki tarvittavat moduulit ja projektit.<br>
+                2. Ota yhteyttä järjestelmänvalvojaan, jotta HOSTS avataan ja sen tila lukitaan.<br>
+                3. Muutosten lukituksen jälkeen voit poistaa tämän valinnan käytöstä.<br><br>
+                <strong>Tärkeää:</strong> Älä poista tätä asetusta käytöstä, ellet ole varma seurauksista!</td>
+        </tr>
+        <tr>
+            <th>Käynnistä moduulit projektin profiililla</th>
+        </tr>
+        <tr>
+            <td>Käynnistä moduulit samanaikaisesti aktivoiden profiilin, joka vastaa projektin nimeä.<br><br>Käytetään valittaessa valikosta ”Ota projektin moduulit käyttöön”, jotta profiili, jonka nimi on sama kuin nykyisen projektin, aktivoidaan automaattisesti, jos sellainen on olemassa.</td>
+        </tr>
+        <tr>
+            <th>Älä sammuta piilotettujen projektien moduuleja</th>
+        </tr>
+        <tr>
+            <td>Älä sammuta piilotettujen projektien moduuleja, kun valitaan valikosta ”Sammuta kaikki moduulit”. ”Piilotetuilla” tarkoitetaan projekteja, joille on asetettu kategoria ”hidden”.<br><br>Oletuksena komento ”Sammuta kaikki moduulit” pysäyttää kaikkien moduulien toiminnan, mukaan lukien niiden, joita käyttävät piilotetut ylläpitoprojektit (esim. PHPMyAdmin). Tämä valinta antaa säilyttää piilotettujen ylläpitoprojektien toimivuuden sammuttamatta niille tarvittavia moduuleja, samalla kun kaikki muut moduulit sammutetaan.</td>
+        </tr>
+        <tr>
+            <th>Käyttöliittymän kieli</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panelin käyttöliittymän kieli.<br><br>
+                Jos lokalisointitiedosto puuttuu tai sisältää virheitä, käytetään englannin kieltä.</td>
+        </tr>
+        <tr>
+            <th>API-domain</th>
+        </tr>
+        <tr>
+            <td>
+                Paikallinen domain API:lle ja web-käyttöliittymälle (kehitteillä)<br><br>
+                <strong>Suositus:</strong> Jos käytössä on VPN tai välityspalvelin, lisää tämä domain poikkeuksiin.</td>
+        </tr>
+        <tr>
+            <th>API:n IP-osoite</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4-osoite API:lle ja web-käyttöliittymälle (kehitteillä).<br><br>
+                <strong>Suositus:</strong> Jos käytössä on VPN tai välityspalvelin, lisää tämä IP-osoite poikkeuksiin.</td>
+        </tr>
+        <tr>
+            <th>API-portti</th>
+        </tr>
+        <tr>
+            <td>
+                Portti, jota käytetään API:lle ja web-käyttöliittymälle (kehitteillä). Open Server Panel ei käynnisty, jos määritettyä porttia käyttää jo toinen sovellus.</td>
+        </tr>
+        <tr>
+            <th>Käytä Windows Terminalia</th>
+        </tr>
+        <tr>
+            <td>
+                Ota käyttöön Windows Terminalin käyttö oletuskomentorajapinnan sijasta.<br><br>
+                <strong>Vaatimukset:</strong> Windows Terminal on oltava asennettuna järjestelmään ja määritettynä PATH-ympäristömuuttujaan.<br><br>
+                <strong>Windows Terminal cmd.exe:nä:</strong> Windows Terminal voi korvata cmd.exe:n ja olla määritettynä %COMSPEC%-ympäristömuuttujaan Windowsin uudemmissa versioissa. Jos näin on, jätä tämä asetus päälle.<br><br>
+                <strong>Windows Terminalin uudet instanssit:</strong> Jos Windows Terminal avaa uusia ikkunoita välilehtien sijaan, säädä se näin: Asetukset&rarr;Käynnistys&rarr;Uuden instanssin toiminta&rarr;Liitä viimeksi käytettyyn ikkunaan.</td>
+        </tr>
+        <tr>
+            <th>Lyhyt projektin otsikko</th>
+        </tr>
+        <tr>
+            <td>
+                Kun tämä valinta on käytössä, terminaali-ikkunan otsikossa näytetään vain projektin nimi ympäristön yksityiskohtaisen kuvauksen sijaan.</td>
+        </tr>
+        <tr>
+            <th>Sisällytä järjestelmäympäristö projektin ympäristöön</th>
+        </tr>
+        <tr>
+            <td>Käytä järjestelmän (System) ympäristöä terminaalissa, vaikka sitä ei olisi määritetty projektin asetuksissa. Järjestelmäympäristö mahdollistaa järjestelmään asennettujen ohjelmien käytön (esim. git.exe tai ssh.exe).<br><br>Poista tämä valinta käytöstä vain, jos järjestelmäohjelmiston kanssa ilmenee ristiriitoja.</td>
+        </tr>
+        <tr>
+            <th>ANSI-tuki</th>
+        </tr>
+        <tr>
+            <td>
+                Ota käyttöön ANSI-koodien tuki värien hallintaan terminaalissa.<br><br>
+                Tila ”Automaattinen” (oletus):<br>
+                - Korjaus sovelletaan vain Windows 10:een versioon 1903 asti (mukaan lukien). Uudemmissa Windows-versioissa ANSI-tuki on jo sisäänrakennettu.<br>
+                - Korjausta ei sovelleta terminaaleihin, jotka tukevat ANSIa oletuksena (esim. Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Projektien hakemistot</th>
+        </tr>
+        <tr>
+            <td>
+                Luettelo hakemistoista, joista Open Server Panel etsii projekteja. Erota polut puolipisteellä (;).<br><br>
+                <strong>Poikkeukset:</strong> Alikansiot node_modules ja vendor ohitetaan.</td>
+        </tr>
+        <tr>
+            <th>Syvyys</th>
+        </tr>
+        <tr>
+            <td>
+                Suurin hakemistojen sisäkkäisyyden syvyys projekteja etsittäessä.<br><br>
+                Tämän arvon kasvattaminen voi hidastaa Open Server Panelin käynnistystä, jos määritetyissä hakemistoissa on suuri määrä alihakemistoja.</td>
+        </tr>
+        <tr>
+            <th>Lokin maksimikoko</th>
+        </tr>
+        <tr>
+            <td>
+                Lokitiedoston enimmäiskoko megatavuina. Jos määritetty arvo ylittyy, lokitiedosto luodaan uudelleen seuraavan ohjelman käynnistyksen yhteydessä.<br><br>
+                Aseta arvoksi 0, jotta lokit tyhjennetään jokaisella ohjelman käynnistyksellä.<br><br>
+                Aseta arvoksi 100 Mt, jotta lokien tyhjennys poistetaan kokonaan käytöstä.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

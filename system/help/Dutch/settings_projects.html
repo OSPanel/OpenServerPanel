@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale projectinstellingen</h2>
+    <p>De parameters die in deze sectie zijn opgegeven, worden gebruikt als er in de projectinstellingen geen andere waarden zijn opgegeven.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt welke webservermodule voor projecten wordt gebruikt.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Geeft de Node.js-engine op voor het starten van Node.js-applicaties.<br><br>
+                <strong>Installatie van Node.js:</strong> Installeer vooraf de gewenste versie van Node.js met het commando <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt welke PHP-module wordt gebruikt voor de verwerking van PHP-bestanden.</td>
+        </tr>
+        <tr>
+            <th>Inschakelen</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de standaardstatus van het project (ingeschakeld of uitgeschakeld).</td>
+        </tr>
+        <tr>
+            <th>Terminalcodering</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalcodering bij het werken met de projectomgeving.<br><br>
+                <strong>Speciale waarden:</strong><br>
+                - system: De systeemcodering wordt gebruikt.<br><br>
+                <strong>Belangrijk:</strong> Als de waarde niet is opgegeven, wordt bij het vormen van de uiteindelijke projectomgeving de terminalcodering ingesteld door de laatst gekoppelde omgeving waarin deze is opgegeven, bijvoorbeeld de omgeving van de PHP-module.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Stelt het IP-adres(sen) in dat door alle projecten zonder individuele instellingen wordt gebruikt.<br><br>
+                <strong>Beperking:</strong> Projecten die hetzelfde IP-adres gebruiken, moeten op dezelfde PHP-versie draaien.<br><br>
+                <strong>Ondersteuning van meerdere IP's:</strong> U kunt meerdere IP-adressen opgeven, gescheiden door spaties, inclusief IPv6. In het HOSTS-bestand wordt aan domeinen het eerst opgegeven IP toegewezen.<br><br>
+                <strong>Automatische toewijzing:</strong> Als u het veld leeg laat, wordt een IP-adres automatisch toegewezen.<br><br>
+                <strong>Aanbevelingen:</strong>
+                <ul>
+                    <li>Automatisch beheer van IP-adressen wordt aanbevolen voor de meeste gebruikers.</li>
+                    <li>Handmatige IP-toewijzing dient alleen te worden gebruikt bij specifieke vereisten voor de netwerkconfiguratie.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de poort voor HTTP-verbindingen.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de poort voor HTTPS-verbindingen.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Schakelt TLS-ondersteuning in of uit.</td>
+        </tr>
+        
+        <tr>
+            <th>Certificaatbestand</th>
+        </tr>
+        <tr>
+            <td>
+                Geeft het pad naar het TLS-certificaatbestand op. Sjabloonvariabelen kunnen worden gebruikt.<br><br>
+                <strong>Toegestane tekens:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Aanbeveling:</strong> Laat het veld leeg voor automatische generatie van certificaten.</td>
+        </tr>
+        <tr>
+            <th>Sleutelbestand</th>
+        </tr>
+        <tr>
+            <td>
+                Geeft het pad naar het TLS-sleutelbestand op. Sjabloonvariabelen kunnen worden gebruikt.<br><br>
+                <strong>Toegestane tekens:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Aanbeveling:</strong> Laat het veld leeg voor automatische generatie van de sleutel.</td>
+        </tr>
+        <tr>
+            <th>IP-adres (backend)</th>
+        </tr>
+        <tr>
+            <td>Geeft het IP-adres op waarmee verbinding wordt gemaakt met de server-side (Backend).</td>
+        </tr>
+        <tr>
+            <th>Poort (backend)</th>
+        </tr>
+        <tr>
+            <td>Bepaalt het poortnummer voor verbinding met de server-side (Backend).</td>
+        </tr>
+        <tr>
+            <th>Inschakelen (backend)</th>
+        </tr>
+        <tr>
+            <td>Maakt het mogelijk om al het inkomende verkeer (HTTP en HTTPS) van het project automatisch naar de server-side (Backend) te sturen. Handig voor testen of ontwikkeling wanneer frontend en backend gescheiden zijn.</td>
+        </tr>
+        <tr>
+            <th>Projectmap</th>
+        </tr>
+        <tr>
+            <td>
+                Geeft de hoofdmap van het project aan. Navigeren naar deze map gebeurt met het commando <strong>osp project &lt;DOMAIN&gt;</strong> gelijktijdig met het activeren van de projectomgeving. Sjabloonvariabelen kunnen worden gebruikt.<br><br>
+                <strong>Toegestane tekens:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Publieke map</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de publieke map van het project. Sjabloonvariabelen kunnen worden gebruikt.<br><br>
+                <strong>Toegestane tekens:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Aliassen</th>
+        </tr>
+        <tr>
+            <td>
+                Geeft extra domeinnamen (aliassen) voor het project op (gescheiden door spaties). Sjabloonvariabelen kunnen worden gebruikt.<br><br>
+                <strong>Beperking:</strong> Het teken "*" wordt niet ondersteund door het HOSTS-bestand in Windows en vereist DNS-configuratie.</td>
+        </tr>
+        <tr>
+            <th>Projectomgeving</th>
+        </tr>
+        <tr>
+            <td>
+                Lijst met add-ons en modules (gescheiden door spaties) die de projectomgeving vormen.<br><br>
+                <strong>HTTP, NODE en PHP:</strong> De omgevingen van deze engines worden altijd gekoppeld (als ze zijn opgegeven voor het domein) en hoeven niet in deze parameter te worden vermeld.</td>
+        </tr>
+        <tr>
+            <th>Opstartcommando van het project</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt het commando om het project te starten (bijvoorbeeld <strong>nodemon app.js</strong>). Sjabloonvariabelen kunnen worden gebruikt.</td>
+        </tr>
+        <tr>
+            <th>Project-URL</th>
+        </tr>
+        <tr>
+            <td>
+                De URL die wordt gebruikt bij het openen van het project via <strong>Menu&rarr;Project&rarr;Openen in browser</strong>, evenals bij het openen van domeinaliassen van het project. Sjabloonvariabelen kunnen worden gebruikt.<br><br>
+                <strong>Toepassing:</strong> U kunt de URL van het CMS-beheerpaneel opgeven.</td>
+        </tr>
+    </table>
+    <h2>Sjabloonvariabelen</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variabele</th>
+                <th>Beschrijving</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP-adres voor verbinding met de server-side (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Poort voor verbinding met de server-side (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Hoofdmap van het project (waar de map .osp zich bevindt)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Huidige datum/tijd (variabele is alleen beschikbaar voor het opstartcommando van de projectapplicatie)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domeinnaam (voor geïnternationaliseerde domeinen wordt Punycode gebruikt)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Zichtbare domeinnaam (zonder Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Schema van het verzoek aan het project ("http" of "https", hangt af van de TLS-parameter in de projectinstellingen)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Poort van het verzoek aan het project via het HTTP-protocol</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Poort van het verzoek aan het project via het HTTPS-protocol</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP-engine</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE-engine</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP-engine</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Hoofdmap van het project</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Publieke map van het project</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Poort van het verzoek aan het project (":{http_port}" of ":{https_port}", hangt af van de TLS-parameter in de projectinstellingen).<br><br>Als {http_port} of {https_port} de standaardwaarde 80 of 443 heeft, dan is {scheme_port} leeg.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Hoofdmap van Open Server Panel (volledig pad)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Schijf van de hoofdmap</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Pad naar de hoofdmap van Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Consolecodering</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

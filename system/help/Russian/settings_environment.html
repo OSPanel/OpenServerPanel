@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Глобальные переменные среды модулей</h2>
+    <p>В данном разделе можно задать глобальные переменные среды для модулей.<br><br>Эти переменные действуют только в среде модулей и не влияют на системные переменные или окружение проектов.<br><br>В значениях допускается использование шаблонных переменных.</p>
+    <p>Если переменная присутствует в системной среде, но не должна использоваться в среде модулей, воспользуйтесь специальным фильтром (см. Модули&rarr;Разрешённые системные переменные) или удалите переменную из среды, задав ей пустое значение.</p>
+    <h2>Шаблонные переменные</h2>
+    <table>
+        <tr>
+            <th>Переменная</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Корневой каталог Open Server Panel (полный путь)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Диск корневого каталога</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Путь к корневому каталогу Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодировка в терминале (см. Модули&rarr;Кодировка в терминале)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Временная зона в формате Etc/GMT (см. Модули&rarr;Временная зона)</td>
+        </tr>
+    </table>
+    <p>Помимо шаблонных переменных, можно использовать любые переменные среды Windows, например: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% и т.д.</p>
+</body>
+
+</html>

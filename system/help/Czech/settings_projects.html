@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globální nastavení projektů</h2>
+    <p>Parametry zadané v této části se používají v případě, že v nastavení projektu nejsou uvedeny jiné hodnoty.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje použitý modul webového serveru pro projekty.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje engine Node.js pro spuštění aplikací Node.js.<br><br>
+                <strong>Instalace Node.js:</strong> Předem nainstalujte požadovanou verzi Node.js pomocí příkazu <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje použitý modul PHP pro zpracování PHP souborů.</td>
+        </tr>
+        <tr>
+            <th>Zapnout</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje výchozí stav projektu (zapnuto nebo vypnuto).</td>
+        </tr>
+        <tr>
+            <th>Kódování terminálu</th>
+        </tr>
+        <tr>
+            <td>
+                Kódování terminálu při práci s prostředím projektu.<br><br>
+                <strong>Speciální hodnoty:</strong><br>
+                - system: Použije se systémové kódování.<br><br>
+                <strong>Důležité:</strong> Pokud hodnota není zadána, při formování výsledného prostředí projektu bude kódování terminálu nastaveno posledním připojeným prostředím, ve kterém je zadáno, například prostředím modulu PHP.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje IP adresu(y), použitou všemi projekty bez individuálního nastavení.<br><br>
+                <strong>Omezení:</strong> Projekty používající stejnou IP adresu musí běžet na jedné verzi PHP.<br><br>
+                <strong>Podpora více IP:</strong> Lze zadat více IP adres oddělených mezerou, včetně IPv6. V souboru HOSTS bude doménám přiřazena první uvedená IP.<br><br>
+                <strong>Automatické přiřazení:</strong> Pokud pole ponecháte prázdné, IP adresa bude přiřazena automaticky.<br><br>
+                <strong>Doporučení:</strong>
+                <ul>
+                    <li>Automatické řízení IP adres se doporučuje většině uživatelů.</li>
+                    <li>Ruční zadání IP adresy používejte pouze při specifických požadavcích síťové konfigurace.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje port pro připojení přes HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje port pro připojení přes HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Zapíná nebo vypíná podporu TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>Soubor certifikátu</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje cestu k souboru TLS certifikátu. Lze použít šablonové proměnné.<br><br>
+                <strong>Povolené znaky:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Doporučení:</strong> Ponechte pole prázdné pro automatické generování certifikátů.</td>
+        </tr>
+        <tr>
+            <th>Soubor klíče</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje cestu k souboru TLS klíče. Lze použít šablonové proměnné.<br><br>
+                <strong>Povolené znaky:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Doporučení:</strong> Ponechte pole prázdné pro automatické generování klíče.</td>
+        </tr>
+        <tr>
+            <th>IP adresa (backend)</th>
+        </tr>
+        <tr>
+            <td>Určuje IP adresu, na které se realizuje připojení k serverové části (Backend).</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Určuje číslo portu pro připojení k serverové části (Backend).</td>
+        </tr>
+        <tr>
+            <th>Zapnout (backend)</th>
+        </tr>
+        <tr>
+            <td>Umožňuje automaticky směrovat veškerý příchozí provoz (HTTP a HTTPS) projektu na serverovou část (Backend). Užitečné pro testování nebo vývoj, když jsou frontend a backend odděleny.</td>
+        </tr>
+        <tr>
+            <th>Adresář projektu</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje kořenový adresář projektu. Přechod do tohoto adresáře se provádí příkazem <strong>osp project &lt;DOMAIN&gt;</strong> současně s aktivací prostředí projektu. Lze použít šablonové proměnné.<br><br>
+                <strong>Povolené znaky:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Veřejný adresář</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje veřejný adresář projektu. Lze použít šablonové proměnné.<br><br>
+                <strong>Povolené znaky:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Alias</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje další doménová jména (aliasy) pro projekt (oddělené mezerou). Lze použít šablonové proměnné.<br><br>
+                <strong>Omezení:</strong> Symbol "*" není ve Windows v souboru HOSTS podporován a vyžaduje nastavení DNS.</td>
+        </tr>
+        <tr>
+            <th>Prostředí projektu</th>
+        </tr>
+        <tr>
+            <td>
+                Seznam doplňků a modulů (oddělených mezerou), které tvoří prostředí projektu.<br><br>
+                <strong>HTTP, NODE a PHP:</strong> Prostředí těchto engine se připojují vždy (pokud jsou pro doménu zadány) a není nutné je uvádět v tomto parametru.</td>
+        </tr>
+        <tr>
+            <th>Příkaz pro spuštění projektu</th>
+        </tr>
+        <tr>
+            <td>
+                Určuje příkaz pro spuštění projektu (například <strong>nodemon app.js</strong>). Lze použít šablonové proměnné.</td>
+        </tr>
+        <tr>
+            <th>URL projektu</th>
+        </tr>
+        <tr>
+            <td>
+                URL používané při otevření projektu <strong>Menu&rarr;Projekt&rarr;Otevřít v prohlížeči</strong>, stejně jako při otevírání doménových aliasů projektu. Lze použít šablonové proměnné.<br><br>
+                <strong>Použití:</strong> Lze zadat URL administračního panelu CMS.</td>
+        </tr>
+    </table>
+    <h2>Šablonové proměnné</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Proměnná</th>
+                <th>Popis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP adresa připojení k serverové části (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port připojení k serverové části (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Kořenový adresář projektu (kde se nachází adresář .osp)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Aktuální datum/čas (proměnná je dostupná pouze pro příkaz spuštění aplikace projektu)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Název domény (pro internacionalizované domény se používá Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Viditelný název domény (bez Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Schéma požadavku k projektu ("http" nebo "https", závisí na parametru TLS v nastavení projektu)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Port požadavku k projektu přes protokol HTTP</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Port požadavku k projektu přes protokol HTTPS</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>Engine HTTP</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>Engine NODE</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>Engine PHP</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Kořenový adresář projektu</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Veřejný adresář projektu</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Port požadavku k projektu (":{http_port}" nebo ":{https_port}", závisí na parametru TLS v nastavení projektu).<br><br>Pokud má {http_port} nebo {https_port} standardní hodnotu 80 nebo 443, bude {scheme_port} prázdné.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Kořenový adresář Open Server Panel (plná cesta)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Disk kořenového adresáře</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Cesta ke kořenovému adresáři Open Server Panel</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Kódování konzole</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

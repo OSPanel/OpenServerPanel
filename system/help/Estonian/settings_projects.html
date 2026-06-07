@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Projektide globaalsed sätted</h2>
+    <p>Selles jaotises määratud parameetreid kasutatakse juhul, kui projekti sätetes ei ole määratud teisi väärtusi.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab projektide jaoks kasutatava veebiserveri mooduli.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab Node.js mootori Node.js-rakenduste käivitamiseks.<br><br>
+                <strong>Node.js paigaldus:</strong> Paigaldage eelnevalt soovitud Node.js versioon käsuga <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab PHP-failide töötlemiseks kasutatava PHP mooduli.</td>
+        </tr>
+        <tr>
+            <th>Luba</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab projekti vaikeseisundi (lubatud või keelatud).</td>
+        </tr>
+        <tr>
+            <th>Terminali koodileht</th>
+        </tr>
+        <tr>
+            <td>
+                Terminali koodileht projekti keskkonnas töötamisel.<br><br>
+                <strong>Spetsiaalsed väärtused:</strong><br>
+                - system: Kasutatakse süsteemi koodilehte.<br><br>
+                <strong>Tähtis:</strong> Kui väärtust ei ole määratud, siis projekti lõpliku keskkonna moodustamisel määratakse terminali koodileht viimase ühendatud keskkonna poolt, kus see on määratud, näiteks PHP mooduli keskkonna poolt.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab IP-aadressi(d), mida kasutavad kõik projektid ilma individuaalsete säteteta.<br><br>
+                <strong>Piirang:</strong> Projektid, mis kasutavad sama IP-aadressi, peavad töötama sama PHP versiooniga.<br><br>
+                <strong>Mitme IP tugi:</strong> Saab määrata mitu IP-aadressi tühikuga eraldatult, sh IPv6. HOSTS-failis määratakse domeenidele esimene loetletud IP.<br><br>
+                <strong>Automaatne määramine:</strong> Kui jätta väli tühjaks, määratakse IP-aadress automaatselt.<br><br>
+                <strong>Soovitused:</strong>
+                <ul>
+                    <li>IP-aadresside automaatne haldus on soovitatav enamikele kasutajatele.</li>
+                    <li>Käsitsi IP määramist tuleks kasutada ainult spetsiifiliste võrgu konfiguratsiooni nõuete korral.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab HTTP-ühenduste pordi.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab HTTPS-ühenduste pordi.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Lülitab TLS toe sisse või välja.</td>
+        </tr>
+        
+        <tr>
+            <th>Sertifikaadifail</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab tee TLS-sertifikaadi failini. Võib kasutada mallimuutujaid.<br><br>
+                <strong>Lubatud sümbolid:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Soovitus:</strong> Jätke väli tühjaks sertifikaatide automaatseks genereerimiseks.</td>
+        </tr>
+        <tr>
+            <th>Võtmefail</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab tee TLS-võtme failini. Võib kasutada mallimuutujaid.<br><br>
+                <strong>Lubatud sümbolid:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Soovitus:</strong> Jätke väli tühjaks võtme automaatseks genereerimiseks.</td>
+        </tr>
+        <tr>
+            <th>IP-aadress (backend)</th>
+        </tr>
+        <tr>
+            <td>Määrab IP-aadressi, mille kaudu toimub ühendus serveripoolse osaga (Backend).</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Määrab pordi numbri ühenduseks serveripoolse osaga (Backend).</td>
+        </tr>
+        <tr>
+            <th>Luba (backend)</th>
+        </tr>
+        <tr>
+            <td>Võimaldab automaatselt suunata kogu projekti sissetuleva liikluse (HTTP ja HTTPS) serveripoolsesse ossa (Backend). Kasulik testimisel või arendamisel, kui frontend ja backend on eraldatud.</td>
+        </tr>
+        <tr>
+            <th>Projekti kataloog</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab projekti juurkataloogi. Sellesse kataloogi liigutakse käsuga <strong>osp project &lt;DOMAIN&gt;</strong> samaaegselt projekti keskkonna aktiveerimisega. Võib kasutada mallimuutujaid.<br><br>
+                <strong>Lubatud sümbolid:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Avalik kataloog</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab projekti avaliku kataloogi. Võib kasutada mallimuutujaid.<br><br>
+                <strong>Lubatud sümbolid:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Pseudonüümid</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab projekti täiendavad domeeninimed (alias'ed) tühikuga eraldatult. Võib kasutada mallimuutujaid.<br><br>
+                <strong>Piirang:</strong> Sümbolit "*" ei toeta Windowsi HOSTS-fail ja see nõuab DNS-i seadistamist.</td>
+        </tr>
+        <tr>
+            <th>Projekti keskkond</th>
+        </tr>
+        <tr>
+            <td>
+                Loetelu lisadest ja moodulitest (tühikuga eraldatult), mis moodustavad projekti keskkonna.<br><br>
+                <strong>HTTP, NODE ja PHP:</strong> Nende mootorite keskkonnad ühendatakse alati (kui need on domeeni jaoks määratud) ega vaja selles parameetris eraldi märkimist.</td>
+        </tr>
+        <tr>
+            <th>Projekti käivituskäsk</th>
+        </tr>
+        <tr>
+            <td>
+                Määrab käsu projekti käivitamiseks (näiteks <strong>nodemon app.js</strong>). Võib kasutada mallimuutujaid.</td>
+        </tr>
+        <tr>
+            <th>Projekti URL</th>
+        </tr>
+        <tr>
+            <td>
+                URL, mida kasutatakse projekti avamisel <strong>Menüü&rarr;Projekt&rarr;Ava brauseris</strong>, samuti projekti domeenialiaste avamisel. Võib kasutada mallimuutujaid.<br><br>
+                <strong>Kasutus:</strong> Saab määrata CMS-i halduspaneeli URL-i.</td>
+        </tr>
+    </table>
+    <h2>Mallimuutujad</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Muutuja</th>
+                <th>Kirjeldus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>Ühenduse IP-aadress serveripoolse osaga (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Ühenduse port serveripoolse osaga (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projekti juurkataloog (kust leitakse kataloog .osp)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Praegune kuupäev/kellaaeg (muutuja on saadaval ainult projekti rakenduse käivituskorralduses)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domeeni nimi (rahvusvahelistatud domeenide puhul kasutatakse Punycode'i)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Nähtav domeeni nimi (ilma Punycode'ita)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Päringu skeem projektile ("http" või "https", sõltub TLS parameetrist projekti sätetes)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Projekti päringu port HTTP protokolli kaudu</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Projekti päringu port HTTPS protokolli kaudu</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP mootor</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE mootor</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP mootor</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projekti juurkataloog</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projekti avalik kataloog</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Projekti päringu port (":{http_port}" või ":{https_port}", sõltub TLS parameetrist projekti sätetes).<br><br>Kui {http_port} või {https_port} on vaikimisi väärtusega 80 või 443, siis {scheme_port} on tühi.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Paneli juurkataloog (täielik tee)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Juurkataloogi kettaseade</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Tee Open Server Paneli juurkataloogi</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsooli koodileht</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">项目全局设置</h2>
+    <p>在本节中指定的参数将在项目设置未指定其他值时使用。</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                定义用于项目的Web服务器模块。</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                指定用于运行Node.js应用的Node.js引擎。<br><br>
+                <strong>安装 Node.js：</strong> 请先使用命令 <b>osp node &lt;latest|lts|номер&gt;</b> 安装所需版本的 Node.js。</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                定义用于处理PHP文件的PHP模块。</td>
+        </tr>
+        <tr>
+            <th>启用</th>
+        </tr>
+        <tr>
+            <td>
+                定义项目的默认状态（启用或禁用）。</td>
+        </tr>
+        <tr>
+            <th>终端编码</th>
+        </tr>
+        <tr>
+            <td>
+                项目环境工作时的终端编码。<br><br>
+                <strong>特殊值：</strong><br>
+                - system: 使用系统编码。<br><br>
+                <strong>重要：</strong> 如果未设置该值，则在生成项目最终环境时，终端编码将由最后加载且设置了编码的环境确定，例如PHP模块环境。</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                设置供所有未进行单独配置的项目使用的IP地址。<br><br>
+                <strong>限制：</strong> 使用同一IP地址的项目必须运行在同一版本的PHP上。<br><br>
+                <strong>支持多个IP：</strong> 可通过空格指定多个IP地址，包括IPv6。在HOSTS文件中，域名将被分配为第一个指定的IP。<br><br>
+                <strong>自动分配：</strong> 如果留空，IP地址将自动分配。<br><br>
+                <strong>建议：</strong>
+                <ul>
+                    <li>大多数用户建议使用IP地址的自动管理。</li>
+                    <li>仅在特定网络配置需求下使用手动指定IP地址。</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                定义HTTP连接的端口。</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                定义HTTPS连接的端口。</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                启用或禁用TLS支持。</td>
+        </tr>
+        
+        <tr>
+            <th>证书文件</th>
+        </tr>
+        <tr>
+            <td>
+                指定TLS证书文件路径。可使用模板变量。<br><br>
+                <strong>允许的字符：</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>建议：</strong> 留空以自动生成证书。</td>
+        </tr>
+        <tr>
+            <th>密钥文件</th>
+        </tr>
+        <tr>
+            <td>
+                指定TLS密钥文件路径。可使用模板变量。<br><br>
+                <strong>允许的字符：</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>建议：</strong> 留空以自动生成密钥。</td>
+        </tr>
+        <tr>
+            <th>IP地址（backend）</th>
+        </tr>
+        <tr>
+            <td>指定连接到后端（Backend）的IP地址。</td>
+        </tr>
+        <tr>
+            <th>端口（backend）</th>
+        </tr>
+        <tr>
+            <td>定义连接到后端（Backend）的端口号。</td>
+        </tr>
+        <tr>
+            <th>启用（backend）</th>
+        </tr>
+        <tr>
+            <td>允许将项目的所有入站流量（HTTP 和 HTTPS）自动转发到后端（Backend）。在前端与后端分离的测试或开发场景中很有用。</td>
+        </tr>
+        <tr>
+            <th>项目目录</th>
+        </tr>
+        <tr>
+            <td>
+                指定项目根目录。执行 <strong>osp project &lt;DOMAIN&gt;</strong> 命令时将切换到此目录并同时激活项目环境。可使用模板变量。<br><br>
+                <strong>允许的字符：</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>公共目录</th>
+        </tr>
+        <tr>
+            <td>
+                定义项目的公共目录。可使用模板变量。<br><br>
+                <strong>允许的字符：</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>别名</th>
+        </tr>
+        <tr>
+            <td>
+                指定项目的额外域名（别名，以空格分隔）。可使用模板变量。<br><br>
+                <strong>限制：</strong> 符号“*”在Windows的HOSTS文件中不受支持，需要配置DNS。</td>
+        </tr>
+        <tr>
+            <th>项目环境</th>
+        </tr>
+        <tr>
+            <td>
+                组成项目环境的扩展与模块列表（以空格分隔）。<br><br>
+                <strong>HTTP、NODE 和 PHP：</strong> 这些引擎的环境在为域名设置时将始终加载，无需在此参数中指定。</td>
+        </tr>
+        <tr>
+            <th>项目启动命令</th>
+        </tr>
+        <tr>
+            <td>
+                定义项目的启动命令（例如，<strong>nodemon app.js</strong>）。可使用模板变量。</td>
+        </tr>
+        <tr>
+            <th>项目URL</th>
+        </tr>
+        <tr>
+            <td>
+                在 <strong>菜单&rarr;项目&rarr;在浏览器中打开</strong> 打开项目时使用的URL，以及打开项目域别名时使用的URL。可使用模板变量。<br><br>
+                <strong>用法：</strong> 可指定CMS管理面板的URL。</td>
+        </tr>
+    </table>
+    <h2>模板变量</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>变量</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>连接到后端（Backend）的IP地址</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>连接到后端（Backend）的端口</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>项目根目录（.osp 目录所在位置）</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>当前日期/时间（仅在项目应用启动命令中可用）</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>域名（对国际化域名使用 Punycode）</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>可见的域名（不含 Punycode）</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>对项目的请求方案（"http" 或 "https"，取决于项目设置中的 TLS 参数）</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>通过 HTTP 协议请求项目的端口</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>通过 HTTPS 协议请求项目的端口</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP 引擎</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE 引擎</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP 引擎</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>项目根目录</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>项目公共目录</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>对项目的请求端口（":{http_port}" 或 ":{https_port}"，取决于项目设置中的 TLS 参数）。<br><br>如果 {http_port} 或 {https_port} 为标准值 80 或 443，则 {scheme_port} 为空。</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panel 根目录（完整路径）</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>根目录所在磁盘</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Open Server Panel 根目录路径</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>控制台编码</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

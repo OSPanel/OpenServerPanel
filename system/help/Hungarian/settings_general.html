@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programbeállítások</h2>
+    <table>
+        <tr>
+            <th>Indítás a Windowszal együtt</th>
+        </tr>
+        <tr>
+            <td>
+                Az Open Server Panel automatikus indításának engedélyezése az operációs rendszer betöltésekor.</td>
+        </tr>
+        <tr>
+            <th>Késleltetés</th>
+        </tr>
+        <tr>
+            <td>
+                A program indításának késleltetése (másodpercben, 0-tól 60-ig).<br><br>Lehetővé teszi az alkalmazás indításának elhalasztását a Windowszal együtt történő betöltés során, hogy csökkentse a rendszer általános terhelését. Különösen hasznos, ha meg kell várni a külső szolgáltatások vagy hálózati interfészek teljes inicializálását.</td>
+        </tr>
+        <tr>
+            <th>Új verziók ellenőrzése</th>
+        </tr>
+        <tr>
+            <td>
+                Az Open Server Panel frissítéseinek ellenőrzésének engedélyezése (Internetkapcsolat szükséges).</td>
+        </tr>
+        <tr>
+            <th>Feladatütemező engedélyezése</th>
+        </tr>
+        <tr>
+            <td>
+                A beépített feladatütemező aktiválása. Ha a paraméter ki van kapcsolva, semmilyen ütemezett feladat nem fog végrehajtódni, függetlenül az állapotuktól.</td>
+        </tr>
+        <tr>
+            <th>HOSTS fájl használata</th>
+        </tr>
+        <tr>
+            <td>
+                Domainnevek írásának engedélyezése a HOSTS fájlba.<br><br>
+                <strong>Ajánlások, ha a szervezetben korlátozott a hozzáférés a HOSTS fájlhoz:</strong><br><br>
+                1. Állítson be minden szükséges modult és projektet.<br>
+                2. Forduljon a rendszergazdához a HOSTS feloldásához és az állapotának rögzítéséhez.<br>
+                3. A rendszergazda általi módosításrögzítés után ez az opció kikapcsolható.<br><br>
+                <strong>Fontos:</strong> Ne kapcsolja ki ezt a paramétert, ha nem biztos a következményekben!</td>
+        </tr>
+        <tr>
+            <th>Modulok indítása a projekt profiljával</th>
+        </tr>
+        <tr>
+            <td>Modulok indítása a projektnévvel megegyező profil egyidejű aktiválásával.<br><br>A „Projekt moduljainak bekapcsolása” menüpont használatakor automatikusan aktiválja az aktuális projekttel azonos nevű profilt, ha létezik ilyen.</td>
+        </tr>
+        <tr>
+            <th>Rejtett projektek moduljainak ne kikapcsolása</th>
+        </tr>
+        <tr>
+            <td>Ne kapcsolja ki a rejtett projektek moduljait a „Minden modul kikapcsolása” menüpont kiválasztásakor. „Rejtett” alatt azokat a projekteket értjük, amelyeknél a kategória „hidden”.<br><br>Alapértelmezetten a „Minden modul kikapcsolása” parancs minden modult leállít, beleértve azokat is, amelyeket rejtett szolgáltató projektek használnak (például PHPMyAdmin). Ez az opció lehetővé teszi a rejtett szolgáltató projektek működőképességének megőrzését azáltal, hogy nem kapcsolja ki a számukra szükséges modulokat, miközben az összes többi modul ki lesz kapcsolva.</td>
+        </tr>
+        <tr>
+            <th>Felhasználói felület nyelve</th>
+        </tr>
+        <tr>
+            <td>
+                Az Open Server Panel felhasználói felületének nyelve.<br><br>
+                Ha a lokalizációs fájl hiányzik vagy hibákat tartalmaz, az angol nyelv kerül használatra.</td>
+        </tr>
+        <tr>
+            <th>API domain</th>
+        </tr>
+        <tr>
+            <td>
+                Helyi domain az API-hoz és a webes felülethez (fejlesztés alatt)<br><br>
+                <strong>Ajánlás:</strong> Ha VPN-t vagy proxy-t használ, adja hozzá ezt a domaint a kivételekhez.</td>
+        </tr>
+        <tr>
+            <th>API IP-címe</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4-cím az API-hoz és a webes felülethez (fejlesztés alatt).<br><br>
+                <strong>Ajánlás:</strong> Ha VPN-t vagy proxy-t használ, adja hozzá ezt az IP-címet a kivételekhez.</td>
+        </tr>
+        <tr>
+            <th>API port</th>
+        </tr>
+        <tr>
+            <td>
+                Az API és a webes felület számára használt port (fejlesztés alatt). Az Open Server Panel nem tud elindulni, ha a megadott portot már egy másik alkalmazás használja.</td>
+        </tr>
+        <tr>
+            <th>Windows Terminal használata</th>
+        </tr>
+        <tr>
+            <td>
+                A Windows Terminal használatának engedélyezése az alapértelmezett parancsinterfész helyett.<br><br>
+                <strong>Követelmények:</strong> A Windows Terminalnak telepítve kell lennie a rendszerben, és szerepelnie kell a PATH környezeti változóban.<br><br>
+                <strong>Windows Terminal mint cmd.exe:</strong> A Windows Terminal helyettesítheti a cmd.exe-t, és bekerülhet a %COMSPEC% környezeti változóba a Windows újabb verzióiban. Ha így van, hagyja ezt az opciót bekapcsolva.<br><br>
+                <strong>Windows Terminal új példányai:</strong> Ha a Windows Terminal új ablakokat nyit fülek helyett, állítsa be így: Beállítások&rarr;Indítás&rarr;Új példány viselkedése&rarr;Csatlakozás az utoljára használt ablakhoz.</td>
+        </tr>
+        <tr>
+            <th>Rövid projektcím</th>
+        </tr>
+        <tr>
+            <td>
+                Ennek az opciónak az aktiválásakor a terminálablak címében csak a projekt neve jelenik meg a környezet részletes leírása helyett.</td>
+        </tr>
+        <tr>
+            <th>A rendszerkörnyezet bevonása a projekt környezetébe</th>
+        </tr>
+        <tr>
+            <td>A rendszer (System) környezetének használata a terminálban akkor is, ha az nincs megadva a projekt beállításaiban. A rendszerkörnyezet lehetővé teszi a rendszerben telepített programok használatát (például git.exe vagy ssh.exe).<br><br>Csak akkor kapcsolja ki ezt az opciót, ha ütközések lépnek fel a rendszer szoftverével.</td>
+        </tr>
+        <tr>
+            <th>ANSI támogatás</th>
+        </tr>
+        <tr>
+            <td>
+                ANSI-kódok támogatásának engedélyezése a terminál színkezeléséhez.<br><br>
+                „Automatikus” mód (alapértelmezett):<br>
+                - A javítás csak a Windows 10 1903-as verziójáig bezárólag kerül alkalmazásra. Az újabb Windows verziókban az ANSI-kódok támogatása már be van építve.<br>
+                - A javítás nem kerül alkalmazásra azokra a terminálokra, amelyek alapértelmezetten támogatják az ANSI-t (például Windows Terminal).</td>
+        </tr>
+        <tr>
+            <th>Projektkeresési könyvtárak</th>
+        </tr>
+        <tr>
+            <td>
+                Azoknak a könyvtáraknak a listája, amelyekben az Open Server Panel projekteket fog keresni. Az elérési utakat pontosvesszővel (;) válassza el.<br><br>
+                <strong>Kivételek:</strong> A node_modules és a vendor alkönyvtárak figyelmen kívül lesznek hagyva.</td>
+        </tr>
+        <tr>
+            <th>Mélység</th>
+        </tr>
+        <tr>
+            <td>
+                A projektkeresés során a könyvtárak maximális beágyazási mélysége.<br><br>
+                Ennek az értéknek a növelése lelassíthatja az Open Server Panel indítását, ha a megadott könyvtárakban nagy számú alkönyvtár található.</td>
+        </tr>
+        <tr>
+            <th>Naplófájl maximális mérete</th>
+        </tr>
+        <tr>
+            <td>
+                A naplófájl maximális mérete megabájtban. Ha a megadott érték túllépésre kerül, a naplófájl a program következő indításakor újralétrejön.<br><br>
+                Állítson be 0 értéket a naplók minden programindításkor történő törléséhez.<br><br>
+                Állítson be 100 MB-ot a naplók törlésének teljes kikapcsolásához.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

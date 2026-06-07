@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale modulindstillinger</h2>
+    <p>Parametrene, der er angivet i dette afsnit, anvendes i de tilfælde, hvor værdien auto (standard) er sat for den tilsvarende indstilling i en specifik moduls konfiguration.</p>
+    <table>
+        <tr>
+            <th>Stille tilstand</th>
+        </tr>
+        <tr>
+            <td>
+                Deaktiverer pop op-fejlmeddelelser fra Windows Error Reporting og selve modulet.<br><br>
+                <strong>Anbefaling:</strong> Deaktiver kun denne tilstand, når der er behov for fejlfinding af moduldriften.</td>
+        </tr>
+        <tr>
+            <th>Tilføj overskrift til logfil</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiverer automatisk tilføjelse af en overskrift til logfilen ved hver modulstart. Nyttigt, når automatisk logrensning er slået fra, for at adskille arbejdssessioner.</td>
+        </tr>
+        <tr>
+            <th>Maksimalt antal mislykkede starter</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver, hvor mange på hinanden følgende mislykkede modulets starter der tillades, før det går i tilstanden "Fejl".</td>
+        </tr>
+        <tr>
+            <th>Tid til sundhedstjek af modul</th>
+        </tr>
+        <tr>
+            <td>Angiver perioden for test af modulets funktionsdygtighed efter dets vellykkede start.<br><br>
+                <strong>Start på nedtælling:</strong> Fra tidspunktet for modullets vellykkede start.<br><br>
+                <strong>Overgang til tilstanden "Fejl":</strong> Hvis modulet crasher inden for prøveperioden, genstartes det ikke automatisk og går til tilstanden "Fejl". Dette gælder også tilfælde, hvor modulet ikke kan startes på systemniveau.<br><br>
+                <strong>Deaktivering af kontrol:</strong> Værdien 0 deaktiverer prøveperioden, og modulet vil altid blive genstartet ved fejl.<br><br>
+                <strong>Anbefaling:</strong> Sæt ikke værdien 0 eller en for kort periode (under 30 sekunder), da det kan føre til uendelige genstartsloop.</td>
+        </tr>
+        <tr>
+            <th>Tidsgrænse for modulnedlukning</th>
+        </tr>
+        <tr>
+            <td>Angiver den maksimale tid, inden for hvilken modulet har tilladelse til at afslutte sin drift.<br><br>
+                <strong>Tvinget nedlukning:</strong> Hvis modulet ikke afslutter inden for den angivne periode, vil det blive tvunget stoppet.<br><br>
+                <strong>Deaktivering af ventetid:</strong> Værdien 0 deaktiverer ventetiden. Programmet vil vente ubegrænset på, at modulet afslutter.<br><br>
+                <strong>Advarsel:</strong> Tvangsstop af modulet kan føre til datakorruption, tab af ikke-gemte ændringer eller ukorrekt afslutning af processer. Brug denne indstilling med forsigtighed.</td>
+        </tr>
+        <tr>
+            <th>Maksimal logfilstørrelse</th>
+        </tr>
+        <tr>
+            <td>
+                Den maksimale størrelse på logfilen i megabytes. Hvis den angivne værdi overskrides, vil logfilen blive genskabt ved næste modulstart.<br><br>
+                Angiv værdien 0 for at rydde loggene ved hver modulstart.<br><br>
+                Angiv værdien 100 MB for helt at deaktivere logrensning.</td>
+        </tr>
+        <tr>
+            <th>Terminalkodning</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalens kodning ved arbejde med modulmiljøet.<br><br>
+                <strong>Særlige værdier:</strong><br>
+                - system: Systemets kodning bruges.</td>
+        </tr>
+        <tr>
+            <th>Tidszone</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver modulets tidszone i formatet Etc/GMT (for eksempel Etc/GMT-3).<br><br>
+                <strong>Særlige værdier:</strong><br>
+                - system: Systemets tidszone bruges.<br><br>
+                <strong>Vigtigt:</strong> Formatet Etc/GMT har en omvendt forskydning i forhold til UTC (for eksempel Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Anvendte tilføjelsesmiljøer</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver en liste over tilføjelser (angives med mellemrum), hvis miljøer (hvis tilgængelige) tilsluttes modulmiljøet. Informationsindikatorer i terminalen viser ikke disse ekstra miljøer.<br><br>
+                <strong>Advarsel:</strong> Brug kun denne mulighed, hvis du fuldt ud forstår dens formål.</td>
+        </tr>
+        <tr>
+            <th>Tilladte systemvariabler</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver listen over Windows-miljøvariabler (angives med mellemrum), som overføres til modulmiljøet.<br><br>
+                <strong>Formål:</strong> Gør det muligt at isolere modullets arbejdsmiljø fra tilsvarende software installeret i systemet.<br><br>
+                <strong>Advarsel:</strong> Ændring af denne liste uden fuld forståelse af dens påvirkning kan føre til ustabil moduld drift.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

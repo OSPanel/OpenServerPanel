@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Nastavení programu</h2>
+    <table>
+        <tr>
+            <th>Spouštět spolu s Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Povolit automatické spuštění Open Server Panel při načítání operačního systému.</td>
+        </tr>
+        <tr>
+            <th>Zpoždění</th>
+        </tr>
+        <tr>
+            <td>
+                Zpoždění spuštění programu (v sekundách, od 0 do 60).<br><br>Umožňuje odložit start aplikace během spouštění spolu s Windows, aby se snížilo celkové zatížení systému. Je to obzvlášť užitečné, pokud je potřeba vyčkat na plnou inicializaci cizích služeb nebo síťových rozhraní.</td>
+        </tr>
+        <tr>
+            <th>Kontrolovat dostupnost nových verzí</th>
+        </tr>
+        <tr>
+            <td>
+                Povolit kontrolu aktualizací Open Server Panel (vyžaduje připojení k internetu).</td>
+        </tr>
+        <tr>
+            <th>Zapnout plánovač úloh</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivovat vestavěný plánovač úloh. Pokud je parametr vypnut, žádné naplánované úlohy nebudou prováděny bez ohledu na jejich stav.</td>
+        </tr>
+        <tr>
+            <th>Používat soubor HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Povolit zápis doménových jmen do souboru HOSTS.<br><br>
+                <strong>Doporučení při omezeném přístupu k souboru HOSTS v organizaci:</strong><br><br>
+                1. Nastavte všechny potřebné moduly a projekty.<br>
+                2. Obraťte se na systémového administrátora kvůli odblokování HOSTS a fixaci jeho stavu.<br>
+                3. Po fixaci změn administrátorem lze tuto volbu vypnout.<br><br>
+                <strong>Důležité:</strong> Nevypínejte tento parametr, pokud si nejste jisti následky!</td>
+        </tr>
+        <tr>
+            <th>Spouštět moduly s profilem projektu</th>
+        </tr>
+        <tr>
+            <td>Spouštět moduly se současnou aktivací profilu, který se shoduje se jménem projektu.<br><br>Používá se při volbě položky menu «Zapnout moduly projektu», aby se automaticky aktivoval profil se stejným názvem jako aktuální projekt, pokud takový existuje.</td>
+        </tr>
+        <tr>
+            <th>Nevypínat moduly skrytých projektů</th>
+        </tr>
+        <tr>
+            <td>Nevypínat moduly skrytých projektů při volbě položky menu «Vypnout všechny moduly». Pod „skrytými“ se rozumí projekty, pro které je nastavena kategorie "hidden".<br><br>Ve výchozím nastavení příkaz «Vypnout všechny moduly» zastaví práci naprosto všech modulů, včetně těch, které používají skryté servisní projekty (například PHPMyAdmin). Tato volba umožňuje zachovat funkčnost skrytých servisních projektů, aniž by se vypínaly pro ně potřebné moduly, zatímco všechny ostatní moduly budou vypnuty.</td>
+        </tr>
+        <tr>
+            <th>Jazyk rozhraní</th>
+        </tr>
+        <tr>
+            <td>
+                Jazyk uživatelského rozhraní Open Server Panel.<br><br>
+                Pokud soubor lokalizace chybí nebo obsahuje chyby, bude použit anglický jazyk.</td>
+        </tr>
+        <tr>
+            <th>Doména API</th>
+        </tr>
+        <tr>
+            <td>
+                Lokální doména pro API a webové rozhraní (ve vývoji)<br><br>
+                <strong>Doporučení:</strong> Pokud používáte VPN nebo proxy, přidejte tuto doménu do výjimek.</td>
+        </tr>
+        <tr>
+            <th>IP adresa API</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4 adresa pro API a webové rozhraní (ve vývoji).<br><br>
+                <strong>Doporučení:</strong> Pokud používáte VPN nebo proxy, přidejte tuto IP adresu do výjimek.</td>
+        </tr>
+        <tr>
+            <th>Port API</th>
+        </tr>
+        <tr>
+            <td>
+                Port používaný pro API a webové rozhraní (ve vývoji). Open Server Panel nebude moci být spuštěn, pokud je uvedený port již používán jinou aplikací.</td>
+        </tr>
+        <tr>
+            <th>Používat Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Povolit použití Windows Terminal místo standardního příkazového rozhraní.<br><br>
+                <strong>Požadavky:</strong> Windows Terminal musí být nainstalován v systému a uveden v proměnné prostředí PATH.<br><br>
+                <strong>Windows Terminal jako cmd.exe:</strong> Windows Terminal může nahrazovat cmd.exe a být uveden v proměnné prostředí %COMSPEC% v nových verzích Windows. Pokud je tomu tak, ponechte tuto volbu zapnutou.<br><br>
+                <strong>Nové instance Windows Terminal:</strong> Pokud Windows Terminal otevírá nová okna místo karet, nastavte jej takto: Nastavení&rarr;Spuštění&rarr;Chování nové instance&rarr;Připojit k poslednímu použitému oknu.</td>
+        </tr>
+        <tr>
+            <th>Krátký titul projektu</th>
+        </tr>
+        <tr>
+            <td>
+                Při aktivaci této volby bude v záhlaví okna terminálu zobrazováno pouze jméno projektu místo podrobného popisu prostředí.</td>
+        </tr>
+        <tr>
+            <th>Zahrnout systémové prostředí do prostředí projektu</th>
+        </tr>
+        <tr>
+            <td>Používat prostředí systému (System) v terminálu, i když není zadáno v nastaveních projektu. Systémové prostředí umožňuje používat programy nainstalované v systému (například git.exe nebo ssh.exe).<br><br>Vypínejte tuto volbu pouze při vzniku konfliktů se systémovým softwarem.</td>
+        </tr>
+        <tr>
+            <th>Podpora ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Povolit podporu ANSI kódů pro správu barev v terminálu.<br><br>
+                Režim „Automaticky“ (ve výchozím nastavení):<br>
+                - Oprava se uplatní pouze na Windows 10 do verze 1903 včetně. V novějších verzích Windows je podpora ANSI kódů již zabudována.<br>
+                - Oprava se neuplatní pro terminály, které podporují ANSI ve výchozím nastavení (například Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Adresáře pro vyhledávání projektů</th>
+        </tr>
+        <tr>
+            <td>
+                Seznam adresářů, ve kterých bude Open Server Panel hledat projekty. Cesty oddělujte středníkem (;).<br><br>
+                <strong>Výjimky:</strong> Podadresáře node_modules a vendor jsou ignorovány.</td>
+        </tr>
+        <tr>
+            <th>Hloubka</th>
+        </tr>
+        <tr>
+            <td>
+                Maximální hloubka vnoření adresářů při vyhledávání projektů.<br><br>
+                Zvýšení této hodnoty může zpomalit spuštění Open Server Panel, pokud uvedené adresáře obsahují velké množství podadresářů.</td>
+        </tr>
+        <tr>
+            <th>Maximální velikost souboru protokolu</th>
+        </tr>
+        <tr>
+            <td>
+                Maximální velikost souboru protokolu v megabajtech. Při překročení uvedené hodnoty bude log soubor znovu vytvořen při příštím spuštění programu.<br><br>
+                Nastavte hodnotu 0 pro čištění protokolů při každém spuštění programu.<br><br>
+                Nastavte hodnotu 100 MB pro úplné vypnutí čištění protokolů.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

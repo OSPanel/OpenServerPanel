@@ -1,0 +1,9 @@
+[trust_cert]
+authorityKeyIdentifier = keyid,issuer
+basicConstraints       = critical,CA:FALSE
+extendedKeyUsage       = serverAuth,clientAuth
+keyUsage               = critical,digitalSignature
+subjectAltName         = @alt_names
+subjectKeyIdentifier   = hash
+
+[alt_names]

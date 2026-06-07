@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Setări globale ale modulelor</h2>
+    <p>Parametrii setați în această secțiune se aplică în cazurile în care, în setările unui anumit modul, pentru opțiunea corespunzătoare este stabilită valoarea auto (implicit).</p>
+    <table>
+        <tr>
+            <th>Mod silențios de funcționare</th>
+        </tr>
+        <tr>
+            <td>
+                Dezactivează mesajele pop-up de eroare de la Windows Error Reporting și de la însuși modulul.<br><br>
+                <strong>Recomandare:</strong> Dezactivați acest mod doar când este necesară diagnosticarea problemelor în funcționarea modulului.</td>
+        </tr>
+        <tr>
+            <th>Adăugați antet în fișierul jurnal</th>
+        </tr>
+        <tr>
+            <td>
+                Activează adăugarea automată a unui antet în fișierul jurnal la fiecare pornire a modulului. Util când curățarea automată a jurnalelor este dezactivată, pentru a separa sesiunile de lucru.</td>
+        </tr>
+        <tr>
+            <th>Numărul maxim de porniri eșuate</th>
+        </tr>
+        <tr>
+            <td>
+                Determină câte porniri eșuate consecutive ale modulului sunt permise înainte ca acesta să treacă în starea „Eroare”.</td>
+        </tr>
+        <tr>
+            <th>Timpul de verificare a funcționalității modulului</th>
+        </tr>
+        <tr>
+            <td>Determină perioada de testare a funcționalității modulului după pornirea sa reușită.<br><br>
+                <strong>Începerea numărătorii:</strong> Din momentul pornirii reușite a modulului.<br><br>
+                <strong>Trecerea în starea „Eroare”:</strong> Dacă modulul se încheie în mod critic în perioada de testare, acesta nu va fi repornit automat și va trece în starea „Eroare”. Acest lucru se aplică și cazurilor în care modulul nu poate fi pornit la nivel de sistem.<br><br>
+                <strong>Dezactivarea verificării:</strong> Valoarea 0 dezactivează perioada de testare, iar modulul va fi întotdeauna repornit în caz de eșec.<br><br>
+                <strong>Recomandare:</strong> Nu setați valoarea 0 sau o perioadă prea scurtă (mai puțin de 30 de secunde), deoarece poate duce la cicluri infinite de repornire.</td>
+        </tr>
+        <tr>
+            <th>Timpul de așteptare pentru încheierea modulului</th>
+        </tr>
+        <tr>
+            <td>Determină timpul limită în care modulului i se permite să își încheie funcționarea.<br><br>
+                <strong>Închidere forțată:</strong> Dacă modulul nu își încheie funcționarea în termenul indicat, acesta va fi oprit forțat.<br><br>
+                <strong>Dezactivarea așteptării:</strong> Valoarea 0 dezactivează perioada de așteptare. Programul va aștepta încheierea modulului pe durată nelimitată.<br><br>
+                <strong>Avertisment:</strong> Oprirea forțată a modulului poate duce la coruperea datelor, pierderea modificărilor nesalvate sau încheiere incorectă a proceselor. Folosiți această setare cu prudență.</td>
+        </tr>
+        <tr>
+            <th>Dimensiunea maximă a fișierului jurnal</th>
+        </tr>
+        <tr>
+            <td>
+                Dimensiunea maximă a fișierului jurnal în megabytes. La depășirea valorii indicate, fișierul jurnal va fi recreat la următoarea pornire a modulului.<br><br>
+                Setați valoarea 0 pentru a curăța jurnalele la fiecare pornire a modulului.<br><br>
+                Setați valoarea 100 MB pentru a dezactiva complet curățarea jurnalelor.</td>
+        </tr>
+        <tr>
+            <th>Codarea terminalului</th>
+        </tr>
+        <tr>
+            <td>
+                Codarea terminalului la lucrul cu mediul modulului.<br><br>
+                <strong>Valori speciale:</strong><br>
+                - system: Se utilizează codarea sistemului.</td>
+        </tr>
+        <tr>
+            <th>Fus orar</th>
+        </tr>
+        <tr>
+            <td>
+                Determină fusul orar al modulului în format Etc/GMT (de exemplu, Etc/GMT-3).<br><br>
+                <strong>Valori speciale:</strong><br>
+                - system: Se utilizează fusul orar al sistemului.<br><br>
+                <strong>Important:</strong> Formatul Etc/GMT are un offset invers față de UTC (de exemplu, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Mediile de extensii utilizate</th>
+        </tr>
+        <tr>
+            <td>
+                Determină lista extensiilor (se indică separate prin spațiu) ale căror medii (dacă există) sunt atașate mediului modulului. Indicatorii informativi din terminal nu afișează aceste medii suplimentare.<br><br>
+                <strong>Avertisment:</strong> Utilizați această opțiune doar dacă înțelegeți pe deplin scopul ei.</td>
+        </tr>
+        <tr>
+            <th>Variabile de sistem permise</th>
+        </tr>
+        <tr>
+            <td>
+                Determină lista variabilelor de mediu Windows (se indică separate prin spațiu) care sunt transmise mediului modulului.<br><br>
+                <strong>Destinație:</strong> Permite izolarea mediului de lucru al modulului de software-ul similar instalat în sistem.<br><br>
+                <strong>Avertisment:</strong> Modificarea acestei liste fără înțelegerea completă a impactului poate duce la funcționarea instabilă a modulului.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

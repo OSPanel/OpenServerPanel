@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">अपने स्वयं के मेनू आइटम बनाना</h2>
+    <ol>
+        <li>एक अद्वितीय идентификатор [ID] के साथ नया सेक्शन जोड़ें</li>
+        <li>सेक्शनों को इच्छित क्रम में व्यवस्थित करें — यह मेनू में आइटमों का क्रम निर्धारित करेगा</li>
+        <li>परिवर्तनों को सहेजें और परिवर्तनों को लागू करने के लिए Open Server Panel को पुनः आरंभ करें</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>महत्वपूर्ण जानकारी</h3>
+        अपने स्वयं के मेनू आइटम बनाते समय सुनिश्चित करें कि सेक्शन के идентификатор अद्वितीय हों। अन्यथा मेनू के काम में संघर्ष हो सकता है।
+    </div>
+    <h2>मेनू आइटम की सेटिंग्स</h2>
+    <p><strong>सॉर्टिंग क्रम:</strong> मेनू आइटम उसी क्रम में सॉर्ट होते हैं, जिसमें संबंधित सेक्शन टेम्पलेट में रखे गए हैं।</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    मेनू आइटम का शीर्षक। {lang_xxx} प्रारूप में language constants को सपोर्ट करता है।<br><br>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>मेनू आइटम का स्थान hierarchy में निर्धारित करता है। एक स्तर की nested श्रेणी सपोर्ट करता है (उदाहरण: "मेरी बुकमार्क्स\काम").</p>
+                    <p>विशेष श्रेणियाँ:</p>
+                    <ul>
+                        <li>projects, modules, addons - संबंधित actions मेनू में आइटम जोड़ता है</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - किसी विशिष्ट तत्व के लिए आइटम जोड़ता है</li>
+                    </ul>
+                    <p>यदि category निर्दिष्ट नहीं है, तो आइटम root मेनू में बनाया जाता है।</p>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    मेनू आइटम सक्रिय होने पर चलाने के लिए कमांड। बिना command वाले आइटम नजरअंदाज किए जाते हैं।<br><br>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    मेनू आइटम के प्रदर्शन को सक्षम/अक्षम करता है।<br><br>
+                    डिफ़ॉल्ट: on | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    कॉल किए गए एप्लिकेशन विंडो की visibility को नियंत्रित करता है। child प्रक्रियाओं पर प्रभाव नहीं डालता।<br><br>
+                    डिफ़ॉल्ट: off | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    मेनू आइटम के बाद एक क्षैतिज विभाजक जोड़ता है।<br><br>
+                    डिफ़ॉल्ट: off | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    मेनू आइटम से पहले एक क्षैतिज विभाजक जोड़ता है।<br><br>
+                    डिफ़ॉल्ट: off | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Font Awesome Free (Solid/Regular/Brands) सेट से आइकन।<br><br>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    केवल domain alias के लिए मेनू आइटम दिखाता है। मेनू टेम्पलेट में need_alias=on वाला केवल एक आइटम हो सकता है!<br>
+                    लागू श्रेणियाँ: projects<br><br>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>निर्दिष्ट category के modules/addons तक मेनू आइटम का प्रदर्शन सीमित करता है।</p>
+                    <p>समर्थित प्रारूप:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    parent module में shell/cli की उपलब्धता के आधार पर मेनू आइटम दिखाता है।<br>
+                    लागू श्रेणियाँ: modules, modules\<имя_модуля><br><br>
+                        डिफ़ॉल्ट: निर्दिष्ट नहीं | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    parent module की स्थिति के आधार पर मेनू आइटम दिखाता है।<br>
+                    लागू श्रेणियाँ: modules, modules\<имя_модуля><br><br>
+                        डिफ़ॉल्ट: निर्दिष्ट नहीं | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    प्रोजेक्ट सेटिंग्स में start command होने पर मेनू आइटम दिखाता है।<br>
+                    लागू श्रेणियाँ: projects, projects\<имя_домена><br><br>
+                        डिफ़ॉल्ट: निर्दिष्ट नहीं | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Open Server Panel में Windows Terminal के उपयोग की सेटिंग के अनुसार मेनू आइटम दिखाता है।<br><br>
+                    डिफ़ॉल्ट: निर्दिष्ट नहीं | मान: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    कमांड निष्पादन के लिए कार्य निर्देशिका। कमांड निष्पादन के दौरान बदल सकती है।<br><br>
+                    डिफ़ॉल्ट: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>टेम्पलेट वेरिएबल्स</h2>
+    पैरामीटर्स "command" और "work_directory" में आप निम्नलिखित टेम्पलेट वेरिएबल्स का उपयोग कर सकते हैं:
+    <h3>सामान्य वेरिएबल्स</h3>
+    <table>
+        <tr>
+            <th>वेरिएबल</th>
+            <th>विवरण</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>वर्तमान दिनांक/समय (वेरिएबल केवल "command" पैरामीटर के लिए उपलब्ध)</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel का root कैटलॉग (पूर्ण पथ)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>root कैटलॉग का ड्राइव</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel के root कैटलॉग का पथ</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>वेब-इंटरफेस का URL पता</td>
+        </tr>
+    </table>
+    <h3>विशेष वेरिएबल्स (केवल projects और projects\&lt;имя_домена&gt; के लिए)</h3>
+    <table>
+        <tr>
+            <th>वेरिएबल</th>
+            <th>विवरण</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>प्रोजेक्ट का बेस कैटलॉग</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>डोमेन नाम (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>दृश्यमान डोमेन नाम (बिना Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>प्रोजेक्ट के लिए अनुरोध की स्कीम ("http" या "https", प्रोजेक्ट सेटिंग्स में TLS पैरामीटर पर निर्भर)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP प्रोटोकॉल द्वारा प्रोजेक्ट का अनुरोध पोर्ट</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS प्रोटोकॉल द्वारा प्रोजेक्ट का अनुरोध पोर्ट</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>मेनू आइटम का शीर्षक (केवल projects श्रेणी के लिए, जब need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP इंजन</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js इंजन</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP इंजन</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>प्रोजेक्ट का root कैटलॉग</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>प्रोजेक्ट का URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>प्रोजेक्ट का public कैटलॉग</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>प्रोजेक्ट का अनुरोध पोर्ट (":{http_port}" या ":{https_port}", प्रोजेक्ट सेटिंग्स में TLS पैरामीटर पर निर्भर)। यदि {http_port} या {https_port} का मान मानक 80 या 443 है, तो {scheme_port} खाली होगा।</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>प्रोजेक्ट एप्लिकेशन के स्टार्ट की कमांड (यदि कॉन्फ़िगर की गई हो)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>कंसोल एन्कोडिंग</td>
+        </tr>
+    </table>
+    <h3>विशेष वेरिएबल्स (केवल addons और addons\&lt;имя_дополнения&gt; के लिए)</h3>
+    <table>
+        <tr>
+            <th>वेरिएबल</th>
+            <th>विवरण</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>एडऑन का नाम</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>कंसोल एन्कोडिंग</td>
+        </tr>
+    </table>
+    <h3>विशेष वेरिएबल्स (केवल modules और modules\&lt;имя_модуля&gt; के लिए)</h3>
+    <table>
+        <tr>
+            <th>वेरिएबल</th>
+            <th>विवरण</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>मॉड्यूल का IP-पता</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>त्रुटि लॉगिंग स्तर</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>मॉड्यूल का नाम</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>मॉड्यूल का पोर्ट</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>मॉड्यूल की वर्तमान प्रोफाइल का नाम</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>क्वेरी लॉगिंग स्तर</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>मॉड्यूल की shell/cli शेल को चलाने की कमांड (यदि कॉन्फ़िगर की गई हो)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>कंसोल एन्कोडिंग</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>समय क्षेत्र</td>
+        </tr>
+    </table>
+    <h3>कमांड के विशेष मान</h3>
+    <table>
+        <tr>
+            <th>कमांड</th>
+            <th>विवरण</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>लॉग दर्शक विंडो खोलें</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN-कन्वर्टर खोलें</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>प्रोग्राम सेटिंग्स विंडो खोलें</td>
+        </tr>
+    </table>
+    <p>टेम्पलेट वेरिएबल्स के अलावा, आप कोई भी Windows environment variables उपयोग कर सकते हैं, जैसे: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% आदि।</p>
+    <h3>उपयोग का उदाहरण</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = मेरी बुकमार्क्स\खोज प्रणालियाँ
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE विकल्प</h3>
+    <ul>
+        <li>/c: कमांड चलाएँ और टर्मिनल बंद करें।</li>
+        <li>/k: कमांड चलाएँ और टर्मिनल खुला रहने दें।</li>
+    </ul>
+</body>
+
+</html>

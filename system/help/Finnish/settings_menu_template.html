@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Omien valikkokohtien luominen</h2>
+    <ol>
+        <li>Lisää uusi osio, jolla on yksilöllinen tunniste [ID]</li>
+        <li>Sijoita osiot haluttuun järjestykseen — tämä määrittää valikkokohtien järjestyksen</li>
+        <li>Tallenna muutokset ja käynnistä Open Server Panel uudelleen, jotta muutokset tulevat voimaan</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Tärkeää tietoa</h3>
+        Kun luot omia valikkokohtia, varmista, että osioiden tunnisteet eivät toistu. Tämä voi johtaa ristiriitoihin valikon toiminnassa.
+    </div>
+    <h2>Valikkokohtien asetukset</h2>
+    <p><strong>Lajittelujärjestys:</strong> Valikkokohdat lajitellaan samassa järjestyksessä kuin vastaavat osiot on sijoitettu mallissa.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Valikkokohdan otsikko. Tukee kielivakioita muodossa {lang_xxx}.<br><br>
+                    Oletus: ei asetettu
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Määrittää valikkokohdan sijainnin hierarkiassa. Tukee yhtä sisennystasoa (esimerkiksi "Omat kirjanmerkit\Työ").</p>
+                    <p>Erikoiskategoriat:</p>
+                    <ul>
+                        <li>projects, modules, addons - lisää kohdan vastaavaan toimenpidevalikkoon</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - lisää kohdan tietylle elementille</li>
+                    </ul>
+                    <p>Jos kategoriaa ei ole määritetty, kohta luodaan juurivalikkoon.</p>
+                    Oletus: ei asetettu
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Komento, joka suoritetaan valikkokohdan aktivoinnissa. Kohdat ilman komentoa ohitetaan.<br><br>
+                    Oletus: ei asetettu
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Ottaa käyttöön/pois käytöstä valikkokohdan näyttämisen.<br><br>
+                    Oletus: on | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Hallitsee kutsutun sovellusikkunan näkyvyyttä. Ei vaikuta lapsiprosesseihin.<br><br>
+                    Oletus: off | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Lisää vaakasuoran erotinviivan valikkokohdan jälkeen.<br><br>
+                    Oletus: off | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Lisää vaakasuoran erotinviivan ennen valikkokohtaa.<br><br>
+                    Oletus: off | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikoni Font Awesome Free -kokoelmasta (Solid/Regular/Brands).<br><br>
+                    Oletus: ei asetettu
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Näyttää valikkokohdan vain domain-aliasille. Valikkomallissa voi olla vain yksi kohta, jossa need_alias=on!<br>
+                    Soveltuu kategorioille: projects<br><br>
+                    Oletus: ei asetettu | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Rajoittaa valikkokohdan näyttämisen tietyn kategorian moduleille/addoneille.</p>
+                    <p>Tuetut muodot:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Oletus: ei asetettu
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Näyttää valikkokohdan sen mukaan, onko ylätason modulilla shell/cli käytettävissä.<br>
+                    Soveltuu kategorioille: modules, modules\<имя_модуля><br><br>
+                        Oletus: ei asetettu | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Näyttää valikkokohdan ylätason modulin tilan perusteella.<br>
+                    Soveltuu kategorioille: modules, modules\<имя_модуля><br><br>
+                        Oletus: ei asetettu | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Näyttää valikkokohdan, jos projektin asetuksissa on käynnistyskomento.<br>
+                    Soveltuu kategorioille: projects, projects\<имя_домена><br><br>
+                        Oletus: ei asetettu | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Näyttää valikkokohdan Open Server Panelin Windows Terminal -käyttöasetuksen mukaan.<br><br>
+                    Oletus: ei asetettu | Arvot: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Työhakemisto komennon suorittamista varten. Voi muuttua komentojen suorituksen aikana.<br><br>
+                    Oletus: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Mallimuuttujat</h2>
+    Parametreissa "command" ja "work_directory" voidaan käyttää seuraavia mallimuuttujia:
+    <h3>Yleiset muuttujat</h3>
+    <table>
+        <tr>
+            <th>Muuttuja</th>
+            <th>Kuvaus</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Nykyinen päiväys/aika (muuttuja on käytettävissä vain parametrille "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panelin juurihakemisto (täysi polku)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Juurihakemiston asema</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Polku Open Server Panelin juurihakemistoon</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Web-käyttöliittymän URL-osoite</td>
+        </tr>
+    </table>
+    <h3>Erityismuuttujat (vain projects ja projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Muuttuja</th>
+            <th>Kuvaus</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Projektin perushakemisto</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Verkkotunnuksen nimi (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Näkyvä verkkotunnuksen nimi (ilman Punycodea)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Projektin pyyntöjärjestelmä ("http" tai "https", riippuu TLS-asetuksesta projektissa)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Projektin HTTP-pyynnön portti</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Projektin HTTPS-pyynnön portti</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Valikkokohdan otsikko (vain kategoriassa projects, kun need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP-moottori</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js -moottori</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP-moottori</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projektin juurihakemisto</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projektin URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Projektin julkinen hakemisto</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Projektin pyynnön portti (":{http_port}" tai ":{https_port}", riippuu TLS-asetuksesta projektissa). Jos {http_port} tai {https_port} on vakioarvo 80 tai 443, {scheme_port} on tyhjä.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Projektin sovelluksen käynnityskomento (jos määritetty)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolin merkistökoodaus</td>
+        </tr>
+    </table>
+    <h3>Erityismuuttujat (vain addons ja addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Muuttuja</th>
+            <th>Kuvaus</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Lisäosan nimi</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolin merkistökoodaus</td>
+        </tr>
+    </table>
+    <h3>Erityismuuttujat (vain modules ja modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Muuttuja</th>
+            <th>Kuvaus</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Modulin IP-osoite</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Virhelokituksen taso</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Modulin nimi</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Modulin portti</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Modulin nykyisen asetusprofiilin nimi</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Pyyntölokituksen taso</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Modulin shell/cli -kuoren käynnityskomento (jos määritetty)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolin merkistökoodaus</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Aikavyöhyke</td>
+        </tr>
+    </table>
+    <h3>Erityiset komentojen arvot</h3>
+    <table>
+        <tr>
+            <th>Komento</th>
+            <th>Kuvaus</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Avaa lokien katseluikkunan</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Avaa IDN-muuntimen</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Avaa ohjelman asetusikkunan</td>
+        </tr>
+    </table>
+    <p>Mallimuuttujien lisäksi voidaan käyttää mitä tahansa Windowsin ympäristömuuttujia, esimerkiksi: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% jne.</p>
+    <h3>Käyttöesimerkki</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Omat kirjanmerkit\Hakukoneet
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE -asetukset</h3>
+    <ul>
+        <li>/c: Suorita komento ja sulje terminaali.</li>
+        <li>/k: Suorita komento ja jätä terminaali auki.</li>
+    </ul>
+</body>
+
+</html>

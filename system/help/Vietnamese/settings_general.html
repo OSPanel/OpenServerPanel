@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Cài đặt chương trình</h2>
+    <table>
+        <tr>
+            <th>Khởi động cùng Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Bật tự động khởi động Open Server Panel khi hệ điều hành tải.</td>
+        </tr>
+        <tr>
+            <th>Độ trễ</th>
+        </tr>
+        <tr>
+            <td>
+                Độ trễ khởi chạy chương trình (tính bằng giây, từ 0 đến 60).<br><br>Cho phép hoãn việc khởi chạy ứng dụng trong quá trình khởi động cùng Windows để giảm tải tổng thể cho hệ thống. Điều này đặc biệt hữu ích nếu cần đợi các dịch vụ bên thứ ba hoặc giao diện mạng được khởi tạo đầy đủ.</td>
+        </tr>
+        <tr>
+            <th>Kiểm tra phiên bản mới</th>
+        </tr>
+        <tr>
+            <td>
+                Bật kiểm tra cập nhật Open Server Panel (yêu cầu kết nối Internet).</td>
+        </tr>
+        <tr>
+            <th>Bật bộ lập lịch tác vụ</th>
+        </tr>
+        <tr>
+            <td>
+                Kích hoạt bộ lập lịch tác vụ tích hợp. Nếu tham số bị tắt, không tác vụ đã lên lịch nào sẽ được thực thi, bất kể trạng thái của chúng.</td>
+        </tr>
+        <tr>
+            <th>Sử dụng tệp HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Bật ghi tên miền vào tệp HOSTS.<br><br>
+                <strong>Khuyến nghị khi quyền truy cập tệp HOSTS bị hạn chế trong tổ chức:</strong><br><br>
+                1. Cấu hình tất cả các module và dự án cần thiết.<br>
+                2. Liên hệ quản trị viên hệ thống để mở khóa HOSTS và cố định trạng thái của nó.<br>
+                3. Sau khi quản trị viên cố định các thay đổi, có thể tắt tùy chọn này.<br><br>
+                <strong>Quan trọng:</strong> Đừng tắt tham số này nếu bạn không chắc chắn về hậu quả!</td>
+        </tr>
+        <tr>
+            <th>Khởi chạy module với profile dự án</th>
+        </tr>
+        <tr>
+            <td>Khởi chạy các module đồng thời kích hoạt profile trùng với tên dự án.<br><br>Được sử dụng khi chọn mục menu «Bật module của dự án» để tự động kích hoạt profile có cùng tên với dự án hiện tại, nếu có.</td>
+        </tr>
+        <tr>
+            <th>Không tắt module của các dự án ẩn</th>
+        </tr>
+        <tr>
+            <td>Không tắt các module của dự án ẩn khi chọn mục menu «Tắt tất cả module». “Ẩn” được hiểu là các dự án được đặt danh mục "hidden".<br><br>Theo mặc định, lệnh «Tắt tất cả module» sẽ dừng hoạt động của tất cả các module, bao gồm cả những module được sử dụng bởi các dự án dịch vụ ẩn (ví dụ, PHPMyAdmin). Tùy chọn này cho phép giữ cho các dự án dịch vụ ẩn hoạt động, không tắt các module cần thiết cho chúng, trong khi tất cả các module khác sẽ bị tắt.</td>
+        </tr>
+        <tr>
+            <th>Ngôn ngữ giao diện</th>
+        </tr>
+        <tr>
+            <td>
+                Ngôn ngữ giao diện người dùng của Open Server Panel.<br><br>
+                Nếu tệp bản địa hóa không tồn tại hoặc có lỗi, tiếng Anh sẽ được sử dụng.</td>
+        </tr>
+        <tr>
+            <th>Miền API</th>
+        </tr>
+        <tr>
+            <td>
+                Miền cục bộ cho API và giao diện web (đang phát triển)<br><br>
+                <strong>Khuyến nghị:</strong> Nếu sử dụng VPN hoặc proxy, hãy thêm miền này vào danh sách ngoại lệ.</td>
+        </tr>
+        <tr>
+            <th>Địa chỉ IP API</th>
+        </tr>
+        <tr>
+            <td>
+                Địa chỉ IPv4 cho API và giao diện web (đang phát triển).<br><br>
+                <strong>Khuyến nghị:</strong> Nếu sử dụng VPN hoặc proxy, hãy thêm địa chỉ IP này vào danh sách ngoại lệ.</td>
+        </tr>
+        <tr>
+            <th>Cổng API</th>
+        </tr>
+        <tr>
+            <td>
+                Cổng được sử dụng cho API và giao diện web (đang phát triển). Open Server Panel sẽ không thể khởi chạy nếu cổng được chỉ định đã được ứng dụng khác sử dụng.</td>
+        </tr>
+        <tr>
+            <th>Sử dụng Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Bật sử dụng Windows Terminal thay cho giao diện dòng lệnh tiêu chuẩn.<br><br>
+                <strong>Yêu cầu:</strong> Windows Terminal phải được cài đặt trong hệ thống và khai báo trong biến môi trường PATH.<br><br>
+                <strong>Windows Terminal như cmd.exe:</strong> Windows Terminal có thể thay thế cmd.exe và được khai báo trong biến môi trường %COMSPEC% trên các phiên bản Windows mới. Nếu vậy, hãy giữ tùy chọn này bật.<br><br>
+                <strong>Phiên bản Windows Terminal mới:</strong> Nếu Windows Terminal mở cửa sổ mới thay vì tab, hãy cấu hình như sau: Cài đặt&rarr;Khởi chạy&rarr;Hành vi phiên bản mới&rarr;Gắn vào cửa sổ được sử dụng gần nhất.</td>
+        </tr>
+        <tr>
+            <th>Tiêu đề ngắn cho dự án</th>
+        </tr>
+        <tr>
+            <td>
+                Khi bật tùy chọn này, tiêu đề cửa sổ terminal sẽ chỉ hiển thị tên dự án thay vì mô tả chi tiết môi trường.</td>
+        </tr>
+        <tr>
+            <th>Bao gồm môi trường hệ thống vào môi trường dự án</th>
+        </tr>
+        <tr>
+            <td>Sử dụng môi trường hệ thống (System) trong terminal ngay cả khi nó không được đặt trong cài đặt dự án. Môi trường hệ thống cho phép sử dụng các chương trình được cài đặt trong hệ thống (ví dụ, git.exe hoặc ssh.exe).<br><br>Chỉ tắt tùy chọn này khi xảy ra xung đột với phần mềm hệ thống.</td>
+        </tr>
+        <tr>
+            <th>Hỗ trợ ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Bật hỗ trợ mã ANSI để quản lý màu sắc trong terminal.<br><br>
+                Chế độ "Tự động" (mặc định):<br>
+                - Bản vá chỉ áp dụng cho Windows 10 đến phiên bản 1903 bao gồm. Trên các phiên bản Windows mới hơn, hỗ trợ mã ANSI đã được tích hợp sẵn.<br>
+                - Bản vá không áp dụng cho các terminal hỗ trợ ANSI theo mặc định (ví dụ, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Thư mục để tìm dự án</th>
+        </tr>
+        <tr>
+            <td>
+                Danh sách các thư mục mà Open Server Panel sẽ tìm dự án. Ngăn cách đường dẫn bằng dấu chấm phẩy (;).<br><br>
+                <strong>Ngoại lệ:</strong> Các thư mục con node_modules và vendor sẽ bị bỏ qua.</td>
+        </tr>
+        <tr>
+            <th>Độ sâu</th>
+        </tr>
+        <tr>
+            <td>
+                Độ sâu lồng nhau tối đa của thư mục khi tìm dự án.<br><br>
+                Tăng giá trị này có thể làm chậm quá trình khởi động Open Server Panel nếu trong các thư mục chỉ định có chứa số lượng lớn thư mục con.</td>
+        </tr>
+        <tr>
+            <th>Kích thước tối đa của tệp nhật ký</th>
+        </tr>
+        <tr>
+            <td>
+                Kích thước tối đa của tệp nhật ký tính bằng megabyte. Khi vượt quá giá trị chỉ định, tệp log sẽ được tạo lại vào lần khởi động chương trình tiếp theo.<br><br>
+                Đặt giá trị 0 để xóa nhật ký mỗi lần khởi động chương trình.<br><br>
+                Đặt giá trị 100 MB để tắt hoàn toàn việc xóa nhật ký.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

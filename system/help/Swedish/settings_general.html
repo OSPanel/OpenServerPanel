@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programinställningar</h2>
+    <table>
+        <tr>
+            <th>Starta tillsammans med Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivera autostart av Open Server Panel vid operativsystemets uppstart.</td>
+        </tr>
+        <tr>
+            <th>Fördröjning</th>
+        </tr>
+        <tr>
+            <td>
+                Fördröjning av programstart (i sekunder, från 0 till 60).<br><br>Möjliggör att skjuta upp applikationens start under uppstarten tillsammans med Windows för att minska den totala systembelastningen. Detta är särskilt användbart om du behöver invänta fullständig initialisering av tredjepartstjänster eller nätverksgränssnitt.</td>
+        </tr>
+        <tr>
+            <th>Sök efter nya versioner</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivera kontroll av uppdateringar för Open Server Panel (Internetanslutning krävs).</td>
+        </tr>
+        <tr>
+            <th>Aktivera schemaläggare</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivera den inbyggda schemaläggaren. Om parametern är avstängd kommer inga schemalagda jobb att köras, oavsett deras status.</td>
+        </tr>
+        <tr>
+            <th>Använd filen HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivera skrivning av domännamn till filen HOSTS.<br><br>
+                <strong>Rekommendationer vid begränsad åtkomst till filen HOSTS i organisationen:</strong><br><br>
+                1. Konfigurera alla nödvändiga moduler och projekt.<br>
+                2. Kontakta systemadministratören för att låsa upp HOSTS och låsa dess tillstånd.<br>
+                3. Efter att administratören har fastställt ändringarna kan du inaktivera detta alternativ.<br><br>
+                <strong>Viktigt:</strong> Inaktivera inte den här parametern om du inte är säker på konsekvenserna!</td>
+        </tr>
+        <tr>
+            <th>Starta moduler med projektprofil</th>
+        </tr>
+        <tr>
+            <td>Starta moduler med samtidig aktivering av en profil som matchar projektets namn.<br><br>Används när menyalternativet «Aktivera projektmoduler» väljs för att automatiskt aktivera profilen med samma namn som det aktuella projektet, om en sådan finns.</td>
+        </tr>
+        <tr>
+            <th>Stäng inte av moduler för dolda projekt</th>
+        </tr>
+        <tr>
+            <td>Stäng inte av moduler för dolda projekt när menyalternativet «Stäng av alla moduler» väljs. Med "dolda" avses de projekt för vilka kategorin "hidden" har angetts.<br><br>Som standard stoppar kommandot «Stäng av alla moduler» alla moduler, inklusive de som används av dolda systemprojekt (till exempel PHPMyAdmin). Detta alternativ gör det möjligt att behålla funktionaliteten i dolda systemprojekt utan att stänga av de moduler som krävs för dem, medan alla andra moduler stängs av.</td>
+        </tr>
+        <tr>
+            <th>Gränssnittsspråk</th>
+        </tr>
+        <tr>
+            <td>
+                Användargränssnittets språk i Open Server Panel.<br><br>
+                Om lokaliseringsfilen saknas eller innehåller fel kommer engelska att användas.</td>
+        </tr>
+        <tr>
+            <th>API-domän</th>
+        </tr>
+        <tr>
+            <td>
+                Lokal domän för API och webbgränssnitt (under utveckling)<br><br>
+                <strong>Rekommendation:</strong> Om VPN eller proxy används, lägg till denna domän i undantag.</td>
+        </tr>
+        <tr>
+            <th>API-IP-adress</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4-adress för API och webbgränssnitt (under utveckling).<br><br>
+                <strong>Rekommendation:</strong> Om VPN eller proxy används, lägg till denna IP-adress i undantag.</td>
+        </tr>
+        <tr>
+            <th>API-port</th>
+        </tr>
+        <tr>
+            <td>
+                Port som används för API och webbgränssnitt (under utveckling). Open Server Panel kan inte starta om den angivna porten redan används av en annan applikation.</td>
+        </tr>
+        <tr>
+            <th>Använd Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivera användning av Windows Terminal istället för standardkommandogränssnittet.<br><br>
+                <strong>Krav:</strong> Windows Terminal måste vara installerad i systemet och angiven i miljövariabeln PATH.<br><br>
+                <strong>Windows Terminal som cmd.exe:</strong> Windows Terminal kan ersätta cmd.exe och anges i miljövariabeln %COMSPEC% i nyare versioner av Windows. Om så är fallet, lämna detta alternativ aktiverat.<br><br>
+                <strong>Nya instanser av Windows Terminal:</strong> Om Windows Terminal öppnar nya fönster istället för flikar, konfigurera den så här: Inställningar&rarr;Start&rarr;Beteende för ny instans&rarr;Fäst till senast använda fönster.</td>
+        </tr>
+        <tr>
+            <th>Kort projekttitel</th>
+        </tr>
+        <tr>
+            <td>
+                När detta alternativ är aktiverat kommer endast projektets namn att visas i terminalfönstrets titel istället för en detaljerad miljöbeskrivning.</td>
+        </tr>
+        <tr>
+            <th>Inkludera systemmiljö i projektets miljö</th>
+        </tr>
+        <tr>
+            <td>Använd systemets miljö (System) i terminalen även om den inte är angiven i projektinställningarna. Systemmiljön gör det möjligt att använda program som är installerade i systemet (t.ex. git.exe eller ssh.exe).<br><br>Inaktivera detta alternativ endast om konflikter uppstår med systemprogramvara.</td>
+        </tr>
+        <tr>
+            <th>ANSI-stöd</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivera stöd för ANSI-koder för färgstyrning i terminalen.<br><br>
+                Läge "Automatiskt" (standard):<br>
+                - Korrigeringen tillämpas endast på Windows 10 upp till version 1903 inklusive. I nyare versioner av Windows är stöd för ANSI-koder redan inbyggt.<br>
+                - Korrigeringen tillämpas inte för terminaler som stöder ANSI som standard (till exempel Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Kataloger för projektsökning</th>
+        </tr>
+        <tr>
+            <td>
+                Lista över kataloger där Open Server Panel kommer att söka efter projekt. Separera sökvägar med semikolon (;).<br><br>
+                <strong>Undantag:</strong> Underkatalogerna node_modules och vendor ignoreras.</td>
+        </tr>
+        <tr>
+            <th>Djup</th>
+        </tr>
+        <tr>
+            <td>
+                Maximal katalogdjupnivå vid sökning efter projekt.<br><br>
+                Att öka detta värde kan sakta ner starten av Open Server Panel om de angivna katalogerna innehåller ett stort antal underkataloger.</td>
+        </tr>
+        <tr>
+            <th>Maximal loggfilstorlek</th>
+        </tr>
+        <tr>
+            <td>
+                Maximal storlek på loggfilen i megabyte. När det angivna värdet överskrids kommer loggfilen att återskapas vid nästa programstart.<br><br>
+                Ange värdet 0 för att rensa loggar vid varje programstart.<br><br>
+                Ange värdet 100 MB för att helt inaktivera rensning av loggar.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

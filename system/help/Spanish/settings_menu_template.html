@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Creación de elementos de menú personalizados</h2>
+    <ol>
+        <li>Agregue una nueva sección con un identificador único [ID]</li>
+        <li>Coloque las secciones en el orden deseado: esto determinará el orden de los elementos en el menú</li>
+        <li>Guarde los cambios y reinicie Open Server Panel para aplicar los cambios</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Información importante</h3>
+        Al crear elementos de menú personalizados, asegúrese de que los identificadores de las secciones no se repitan. Esto puede provocar conflictos en el funcionamiento del menú.
+    </div>
+    <h2>Configuración de los elementos del menú</h2>
+    <p><strong>Orden de clasificación:</strong> Los elementos del menú se ordenan en el mismo orden en que se ubican las secciones correspondientes en la plantilla.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Título del elemento del menú. Admite constantes de idioma en el formato {lang_xxx}.<br><br>
+                    Por defecto: no establecido
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Determina la ubicación del elemento del menú en la jerarquía. Admite un nivel de anidación (por ejemplo, "Mis Marcadores\Trabajo").</p>
+                    <p>Categorías especiales:</p>
+                    <ul>
+                        <li>projects, modules, addons: agrega el elemento al menú de acciones correspondiente</li>
+                        <li>projects\<nombre_de_dominio>, modules\<nombre_del_módulo>, addons\<nombre_del_complemento>: agrega el elemento para un elemento específico</li>
+                    </ul>
+                    <p>Si no se especifica la categoría, el elemento se crea en el menú raíz.</p>
+                    Por defecto: no establecido
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Comando para ejecutar al activar el elemento del menú. Los elementos sin comando se ignoran.<br><br>
+                    Por defecto: no establecido
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Habilita/deshabilita la visualización del elemento del menú.<br><br>
+                    Por defecto: on | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Controla la visibilidad de la ventana de la aplicación llamada. No afecta a los procesos secundarios.<br><br>
+                    Por defecto: off | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Agrega un separador horizontal después del elemento del menú.<br><br>
+                    Por defecto: off | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Agrega un separador horizontal antes del elemento del menú.<br><br>
+                    Por defecto: off | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Icono del conjunto Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Por defecto: no establecido
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Muestra el elemento del menú solo para el alias de dominio. ¡En la plantilla del menú solo puede haber un elemento con need_alias=on!<br>
+                    Aplicable para categorías: projects<br><br>
+                    Por defecto: no establecido | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Restringe la visualización del elemento del menú a módulos/complementos de una categoría específica.</p>
+                    <p>Formatos admitidos:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<nombre_del_módulo>, addons\<nombre_del_complemento>
+                        </li>
+                    </ul>
+                    Por defecto: no establecido
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Muestra el elemento del menú en función de la disponibilidad de shell/cli del módulo principal.<br>
+                    Aplicable para categorías: modules, modules\<nombre_del_módulo><br><br>
+                        Por defecto: no establecido | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Muestra el elemento del menú según el estado del módulo principal.<br>
+                    Aplicable para categorías: modules, modules\<nombre_del_módulo><br><br>
+                        Por defecto: no establecido | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Muestra el elemento del menú si hay un comando de inicio en la configuración del proyecto.<br>
+                    Aplicable para categorías: projects, projects\<nombre_de_dominio><br><br>
+                        Por defecto: no establecido | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Muestra el elemento del menú según la configuración de uso de Windows Terminal en Open Server Panel.<br><br>
+                    Por defecto: no establecido | Valores: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Directorio de trabajo para la ejecución del comando. Puede cambiar durante la ejecución de los comandos.<br><br>
+                    Por defecto: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Variables de plantilla</h2>
+    En los parámetros "command" y "work_directory" se pueden utilizar las siguientes variables de plantilla:
+    <h3>Variables generales</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Fecha/hora actual (la variable solo está disponible para el parámetro "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Directorio raíz de Open Server Panel (ruta completa)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Unidad del directorio raíz</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Ruta al directorio raíz de Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL de la interfaz web</td>
+        </tr>
+    </table>
+    <h3>Variables especiales (solo para projects y projects\&lt;nombre_de_dominio&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Directorio base del proyecto</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Nombre de dominio (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Nombre de dominio visible (sin Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Esquema de la solicitud al proyecto ("http" o "https", depende del parámetro TLS en la configuración del proyecto)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Puerto de la solicitud al proyecto por el protocolo HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Puerto de la solicitud al proyecto por el protocolo HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Título del elemento del menú (solo para la categoría projects con need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>Motor HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Motor Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Motor PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Directorio raíz del proyecto</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL del proyecto</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Directorio público del proyecto</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Puerto de la solicitud al proyecto (":{http_port}" o ":{https_port}", depende del parámetro TLS en la configuración del proyecto). Si {http_port} o {https_port} tiene el valor estándar 80 o 443, entonces {scheme_port} estará vacío.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Comando de inicio de la aplicación del proyecto (si está configurado)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codificación de la consola</td>
+        </tr>
+    </table>
+    <h3>Variables especiales (solo para addons y addons\&lt;nombre_del_complemento&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Nombre del complemento</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codificación de la consola</td>
+        </tr>
+    </table>
+    <h3>Variables especiales (solo para modules y modules\&lt;nombre_del_módulo&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Dirección IP del módulo</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Nivel de registro de errores</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Nombre del módulo</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Puerto del módulo</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Nombre del perfil actual de configuración del módulo</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Nivel de registro de consultas</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Comando para iniciar la shell/cli del módulo (si está configurado)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codificación de la consola</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Zona horaria</td>
+        </tr>
+    </table>
+    <h3>Valores especiales de comandos</h3>
+    <table>
+        <tr>
+            <th>Comando</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Abrir la ventana del visor de registros</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Abrir el convertidor IDN</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Abrir la ventana de configuración del programa</td>
+        </tr>
+    </table>
+    <p>Además de las variables de plantilla, se pueden usar cualquier variable de entorno de Windows, por ejemplo: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
+    <h3>Ejemplo de uso</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Mis Marcadores\Motores de búsqueda
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Opciones de CMD.EXE</h3>
+    <ul>
+        <li>/c: Ejecutar el comando y cerrar la terminal.</li>
+        <li>/k: Ejecutar el comando y dejar la terminal abierta.</li>
+    </ul>
+</body>
+
+</html>

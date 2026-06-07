@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Створення власних пунктів меню</h2>
+    <ol>
+        <li>Додайте нову секцію з унікальним ідентифікатором [ID]</li>
+        <li>Розташуйте секції в бажаному порядку — це визначить порядок пунктів у меню</li>
+        <li>Збережіть зміни та перезапустіть Open Server Panel для застосування змін</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Важлива інформація</h3>
+        Під час створення власних пунктів меню слідкуйте за тим, щоб ідентифікатори секцій не повторювалися. Це може призвести до конфліктів у роботі меню.
+    </div>
+    <h2>Налаштування пунктів меню</h2>
+    <p><strong>Порядок сортування:</strong> Пункти меню сортуються в тому самому порядку, в якому розташовані відповідні секції в шаблоні.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Заголовок пункту меню. Підтримує мовні константи у форматі {lang_xxx}.<br><br>
+                    За замовчуванням: не задано
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Визначає розташування пункту меню в ієрархії. Підтримує один рівень вкладеності (наприклад, "Мої Закладки\Робота").</p>
+                    <p>Спеціальні категорії:</p>
+                    <ul>
+                        <li>projects, modules, addons - додає пункт у відповідне меню дій</li>
+                        <li>projects\<ім'я_домена>, modules\<ім'я_модуля>, addons\<ім'я_доповнення> - додає пункт для конкретного елемента</li>
+                    </ul>
+                    <p>Якщо категорія не вказана, пункт створюється в кореневому меню.</p>
+                    За замовчуванням: не задано
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Команда для виконання під час активації пункту меню. Пункти без команди ігноруються.<br><br>
+                    За замовчуванням: не задано
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Вмикає/вимикає відображення пункту меню.<br><br>
+                    За замовчуванням: on | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Керує видимістю вікна викликаного застосунку. Не впливає на дочірні процеси.<br><br>
+                    За замовчуванням: off | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Додає горизонтальний розділювач після пункту меню.<br><br>
+                    За замовчуванням: off | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Додає горизонтальний розділювач перед пунктом меню.<br><br>
+                    За замовчуванням: off | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Іконка з набору Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    За замовчуванням: не задано
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Відображає пункт меню лише для доменного псевдоніма. У шаблоні меню може бути лише один пункт з need_alias=on!<br>
+                    Застосовно для категорій: projects<br><br>
+                    За замовчуванням: не задано | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Обмежує відображення пункту меню модулями/доповненнями певної категорії.</p>
+                    <p>Підтримувані формати:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<ім'я_модуля>, addons\<ім'я_доповнення>
+                        </li>
+                    </ul>
+                    За замовчуванням: не задано
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Відображає пункт меню залежно від наявності shell/cli у батьківського модуля.<br>
+                    Застосовно для категорій: modules, modules\<ім'я_модуля><br><br>
+                        За замовчуванням: не задано | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Відображає пункт меню залежно від стану батьківського модуля.<br>
+                    Застосовно для категорій: modules, modules\<ім'я_модуля><br><br>
+                        За замовчуванням: не задано | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Відображає пункт меню за наявності команди запуску в налаштуваннях проєкту.<br>
+                    Застосовно для категорій: projects, projects\<ім'я_домена><br><br>
+                        За замовчуванням: не задано | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Відображає пункт меню залежно від налаштування використання Windows Terminal в Open Server Panel.<br><br>
+                    За замовчуванням: не задано | Значення: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Робоча директорія для виконання команди. Може змінюватися під час виконання команд.<br><br>
+                    За замовчуванням: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Шаблонні змінні</h2>
+    У параметрах "command" і "work_directory" можна використовувати такі шаблонні змінні:
+    <h3>Загальні змінні</h3>
+    <table>
+        <tr>
+            <th>Змінна</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Поточна дата/час (змінна доступна лише для параметра "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Кореневий каталог Open Server Panel (повний шлях)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Диск кореневого каталогу</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Шлях до кореневого каталогу Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL-адреса веб-інтерфейсу</td>
+        </tr>
+    </table>
+    <h3>Особливі змінні (тільки для projects і projects\&lt;ім'я_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Змінна</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Базовий каталог проєкту</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Ім'я домена (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Видиме ім'я домена (без Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Схема запиту до проєкту ("http" або "https", залежить від параметра TLS у налаштуваннях проєкту)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Порт запиту до проєкту за протоколом HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Порт запиту до проєкту за протоколом HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Заголовок пункту меню (тільки для категорії projects з need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>Движок HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Движок Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Движок PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Кореневий каталог проєкту</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL проєкту</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Публічний каталог проєкту</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Порт запиту до проєкту (":{http_port}" або ":{https_port}", залежить від параметра TLS у налаштуваннях проєкту). Якщо {http_port} або {https_port} має стандартне значення 80 або 443, то {scheme_port} буде порожнім.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Команда запуску застосунку проєкту (якщо налаштована)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодування консолі</td>
+        </tr>
+    </table>
+    <h3>Особливі змінні (тільки для addons і addons\&lt;ім'я_доповнення&gt;)</h3>
+    <table>
+        <tr>
+            <th>Змінна</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Ім'я доповнення</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодування консолі</td>
+        </tr>
+    </table>
+    <h3>Особливі змінні (тільки для modules і modules\&lt;ім'я_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Змінна</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP-адреса модуля</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Рівень журналювання помилок</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Ім'я модуля</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Порт модуля</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Ім'я поточного профілю налаштувань модуля</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Рівень журналювання запитів</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Команда запуску shell/cli оболонки модуля (якщо налаштована)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Кодування консолі</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Часовий пояс</td>
+        </tr>
+    </table>
+    <h3>Особливі значення команд</h3>
+    <table>
+        <tr>
+            <th>Команда</th>
+            <th>Опис</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Відкрити вікно перегляду журналів</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Відкрити IDN-конвертер</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Відкрити вікно налаштувань програми</td>
+        </tr>
+    </table>
+    <p>Окрім шаблонних змінних, можна використовувати будь-які змінні середовища Windows, наприклад: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% тощо.</p>
+    <h3>Приклад використання</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Мої Закладки\Пошукові системи
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Опції CMD.EXE</h3>
+    <ul>
+        <li>/c: Виконати команду і закрити термінал.</li>
+        <li>/k: Виконати команду і залишити термінал відкритим.</li>
+    </ul>
+</body>
+
+</html>

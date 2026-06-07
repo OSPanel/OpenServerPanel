@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programma-instellingen</h2>
+    <table>
+        <tr>
+            <th>Starten met Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Schakel automatisch starten van Open Server Panel in bij het opstarten van het besturingssysteem.</td>
+        </tr>
+        <tr>
+            <th>Vertraging</th>
+        </tr>
+        <tr>
+            <td>
+                Opstartvertraging van het programma (in seconden, van 0 tot 60).<br><br>Maakt het mogelijk om de start van de applicatie bij het opstarten met Windows uit te stellen om de algehele systeembelasting te verminderen. Dit is vooral nuttig als u wilt wachten op de volledige initialisatie van externe services of netwerkinterfaces.</td>
+        </tr>
+        <tr>
+            <th>Controleren op nieuwe versies</th>
+        </tr>
+        <tr>
+            <td>
+                Schakel controle op updates van Open Server Panel in (internetverbinding vereist).</td>
+        </tr>
+        <tr>
+            <th>Taakplanner inschakelen</th>
+        </tr>
+        <tr>
+            <td>
+                Activeer de ingebouwde taakplanner. Als de instelling is uitgeschakeld, worden er geen geplande taken uitgevoerd, ongeacht hun status.</td>
+        </tr>
+        <tr>
+            <th>HOSTS-bestand gebruiken</th>
+        </tr>
+        <tr>
+            <td>
+                Schakel het wegschrijven van domeinnamen naar het HOSTS-bestand in.<br><br>
+                <strong>Aanbevelingen bij beperkte toegang tot het HOSTS-bestand binnen een organisatie:</strong><br><br>
+                1. Configureer alle benodigde modules en projecten.<br>
+                2. Neem contact op met de systeembeheerder om HOSTS te deblokkeren en de status vast te zetten.<br>
+                3. Na het vastzetten van de wijzigingen door de beheerder kunt u deze optie uitschakelen.<br><br>
+                <strong>Belangrijk:</strong> Schakel deze instelling niet uit als u niet zeker bent van de gevolgen!</td>
+        </tr>
+        <tr>
+            <th>Modules starten met projectprofiel</th>
+        </tr>
+        <tr>
+            <td>Start modules met gelijktijdige activatie van een profiel dat overeenkomt met de projectnaam.<br><br>Wordt gebruikt bij het kiezen van het menu-item «Modules van het project inschakelen» om automatisch het profiel met dezelfde naam als het huidige project te activeren, indien aanwezig.</td>
+        </tr>
+        <tr>
+            <th>Modules van verborgen projecten niet uitschakelen</th>
+        </tr>
+        <tr>
+            <td>Schakel modules van verborgen projecten niet uit wanneer het menu-item «Alle modules uitschakelen» wordt gekozen. Met "verborgen" worden projecten bedoeld waarvoor de categorie "hidden" is ingesteld.<br><br>Standaard stopt de opdracht «Alle modules uitschakelen» absoluut alle modules, inclusief die gebruikt worden door verborgen serviceprojecten (bijvoorbeeld PHPMyAdmin). Met deze optie kunt u de werking van verborgen serviceprojecten behouden zonder de daarvoor benodigde modules uit te schakelen, terwijl alle andere modules worden uitgeschakeld.</td>
+        </tr>
+        <tr>
+            <th>Interfacetaal</th>
+        </tr>
+        <tr>
+            <td>
+                De taal van de gebruikersinterface van Open Server Panel.<br><br>
+                Als het localisatiebestand ontbreekt of fouten bevat, wordt Engels gebruikt.</td>
+        </tr>
+        <tr>
+            <th>API-domein</th>
+        </tr>
+        <tr>
+            <td>
+                Lokaal domein voor API en webinterface (in ontwikkeling)<br><br>
+                <strong>Aanbeveling:</strong> Als u een VPN of proxy gebruikt, voeg dit domein dan toe aan de uitzonderingen.</td>
+        </tr>
+        <tr>
+            <th>API IP-adres</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4-adres voor API en webinterface (in ontwikkeling).<br><br>
+                <strong>Aanbeveling:</strong> Als u een VPN of proxy gebruikt, voeg dit IP-adres dan toe aan de uitzonderingen.</td>
+        </tr>
+        <tr>
+            <th>API-poort</th>
+        </tr>
+        <tr>
+            <td>
+                De poort die wordt gebruikt voor API en webinterface (in ontwikkeling). Open Server Panel kan niet starten als de opgegeven poort al door een andere applicatie wordt gebruikt.</td>
+        </tr>
+        <tr>
+            <th>Windows Terminal gebruiken</th>
+        </tr>
+        <tr>
+            <td>
+                Schakel het gebruik van Windows Terminal in plaats van de standaard command-interface in.<br><br>
+                <strong>Vereisten:</strong> Windows Terminal moet in het systeem zijn geïnstalleerd en opgenomen zijn in de omgevingsvariabele PATH.<br><br>
+                <strong>Windows Terminal als cmd.exe:</strong> Windows Terminal kan cmd.exe vervangen en opgenomen zijn in de omgevingsvariabele %COMSPEC% in nieuwere versies van Windows. Als dit zo is, laat deze optie ingeschakeld.<br><br>
+                <strong>Nieuwe instanties van Windows Terminal:</strong> Als Windows Terminal nieuwe vensters opent in plaats van tabbladen, stel het dan als volgt in: Instellingen&rarr;Opstarten&rarr;Gedrag van nieuw exemplaar&rarr;Aan laatste gebruikte venster toevoegen.</td>
+        </tr>
+        <tr>
+            <th>Korte projecttitel</th>
+        </tr>
+        <tr>
+            <td>
+                Wanneer deze optie is ingeschakeld, wordt in de titel van het terminalvenster alleen de projectnaam weergegeven in plaats van de gedetailleerde beschrijving van de omgeving.</td>
+        </tr>
+        <tr>
+            <th>Systeemomgeving opnemen in de projectomgeving</th>
+        </tr>
+        <tr>
+            <td>Gebruik de systeemomgeving (System) in de terminal, zelfs als deze niet in de projectinstellingen is opgegeven. De systeemomgeving maakt het mogelijk om programma’s te gebruiken die in het systeem zijn geïnstalleerd (bijvoorbeeld git.exe of ssh.exe).<br><br>Schakel deze optie alleen uit als er conflicten optreden met systeemsoftware.</td>
+        </tr>
+        <tr>
+            <th>ANSI-ondersteuning</th>
+        </tr>
+        <tr>
+            <td>
+                Schakel ondersteuning voor ANSI-codes in voor kleurbeheer in de terminal.<br><br>
+                Modus "Automatisch" (standaard):<br>
+                - De fix wordt alleen toegepast op Windows 10 tot en met versie 1903. In nieuwere versies van Windows is ondersteuning voor ANSI-codes al ingebouwd.<br>
+                - De fix wordt niet toegepast op terminals die standaard ANSI ondersteunen (bijvoorbeeld Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Mappen voor het zoeken naar projecten</th>
+        </tr>
+        <tr>
+            <td>
+                Lijst met mappen waarin Open Server Panel naar projecten zoekt. Scheid paden met een puntkomma (;).<br><br>
+                <strong>Uitzonderingen:</strong> Submappen node_modules en vendor worden genegeerd.</td>
+        </tr>
+        <tr>
+            <th>Diepte</th>
+        </tr>
+        <tr>
+            <td>
+                Maximale diepte van mapnesten bij het zoeken naar projecten.<br><br>
+                Het verhogen van deze waarde kan het starten van Open Server Panel vertragen als de opgegeven mappen veel submappen bevatten.</td>
+        </tr>
+        <tr>
+            <th>Maximale logbestandsgrootte</th>
+        </tr>
+        <tr>
+            <td>
+                Maximale grootte van het logbestand in megabytes. Wanneer de opgegeven waarde wordt overschreden, wordt het logbestand opnieuw aangemaakt bij de volgende start van het programma.<br><br>
+                Stel de waarde 0 in om logs bij elke start van het programma te wissen.<br><br>
+                Stel de waarde 100 MB in om het wissen van logs volledig uit te schakelen.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

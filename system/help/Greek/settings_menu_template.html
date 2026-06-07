@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Δημιουργία προσαρμοσμένων στοιχείων μενού</h2>
+    <ol>
+        <li>Προσθέστε μια νέα ενότητα με μοναδικό αναγνωριστικό [ID]</li>
+        <li>Τοποθετήστε τις ενότητες με την επιθυμητή σειρά — αυτό θα καθορίσει τη σειρά των στοιχείων στο μενού</li>
+        <li>Αποθηκεύστε τις αλλαγές και επανεκκινήστε το Open Server Panel για να εφαρμοστούν οι αλλαγές</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Σημαντικές πληροφορίες</h3>
+        Κατά τη δημιουργία προσαρμοσμένων στοιχείων μενού, βεβαιωθείτε ότι τα αναγνωριστικά των ενοτήτων δεν επαναλαμβάνονται. Αυτό μπορεί να οδηγήσει σε συγκρούσεις στη λειτουργία του μενού.
+    </div>
+    <h2>Ρυθμίσεις στοιχείων μενού</h2>
+    <p><strong>Σειρά ταξινόμησης:</strong> Τα στοιχεία μενού ταξινομούνται με την ίδια σειρά με την οποία είναι τοποθετημένες οι αντίστοιχες ενότητες στο πρότυπο.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Τίτλος στοιχείου μενού. Υποστηρίζει γλωσσικές σταθερές στη μορφή {lang_xxx}.<br><br>
+                    Προεπιλογή: δεν έχει οριστεί
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Καθορίζει τη θέση του στοιχείου μενού στην ιεραρχία. Υποστηρίζει ένα επίπεδο φωλιάσματος (π.χ. "Οι Σελιδοδείκτες μου\Εργασία").</p>
+                    <p>Ειδικές κατηγορίες:</p>
+                    <ul>
+                        <li>projects, modules, addons - προσθέτει το στοιχείο στο αντίστοιχο μενού ενεργειών</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - προσθέτει το στοιχείο για συγκεκριμένο αντικείμενο</li>
+                    </ul>
+                    <p>Αν δεν έχει καθοριστεί κατηγορία, το στοιχείο δημιουργείται στο ριζικό μενού.</p>
+                    Προεπιλογή: δεν έχει οριστεί
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Εντολή για εκτέλεση κατά την ενεργοποίηση του στοιχείου μενού. Τα στοιχεία χωρίς εντολή παρακάμπτονται.<br><br>
+                    Προεπιλογή: δεν έχει οριστεί
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Ενεργοποιεί/απενεργοποιεί την εμφάνιση του στοιχείου μενού.<br><br>
+                    Προεπιλογή: on | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Ελέγχει την ορατότητα του παραθύρου της καλούμενης εφαρμογής. Δεν επηρεάζει τις θυγατρικές διεργασίες.<br><br>
+                    Προεπιλογή: off | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Προσθέτει οριζόντιο διαχωριστικό μετά το στοιχείο μενού.<br><br>
+                    Προεπιλογή: off | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Προσθέτει οριζόντιο διαχωριστικό πριν από το στοιχείο μενού.<br><br>
+                    Προεπιλογή: off | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Εικονίδιο από το σετ Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Προεπιλογή: δεν έχει οριστεί
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Εμφανίζει το στοιχείο μενού μόνο για domain alias. Στο πρότυπο μενού μπορεί να υπάρχει μόνο ένα στοιχείο με need_alias=on!<br>
+                    Ισχύει για κατηγορίες: projects<br><br>
+                    Προεπιλογή: δεν έχει οριστεί | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Περιορίζει την εμφάνιση του στοιχείου μενού σε modules/addons συγκεκριμένης κατηγορίας.</p>
+                    <p>Υποστηριζόμενες μορφές:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Προεπιλογή: δεν έχει οριστεί
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Εμφανίζει το στοιχείο μενού ανάλογα με τη διαθεσιμότητα shell/cli στο γονικό module.<br>
+                    Ισχύει για κατηγορίες: modules, modules\<имя_модуля><br><br>
+                        Προεπιλογή: δεν έχει οριστεί | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Εμφανίζει το στοιχείο μενού ανάλογα με την κατάσταση του γονικού module.<br>
+                    Ισχύει για κατηγορίες: modules, modules\<имя_модуля><br><br>
+                        Προεπιλογή: δεν έχει οριστεί | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Εμφανίζει το στοιχείο μενού όταν υπάρχει εντολή εκκίνησης στις ρυθμίσεις του project.<br>
+                    Ισχύει για κατηγορίες: projects, projects\<имя_домена><br><br>
+                        Προεπιλογή: δεν έχει οριστεί | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Εμφανίζει το στοιχείο μενού ανάλογα με τη ρύθμιση χρήσης του Windows Terminal στο Open Server Panel.<br><br>
+                    Προεπιλογή: δεν έχει οριστεί | Τιμές: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Κατάλογος εργασίας για την εκτέλεση της εντολής. Μπορεί να αλλάζει κατά την εκτέλεση εντολών.<br><br>
+                    Προεπιλογή: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Μεταβλητές προτύπου</h2>
+    Στις παραμέτρους "command" και "work_directory" μπορείτε να χρησιμοποιήσετε τις ακόλουθες μεταβλητές προτύπου:
+    <h3>Γενικές μεταβλητές</h3>
+    <table>
+        <tr>
+            <th>Μεταβλητή</th>
+            <th>Περιγραφή</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Τρέχουσα ημερομηνία/ώρα (η μεταβλητή είναι διαθέσιμη μόνο για την παράμετρο "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Ριζικός κατάλογος του Open Server Panel (πλήρης διαδρομή)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Δίσκος του ριζικού καταλόγου</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Διαδρομή προς τον ριζικό κατάλογο του Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL διεύθυνση του web-διεπαφής</td>
+        </tr>
+    </table>
+    <h3>Ειδικές μεταβλητές (μόνο για projects και projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Μεταβλητή</th>
+            <th>Περιγραφή</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Βασικός κατάλογος του project</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Όνομα domain (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Ορατό όνομα domain (χωρίς Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Σχήμα αιτήματος προς το project ("http" ή "https", εξαρτάται από την παράμετρο TLS στις ρυθμίσεις του project)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Θύρα αιτήματος προς το project μέσω πρωτοκόλλου HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Θύρα αιτήματος προς το project μέσω πρωτοκόλλου HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Τίτλος στοιχείου μενού (μόνο για την κατηγορία projects με need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>Μηχανή HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Μηχανή Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Μηχανή PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Ριζικός κατάλογος του project</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL του project</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Δημόσιος κατάλογος του project</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Θύρα αιτήματος προς το project (":{http_port}" ή ":{https_port}", εξαρτάται από την παράμετρο TLS στις ρυθμίσεις του project). Αν το {http_port} ή το {https_port} έχει την τυπική τιμή 80 ή 443, τότε το {scheme_port} θα είναι κενό.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Εντολή εκκίνησης της εφαρμογής του project (αν έχει ρυθμιστεί)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Κωδικοσελίδα κονσόλας</td>
+        </tr>
+    </table>
+    <h3>Ειδικές μεταβλητές (μόνο για addons και addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Μεταβλητή</th>
+            <th>Περιγραφή</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Όνομα του addon</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Κωδικοσελίδα κονσόλας</td>
+        </tr>
+    </table>
+    <h3>Ειδικές μεταβλητές (μόνο για modules και modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Μεταβλητή</th>
+            <th>Περιγραφή</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP-διεύθυνση του module</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Επίπεδο καταγραφής σφαλμάτων</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Όνομα του module</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Θύρα του module</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Όνομα του τρέχοντος προφίλ ρυθμίσεων του module</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Επίπεδο καταγραφής αιτημάτων</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Εντολή εκκίνησης shell/cli του module (αν έχει ρυθμιστεί)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Κωδικοσελίδα κονσόλας</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Ζώνη ώρας</td>
+        </tr>
+    </table>
+    <h3>Ειδικές τιμές εντολών</h3>
+    <table>
+        <tr>
+            <th>Εντολή</th>
+            <th>Περιγραφή</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Άνοιγμα παραθύρου προβολής logs</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Άνοιγμα IDN-μετατροπέα</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Άνοιγμα παραθύρου ρυθμίσεων προγράμματος</td>
+        </tr>
+    </table>
+    <p>Εκτός από τις μεταβλητές προτύπου, μπορείτε να χρησιμοποιήσετε οποιεσδήποτε μεταβλητές περιβάλλοντος των Windows, για παράδειγμα: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% κ.λπ.</p>
+    <h3>Παράδειγμα χρήσης</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Οι Σελιδοδείκτες μου\Μηχανές αναζήτησης
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Επιλογές CMD.EXE</h3>
+    <ul>
+        <li>/c: Εκτέλεση της εντολής και κλείσιμο του τερματικού.</li>
+        <li>/k: Εκτέλεση της εντολής και διατήρηση του τερματικού ανοιχτού.</li>
+    </ul>
+</body>
+
+</html>

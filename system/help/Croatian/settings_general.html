@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Postavke programa</h2>
+    <table>
+        <tr>
+            <th>Pokretati zajedno s Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Omogućiti automatsko pokretanje Open Server Panel pri učitavanju operativnog sustava.</td>
+        </tr>
+        <tr>
+            <th>Odgoda</th>
+        </tr>
+        <tr>
+            <td>
+                Odgoda pokretanja programa (u sekundama, od 0 do 60).<br><br>Omogućuje odgodu pokretanja aplikacije tijekom učitavanja zajedno s Windows kako bi se smanjilo ukupno opterećenje sustava. To je posebno korisno ako je potrebno pričekati potpunu inicijalizaciju vanjskih servisa ili mrežnih sučelja.</td>
+        </tr>
+        <tr>
+            <th>Provjeravati dostupnost novih verzija</th>
+        </tr>
+        <tr>
+            <td>
+                Omogućiti provjeru ažuriranja Open Server Panel (potrebna je veza s internetom).</td>
+        </tr>
+        <tr>
+            <th>Omogućiti planer zadataka</th>
+        </tr>
+        <tr>
+            <td>
+                Aktivirati ugrađeni planer zadataka. Ako je parametar onemogućen, nijedan zakazani zadatak neće se izvršavati, bez obzira na njihov status.</td>
+        </tr>
+        <tr>
+            <th>Koristiti datoteku HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Omogućiti zapisivanje domena u datoteku HOSTS.<br><br>
+                <strong>Preporuke pri ograničenom pristupu datoteci HOSTS u organizaciji:</strong><br><br>
+                1. Konfigurirajte sve potrebne module i projekte.<br>
+                2. Obratite se sistemskom administratoru radi deblokade HOSTS i fiksiranja njegovog stanja.<br>
+                3. Nakon što administrator fiksira promjene, ovu opciju možete isključiti.<br><br>
+                <strong>Važno:</strong> Ne isključujte ovaj parametar ako niste sigurni u posljedice!</td>
+        </tr>
+        <tr>
+            <th>Pokretati module s profilom projekta</th>
+        </tr>
+        <tr>
+            <td>Pokrenuti module uz istovremenu aktivaciju profila koji se podudara s imenom projekta.<br><br>Koristi se pri odabiru stavke izbornika «Omogućiti module projekta» kako bi se automatski aktivirao profil s istim imenom kao i trenutni projekt, ako takav postoji.</td>
+        </tr>
+        <tr>
+            <th>Ne isključivati module skrivenih projekata</th>
+        </tr>
+        <tr>
+            <td>Ne isključivati module skrivenih projekata pri odabiru stavke izbornika «Isključiti sve module». Pod "skrivenim" podrazumijevaju se oni projekti za koje je postavljena kategorija "hidden".<br><br>Prema zadanim postavkama naredba «Isključiti sve module» zaustavlja rad apsolutno svih modula, uključujući i one koje koriste skriveni servisni projekti (na primjer, PHPMyAdmin). Ova opcija omogućuje očuvanje funkcionalnosti skrivenih servisnih projekata, ne isključujući potrebne module za njih, dok će svi ostali moduli biti isključeni.</td>
+        </tr>
+        <tr>
+            <th>Jezik sučelja</th>
+        </tr>
+        <tr>
+            <td>
+                Jezik korisničkog sučelja Open Server Panel.<br><br>
+                Ako datoteka lokalizacije nedostaje ili sadrži pogreške, koristit će se engleski jezik.</td>
+        </tr>
+        <tr>
+            <th>Domena API-ja</th>
+        </tr>
+        <tr>
+            <td>
+                Lokalna domena za API i web-sučelje (u razvoju)<br><br>
+                <strong>Preporuka:</strong> Ako se koristi VPN ili proxy, dodajte ovu domenu u iznimke.</td>
+        </tr>
+        <tr>
+            <th>IP adresa API-ja</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4 adresa za API i web-sučelje (u razvoju).<br><br>
+                <strong>Preporuka:</strong> Ako se koristi VPN ili proxy, dodajte ovu IP adresu u iznimke.</td>
+        </tr>
+        <tr>
+            <th>Port API-ja</th>
+        </tr>
+        <tr>
+            <td>
+                Port koji se koristi za API i web-sučelje (u razvoju). Open Server Panel neće se moći pokrenuti ako je navedeni port već zauzet drugim programom.</td>
+        </tr>
+        <tr>
+            <th>Koristiti Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Omogućiti korištenje Windows Terminal umjesto standardnog komandnog sučelja.<br><br>
+                <strong>Zahtjevi:</strong> Windows Terminal mora biti instaliran u sustavu i naveden u varijabli okruženja PATH.<br><br>
+                <strong>Windows Terminal kao cmd.exe:</strong> Windows Terminal može zamijeniti cmd.exe i biti naveden u varijabli okruženja %COMSPEC% u novijim verzijama Windows. Ako je tako, ostavite ovu opciju uključenom.<br><br>
+                <strong>Novi primjerci Windows Terminal:</strong> Ako Windows Terminal otvara nove prozore umjesto kartica, podesite ga ovako: Postavke&rarr;Pokretanje&rarr;Ponašanje novog primjerka&rarr;Pridruži se zadnje korištenom prozoru.</td>
+        </tr>
+        <tr>
+            <th>Kratki naslov projekta</th>
+        </tr>
+        <tr>
+            <td>
+                Kada je ova opcija aktivirana, u naslovu prozora terminala prikazivat će se samo ime projekta umjesto detaljnog opisa okruženja.</td>
+        </tr>
+        <tr>
+            <th>Uključivati sistemsko okruženje u okruženje projekta</th>
+        </tr>
+        <tr>
+            <td>Koristiti okruženje sustava (System) u terminalu, čak i ako nije zadano u postavkama projekta. Sistemsko okruženje omogućuje korištenje programa instaliranih u sustavu (na primjer, git.exe ili ssh.exe).<br><br>Isključite ovu opciju samo u slučaju konflikata sa sistemskim softverom.</td>
+        </tr>
+        <tr>
+            <th>Podrška za ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Omogućiti podršku za ANSI kodove za upravljanje bojama u terminalu.<br><br>
+                Način "Automatski" (prema zadanim postavkama):<br>
+                - Ispravak se primjenjuje samo na Windows 10 do verzije 1903 uključivo. U novijim verzijama Windows podrška za ANSI kodove već je ugrađena.<br>
+                - Ispravak se ne primjenjuje na terminale koji podržavaju ANSI prema zadanim postavkama (na primjer, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Direktoriji za pretraživanje projekata</th>
+        </tr>
+        <tr>
+            <td>
+                Popis direktorija u kojima će Open Server Panel tražiti projekte. Putanje odvajajte točkom sa zarezom (;).<br><br>
+                <strong>Iznimke:</strong> Poddirektoriji node_modules i vendor se ignoriraju.</td>
+        </tr>
+        <tr>
+            <th>Dubina</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimalna dubina ugniježđivanja direktorija pri pretraživanju projekata.<br><br>
+                Povećanje ove vrijednosti može usporiti pokretanje Open Server Panel ako navedeni direktoriji sadrže velik broj poddirektorija.</td>
+        </tr>
+        <tr>
+            <th>Maksimalna veličina datoteke dnevnika</th>
+        </tr>
+        <tr>
+            <td>
+                Maksimalna veličina datoteke dnevnika u megabajtima. Pri prekoračenju navedene vrijednosti log-datoteka bit će ponovno stvorena pri sljedećem pokretanju programa.<br><br>
+                Postavite vrijednost 0 kako biste čistili dnevnike pri svakom pokretanju programa.<br><br>
+                Postavite vrijednost 100 MB kako biste u potpunosti onemogućili čišćenje dnevnika.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

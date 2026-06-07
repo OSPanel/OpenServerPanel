@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globālie projektu iestatījumi</h2>
+    <p>Parametri, kas norādīti šajā sadaļā, tiek izmantoti gadījumā, ja projekta iestatījumos nav norādītas citas vērtības.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka tīmekļa servera moduli, ko izmanto projektiem.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Norāda Node.js dzinēju Node.js lietotņu palaišanai.<br><br>
+                <strong>Node.js instalēšana:</strong> Iepriekš instalējiet vajadzīgo Node.js versiju ar komandu <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka PHP moduli, kas tiek izmantots PHP failu apstrādei.</td>
+        </tr>
+        <tr>
+            <th>Ieslēgt</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka projekta stāvokli pēc noklusējuma (ieslēgts vai izslēgts).</td>
+        </tr>
+        <tr>
+            <th>Termināļa kodējums</th>
+        </tr>
+        <tr>
+            <td>
+                Termināļa kodējums, strādājot ar projekta vidi.<br><br>
+                <strong>Īpašas vērtības:</strong><br>
+                - system: Tiek izmantots sistēmas kodējums.<br><br>
+                <strong>Svarīgi:</strong> Ja vērtība nav norādīta, veidojot projekta galīgo vidi, termināļa kodējumu iestatīs pēdējā pieslēgtā vide, kurā tas ir norādīts, piemēram, PHP moduļa vide.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka IP adresi(es), ko izmanto visi projekti bez individuāliem iestatījumiem.<br><br>
+                <strong>Ierobežojums:</strong> Projekti, kas izmanto vienu un to pašu IP adresi, ir jādarbojas ar vienu un to pašu PHP versiju.<br><br>
+                <strong>Vairāku IP atbalsts:</strong> Var norādīt vairākas IP adreses, atdalot ar atstarpi, ieskaitot IPv6. Failā HOSTS domēniem tiks piešķirts pirmais norādītais IP.<br><br>
+                <strong>Automātiska piešķiršana:</strong> Ja lauku atstājat tukšu, IP adrese tiks piešķirta automātiski.<br><br>
+                <strong>Ieteikumi:</strong>
+                <ul>
+                    <li>Automātiska IP adrešu pārvaldība ir ieteicama vairumam lietotāju.</li>
+                    <li>Manuālu IP adreses norādīšanu izmantojiet tikai specifiskās tīkla konfigurācijas prasībās.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka portu savienojumiem, izmantojot HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka portu savienojumiem, izmantojot HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Ieslēdz vai izslēdz TLS atbalstu.</td>
+        </tr>
+        
+        <tr>
+            <th>Sertifikāta fails</th>
+        </tr>
+        <tr>
+            <td>
+                Norāda ceļu uz TLS sertifikāta failu. Var izmantot veidnes mainīgos.<br><br>
+                <strong>Atļautie simboli:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Ieteikums:</strong> Atstājiet lauku tukšu, lai sertifikāti tiktu ģenerēti automātiski.</td>
+        </tr>
+        <tr>
+            <th>Atslēgas fails</th>
+        </tr>
+        <tr>
+            <td>
+                Norāda ceļu uz TLS atslēgas failu. Var izmantot veidnes mainīgos.<br><br>
+                <strong>Atļautie simboli:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Ieteikums:</strong> Atstājiet lauku tukšu, lai atslēga tiktu ģenerēta automātiski.</td>
+        </tr>
+        <tr>
+            <th>IP adrese (backend)</th>
+        </tr>
+        <tr>
+            <td>Norāda IP adresi, pa kuru tiek veikts pieslēgums servera daļai (Backend).</td>
+        </tr>
+        <tr>
+            <th>Ports (backend)</th>
+        </tr>
+        <tr>
+            <td>Nosaka porta numuru pieslēgumam servera daļai (Backend).</td>
+        </tr>
+        <tr>
+            <th>Ieslēgt (backend)</th>
+        </tr>
+        <tr>
+            <td>Ļauj automātiski novirzīt visu ienākošo projekta trafiku (HTTP un HTTPS) uz servera daļu (Backend). Noder testišanai vai izstrādei, kad frontend un backend ir atdalīti.</td>
+        </tr>
+        <tr>
+            <th>Projekta katalogs</th>
+        </tr>
+        <tr>
+            <td>
+                Norāda projekta saknes katalogu. Pāreja uz šo katalogu tiek veikta ar komandu <strong>osp project &lt;DOMAIN&gt;</strong> vienlaikus ar projekta vides aktivizāciju. Var izmantot veidnes mainīgos.<br><br>
+                <strong>Atļautie simboli:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Publiskais katalogs</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka projekta publisko katalogu. Var izmantot veidnes mainīgos.<br><br>
+                <strong>Atļautie simboli:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Pseidonīmi</th>
+        </tr>
+        <tr>
+            <td>
+                Norāda papildu domēna vārdus (aliasus) projektam (caur atstarpi). Var izmantot veidnes mainīgos.<br><br>
+                <strong>Ierobežojums:</strong> Simbolu "*" Windows HOSTS fails neatbalsta, un tas prasa DNS konfigurāciju.</td>
+        </tr>
+        <tr>
+            <th>Projekta vide</th>
+        </tr>
+        <tr>
+            <td>
+                Papildinājumu un moduļu saraksts (caur atstarpi), kas veido projekta vidi.<br><br>
+                <strong>HTTP, NODE un PHP:</strong> Šo dzinēju vides tiek pieslēgtas vienmēr (ja tās ir norādītas domēnam) un tām nav nepieciešams norādījums šajā parametrā.</td>
+        </tr>
+        <tr>
+            <th>Projekta palaišanas komanda</th>
+        </tr>
+        <tr>
+            <td>
+                Nosaka komandu projekta palaišanai (piemēram, <strong>nodemon app.js</strong>). Var izmantot veidnes mainīgos.</td>
+        </tr>
+        <tr>
+            <th>Projekta URL</th>
+        </tr>
+        <tr>
+            <td>
+                URL, ko izmanto, atverot projektu <strong>Izvēlne&rarr;Projekts&rarr;Atvērt pārlūkā</strong>, kā arī atverot projekta domēna pseidonīmus (aliasus). Var izmantot veidnes mainīgos.<br><br>
+                <strong>Pielietojums:</strong> Var norādīt CMS administrēšanas paneļa URL.</td>
+        </tr>
+    </table>
+    <h2>Veidnes mainīgie</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Mainīgais</th>
+                <th>Apraksts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP adrese pieslēgumam servera daļai (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Ports pieslēgumam servera daļai (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projekta saknes katalogs (kur atrodas katalogs .osp)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Pašreizējais datums/laiks (mainīgais pieejams tikai projekta lietotnes palaišanas komandai)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domēna nosaukums (internacionalizētiem domēniem tiek izmantots Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Redzamais domēna nosaukums (bez Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Pieprasījuma shēma projektam ("http" vai "https", atkarīgs no TLS parametra projekta iestatījumos)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Projekta pieprasījuma ports caur HTTP protokolu</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Projekta pieprasījuma ports caur HTTPS protokolu</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP dzinējs</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE dzinējs</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP dzinējs</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projekta saknes katalogs</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projekta publiskais katalogs</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Projekta pieprasījuma ports (":{http_port}" vai ":{https_port}", atkarīgs no TLS parametra projekta iestatījumos).<br><br>Ja {http_port} vai {https_port} ir standarta vērtība 80 vai 443, tad {scheme_port} būs tukšs.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panel saknes katalogs (pilns ceļš)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Saknes kataloga disks</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Ceļš uz Open Server Panel saknes katalogu</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsoles kodējums</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

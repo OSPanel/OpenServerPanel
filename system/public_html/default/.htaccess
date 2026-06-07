@@ -1,0 +1,20 @@
+<IfModule dir_module>
+    DirectoryIndex index.html
+</IfModule>
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html
+<FilesMatch "\.(html)$">
+   Header set Cache-Control: "no-cache, no-store"
+   Header unset ETag
+</FilesMatch>
+Header always set X-Content-Type-Options "nosniff"
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/index\.html$
+RewriteCond %{REQUEST_URI} !^/apacheerror/
+RewriteCond %{REQUEST_URI} !^/apacheicons/
+RewriteCond %{REQUEST_URI} !^/server-status$
+RewriteCond %{REQUEST_URI} !^/server-info$
+RewriteCond %{REQUEST_URI} !^/watch-table$
+RewriteRule . /index.html [L]

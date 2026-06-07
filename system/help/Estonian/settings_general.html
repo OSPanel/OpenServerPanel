@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Programmi seaded</h2>
+    <table>
+        <tr>
+            <th>Käivita koos Windowsiga</th>
+        </tr>
+        <tr>
+            <td>
+                Luba Open Server Paneli automaatne käivitamine operatsioonisüsteemi laadimisel.</td>
+        </tr>
+        <tr>
+            <th>Viivitus</th>
+        </tr>
+        <tr>
+            <td>
+                Programmi käivitamise viivitus (sekundites, 0 kuni 60).<br><br>Võimaldab edasi lükata rakenduse käivitamist Windowsi laadimise ajal, et vähendada süsteemi üldist koormust. See on eriti kasulik, kui on vaja oodata kolmandate osapoolte teenuste või võrguliideste täielikku initsialiseerimist.</td>
+        </tr>
+        <tr>
+            <th>Kontrolli uute versioonide olemasolu</th>
+        </tr>
+        <tr>
+            <td>
+                Luba Open Server Paneli värskenduste kontroll (vajalik Interneti-ühendus).</td>
+        </tr>
+        <tr>
+            <th>Luba ülesannete ajastaja</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiveeri sisseehitatud ülesannete ajastaja. Kui parameeter on välja lülitatud, ei käivitata ühtegi plaanitud ülesannet, sõltumata nende olekust.</td>
+        </tr>
+        <tr>
+            <th>Kasuta HOSTS-faili</th>
+        </tr>
+        <tr>
+            <td>
+                Luba domeeninimede kirjutamine HOSTS-faili.<br><br>
+                <strong>Soovitused, kui organisatsioonis on juurdepääs HOSTS-failile piiratud:</strong><br><br>
+                1. Seadistage kõik vajalikud moodulid ja projektid.<br>
+                2. Pöörduge süsteemiadministraatori poole, et HOSTS avada ja selle olek fikseerida.<br>
+                3. Pärast muudatuste fikseerimist administraatori poolt võib selle valiku välja lülitada.<br><br>
+                <strong>Tähtis:</strong> Ärge lülitage seda parameetrit välja, kui te ei ole tagajärgedes kindel!</td>
+        </tr>
+        <tr>
+            <th>Käivita moodulid projekti profiiliga</th>
+        </tr>
+        <tr>
+            <td>Käivita moodulid samaaegse profiili aktiveerimisega, mis langeb kokku projekti nimega.<br><br>Kasutatakse menüüpunkti „Luba projekti moodulid” valimisel, et automaatselt aktiveerida profiil sama nimega nagu praegusel projektil, kui see on olemas.</td>
+        </tr>
+        <tr>
+            <th>Ära lõpeta peidetud projektide mooduleid</th>
+        </tr>
+        <tr>
+            <td>Ära lõpeta peidetud projektide mooduleid menüüpunkti „Lülita kõik moodulid välja” valimisel. „Peidetud” all peetakse silmas projekte, millele on määratud kategooria „hidden”.<br><br>Vaikimisi peatab käsk „Lülita kõik moodulid välja” absoluutselt kõik moodulid, kaasa arvatud need, mida kasutavad peidetud teenindusprojektid (näiteks PHPMyAdmin). See valik võimaldab säilitada peidetud teenindusprojektide töövõime, ilma et nende jaoks vajalikud moodulid välja lülitataks, samal ajal kui kõik teised moodulid lülitatakse välja.</td>
+        </tr>
+        <tr>
+            <th>Kasutajaliidese keel</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Paneli kasutajaliidese keel.<br><br>
+                Kui lokaliseerimisfail puudub või sisaldab vigu, kasutatakse inglise keelt.</td>
+        </tr>
+        <tr>
+            <th>API domeen</th>
+        </tr>
+        <tr>
+            <td>
+                Kohalik domeen API ja veebi-liidese jaoks (arendamisel)<br><br>
+                <strong>Soovitus:</strong> Kui kasutatakse VPN-i või proksit, lisage see domeen eranditesse.</td>
+        </tr>
+        <tr>
+            <th>API IP-aadress</th>
+        </tr>
+        <tr>
+            <td>
+                IPv4-aadress API ja veebi-liidese jaoks (arendamisel).<br><br>
+                <strong>Soovitus:</strong> Kui kasutatakse VPN-i või proksit, lisage see IP-aadress eranditesse.</td>
+        </tr>
+        <tr>
+            <th>API port</th>
+        </tr>
+        <tr>
+            <td>
+                Port, mida kasutatakse API ja veebi-liidese jaoks (arendamisel). Open Server Panel ei saa käivituda, kui määratud porti kasutab juba mõni muu rakendus.</td>
+        </tr>
+        <tr>
+            <th>Kasuta Windows Terminali</th>
+        </tr>
+        <tr>
+            <td>
+                Luba Windows Terminali kasutamine standardses käsuliideses asemel.<br><br>
+                <strong>Nõuded:</strong> Windows Terminal peab olema süsteemi paigaldatud ja lisatud keskkonnamuutujasse PATH.<br><br>
+                <strong>Windows Terminal kui cmd.exe:</strong> Windows Terminal võib asendada cmd.exe ja olla määratud keskkonnamuutujas %COMSPEC% Windowsi uuemates versioonides. Kui see nii on, jätke see valik sisse.<br><br>
+                <strong>Windows Terminali uued isendid:</strong> Kui Windows Terminal avab uued aknad sakkide asemel, seadistage see nii: Sätted&rarr;Käivitamine&rarr;Uue isendi käitumine&rarr;Liitu viimati kasutatud aknaga.</td>
+        </tr>
+        <tr>
+            <th>Lühike projekti pealkiri</th>
+        </tr>
+        <tr>
+            <td>
+                Selle valiku aktiveerimisel kuvatakse terminaliakna pealkirjas ainult projekti nimi üksikasjaliku keskkonnakirjelduse asemel.</td>
+        </tr>
+        <tr>
+            <th>Lisa süsteemikeskkond projekti keskkonda</th>
+        </tr>
+        <tr>
+            <td>Kasuta süsteemi (System) keskkonda terminalis isegi siis, kui see pole projekti seadetes määratud. Süsteemikeskkond võimaldab kasutada süsteemi paigaldatud programme (näiteks git.exe või ssh.exe).<br><br>Lülitage see valik välja ainult siis, kui tekivad konfliktid süsteemitarkvaraga.</td>
+        </tr>
+        <tr>
+            <th>ANSI tugi</th>
+        </tr>
+        <tr>
+            <td>
+                Luba ANSI-koodide tugi värvide juhtimiseks terminalis.<br><br>
+                Režiim „Automaatne” (vaikimisi):<br>
+                - Parandus rakendub ainult Windows 10-le kuni versioonini 1903 (kaasa arvatud). Uuemates Windowsi versioonides on ANSI-koodide tugi juba sisseehitatud.<br>
+                - Parandust ei rakendata terminalidele, mis toetavad ANSI-t vaikimisi (näiteks Windows Terminal).</td>
+        </tr>
+        <tr>
+            <th>Kataloogid projektide otsimiseks</th>
+        </tr>
+        <tr>
+            <td>
+                Kataloogide loend, kust Open Server Panel otsib projekte. Eristage teed semikooloniga (;).<br><br>
+                <strong>Erandid:</strong> Alamkataloogid node_modules ja vendor jäetakse vahele.</td>
+        </tr>
+        <tr>
+            <th>Sügavus</th>
+        </tr>
+        <tr>
+            <td>
+                Kataloogide maksimaalne pesastatuse sügavus projektide otsimisel.<br><br>
+                Selle väärtuse suurendamine võib aeglustada Open Server Paneli käivitamist, kui määratud kataloogides on suur hulk alamkatalooge.</td>
+        </tr>
+        <tr>
+            <th>Maksimaalne logifaili suurus</th>
+        </tr>
+        <tr>
+            <td>
+                Logifaili maksimaalne suurus megabaitides. Kui määratud väärtus ületatakse, luuakse logifail programmi järgmisel käivitamisel uuesti.<br><br>
+                Määrake väärtus 0, et puhastada logid iga programmi käivitamise korral.<br><br>
+                Määrake väärtus 100 MB, et logide puhastamine täielikult välja lülitada.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

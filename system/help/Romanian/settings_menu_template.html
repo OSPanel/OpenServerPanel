@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Crearea propriilor elemente de meniu</h2>
+    <ol>
+        <li>Adăugați o secțiune nouă cu un identificator [ID] unic</li>
+        <li>Aranjați secțiunile în ordinea dorită — aceasta va determina ordinea elementelor în meniu</li>
+        <li>Salvați modificările și reporniți Open Server Panel pentru a aplica modificările</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Informații importante</h3>
+        Atunci când creați propriile elemente de meniu, asigurați-vă că identificatorii secțiunilor nu se repetă. Acest lucru poate duce la conflicte în funcționarea meniului.
+    </div>
+    <h2>Setări ale elementelor de meniu</h2>
+    <p><strong>Ordinea de sortare:</strong> Elementele de meniu sunt sortate în aceeași ordine în care sunt plasate secțiunile corespunzătoare în șablon.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Titlul elementului de meniu. Acceptă constante lingvistice în formatul {lang_xxx}.<br><br>
+                    Implicit: nu este setat
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Determină plasarea elementului de meniu în ierarhie. Acceptă un singur nivel de imbricare (de exemplu, "Marcajele mele\Muncă").</p>
+                    <p>Categorii speciale:</p>
+                    <ul>
+                        <li>projects, modules, addons - adaugă elementul în meniul de acțiuni corespunzător</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - adaugă elementul pentru un anumit element</li>
+                    </ul>
+                    <p>Dacă categoria nu este specificată, elementul este creat în meniul rădăcină.</p>
+                    Implicit: nu este setat
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Comanda de executat la activarea elementului de meniu. Elementele fără comandă sunt ignorate.<br><br>
+                    Implicit: nu este setat
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Activează/dezactivează afișarea elementului de meniu.<br><br>
+                    Implicit: on | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Controlează vizibilitatea ferestrei aplicației apelate. Nu afectează procesele copil.<br><br>
+                    Implicit: off | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Adaugă un separator orizontal după elementul de meniu.<br><br>
+                    Implicit: off | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Adaugă un separator orizontal înaintea elementului de meniu.<br><br>
+                    Implicit: off | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Pictogramă din setul Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Implicit: nu este setat
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Afișează elementul de meniu doar pentru un alias de domeniu. În șablonul meniului poate exista un singur element cu need_alias=on!<br>
+                    Aplicabil pentru categoriile: projects<br><br>
+                    Implicit: nu este setat | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Restricționează afișarea elementului de meniu la module/addons dintr-o anumită categorie.</p>
+                    <p>Formate acceptate:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Implicit: nu este setat
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Afișează elementul de meniu în funcție de existența shell/cli la modulul părinte.<br>
+                    Aplicabil pentru categoriile: modules, modules\<имя_модуля><br><br>
+                        Implicit: nu este setat | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Afișează elementul de meniu în funcție de starea modulului părinte.<br>
+                    Aplicabil pentru categoriile: modules, modules\<имя_модуля><br><br>
+                        Implicit: nu este setat | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Afișează elementul de meniu dacă există o comandă de pornire în setările proiectului.<br>
+                    Aplicabil pentru categoriile: projects, projects\<имя_домена><br><br>
+                        Implicit: nu este setat | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Afișează elementul de meniu în funcție de setarea utilizării Windows Terminal în Open Server Panel.<br><br>
+                    Implicit: nu este setat | Valori: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Directorul de lucru pentru executarea comenzii. Poate fi modificat în timpul executării comenzilor.<br><br>
+                    Implicit: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Variabile de șablon</h2>
+    În parametrii "command" și "work_directory" puteți utiliza următoarele variabile de șablon:
+    <h3>Variabile generale</h3>
+    <table>
+        <tr>
+            <th>Variabilă</th>
+            <th>Descriere</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Data/ora curentă (variabila este disponibilă doar pentru parametrul "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Directorul rădăcină Open Server Panel (cale completă)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Unitatea directorului rădăcină</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Calea către directorul rădăcină Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL-ul interfeței web</td>
+        </tr>
+    </table>
+    <h3>Variabile speciale (numai pentru projects și projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabilă</th>
+            <th>Descriere</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Directorul de bază al proiectului</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Numele domeniului (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Numele vizibil al domeniului (fără Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Schematica cererii către proiect ("http" sau "https", depinde de parametrul TLS din setările proiectului)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Portul cererii către proiect prin protocolul HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Portul cererii către proiect prin protocolul HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Titlul elementului de meniu (numai pentru categoria projects cu need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>Motorul HTTP</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Motorul Node.js</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>Motorul PHP</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Directorul rădăcină al proiectului</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL-ul proiectului</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Directorul public al proiectului</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Portul cererii către proiect (":{http_port}" sau ":{https_port}", depinde de parametrul TLS din setările proiectului). Dacă {http_port} sau {https_port} are valoarea standard 80 sau 443, atunci {scheme_port} va fi gol.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Comanda de pornire a aplicației proiectului (dacă este configurată)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Setul de caractere al consolei</td>
+        </tr>
+    </table>
+    <h3>Variabile speciale (numai pentru addons și addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabilă</th>
+            <th>Descriere</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Numele addon-ului</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Setul de caractere al consolei</td>
+        </tr>
+    </table>
+    <h3>Variabile speciale (numai pentru modules și modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabilă</th>
+            <th>Descriere</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Adresa IP a modulului</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Nivelul de jurnalizare a erorilor</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Numele modulului</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Portul modulului</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Numele profilului curent de setări al modulului</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Nivelul de jurnalizare a interogărilor</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Comanda de lansare a shell/cli a modulului (dacă este configurată)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Setul de caractere al consolei</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Fus orar</td>
+        </tr>
+    </table>
+    <h3>Valori speciale ale comenzilor</h3>
+    <table>
+        <tr>
+            <th>Comandă</th>
+            <th>Descriere</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Deschide fereastra de vizualizare a jurnalelor</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Deschide convertorul IDN</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Deschide fereastra de setări a programului</td>
+        </tr>
+    </table>
+    <p>Pe lângă variabilele de șablon, se pot utiliza orice variabile de mediu Windows, de exemplu: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% etc.</p>
+    <h3>Exemplu de utilizare</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Marcajele mele\Sisteme de căutare
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Opțiuni CMD.EXE</h3>
+    <ul>
+        <li>/c: Execută comanda și închide terminalul.</li>
+        <li>/k: Execută comanda și lasă terminalul deschis.</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">程式設定</h2>
+    <table>
+        <tr>
+            <th>隨 Windows 一同啟動</th>
+        </tr>
+        <tr>
+            <td>
+                在作業系統啟動時啟用 Open Server Panel 的自動啟動。</td>
+        </tr>
+        <tr>
+            <th>延遲</th>
+        </tr>
+        <tr>
+            <td>
+                程式啟動延遲（秒，0 到 60）。<br><br>允許在隨 Windows 開機時延後啟動應用程式，以減少系統整體負載。若需要等待第三方服務或網路介面的完全初始化時，特別有用。</td>
+        </tr>
+        <tr>
+            <th>檢查是否有新版本</th>
+        </tr>
+        <tr>
+            <td>
+                啟用檢查 Open Server Panel 更新（需要連線至網際網路）。</td>
+        </tr>
+        <tr>
+            <th>啟用排程器</th>
+        </tr>
+        <tr>
+            <td>
+                啟用內建的排程器。若停用此參數，無論任務狀態如何，所有已排程的任務都不會執行。</td>
+        </tr>
+        <tr>
+            <th>使用 HOSTS 檔案</th>
+        </tr>
+        <tr>
+            <td>
+                啟用將網域名稱寫入 HOSTS 檔案。<br><br>
+                <strong>在組織中對 HOSTS 檔案存取受限時的建議：</strong><br><br>
+                1. 設定所有必要的模組與專案。<br>
+                2. 聯繫系統管理員解除對 HOSTS 的封鎖並固定其狀態。<br>
+                3. 管理員完成變更固定後即可關閉此選項。<br><br>
+                <strong>重要：</strong> 若不確定後果，請勿關閉此參數！</td>
+        </tr>
+        <tr>
+            <th>以專案設定檔啟動模組</th>
+        </tr>
+        <tr>
+            <td>以同時啟用與專案名稱相同的設定檔方式啟動模組。<br><br>在選擇「啟用專案模組」選單項時使用，以便自動啟用與目前專案同名的設定檔（若存在）。</td>
+        </tr>
+        <tr>
+            <th>不關閉隱藏專案的模組</th>
+        </tr>
+        <tr>
+            <td>在選擇「關閉所有模組」選單項時，不關閉隱藏專案的模組。此處的「隱藏」指的是已設定類別為「hidden」的專案。<br><br>預設情況下，「關閉所有模組」命令會停止所有模組的運作，包括隱藏的系統專案所使用的模組（例如 PHPMyAdmin）。該選項允許在關閉其他模組的同時，保留隱藏系統專案所需模組的運作。</td>
+        </tr>
+        <tr>
+            <th>介面語言</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel 的使用者介面語言。<br><br>
+                若本地化檔案缺失或包含錯誤，將使用英文。</td>
+        </tr>
+        <tr>
+            <th>API 網域</th>
+        </tr>
+        <tr>
+            <td>
+                用於 API 與網頁介面的本機網域（開發中）<br><br>
+                <strong>建議：</strong> 若使用 VPN 或 Proxy，請將此網域加入例外。</td>
+        </tr>
+        <tr>
+            <th>API IP 位址</th>
+        </tr>
+        <tr>
+            <td>
+                用於 API 與網頁介面的 IPv4 位址（開發中）。<br><br>
+                <strong>建議：</strong> 若使用 VPN 或 Proxy，請將此 IP 位址加入例外。</td>
+        </tr>
+        <tr>
+            <th>API 埠</th>
+        </tr>
+        <tr>
+            <td>
+                用於 API 與網頁介面的埠（開發中）。若指定的埠已被其他應用程式使用，Open Server Panel 將無法啟動。</td>
+        </tr>
+        <tr>
+            <th>使用 Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                啟用使用 Windows Terminal 取代標準命令介面。<br><br>
+                <strong>需求：</strong> 系統中必須已安裝 Windows Terminal，且已加入環境變數 PATH。<br><br>
+                <strong>將 Windows Terminal 作為 cmd.exe：</strong> 在新版 Windows 中，Windows Terminal 可取代 cmd.exe，並寫入環境變數 %COMSPEC%。若是如此，請保持此選項為啟用狀態。<br><br>
+                <strong>Windows Terminal 的新執行個體：</strong> 若 Windows Terminal 會開啟新視窗而非分頁，請如此設定：設定→啟動→新執行個體行為→附加到最後使用的視窗。</td>
+        </tr>
+        <tr>
+            <th>精簡專案標題</th>
+        </tr>
+        <tr>
+            <td>
+                啟用此選項後，終端機視窗標題將僅顯示專案名稱，而非詳細的環境描述。</td>
+        </tr>
+        <tr>
+            <th>在專案環境中包含系統環境</th>
+        </tr>
+        <tr>
+            <td>在終端機中使用系統（System）環境，即使未在專案設定中指定。系統環境允許使用安裝於系統中的程式（例如 git.exe 或 ssh.exe）。<br><br>僅在與系統軟體發生衝突時才停用此選項。</td>
+        </tr>
+        <tr>
+            <th>ANSI 支援</th>
+        </tr>
+        <tr>
+            <td>
+                啟用用於在終端機中控制顏色的 ANSI 代碼支援。<br><br>
+                「自動」模式（預設）：<br>
+                - 修正僅適用於 Windows 10 版本 1903（含）以前。在較新版本的 Windows 中已內建 ANSI 代碼支援。<br>
+                - 對於預設支援 ANSI 的終端機（例如 Windows Terminal），不套用此修正。
+            </td>
+        </tr>
+        <tr>
+            <th>搜尋專案的目錄</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel 將搜尋專案的目錄清單。用分號（;）分隔路徑。<br><br>
+                <strong>排除：</strong> 將忽略 node_modules 與 vendor 子目錄。</td>
+        </tr>
+        <tr>
+            <th>深度</th>
+        </tr>
+        <tr>
+            <td>
+                搜尋專案時目錄的最大巢狀深度。<br><br>
+                若提高此數值，而指定目錄中包含大量子目錄，可能會減慢 Open Server Panel 的啟動速度。</td>
+        </tr>
+        <tr>
+            <th>日誌檔案最大大小</th>
+        </tr>
+        <tr>
+            <td>
+                以 MB 為單位的日誌檔案最大大小。當超過指定值時，日誌檔將在下次啟動程式時重新建立。<br><br>
+                設為 0 可在每次啟動程式時清空日誌。<br><br>
+                設為 100 MB 可完全停用日誌清理。</td>
+        </tr>
+    </table>
+</body>
+
+</html>

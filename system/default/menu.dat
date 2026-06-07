@@ -1,0 +1,189 @@
+﻿[0]
+
+caption        = {lang_open_in_browser}
+category       = projects
+command        = cmd.exe /c "start "" "{base_url}""
+hide           = on
+icon           = up-right-from-square
+
+[1]
+
+caption        = {lang_open_in_console}
+category       = projects
+command        = wt.exe nt -d "{root_dir}" cmd.exe /k "osp reset init noprint & osp project {host_decoded}"
+icon           = terminal
+need_use_wt    = on
+
+[2]
+
+caption        = {lang_open_in_console}
+category       = projects
+command        = cmd.exe /k "osp reset init noprint & osp project {host_decoded}"
+icon           = terminal
+need_use_wt    = off
+
+[3]
+
+caption        = {lang_open_in_explorer}
+category       = projects
+command        = explorer.exe "{project_root}"
+icon           = folder-closed
+work_directory = {project_root}
+
+[4]
+
+category       = projects
+command        = cmd.exe /c "start "" "{base_url}""
+hide           = on
+need_alias     = on
+icon           = up-right-from-square
+
+[5]
+
+caption        = {lang_launch_app}
+category       = projects
+command        = wt.exe nt -d "{root_dir}" cmd.exe /k "osp reset init noprint & osp project {host_decoded} start"
+hr_before      = on
+icon           = rocket
+need_start_cmd = on
+need_use_wt    = on
+
+[6]
+
+caption        = {lang_launch_app}
+category       = projects
+command        = cmd.exe /k "osp reset init noprint & osp project {host_decoded} start"
+hr_before      = on
+icon           = rocket
+need_start_cmd = on
+need_use_wt    = off
+
+[7]
+
+caption        = {lang_open_in_browser}
+category       = modules
+command        = cmd.exe /c "start "" "{web_ui_url}""
+hide           = on
+icon           = up-right-from-square
+need_state     = on
+need_web_ui    = on
+
+[8]
+
+caption        = {lang_launch_shell}
+category       = modules
+command        = wt.exe nt -d "{root_dir}" cmd.exe /k "osp reset init noprint & osp shell {module_name}"
+icon           = display
+need_state     = on
+need_shell     = on
+need_use_wt    = on
+
+[9]
+
+caption        = {lang_launch_shell}
+category       = modules
+command        = cmd.exe /k "osp reset init noprint & osp shell {module_name}"
+icon           = display
+need_state     = on
+need_shell     = on
+need_use_wt    = off
+
+[10]
+
+caption        = {lang_open_in_console}
+category       = modules
+command        = wt.exe nt -d "{root_dir}" cmd.exe /k "osp reset init noprint & osp use {module_name}"
+icon           = terminal
+need_use_wt    = on
+
+[11]
+
+caption        = {lang_open_in_console}
+category       = modules
+command        = cmd.exe /k "osp reset init noprint & osp use {module_name}"
+icon           = terminal
+need_use_wt    = off
+
+[12]
+
+caption        = {lang_open_in_explorer}
+category       = modules
+command        = explorer.exe "{root_dir}\modules\{module_name}"
+hr_after       = on
+icon           = folder-closed
+work_directory = {root_dir}\modules\{module_name}
+
+[13]
+
+caption        = {lang_initialize}
+category       = modules
+command        = cmd.exe /c "osp init {module_name}"
+hide           = on
+icon           = gears
+need_state     = off
+
+[14]
+
+caption        = {lang_switch_on}
+category       = modules
+command        = cmd.exe /c "osp on {module_name}"
+hide           = on
+icon           = toggle-off
+need_state     = off
+
+[15]
+
+caption        = {lang_restart}
+category       = modules
+command        = cmd.exe /c "osp restart {module_name}"
+hide           = on
+icon           = redo
+need_state     = on
+
+[16]
+
+caption        = {lang_switch_off}
+category       = modules
+command        = cmd.exe /c "osp off {module_name}"
+hide           = on
+icon           = toggle-on
+need_state     = on
+
+[17]
+
+caption        = {lang_cli}
+command        = wt.exe nt -d "{root_dir}" cmd.exe /k "osp reset init"
+icon           = terminal
+need_use_wt    = on
+
+[18]
+
+caption        = {lang_cli}
+command        = cmd.exe /k "osp reset init"
+icon           = terminal
+need_use_wt    = off
+
+[19]
+
+caption        = {lang_root_dir}
+command        = explorer.exe "{root_dir}"
+icon           = folder-closed
+
+[20]
+
+caption        = {lang_logs_viewer}
+command        = command_open_logs_viewer
+icon           = regular-file-lines
+
+[21]
+
+caption        = {lang_idn_menu_caption}
+command        = command_open_idn_converter
+icon           = shuffle
+
+
+[22]
+
+caption        = {lang_options}
+command        = command_open_options
+icon           = tools

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">プロジェクトのグローバル設定</h2>
+    <p>このセクションで指定したパラメータは、プロジェクト設定で別の値が指定されていない場合に使用されます。</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトで使用する Web サーバーモジュールを指定します。</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Node.js アプリケーションを起動するための Node.js エンジンを指定します.<br><br>
+                <strong>Node.js のインストール:</strong> 事前にコマンド <b>osp node &lt;latest|lts|номер&gt;</b> を使用して必要なバージョンの Node.js をインストールしてください。</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                PHP ファイルを処理するために使用する PHP モジュールを指定します。</td>
+        </tr>
+        <tr>
+            <th>有効化</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトのデフォルト状態（有効または無効）を指定します。</td>
+        </tr>
+        <tr>
+            <th>ターミナルのエンコーディング</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクト環境で作業する際のターミナルのエンコーディング。<br><br>
+                <strong>特別な値:</strong><br>
+                - system: システムのエンコーディングを使用します。<br><br>
+                <strong>重要:</strong> 値が指定されていない場合、最終的なプロジェクト環境の作成時に、ターミナルのエンコーディングは最後に接続された環境（例: PHP モジュールの環境）の設定に従って決定されます。</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                個別設定のないすべてのプロジェクトで使用される IP アドレスを指定します。<br><br>
+                <strong>制限:</strong> 同じ IP アドレスを使用するプロジェクトは、同じバージョンの PHP 上で動作する必要があります。<br><br>
+                <strong>複数 IP のサポート:</strong> IPv6 を含め、スペース区切りで複数の IP アドレスを指定できます。HOSTS ファイルでは、ドメインに最初に指定された IP が割り当てられます。<br><br>
+                <strong>自動割り当て:</strong> フィールドを空のままにすると、IP アドレスは自動的に割り当てられます。<br><br>
+                <strong>推奨事項:</strong>
+                <ul>
+                    <li>ほとんどのユーザーには IP アドレスの自動管理を推奨します。</li>
+                    <li>IP アドレスの手動指定は、特定のネットワーク構成要件がある場合にのみ使用してください。</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                HTTP 接続用のポートを指定します。</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                HTTPS 接続用のポートを指定します。</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                TLS のサポートを有効または無効にします。</td>
+        </tr>
+        
+        <tr>
+            <th>証明書ファイル</th>
+        </tr>
+        <tr>
+            <td>
+                TLS 証明書ファイルへのパスを指定します。テンプレート変数を使用できます。<br><br>
+                <strong>使用可能な文字:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>推奨:</strong> 自動的に証明書を生成する場合は、フィールドを空のままにしてください。</td>
+        </tr>
+        <tr>
+            <th>鍵ファイル</th>
+        </tr>
+        <tr>
+            <td>
+                TLS キーファイルへのパスを指定します。テンプレート変数を使用できます。<br><br>
+                <strong>使用可能な文字:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>推奨:</strong> 自動的に鍵を生成する場合は、フィールドを空のままにしてください。</td>
+        </tr>
+        <tr>
+            <th>IP アドレス（backend）</th>
+        </tr>
+        <tr>
+            <td>サーバーサイド（Backend）への接続に使用する IP アドレスを指定します。</td>
+        </tr>
+        <tr>
+            <th>ポート（backend）</th>
+        </tr>
+        <tr>
+            <td>サーバーサイド（Backend）への接続に使用するポート番号を指定します。</td>
+        </tr>
+        <tr>
+            <th>有効化（backend）</th>
+        </tr>
+        <tr>
+            <td>プロジェクトへのすべての受信トラフィック（HTTP および HTTPS）を自動的にサーバーサイド（Backend）へ転送します。フロントエンドとバックエンドが分離されているテストや開発に有用です。</td>
+        </tr>
+        <tr>
+            <th>プロジェクトディレクトリ</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトのルートディレクトリを指定します。コマンド <strong>osp project &lt;DOMAIN&gt;</strong> で、このディレクトリへ移動しつつプロジェクト環境をアクティブ化します。テンプレート変数を使用できます。<br><br>
+                <strong>許可される文字:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>公開ディレクトリ</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトの公開ディレクトリを指定します。テンプレート変数を使用できます。<br><br>
+                <strong>許可される文字:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>エイリアス</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトの追加ドメイン名（エイリアス）をスペース区切りで指定します。テンプレート変数を使用できます。<br><br>
+                <strong>制限:</strong> "*" は Windows の HOSTS ファイルでサポートされず、DNS 設定が必要です。</td>
+        </tr>
+        <tr>
+            <th>プロジェクト環境</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトの環境を構成するアドオンとモジュールをスペース区切りで列挙します。<br><br>
+                <strong>HTTP, NODE, PHP:</strong> これらのエンジンの環境は常に（ドメインに対して設定されている場合）接続され、このパラメータに指定する必要はありません。</td>
+        </tr>
+        <tr>
+            <th>プロジェクト起動コマンド</th>
+        </tr>
+        <tr>
+            <td>
+                プロジェクトを起動するコマンド（例: <strong>nodemon app.js</strong>）を指定します。テンプレート変数を使用できます。</td>
+        </tr>
+        <tr>
+            <th>プロジェクト URL</th>
+        </tr>
+        <tr>
+            <td>
+                <strong>メニュー&rarr;プロジェクト&rarr;ブラウザーで開く</strong> でプロジェクトを開く際、およびプロジェクトのドメインエイリアスを開く際に使用される URL です。テンプレート変数を使用できます。<br><br>
+                <strong>用途:</strong> CMS の管理パネルの URL を指定できます。</td>
+        </tr>
+    </table>
+    <h2>テンプレート変数</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>変数</th>
+                <th>説明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>サーバーサイド（Backend）への接続 IP アドレス</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>サーバーサイド（Backend）への接続ポート</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>プロジェクトのルートディレクトリ（.osp ディレクトリの所在）</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>現在の日時（プロジェクトアプリの起動コマンドでのみ利用可能）</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>ドメイン名（国際化ドメインは Punycode を使用）</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>可視のドメイン名（Punycode なし）</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>プロジェクトへのリクエストスキーム（"http" または "https"。プロジェクト設定の TLS に依存）</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>HTTP プロトコルでのプロジェクトへのリクエストポート</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>HTTPS プロトコルでのプロジェクトへのリクエストポート</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP エンジン</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE エンジン</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP エンジン</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>プロジェクトのルートディレクトリ</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>プロジェクトの公開ディレクトリ</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>プロジェクトへのリクエストポート（":{http_port}" または ":{https_port}"。プロジェクト設定の TLS に依存）。<br><br>{http_port} または {https_port} が標準値の 80 または 443 の場合、{scheme_port} は空になります。</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panel のルートディレクトリ（フルパス）</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>ルートディレクトリのドライブ</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Open Server Panel のルートディレクトリへのパス</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>コンソールのエンコーディング</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

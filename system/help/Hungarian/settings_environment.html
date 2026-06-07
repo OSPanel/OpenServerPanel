@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Modulok környezeti globális változói</h2>
+    <p>Ebben a részben globális környezeti változókat állíthat be a modulok számára.<br><br>Ezek a változók csak a modulok környezetében érvényesek, és nem befolyásolják a rendszer változóit vagy a projektek környezetét.<br><br>Az értékekben sablonváltozók használata megengedett.</p>
+    <p>Ha egy változó jelen van a rendszer környezetében, de nem szabad használnia a modulok környezetében, használja a speciális szűrőt (lásd: Modulok&rarr;Engedélyezett rendszer-változók) vagy távolítsa el a változót a környezetből, üres értéket megadva neki.</p>
+    <h2>Sablonváltozók</h2>
+    <table>
+        <tr>
+            <th>Változó</th>
+            <th>Leírás</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Az Open Server Panel gyökérkönyvtára (teljes elérési út)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>A gyökérkönyvtár meghajtója</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Az Open Server Panel gyökérkönyvtárának elérési útja</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kódolás a terminálban (lásd: Modulok&rarr;Kódolás a terminálban)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Időzóna Etc/GMT formátumban (lásd: Modulok&rarr;Időzóna)</td>
+        </tr>
+    </table>
+    <p>A sablonváltozókon kívül bármely Windows környezeti változó használható, például: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% stb.</p>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">モジュール環境のグローバル変数</h2>
+    <p>このセクションでは、モジュール用のグローバル環境変数を設定できます。<br><br>これらの変数はモジュール環境内でのみ有効で、システム変数やプロジェクトの環境には影響しません。<br><br>値にはテンプレート変数を使用できます。</p>
+    <p>変数がシステム環境に存在するが、モジュール環境では使用したくない場合は、専用のフィルター（参照: モジュール&rarr;許可されたシステム変数）を使用するか、値を空に設定して環境から変数を削除してください。</p>
+    <h2>テンプレート変数</h2>
+    <table>
+        <tr>
+            <th>変数</th>
+            <th>説明</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel のルートディレクトリ（フルパス）</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>ルートディレクトリのドライブ</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel のルートディレクトリへのパス</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>ターミナルのエンコーディング（参照: モジュール&rarr;ターミナルのエンコーディング）</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Etc/GMT 形式のタイムゾーン（参照: モジュール&rarr;タイムゾーン）</td>
+        </tr>
+    </table>
+    <p>テンプレート変数に加えて、%SYSTEMROOT%、%SYSTEMDRIVE%、%USERNAME%、%PATH% など、任意の Windows 環境変数を使用できます。</p>
+</body>
+
+</html>

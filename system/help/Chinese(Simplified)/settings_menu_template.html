@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">创建自定义菜单项</h2>
+    <ol>
+        <li>添加一个具有唯一标识符 [ID] 的新节</li>
+        <li>按所需顺序排列各节——这将决定菜单项的顺序</li>
+        <li>保存更改并重启 Open Server Panel 以应用更改</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>重要信息</h3>
+        在创建自定义菜单项时，请确保各节的标识符不重复。否则可能导致菜单运行冲突。
+    </div>
+    <h2>菜单项设置</h2>
+    <p><strong>排序顺序：</strong> 菜单项按照模板中对应各节的排列顺序进行排序。</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    菜单项标题。支持 {lang_xxx} 格式的语言常量。<br><br>
+                    默认：未指定
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>确定菜单项在层级中的位置。支持一级嵌套（例如，“我的书签\工作”）。</p>
+                    <p>特殊类别：</p>
+                    <ul>
+                        <li>projects, modules, addons - 将项目添加到相应的操作菜单</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - 为特定元素添加项目</li>
+                    </ul>
+                    <p>如果未指定类别，项目将在根菜单中创建。</p>
+                    默认：未指定
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    激活菜单项时执行的命令。没有命令的项目将被忽略。<br><br>
+                    默认：未指定
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    启用/禁用菜单项的显示。<br><br>
+                    默认：on | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    控制被调用应用程序窗口的可见性。不影响子进程。<br><br>
+                    默认：off | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    在菜单项之后添加水平分隔符。<br><br>
+                    默认：off | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    在菜单项之前添加水平分隔符。<br><br>
+                    默认：off | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    来自 Font Awesome Free (Solid/Regular/Brands) 的图标。<br><br>
+                    默认：未指定
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    仅对域别名显示该菜单项。菜单模板中只能有一个 need_alias=on 的项目！<br>
+                    适用类别：projects<br><br>
+                    默认：未指定 | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>按特定类别的模块/插件限制菜单项的显示。</p>
+                    <p>支持的格式：</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    默认：未指定
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    根据父模块是否具有 shell/cli 显示菜单项。<br>
+                    适用类别：modules, modules\<имя_модуля><br><br>
+                        默认：未指定 | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    根据父模块的状态显示菜单项。<br>
+                    适用类别：modules, modules\<имя_модуля><br><br>
+                        默认：未指定 | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    当项目设置中存在启动命令时显示菜单项。<br>
+                    适用类别：projects, projects\<имя_домена><br><br>
+                        默认：未指定 | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    根据 Open Server Panel 中使用 Windows Terminal 的设置显示菜单项。<br><br>
+                    默认：未指定 | 取值：on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    执行命令的工作目录。可在执行过程中变更。<br><br>
+                    默认：{root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>模板变量</h2>
+    在参数“command”和“work_directory”中可以使用以下模板变量：
+    <h3>通用变量</h3>
+    <table>
+        <tr>
+            <th>变量</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>当前日期/时间（仅对参数“command”可用）</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel 的根目录（完整路径）</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>根目录所在磁盘</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel 根目录的路径</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Web 界面的 URL 地址</td>
+        </tr>
+    </table>
+    <h3>特殊变量（仅用于 projects 和 projects\&lt;имя_домена&gt;）</h3>
+    <table>
+        <tr>
+            <th>变量</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>项目基础目录</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>域名（Punycode）</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>可见域名（非 Punycode）</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>项目请求的方案（“http” 或 “https”，取决于项目设置中的 TLS 参数）</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>通过 HTTP 协议请求项目的端口</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>通过 HTTPS 协议请求项目的端口</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>菜单项标题（仅用于类别 projects 且 need_alias=ON）</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP 引擎</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js 引擎</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP 引擎</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>项目根目录</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>项目 URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>项目公共目录</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>项目请求端口（“:{http_port}” 或 “:{https_port}”，取决于项目设置中的 TLS 参数）。如果 {http_port} 或 {https_port} 的标准值为 80 或 443，则 {scheme_port} 将为空。</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>项目应用的启动命令（如果已配置）</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>控制台编码</td>
+        </tr>
+    </table>
+    <h3>特殊变量（仅用于 addons 和 addons\&lt;имя_дополнения&gt;）</h3>
+    <table>
+        <tr>
+            <th>变量</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>插件名称</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>控制台编码</td>
+        </tr>
+    </table>
+    <h3>特殊变量（仅用于 modules 和 modules\&lt;имя_модуля&gt;）</h3>
+    <table>
+        <tr>
+            <th>变量</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>模块 IP 地址</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>错误日志记录级别</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>模块名称</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>模块端口</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>模块当前配置文件名称</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>请求日志记录级别</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>模块的 shell/cli 启动命令（如果已配置）</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>控制台编码</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>时区</td>
+        </tr>
+    </table>
+    <h3>特殊命令值</h3>
+    <table>
+        <tr>
+            <th>命令</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>打开日志查看器窗口</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>打开 IDN 转换器</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>打开程序设置窗口</td>
+        </tr>
+    </table>
+    <p>除了模板变量外，还可以使用任何 Windows 环境变量，例如：%SYSTEMROOT%、%SYSTEMDRIVE%、%USERNAME%、%PATH% 等。</p>
+    <h3>使用示例</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = 我的书签\搜索引擎
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE 选项</h3>
+    <ul>
+        <li>/c: 执行命令并关闭终端。</li>
+        <li>/k: 执行命令并保持终端打开。</li>
+    </ul>
+</body>
+
+</html>

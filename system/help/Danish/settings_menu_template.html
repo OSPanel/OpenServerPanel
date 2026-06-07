@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Oprettelse af egne menupunkter</h2>
+    <ol>
+        <li>Tilføj en ny sektion med en unik identifikator [ID]</li>
+        <li>Arranger sektionerne i den ønskede rækkefølge — dette bestemmer rækkefølgen af punkter i menuen</li>
+        <li>Gem ændringerne og genstart Open Server Panel for at anvende ændringerne</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Vigtig information</h3>
+        Når du opretter egne menupunkter, skal du sikre, at sektionernes identifikatorer ikke gentages. Dette kan føre til konflikter i menuens funktion.
+    </div>
+    <h2>Indstillinger for menupunkter</h2>
+    <p><strong>Sorteringsrækkefølge:</strong> Menupunkter sorteres i samme rækkefølge som de tilsvarende sektioner er placeret i skabelonen.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Menupunktets titel. Understøtter sprogkonstanter i formatet {lang_xxx}.<br><br>
+                    Som standard: ikke angivet
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Bestemmer menupunktets placering i hierarkiet. Understøtter ét niveau af indlejring (f.eks. "Mine Bogmærker\Arbejde").</p>
+                    <p>Særlige kategorier:</p>
+                    <ul>
+                        <li>projects, modules, addons - tilføjer punktet til den tilsvarende handlingsmenu</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - tilføjer punktet for et specifikt element</li>
+                    </ul>
+                    <p>Hvis kategorien ikke er angivet, oprettes punktet i rodmenuen.</p>
+                    Som standard: ikke angivet
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Kommandoen, der skal udføres, når menupunktet aktiveres. Punkter uden kommando ignoreres.<br><br>
+                    Som standard: ikke angivet
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Slår visning af menupunktet til/fra.<br><br>
+                    Som standard: on | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Styrer synligheden af det kaldte programs vindue. Påvirker ikke underprocesser.<br><br>
+                    Som standard: off | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Tilføjer en horisontal separator efter menupunktet.<br><br>
+                    Som standard: off | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Tilføjer en horisontal separator før menupunktet.<br><br>
+                    Som standard: off | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikon fra sættet Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Som standard: ikke angivet
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Viser menupunktet kun for et domænealias. Der kan kun være ét punkt med need_alias=on i menuskabelonen!<br>
+                    Anvendelig for kategorier: projects<br><br>
+                    Som standard: ikke angivet | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Begrænser visningen af menupunktet til modules/addons af en bestemt kategori.</p>
+                    <p>Understøttede formater:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Som standard: ikke angivet
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Viser menupunktet afhængigt af om det overordnede modul har shell/cli.<br>
+                    Anvendelig for kategorier: modules, modules\<имя_модуля><br><br>
+                        Som standard: ikke angivet | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Viser menupunktet afhængigt af det overordnede moduls tilstand.<br>
+                    Anvendelig for kategorier: modules, modules\<имя_модуля><br><br>
+                        Som standard: ikke angivet | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Viser menupunktet, hvis der er en startkommando i projektindstillingerne.<br>
+                    Anvendelig for kategorier: projects, projects\<имя_домена><br><br>
+                        Som standard: ikke angivet | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Viser menupunktet afhængigt af indstillingen for brug af Windows Terminal i Open Server Panel.<br><br>
+                    Som standard: ikke angivet | Værdier: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Arbejdsmappe til at udføre kommandoen. Kan ændres under udførelsen af kommandoer.<br><br>
+                    Som standard: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Skabelonvariabler</h2>
+    I parametrene "command" og "work_directory" kan du bruge følgende skabelonvariabler:
+    <h3>Generelle variabler</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Nuværende dato/tid (variablen er kun tilgængelig for parameteren "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Rodmappen for Open Server Panel (fuld sti)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Drevet for rodmappen</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Sti til rodmappen for Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL-adressen til webgrænsefladen</td>
+        </tr>
+    </table>
+    <h3>Særlige variabler (kun for projects og projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Projektets basismappe</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domænenavn (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Synligt domænenavn (uden Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Forespørgslens skema til projektet ("http" eller "https", afhænger af TLS-parameteren i projektindstillingerne)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Forespørgselsport til projektet via HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Forespørgselsport til projektet via HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Menupunktets titel (kun for kategorien projects med need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP-motor</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js-motor</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP-motor</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projektets rodmappe</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projektets URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Projektets offentlige mappe</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Forespørgselsport til projektet (":{http_port}" eller ":{https_port}", afhænger af TLS-parameteren i projektindstillingerne). Hvis {http_port} eller {https_port} har standardværdien 80 eller 443, vil {scheme_port} være tom.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Projektets app-startkommando (hvis konfigureret)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolkodning</td>
+        </tr>
+    </table>
+    <h3>Særlige variabler (kun for addons og addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Navnet på tilføjelsen</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolkodning</td>
+        </tr>
+    </table>
+    <h3>Særlige variabler (kun for modules og modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Modulets IP-adresse</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Fejllogningsniveau</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Modulets navn</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Modulets port</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Navnet på modulets aktuelle profil</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Forespørgselslogningsniveau</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Kommando til at starte modulets shell/cli (hvis konfigureret)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolkodning</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Tidszone</td>
+        </tr>
+    </table>
+    <h3>Særlige kommando-værdier</h3>
+    <table>
+        <tr>
+            <th>Kommando</th>
+            <th>Beskrivelse</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Åbn logvisningsvinduet</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Åbn IDN-konverteren</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Åbn programmets indstillingsvindue</td>
+        </tr>
+    </table>
+    <p>Ud over skabelonvariabler kan du bruge enhver Windows-miljøvariabel, for eksempel: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% osv.</p>
+    <h3>Eksempel på brug</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Mine Bogmærker\Søgemaskiner
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE-indstillinger</h3>
+    <ul>
+        <li>/c: Udfør kommandoen og luk terminalen.</li>
+        <li>/k: Udfør kommandoen og lad terminalen forblive åben.</li>
+    </ul>
+</body>
+
+</html>

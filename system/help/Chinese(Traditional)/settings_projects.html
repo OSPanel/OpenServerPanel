@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">專案全域設定</h2>
+    <p>在此區段中指定的參數，將在專案設定未提供其他值時使用。</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                定義專案所使用的 Web 伺服器模組。</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                指定用於執行 Node.js 應用的 Node.js 引擎。<br><br>
+                <strong>安裝 Node.js：</strong> 請先使用指令 <b>osp node &lt;latest|lts|номер&gt;</b> 安裝所需版本的 Node.js。</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                定義用於處理 PHP 檔案的 PHP 模組。</td>
+        </tr>
+        <tr>
+            <th>啟用</th>
+        </tr>
+        <tr>
+            <td>
+                定義專案的預設狀態（啟用或停用）。</td>
+        </tr>
+        <tr>
+            <th>終端機編碼</th>
+        </tr>
+        <tr>
+            <td>
+                專案環境工作的終端機編碼。<br><br>
+                <strong>特殊值：</strong><br>
+                - system: 使用系統編碼。<br><br>
+                <strong>重要：</strong> 若未設定此值，在組成最終的專案環境時，終端機編碼將採用最後被載入且有設定此值的環境，例如 PHP 模組的環境。</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                設定提供給所有未做個別設定之專案使用的 IP 位址。<br><br>
+                <strong>限制：</strong> 使用相同 IP 位址的專案必須在同一版本的 PHP 上運行。<br><br>
+                <strong>多 IP 支援：</strong> 可透過空白分隔指定多個 IP 位址，包含 IPv6。在 HOSTS 檔案中，網域將指派為第一個所填的 IP。<br><br>
+                <strong>自動指派：</strong> 若留白，IP 位址將自動指派。<br><br>
+                <strong>建議：</strong>
+                <ul>
+                    <li>大多數使用者建議使用自動管理 IP 位址。</li>
+                    <li>僅在具特定網路配置需求時才使用手動指定 IP 位址。</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                定義 HTTP 連線的連接埠。</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                定義 HTTPS 連線的連接埠。</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                啟用或停用 TLS 支援。</td>
+        </tr>
+        
+        <tr>
+            <th>憑證檔案</th>
+        </tr>
+        <tr>
+            <td>
+                指定 TLS 憑證檔案路徑。可使用樣板變數。<br><br>
+                <strong>可用字元：</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>建議：</strong> 留白以自動產生憑證。</td>
+        </tr>
+        <tr>
+            <th>金鑰檔案</th>
+        </tr>
+        <tr>
+            <td>
+                指定 TLS 金鑰檔案路徑。可使用樣板變數。<br><br>
+                <strong>可用字元：</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>建議：</strong> 留白以自動產生金鑰。</td>
+        </tr>
+        <tr>
+            <th>IP 位址（backend）</th>
+        </tr>
+        <tr>
+            <td>指定連線到後端（Backend）的 IP 位址。</td>
+        </tr>
+        <tr>
+            <th>連接埠（backend）</th>
+        </tr>
+        <tr>
+            <td>定義連線到後端（Backend）的連接埠號碼。</td>
+        </tr>
+        <tr>
+            <th>啟用（backend）</th>
+        </tr>
+        <tr>
+            <td>允許自動將專案的所有入站流量（HTTP 與 HTTPS）導向到後端（Backend）。對於前後端分離的測試或開發情境很有用。</td>
+        </tr>
+        <tr>
+            <th>專案目錄</th>
+        </tr>
+        <tr>
+            <td>
+                指定專案的根目錄。執行 <strong>osp project &lt;DOMAIN&gt;</strong> 指令並同時啟用專案環境時，會切換至此目錄。可使用樣板變數。<br><br>
+                <strong>允許字元：</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>公開目錄</th>
+        </tr>
+        <tr>
+            <td>
+                定義專案的公開目錄。可使用樣板變數。<br><br>
+                <strong>允許字元：</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>別名</th>
+        </tr>
+        <tr>
+            <td>
+                指定專案的額外網域名稱（別名，以空白分隔）。可使用樣板變數。<br><br>
+                <strong>限制：</strong> 符號「*」在 Windows 的 HOSTS 檔案中不受支援，需透過 DNS 設定。</td>
+        </tr>
+        <tr>
+            <th>專案環境</th>
+        </tr>
+        <tr>
+            <td>
+                構成專案環境的附加元件與模組清單（以空白分隔）。<br><br>
+                <strong>HTTP、NODE 與 PHP：</strong> 這些引擎的環境會在為網域設定時自動載入，無需在此參數中指定。</td>
+        </tr>
+        <tr>
+            <th>專案啟動指令</th>
+        </tr>
+        <tr>
+            <td>
+                定義啟動專案的指令（例如，<strong>nodemon app.js</strong>）。可使用樣板變數。</td>
+        </tr>
+        <tr>
+            <th>專案 URL</th>
+        </tr>
+        <tr>
+            <td>
+                開啟專案時使用的 URL（<strong>選單&rarr;專案&rarr;在瀏覽器中開啟</strong>），以及開啟專案網域別名時使用的 URL。可使用樣板變數。<br><br>
+                <strong>應用：</strong> 可以指定 CMS 後台管理面板的 URL。</td>
+        </tr>
+    </table>
+    <h2>樣板變數</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>變數</th>
+                <th>說明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>連線到後端（Backend）的 IP 位址</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>連線到後端（Backend）的連接埠</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>專案根目錄（.osp 目錄所在位置）</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>目前日期/時間（僅在專案應用啟動指令中可用的變數）</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>網域名稱（針對國際化網域使用 Punycode）</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>可見的網域名稱（不含 Punycode）</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>對專案的請求方案（"http" 或 "https"，取決於專案設定中的 TLS 參數）</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>以 HTTP 協定對專案發出請求的連接埠</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>以 HTTPS 協定對專案發出請求的連接埠</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP 引擎</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE 引擎</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP 引擎</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>專案根目錄</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>專案公開目錄</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>對專案請求所用的連接埠（":{http_port}" 或 ":{https_port}"，取決於專案設定中的 TLS 參數）。<br><br>若 {http_port} 或 {https_port} 為標準值 80 或 443，則 {scheme_port} 為空。</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panel 根目錄（完整路徑）</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>根目錄所在磁碟</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Open Server Panel 的根目錄路徑</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>主控台編碼</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

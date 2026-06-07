@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Impostazioni del programma</h2>
+    <table>
+        <tr>
+            <th>Avviare insieme a Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Abilitare l'avvio automatico di Open Server Panel all'avvio del sistema operativo.</td>
+        </tr>
+        <tr>
+            <th>Ritardo</th>
+        </tr>
+        <tr>
+            <td>
+                Ritardo di avvio del programma (in secondi, da 0 a 60).<br><br>Consente di posticipare l'avvio dell'applicazione durante l'avvio insieme a Windows, per ridurre il carico complessivo sul sistema. È particolarmente utile se è necessario attendere la completa inizializzazione di servizi di terze parti o interfacce di rete.</td>
+        </tr>
+        <tr>
+            <th>Controllare la disponibilità di nuove versioni</th>
+        </tr>
+        <tr>
+            <td>
+                Abilitare il controllo degli aggiornamenti di Open Server Panel (è necessaria la connessione a Internet).</td>
+        </tr>
+        <tr>
+            <th>Abilitare il pianificatore di attività</th>
+        </tr>
+        <tr>
+            <td>
+                Attivare il pianificatore di attività integrato. Se il parametro è disabilitato, nessuna attività pianificata verrà eseguita, indipendentemente dal loro stato.</td>
+        </tr>
+        <tr>
+            <th>Utilizzare il file HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Abilitare la registrazione dei nomi di dominio nel file HOSTS.<br><br>
+                <strong>Raccomandazioni in caso di accesso limitato al file HOSTS nell'organizzazione:</strong><br><br>
+                1. Configurare tutti i moduli e i progetti necessari.<br>
+                2. Contattare l'amministratore di sistema per sbloccare HOSTS e fissarne lo stato.<br>
+                3. Dopo la fissazione delle modifiche da parte dell'amministratore, è possibile disattivare questa opzione.<br><br>
+                <strong>Importante:</strong> Non disattivare questo parametro se non si è sicuri delle conseguenze!</td>
+        </tr>
+        <tr>
+            <th>Avviare i moduli con il profilo del progetto</th>
+        </tr>
+        <tr>
+            <td>Avviare i moduli con l'attivazione simultanea del profilo che coincide con il nome del progetto.<br><br>Viene utilizzato quando si seleziona la voce di menu «Abilitare i moduli del progetto», per attivare automaticamente il profilo con lo stesso nome del progetto corrente, se esiste.</td>
+        </tr>
+        <tr>
+            <th>Non spegnere i moduli dei progetti nascosti</th>
+        </tr>
+        <tr>
+            <td>Non spegnere i moduli dei progetti nascosti quando si seleziona la voce di menu «Spegnere tutti i moduli». Per "nascosti" si intendono quei progetti per i quali è impostata la categoria "hidden".<br><br>Per impostazione predefinita, il comando «Spegnere tutti i moduli» arresta il funzionamento di tutti i moduli, inclusi quelli utilizzati da progetti di servizio nascosti (ad esempio, PHPMyAdmin). Questa opzione consente di mantenere la funzionalità dei progetti di servizio nascosti, senza disattivare i moduli necessari per essi, mentre tutti gli altri moduli verranno disattivati.</td>
+        </tr>
+        <tr>
+            <th>Lingua dell'interfaccia</th>
+        </tr>
+        <tr>
+            <td>
+                Lingua dell'interfaccia utente di Open Server Panel.<br><br>
+                Se il file di localizzazione è assente o contiene errori, verrà utilizzata la lingua inglese.</td>
+        </tr>
+        <tr>
+            <th>Dominio API</th>
+        </tr>
+        <tr>
+            <td>
+                Dominio locale per API e interfaccia web (in sviluppo)<br><br>
+                <strong>Raccomandazione:</strong> Se si utilizza una VPN o un proxy, aggiungere questo dominio alle eccezioni.</td>
+        </tr>
+        <tr>
+            <th>Indirizzo IP dell'API</th>
+        </tr>
+        <tr>
+            <td>
+                Indirizzo IPv4 per API e interfaccia web (in sviluppo).<br><br>
+                <strong>Raccomandazione:</strong> Se si utilizza una VPN o un proxy, aggiungere questo indirizzo IP alle eccezioni.</td>
+        </tr>
+        <tr>
+            <th>Porta API</th>
+        </tr>
+        <tr>
+            <td>
+                Porta utilizzata per API e interfaccia web (in sviluppo). Open Server Panel non potrà avviarsi se la porta specificata è già utilizzata da un'altra applicazione.</td>
+        </tr>
+        <tr>
+            <th>Utilizzare Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Abilitare l'uso di Windows Terminal al posto dell'interfaccia a riga di comando standard.<br><br>
+                <strong>Requisiti:</strong> Windows Terminal deve essere installato nel sistema e presente nella variabile d'ambiente PATH.<br><br>
+                <strong>Windows Terminal come cmd.exe:</strong> Windows Terminal può sostituire cmd.exe ed essere presente nella variabile d'ambiente %COMSPEC% nelle nuove versioni di Windows. Se è così, lasciare questa opzione abilitata.<br><br>
+                <strong>Nuove istanze di Windows Terminal:</strong> Se Windows Terminal apre nuove finestre invece delle schede, configurarlo così: Impostazioni&rarr;Avvio&rarr;Comportamento della nuova istanza&rarr;Allega all'ultima finestra utilizzata.</td>
+        </tr>
+        <tr>
+            <th>Titolo breve del progetto</th>
+        </tr>
+        <tr>
+            <td>
+                Attivando questa opzione, nel titolo della finestra del terminale verrà visualizzato solo il nome del progetto invece della descrizione dettagliata dell'ambiente.</td>
+        </tr>
+        <tr>
+            <th>Includere l'ambiente di sistema nell'ambiente del progetto</th>
+        </tr>
+        <tr>
+            <td>Utilizzare l'ambiente di sistema (System) nel terminale, anche se non è impostato nelle impostazioni del progetto. L'ambiente di sistema consente di utilizzare i programmi installati nel sistema (ad esempio, git.exe o ssh.exe).<br><br>Disattivare questa opzione solo in caso di conflitti con il software di sistema.</td>
+        </tr>
+        <tr>
+            <th>Supporto ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Abilitare il supporto dei codici ANSI per la gestione dei colori nel terminale.<br><br>
+                Modalità "Automatico" (predefinita):<br>
+                - La correzione viene applicata solo a Windows 10 fino alla versione 1903 inclusa. Nelle versioni più recenti di Windows, il supporto dei codici ANSI è già integrato.<br>
+                - La correzione non viene applicata ai terminali che supportano ANSI per impostazione predefinita (ad esempio, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Cartelle per la ricerca dei progetti</th>
+        </tr>
+        <tr>
+            <td>
+                Elenco delle cartelle in cui Open Server Panel cercherà i progetti. Separare i percorsi con un punto e virgola (;).<br><br>
+                <strong>Eccezioni:</strong> Le sottocartelle node_modules e vendor vengono ignorate.</td>
+        </tr>
+        <tr>
+            <th>Profondità</th>
+        </tr>
+        <tr>
+            <td>
+                Profondità massima di annidamento delle cartelle durante la ricerca dei progetti.<br><br>
+                L'aumento di questo valore può rallentare l'avvio di Open Server Panel se nelle cartelle specificate sono presenti numerose sottocartelle.</td>
+        </tr>
+        <tr>
+            <th>Dimensione massima del file di log</th>
+        </tr>
+        <tr>
+            <td>
+                Dimensione massima del file di log in megabyte. Al superamento del valore indicato, il file di log verrà ricreato al successivo avvio del programma.<br><br>
+                Impostare il valore 0 per pulire i log a ogni avvio del programma.<br><br>
+                Impostare il valore 100 MB per disattivare completamente la pulizia dei log.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

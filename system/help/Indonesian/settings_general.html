@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Pengaturan program</h2>
+    <table>
+        <tr>
+            <th>Jalankan bersama Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Aktifkan mulai otomatis Open Server Panel saat sistem operasi boot.</td>
+        </tr>
+        <tr>
+            <th>Penundaan</th>
+        </tr>
+        <tr>
+            <td>
+                Penundaan peluncuran program (dalam detik, dari 0 hingga 60).<br><br>Memungkinkan menunda mulai aplikasi saat boot bersama Windows untuk mengurangi beban keseluruhan pada sistem. Ini sangat berguna jika perlu menunggu inisialisasi penuh layanan pihak ketiga atau antarmuka jaringan.</td>
+        </tr>
+        <tr>
+            <th>Periksa pembaruan</th>
+        </tr>
+        <tr>
+            <td>
+                Aktifkan pemeriksaan pembaruan Open Server Panel (membutuhkan koneksi Internet).</td>
+        </tr>
+        <tr>
+            <th>Aktifkan penjadwal tugas</th>
+        </tr>
+        <tr>
+            <td>
+                Aktifkan penjadwal tugas bawaan. Jika parameter dinonaktifkan, tidak ada tugas terjadwal yang akan dijalankan, terlepas dari statusnya.</td>
+        </tr>
+        <tr>
+            <th>Gunakan file HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Aktifkan pencatatan nama domain ke file HOSTS.<br><br>
+                <strong>Rekomendasi saat akses ke file HOSTS dibatasi di organisasi:</strong><br><br>
+                1. Konfigurasikan semua modul dan proyek yang diperlukan.<br>
+                2. Hubungi administrator sistem untuk membuka blokir HOSTS dan mengunci statusnya.<br>
+                3. Setelah perubahan dikunci oleh administrator, opsi ini dapat dinonaktifkan.<br><br>
+                <strong>Penting:</strong> Jangan menonaktifkan parameter ini jika Anda tidak yakin dengan konsekuensinya!</td>
+        </tr>
+        <tr>
+            <th>Jalankan modul dengan profil proyek</th>
+        </tr>
+        <tr>
+            <td>Jalankan modul dengan aktivasi simultan profil yang namanya sama dengan nama proyek.<br><br>Digunakan saat memilih menu «Aktifkan modul proyek», untuk secara otomatis mengaktifkan profil dengan nama yang sama dengan proyek saat ini, jika ada.</td>
+        </tr>
+        <tr>
+            <th>Jangan matikan modul proyek tersembunyi</th>
+        </tr>
+        <tr>
+            <td>Jangan matikan modul proyek tersembunyi saat memilih menu «Matikan semua modul». Yang dimaksud dengan "tersembunyi" adalah proyek yang dikategorikan sebagai "hidden".<br><br>Secara default, perintah «Matikan semua modul» menghentikan semua modul, termasuk modul yang digunakan oleh proyek layanan tersembunyi (misalnya, PHPMyAdmin). Opsi ini memungkinkan menjaga kelayakan proyek layanan tersembunyi tanpa menonaktifkan modul yang diperlukan untuknya, sementara semua modul lainnya akan dimatikan.</td>
+        </tr>
+        <tr>
+            <th>Bahasa antarmuka</th>
+        </tr>
+        <tr>
+            <td>
+                Bahasa antarmuka pengguna Open Server Panel.<br><br>
+                Jika file lokalisasi tidak ada atau berisi kesalahan, bahasa Inggris akan digunakan.</td>
+        </tr>
+        <tr>
+            <th>Domain API</th>
+        </tr>
+        <tr>
+            <td>
+                Domain lokal untuk API dan antarmuka web (dalam pengembangan)<br><br>
+                <strong>Rekomendasi:</strong> Jika menggunakan VPN atau proxy, tambahkan domain ini ke pengecualian.</td>
+        </tr>
+        <tr>
+            <th>Alamat IP API</th>
+        </tr>
+        <tr>
+            <td>
+                Alamat IPv4 untuk API dan antarmuka web (dalam pengembangan).<br><br>
+                <strong>Rekomendasi:</strong> Jika menggunakan VPN atau proxy, tambahkan alamat IP ini ke pengecualian.</td>
+        </tr>
+        <tr>
+            <th>Port API</th>
+        </tr>
+        <tr>
+            <td>
+                Port yang digunakan untuk API dan antarmuka web (dalam pengembangan). Open Server Panel tidak akan dapat berjalan jika port yang ditentukan sudah digunakan oleh aplikasi lain.</td>
+        </tr>
+        <tr>
+            <th>Gunakan Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Aktifkan penggunaan Windows Terminal alih-alih antarmuka perintah standar.<br><br>
+                <strong>Persyaratan:</strong> Windows Terminal harus terpasang di sistem dan terdaftar di variabel lingkungan PATH.<br><br>
+                <strong>Windows Terminal sebagai cmd.exe:</strong> Windows Terminal dapat menggantikan cmd.exe dan terdaftar di variabel lingkungan %COMSPEC% pada versi Windows terbaru. Jika demikian, biarkan opsi ini tetap diaktifkan.<br><br>
+                <strong>Instans Windows Terminal baru:</strong> Jika Windows Terminal membuka jendela baru alih-alih tab, atur seperti ini: Settings&rarr;Startup&rarr;New instance behavior&rarr;Attach to most recently used window.</td>
+        </tr>
+        <tr>
+            <th>Judul proyek singkat</th>
+        </tr>
+        <tr>
+            <td>
+                Saat opsi ini diaktifkan, judul jendela terminal hanya akan menampilkan nama proyek alih-alih deskripsi rinci lingkungan.</td>
+        </tr>
+        <tr>
+            <th>Sertakan lingkungan sistem dalam lingkungan proyek</th>
+        </tr>
+        <tr>
+            <td>Gunakan lingkungan sistem (System) di terminal, bahkan jika tidak ditentukan di pengaturan proyek. Lingkungan sistem memungkinkan penggunaan program yang terpasang di sistem (misalnya, git.exe atau ssh.exe).<br><br>Nonaktifkan opsi ini hanya jika terjadi konflik dengan perangkat lunak sistem.</td>
+        </tr>
+        <tr>
+            <th>Dukungan ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Aktifkan dukungan kode ANSI untuk mengelola warna di terminal.<br><br>
+                Mode "Otomatis" (default):<br>
+                - Perbaikan diterapkan hanya untuk Windows 10 hingga versi 1903 inklusif. Pada versi Windows yang lebih baru, dukungan kode ANSI sudah bawaan.<br>
+                - Perbaikan tidak diterapkan untuk terminal yang mendukung ANSI secara default (misalnya, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Direktori untuk mencari proyek</th>
+        </tr>
+        <tr>
+            <td>
+                Daftar direktori tempat Open Server Panel akan mencari proyek. Pisahkan path dengan titik koma (;).<br><br>
+                <strong>Pengecualian:</strong> Subdirektori node_modules dan vendor diabaikan.</td>
+        </tr>
+        <tr>
+            <th>Kedalaman</th>
+        </tr>
+        <tr>
+            <td>
+                Kedalaman maksimum hierarki direktori saat mencari proyek.<br><br>
+                Meningkatkan nilai ini dapat memperlambat peluncuran Open Server Panel jika direktori yang ditentukan berisi banyak subdirektori.</td>
+        </tr>
+        <tr>
+            <th>Ukuran maksimum file log</th>
+        </tr>
+        <tr>
+            <td>
+                Ukuran maksimum file log dalam megabita. Saat melebihi nilai yang ditentukan, file log akan dibuat ulang pada peluncuran program berikutnya.<br><br>
+                Atur nilai 0 untuk membersihkan log pada setiap peluncuran program.<br><br>
+                Atur nilai 100 MB untuk sepenuhnya menonaktifkan pembersihan log.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

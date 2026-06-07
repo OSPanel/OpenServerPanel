@@ -1,0 +1,1319 @@
+:: -----------------------------------------------------------------------------------
+:: OPEN SERVER PANEL | COMMAND LINE INTERFACE
+:: -----------------------------------------------------------------------------------
+
+:: Initialization of main environment variables
+
+@set "ESC="
+@set "OSP_DIR={root_dir}"
+@set "OSP_VERSION={osp_version}"
+@set "OSP_MODULES_LIST={modules_list}"
+@set "OSP_MODULES_LIST_=:%OSP_MODULES_LIST: =:%:"
+@set "OSP_ADDONS_LIST={addons_list}"
+@set "OSP_ADDONS_LIST_=:%OSP_ADDONS_LIST: =:%:"
+@set "OSP_PROG_LIST=curl ospurl tail fd bat getbit getparent ansicon colortest"
+@set "CURL_CA_BUNDLE={root_dir}\data\ssl\cacert.pem"
+
+:: Checking and configuring ANSI for terminal
+
+@if "{terminal_ansi_fix}"=="1" (
+    @if not defined OSP_FIXED (
+        @if exist "%OSP_DIR%\system\bin\ansicon.exe" (
+            @set "OSP_FIXED=YES"
+            "%OSP_DIR%\system\bin\ansicon.exe" -p >nul 2>nul
+        )
+    )
+)
+
+:: Checking terminal color support
+
+@if exist "%OSP_DIR%\system\bin\colortest.exe" (
+    "%OSP_DIR%\system\bin\colortest.exe"
+    @if %ERRORLEVEL% neq 0 (
+        @if "{terminal_ansi_fix}"=="0" (
+            @if /i not "%ConEmuANSI%"=="ON" (
+                @if not defined OSP_FIXED (
+                    @if exist "%OSP_DIR%\system\bin\ansicon.exe" (
+                        @set "OSP_FIXED=YES"
+                        "%OSP_DIR%\system\bin\ansicon.exe" -p >nul 2>nul
+                    )
+                )
+            )
+        )
+    )
+)
+
+:: Saving original code page and setting UTF-8
+
+@for /f "tokens=2 delims=:." %%a in ('chcp') do @set "OSP_CODEPAGE=%%a"
+@call :trim %OSP_CODEPAGE% OSP_CODEPAGE
+@chcp 65001 > nul
+
+:: Checking for running program
+
+@if not exist "%OSP_DIR%\temp\OSPanel.lock" (
+    @set "OSP_ERR_MSG={lang_err_osp_must_be_started}"
+    goto error
+)
+
+:: Checking PowerShell
+
+@call "%OSP_DIR%\system\bin\getparent.exe" >nul 2>nul
+@if %ERRORLEVEL% neq 0 (
+    @set "OSP_ERR_MSG={lang_err_powershell_detect}"
+    goto error
+)
+
+:: Saving original ECHO state
+
+:gettempname
+@set "OSP_TMPVAL=~OSP_%RANDOM%%RANDOM%%RANDOM%%RANDOM%%RANDOM%.tmp"
+@if exist "%OSP_DIR%\temp\%OSP_TMPVAL%" goto gettempname
+@(for /f %%N in ("1") do call,) > "%OSP_DIR%\temp\%OSP_TMPVAL%" 2>nul
+@if not exist "%OSP_DIR%\temp\%OSP_TMPVAL%" (
+    @set "OSP_ERR_MSG={lang_err_failed_save_tmp_file}"
+    goto error
+)
+@for %%S in ("%OSP_DIR%\temp\%OSP_TMPVAL%") do @if %%~zS==0 (@set "OSP_ECHO_STATE=OFF") else (@set "OSP_ECHO_STATE=ON")
+@del "%OSP_DIR%\temp\%OSP_TMPVAL%" 2>nul
+@echo off
+
+:: Checking for required programs
+
+for %%a in (%OSP_PROG_LIST%) do (
+    if not exist "%OSP_DIR%\system\bin\%%a.exe" (
+        set "OSP_ERR_MSG=%OSP_DIR%\system\bin\%%a.exe {lang_err_not_found}"
+        goto error
+    )
+)
+
+if not exist "%OSP_DIR%\bin\ospanel_sys_prep_tool.exe" (
+    set "OSP_ERR_MSG=%OSP_DIR%\bin\ospanel_sys_prep_tool.exe {lang_err_not_found}"
+    goto error
+)
+
+:: Initialization and verification of environment
+
+if "%OSP_ACTIVE_ENV%"=="" set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
+
+:: -----------------------------------------------------------------------------------
+:: ROUTER
+:: -----------------------------------------------------------------------------------
+
+:router
+if "%1"=="" goto help
+if /i "%1"=="add"         goto env_add
+if /i "%1"=="addons"      goto request
+if /i "%1"=="cacert"      goto cacertinit
+if /i "%1"=="convert"     goto convert
+if /i "%1"=="exit"        goto shutdown
+if /i "%1"=="help"        goto help
+if /i "%1"=="-h"          goto help
+if /i "%1"=="info" (
+    echo:
+    echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+    goto end
+)
+if /i "%1"=="init"        goto mod_cmd
+if /i "%1"=="log"         goto log
+if /i "%1"=="modules"     goto request
+if /i "%1"=="node"        goto node
+if /i "%1"=="off"         goto mod_cmd
+if /i "%1"=="on"          goto mod_cmd
+if /i "%1"=="project"     goto project
+if /i "%1"=="projects"    goto request
+if /i "%1"=="reset"       goto env_windows
+if /i "%1"=="restart"     goto mod_cmd
+if /i "%1"=="shell"       goto mod_shell
+if /i "%1"=="status"      goto mod_cmd
+if /i "%1"=="startcheck"  goto request
+if /i "%1"=="sysprep"     goto sysprep
+if /i "%1"=="tasks"       goto request
+if /i "%1"=="use"         goto env_set
+if /i "%1"=="-v" (
+    echo:
+    echo {lang_version_info}: Open Server Panel v%OSP_VERSION% x64
+    goto end
+)
+if /i "%1"=="version" (
+    echo:
+    echo {lang_version_info}: Open Server Panel v%OSP_VERSION% x64
+    goto end
+)
+
+:: Unknown command
+
+set "OSP_ERR_MSG={lang_err_unknown_command}"
+goto error
+
+:: -----------------------------------------------------------------------------------
+:: LOGO
+:: -----------------------------------------------------------------------------------
+
+:logo
+echo   ___                     ____                             ____                  _
+echo  / _ \ _ __   ___ _ __   / ___^|  ___ _ ____   _____ _ __  ^|  _ \ __ _ _ __   ___^| ^|
+echo ^| ^| ^| ^| '_ \ / _ \ '_ \  \___ \ / _ \ '__\ \ / / _ \ '__^| ^| ^|_) / _` ^| '_ \ / _ \ ^|
+echo ^| ^|_^| ^| ^|_) ^|  __/ ^| ^| ^|  ___) ^|  __/ ^|   \ V /  __/ ^|    ^|  __/ (_^| ^| ^| ^| ^|  __/ ^|
+echo  \___/^| .__/ \___^|_^| ^|_^| ^|____/ \___^|_^|    \_/ \___^|_^|    ^|_^|   \__,_^|_^| ^|_^|\___^|_^|
+echo       ^|_^|
+echo:
+echo {lang_calling_help}: %ESC%[32mosp help%ESC%[0m ^| {lang_program_version}: %ESC%[33m%OSP_VERSION%%ESC%[0m ^| © 2010-2025 ^«OSPanel.io^»
+exit /b 0
+
+:: -----------------------------------------------------------------------------------
+:: HELP
+:: -----------------------------------------------------------------------------------
+
+:help
+call :logo
+echo:
+echo %ESC%[33m{lang_usage}:%ESC%[0m %ESC%[32mosp ^<{lang_command_param}^> [^<{lang_arguments}^>]%ESC%[0m
+echo:
+echo %ESC%[33m{lang_env_management}:%ESC%[0m
+echo:
+echo %ESC%[32madd     ^<MODULE^|ADDON^>%ESC%[0m      {lang_merge_env}
+echo %ESC%[32minfo%ESC%[0m                        {lang_show_current_env}
+echo %ESC%[32mproject ^<DOMAIN^>   [start]%ESC%[0m  {lang_activate_project}
+echo                             {lang_activate_project_info}
+echo                             {lang_activate_project_info_2}
+echo                             {lang_activate_project_info_3}
+echo %ESC%[32mreset   [init]%ESC%[0m              {lang_reset_current_env}
+echo                             {lang_init_flag}
+echo %ESC%[32muse     ^<MODULE^|ADDON^>%ESC%[0m      {lang_apply_mod_env}
+echo                             {lang_disabled_mod_note_1}
+echo                             {lang_disabled_mod_note_2}
+echo:
+echo %ESC%[33m{lang_mod_management}:%ESC%[0m
+echo:
+echo %ESC%[32minit    ^<MODULE^> [PROFILE]%ESC%[0m  {lang_reinit}
+echo                             {lang_switch_profile_note}
+echo                             {lang_reinit_note}
+echo                             {lang_apply_mod_env_again_1}
+echo                             {lang_apply_mod_env_again_2}
+echo %ESC%[32moff     ^<MODULE^>%ESC%[0m            {lang_disable_mod}
+echo %ESC%[32mon      ^<MODULE^> [PROFILE]%ESC%[0m  {lang_enable_mod}
+echo %ESC%[32mrestart ^<MODULE^> [PROFILE]%ESC%[0m  {lang_restart_mod}
+echo %ESC%[32mshell   ^<MODULE^>%ESC%[0m            {lang_launch_shell_descr}
+echo %ESC%[32mstatus  ^<MODULE^>%ESC%[0m            {lang_show_mod_status}
+
+if exist "%OSP_DIR%\addons\NVM\nvm.exe" (
+    echo:
+    echo %ESC%[33m{lang_nvm_management}:%ESC%[0m
+    echo:
+    echo %ESC%[32mnode    install ^<N^>       %ESC%[0m  {lang_nvm_install_1}
+    echo                             {lang_nvm_install_2}
+    echo                             {lang_nvm_install_3}
+    echo                             {lang_nvm_install_4}
+    echo                             {lang_nvm_install_6}
+    echo                             {lang_nvm_install_7}
+    echo %ESC%[32mnode    list   [available]%ESC%[0m  {lang_nvm_list_1}
+    echo                             {lang_nvm_list_2}
+    echo %ESC%[32mnode    uninstall ^<N^>%ESC%[0m       {lang_nvm_uninstall}
+)
+
+:help2
+echo:
+echo %ESC%[33m{lang_other_commands}:%ESC%[0m
+echo:
+echo %ESC%[32maddons%ESC%[0m                      {lang_show_addons_info}
+echo %ESC%[32mcacert  ^<init^|show^|deinit^>%ESC%[0m  {lang_gen_and_install_root_cert}
+echo                             {lang_about_gen_root_cert}
+echo                             {lang_about_gen_root_cert_2}
+echo %ESC%[32mconvert ^<DOMAIN^>%ESC%[0m            {lang_convert_from_to_punycode}
+echo %ESC%[32mexit%ESC%[0m                        {lang_shutting_down_program}
+echo %ESC%[32mlog     ^<PATTERN^> [N]%ESC%[0m       {lang_show_log}
+echo                             {lang_show_log_descr}
+echo                             {lang_show_log_descr_2}
+echo                             {lang_show_log_descr_3}
+echo                             {lang_show_log_descr_4}
+echo                             {lang_show_log_descr_5}
+echo %ESC%[32mmodules%ESC%[0m                     {lang_show_mod_info}
+echo %ESC%[32mprojects%ESC%[0m                    {lang_show_info_about_domains}
+echo %ESC%[32mstatus%ESC%[0m                      {lang_show_all_status}
+echo %ESC%[32msysprep [silent^|ssd]%ESC%[0m        {lang_launch_sp_tool}
+echo                             {lang_silent_flag}
+echo                             {lang_ssd_flag}
+echo                             {lang_about_silent_mode_1}
+echo                             {lang_about_silent_mode_2}
+echo %ESC%[32mtasks%ESC%[0m                       {lang_show_tasks}
+echo %ESC%[32mversion%ESC%[0m                     {lang_show_version_info}
+echo:
+echo %ESC%[33m{lang_usage_examples}:%ESC%[0m
+echo:
+echo %ESC%[32mosp exit ^& ospanel%ESC%[0m          {lang_restarting_program}
+echo %ESC%[32mosp use PostgreSQL-9.6%ESC%[0m      {lang_usage_postgresql}
+echo %ESC%[32mosp on PHP-8.1 myprofile%ESC%[0m    {lang_enabling_php}
+echo %ESC%[32mosp restart mysql-8.0%ESC%[0m       {lang_restarting_mysql}
+echo %ESC%[32mosp reset ^& osp add bind%ESC%[0m    {lang_combining_with_bind}
+echo:
+echo %ESC%[33m{lang_available_utilities}:%ESC%[0m
+echo:
+echo %ESC%[32maria2c%ESC%[0m                      {lang_utilite_aria2c}
+echo %ESC%[32mbat%ESC%[0m                         {lang_utilite_bat}
+echo %ESC%[32mbrotli%ESC%[0m                      {lang_utilite_brotli}
+echo %ESC%[32mcurl%ESC%[0m                        {lang_utilite_curl}
+echo %ESC%[32mdust%ESC%[0m                        {lang_utilite_dust}
+echo %ESC%[32mfd%ESC%[0m                          {lang_utilite_fd}
+echo %ESC%[32mgeoiplookup%ESC%[0m                 {lang_utilite_geoiplookup6}
+echo %ESC%[32mgeoiplookup6%ESC%[0m                {lang_utilite_geoiplookup6}
+echo %ESC%[32mjq%ESC%[0m                          {lang_utilite_jq}
+echo %ESC%[32mmmdbinspect%ESC%[0m                 {lang_utilite_mmdbinspect}
+echo %ESC%[32moha%ESC%[0m                         {lang_utilite_oha}
+echo %ESC%[32msass%ESC%[0m                        {lang_utilite_sass}
+echo %ESC%[32msd%ESC%[0m                          {lang_utilite_sd}
+echo %ESC%[32msqlite3%ESC%[0m                     {lang_utilite_sqlite3}
+echo %ESC%[32mwget%ESC%[0m                        {lang_utilite_wget}
+echo %ESC%[32mxh%ESC%[0m                          {lang_utilite_xh}
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: SHUTTING DOWN THE APPLICATION
+:: -----------------------------------------------------------------------------------
+
+:shutdown
+
+:: Resetting all environment variables for modules
+
+if not "%OSP_MODULES_LIST%"=="" (
+    for %%a in (%OSP_MODULES_LIST%) do (
+        if exist "%OSP_DIR%\data\cli\env_%%a.bat" (
+            call "%OSP_DIR%\data\cli\env_%%a.bat" resetenv
+        )
+    )
+)
+
+:: Resetting all environment variables for addons
+
+if not "%OSP_ADDONS_LIST%"=="" (
+    for %%a in (%OSP_ADDONS_LIST%) do (
+        if exist "%OSP_DIR%\data\cli\env_%%a.bat" (
+            call "%OSP_DIR%\data\cli\env_%%a.bat" resetenv
+        )
+    )
+)
+
+:: Restoring system environment
+
+{system_environment}
+
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
+
+:: Restoring code page
+
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
+
+:: Displaying information about current environment
+
+if /i not "%2"=="silent" (
+    echo:
+    echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+)
+
+:: Setting window title
+
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+
+:: Sending exit signal to API
+
+"%OSP_DIR%\system\bin\ospurl.exe" -f -s {cmd_api_url}/exit
+
+:: Checking server shutdown
+
+if exist "%OSP_DIR%\temp\OSPanel.lock" goto error
+
+:: Exit message
+
+if /i not "%2"=="silent" (
+    echo:
+    echo {lang_exiting_program}
+)
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: INIT CACERT
+:: -----------------------------------------------------------------------------------
+
+:cacertinit
+
+if "%2"=="" goto eargument
+
+:: Checking and processing cacert command parameters
+
+if /i "%2"=="show" "%SystemRoot%\System32\certutil.exe" -user -store "Root" "Open Server Panel" 2>nul
+
+if /i "%2"=="show" (
+    if %ERRORLEVEL% neq 0 goto error
+    goto end
+)
+
+if /i "%2"=="deinit" goto cacertdeinit
+
+:: Checking for root certificate generation script
+
+if not exist "%OSP_DIR%\system\ssl\gen_root_cert.bat" (
+    set "OSP_ERR_MSG=%OSP_DIR%\system\ssl\gen_root_cert.bat {lang_err_not_found}"
+    goto error
+)
+
+:: Downloading current certificate file
+
+"%OSP_DIR%\system\bin\curl.exe" -f -s -L -o "%OSP_DIR%\system\ssl\cacert.pem" https://curl.se/ca/cacert.pem
+if %ERRORLEVEL% neq 0 (
+    set "OSP_ERR_MSG={lang_err_download_cacert_failed}"
+    goto error
+)
+
+:: Removing old certificate
+
+if exist "%OSP_DIR%\data\ssl\root\cert.crt" (
+    del /Q "%OSP_DIR%\data\ssl\root\cert.crt" 2>nul
+    if exist "%OSP_DIR%\data\ssl\root\cert.crt" (
+        set "OSP_ERR_MSG={lang_err_delete_old_cert_failed}"
+        goto error
+    )
+)
+
+:: Removing certificate from storage
+
+"%SystemRoot%\System32\certutil.exe" -user -delstore "Root" "Open Server Panel" >nul 2>nul
+"%SystemRoot%\System32\certutil.exe" -urlcache * delete >nul 2>nul
+
+:: Generating new certificate
+
+call "%OSP_DIR%\system\ssl\gen_root_cert.bat"
+if not exist "%OSP_DIR%\data\ssl\root\cert.crt" (
+    set "OSP_ERR_MSG={lang_err_failed_gen_root_cert}"
+    goto error
+)
+
+:: Installing certificate to storage
+
+"%SystemRoot%\System32\certutil.exe" -user -addstore "Root" "%OSP_DIR%\data\ssl\root\cert.crt" 2>nul
+if %ERRORLEVEL% neq 0 (
+    set "OSP_ERR_MSG={lang_err_install_cert_failed}"
+    goto error
+)
+
+"%SystemRoot%\System32\certutil.exe" -urlcache * delete >nul 2>nul
+
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: DEINIT CACERT
+:: -----------------------------------------------------------------------------------
+
+:cacertdeinit
+if exist "%OSP_DIR%\data\ssl\root\cert.crt" (
+    del /Q "%OSP_DIR%\data\ssl\root\cert.crt" 2>nul
+    if exist "%OSP_DIR%\data\ssl\root\cert.crt" (
+        set "OSP_ERR_MSG={lang_err_delete_cert_failed}"
+        goto error
+    )
+)
+
+"%SystemRoot%\System32\certutil.exe" -user -delstore "Root" "Open Server Panel" >nul 2>nul
+"%SystemRoot%\System32\certutil.exe" -urlcache * delete >nul 2>nul
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: NODE MANAGEMENT
+:: -----------------------------------------------------------------------------------
+
+:node
+if "%2"=="" goto eargument
+
+:: Checking for NVM presence
+
+call :strfind "%OSP_ADDONS_LIST_%" ":NVM:"
+if not defined OSP_TMPVAL (
+    set "OSP_ERR_MSG={lang_nvm_not_installed}"
+    goto error
+)
+
+:: Checking for NVM environment configuration
+
+if not exist "%OSP_DIR%\data\cli\env_NVM.bat" (
+    set "OSP_ERR_MSG={lang_err_no_env_config} NVM"
+    goto error
+)
+
+:: Routing Node commands
+
+if /i "%2"=="install" goto nodeinstall
+if /i "%2"=="uninstall" goto nodeinstall
+if /i "%2"=="list" goto nodelist
+if /i "%2"=="add" goto nodeadd
+if /i "%2"=="use" goto nodeuse
+
+goto invalid
+
+:nodeadd
+if "%3"=="" goto eargument
+
+:: Normalizing Node version name
+
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+
+:: Checking if Node version is installed
+
+if not exist "%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%" (
+    set "OSP_ERR_MSG={lang_nvm_node_not_installed}"
+    goto error
+)
+
+:: Checking if Node is already in the active environment
+
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node"
+if defined OSP_TMPVAL (
+    set "OSP_ERR_MSG={lang_err_env_modules_exist}"
+    goto error
+)
+
+:: Checking if this Node version is already active
+
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":Node-%OSP_TMP_NAME%:"
+if defined OSP_TMPVAL (
+    set "OSP_ERR_MSG={lang_err_env_already_active}"
+    goto error
+)
+
+goto nodeenv
+
+:nodeuse
+if "%3"=="" goto eargument
+
+:: Normalizing Node version name
+
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+
+:: Checking if Node version is installed
+
+if not exist "%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%" (
+    set "OSP_ERR_MSG={lang_nvm_node_not_installed}"
+    goto error
+)
+
+:: Resetting current environment
+
+call :env_reset post
+goto nodeenv
+
+:nodelist
+if /i not "%3"=="" if /i not "%3"=="available" goto invalid
+
+:: Using local environment for isolating changes
+
+setlocal
+call :env_reset post
+call "%OSP_DIR%\data\cli\env_NVM.bat" use
+call "%OSP_DIR%\data\cli\nvm.bat" %2 %3
+endlocal
+goto end
+
+:nodeinstall
+if "%3"=="" goto eargument
+
+:: Normalizing Node version name
+
+set "OSP_TMP_NAME=%3"
+set "OSP_TMP_NAME=%OSP_TMP_NAME:Node-=%"
+
+:: Checking if additional parameters are correct
+
+if /i not "%4"=="" if /i not "%4"=="all" if /i not "%4"=="32" if /i not "%4"=="64" goto invalid
+
+:: Using local environment for isolating changes
+
+setlocal
+call :env_reset post
+call "%OSP_DIR%\data\cli\env_NVM.bat" use
+echo:
+
+if /i "%2"=="uninstall" goto nodeuninstall
+
+:: Installing Node and activating the installed version
+
+call "%OSP_DIR%\data\cli\nvm.bat" install %OSP_TMP_NAME% 64
+call "%OSP_DIR%\data\cli\nvm.bat" use %OSP_TMP_NAME% 64
+goto nodeinstallend
+
+:nodeuninstall
+:: Removing Node version
+
+call "%OSP_DIR%\data\cli\nvm.bat" uninstall %OSP_TMP_NAME%
+:nodeinstallend
+endlocal
+
+:: Updating information in the panel
+
+"%OSP_DIR%\system\bin\ospurl.exe" -f -s {cmd_api_url}/update_node
+if %ERRORLEVEL% neq 0 goto error
+goto end
+
+:nodeenv
+:: Configuring Node environment
+
+call "%OSP_DIR%\data\cli\env_NVM.bat" %2
+call :post_env %2 Node-%OSP_TMP_NAME% %4
+
+:: Setting Node environment variables using full paths
+
+set "PATH=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%;%PATH%"
+set "NODE_EXTRA_CA_CERTS=%OSP_DIR%\data\ssl\cacert.pem"
+set "NPM_CONFIG_UNICODE=true"
+set "NPM_CONFIG_CAFILE=%OSP_DIR%\data\ssl\cacert.pem"
+set "NPM_CONFIG_USERCONFIG=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\etc\user-npm.conf"
+set "NPM_CONFIG_GLOBALCONFIG=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\etc\global-npm.conf"
+set "NPM_CONFIG_CACHE=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
+set "NPM_CACHE_LOCATION=%OSP_DIR%\addons\NVM\v%OSP_TMP_NAME%\npm-cache"
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: SYSTEM PREPARATION TOOL
+:: -----------------------------------------------------------------------------------
+
+:sysprep
+
+:: Validating parameters
+
+if /i not "%2"=="silent" if /i not "%2"=="ssd" if not "%2"=="" goto invalid
+
+:: Running with appropriate parameters
+
+if /i "%2"=="silent" (
+    start "" /WAIT "%OSP_DIR%\bin\ospanel_sys_prep_tool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL
+)
+if /i "%2"=="ssd" (
+    start "" /WAIT "%OSP_DIR%\bin\ospanel_sys_prep_tool.exe" /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /MERGETASKS="task_SSD"
+)
+if "%2"=="" (
+    start "" "%OSP_DIR%\bin\ospanel_sys_prep_tool.exe"
+)
+
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: LOG VIEW
+:: -----------------------------------------------------------------------------------
+
+:log
+if "%~2"=="" goto eargument
+
+echo:
+"%OSP_DIR%\system\bin\fd.exe" -e log -a -i -p %2 "%OSP_DIR%\logs" -x "%OSP_DIR%\system\bin\tail.bat" {} %3
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: ADDONS/PROJECTS/MODULES/TASKS/STARTCHECK LIST
+:: -----------------------------------------------------------------------------------
+
+:request
+"%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/%1
+if %ERRORLEVEL% neq 0 goto error
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: INIT/ON/OFF/RESTART/STATUS
+:: -----------------------------------------------------------------------------------
+
+:mod_cmd
+
+:: Checking "status" without arguments
+
+if /i "%1"=="status" if "%2"=="" "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/all
+
+if /i "%1"=="status" if "%2"=="" (
+    if %ERRORLEVEL% neq 0 goto error
+    goto end
+)
+
+if /i "%1"=="off" if /i "%2"=="all" "%OSP_DIR%\system\bin\ospurl.exe" -s -f {cmd_api_url}/off/all
+if /i "%1"=="off" if /i "%2"=="all" (
+    if %ERRORLEVEL% neq 0 goto error
+    goto end
+)
+
+:: Checking for the presence of an argument
+
+if "%2"=="" goto eargument
+
+:: Checking module existence
+
+set "OSP_TMP_NAME=%2"
+if not "%OSP_MODULES_LIST%"=="" (
+    for %%a in (%OSP_MODULES_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_cmd
+        )
+    )
+)
+
+:found_cmd
+
+:: Another check for module existence
+
+call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL goto invalid
+
+set "OSP_TMPVAL=%OSP_TMP_NAME%"
+
+:: Processing the restart command
+
+if /i "%1"=="restart" (
+    "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/off/%OSP_TMPVAL%/%3
+    "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/on/%OSP_TMPVAL%/%3
+) else (
+    "%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/%1/%OSP_TMPVAL%/%3
+)
+
+if %ERRORLEVEL% neq 0 goto error
+
+:: Displaying latest log entries after the status operation
+
+if /i "%1"=="status" (
+    if exist "%OSP_DIR%\logs\%OSP_TMPVAL%.log" (
+        for %%S in ("%OSP_DIR%\logs\%OSP_TMPVAL%.log") do (
+            if not %%~zS==0 (
+                echo:
+                "%OSP_DIR%\system\bin\fd.exe" -e log -a -i -p %OSP_TMPVAL%[\.\\A-Za-z0-9]+ "%OSP_DIR%\logs" -x "%OSP_DIR%\system\bin\tail.bat" {} 15
+            )
+        )
+    )
+)
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: SHELL
+:: -----------------------------------------------------------------------------------
+
+:mod_shell
+
+:: Checking for the presence of an argument
+
+if "%2"=="" goto eargument
+
+:: Normalizing module name
+
+set "OSP_TMP_NAME=%2"
+if not "%OSP_MODULES_LIST%"=="" (
+    for %%a in (%OSP_MODULES_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_shell
+        )
+    )
+)
+
+:found_shell
+
+:: Checking module existence
+
+call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL goto invalid
+
+:: Checking for shell configuration presence
+
+if not exist "%OSP_DIR%\data\cli\shell_%OSP_TMP_NAME%.bat" (
+    set "OSP_ERR_MSG={lang_err_no_shell_config} %OSP_TMP_NAME%"
+    goto error
+)
+
+:: Using a Local Environment to Isolate Changes
+
+setlocal
+call :env_reset post
+call "%OSP_DIR%\data\cli\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3
+call :post_env %1 %OSP_TMP_NAME% %3
+echo:
+TITLE %OSP_TMP_NAME% shell ^| Open Server Panel
+call "%OSP_DIR%\data\cli\shell_%OSP_TMP_NAME%.bat"
+endlocal
+chcp 65001 > nul
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: IDN CONVERTER
+:: -----------------------------------------------------------------------------------
+
+:convert
+
+:: Checking for the presence of an argument
+
+if "%2"=="" goto eargument
+
+"%OSP_DIR%\system\bin\ospurl.exe" -f {cmd_api_url}/convert/%2
+if %ERRORLEVEL% neq 0 goto error
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: PROJECT
+:: -----------------------------------------------------------------------------------
+
+:project
+
+:: Verifying the Presence of the Project Data File
+
+if not exist "%OSP_DIR%\data\cli\projects_data.bat" (
+    if not "%2"=="" set "OSP_ERR_MSG={lang_err_no_env_config} %2"
+    goto error
+)
+
+:: Initializing Project Variables
+
+set "OSP_PROJECT_ADDED="
+set "OSP_PROJECT_DIR="
+set "OSP_PROJECT_ENV="
+set "OSP_PROJECT_ENV_="
+set "OSP_PROJECT_NUMBER="
+set "OSP_PROJECT_PATH="
+set "OSP_PROJECT_TITLE="
+set "OSP_PROJECT_WEBHOST="
+
+:: Loading Project Data
+
+if "%2"=="" (
+    call "%OSP_DIR%\data\cli\projects_data.bat" select
+) else (
+    call "%OSP_DIR%\data\cli\projects_data.bat" selected %2
+)
+
+:: Verifying Required Data
+
+if "%OSP_PROJECT_NUMBER%"=="" set "OSP_PROJECT_NUMBER=%2"
+if "%2"=="" if "%OSP_PROJECT_NUMBER%"=="" (
+    if not defined OSP_PROJECT_DIR goto eargument
+)
+
+if not "%OSP_PROJECT_NUMBER%"=="" (
+    if not defined OSP_PROJECT_DIR (
+        set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_PROJECT_NUMBER%"
+        goto error
+    )
+)
+
+:: Resetting Environment and Configuring Project Environment
+
+call :env_reset pre
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
+
+:: Saving Current Settings
+
+set "OSP_TMP_CODEPAGE=%OSP_CODEPAGE%"
+set "OSP_TMP_ECHO_STATE=%OSP_ECHO_STATE%"
+
+:: Verifying System Environment in Project
+
+call :strfind "%OSP_PROJECT_ENV_%" ":System:"
+if defined OSP_TMPVAL set "OSP_PROJECT_ADDED=Added"
+
+:: Applying Project Environment Modules
+
+if not "%OSP_PROJECT_ENV%"=="" (
+    for %%a in (%OSP_PROJECT_ENV%) do (
+        if not defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp use %%a project
+        if defined OSP_PROJECT_ADDED if /i not "%%a"=="system" call osp add %%a project
+        if not defined OSP_PROJECT_ADDED set "OSP_PROJECT_ADDED=Added"
+    )
+)
+
+set "OSP_DIR={root_dir}"
+
+:: Changing to Project Directory
+
+if not "%OSP_PROJECT_DIR%"=="" (
+    cd /d "%OSP_PROJECT_DIR%"
+)
+
+if not "%OSP_PROJECT_DIR%"=="" (
+    if %ERRORLEVEL% neq 0 (
+        set "OSP_PROJECT_ADDED="
+        set "OSP_PROJECT_ENV="
+        set "OSP_PROJECT_ENV_="
+        set "OSP_PROJECT_PATH="
+        set "OSP_ERR_MSG={lang_err_change_dir_failed} %OSP_PROJECT_DIR%"
+        goto error
+    )
+)
+
+:: Set PATH for Project
+
+if not "%OSP_PROJECT_PATH%"=="" set "PATH=%OSP_PROJECT_PATH%%PATH%"
+
+:: Update Active Environment Name
+
+set "OSP_ACTIVE_ENV=%OSP_PROJECT_TITLE% ^| %OSP_ACTIVE_ENV%"
+
+:: Display Information About Current Environment
+
+if "%3"=="" (
+    echo:
+    echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+)
+
+:: Set Window Title
+
+if "{short_project_title}"=="yes" (
+    TITLE %OSP_PROJECT_TITLE%
+) else (
+    TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+)
+
+:: Restore Saved Settings
+
+if defined OSP_TMP_CODEPAGE set "OSP_CODEPAGE=%OSP_TMP_CODEPAGE%" & set "OSP_TMP_CODEPAGE="
+if defined OSP_TMP_ECHO_STATE set "OSP_ECHO_STATE=%OSP_TMP_ECHO_STATE%" & set "OSP_TMP_ECHO_STATE="
+
+:: Clear Project Temporary Variables
+
+set "OSP_PROJECT_ADDED="
+set "OSP_PROJECT_ENV="
+set "OSP_PROJECT_ENV_="
+set "OSP_PROJECT_PATH="
+
+:: Check Start Command
+
+if /i "%3"=="start" (
+    if not exist "%OSP_DIR%\data\cli\start_%OSP_PROJECT_WEBHOST%.bat" (
+        set "OSP_ERR_MSG={lang_err_no_start_command} %OSP_PROJECT_TITLE%"
+        goto error
+    )
+    set "OSP_PROJECT_CMD=YES"
+)
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: MODULE ENVIRONMENT (ADD)
+:: -----------------------------------------------------------------------------------
+
+:env_add
+
+:: Checking for the presence of an argument
+
+if "%2"=="" goto eargument
+
+:: Check for Node
+
+call :strfind "%2" "Node-"
+if defined OSP_TMPVAL (
+    call :nodeadd node add %2 %3
+    goto end
+)
+
+:: Reset Variables
+
+set "OSP_TMPVAL="
+set "OSP_TMP_NAME=%2"
+
+:: Normalize Module/Add-on Name
+
+if not "%OSP_ADDONS_LIST%"=="" (
+    for %%a in (%OSP_ADDONS_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_add_addons
+        )
+    )
+)
+
+:found_add_addons
+
+if not "%OSP_MODULES_LIST%"=="" (
+    for %%a in (%OSP_MODULES_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_add_modules
+        )
+    )
+)
+
+:found_add_modules
+
+:: Check Module/Add-on Availability
+
+call :strfind "%OSP_ADDONS_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL goto invalid
+
+:: Check for Conflicts with Already Active Modules
+
+for /f "delims=-" %%i in ("%OSP_TMP_NAME%") do set "OSP_TMPVAL=%%~i"
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMPVAL%"
+if defined OSP_TMPVAL (
+    set "OSP_ERR_MSG={lang_err_env_modules_exist}"
+    goto error
+)
+
+:: Check if Module is Already Active
+
+call :strfind "%OSP_ACTIVE_ENV_VAL%" ":%OSP_TMP_NAME%:"
+if defined OSP_TMPVAL (
+    set "OSP_ERR_MSG={lang_err_env_already_active}"
+    goto error
+)
+
+:: Check for Environment File
+
+if not exist "%OSP_DIR%\data\cli\env_%OSP_TMP_NAME%.bat" (
+    set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%"
+    goto error
+)
+
+:: Apply Environment
+
+call "%OSP_DIR%\data\cli\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3
+call :post_env %1 %OSP_TMP_NAME% %3
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: MODULE ENVIRONMENT (USE)
+:: -----------------------------------------------------------------------------------
+
+:env_set
+
+:: Checking for the presence of an argument
+
+if "%2"=="" goto eargument
+
+:: Check for Node
+
+call :strfind "%2" "Node-"
+if defined OSP_TMPVAL (
+    call :nodeuse node use %2 %3
+    goto end
+)
+
+:: Normalize Module/Add-on Name
+
+set "OSP_TMP_NAME=%2"
+if not "%OSP_ADDONS_LIST%"=="" (
+    for %%a in (%OSP_ADDONS_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_use_addons
+        )
+    )
+)
+
+:found_use_addons
+
+if not "%OSP_MODULES_LIST%"=="" (
+    for %%a in (%OSP_MODULES_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME=%%a"
+            goto found_use_modules
+        )
+    )
+)
+
+:found_use_modules
+
+:: Check Module/Add-on Availability
+
+call :strfind "%OSP_ADDONS_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME%:"
+if not defined OSP_TMPVAL goto invalid
+
+:: Restore Code Page
+
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
+
+:: Check for Environment File
+
+if not exist "%OSP_DIR%\data\cli\env_%OSP_TMP_NAME%.bat" (
+    set "OSP_ERR_MSG={lang_err_no_env_config} %OSP_TMP_NAME%"
+    goto error
+)
+
+:: Reset Current Environment and Apply New One
+
+call :env_reset post
+call "%OSP_DIR%\data\cli\env_%OSP_TMP_NAME%.bat" %1 %OSP_TMP_NAME% %3
+call :post_env %1 %OSP_TMP_NAME% %3
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: DEFAULT SYSTEM ENVIRONMENT
+:: -----------------------------------------------------------------------------------
+
+:env_windows
+
+:: Reset All Environment Variables
+
+call :env_reset pre
+
+:: Set System Environment
+
+set "OSP_ACTIVE_ENV=System" & set "OSP_ACTIVE_ENV_VAL=:System:"
+
+:: Restore Code Page
+
+if /i not "{terminal_codepage}"=="" set "OSP_CODEPAGE={terminal_codepage}"
+
+:: Display Logo During Initialization
+
+if /i "%2"=="init" if /i not "%3"=="silent" call :logo
+
+:: Show Information About Current Environment
+
+if /i not "%2"=="silent" if /i not "%3"=="silent" if /i not "%3"=="noprint" (
+    echo:
+    echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+)
+
+:: Set Window Title
+
+TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+goto end
+
+:: -----------------------------------------------------------------------------------
+:: RESET ENVIRONMENT
+:: -----------------------------------------------------------------------------------
+
+:env_reset
+
+:: Reset Environment Variables for All Modules
+
+if /i "%1"=="pre" (
+    if not "%OSP_MODULES_LIST%"=="" (
+        for %%a in (%OSP_MODULES_LIST%) do (
+            if exist "%OSP_DIR%\data\cli\env_%%a.bat" (
+                call "%OSP_DIR%\data\cli\env_%%a.bat" resetenv
+            )
+        )
+    )
+)
+
+:: Reset Environment Variables for All Add-ons
+
+if /i "%1"=="pre" (
+    if not "%OSP_ADDONS_LIST%"=="" (
+        for %%a in (%OSP_ADDONS_LIST%) do (
+            if exist "%OSP_DIR%\data\cli\env_%%a.bat" (
+                call "%OSP_DIR%\data\cli\env_%%a.bat" resetenv
+            )
+        )
+    )
+)
+
+:: Restore System Environment
+
+{system_environment}
+
+:: Additional Reset of Environment Variables for Modules
+
+if /i "%1"=="post" (
+    if not "%OSP_MODULES_LIST%"=="" (
+        for %%a in (%OSP_MODULES_LIST%) do (
+            if exist "%OSP_DIR%\data\cli\env_%%a.bat" (
+                call "%OSP_DIR%\data\cli\env_%%a.bat" resetenv
+            )
+        )
+    )
+)
+
+:: Additional Reset of Environment Variables for Add-ons
+
+if /i "%1"=="post" (
+    if not "%OSP_ADDONS_LIST%"=="" (
+        for %%a in (%OSP_ADDONS_LIST%) do (
+            if exist "%OSP_DIR%\data\cli\env_%%a.bat" (
+                call "%OSP_DIR%\data\cli\env_%%a.bat" resetenv
+            )
+        )
+    )
+)
+
+:: Reset ESC Variable
+
+set "ESC="
+exit /b 0
+
+:: -----------------------------------------------------------------------------------
+:: MISCELLANEOUS FUNCTIONS
+:: -----------------------------------------------------------------------------------
+
+:invalid
+set "OSP_ERR_MSG={lang_err_unknown_arg}"
+goto error
+
+:eargument
+set "OSP_ERR_MSG={lang_err_arg_not_specified}"
+goto error
+
+:: Substring Search with Special Character Escaping
+
+:strfind
+setlocal EnableDelayedExpansion
+
+set "pos="
+set "str=%~1"
+set "sub=%~2"
+
+:: Check for Empty Values
+
+if "!str!"=="" (
+    endlocal & set "OSP_TMPVAL="
+    exit /b 0
+)
+
+if "!sub!"=="" (
+    endlocal & set "OSP_TMPVAL="
+    exit /b 0
+)
+
+:: Substring Search
+
+set "Replaced=!str:%sub%=!"
+
+if /i not "!str!"=="!Replaced!" (
+    set "pos=yes"
+)
+
+endlocal & set "OSP_TMPVAL=%pos%"
+exit /b 0
+
+:trim
+@set %2=%1
+@exit /b 0
+
+:: Function for Applying Environment
+
+:post_env
+
+:: Update Active Environment Information
+
+if /i not "%1"=="add" (
+    set "OSP_ACTIVE_ENV=%2"
+    set "OSP_ACTIVE_ENV_VAL=:%2:"
+) else (
+    set "OSP_ACTIVE_ENV=%OSP_ACTIVE_ENV% + %2"
+    set "OSP_ACTIVE_ENV_VAL=%OSP_ACTIVE_ENV_VAL%:%2:"
+)
+
+:: Reset Temporary Variables
+
+set "OSP_TMP_NAME_2="
+set "OSP_TMPVAL="
+
+:: Reset Temporary Variables
+
+if not "%OSP_MODULES_LIST%"=="" (
+    for %%a in (%OSP_MODULES_LIST%) do (
+        if /i "%%a"=="%2" (
+            set "OSP_TMP_NAME_2=%%a"
+            goto found_post_env
+        )
+    )
+)
+
+:found_post_env
+
+if defined OSP_TMP_NAME_2 call :strfind "%OSP_MODULES_LIST_%" ":%OSP_TMP_NAME_2%:"
+set "OSP_TMP_NAME_2="
+
+:: Check for Module Existence
+
+if defined OSP_TMPVAL (
+    if not exist "%OSP_DIR%\temp\%2.lock" (
+        echo: 1>&2
+        echo %ESC%[93m{lang_warning}: %2 {lang_not_enabled}%ESC%[0m 1>&2
+    )
+)
+
+:: Display Current Environment Information
+
+if /i not "%1"=="shell" if /i not "%3"=="silent" if /i not "%3"=="project" (
+    echo:
+    echo {lang_current_env}: %ESC%[36m%OSP_ACTIVE_ENV%%ESC%[0m
+)
+
+:: Set Window Title
+
+if /i not "%1"=="shell" if /i not "%3"=="project" (
+    TITLE %OSP_ACTIVE_ENV% ^| Open Server Panel
+)
+@exit /b 0
+
+:: -----------------------------------------------------------------------------------
+:: EXIT
+:: -----------------------------------------------------------------------------------
+
+:before_exit
+
+:: Restoring Original Source Code Page
+
+@if defined OSP_CODEPAGE @chcp %OSP_CODEPAGE% >nul
+
+:: Restoring Output Mode
+
+@if defined OSP_ECHO_STATE @echo %OSP_ECHO_STATE%
+
+:: Clearing Environment Variables
+
+@set "OSP_CODEPAGE="
+@set "OSP_DIR="
+@set "OSP_MODULES_LIST="
+@set "OSP_MODULES_LIST_="
+@set "OSP_ADDONS_LIST="
+@set "OSP_ADDONS_LIST_="
+@set "OSP_ECHO_STATE="
+@set "OSP_PROG_LIST="
+@set "OSP_PROJECT_NUMBER="
+@set "OSP_ERR_MSG="
+@set "OSP_ERR_LEVEL="
+@set "OSP_TMPVAL="
+@set "OSP_TMP_NAME="
+@set "OSP_VERSION="
+@exit /b 0
+
+:end
+
+:: Clearing Variables Before Exit
+
+@call :before_exit
+
+:: If the project command was not requested, exit with code 0
+
+@if not defined OSP_PROJECT_CMD @exit /b 0
+
+:: Launching Project Command
+
+@set "OSP_PROJECT_CMD="
+@echo:
+@"{root_dir}\data\cli\start_%OSP_PROJECT_WEBHOST%.bat"
+@exit /b %ERRORLEVEL%
+
+:error
+
+:: Saving Error Code
+
+@set "OSP_ERR_LEVEL=%ERRORLEVEL%"
+@if not defined OSP_ERR_LEVEL @set "OSP_ERR_LEVEL=1"
+@if %OSP_ERR_LEVEL%==0 @set "OSP_ERR_LEVEL=1"
+
+:: Displaying Error Information, Unless It's a Special 500 Error
+
+@if %OSP_ERR_LEVEL% neq 500 (
+    @echo: 1>&2
+    @echo %ESC%[91m{lang_error} 1>&2
+    @echo ──────────────────────────────────────────────────── 1>&2
+    @echo {lang_command}: osp %1 %2 %3 1>&2
+
+    @if not defined OSP_ERR_MSG (
+        @echo {lang_message}: {lang_err_failed_exec_command}%ESC%[0m 1>&2
+    ) else (
+        @echo {lang_message}: {lang_err_failed_exec_command} 1>&2
+        @echo {lang_reason}: %OSP_ERR_MSG%%ESC%[0m 1>&2
+    )
+)
+
+:: Clearing Variables Before Exit
+
+@call :before_exit
+@nonexistent_command >nul 2>nul

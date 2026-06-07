@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Projelerin genel ayarları</h2>
+    <p>Bu bölümde belirtilen parametreler, proje ayarlarında başka değerler belirtilmediyse kullanılır.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Projeler için kullanılan web sunucusu modülünü belirler.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Node.js uygulamalarını çalıştırmak için Node.js engine belirtir.<br><br>
+                <strong>Node.js kurulumu:</strong> Gerekli Node.js sürümünü önceden <b>osp node &lt;latest|lts|номер&gt;</b> komutu ile kurun.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                PHP dosyalarını işlemek için kullanılan PHP modülünü belirler.</td>
+        </tr>
+        <tr>
+            <th>Etkinleştir</th>
+        </tr>
+        <tr>
+            <td>
+                Projenin varsayılan durumunu belirler (açık veya kapalı).</td>
+        </tr>
+        <tr>
+            <th>Terminal kodlaması</th>
+        </tr>
+        <tr>
+            <td>
+                Proje ortamıyla çalışırken terminalin kodlaması.<br><br>
+                <strong>Özel değerler:</strong><br>
+                - system: Sistem kodlaması kullanılır.<br><br>
+                <strong>Önemli:</strong> Değer belirtilmezse, projenin nihai ortamı oluşturulurken terminal kodlaması, örneğin PHP modülü ortamı gibi, kodlamanın belirtildiği en son bağlanan ortam tarafından ayarlanır.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Bireysel ayarları olmayan tüm projeler tarafından kullanılan IP adres(ler)ini belirler.<br><br>
+                <strong>Sınırlama:</strong> Aynı IP adresini kullanan projeler aynı PHP sürümünde çalışmalıdır.<br><br>
+                <strong>Birden fazla IP desteği:</strong> Boşlukla ayrılarak birden fazla IP adresi, IPv6 dahil, belirtilebilir. HOSTS dosyasında alan adlarına ilk belirtilen IP atanır.<br><br>
+                <strong>Otomatik atama:</strong> Alan boş bırakılırsa IP adresi otomatik olarak atanır.<br><br>
+                <strong>Öneriler:</strong>
+                <ul>
+                    <li>IP adreslerinin otomatik yönetimi çoğu kullanıcı için önerilir.</li>
+                    <li>IP adresinin manuel olarak belirlenmesi yalnızca özel ağ yapılandırma gereksinimlerinde kullanılmalıdır.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                HTTP bağlantıları için portu belirler.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                HTTPS bağlantıları için portu belirler.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                TLS desteğini etkinleştirir veya devre dışı bırakır.</td>
+        </tr>
+        
+        <tr>
+            <th>Sertifika dosyası</th>
+        </tr>
+        <tr>
+            <td>
+                TLS sertifika dosyasının yolunu belirtir. Şablon değişkenleri kullanılabilir.<br><br>
+                <strong>İzin verilen karakterler:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Öneri:</strong> Sertifikaların otomatik oluşturulması için alanı boş bırakın.</td>
+        </tr>
+        <tr>
+            <th>Anahtar dosyası</th>
+        </tr>
+        <tr>
+            <td>
+                TLS anahtar dosyasının yolunu belirtir. Şablon değişkenleri kullanılabilir.<br><br>
+                <strong>İzin verilen karakterler:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Öneri:</strong> Anahtarın otomatik oluşturulması için alanı boş bırakın.</td>
+        </tr>
+        <tr>
+            <th>IP adresi (backend)</th>
+        </tr>
+        <tr>
+            <td>Backend'e bağlantı kurmak için kullanılan IP adresini belirtir.</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Backend'e bağlantı için port numarasını belirler.</td>
+        </tr>
+        <tr>
+            <th>Etkinleştir (backend)</th>
+        </tr>
+        <tr>
+            <td>Projenin tüm gelen trafiğini (HTTP ve HTTPS) otomatik olarak Backend'e yönlendirmenizi sağlar. Frontend ve backend ayrıldığında test veya geliştirme için kullanışlıdır.</td>
+        </tr>
+        <tr>
+            <th>Proje dizini</th>
+        </tr>
+        <tr>
+            <td>
+                Projenin kök dizinini belirtir. Bu dizine geçiş, proje ortamı etkinleştirilirken eşzamanlı olarak <strong>osp project &lt;DOMAIN&gt;</strong> komutuyla yapılır. Şablon değişkenleri kullanılabilir.<br><br>
+                <strong>İzin verilen karakterler:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Genel dizin</th>
+        </tr>
+        <tr>
+            <td>
+                Projenin genel dizinini belirler. Şablon değişkenleri kullanılabilir.<br><br>
+                <strong>İzin verilen karakterler:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Takma adlar</th>
+        </tr>
+        <tr>
+            <td>
+                Proje için ek alan adlarını (alias) belirtir (boşlukla ayrılmış). Şablon değişkenleri kullanılabilir.<br><br>
+                <strong>Sınırlama:</strong> "*" karakteri Windows'ta HOSTS dosyası tarafından desteklenmez ve DNS yapılandırması gerektirir.</td>
+        </tr>
+        <tr>
+            <th>Proje ortamı</th>
+        </tr>
+        <tr>
+            <td>
+                Projenin ortamını oluşturan eklenti ve modüllerin listesi (boşlukla ayrılmış).<br><br>
+                <strong>HTTP, NODE ve PHP:</strong> Bu engine'lerin ortamları her zaman bağlanır (alan adı için belirtilmişse) ve bu parametrede belirtilmesi gerekmez.</td>
+        </tr>
+        <tr>
+            <th>Proje başlatma komutu</th>
+        </tr>
+        <tr>
+            <td>
+                Projeyi başlatmak için komutu belirler (örneğin, <strong>nodemon app.js</strong>). Şablon değişkenleri kullanılabilir.</td>
+        </tr>
+        <tr>
+            <th>Proje URL'si</th>
+        </tr>
+        <tr>
+            <td>
+                Projeyi <strong>Menü&rarr;Proje&rarr;Tarayıcıda aç</strong> ile açarken ve ayrıca projenin alan adı takma adlarını (alias) açarken kullanılan URL. Şablon değişkenleri kullanılabilir.<br><br>
+                <strong>Kullanım:</strong> CMS yönetim panelinin URL'si belirtilebilir.</td>
+        </tr>
+    </table>
+    <h2>Şablon değişkenleri</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Değişken</th>
+                <th>Açıklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>Backend'e bağlantı için IP adresi</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Backend'e bağlantı için port</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projenin kök dizini (.osp dizininin bulunduğu yer)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Geçerli tarih/saat (değişken yalnızca projenin uygulama başlatma komutu için kullanılabilir)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Alan adı (uluslararası alan adları için Punycode kullanılır)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Görünen alan adı (Punycode olmadan)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Projeye istek şeması ("http" veya "https", proje ayarlarındaki TLS parametresine bağlıdır)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Projeye HTTP protokolüyle istek için port</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Projeye HTTPS protokolüyle istek için port</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP engine</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE engine</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP engine</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projenin kök dizini</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projenin genel dizini</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Projeye istek için port (":{http_port}" veya ":{https_port}", proje ayarlarındaki TLS parametresine bağlıdır).<br><br>Eğer {http_port} veya {https_port} standart değer olan 80 veya 443 ise, {scheme_port} boş olacaktır.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panel'in kök dizini (tam yol)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Kök dizinin sürücüsü</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Open Server Panel'in kök dizinine giden yol</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolun kodlaması</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Nuosavų meniu punktų kūrimas</h2>
+    <ol>
+        <li>Pridėkite naują sekciją su unikaliu identifikatoriumi [ID]</li>
+        <li>Išdėstykite sekcijas norima tvarka — tai nulems punktų tvarką meniu</li>
+        <li>Išsaugokite pakeitimus ir paleiskite Open Server Panel iš naujo, kad pakeitimai įsigaliotų</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Svarbi informacija</h3>
+        Kuriant nuosavus meniu punktus užtikrinkite, kad sekcijų identifikatoriai nesikartotų. Tai gali sukelti meniu veikimo konfliktus.
+    </div>
+    <h2>Meniu punktų nustatymai</h2>
+    <p><strong>Rikiavimo tvarka:</strong> Meniu punktai rikiuojami ta pačia tvarka, kuria atitinkamos sekcijos yra išdėstytos šablone.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Meniu punkto antraštė. Palaiko kalbines konstantas formatu {lang_xxx}.<br><br>
+                    Pagal numatymą: nenurodyta
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Nustato meniu punkto vietą hierarchijoje. Palaikomas vienas įdėjimo lygis (pvz., "Mano Žymės\Darbas").</p>
+                    <p>Specialios kategorijos:</p>
+                    <ul>
+                        <li>projects, modules, addons - prideda punktą į atitinkamą veiksmų meniu</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - prideda punktą konkrečiam elementui</li>
+                    </ul>
+                    <p>Jei kategorija nenurodyta, punktas sukuriamas šakniniame meniu.</p>
+                    Pagal numatymą: nenurodyta
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Komanda, vykdoma aktyvavus meniu punktą. Punktai be komandos ignoruojami.<br><br>
+                    Pagal numatymą: nenurodyta
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Įjungia/išjungia meniu punkto rodymą.<br><br>
+                    Pagal numatymą: on | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Valdo kviečiamos programos lango matomumą. Nedaro įtakos dukteriniams procesams.<br><br>
+                    Pagal numatymą: off | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Prideda horizontalų skirtuką po meniu punktu.<br><br>
+                    Pagal numatymą: off | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Prideda horizontalų skirtuką prieš meniu punktą.<br><br>
+                    Pagal numatymą: off | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Piktograma iš Font Awesome Free (Solid/Regular/Brands) rinkinio.<br><br>
+                    Pagal numatymą: nenurodyta
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Rodo meniu punktą tik domeno pseudonimui. Meniu šablone gali būti tik vienas punktas su need_alias=on!<br>
+                    Taikoma kategorijoms: projects<br><br>
+                    Pagal numatymą: nenurodyta | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Riboja meniu punkto rodymą tik tam tikros kategorijos moduliais/papildiniais.</p>
+                    <p>Palaikomi formatai:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Pagal numatymą: nenurodyta
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Rodo meniu punktą priklausomai nuo shell/cli buvimo tėviniame modulyje.<br>
+                    Taikoma kategorijoms: modules, modules\<имя_модуля><br><br>
+                        Pagal numatymą: nenurodyta | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Rodo meniu punktą priklausomai nuo tėvinio modulio būsenos.<br>
+                    Taikoma kategorijoms: modules, modules\<имя_модуля><br><br>
+                        Pagal numatymą: nenurodyta | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Rodo meniu punktą, jei projekto nustatymuose yra paleidimo komanda.<br>
+                    Taikoma kategorijoms: projects, projects\<имя_домена><br><br>
+                        Pagal numatymą: nenurodyta | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Rodo meniu punktą priklausomai nuo Windows Terminal naudojimo nustatymo Open Server Panel.<br><br>
+                    Pagal numatymą: nenurodyta | Reikšmės: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Darbinis katalogas komandos vykdymui. Gali keistis komandų vykdymo metu.<br><br>
+                    Pagal numatymą: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Šabloniniai kintamieji</h2>
+    Parametruose "command" ir "work_directory" galima naudoti šiuos šabloninius kintamuosius:
+    <h3>Bendrieji kintamieji</h3>
+    <table>
+        <tr>
+            <th>Kintamasis</th>
+            <th>Aprašymas</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Dabartinė data/laikas (kintamasis pasiekiamas tik parametrui "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel šakninė direktorija (pilnas kelias)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Šakninės direktorijos diskas</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Kelias į Open Server Panel šakninę direktoriją</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>Žiniatinklio sąsajos URL adresas</td>
+        </tr>
+    </table>
+    <h3>Specialūs kintamieji (tik projects ir projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Kintamasis</th>
+            <th>Aprašymas</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Projekto bazinis katalogas</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domeno pavadinimas (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Matomas domeno pavadinimas (be Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Užklausos į projektą schema ("http" arba "https", priklauso nuo TLS parametro projekto nustatymuose)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Užklausos į projektą HTTP protokolu prievadas</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Užklausos į projektą HTTPS protokolu prievadas</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Meniu punkto antraštė (tik kategorijai projects su need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP variklis</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js variklis</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP variklis</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projekto šakninė direktorija</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projekto URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Projekto viešasis katalogas</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Projekto užklausos prievadas (":{http_port}" arba ":{https_port}", priklauso nuo TLS parametro projekto nustatymuose). Jei {http_port} arba {https_port} turi numatytąją reikšmę 80 ar 443, tuomet {scheme_port} bus tuščias.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Projekto programos paleidimo komanda (jei nustatyta)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolės koduotė</td>
+        </tr>
+    </table>
+    <h3>Specialūs kintamieji (tik addons ir addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Kintamasis</th>
+            <th>Aprašymas</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Papildinio pavadinimas</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolės koduotė</td>
+        </tr>
+    </table>
+    <h3>Specialūs kintamieji (tik modules ir modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Kintamasis</th>
+            <th>Aprašymas</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>Modulio IP adresas</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Klaidų žurnalinimo lygis</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Modulio pavadinimas</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Modulio prievadas</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Dabartinio modulio nustatymų profilio pavadinimas</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Užklausų žurnalinimo lygis</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Modulio shell/cli aplinkos paleidimo komanda (jei nustatyta)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolės koduotė</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Laiko juosta</td>
+        </tr>
+    </table>
+    <h3>Specialios komandų reikšmės</h3>
+    <table>
+        <tr>
+            <th>Komanda</th>
+            <th>Aprašymas</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Atidaryti žurnalų peržiūros langą</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Atidaryti IDN konverterį</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Atidaryti programos nustatymų langą</td>
+        </tr>
+    </table>
+    <p>Be šabloninių kintamųjų, galima naudoti bet kokius Windows aplinkos kintamuosius, pvz.: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% ir t. t.</p>
+    <h3>Naudojimo pavyzdys</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Mano Žymės\Paieškos sistemos
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE parinktys</h3>
+    <ul>
+        <li>/c: Vykdyti komandą ir uždaryti terminalą.</li>
+        <li>/k: Vykdyti komandą ir palikti terminalą atvirą.</li>
+    </ul>
+</body>
+
+</html>

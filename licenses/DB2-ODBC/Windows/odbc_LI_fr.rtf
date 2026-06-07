@@ -1,0 +1,1001 @@
+{\rtf1\ansi\ansicpg1252\deff0\deftab720\deflang1033\deflangfe2052{\fonttbl{\f0\fswiss MS Sans Serif;}{\f1\froman\fcharset2 Symbol;}{\f2\froman Times New Roman;}{\f3\froman Times New Roman;}{\f4\fswiss Arial;}{\f5\fmono Courier New;}{\f10\fnil\fcharset2{\*\panose 05000000000000000000}Wingdings;}{\f13\fnil\fcharset134 \'cb\'ce\'cc\'e5{\*\falt SimSun};}}{\colortbl\red0\green0\blue0;\red0\green0\blue255;\red128\green128\blue128;\red255\green0\blue0;\red0\green255\blue0;}{\stylesheet{\s0 \f2\fs24 Normal;}{\s1 \f4\fs48\b heading 1;}{\s2 \f4\fs36\b heading 2;}{\s3 \f4\fs24\b heading 3;}{\s4 \f4\fs20\b heading 4;}{\s5 \f4\fs18\b heading 5;}{\s6 \f4\fs16\b heading 6;}{\s7 \f4\fs24\b table header;}{\s8 \f2\fs24 link;}{\s9 \f4\fs24\b table title;}}{\*\listtables }INFORMATIONS SUR LA LICENCE\par
+ \par
+ Les Logiciels sp\u233 ?cifi\u233 ?s ci-dessous sont conc\u233 ?d\u233 ?s sous licence conform\u233 ?ment aux dispositions des Informations sur la Licence suivantes qui s'ajoutent \u224 ? celles des dispositions de la licence du Logiciel pr\u233 ?c\u233 ?demment accept\u233 ?e par
+ le Client et IBM. Si le Client n'a pas pr\u233 ?c\u233 ?demment accept\u233 ? les dispositions de la licence en vigueur pour le Logiciel, les Conditions Internationales d'Utilisation de Logiciels IBM (i125-3301-15) s'appliquent.\par
+ \par
+ Nom du Logiciel (R\u233 ?f\u233 ?rence du Logiciel) : \par
+ IBM Data Server Driver for ODBC and CLI v11.5.9 (Tool)\par
+ \par
+ Les dispositions suivantes s'appliquent \u224 ? l'utilisation du Logiciel par
+ le D\u233 ?tenteur de la Licence.\par
+ \par
+ Code Tiers Modifiable\par
+ \par
+ Si, dans le fichier NOTICES, IBM identifie un code tiers comme \u233 ?tant un \u171 ? Code Tiers Modifiable \u187 ?, IBM autorise le D\u233 ?tenteur de la Licence \u224 ? 1) modifier le Code Tiers Modifiable et 2) recourir \u224 ? l'ing\u233 ?nierie inverse sur les modules du Logiciel qui interagissent directement avec le Code Tiers Modifiable, sous r\u233 ?serve que le D\u233 ?tenteur de la Licence ait recours \u224 ? cette m\u233 ?thode \u224 ? des fins de d\u233 ?bogage des modifications qu'il a apport\u233 ?es \u224 ? ce code tiers. Les obligations d'IBM en mati\u232 ?re de service et de support, le cas \u233 ?ch\u233 ?ant, s'appliquent uniquement au Logiciel non modifi\u233 ?.\par
+ \par
+ Logiciels Redistribuables\par
+ \par
+ Le Logiciel comprend des Logiciels Redistribuables qui sont r\u233 ?pertori\u233 ?s ci-dessous. Les Logiciels Redistribuables peuvent \u234 ?tre distribu\u233 ?s, sous forme de code objet, uniquement dans le cadre de l'application \u224 ? valeur ajout\u233 ?e d\u233 ?velopp\u233 ?e par
+ le D\u233 ?tenteur de la Licence \u224 ? l'aide du Logiciel (son "Application") et uniquement pour prendre en charge l'utilisation de son Application. Dans le cas o\u249 ? les Logiciels Redistribuables contiennent Java Runtime Environment, le D\u233 ?tenteur de la Licence doit \u233 ?galement inclure des Logiciels Redistribuables non-Java \u233 ?quivalents avec son Application. Le D\u233 ?tenteur de la Licence n'est pas autoris\u233 ? \u224 ? retirer les mentions de copyright ou les autres fichiers contenus dans les Logiciels Redistribuables ni \u224 ? utiliser les noms ou les marques d'IBM ou de ses fournisseurs ou distributeurs dans le cadre de la commercialisation de son Application sans autorisation \u233 ?crite pr\u233 ?alable de leur par
+t. Le Contrat de licence entre le D\u233 ?tenteur de la Licence et l'utilisateur final doit \u234 ?tre au moins aussi protecteur d'IBM que les dispositions du pr\u233 ?sent Contrat.\par
+ \par
+ IBM, ses fournisseurs et ses distributeurs fournissent lesdits Logiciels Redistribuables ainsi que leur documentation sans obligation de support. Ces \u233 ?l\u233 ?ments sont fournis "EN L'\u201 ?TAT", SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, Y COMPRIS TOUTE GARANTIE DE TITRE, DE NON-CONTREFA\u199 ?ON OU DE NON-INTERF\u201 ?RENCE, AINSI QUE LES GARANTIES IMPLICITES EN MATI\u200 ?RE DE VALEUR MARCHANDE ET D'APTITUDE \u192 ? UNE UTILISATION PARTICULI\u200 ?RE.\par
+ \par
+ Les Logiciels Redistribuables sont les suivants : \par
+ IBM Data Server Driver for ODBC and CLI V11.5 Redistributables:\par
+ The following list includes files that are provided to Licensee pursuant to the Redistributables section of the IBM International Program License Agreements License Information that applies to this Program:\par
+ List Redistributable files:\par
+ Common list for all OS - Unix,Linux,MacOS,Windows:\par
+ 04370923.cnv\par
+ 08500923.cnv\par
+ 08501252.cnv \par
+ 08600923.cnv\par
+ 08630923.cnv\par
+ 09230437.cnv\par
+ 09230850.cnv\par
+ 09230860.cnv\par
+ 09231043.cnv\par
+ 09231051.cnv\par
+ 09231114.cnv\par
+ 09231208.cnv\par
+ 09231252.cnv\par
+ 09231275.cnv\par
+ 09241252.cnv\par
+ 09370950.cnv\par
+ 10430923.cnv\par
+ 10510923.cnv\par
+ 11140923.cnv\par
+ 12080923.cnv\par
+ 12520850.cnv\par
+ 12520923.cnv\par
+ 12750923.cnv\par
+ 1388ucs2.cnv\par
+ 1399ucs2.cnv\par
+ 0939ucs2.cnv\par
+ 0930ucs2.cnv\par
+ 1390ucs2.cnv\par
+ ucs20943.cnv\par
+ 0954ucs2.cnv\par
+ 5039ucs2.cnv\par
+ 0943ucs2.cnv\par
+ IBM00850.ucs\par
+ IBM00923.ucs\par
+ IBM01252.ucs\par
+ db2cli.ini.sample  \par
+ db2dsdriver.cfg.sample \par
+ db2dsdriver.xsd\par
+ DigiCertGlobalRootCA.arm\par
+ db2dsdcfgfill  \par
+ db2ldcfg\par
+ db2lddrg\par
+ db2level\par
+ db2trc\par
+ db2drdat\par
+ db2cli\par
+ db2diag\par
+ db2support\par
+ db2admh.mo\par
+ db2adm.mo\par
+ db2caem.mo\par
+ db2supp.mo\par
+ db2cklog.mo\par
+ db2fodc.mo\par
+ db2stt.mo\par
+ db2clia1.lst\par
+ db2clias.lst\par
+ db2clih.mo\par
+ db2cli.mo\par
+ db2clit.mo\par
+ db2clp.mo\par
+ db2clp2.mo\par
+ db2diag.mo\par
+ db2sqlh.mo\par
+ db2sql.mo\par
+ IBMOSauthclient.so  \par
+ IBMOSauthclient.so.1\par
+ IBMIAMauth.so\par
+ IBMkrb5.so\par
+ libdb2clixml4c.so\par
+ libdb2clixml4c.so.1\par
+ libDB2xml4c.so\par
+ libDB2xml4c.so.58\par
+ libdb2.so\par
+ libdb2.so.1\par
+ libdb2o.so\par
+ libdb2o.so.1\par
+ sqlda.h\par
+ sqlcli1.h\par
+ sqlsystm.h\par
+ sqlca.h\par
+ sqlcli.h\par
+ sql.h\par
+ sqlenv.h\par
+ sqlunx.h\par
+ sqlstate.h\par
+ sqlext.h\par
+ sqlucode.h\par
+ sqltypes.h\par
+ db2cli.bnd\par
+ db2clipk.bnd\par
+ db2clist.bnd\par
+ db2ajgrt.bnd\par
+ db2spcdb.bnd\par
+ db2cli.lst\par
+ ddcsvm.lst\par
+ ddcsmvs.lst\par
+ ddcsvse.lst\par
+ ddcs400.lst\par
+ conlic.bin\par
+ odbc_notices.txt\par
+ odbc_REDIST.txt\par
+ For AIX in addition to common files:\par
+ libdb2.a\par
+ libdb2clixml4c.a\par
+ libDB2xml4c.a\par
+ db2o.o\par
+ libdb2osse_db2.a\par
+ IBMkrb5.a\par
+ IBMIAMauth.a\par
+ IBMOSauthclient.a  \par
+ For MacOS in addition to common files:\par
+ libdb2.dylib\par
+ libdb2o.dylib\par
+ libdb2clixml4c.dylib\par
+ libDB2xml4c.58.0.dylib\par
+ libDB2xml4c.58.dylib\par
+ libDB2xml4c.dylib\par
+ IBMIAMauth.dylib\par
+ For Windows in addition to common files:\par
+ db2app.lib\par
+ db2app64.lib\par
+ db2cli.lib\par
+ db2cli64.lib\par
+ db2clio.lib\par
+ db2app.dll\par
+ db2app64.dll\par
+ db2cli.dll\par
+ db2cli64.dll\par
+ db2clio.dll\par
+ db2cli.exe\par
+ db2cli32.exe\par
+ db2clixml4c.dll\par
+ db2clixml4c64.dll\par
+ db2diag.exe\par
+ db2drdat.exe\par
+ db2dsdcfgfill.exe  \par
+ db2ldap.dll\par
+ db2ldap64.dll\par
+ db2ldapm.dll\par
+ db2ldapm64.dll\par
+ db2ldcfg.exe\par
+ db2level.exe\par
+ db2odbc.dll\par
+ db2odbc64.dll\par
+ db2odbch.dll\par
+ db2odbch64.dll\par
+ db2oreg1.exe\par
+ db2oreg132.exe\par
+ db2osse.dll\par
+ db2osse64.dll\par
+ db2support.exe\par
+ db2trc.exe\par
+ db2trc32.exe\par
+ db2trcapi.dll\par
+ db2trcapi64.dll\par
+ db2trcd.exe\par
+ db2trcd64.exe\par
+ DB2xml4c_cli_5_8.dll\par
+ DB2xml4c_cli64_5_8.dll\par
+ DB2xml4c_cli_5_8.dll.2.manifest\par
+ DB2xml4c_cli64_5_8.dll.2.manifest\par
+ IBM.DB2.APP.manifest\par
+ IBM.DB2.APP64.manifest\par
+ IBM.DB2.CLI.manifest\par
+ IBM.DB2.CLI64.manifest\par
+ IBM.DB2.CLIO.manifest\par
+ IBM.DB2.CLIXML4C.manifest\par
+ IBM.DB2.CLIXML4C64.manifest\par
+ IBM.DB2.LDAP.manifest\par
+ IBM.DB2.LDAP64.manifest\par
+ IBM.DB2.LDAPM.manifest\par
+ IBM.DB2.LDAPM64.manifest\par
+ IBM.DB2.ODBC.manifest\par
+ IBM.DB2.ODBC64.manifest\par
+ IBM.DB2.ODBCH.manifest\par
+ IBM.DB2.ODBCH64.manifest\par
+ IBM.DB2.SEC.manifest\par
+ IBM.DB2.SEC64.manifest\par
+ ibmdadb2.dll\par
+ ibmdadb264.dll\par
+ IBMIAMauth.dll\par
+ IBMIAMauth64.dll\par
+ IBMkrb5.dll\par
+ IBMkrb5TwoPart.dll\par
+ IBMkrb5TwoPart64.dll\par
+ IBMkrb564.dll\par
+ IBMLDAPauthclient.dll\par
+ IBMLDAPauthclient64.dll\par
+ IBMOSauthclient.dll\par
+ IBMOSauthclient64.dll\par
+ IBMOSauthclientTwoPart.dll\par
+ IBMOSauthclientTwoPart64.dll\par
+ db2diag.log \par
+ odbc_notices.rtf\par
+ db2cli.opt\par
+ db2clir.dll\par
+ db2clir64.dll\par
+ db2clir64.dll.2.manifest\par
+ db2istring_v115.dll.2.manifest\par
+ db2odbcr.dll\par
+ db2odbcr64.dll\par
+ db2odbcr64.dll.2.manifest\par
+ \par
+ \par
+ L/N: L-ASUX-ZXSTFM\par
+ D/N: L-ASUX-ZXSTFM\par
+ P/N: L-ASUX-ZXSTFM\par
+ \par
+ Conditions Internationales d'Utilisation de Logiciels IBM\par
+ \par
+ Chapitre 1 - Dispositions g\u233 ?n\u233 ?rales\par
+ \par
+ EN TELECHARGEANT, EN INSTALLANT, EN COPIANT LES LOGICIELS, EN Y ACCEDANT EN CLIQUANT SUR LE BOUTON \u171 ?\u160 ?ACCEPTER\u160 ?\u187 ? OU EN LES UTILISANT, LE D\u201 ?TENTEUR DE LICENCE ACCEPTE LES DISPOSITIONS DU PRESENT CONTRAT. SI VOUS ACCEPTEZ LES PRESENTES DISPOSITIONS POUR LE COMPTE DU D\u201 ?TENTEUR DE LICENCE, VOUS CERTIFIEZ AVOIR LA QUALITE POUR ENGAGER LE D\u201 ?TENTEUR DE LICENCE A RESPECTER LESDITES DISPOSITIONS.\par
+ \par
+ SI VOUS N'ACCEPTEZ PAS LES PRESENTES DISPOSITIONS OU QUE VOUS N'ETES PAS HABILITE\u160 ?: i) NE TELECHARGEZ PAS, N'INSTALLEZ PAS, NE COPIEZ PAS, N'ACCEDEZ PAS, NE CLIQUEZ PAS SUR LE BOUTON \u171 ?\u160 ?ACCEPTER\u160 ?\u187 ? ET N'UTILISEZ PAS LE LOGICIEL\u160 ?; ET ii) RENVOYEZ RAPIDEMENT LE SUPPORT NON UTILISE, LA DOCUMENTATION ET LA PREUVE DE DROIT D'UTILISATION \u192 ? LA PARTIE AUPRES DE LAQUELLE IL A ETE OBTENU EN VUE D'UN REMBOURSEMENT DU MONTANT PAYE. SI LE LOGICIEL A ETE TELECHARGE, DETRUISEZ TOUTES LES COPIES DU LOGICIEL.\par
+ \par
+ Les pr\u233 ?sentes Conditions Internationales d'Utilisation de Logiciels IBM (IPLA) et les Documents de Transaction applicables (conjointement le \u171 ?\u160 ?Contrat\u160 ?\u187 ?) constituent l'accord int\u233 ?gral entre le D\u233 ?tenteur de Licence et IBM relatif \u224 ? l'utilisation d'un Logiciel. Les conditions relatives au pays incluses dans le Chapitre 2 du pr\u233 ?sent IPLA remplacent ou modifient les conditions du Chapitre 1.\par
+ \par
+ Les Documents de Transaction (DT) fournissent une description, des informations et les conditions relatives au Logiciel et \u224 ? son utilisation autoris\u233 ?e. Les DT pour Logiciels incluent les informations sur la licence (IL), les sp\u233 ?cifications de logiciel sous licence (SLS), devis, autorisations d'utilisation (AU) ou factures. En cas de conflit, les DT pr\u233 ?valent sur l'IPLA.\par
+ \par
+ 1. Licence de Logiciel\par
+ \par
+ a. Un Logiciel est un programme informatique ex\u233 ?cutable de marque IBM et son mat\u233 ?riel connexe et comprend des copies compl\u232 ?tes et par
+tielles. Les informations sur les Logiciels sont d\u233 ?crites dans un DT disponible sur http://www.ibm.com/software/sla (pour les programmes Passport Advantage) or http://www.ibm.com/support/knowledgecenter (pour les autres Logiciels IBM), dans le r\u233 ?pertoire de commande de syst\u232 ?me du Logiciel, ou comme sp\u233 ?cifi\u233 ? par
+ IBM. Les politiques relatives aux logiciels IBM (telles que les copies de sauvegarde, l'utilisation temporaire et l'environnement Cloud approuv\u233 ? IBM) disponibles sur http://www.ibm.com/softwarepolicies s'appliquent \u224 ? l'utilisation des Logiciels par
+ le D\u233 ?tenteur de Licence.\par
+ \par
+ b. Les copies des Logiciels sont soumises au droit d'auteur et sous licence.\par
+ \par
+ c. Le D\u233 ?tenteur de Licence obtient une licence non exclusive pour :\par
+ \par
+ (1) utiliser chaque copie d'un Logiciel, sous r\u233 ?serve des conditions du Contrat et dans la limite du nombre d'autorisations de licence acquises par
+ le D\u233 ?tenteur de Licence (\u171 ?\u160 ?Utilisation Autoris\u233 ?e\u160 ?\u187 ?)\u160 ?;\par
+ \par
+ (2) effectuer et installer des copies \u224 ? l'appui de ladite Utilisation Autoris\u233 ?e\u160 ?; et\par
+ \par
+ (3) faire une copie de sauvegarde.\par
+ \par
+ d. Les Logiciels peuvent \u234 ?tre utilis\u233 ?s par
+ le D\u233 ?tenteur de Licence, ses employ\u233 ?s et ses sous-traitants. Le D\u233 ?tenteur de Licence n'est pas autoris\u233 ? \u224 ? louer un Logiciel ou \u224 ? fournir des services de temps par
+tag\u233 ?, d'h\u233 ?bergement ou des services informatiques commerciaux \u224 ? un tiers quel qu'il soit. D'autres droits peuvent \u234 ?tre disponibles moyennant un suppl\u233 ?ment ou selon des modalit\u233 ?s diff\u233 ?rentes.\par
+ \par
+ e. La licence pour un Logiciel est conc\u233 ?d\u233 ?e sous r\u233 ?serve que le D\u233 ?tenteur de Licence\u160 ?:\par
+ \par
+ (1) reproduise les mentions de droits d'auteur et d'autres marquages sur toute copie\u160 ?;\par
+ \par
+ (2) veille \u224 ? ce que toute personne utilisant le Logiciel\u160 ?: i) ne le fasse que pour l'usage du D\u233 ?tenteur de Licence dans la limite de l'Utilisation Autoris\u233 ?e du D\u233 ?tenteur de Licence et ii) respecte le pr\u233 ?sent Contrat\u160 ?;\par
+ \par
+ (3) n'effectue pas de d\u233 ?sassemblage, de d\u233 ?compilation, de traduction ou d'ing\u233 ?nierie inverse du Logiciel, sinon express\u233 ?ment autoris\u233 ? par
+ la loi sans possibilit\u233 ? de disposition l\u233 ?gale contraire\u160 ?; et\par
+ \par
+ (4) n'utilise aucun des \u233 ?l\u233 ?ments du Logiciel ou des \u233 ?l\u233 ?ments sous licence connexes s\u233 ?par
+\u233 ?ment du Logiciel.\par
+ \par
+ f. Si le DT d'un Logiciel (\u171 ?\u160 ?Logiciel Principal\u160 ?\u187 ?) indique qu'un \u171 ?\u160 ?Logiciel Secondaire\u160 ?\u187 ? est inclus dans le Logiciel principal, le D\u233 ?tenteur de Licence peut utiliser le Logiciel Secondaire sous r\u233 ?serve de toutes les limitations de licence du Logiciel Principal et uniquement en soutien du Logiciel Principal.\par
+ \par
+ g. Cette licence s'applique \u224 ? toute copie du Logiciel effectu\u233 ?e par
+ le D\u233 ?tenteur de Licence.\par
+ \par
+ h. Une mise \u224 ? jour, une correction ou un correctif d'un Logiciel est soumis aux conditions r\u233 ?gissant le Logiciel, \u224 ? moins que de nouvelles conditions ne soient fournies dans un DT mis \u224 ? jour. Le D\u233 ?tenteur de Licence accepte ces nouvelles conditions lors de l'installation de la mise \u224 ? jour, de la correction ou du correctif. Si le Logiciel est remplac\u233 ? par
+ une mise \u224 ? jour, le D\u233 ?tenteur de Licence accepte de cesser dans les meilleurs d\u233 ?lais l'utilisation du Logiciel remplac\u233 ?.\par
+ \par
+ i. Si le D\u233 ?tenteur de Licence n'est pas satisfait d'un Logiciel pour quelque raison que ce soit, il peut mettre fin \u224 ? la licence en renvoyant le Logiciel et l'autorisation d'utilisation \u224 ? IBM ou au Partenaire Commercial IBM autoris\u233 ? dans un d\u233 ?lai de 30 jours \u224 ? compter de la date d'acquisition initiale dudit Logiciel pour obtenir le remboursement du montant pay\u233 ?. Pour un Logiciel t\u233 ?l\u233 ?charg\u233 ?, contactez la par
+tie aupr\u232 ?s de laquelle le D\u233 ?tenteur de Licence a acquis le Logiciel pour obtenir des instructions de remboursement.\par
+ \par
+ 2. Garanties\par
+ \par
+ a. IBM garantit qu'un Logiciel utilis\u233 ? dans son environnement d'exploitation sp\u233 ?cifi\u233 ? sera conforme \u224 ? ses sp\u233 ?cifications. La p\u233 ?riode de garantie d'un Logiciel est \u233 ?gale \u224 ? 12 mois \u224 ? par
+tir de la date d'acquisition, ou la p\u233 ?riode de licence initiale si elle est inf\u233 ?rieure \u224 ? 12 mois, sauf si une autre p\u233 ?riode de garantie est indiqu\u233 ?e dans le Document de Transaction.\par
+ \par
+ b. Pendant la p\u233 ?riode de garantie, le D\u233 ?tenteur de Licence aura acc\u232 ?s aux bases de donn\u233 ?es IBM contenant des informations sur les d\u233 ?fauts connus du Logiciel, les corrections de d\u233 ?fauts, les restrictions et les contournements, comme d\u233 ?crit dans le Guide de support IBM sur http://www.ibm.com/support/pages/node/733923.\par
+ \par
+ c. Si le Logiciel ne fonctionne pas comme garanti pendant la P\u233 ?riode de Garantie et que l'incident ne peut \u234 ?tre r\u233 ?solu \u224 ? par
+tir des informations disponibles dans les bases de donn\u233 ?es IBM, le D\u233 ?tenteur de Licence peut rendre le Logiciel et son Autorisation d'Utilisation du Logiciel \u224 ? IBM ou au Partenaire Commercial IBM aupr\u232 ?s duquel il a acquis le Logiciel afin d'obtenir le remboursement du montant pay\u233 ? et la licence du D\u233 ?tenteur expire.\par
+ \par
+ d. IBM ne garantit pas le fonctionnement ininterrompu et sans erreur d'un Logiciel IBM, ni la correction de tous les d\u233 ?fauts, ni la pr\u233 ?vention contre les interruptions par
+ des tiers. Ces garanties sont les garanties exclusives d'IBM et remplacent toutes les autres garanties, y compris les garanties ou conditions implicites de qualit\u233 ?, de valeur marchande, de non-contrefa\u231 ?on et d'ad\u233 ?quation \u224 ? une utilisation par
+ticuli\u232 ?re. Les garanties d'IBM ne s'appliqueront pas en cas d'utilisation incorrecte, de modification, de dommage non caus\u233 ? par
+ IBM ou de non-respect des instructions \u233 ?crites fournies par
+ IBM. Les Logiciels non-IBM sont fournis en l'\u233 ?tat sans garantie d'aucune sorte. Les tiers peuvent accorder leurs propres garanties au D\u233 ?tenteur de Licence.\par
+ \par
+ e. Un support suppl\u233 ?mentaire disponible pendant ou apr\u232 ?s la p\u233 ?riode de garantie peut faire l'objet d'un accord s\u233 ?par
+\u233 ?.\par
+ \par
+ 3. Redevances, Taxes, Paiements et V\u233 ?rification\par
+ \par
+ a. Le droit du D\u233 ?tenteur de Licence d'utiliser un Logiciel est subordonn\u233 ? au paiement par
+ le D\u233 ?tenteur de Licence des redevances applicables telles que sp\u233 ?cifi\u233 ?es dans le contrat en vertu duquel le D\u233 ?tenteur de Licence a acquis les droits de licence. Le D\u233 ?tenteur de Licence est tenu d'acqu\u233 ?rir des droits de licence suppl\u233 ?mentaires avant toute augmentation de son utilisation.\par
+ \par
+ b. Le D\u233 ?tenteur de Licence accepte de payer toutes les redevances applicables pour les droits acquis et tous les frais pour une utilisation d\u233 ?passant les autorisations. Les redevances ne comprennent aucun droit de douane ou autres imp\u244 ?ts, taxes ou contributions impos\u233 ?es \u224 ? la suite des acquisitions par
+ le D\u233 ?tenteur de Licence et factur\u233 ?es en plus des redevances. Les montants sont exigibles \u224 ? r\u233 ?ception de la facture IBM et payables dans les trente (30) jours date de facture sur un compte sp\u233 ?cifi\u233 ? par
+ IBM et des p\u233 ?nalit\u233 ?s de retard peuvent s'appliquer. Le D\u233 ?tenteur de Licence est tenu d'acqu\u233 ?rir des droits de licence suppl\u233 ?mentaires avant toute augmentation de son utilisation. Sauf indication contraire dans le pr\u233 ?sent IPLA, le DT applicable ou les conditions du contrat en vertu duquel le D\u233 ?tenteur de Licence a acquis ses autorisations de licence, IBM n'accordera aucun cr\u233 ?dit ou remboursement concernant les redevances d\u233 ?j\u224 ? exigibles ou pay\u233 ?es.\par
+ \par
+ c. Sur la base des autorisations acquises, le D\u233 ?tenteur de Licence s'engage \u224 ?\u160 ?: i) payer toute retenue \u224 ? la source directement \u224 ? l'entit\u233 ? gouvernementale appropri\u233 ?e lorsque la loi l'exige\u160 ?; ii) fournir \u224 ? IBM un certificat fiscal attestant de ce paiement\u160 ?; iii) ne payer \u224 ? IBM que le produit net apr\u232 ?s imp\u244 ?t\u160 ?; et iv) coop\u233 ?rer pleinement avec IBM pour obtenir une renonciation ou une r\u233 ?duction de ces imp\u244 ?ts et remplir et d\u233 ?poser rapidement tous les documents pertinents.\par
+ \par
+ d. Si le D\u233 ?tenteur de Licence importe, exporte, transf\u232 ?re, acc\u232 ?de ou utilise un Logiciel au-del\u224 ? d'une fronti\u232 ?re, le D\u233 ?tenteur de Licence accepte d'\u234 ?tre responsable et de payer aux autorit\u233 ?s tout droit de douane, taxe ou pr\u233 ?l\u232 ?vement similaire \u233 ?valu\u233 ? par
+ les autorit\u233 ?s. Sont exclus les taxes et imp\u244 ?ts qui seraient calcul\u233 ?s sur le revenu net d'IBM.\par
+ \par
+ 3.1 V\u233 ?rification de Licence\par
+ \par
+ a. Pour tous les Logiciels sur tous les sites et pour tous les environnements, le D\u233 ?tenteur de Licence cr\u233 ?era, conservera et fournira chaque ann\u233 ?e \u224 ? IBM, sur demande moyennant un pr\u233 ?avis de 30 jours\u160 ?: i) un rapport, dans un format demand\u233 ? par
+ IBM, utilisant les enregistrements, la sortie des outils syst\u232 ?me et d'autres informations syst\u232 ?me\u160 ?; et ii) des pi\u232 ?ces justificatives (collectivement, les \u171 ?\u160 ?Donn\u233 ?es de D\u233 ?ploiement\u160 ?\u187 ?).\par
+ \par
+ b. Moyennant un pr\u233 ?avis raisonnable, IBM et ses auditeurs ind\u233 ?pendants peuvent v\u233 ?rifier la conformit\u233 ? du D\u233 ?tenteur de Licence avec le pr\u233 ?sent Contrat, sur tous les sites et pour tous les environnements dans lesquels le D\u233 ?tenteur de Licence utilise (\u224 ? toutes fins) les Logiciels. Ces v\u233 ?rifications seront effectu\u233 ?es de fa\u231 ?on \u224 ? g\u234 ?ner le moins possible les activit\u233 ?s du D\u233 ?tenteur de Licence. Elles pourront \u234 ?tre r\u233 ?alis\u233 ?es dans les locaux du D\u233 ?tenteur de Licence durant les heures normales de travail. IBM aura un accord de confidentialit\u233 ? \u233 ?crit avec l'auditeur ind\u233 ?pendant. En plus de fournir les Donn\u233 ?es de D\u233 ?ploiement d\u233 ?crites ci-dessus, le D\u233 ?tenteur de Licence accepte de fournir \u224 ? IBM et \u224 ? ses auditeurs des informations et des Donn\u233 ?es de D\u233 ?ploiement suppl\u233 ?mentaires pr\u233 ?cises sur demande.\par
+ \par
+ c. Le D\u233 ?tenteur de Licence commandera et paiera rapidement les redevances, aux tarifs d'IBM alors en vigueur, associ\u233 ?s\u160 ?: i) \u224 ? tous les d\u233 ?ploiements exc\u233 ?dant les autorisations indiqu\u233 ?es sur ou par
+ tout rapport annuel ou v\u233 ?rification\u160 ?; ii) aux services d'abonnement et de support (S&S) applicables \u224 ? ces d\u233 ?ploiements exc\u233 ?dentaires pour la dur\u233 ?e de l'utilisation exc\u233 ?dentaire ou pour deux ans, si cette dur\u233 ?e est inf\u233 ?rieure\u160 ?; et iii) \u224 ? tous les frais suppl\u233 ?mentaires et autres obligations d\u233 ?termin\u233 ?s \u224 ? la suite de cette v\u233 ?rification, y compris, mais sans s'y limiter, les taxes, droits et frais r\u233 ?glementaires.\par
+ \par
+ 4. Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle\par
+ \par
+ a. L'enti\u232 ?re responsabilit\u233 ? d'IBM pour toutes les r\u233 ?clamations li\u233 ?es \u224 ? ce Contrat ne d\u233 ?passera pas le montant des dommages directs r\u233 ?els subis par
+ le D\u233 ?tenteur de Licence, \u224 ? concurrence des montants pay\u233 ?s (si les frais sont r\u233 ?currents, jusqu'\u224 ? 12 mois de frais s'appliquent) pour les droits au Logiciel faisant l'objet de la r\u233 ?clamation, quel que soit le fondement de la r\u233 ?clamation. La responsabilit\u233 ? d'IBM ne pourra \u234 ?tre engag\u233 ?e au titre des atteintes \u224 ? la r\u233 ?putation, des dommages indirects, des pr\u233 ?judices \u233 ?conomiques indirects, des pertes de b\u233 ?n\u233 ?fices, d'activit\u233 ? commerciale, de valeur, de revenu, de client\u232 ?le ou d'\u233 ?conomies escompt\u233 ?es. Ces limites s'appliquent collectivement \u224 ? IBM, ses soci\u233 ?t\u233 ?s affili\u233 ?es, sous-traitants et fournisseurs.\par
+ \par
+ b. Les dommages suivants ne sont pas soumis au plafond fix\u233 ? ci-dessus\u160 ?: i) paiements aux tiers mentionn\u233 ?s dans le par
+agraphe suivant\u160 ?; et ii) dommages pour lesquels la responsabilit\u233 ? ne peut pas \u234 ?tre limit\u233 ?e en vertu de la loi applicable.\par
+ \par
+ c. Si un tiers fait valoir \u224 ? l'encontre du D\u233 ?tenteur de Licence qu'un Logiciel IBM enfreint un brevet ou un droit d'auteur, IBM d\u233 ?fendra le D\u233 ?tenteur de Licence contre cette plainte et paiera les montants d\u233 ?finitivement attribu\u233 ?s par
+ un tribunal au D\u233 ?tenteur de Licence ou inclus dans un r\u232 ?glement approuv\u233 ? par
+ IBM. Pour obtenir la d\u233 ?fense d'IBM contre les r\u233 ?clamations pour contrefa\u231 ?on et le paiement de celles-ci, le D\u233 ?tenteur de Licence doit rapidement\u160 ?: i) notifier par
+ \u233 ?crit \u224 ? IBM la r\u233 ?clamation\u160 ?; ii) fournir les informations demand\u233 ?es par
+ IBM\u160 ?; et iii) permettre \u224 ? IBM de contr\u244 ?ler et de coop\u233 ?rer raisonnablement \u224 ? la d\u233 ?fense et au r\u232 ?glement, y compris aux mesures d'att\u233 ?nuation. Les obligations de d\u233 ?fense et de paiement d'IBM au titre des r\u233 ?clamations en contrefa\u231 ?on s'appliquent aux r\u233 ?clamations fond\u233 ?es sur le Code source ouvert qu'IBM s\u233 ?lectionne et int\u232 ?gre \u224 ? un Logiciel IBM.\par
+ \par
+ d. IBM n'est pas responsable pour les r\u233 ?clamations relatives aux Produits non-IBM, \u224 ? des \u233 ?l\u233 ?ments non fournis par
+ IBM ou pour toute infraction \u224 ? la l\u233 ?gislation en vigueur ou aux droits de tiers occasionn\u233 ?s par
+ le Contenu, la documentation, les conceptions ou sp\u233 ?cifications du D\u233 ?tenteur de Licence ou par
+ l'utilisation par
+ le Client d'une version non actualis\u233 ?e d'un Produit IBM lorsqu'une r\u233 ?clamation en contrefa\u231 ?on aurait pu \u234 ?tre \u233 ?vit\u233 ?e via l'utilisation d'une version actualis\u233 ?e. Le Contenu est constitu\u233 ? de l'ensemble des donn\u233 ?es, logiciels et informations que le D\u233 ?tenteur de Licence ou ses utilisateurs autoris\u233 ?s fournissent, autorisent l'acc\u232 ?s ou introduisent dans un Logiciel.\par
+ \par
+ 5. R\u233 ?siliation\par
+ \par
+ a. IBM peut mettre fin \u224 ? la licence d'utilisation d'un Logiciel par
+ le D\u233 ?tenteur de Licence si ce dernier ne respecte pas l'IPLA, les DT ou les accords d'acquisition, tels que le Contrat Passport Advantage International (IPAA). Le D\u233 ?tenteur de Licence d\u233 ?truira, dans les plus brefs d\u233 ?lais, toutes les copies du Logiciel apr\u232 ?s la r\u233 ?siliation de la licence. Toute disposition qui, par
+ nature, survit \u224 ? la r\u233 ?siliation reste en vigueur jusqu'\u224 ? sa compl\u232 ?te ex\u233 ?cution et s'applique aux ayants droit et cessionnaires des deux par
+ties.\par
+ \par
+ 6. Lois Applicables et Comp\u233 ?tence Territoriale\par
+ \par
+ a. Les deux par
+ties consentent \u224 ? l'application des lois du pays dans lequel la transaction d'autorisations de licence est effectu\u233 ?e, nonobstant tout principe de conflit de lois. Les droits et les obligations de chaque par
+tie s'appliquent uniquement dans le pays o\u249 ? la transaction est effectu\u233 ?e ou en accord avec IBM, dans le pays o\u249 ? le Logiciel est utilis\u233 ? en production, \u233 ?tant pr\u233 ?cis\u233 ? que toutes les licences ne sont valables que dans les conditions d'octroi explicitement stipul\u233 ?es.\par
+ \par
+ b. Chacune des par
+ties est responsable du respect\u160 ?: i) des lois et r\u233 ?glementations applicables \u224 ? ses activit\u233 ?s et son Contenu; et ii) des lois et r\u233 ?glementations relatives au contr\u244 ?le des importations et des exportations ainsi qu'aux sanctions \u233 ?conomiques, y compris celles des Etats-Unis, qui interdisent ou limitent l\u8217 ?exportation, la r\u233 ?exportation, le transfert des produits, des technologies, des services ou des donn\u233 ?es, directement ou indirectement, \u224 ? ou pour certains pays ou utilisateurs finaux.\par
+ \par
+ c. Si l'une quelconque des clauses du Contrat pour un Logiciel est invalide ou inapplicable, les autres dispositions resteront en vigueur et conserveront leur plein effet. Le pr\u233 ?sent Contrat ne porte pas atteinte aux dispositions l\u233 ?gales d'ordre public relatives aux droits des consommateurs. La Convention des Nations Unies sur les Contrats de vente internationale de marchandises ne s'applique pas aux transactions objet du pr\u233 ?sent Contrat.\par
+ \par
+ 7. G\u233 ?n\u233 ?ralit\u233 ?s\par
+ \par
+ a. IBM est un contractant ind\u233 ?pendant, et non un agent commercial, co-entrepreneur, par
+tenaire ou fiduciaire du D\u233 ?tenteur de Licence et ne s'engage pas \u224 ? ex\u233 ?cuter les obligations r\u233 ?glementaires du D\u233 ?tenteur de Licence ou n'assume aucune responsabilit\u233 ? pour les op\u233 ?rations ou activit\u233 ?s du D\u233 ?tenteur de Licence. Le D\u233 ?tenteur de Licence est responsable de son utilisation des Logiciels IBM et non-IBM. IBM intervient uniquement en qualit\u233 ? de fournisseur de services informatiques. Toute instruction d'IBM, toute utilisation recommand\u233 ?e par
+ IBM ou tous conseils ou utilisations de Logiciel ne constituent pas un avis m\u233 ?dical, clinique, juridique, comptable ou autre avis professionnel agr\u233 ?\u233 ?. Le D\u233 ?tenteur de Licence doit obtenir son propre conseil d'expert.\par
+ \par
+ b. En ce qui concerne les Logiciels qu'IBM fournit au D\u233 ?tenteur de Licence sous une forme tangible, IBM honore ses obligations d'exp\u233 ?dition et de livraison lors de la remise de ces Logiciels au transporteur d\u233 ?sign\u233 ? par
+ IBM, sauf accord \u233 ?crit contraire entre le D\u233 ?tenteur de Licence et IBM.\par
+ \par
+ c. Le D\u233 ?tenteur de Licence n'est pas autoris\u233 ? \u224 ? utiliser le Logiciel si la d\u233 ?faillance dudit Logiciel pourrait entra\u238 ?ner un d\u233 ?c\u232 ?s, des blessures corporelles ou des dommages mat\u233 ?riels ou environnementaux.\par
+ \par
+ d. IBM et ses soci\u233 ?t\u233 ?s affili\u233 ?es ainsi que leurs sous-traitants n\u233 ?cessitent l'utilisation de coordonn\u233 ?es professionnelles et de certaines donn\u233 ?es d'utilisation de compte. Ces informations ne sont pas du Contenu. Les coordonn\u233 ?es professionnelles sont utilis\u233 ?es pour communiquer et g\u233 ?rer les transactions commerciales avec le D\u233 ?tenteur de Licence. Le nom, le num\u233 ?ro de t\u233 ?l\u233 ?phone, l'adresse et l'e-mail professionnel ainsi que l'ID utilisateur sont des exemples de coordonn\u233 ?es professionnelles. Les donn\u233 ?es d'utilisation de compte sont requises pour activer, g\u233 ?rer, prendre en charge, administrer et am\u233 ?liorer les Logiciels. Les donn\u233 ?es num\u233 ?riques collect\u233 ?es par
+ le biais de technologies de suivi telles que les cookies ou les pixels espions lors de l'utilisation des Logiciels sont des exemples de donn\u233 ?es d'utilisation de compte. La D\u233 ?claration IBM de Confidentialit\u233 ? \u224 ? l'adresse http://www.ibm.com/privacy/ fournit des d\u233 ?tails suppl\u233 ?mentaires sur la collecte, l'utilisation et le traitement par
+ IBM des coordonn\u233 ?es professionnelles et des donn\u233 ?es d'utilisation de compte. Lorsque le D\u233 ?tenteur de Licence fournit des informations \u224 ? IBM et que la notification des personnes concern\u233 ?es ou leur consentement est requis pour le traitement de ces informations, le D\u233 ?tenteur de Licence devra les en aviser et obtenir leur consentement.\par
+ \par
+ e. Les Partenaires Commerciaux d'IBM qui utilisent ou mettent \u224 ? disposition des Produits sont ind\u233 ?pendants d'IBM et d\u233 ?terminent unilat\u233 ?ralement leurs prix et dispositions contractuelles. IBM n'est pas responsable de leurs actions, omissions, d\u233 ?clarations ou offres.\par
+ \par
+ f. IBM pourra proposer des Logiciels non-IBM, ou un Logiciel IBM peut donner acc\u232 ?s \u224 ? un Logiciel non-IBM, ce qui peut exiger l'acceptation des conditions tierces pr\u233 ?sent\u233 ?es au D\u233 ?tenteur de Licence. La connexion \u224 ? des Logiciels non-IBM ou leur utilisation \u233 ?quivaut \u224 ? l'acceptation de leurs conditions par
+ le D\u233 ?tenteur de Licence. IBM n'est li\u233 ? \u224 ? aucune condition de tiers et n'est pas responsable des Logiciels non-IBM.\par
+ \par
+ g. Les octrois de licence pour les Logiciels ci-dessous sont fournis par
+ International Business Machines Corporation, une soci\u233 ?t\u233 ? enregistr\u233 ?e \u224 ? New York (\u171 ?\u160 ?IBM Corporation\u160 ?\u187 ?). La soci\u233 ?t\u233 ? IBM aupr\u232 ?s de laquelle le D\u233 ?tenteur de Licence acquiert des droits (\u171 ?\u160 ?IBM\u160 ?\u187 ?) agit en tant que distributeur et livre des Logiciels et est responsable de l'application des termes du pr\u233 ?sent Contrat. Pour les autorisations acquises aupr\u232 ?s d'un Partenaire Commercial IBM, la soci\u233 ?t\u233 ? IBM du pays d'acquisition est responsable de la mise en application du pr\u233 ?sent Contrat. Aucun droit ou motif d'action quel qu'il soit n'est \u233 ?tabli pour un D\u233 ?tenteur de Licence au d\u233 ?pend d'IBM Corporation. Le D\u233 ?tenteur de Licence renonce \u224 ? toutes r\u233 ?clamations et actions en justice contre IBM Corporation et accepte de se tourner uniquement vers IBM pour tous les droits et recours en lien avec les Logiciels.\par
+ \par
+ h. Le D\u233 ?tenteur de Licence ne peut pas accorder de sous-licence, c\u233 ?der ou transf\u233 ?rer la licence d'un Logiciel (sauf dans la mesure o\u249 ? la cession ou le transfert ne sont pas limit\u233 ?s par
+ la loi ou sont express\u233 ?ment autoris\u233 ?s par
+ une DT ou par
+ un autre accord d'IBM). IBM peut c\u233 ?der ses droits et obligations au titre du pr\u233 ?sent Contrat dans le cadre de la vente de la par
+tie de l'activit\u233 ? d'IBM qui comprend un Logiciel. IBM pourra par
+tager le pr\u233 ?sent Contrat et les documents connexes conjointement avec une cession.\par
+ \par
+ i. Toutes les notifications au titre du Contrat doivent \u234 ?tre adress\u233 ?es par
+ \u233 ?crit et envoy\u233 ?es \u224 ? l'adresse professionnelle sp\u233 ?cifi\u233 ?e dans le contrat par
+ lequel le D\u233 ?tenteur de Licence a acquis les droits de licence, \u224 ? moins qu'une par
+tie n'indique par
+ \u233 ?crit une adresse diff\u233 ?rente. Les par
+ties consentent \u224 ? l'utilisation de moyens \u233 ?lectroniques ou t\u233 ?l\u233 ?copie pour les communications et toute communication par
+ ces moyens \u233 ?quivaut \u224 ? un document \u233 ?crit sign\u233 ?. Toute reproduction du Contrat r\u233 ?alis\u233 ?e par
+ des moyens fiables est consid\u233 ?r\u233 ?e comme un original. Le Contrat pr\u233 ?vaut sur toute transaction commerciale, discussion ou d\u233 ?claration entre les par
+ties.\par
+ \par
+ j. Aucun droit ou motif d'action quel qu'il soit n'est \u233 ?tabli pour un tiers par
+ le pr\u233 ?sent Contrat. Les par
+ties s'interdisent d'intenter une action en justice contre l'autre au titre du Contrat plus de deux ans apr\u232 ?s l'appar
+ition de son fait g\u233 ?n\u233 ?rateur. Aucune des par
+ties ne sera tenue responsable de l'inex\u233 ?cution de ses obligations non mon\u233 ?taires en cas de circonstances ind\u233 ?pendantes de sa volont\u233 ?. Avant de formuler une r\u233 ?clamation, chacune des par
+ties accordera \u224 ? l'autre un d\u233 ?lai raisonnable pour remplir ses obligations.\par
+ \par
+ k. IBM pourra utiliser des ressources et du personnel localis\u233 ?s dans le monde entier, ainsi que des sous-traitants tiers pour la fourniture de Logiciels et de support de Logiciel. L'utilisation des Logiciels par
+ le D\u233 ?tenteur de Licence peut entra\u238 ?ner le transfert de Contenu, y compris d'informations personnelles identifiables, au-del\u224 ? des fronti\u232 ?res nationales afin de fournir un support pour les Logiciels, comme d\u233 ?crit dans le Guide de Support des Logiciels IBM.\par
+ \par
+ Chapitre 2 - Dispositions Nationales Requises\par
+ \par
+ Pour les licences acquises dans les pays \u233 ?num\u233 ?r\u233 ?s ci-dessous, les dispositions suivantes remplacent ou modifient celles stipul\u233 ?es dans le pr\u233 ?sent IPLA. Toutes les dispositions qui n'ont pas \u233 ?t\u233 ? modifi\u233 ?es par
+ les dispositions ci-dessous restent inchang\u233 ?es et conservent leur plein effet.\par
+ \par
+ 1. AMERIQUES\par
+ \par
+ Clause 3. Redevances, Taxes, Paiements et V\u233 ?rification\par
+ \par
+ Remplacez la premi\u232 ?re et la deuxi\u232 ?me phrase du par
+agraphe b par
+ le texte suivant\u160 ?:\par
+ \par
+ Au Br\u233 ?sil: Le D\u233 ?tenteur de Licence accepte de payer toutes les redevances applicables pour les droits acquis et tous les frais pour une utilisation d\u233 ?passant les autorisations, ainsi que tous les droits de douane ou autres droits, taxes et pr\u233 ?l\u232 ?vements similaires impos\u233 ?s par
+ toute autorit\u233 ? r\u233 ?sultant de l'acquisition de droits par
+ le D\u233 ?tenteur de Licence.\par
+ \par
+ Dans le par
+agraphe b :\par
+ \par
+ Au Mexique\u160 ?: Dans la troisi\u232 ?me phrase, supprimez les mots \u171 ?\u160 ?sur un compte sp\u233 ?cifi\u233 ? par
+ IBM\u160 ?\u187 ?.\par
+ \par
+ Au Mexique\u160 ?: Ajoutez la nouvelle phrase suivante apr\u232 ?s la troisi\u232 ?me phrase\u160 ?:\par
+ \par
+ Les paiements seront effectu\u233 ?s par
+ transfert \u233 ?lectronique de fonds sur un compte indiqu\u233 ? par
+ IBM ou au domicile d'IBM qui est situ\u233 ? \u224 ? Alfonso Napoles Gandara 3111, Santa Fe Pe\u241 ?a Blanca, Alvaro Obregon, Mexico City, Zip Code 01210.\par
+ \par
+ A la fin du par
+agraphe c, ajoutez la phrase suivante\u160 ?:\par
+ \par
+ Au Canada\u160 ?: Lorsque les taxes sont bas\u233 ?es sur le(s) lieu(x) b\u233 ?n\u233 ?ficiant du Logiciel, le D\u233 ?tenteur de Licence a l'obligation permanente de notifier \u224 ? IBM ce(s) lieu(x) s'il(s) diff\u232 ?re(nt) de l'adresse professionnelle du D\u233 ?tenteur de Licence figurant dans le DT applicable.\par
+ \par
+ A la fin du par
+agraphe c, ajoutez la phrase suivante\u160 ?:\par
+ \par
+ Aux Etats-Unis\u160 ?: Les par
+ties conviennent qu'aucun bien personnel corporel (par
+ exemple, des supports ou des publications) ne sera transf\u233 ?r\u233 ? au D\u233 ?tenteur de Licence si\u160 ?: i) IBM livre des Logiciels au D\u233 ?tenteur de Licence par
+ voie \u233 ?lectronique\u160 ?; ou ii) le D\u233 ?tenteur de Licence demande une exon\u233 ?ration de taxe sur les ventes ou sur l'utilisation pour les Logiciels qu'IBM livre au D\u233 ?tenteur de Licence par
+ voie \u233 ?lectronique. Lorsque les taxes sont bas\u233 ?es sur le(s) lieu(x) b\u233 ?n\u233 ?ficiant du Logiciel, le D\u233 ?tenteur de Licence a l'obligation permanente de notifier \u224 ? IBM ce(s) lieu(x) s'il(s) diff\u232 ?re(nt) de l'adresse professionnelle du D\u233 ?tenteur de Licence indiqu\u233 ?e dans le DT applicable.\par
+ \par
+ Clause 4. Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle\par
+ \par
+ Ajoutez ce qui suit \u224 ? la fin du par
+agraphe a :\par
+ \par
+ Au P\u233 ?rou\u160 ?: Aux termes de l'article 1328 du Code Civil p\u233 ?ruvien, les limitations et exclusions sp\u233 ?cifi\u233 ?es dans cette clause ne s'appliquent pas aux dommages caus\u233 ?s par
+ IBM du fait d'un manquement intentionnel \u224 ? ses obligations professionnelles (\u171 ?\u160 ?dolo\u160 ?\u187 ?) ou d'une faute lourde (\u171 ?\u160 ?culpa inexcusable\u160 ?\u187 ?).\par
+ \par
+ Section 6. Lois Applicables et Comp\u233 ?tence Territoriale\par
+ \par
+ Dans le par
+agraphe a, remplacez la premi\u232 ?re phrase par
+ :\par
+ \par
+ En Argentine\u160 ?: les deux par
+ties consentent \u224 ? l'application des lois en vigueur de la R\u233 ?publique d'Argentine, nonobstant tout principe de conflit de lois. Toute proc\u233 ?dure relative aux droits, devoirs et obligations \u233 ?manant du pr\u233 ?sent Contrat sera engag\u233 ?e aupr\u232 ?s du Tribunal Commercial Ordinaire de la ville de Buenos Aires (\u171 ?\u160 ?Ciudad Aut\u243 ?noma de Buenos Aires\u160 ?\u187 ?).\par
+ \par
+ Au Chili\u160 ?: les deux Parties consentent \u224 ? l'application des lois en vigueur du Chili, nonobstant tout principe de conflit de lois. Tout conflit, interpr\u233 ?tation ou violation du pr\u233 ?sent Contrat que les Parties ne peuvent r\u233 ?soudre directement devra faire l'objet d'une proc\u233 ?dure engag\u233 ?e aupr\u232 ?s des Tribunaux Ordinaires de la ville et district de la ville de Santiago.\par
+ \par
+ En Colombie\u160 ?: les deux Parties consentent \u224 ? l'application des lois en vigueur de la R\u233 ?publique de Colombie, nonobstant tout principe de conflit de lois. Tous les droits, devoirs et obligations en d\u233 ?coulant rel\u232 ?vent de la comp\u233 ?tence des magistrats de la R\u233 ?publique de Colombie.\par
+ \par
+ En Equateur\u160 ?: les deux par
+ties acceptent l'application des lois de la R\u233 ?publique de l'Equateur, sans tenir compte des principes de conflit de lois. Tout litige d\u233 ?coulant de ou en lien avec le pr\u233 ?sent Contrat fera l'objet d'une proc\u233 ?dure verbale sommaire engag\u233 ?e aupr\u232 ?s du Tribunal civil de la ville de Quito.\par
+ \par
+ Au Venezuela\u160 ?: les deux Parties consentent \u224 ? l'application des lois en vigueur du Venezuela, nonobstant tout principe de conflit de lois. Les Parties conviennent de soumettre tout litige \u233 ?manant du pr\u233 ?sent Contrat \u224 ? la comp\u233 ?tence des Tribunaux de l'Aire M\u233 ?tropolitaine de la Ville de Caracas.\par
+ \par
+ Au P\u233 ?rou\u160 ?: les deux Parties consentent \u224 ? l'application des lois en vigueur du P\u233 ?rou, nonobstant tout principe de conflit de lois. Tout d\u233 ?saccord susceptible de surgir entre les Parties en lien avec l'ex\u233 ?cution, l'interpr\u233 ?tation ou la conformit\u233 ? du pr\u233 ?sent Contrat et que les Parties ne par
+viennent pas \u224 ? r\u233 ?soudre directement fera l'objet d'une proc\u233 ?dure engag\u233 ?e aupr\u232 ?s des instances relevant de la comp\u233 ?tence des Magistrats et des Tribunaux du District \u171 ?\u160 ?Cercado de Lima\u160 ?\u187 ?.\par
+ \par
+ En Uruguay\u160 ?: les deux Parties consentent \u224 ? l'application des lois de l'Uruguay. Tout d\u233 ?saccord susceptible de surgir entre les Parties en lien avec l'ex\u233 ?cution, l'interpr\u233 ?tation ou la conformit\u233 ? du pr\u233 ?sent Contrat et que les Parties ne par
+viennent pas \u224 ? r\u233 ?soudre directement fera l'objet d'une proc\u233 ?dure engag\u233 ?e aupr\u232 ?s des Tribunaux de Montevideo (\u171 ?\u160 ?Tribunales Ordinarios de Montevideo\u160 ?\u187 ?).\par
+ \par
+ Dans le par
+agraphe a, dans la premi\u232 ?re phrase seulement, remplacez la phrase \u171 ?\u160 ?du pays dans lequel la transaction est effectu\u233 ?e\u160 ?\u187 ? par
+ :\par
+ \par
+ Pour les pays suivants\u160 ?: Etats-Unis, Anguilla, Antigua-et-Barbuda, Aruba, Bahamas, Barbade, Bermudes, Bonaire, Iles Vierges britanniques, Iles Ca\u239 ?mans, Cura\u231 ?ao, Dominique, Grenade, Guyana, Jama\u239 ?que, Montserrat, Saba, Saint-Eustache, Saint-Christophe-et-Ni\u233 ?v\u232 ?s, Sainte-Lucie, Saint-Martin, Saint-Vincent-et-les-Grenadines, Suriname, Tortola, Trinit\u233 ?-et-Tobago, Iles Turques-et-Ca\u239 ?ques, l'Etat de New York, aux Etats-Unis.\par
+ \par
+ Au Canada\u160 ?: la Province d'Ontario et les lois f\u233 ?d\u233 ?rales du Canada applicables.\par
+ \par
+ Dans la deuxi\u232 ?me phrase du par
+agraphe a, remplacez la phrase \u171 ?\u160 ?du pays dans lequel la transaction est effectu\u233 ?e\u160 ?\u187 ? par
+ :\par
+ \par
+ En Argentine\u160 ?: Argentine\par
+ \par
+ Au Chili\u160 ?: Chili\par
+ \par
+ En Colombie\u160 ?: Colombie\par
+ \par
+ En Equateur\u160 ?: Equateur\par
+ \par
+ Au Mexique\u160 ?: Mexique\par
+ \par
+ Au P\u233 ?rou\u160 ?: P\u233 ?rou\par
+ \par
+ En Uruguay\u160 ?: Uruguay\par
+ \par
+ Au Venezuela\u160 ?: Venezuela\par
+ \par
+ Ajoutez ce qui suit \u224 ? la fin du par
+agraphe b :\par
+ \par
+ Au Br\u233 ?sil\u160 ?: tous les litiges d\u233 ?coulant de ou en lien avec le pr\u233 ?sent Contrat, y compris toute proc\u233 ?dure sommaire, fera l'objet d'une proc\u233 ?dure engag\u233 ?e aupr\u232 ?s de la comp\u233 ?tence exclusive du Parquet de la Ville de S\u227 ?o Paulo, Etat de S\u227 ?o Paulo, Br\u233 ?sil\u160 ?; les Parties reconnaissent, de mani\u232 ?re irr\u233 ?vocable, la comp\u233 ?tence de l'autorit\u233 ? susmentionn\u233 ?e et s'engagent \u224 ? n'en invoquer aucune autre, quelle que soit leur pr\u233 ?f\u233 ?rence.\par
+ \par
+ Au Mexique\u160 ?: les Parties conviennent de se soumettre \u224 ? la comp\u233 ?tence exclusive des tribunaux de la ville de Mexico pour la r\u233 ?solution de tout litige \u233 ?manant du pr\u233 ?sent Contrat. Les Parties renoncent \u224 ? recourir \u224 ? tout autre juridiction dont rel\u232 ?verait leur domicile pr\u233 ?sent ou futur, ou en raison de tout autre motif.\par
+ \par
+ Clause 7. G\u233 ?n\u233 ?ralit\u233 ?s\par
+ \par
+ Dans le par
+agraphe g :\par
+ \par
+ Aux Etats-Unis\u160 ?: supprimez les 2 derni\u232 ?res phrases.\par
+ \par
+ Dans le par
+agraphe i, ajoutez la nouvelle phrase suivante apr\u232 ?s la premi\u232 ?re phrase :\par
+ \par
+ Au Mexique\u160 ?: Tout changement d'adresse doit \u234 ?tre notifi\u233 ? 10 (dix) jours \u224 ? l'avance, faute de quoi les notifications faites \u224 ? la derni\u232 ?re adresse indiqu\u233 ?e produiront tous leurs effets juridiques.\par
+ \par
+ Dans le par
+agraphe j :\par
+ \par
+ Au Br\u233 ?sil\u160 ?: supprimez l'int\u233 ?gralit\u233 ? de la deuxi\u232 ?me phrase\u160 ?: \u171 ?\u160 ?Les par
+ties s'interdisent d'intenter une action en justice contre l'autre au titre du Contrat plus de deux ans apr\u232 ?s l'appar
+ition de son fait g\u233 ?n\u233 ?rateur\u160 ?\u187 ?.\par
+ \par
+ Ajoutez en tant que nouveau par
+agraphe l dans cette clause :\par
+ \par
+ Au Canada\u160 ?: Les deux par
+ties acceptent de r\u233 ?diger ce document en langue anglaise. Les par
+ties ont convenu de r\u233 ?diger le pr\u233 ?sent document en langue anglaise.\par
+ \par
+ 2. ASIE PACIFIQUE\par
+ \par
+ Clause 2. Garanties\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la clause sous la forme d'un nouveau par
+agraphe f :\par
+ \par
+ En Australie\u160 ?: les garanties susmentionn\u233 ?es s'ajoutent aux droits conf\u233 ?r\u233 ?s au titre de la Competition and Consumer Act de 2010, dans les limites d\u233 ?finies par
+ celles-ci.\par
+ \par
+ Au Japon\u160 ?: La responsabilit\u233 ? d'IBM est limit\u233 ?e au pr\u233 ?sent par
+agraphe et \u224 ? la clause Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle, les DT applicables constituant le seul recours du D\u233 ?tenteur de Licence en cas de non-respect des garanties sp\u233 ?cifi\u233 ?es dans cette clause.\par
+ \par
+ En Nouvelle-Z\u233 ?lande\u160 ?: les garanties susmentionn\u233 ?es s'ajoutent aux droits conf\u233 ?r\u233 ?s au titre de la Consumer Guarantee Act de 1993 ou tout autre texte de loi qui ne peuvent \u234 ?tre limit\u233 ?s par
+ la loi.\par
+ \par
+ Clause 3. Redevances, Taxes, Paiements et V\u233 ?rification\par
+ \par
+ Dans le par
+agraphe b. remplacez la troisi\u232 ?me phrase par
+ les 2 phrases suivantes :\par
+ \par
+ \u192 ? Hong Kong, en Indon\u233 ?sie, en Cor\u233 ?e, \u224 ? Macao, en Malaisie, aux Philippines, \u224 ? Singapour et au Vietnam\u160 ?: Les montants sont exigibles \u224 ? r\u233 ?ception de la facture et payables dans les trente (30) jours date de facture sur un compte sp\u233 ?cifi\u233 ? par
+ IBM. Si le paiement n'est pas re\u231 ?u dans un d\u233 ?lai de 30 jours \u224 ? compter de la date de la facture, IBM peut facturer des frais de retard sur le montant impay\u233 ?, calcul\u233 ?s sur le nombre de jours de retard, au plus faible des deux montants suivants\u160 ?: i) 2 % pour chaque p\u233 ?riode de 30 jours ou par
+tie de celle-ci\u160 ?; ou ii) le montant maximum autoris\u233 ? par
+ la loi applicable.\par
+ \par
+ En Tha\u239 ?lande\u160 ?: Les montants sont exigibles \u224 ? r\u233 ?ception de la facture et payables dans les trente (30) jours date de facture sur un compte sp\u233 ?cifi\u233 ? par
+ IBM. Si le paiement n'est pas re\u231 ?u dans un d\u233 ?lai de 30 jours \u224 ? compter de la date de la facture, des frais de retard de paiement peuvent \u234 ?tre appliqu\u233 ?s sur le montant impay\u233 ?, au taux de 1,25 % par
+ mois, calcul\u233 ? sur le nombre de jours de retard de paiement.\par
+ \par
+ Dans la premi\u232 ?re phrase du par
+agraphe c, supprimez le mot \u171 ?\u160 ?et\u160 ?\u187 ? avant \u171 ?\u160 ?(iv)\u160 ?\u187 ?, et ajoutez un point-virgule et le nouveau point suivant \u171 ?\u160 ?(v)\u160 ?\u187 ? :\par
+ \par
+ En Inde\u160 ?:\u160 ?; et (v) d\u233 ?poser des d\u233 ?clarations exactes de taxes d\u233 ?duites \u224 ? la source (TDS) en temps voulu. Si un imp\u244 ?t, un droit, une taxe ou une redevance (les \u171 ?\u160 ?Taxes\u160 ?\u187 ?) n'est pas factur\u233 ? sur la base des documents d'exon\u233 ?ration fournis par
+ le concessionnaire et que l'autorit\u233 ? fiscale d\u233 ?cide ult\u233 ?rieurement que ces taxes auraient d\u251 ? \u234 ?tre factur\u233 ?es, le concessionnaire sera tenu de payer ces taxes, y compris les int\u233 ?r\u234 ?ts, les pr\u233 ?l\u232 ?vements et/ou les p\u233 ?nalit\u233 ?s applicables.\par
+ \par
+ Dans la premi\u232 ?re phrase du par
+agraphe c, supprimez le mot \u171 ?\u160 ?et\u160 ?\u187 ? avant \u171 ?\u160 ?(iv)\u160 ?\u187 ?, et remplacez le point (iv) et ajoutez un nouveau point \u171 ?\u160 ?(v)\u160 ?\u187 ? avec\u160 ?:\par
+ \par
+ \u192 ? Singapour, en Malaisie, aux Philippines, en Tha\u239 ?lande, en Indon\u233 ?sie et au Vietnam\u160 ?: (iv) coop\u233 ?rer pleinement avec IBM dans le cadre de la recherche d'une renonciation ou d'une r\u233 ?duction de la retenue \u224 ? la source ou de tout autre imp\u244 ?t pour lequel le D\u233 ?tenteur de Licence demande une renonciation ou une r\u233 ?duction\u160 ?; et (v) remplir, classer et tenir \u224 ? jour rapidement tous les documents pertinents pour une telle renonciation, r\u233 ?duction ou exon\u233 ?ration.\par
+ \par
+ Clause 4. Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la premi\u232 ?re phrase du par
+agraphe a :\par
+ \par
+ En Australie\u160 ?: (par
+ exemple sur base contractuelle ou en raison d'un pr\u233 ?judice, d'une n\u233 ?gligence, en vertu de la loi ou pour toute autre raison)\par
+ \par
+ Au par
+agraphe a, deuxi\u232 ?me phrase, apr\u232 ?s le mot \u171 ?\u160 ?sp\u233 ?cial\u160 ?\u187 ? et avant le mot \u171 ?\u160 ?accessoire\u160 ?\u187 ?, ajoutez ce qui suit :\par
+ \par
+ Aux Philippines\u160 ?: (y compris les dommages-int\u233 ?r\u234 ?ts nominaux et exemplaires), les dommages moraux,\par
+ \par
+ Ajoutez en tant que nouveau par
+agraphe apr\u232 ?s la fin du par
+agraphe a (et assurez-vous que les lettres des par
+agraphes sont correctement ordonn\u233 ?es) :\par
+ \par
+ En Australie\u160 ?: En cas de non-respect par
+ IBM d'une garantie impliqu\u233 ?e par
+ le Competition and Consumer Act de 2010, la responsabilit\u233 ? d'IBM est limit\u233 ?e \u224 ? la r\u233 ?par
+ation ou au remplacement des biens ou \u224 ? la fourniture de biens \u233 ?quivalents, ou au paiement du co\u251 ?t du remplacement des biens ou de leur r\u233 ?par
+ation. Lorsque cette garantie se rapporte au droit de vente, \u224 ? une possession paisible ou \u224 ? un titre incontestable d'un produit en vertu de la l\u233 ?gislation australienne en mati\u232 ?re de protection des consommateurs, aucune des limitations de la pr\u233 ?sente clause ne s'applique.\par
+ \par
+ Clause 5. R\u233 ?siliation\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la clause sous la forme d'un nouveau par
+agraphe b :\par
+ \par
+ \par
+ En Indon\u233 ?sie\u160 ?: Les par
+ties renoncent aux dispositions de l'article 1266 du Code Civil Indon\u233 ?sien, dans la mesure o\u249 ? cet article \u233 ?nonce qu'un ordre du tribunal est n\u233 ?cessaire en cas de r\u233 ?siliation d'un contrat opposable.\par
+ \par
+ Section 6. Lois Applicables et Comp\u233 ?tence Territoriale\par
+ \par
+ Dans la deuxi\u232 ?me phrase du deuxi\u232 ?me par
+agraphe, remplacez la phrase \u171 ?\u160 ?du pays dans lequel la transaction est effectu\u233 ?e\u160 ?\u187 ? par
+ :\par
+ \par
+ Au Cambodge, au Laos\u160 ?: Etat de New York, Etats-Unis\par
+ \par
+ En Australie\u160 ?: l'Etat ou le Territoire dans lequel vous avez acquis la transaction\par
+ \par
+ \u192 ? Hong Kong\u160 ?: la R\u233 ?gion Administrative Sp\u233 ?ciale de Hong Kong de la R\u233 ?publique populaire de Chine\par
+ \par
+ \u192 ? Macao\u160 ?: la R\u233 ?gion Administrative Sp\u233 ?ciale de Macao de la R\u233 ?publique populaire de Chine\par
+ \par
+ En Cor\u233 ?e\u160 ?: la R\u233 ?publique de Cor\u233 ?e et soumis au Tribunal du District Central de S\u233 ?oul de la R\u233 ?publique de Cor\u233 ?e\par
+ \par
+ \u192 ? Ta\u239 ?wan\u160 ?: Ta\u239 ?wan\par
+ \par
+ En Inde\u160 ?: Inde\par
+ \par
+ Dans la deuxi\u232 ?me phrase du par
+agraphe a, remplacez la phrase \u171 ?\u160 ?du pays o\u249 ? la transaction est effectu\u233 ?e ou, si IBM l'autorise, le pays o\u249 ? le produit est plac\u233 ? en utilisation productive\u160 ?\u187 ? par
+ :\par
+ \par
+ \u192 ? Hong Kong\u160 ?: la R\u233 ?gion Administrative Sp\u233 ?ciale de Hong Kong de la R\u233 ?publique populaire de Chine\par
+ \par
+ \u192 ? Macao\u160 ?: la R\u233 ?gion Administrative Sp\u233 ?ciale de Macao de la R\u233 ?publique populaire de Chine\par
+ \par
+ \u192 ? Ta\u239 ?wan\u160 ?: Ta\u239 ?wan\par
+ \par
+ Au point ii) de la premi\u232 ?re phrase du par
+agraphe b, ajoutez ce qui suit entre les mots \u171 ?\u160 ?y compris\u160 ?\u187 ? et \u171 ?\u160 ?la d\u233 ?fense\u160 ?\u187 ? :\par
+ \par
+ Au Japon\u160 ?: les lois japonaises et\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la clause sous la forme d'un nouveau par
+agraphe d :\par
+ \par
+ Au Cambodge, au Laos, aux Philippines, au Sri Lanka\u160 ?: toute contestation fera l'objet d'un arbitrage d\u233 ?finitif \u224 ? Singapour selon les r\u232 ?gles d'arbitrage du Centre d'Arbitrage International de Singapour (les \u171 ?\u160 ?R\u232 ?gles du SIAC\u160 ?\u187 ?).\par
+ \par
+ En Inde\u160 ?: toute contestation fera l'objet d'un arbitrage d\u233 ?finitif conform\u233 ?ment \u224 ? la Loi d'Arbitrage et de Conciliation de 1996 en vigueur, en langue anglaise et dans la ville de Bangalore, Inde. Un arbitre unique sera saisi si le montant faisant objet du litige est inf\u233 ?rieur ou \u233 ?gal \u224 ? cinq crores de roupies indiennes, alors que trois arbitres seront saisis si le montant est sup\u233 ?rieur. En cas de remplacement d'un arbitre, les d\u233 ?bats reprendront au point auquel ils avaient \u233 ?t\u233 ? interrompus au moment de la vacance.\par
+ \par
+ En Indon\u233 ?sie\u160 ?: toute contestation fera l'objet d'un arbitrage d\u233 ?finitif \u224 ? Jakarta (Indon\u233 ?sie) selon les r\u232 ?gles du Conseil national d'arbitrage indon\u233 ?sien \u233 ?tabli en 1977 (\u171 ?\u160 ?Badan Arbitrase Nasional Indonesia\u160 ?\u187 ? ou \u171 ?\u160 ?BANI\u160 ?\u187 ?). La sentence arbitrale sera d\u233 ?finitive et contraignante pour les par
+ties, sans appel, et sera r\u233 ?dig\u233 ?e par
+ \u233 ?crit et exposera les constatations de fait et les conclusions de droit.\par
+ \par
+ Dans la R\u233 ?publique Populaire de Chine\u160 ?: l'une ou l'autre par
+tie est autoris\u233 ?e \u224 ? soumettre la r\u233 ?clamation \u224 ? la Commission Chinoise d'Arbitrage de l'\u201 ?conomie et du Commerce International (China International Economic and Trade Arbitration Commission) \u224 ? P\u233 ?kin (RPC), \u224 ? des fins d'arbitrage. Les par
+ties conviennent de recourir \u224 ? trois arbitres pour r\u233 ?soudre tout diff\u233 ?rend.\par
+ \par
+ Au Vietnam\u160 ?: toute contestation fera l'objet d'un arbitrage d\u233 ?finitif au Vietnam selon les r\u232 ?gles d'arbitrage du Centre d'Arbitrage International du Vietnam (les \u171 ?\u160 ?R\u232 ?gles du VIAC\u160 ?\u187 ?). Toutes les d\u233 ?marches et tous les documents seront en langue anglaise.\par
+ \par
+ Clause 7. G\u233 ?n\u233 ?ralit\u233 ?s\par
+ \par
+ Dans la deuxi\u232 ?me phrase du par
+agraphe j, remplacez la phrase \u171 ?\u160 ?deux ans\u160 ?\u187 ? par
+ :\par
+ \par
+ En Inde\u160 ?: trois ans\par
+ \par
+ Ajoutez ceci \u224 ? la fin de la clause sous forme d'un nouveau par
+agraphe l :\par
+ \par
+ En Indon\u233 ?sie\u160 ?: Le pr\u233 ?sent contrat est r\u233 ?dig\u233 ? en anglais et en bahasa indon\u233 ?sien. Dans la mesure o\u249 ? la loi applicable le permet, la version anglaise pr\u233 ?vaudra en cas de conflit entre ces versions.\par
+ \par
+ 3. EUROPE, MOYEN-ORIENT ET AFRIQUE\par
+ \par
+ Clause 2. Garanties\par
+ \par
+ Dans le par
+agraphe d, remplacez la quatri\u232 ?me phrase par
+ les deux phrases suivantes :\par
+ \par
+ En R\u233 ?publique tch\u232 ?que, en Estonie et en Lituanie\u160 ?: Les Logiciels non-IBM sont fournis en l'\u233 ?tat, sans garantie d'aucune sorte ni responsabilit\u233 ? pour les d\u233 ?fauts. Les par
+ties excluent par
+ les pr\u233 ?sentes toute responsabilit\u233 ? d'IBM pour des d\u233 ?fauts non couverts par
+ les garanties convenues.\par
+ \par
+ Clause 3. Redevances, Taxes, Paiements et V\u233 ?rification\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la troisi\u232 ?me phrase du par
+agraphe b :\par
+ \par
+ En Italie\u160 ?: si IBM l'exige par
+ notification \u233 ?crite au D\u233 ?tenteur de Licence.\par
+ \par
+ En Ukraine\u160 ?: sur le montant \u233 ?chu \u224 ? compter du jour suivant la date d'exigibilit\u233 ? jusqu'\u224 ? la date du paiement r\u233 ?el, calcul\u233 ? au prorata pour chaque jour de retard, au taux d'int\u233 ?r\u234 ?t \u233 ?gal au double du taux de remise d\u233 ?termin\u233 ? par
+ la Banque National d'Ukraine (NBU) pendant la p\u233 ?riode de retard (le par
+agraphe 6 de l'article 232 du Code de commerce ukrainien ne s'applique pas).\par
+ \par
+ Dans le par
+agraphe b, remplacez la troisi\u232 ?me phrase par
+ la phrase suivante :\par
+ \par
+ En France\u160 ?: Les montants sont exigibles et payables dans les dix (10) jours date de facture sur un compte sp\u233 ?cifi\u233 ? par
+ IBM et des p\u233 ?nalit\u233 ?s de retard \u233 ?gales au taux de r\u233 ?f\u233 ?rence de la Banque centrale europ\u233 ?enne le plus r\u233 ?cent major\u233 ? de 10 points s'appliquent, en plus des frais de recouvrement des cr\u233 ?ances de quarante (40) euros ou, si ces frais d\u233 ?passent quarante euros, un d\u233 ?dommagement suppl\u233 ?mentaire sous r\u233 ?serve de la justification du montant r\u233 ?clam\u233 ?.\par
+ \par
+ En Russie\u160 ?: Les montants sont exigibles \u224 ? r\u233 ?ception de la facture et payables dans les trente (30) jours date de facture sur un compte sp\u233 ?cifi\u233 ? par
+ IBM. Des frais de retard de paiement au taux de 24 % par
+ an, calcul\u233 ?s pour chaque jour au-del\u224 ? des 30 jours, peuvent s'appliquer.\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la derni\u232 ?re phrase du par
+agraphe b :\par
+ \par
+ En Lituanie\u160 ?: , ou sauf dans les cas pr\u233 ?vus par
+ la loi\par
+ \par
+ A la fin du par
+agraphe b, ajouter la phrase suivante :\par
+ \par
+ En Italie\u160 ?: En cas de non-paiement ou de paiement par
+tiel, et \u233 ?galement \u224 ? la suite d'une proc\u233 ?dure formelle de r\u233 ?clamation de cr\u233 ?dit ou d'un proc\u232 ?s qu'IBM peut engager, en d\u233 ?rogation \u224 ? l'article 4 du d\u233 ?cret l\u233 ?gislatif n. 231 du 9 octobre 2002, et conform\u233 ?ment \u224 ? l'article 7 du m\u234 ?me d\u233 ?cret l\u233 ?gislatif, IBM notifiera par
+ \u233 ?crit au D\u233 ?tenteur de Licence, par
+ courrier recommand\u233 ? avec accus\u233 ? de r\u233 ?ception, les p\u233 ?nalit\u233 ?s de retard dues.\par
+ \par
+ Clause 4. Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle\par
+ \par
+ Dans la premi\u232 ?re phrase du par
+agraphe a, ins\u233 ?rez ce qui suit avant les mots \u171 ?\u160 ?montants pay\u233 ?s\u160 ?\u187 ? :\par
+ \par
+ En Belgique, France, Allemagne, Italie, Luxembourg, \u224 ? Malte et en Espagne d\u233 ?passera un montant de 500\u160 ?000 (cinq cent mille) euros ou\par
+ \par
+ En Irlande et au Royaume-Uni\u160 ?: 125 %\par
+ \par
+ Dans la premi\u232 ?re phrase du par
+agraphe a, remplacez la phrase \u171 ?\u160 ?les dommages directs subis par
+ le D\u233 ?tenteur de Licence\u160 ?\u187 ? par
+ :\par
+ \par
+ En Espagne\u160 ?: et les dommages prouv\u233 ?s subis par
+ le D\u233 ?tenteur de Licence par
+ suite de la d\u233 ?faillance d'IBM\par
+ \par
+ Dans le par
+agraphe a, ajoutez cette nouvelle phrase apr\u232 ?s la premi\u232 ?re phrase :\par
+ \par
+ En Slovaquie\u160 ?: se rapportant \u224 ? l'article 379 du Code Commercial, Loi 513/1991 Coll. amend\u233 ? et concernant les dispositions relatives \u224 ? la conclusion du Contrat, en vertu duquel les deux Parties conviennent que tout dommage pr\u233 ?visible et potentiellement cumulatif ne d\u233 ?passera pas le montant sp\u233 ?cifi\u233 ? ci-dessus, qui repr\u233 ?sente le montant maximum au titre duquel est engag\u233 ?e la responsabilit\u233 ? d'IBM.\par
+ \par
+ Dans le par
+agraphe a, ajoutez cette nouvelle phrase avant la deuxi\u232 ?me phrase :\par
+ \par
+ En Russie\u160 ?: IBM ne sera pas responsable de l'avantage perdu.\par
+ \par
+ Dans la deuxi\u232 ?me phrase du par
+agraphe a, supprimez le mot :\par
+ \par
+ En Irlande et au Royaume-Uni\u160 ?: \u233 ?conomique\par
+ \par
+ Dans le par
+agraphe a, remplacez la deuxi\u232 ?me phrase par
+ :\par
+ \par
+ En Belgique, aux Pays-Bas et au Luxembourg\u160 ?: la responsabilit\u233 ? d'IBM ne pourra \u234 ?tre engag\u233 ?e au titre des atteintes \u224 ? la r\u233 ?putation, des dommages indirects, et des pertes de b\u233 ?n\u233 ?fices, d'activit\u233 ? commerciale, de valeur, de revenu, de client\u232 ?le ou d'\u233 ?conomies escompt\u233 ?es, de r\u233 ?clamation de tiers contre le D\u233 ?tenteur de Licence et de perte (ou d\u233 ?t\u233 ?rioration) de donn\u233 ?es.\par
+ \par
+ En France\u160 ?: la responsabilit\u233 ? d'IBM ne pourra \u234 ?tre engag\u233 ?e au titre des atteintes \u224 ? la r\u233 ?putation, des dommages indirects, et des pertes de b\u233 ?n\u233 ?fices, d'activit\u233 ? commerciale, de valeur, de revenu, de client\u232 ?le ou d'\u233 ?conomies escompt\u233 ?es.\par
+ \par
+ Au Portugal\u160 ?: IBM ne sera pas responsable des dommages indirects, y compris des pertes de b\u233 ?n\u233 ?fices.\par
+ \par
+ En Espagne\u160 ?: la responsabilit\u233 ? d'IBM ne pourra \u234 ?tre engag\u233 ?e au titre des atteintes \u224 ? la r\u233 ?putation, des pertes de b\u233 ?n\u233 ?fices, d'activit\u233 ? commerciale, de valeur, de revenu, de client\u232 ?le ou d'\u233 ?conomies escompt\u233 ?es.\par
+ \par
+ Ajoutez ce qui suit \u224 ? la fin du par
+agraphe a :\par
+ \par
+ En France\u160 ?: Les conditions du pr\u233 ?sent Contrat, y compris les conditions financi\u232 ?res, ont \u233 ?t\u233 ? \u233 ?tablies en fonction de la pr\u233 ?sente Clause, qui fait par
+tie int\u233 ?grante de l'\u233 ?conomie g\u233 ?n\u233 ?rale du Contrat.\par
+ \par
+ Dans le par
+agraphe b, remplacez \u171 ?\u160 ?et ii) dommages pour lesquels la responsabilit\u233 ? ne peut pas \u234 ?tre limit\u233 ?e en vertu de la loi applicable\u160 ?\u187 ? par
+ :\par
+ \par
+ En Allemagne\u160 ?:\u160 ?; ii) les dommages corporels (y compris le d\u233 ?c\u232 ?s)\u160 ?; iii) les pertes ou dommages caus\u233 ?s par
+ une violation de la garantie assum\u233 ?e par
+ IBM dans le cadre d'une transaction en vertu du pr\u233 ?sent Contrat\u160 ?; et iv) caus\u233 ?s intentionnellement ou par
+ une n\u233 ?gligence grave.\par
+ \par
+ Section 6. Lois Applicables et Comp\u233 ?tence Territoriale\par
+ \par
+ Dans le par
+agraphe a, dans la premi\u232 ?re phrase seulement, remplacez \u171 ?\u160 ?du pays dans lequel la transaction est effectu\u233 ?e\u160 ?\u187 ? par
+\u160 ?:\par
+ \par
+ Albanie, Arm\u233 ?nie, Azerba\u239 ?djan, Belarus, Bosnie-Herz\u233 ?govine, Bulgarie, Croatie, ancienne R\u233 ?publique yougoslave de Mac\u233 ?doine, G\u233 ?orgie, Kazakhstan, Kirghizstan, Moldavie, Mont\u233 ?n\u233 ?gro, Roumanie, Russie, Serbie, Tadjikistan, Turkm\u233 ?nistan, Ukraine et Ouzb\u233 ?kistan\u160 ?: Autriche\par
+ \par
+ En Estonie, Lettonie, et Lituanie\u160 ?: Finlande\par
+ \par
+ Dans les pays suivants\u160 ?: Alg\u233 ?rie, Andorre, B\u233 ?nin, Burkina Faso, Burundi, Cameroun, Cap-Vert, R\u233 ?publique centrafricaine, Tchad, Comores, R\u233 ?publique du Congo, Djibouti, R\u233 ?publique d\u233 ?mocratique du Congo, Guin\u233 ?e \u233 ?quatoriale, Guyane, Polyn\u233 ?sie fran\u231 ?aise, Gabon, Guin\u233 ?e, Guin\u233 ?e-Bissau, C\u244 ?te d'Ivoire, Liban, Madagascar, Mali, Mauritanie, Ile Maurice, Mayotte, Maroc, Nouvelle-Cal\u233 ?donie, Niger, R\u233 ?union, S\u233 ?n\u233 ?gal, Seychelles, Togo, Tunisie, Vanuatu et Wallis-et-Futuna\u160 ?: France\par
+ \par
+ Angola, Bahre\u239 ?n, Botswana, \u201 ?gypte, Erythr\u233 ?e, \u201 ?thiopie, Gambie, Ghana, Irak, Jordanie, Kenya, Kowe\u239 ?t, Liberia, Malawi, Malte, Mozambique, Nigeria, Oman, Pakistan, Qatar, Rwanda, Sao Tom\u233 ?-et-Principe, Arabie saoudite, Sierra Leone, Somalie, Tanzanie, Ouganda, \u201 ?mirats arabes unis, Cisjordanie/Gaza, Y\u233 ?men, Zambie et Zimbabwe\u160 ?: Angleterre\par
+ \par
+ Au Liechtenstein\u160 ?: Suisse\par
+ \par
+ En Afrique du Sud, Namibie, au Lesotho et au Swaziland\u160 ?: R\u233 ?publique d'Afrique du Sud\par
+ \par
+ Au Royaume-Uni\u160 ?: Angleterre\par
+ \par
+ Phrase \u224 ? ajouter \u224 ? la fin de la premi\u232 ?re phrase du par
+agraphe a :\par
+ \par
+ En France: Les par
+ties conviennent que les articles 1222 et 1223 du Code Civil fran\u231 ?ais ne sont pas applicables.\par
+ \par
+ Ajoutez ce qui suit \u224 ? la fin du par
+agraphe a :\par
+ \par
+ Albanie, Arm\u233 ?nie, Azerba\u239 ?djan, Belarus, Bosnie-Herz\u233 ?govine, Bulgarie, Croatie, ancienne R\u233 ?publique yougoslave de Mac\u233 ?doine, G\u233 ?orgie, Kazakhstan, Kosovo, Kirghizstan, Moldavie, Mont\u233 ?n\u233 ?gro, Roumanie, Russie, Serbie, Tadjikistan, Turkm\u233 ?nistan, Ukraine et Ouzb\u233 ?kistan\u160 ?: toute contestation en rapport avec le pr\u233 ?sent Contrat fera l'objet d'un arbitrage d\u233 ?finitif, selon les R\u232 ?gles d'Arbitrage de la Chambre Economique F\u233 ?d\u233 ?rale du Centre International d'Arbitrage de Vienne (Autriche) avec l'anglais, comme langue officielle par
+ trois arbitres impar
+tiaux d\u233 ?sign\u233 ?s conform\u233 ?ment aux R\u232 ?gles susmentionn\u233 ?es. Chaque par
+tie nommera un arbitre et les arbitres nomm\u233 ?s par
+ les par
+ties d\u233 ?signeront un pr\u233 ?sident ind\u233 ?pendant dans les 30 jours, sinon le pr\u233 ?sident sera nomm\u233 ? par
+ l'Instance d'arbitrage conform\u233 ?ment aux lois viennoises. Les arbitres n'auront pas autorit\u233 ? \u224 ? ordonner une injonction ou accorder des dommages-int\u233 ?r\u234 ?ts exclus par
+ ou en surplus des limitations contenues dans le pr\u233 ?sent Contrat. Aucune disposition du pr\u233 ?sent Contrat n'emp\u234 ?chera l'une quelconque des par
+ties de recourir \u224 ? la proc\u233 ?dure judiciaire (1) en r\u233 ?f\u233 ?r\u233 ? pour emp\u234 ?cher un pr\u233 ?judice mat\u233 ?riel ou une violation des clauses de confidentialit\u233 ? ou des droits de propri\u233 ?t\u233 ? intellectuelle, ou (2) pour d\u233 ?terminer la validit\u233 ? ou la propri\u233 ?t\u233 ? d'un droit d'auteur, d'un brevet ou d'une marque d\u233 ?tenue ou affirm\u233 ?e par
+ une Partie ou une soci\u233 ?t\u233 ? de son Entreprise, ou (3) pour le recouvrement de cr\u233 ?ances inf\u233 ?rieures \u224 ? 500\u160 ?000 dollars US.\par
+ \par
+ En Estonie, Lettonie, et Lituanie\u160 ?: Toute contestation r\u233 ?sultat du pr\u233 ?sent Contrat fera l'objet d'un arbitrage d\u233 ?finitif par
+ l'Institut d'arbitrage de la Chambre de commerce de Finlande (FAI) (instance d'arbitrage), en vertu du r\u232 ?glement d'arbitrage de la Chambre de commerce de Finlande (r\u232 ?glement), \u224 ? Helsinki, Finlande, avec l'anglais comme langue officielle, par
+ trois arbitres impar
+tiaux nomm\u233 ?s conform\u233 ?ment \u224 ? ce r\u232 ?glement. Chaque par
+tie nommera un arbitre et les arbitres nomm\u233 ?s par
+ les par
+ties d\u233 ?signeront un pr\u233 ?sident ind\u233 ?pendant dans les 30 jours, sinon le pr\u233 ?sident sera nomm\u233 ? par
+ l'Instance d'arbitrage conform\u233 ?ment auxdites R\u232 ?gles. Les arbitres n'auront pas autorit\u233 ? \u224 ? ordonner une injonction ou accorder des dommages-int\u233 ?r\u234 ?ts exclus par
+ ou en surplus des limitations contenues dans le pr\u233 ?sent Contrat. Aucune disposition du pr\u233 ?sent Contrat n'emp\u234 ?chera l'une quelconque des par
+ties de recourir \u224 ? la proc\u233 ?dure judiciaire (1) en r\u233 ?f\u233 ?r\u233 ? pour emp\u234 ?cher un pr\u233 ?judice mat\u233 ?riel ou une violation des clauses de confidentialit\u233 ? ou des droits de propri\u233 ?t\u233 ? intellectuelle, ou (2) pour d\u233 ?terminer la validit\u233 ? ou la propri\u233 ?t\u233 ? d'un droit d'auteur, d'un brevet ou d'une marque d\u233 ?tenue ou affirm\u233 ?e par
+ une Partie ou une soci\u233 ?t\u233 ? de son Entreprise, ou (3) pour le recouvrement de cr\u233 ?ances inf\u233 ?rieures \u224 ? 500\u160 ?000 dollars US.\par
+ \par
+ Dans les pays suivants\u160 ?: Afghanistan, Angola, Bahre\u239 ?n, Botswana, Burundi, Cap-Vert, Djibouti, Egypte, Erythr\u233 ?e, Ethiopie, Gambie, Ghana, Irak, Jordanie, Kenya, Kowe\u239 ?t, Liban, Lib\u233 ?ria, Libye, Madagascar, Malawi, Mozambique, Nigeria, Oman, Pakistan, Territoires palestiniens, Qatar, Rwanda, Sao Tom\u233 ?-et-Principe, Arabie saoudite, Seychelles, Sierra Leone, Somalie, Soudan du Sud, Tanzanie, Ouganda, Emirats arabes unis, Sahara occidental, Y\u233 ?men, Zambie et Zimbabwe\u160 ?: toute contestation fera l'objet d'un arbitrage d\u233 ?finitif par
+ trois arbitres impar
+tiaux d\u233 ?sign\u233 ?s par
+ Cour Internationale d'Arbitrage de Londres (CIAL), conform\u233 ?ment \u224 ? ses r\u232 ?gles d'arbitrage, \u224 ? Londres (Royaume-Uni), avec l'anglais comme langue officielle. Chaque par
+tie nommera un arbitre et les arbitres nomm\u233 ?s par
+ les par
+ties d\u233 ?signeront un pr\u233 ?sident ind\u233 ?pendant dans les 30 jours, sinon le pr\u233 ?sident sera nomm\u233 ? par
+ l'Instance d'arbitrage conform\u233 ?ment auxdites R\u232 ?gles. Les arbitres n'auront pas autorit\u233 ? \u224 ? ordonner une injonction ou accorder des dommages-int\u233 ?r\u234 ?ts exclus par
+ ou en surplus des limitations contenues dans le pr\u233 ?sent Contrat. Aucune disposition du pr\u233 ?sent Contrat n'emp\u234 ?chera l'une quelconque des par
+ties de recourir \u224 ? la proc\u233 ?dure judiciaire (1) en r\u233 ?f\u233 ?r\u233 ? pour emp\u234 ?cher un pr\u233 ?judice mat\u233 ?riel ou une violation des clauses de confidentialit\u233 ? ou des droits de propri\u233 ?t\u233 ? intellectuelle, ou (2) pour d\u233 ?terminer la validit\u233 ? ou la propri\u233 ?t\u233 ? d'un droit d'auteur, d'un brevet ou d'une marque d\u233 ?tenue ou affirm\u233 ?e par
+ une Partie ou une soci\u233 ?t\u233 ? de son Entreprise, ou (3) pour le recouvrement de cr\u233 ?ances inf\u233 ?rieures \u224 ? 500\u160 ?000 dollars US.\par
+ \par
+ Dans les pays suivants\u160 ?: Alg\u233 ?rie, B\u233 ?nin, Burkina Faso, Cameroun, R\u233 ?publique centrafricaine, Tchad, R\u233 ?publique du Congo, R\u233 ?publique d\u233 ?mocratique du Congo, Guin\u233 ?e \u233 ?quatoriale, Guyane, Polyn\u233 ?sie fran\u231 ?aise, Gabon, Guin\u233 ?e, Guin\u233 ?e-Bissau, C\u244 ?te d'Ivoire, Mali, Mauritanie, Ile Maurice, Maroc, Niger, S\u233 ?n\u233 ?gal, Togo et Tunisie\u160 ?: toute contestation fera l'objet d'un arbitrage d\u233 ?finitif par
+ trois arbitres impar
+tiaux d\u233 ?sign\u233 ?s par
+ la Cour Internationale d'Arbitrage de la CCI \u224 ? Paris (France), conform\u233 ?ment \u224 ? ses r\u232 ?gles d'arbitrage, avec le fran\u231 ?ais comme langue officielle. Chaque par
+tie nommera un arbitre et les arbitres nomm\u233 ?s par
+ les par
+ties d\u233 ?signeront un pr\u233 ?sident ind\u233 ?pendant dans les 30 jours, sinon le pr\u233 ?sident sera nomm\u233 ? par
+ l'Instance d'arbitrage conform\u233 ?ment auxdites R\u232 ?gles. Les arbitres n'auront pas autorit\u233 ? \u224 ? ordonner une injonction ou accorder des dommages-int\u233 ?r\u234 ?ts exclus par
+ ou en surplus des limitations contenues dans le pr\u233 ?sent Contrat. Aucune disposition du pr\u233 ?sent Contrat n'emp\u234 ?chera l'une quelconque des par
+ties de recourir \u224 ? la proc\u233 ?dure judiciaire (1) en r\u233 ?f\u233 ?r\u233 ? pour emp\u234 ?cher un pr\u233 ?judice mat\u233 ?riel ou une violation des clauses de confidentialit\u233 ? ou des droits de propri\u233 ?t\u233 ? intellectuelle, ou (2) pour d\u233 ?terminer la validit\u233 ? ou la propri\u233 ?t\u233 ? d'un droit d'auteur, d'un brevet ou d'une marque d\u233 ?tenue ou affirm\u233 ?e par
+ une Partie ou une soci\u233 ?t\u233 ? de son Entreprise, ou (3) pour le recouvrement de cr\u233 ?ances inf\u233 ?rieures \u224 ? 250\u160 ?000 dollars US.\par
+ \par
+ En Afrique du Sud, en Namibie, au Lesotho et au Swaziland\u160 ?: toute contestation r\u233 ?sultant du pr\u233 ?sent Contrat fera l'objet d'un arbitrage d\u233 ?finitif par
+ la Fondation d'arbitrage d'Afrique australe (AFSA) (instance d'arbitrage), en vertu du r\u232 ?glement d'arbitrage de l'AFSA (le r\u232 ?glement), \u224 ? Johannesburg, en Afrique du Sud, avec l'anglais comme langue officielle, par
+ trois arbitres impar
+tiaux nomm\u233 ?s conform\u233 ?ment au r\u232 ?glement. Chaque par
+tie nommera un arbitre et les arbitres nomm\u233 ?s par
+ les par
+ties d\u233 ?signeront un pr\u233 ?sident ind\u233 ?pendant dans les 30 jours, sinon le pr\u233 ?sident sera nomm\u233 ? par
+ l'Instance d'arbitrage conform\u233 ?ment auxdites R\u232 ?gles. Les arbitres n'auront pas autorit\u233 ? \u224 ? ordonner une injonction ou accorder des dommages-int\u233 ?r\u234 ?ts exclus par
+ ou en surplus des limitations contenues dans le pr\u233 ?sent Contrat. Aucune disposition du pr\u233 ?sent Contrat n'emp\u234 ?chera l'une quelconque des par
+ties de recourir \u224 ? la proc\u233 ?dure judiciaire (1) en r\u233 ?f\u233 ?r\u233 ? pour emp\u234 ?cher un pr\u233 ?judice mat\u233 ?riel ou une violation des clauses de confidentialit\u233 ? ou des droits de propri\u233 ?t\u233 ? intellectuelle, ou (2) pour d\u233 ?terminer la validit\u233 ? ou la propri\u233 ?t\u233 ? d'un droit d'auteur, d'un brevet ou d'une marque d\u233 ?tenue ou affirm\u233 ?e par
+ une Partie ou une soci\u233 ?t\u233 ? de son Entreprise, ou (3) pour le recouvrement de cr\u233 ?ances inf\u233 ?rieures \u224 ? 250\u160 ?000 dollars US.\par
+ \par
+ En Allemagne, Andorre, Autriche, Chypre, France, Gr\u232 ?ce, Isra\u235 ?l, Italie, Portugal, Espagne, Suisse et Turquie\u160 ?: tous les diff\u233 ?rends feront l'objet d'une proc\u233 ?dure de la comp\u233 ?tence exclusive des tribunaux ci-dessous :\par
+ \par
+ en Andorre\u160 ?: le Tribunal de Commerce de Paris.\par
+ \par
+ en Autriche\u160 ?: le tribunal de Vienne, Autriche (Centre).\par
+ \par
+ \u224 ? Chypre\u160 ?: le tribunal comp\u233 ?tent de Nicosie.\par
+ \par
+ en France\u160 ?: le Tribunal de Commerce de Paris .\par
+ \par
+ en Allemagne\u160 ?: les tribunaux de Stuttgart.\par
+ \par
+ en Gr\u232 ?ce\u160 ?: le tribunal comp\u233 ?tent d'Ath\u232 ?nes .\par
+ \par
+ en Isra\u235 ?l\u160 ?: les tribunaux de Tel Aviv-Jaffa.\par
+ \par
+ en Italie\u160 ?: les tribunaux de Milan .\par
+ \par
+ au Portugal\u160 ?: les tribunaux de Lisbonne.\par
+ \par
+ en Espagne\u160 ?: les tribunaux de Madrid.\par
+ \par
+ en Suisse\u160 ?: le tribunal de commerce du canton de Zurich .\par
+ \par
+ en Turquie\u160 ?: les Tribunaux centraux d'Istanbul (Caglayan) et \u171 ?\u160 ?Execution Directorates\u160 ?\u187 ? d'Istanbul, R\u233 ?publique de Turquie.\par
+ \par
+ aux Pays-Bas\u160 ?: Les par
+ties renoncent \u224 ? leurs droits en vertu du titre 7.1 (\u171 ?\u160 ?Koop\u160 ?\u187 ?) et de l'article 7:401 et 402 du Code civil n\u233 ?erlandais, ainsi qu'\u224 ? leurs droits d'invoquer une dissolution totale ou par
+tielle (\u171 ?\u160 ?gehele of par
+tiele ontbinding\u160 ?\u187 ?) du pr\u233 ?sent Contrat en vertu de l'article 6:265 du Code civil n\u233 ?erlandais.\par
+ \par
+ Clause 7. G\u233 ?n\u233 ?ralit\u233 ?s\par
+ \par
+ Ins\u233 ?rez ce qui suit \u224 ? la fin du par
+agraphe d :\par
+ \par
+ En Espagne\u160 ?: IBM respectera les demandes d'acc\u232 ?s, de mise \u224 ? jour ou de suppression des coordonn\u233 ?es si elles sont envoy\u233 ?es \u224 ? l'adresse suivante\u160 ?: IBM, c/ Santa Hortensia 26-28, 28002 Madrid, Depar
+tamento de Privacidad de Datos.\par
+ \par
+ Ins\u233 ?rez ceci \u224 ? la fin du par
+agraphe j :\par
+ \par
+ En R\u233 ?publique tch\u232 ?que\u160 ?: Conform\u233 ?ment \u224 ? l'article 1801 de la loi n\u176 ? 89/2012 Coll. (le \u171 ?\u160 ?Code civil\u160 ?\u187 ?), les articles 1799 et 1800 du Code civil dans sa version modifi\u233 ?e ne s'appliquent pas aux transactions objet du pr\u233 ?sent Contrat. Le D\u233 ?tenteur de Licence accepte le risque d'un changement de circonstances au titre de l'article 1765 du Code civil.\par
+ \par
+ Dans le par
+agraphe j :\par
+ \par
+ En Bulgarie, en Croatie, en Russie, en Serbie et en Slov\u233 ?nie\u160 ?: supprimez la deuxi\u232 ?me phrase, qui dit: \u171 ?\u160 ?Les par
+ties s'interdisent d'intenter une action en justice au titre du Contrat plus de deux ans apr\u232 ?s l'appar
+ition de son fait g\u233 ?n\u233 ?rateur\u187 ?.\par
+ \par
+ Dans le par
+agraphe j, ajoutez ceci \u224 ? la fin de la deuxi\u232 ?me phrase :\par
+ \par
+ En Lituanie\u160 ?: , ou sauf dans les cas pr\u233 ?vus par
+ la loi\par
+ \par
+ Dans le par
+agraphe j, remplacez la deuxi\u232 ?me phrase par
+ :\par
+ \par
+ En Pologne\u160 ?: Les par
+ties s'interdisent d'intenter une action en justice d\u233 ?coulant du Contrat ou s'y rapportant plus de trois ans apr\u232 ?s la naissance de la cause de l'action, \u224 ? l'exception d'une action pour non-paiement qui sera intent\u233 ?e au plus tard deux ans apr\u232 ?s l'\u233 ?ch\u233 ?ance du paiement.\par
+ \par
+ Dans la deuxi\u232 ?me phrase du par
+agraphe j, remplacez le mot \u171 ?\u160 ?deux\u160 ?\u187 ? par
+ :\par
+ \par
+ Lettonie et Ukraine\u160 ?: trois\par
+ \par
+ Slovaquie\u160 ?: quatre\par
+ \par
+ Dans le par
+agraphe j, ajoutez la mention suivante \u224 ? la fin de la troisi\u232 ?me phrase\u160 ?: \u171 ?\u160 ?Aucune des par
+ties ne sera tenue responsable de l'inex\u233 ?cution de ses obligations non mon\u233 ?taires en cas de circonstances ind\u233 ?pendantes de sa volont\u233 ?\u160 ?\u187 ?\u160 ?:\par
+ \par
+ En Russie\u160 ?: , y compris, sans s'y limiter, tremblements de terre, inondations, incendies, catastrophes naturelles, gr\u232 ?ves (\u224 ? l'exclusion des gr\u232 ?ves des employ\u233 ?s des par
+ties), actes de guerre, actions militaires, embargos, blocus, sanctions internationales ou gouvernementales et actions des autorit\u233 ?s publiques de la juridiction comp\u233 ?tente.\par
+ \par
+ Modifiez la troisi\u232 ?me phrase du par
+agraphe j\u160 ?: \u171 ?\u160 ?Aucune des par
+ties ne sera tenue responsable de l'inex\u233 ?cution de ses obligations non mon\u233 ?taires en cas de circonstances ind\u233 ?pendantes de sa volont\u233 ?\u160 ?\u187 ? comme suit\u160 ?:\par
+ \par
+ En Ukraine\u160 ?: Aucune des par
+ties n'est responsable du non-respect de ses obligations non mon\u233 ?taires en raison de causes ou de changements r\u233 ?glementaires ind\u233 ?pendants de sa volont\u233 ?, y compris, mais sans s'y limiter, les exigences en mati\u232 ?re d'importation, d'exportation et de sanctions \u233 ?conomiques des Etats-Unis.\par
+ \par
+ Ajoutez ce qui suit \u224 ? la fin de la section, en tant que nouveau par
+agraphe l :\par
+ \par
+ En Hongrie\u160 ?: En concluant le pr\u233 ?sent Contrat, le D\u233 ?tenteur de Licence confirme qu'il a \u233 ?t\u233 ? suffisamment inform\u233 ? de toutes les dispositions du pr\u233 ?sent Contrat et qu'il a eu l'opportunit\u233 ? de les n\u233 ?gocier. Les dispositions suivantes peuvent s'\u233 ?carter de fa\u231 ?on significative des dispositions g\u233 ?n\u233 ?ralement appliqu\u233 ?es par
+ la loi hongroise et les deux par
+ties acceptent ces dispositions en signant le Contrat\u160 ?: Licence de Logiciel\u160 ?; Garanties\u160 ?; Redevances, Taxes, Paiements et V\u233 ?rification\u160 ?; Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle\u160 ?; R\u233 ?siliation\u160 ?; Lois Applicables et Comp\u233 ?tence Territoriale; et G\u233 ?n\u233 ?ralit\u233 ?s.\par
+ \par
+ En R\u233 ?publique tch\u232 ?que\u160 ?: Le D\u233 ?tenteur de Licence accepte express\u233 ?ment les conditions du pr\u233 ?sent contrat, qui comprennent les conditions commerciales importantes suivantes\u160 ?: i) limitation et exon\u233 ?ration de responsabilit\u233 ? pour les d\u233 ?fauts (Garanties)\u160 ?; ii) limitation du droit du D\u233 ?tenteur de Licence \u224 ? des dommages-int\u233 ?r\u234 ?ts (Responsabilit\u233 ? et Protection de la Propri\u233 ?t\u233 ? Intellectuelle)\u160 ?; iii) nature contraignante des r\u233 ?glementations relatives \u224 ? l'import-export (Lois Applicables et Comp\u233 ?tence Territoriale)\u160 ?; iv) raccourcissement des p\u233 ?riodes de limitation (G\u233 ?n\u233 ?ralit\u233 ?s)\u160 ?; v) exclusion de l'applicabilit\u233 ? des dispositions sur les contrats d'adh\u233 ?sion (G\u233 ?n\u233 ?ralit\u233 ?s)\u160 ?; et vi) acceptation d'un risque de changement des circonstances (G\u233 ?n\u233 ?ralit\u233 ?s).\par
+ \par
+ En Roumanie\u160 ?: Le D\u233 ?tenteur de Licence accepte express\u233 ?ment les clauses standard suivantes qui peuvent \u234 ?tre consid\u233 ?r\u233 ?es comme des \u171 ?\u160 ?clauses inhabituelles\u160 ?\u187 ? conform\u233 ?ment aux dispositions de l'article 1203 du Code civil roumain\u160 ?: clauses 2, 4, 5, 8j. Le D\u233 ?tenteur de Licence reconna\u238 ?t par
+ la pr\u233 ?sente qu'il a \u233 ?t\u233 ? suffisamment inform\u233 ? de toutes les dispositions du pr\u233 ?sent Contrat, y compris des clauses mentionn\u233 ?es ci-dessus, qu'il a correctement analys\u233 ? et compris ces dispositions et qu'il a eu la possibilit\u233 ? de n\u233 ?gocier les termes de chaque clause.\par
+ \par
+ i125-3301-15 (10-2021)\par
+ \par
+ \par
+ }

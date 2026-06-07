@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globalne ustawienia modułów</h2>
+    <p>Parametry określone w tej sekcji mają zastosowanie w przypadkach, gdy w ustawieniach konkretnego modułu dla odpowiedniej opcji ustawiono wartość auto (domyślnie).</p>
+    <table>
+        <tr>
+            <th>Tryb cichy</th>
+        </tr>
+        <tr>
+            <td>
+                Wyłącza wyskakujące komunikaty o błędach z Windows Error Reporting oraz samego modułu.<br><br>
+                <strong>Rekomendacja:</strong> Wyłączaj ten tryb tylko w razie potrzeby diagnozowania problemów w pracy modułu.</td>
+        </tr>
+        <tr>
+            <th>Dodawać nagłówek do pliku dziennika</th>
+        </tr>
+        <tr>
+            <td>
+                Włącza automatyczne dodawanie nagłówka do pliku dziennika przy każdym uruchomieniu modułu. Przydatne przy wyłączonym automatycznym czyszczeniu logów do rozdzielania sesji roboczych.</td>
+        </tr>
+        <tr>
+            <th>Maksymalna liczba nieudanych uruchomień</th>
+        </tr>
+        <tr>
+            <td>
+                Określa, ile kolejnych nieudanych uruchomień modułu jest dozwolonych, zanim przejdzie on w stan „Błąd”.</td>
+        </tr>
+        <tr>
+            <th>Czas sprawdzania sprawności modułu</th>
+        </tr>
+        <tr>
+            <td>Określa okres testowania sprawności modułu po jego pomyślnym uruchomieniu.<br><br>
+                <strong>Początek odliczania:</strong> Od momentu pomyślnego uruchomienia modułu.<br><br>
+                <strong>Przejście w stan „Błąd”:</strong> Jeśli moduł zakończy działanie awaryjnie w trakcie okresu próbnego, nie zostanie automatycznie ponownie uruchomiony i przejdzie w stan „Błąd”. Dotyczy to także przypadków, gdy modułu nie udaje się uruchomić na poziomie systemu.<br><br>
+                <strong>Wyłączenie sprawdzania:</strong> Wartość 0 wyłącza okres próbny i moduł zawsze będzie ponownie uruchamiany przy awarii.<br><br>
+                <strong>Rekomendacja:</strong> Nie ustawiaj wartości 0 ani zbyt krótkiego okresu (mniej niż 30 sekund), ponieważ może to prowadzić do nieskończonych cykli ponownych uruchomień.</td>
+        </tr>
+        <tr>
+            <th>Czas oczekiwania na zakończenie pracy modułu</th>
+        </tr>
+        <tr>
+            <td>Określa maksymalny czas, w którym modułowi wolno zakończyć swoją pracę.<br><br>
+                <strong>Wymuszone zakończenie:</strong> Jeśli moduł nie zakończy pracy w podanym czasie, zostanie wymuszony jego stop.<br><br>
+                <strong>Wyłączenie oczekiwania:</strong> Wartość 0 wyłącza okres oczekiwania. Program będzie oczekiwał na zakończenie pracy modułu bez ograniczeń czasowych.<br><br>
+                <strong>Ostrzeżenie:</strong> Wymuszone zatrzymanie modułu może prowadzić do uszkodzenia danych, utraty niezapisanych zmian lub nieprawidłowego zakończenia procesów. Używaj tego ustawienia ostrożnie.</td>
+        </tr>
+        <tr>
+            <th>Maksymalny rozmiar pliku dziennika</th>
+        </tr>
+        <tr>
+            <td>
+                Maksymalny rozmiar pliku dziennika w megabajtach. Po przekroczeniu wskazanej wartości plik logu zostanie odtworzony przy następnym uruchomieniu modułu.<br><br>
+                Ustaw wartość 0, aby czyścić dzienniki przy każdym uruchomieniu modułu.<br><br>
+                Ustaw wartość 100 MB, aby całkowicie wyłączyć czyszczenie dzienników.</td>
+        </tr>
+        <tr>
+            <th>Kodowanie terminala</th>
+        </tr>
+        <tr>
+            <td>
+                Kodowanie terminala przy pracy ze środowiskiem modułu.<br><br>
+                <strong>Wartości specjalne:</strong><br>
+                - system: Używane jest systemowe kodowanie.</td>
+        </tr>
+        <tr>
+            <th>Strefa czasowa</th>
+        </tr>
+        <tr>
+            <td>
+                Określa strefę czasową modułu w formacie Etc/GMT (na przykład Etc/GMT-3).<br><br>
+                <strong>Wartości specjalne:</strong><br>
+                - system: Używana jest systemowa strefa czasowa.<br><br>
+                <strong>Ważne:</strong> Format Etc/GMT ma odwrócone przesunięcie względem UTC (na przykład Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Używane środowiska dodatków</th>
+        </tr>
+        <tr>
+            <td>
+                Określa listę dodatków (wskazywane są spacją), których środowiska (jeśli istnieją) są dołączane do środowiska modułu. Wskaźniki informacyjne w terminalu nie wyświetlają tych dodatkowych środowisk.<br><br>
+                <strong>Ostrzeżenie:</strong> Używaj tej opcji tylko przy pełnym zrozumieniu jej przeznaczenia.</td>
+        </tr>
+        <tr>
+            <th>Dozwolone zmienne systemowe</th>
+        </tr>
+        <tr>
+            <td>
+                Określa listę zmiennych środowiskowych Windows (wskazywane są spacją), które są przekazywane do środowiska modułu.<br><br>
+                <strong>Przeznaczenie:</strong> Pozwala odizolować środowisko robocze modułu od analogicznego zainstalowanego w systemie oprogramowania.<br><br>
+                <strong>Ostrzeżenie:</strong> Zmiana tej listy bez pełnego zrozumienia jej wpływu może prowadzić do niestabilnej pracy modułu.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

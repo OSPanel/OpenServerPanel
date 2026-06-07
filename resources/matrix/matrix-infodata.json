@@ -1,0 +1,1816 @@
+{
+    "addons":
+    {
+        "DB2-ODBC":
+        {
+            "DownloadUrl": "https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/ntx64_odbc_cli.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://www.ibm.com/docs/en/db2/12.1.x?topic=apis-cli-odbc"
+            },
+            "environment":
+            {
+                "ALTHOSTNAME": "",
+                "ALTPORT": "",
+                "AUTHENTICATION": "",
+                "BIDI": "",
+                "DB2ACCOUNT": "",
+                "DB2BIDI": "",
+                "DB2CLIINIPATH": "",
+                "DB2CODEPAGE": "",
+                "DB2DIAGPATH": "",
+                "DB2DOMAINLIST": "",
+                "DB2DSDRIVER_CFG_PATH": "",
+                "DB2DSDRIVER_CLIENT_HOSTNAME": "",
+                "DB2GRAPHICUNICODESERVER": "",
+                "DB2LDAPHOST": "",
+                "DB2LDAP_BASEDN": "",
+                "DB2LDAP_CLIENT_PROVIDER": "",
+                "DB2LDAP_KEEP_CONNECTION": "",
+                "DB2LDAP_SEARCH_SCOPE": "",
+                "DB2LOCALE": "",
+                "DB2NOEXITLIST": "",
+                "DB2SORCVBUF": "",
+                "DB2SOSNDBUF": "",
+                "DB2TCP_CLIENT_RCVTIMEOUT": "",
+                "DB2TERRITORY": "",
+                "DB2_CLI_DRIVER_INSTALL_PATH": "{root_dir}\\addons\\{addon_name}",
+                "DB2_ENABLE_LDAP": "",
+                "DB2_FORCE_NLS_CACHE": "",
+                "DB2_NO_FORK_CHECK": "",
+                "IBM_DB_HOME": "{root_dir}\\addons\\{addon_name}",
+                "INSTANCE": "",
+                "KRBPLUGIN": "",
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;{root_dir}\\addons\\{addon_name}\\adm;%PATH%",
+                "PROTOCOL": "",
+                "PWDPLUGIN": ""
+            },
+            "help": "-help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "DB2-ODBC",
+                "enabled": "on",
+                "license": "https://www.ibm.com/docs/en/db2/11.5.x?topic=applications-license-requirements",
+                "license_type": "Software without a license",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "12.1.2"
+            }
+        },
+        "ErlangOTP-26":
+        {
+            "DownloadUrl": "https://github.com/erlang/otp/releases/download/OTP-26.2.5.17/otp_win64_26.2.5.17.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://www.erlang.org/docs"
+            },
+            "environment":
+            {
+                "ERLANG_HOME": "{root_dir}\\addons\\{addon_name}",
+                "ERLANG_SERVICE_MANAGER_PATH": "{root_dir}\\addons\\{addon_name}\\erts-14.2.5.13\\bin",
+                "ERL_LIBS": "{root_dir}\\addons\\{addon_name}\\lib",
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "erl-bin.ini":
+            {
+                "comment": ";",
+                "destination": "{root_dir}\\addons\\{addon_name}\\erts-14.2.5.13\\bin\\erl.ini",
+                "directory_separator": "\\\\",
+                "enabled": "on",
+                "encoding": "UTF8"
+            },
+            "erl.ini":
+            {
+                "comment": ";",
+                "destination": "{root_dir}\\addons\\{addon_name}\\bin\\erl.ini",
+                "directory_separator": "\\\\",
+                "enabled": "on",
+                "encoding": "UTF8"
+            },
+            "help": "",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "ErlangOTP",
+                "enabled": "on",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "license_type": "Apache License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "26.2.5.17"
+            }
+        },
+        "ErlangOTP-27":
+        {
+            "DownloadUrl": "https://github.com/erlang/otp/releases/download/OTP-27.3.4.8/otp_win64_27.3.4.8.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://www.erlang.org/docs"
+            },
+            "environment":
+            {
+                "ERLANG_HOME": "{root_dir}\\addons\\{addon_name}",
+                "ERLANG_SERVICE_MANAGER_PATH": "{root_dir}\\addons\\{addon_name}\\erts-15.2.7.6\\bin",
+                "ERL_LIBS": "{root_dir}\\addons\\{addon_name}\\lib",
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "erl-bin.ini":
+            {
+                "comment": ";",
+                "destination": "{root_dir}\\addons\\{addon_name}\\erts-15.2.7.6\\bin\\erl.ini",
+                "directory_separator": "\\\\",
+                "enabled": "on",
+                "encoding": "UTF8"
+            },
+            "erl.ini":
+            {
+                "comment": ";",
+                "destination": "{root_dir}\\addons\\{addon_name}\\bin\\erl.ini",
+                "directory_separator": "\\\\",
+                "enabled": "on",
+                "encoding": "UTF8"
+            },
+            "help": "",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "ErlangOTP",
+                "enabled": "on",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "license_type": "Apache License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "27.3.4.8"
+            }
+        },
+        "FFMpeg":
+        {
+            "DownloadUrl": "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.1-latest-win64-gpl-shared-7.1.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://ffmpeg.org/documentation.html"
+            },
+            "environment":
+            {
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "FFMpeg",
+                "enabled": "on",
+                "license": "https://ffmpeg.org/legal.html",
+                "license_type": "GNU LGPLv2.1",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "7.1.3"
+            }
+        },
+        "Ghostscript":
+        {
+            "DownloadUrl": "https://files.ospanel.io/dist/gs10.05.1.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://ghostscript.readthedocs.io/en/gs10.05.1/"
+            },
+            "environment":
+            {
+                "GS": "gswin64.exe",
+                "GSC": "gswin64c.exe",
+                "GS_DEVICE": "",
+                "GS_FONTPATH": "%windir%\\Fonts",
+                "GS_LIB": "{root_dir}\\addons\\{addon_name}\\lib",
+                "GS_OPTIONS": "",
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "help": "",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Ghostscript",
+                "enabled": "on",
+                "license": "https://artifex.com/licensing/gnu-agpl-v3",
+                "license_type": "GNU AGPLv3",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "10.05.1"
+            }
+        },
+        "Go":
+        {
+            "DownloadUrl": "https://go.dev/dl/go1.26.0.windows-amd64.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://go.dev/doc/"
+            },
+            "environment":
+            {
+                "GOROOT": "{root_dir}\\addons\\{addon_name}",
+                "GOPATH": "{root_dir}\\addons\\{addon_name}\\workspace",
+                "GOCACHE": "{root_dir}\\addons\\{addon_name}\\workspace\\cache",
+                "GOMODCACHE": "{root_dir}\\addons\\{addon_name}\\workspace\\pkg\\mod",
+                "GOTMPDIR": "{root_dir}\\temp",
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;{root_dir}\\addons\\{addon_name}\\workspace\\bin;%PATH%"
+            },
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Go",
+                "enabled": "on",
+                "license": "https://raw.githubusercontent.com/golang/go/refs/heads/master/LICENSE",
+                "license_type": "BSD-3-Clause license",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "1.26.0"
+            }
+        },
+        "ImageMagick-vc15":
+        {
+            "DownloadUrl": "https://files.ospanel.io/~windows/pecl/deps/ImageMagick-7.1.1-46-vc15-x64.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://imagemagick.org"
+            },
+            "environment":
+            {
+                "LD_LIBRARY_PATH": "",
+                "MAGICK_AREA_LIMIT": "",
+                "MAGICK_CODER_FILTER_PATH": "{root_dir}\\addons\\{addon_name}\\filters",
+                "MAGICK_CODER_MODULE_PATH": "{root_dir}\\addons\\{addon_name}\\coders",
+                "MAGICK_CONFIGURE_PATH": "{root_dir}\\addons\\{addon_name}\\config",
+                "MAGICK_DATE_PRECISION": "",
+                "MAGICK_DEBUG": "",
+                "MAGICK_DISK_LIMIT": "",
+                "MAGICK_ERRORMODE": "1",
+                "MAGICK_FILE_LIMIT": "",
+                "MAGICK_FONT_PATH": "%windir%\\Fonts",
+                "MAGICK_HEIGHT_LIMIT": "",
+                "MAGICK_HOME": "{root_dir}\\addons\\{addon_name}",
+                "MAGICK_LIST_LENGTH_LIMIT": "",
+                "MAGICK_MAP_LIMIT": "",
+                "MAGICK_MEMORY_LIMIT": "",
+                "MAGICK_OCL_DEVICE": "",
+                "MAGICK_PRECISION": "",
+                "MAGICK_SHRED_PASSES": "",
+                "MAGICK_SYNCHRONIZE": "",
+                "MAGICK_TEMPORARY_PATH": "{root_dir}\\temp",
+                "MAGICK_THREAD_LIMIT": "",
+                "MAGICK_THROTTLE_LIMIT": "",
+                "MAGICK_TIME_LIMIT": "",
+                "MAGICK_WIDTH_LIMIT": "",
+                "PATH": "{root_dir}\\addons\\{addon_name};%PATH%",
+                "SOURCE_DATE_EPOCH": ""
+            },
+            "help": "-help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "ImageMagick",
+                "enabled": "on",
+                "license": "https://imagemagick.org/script/license.php",
+                "license_type": "ImageMagick License",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "7.1.1-46"
+            }
+        },
+        "ImageMagick-vs16":
+        {
+            "DownloadUrl": "https://files.ospanel.io/~windows/pecl/deps/ImageMagick-7.1.1-46-vs16-x64.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://imagemagick.org"
+            },
+            "environment":
+            {
+                "LD_LIBRARY_PATH": "",
+                "MAGICK_AREA_LIMIT": "",
+                "MAGICK_CODER_FILTER_PATH": "{root_dir}\\addons\\{addon_name}\\filters",
+                "MAGICK_CODER_MODULE_PATH": "{root_dir}\\addons\\{addon_name}\\coders",
+                "MAGICK_CONFIGURE_PATH": "{root_dir}\\addons\\{addon_name}\\config",
+                "MAGICK_DATE_PRECISION": "",
+                "MAGICK_DEBUG": "",
+                "MAGICK_DISK_LIMIT": "",
+                "MAGICK_ERRORMODE": "1",
+                "MAGICK_FILE_LIMIT": "",
+                "MAGICK_FONT_PATH": "%windir%\\Fonts",
+                "MAGICK_HEIGHT_LIMIT": "",
+                "MAGICK_HOME": "{root_dir}\\addons\\{addon_name}",
+                "MAGICK_LIST_LENGTH_LIMIT": "",
+                "MAGICK_MAP_LIMIT": "",
+                "MAGICK_MEMORY_LIMIT": "",
+                "MAGICK_OCL_DEVICE": "",
+                "MAGICK_PRECISION": "",
+                "MAGICK_SHRED_PASSES": "",
+                "MAGICK_SYNCHRONIZE": "",
+                "MAGICK_TEMPORARY_PATH": "{root_dir}\\temp",
+                "MAGICK_THREAD_LIMIT": "",
+                "MAGICK_THROTTLE_LIMIT": "",
+                "MAGICK_TIME_LIMIT": "",
+                "MAGICK_WIDTH_LIMIT": "",
+                "PATH": "{root_dir}\\addons\\{addon_name};%PATH%",
+                "SOURCE_DATE_EPOCH": ""
+            },
+            "help": "-help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "ImageMagick",
+                "enabled": "on",
+                "license": "https://imagemagick.org/script/license.php",
+                "license_type": "ImageMagick License",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "7.1.1-46"
+            }
+        },
+        "ImageMagick-vs17":
+        {
+            "DownloadUrl": "https://files.ospanel.io/~windows/pecl/deps/ImageMagick-7.1.1-46-vs17-x64.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://imagemagick.org"
+            },
+            "environment":
+            {
+                "LD_LIBRARY_PATH": "",
+                "MAGICK_AREA_LIMIT": "",
+                "MAGICK_CODER_FILTER_PATH": "{root_dir}\\addons\\{addon_name}\\filters",
+                "MAGICK_CODER_MODULE_PATH": "{root_dir}\\addons\\{addon_name}\\coders",
+                "MAGICK_CONFIGURE_PATH": "{root_dir}\\addons\\{addon_name}\\config",
+                "MAGICK_DATE_PRECISION": "",
+                "MAGICK_DEBUG": "",
+                "MAGICK_DISK_LIMIT": "",
+                "MAGICK_ERRORMODE": "1",
+                "MAGICK_FILE_LIMIT": "",
+                "MAGICK_FONT_PATH": "%windir%\\Fonts",
+                "MAGICK_HEIGHT_LIMIT": "",
+                "MAGICK_HOME": "{root_dir}\\addons\\{addon_name}",
+                "MAGICK_LIST_LENGTH_LIMIT": "",
+                "MAGICK_MAP_LIMIT": "",
+                "MAGICK_MEMORY_LIMIT": "",
+                "MAGICK_OCL_DEVICE": "",
+                "MAGICK_PRECISION": "",
+                "MAGICK_SHRED_PASSES": "",
+                "MAGICK_SYNCHRONIZE": "",
+                "MAGICK_TEMPORARY_PATH": "{root_dir}\\temp",
+                "MAGICK_THREAD_LIMIT": "",
+                "MAGICK_THROTTLE_LIMIT": "",
+                "MAGICK_TIME_LIMIT": "",
+                "MAGICK_WIDTH_LIMIT": "",
+                "PATH": "{root_dir}\\addons\\{addon_name};%PATH%",
+                "SOURCE_DATE_EPOCH": ""
+            },
+            "help": "-help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "ImageMagick",
+                "enabled": "on",
+                "license": "https://imagemagick.org/script/license.php",
+                "license_type": "ImageMagick License",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "7.1.1-46"
+            }
+        },
+        "InstantClient":
+        {
+            "DownloadUrl": "23.8.0.25",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://docs.oracle.com/en/database/oracle/oracle-database/23/lacli/about-instant-client.html"
+            },
+            "environment":
+            {
+                "NLS_DATE_FORMAT": "DD-MON-YYYY HH24:MI:SS",
+                "NLS_LANG": "AMERICAN_AMERICA.AL32UTF8",
+                "NLS_NUMERIC_CHARACTERS": ".,",
+                "ORACLE_HOME": "{root_dir}\\addons\\{addon_name}",
+                "PATH": "{root_dir}\\addons\\{addon_name};%PATH%",
+                "TNS_ADMIN": "{root_dir}\\addons\\{addon_name}\\network\\admin"
+            },
+            "help": "-help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Instant Client",
+                "enabled": "on",
+                "license": "https://www.oracle.com/downloads/licenses/standard-license.html",
+                "license_type": "OTN License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "23.8.0.25"
+            }
+        },
+        "Libwebp":
+        {
+            "DownloadUrl": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0-windows-x64-no-wic.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "environment":
+            {
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "help": "-h",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Libwebp",
+                "enabled": "on",
+                "license": "https://www.webmproject.org/license/software/",
+                "license_type": "Software License",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "1.6.0"
+            }
+        },
+        "MongoShell":
+        {
+            "DownloadUrl": "https://downloads.mongodb.com/compass/mongosh-2.7.0-win32-x64.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://www.mongodb.com/docs/mongodb-shell/"
+            },
+            "environment":
+            {
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB Shell",
+                "enabled": "on",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "license_type": "Apache License 2.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "2.7.0"
+            }
+        },
+        "MongoTools":
+        {
+            "DownloadUrl": "https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.14.1.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://www.mongodb.com/docs/database-tools/"
+            },
+            "environment":
+            {
+                "PATH": "{root_dir}\\addons\\{addon_name}\\bin;%PATH%"
+            },
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB Tools",
+                "enabled": "on",
+                "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/us/",
+                "license_type": "CC BY-NC-SA 3.0 US",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "100.14.1"
+            }
+        },
+        "NVM":
+        {
+            "DownloadUrl": "https://github.com/coreybutler/nvm-windows/releases/download/1.1.12/nvm-noinstall.zip",
+            "addon_env.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\env_{addon_name}.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8",
+                "source_dir": "{root_dir}\\system\\templates"
+            },
+            "docs":
+            {
+                "English": "https://github.com/coreybutler/nvm-windows"
+            },
+            "environment":
+            {
+                "NODE_EXTRA_CA_CERTS": "",
+                "NPM_CACHE_LOCATION": "",
+                "NPM_CONFIG_CACHE": "",
+                "NPM_CONFIG_CAFILE": "",
+                "NPM_CONFIG_GLOBALCONFIG": "",
+                "NPM_CONFIG_UNICODE": "",
+                "NPM_CONFIG_USERCONFIG": "",
+                "PATH": "%PATH%"
+            },
+            "help": "",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "NVM",
+                "enabled": "on",
+                "license": "https://raw.githubusercontent.com/coreybutler/nvm-windows/master/LICENSE",
+                "license_type": "MIT License (MIT)",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "1.1.12"
+            },
+            "nvm.bat":
+            {
+                "comment": "::",
+                "destination": "{root_dir}\\data\\cli\\nvm.bat",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8"
+            },
+            "settings.txt":
+            {
+                "destination": "{root_dir}\\addons\\{addon_name}\\settings.txt",
+                "directory_separator": "\\",
+                "enabled": "on",
+                "encoding": "UTF8"
+            }
+        }
+    },
+    "modules":
+    {
+        "Apache":
+        {
+            "docs":
+            {
+                "English": "https://httpd.apache.org/docs/2.4/"
+            },
+            "DownloadUrl": "https://www.apachelounge.com/download/VS18/binaries/httpd-2.4.66-260223-Win64-VS18.zip",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "HTTP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.apache.org/licenses/LICENSE-2.0",
+                "license_type": "Apache License 2.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "2.4.66",
+                "http_engine": "yes"
+            }
+        },
+        "Bind":
+        {
+            "docs":
+            {
+                "English": "https://bind9.readthedocs.io/en/v9.16.50/"
+            },
+            "DownloadUrl": "https://ftp.ripe.net/mirrors/sites/ftp.isc.org/isc/bind/9.17.15/BIND9.17.15.x64.zip",
+            "help": "-h",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "DNS",
+                "exclusive": "yes",
+                "ip_separator": ";",
+                "ipv6_support": "yes",
+                "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+                "license_type": "MPL License 2.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "9.17.15"
+            }
+        },
+        "Blackfire":
+        {
+            "docs":
+            {
+                "English": "https://docs.blackfire.io/introduction"
+            },
+            "DownloadUrl": "https://blackfire.io/api/v1/releases/cli/windows/amd64",
+            "help": "--help --no-ansi",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Blackfire",
+                "license": "",
+                "license_type": "",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "2.30.3"
+            }
+        },
+        "Caddy":
+        {
+            "docs":
+            {
+                "English": "https://caddyserver.com/docs/"
+            },
+            "DownloadUrl": "https://github.com/OSPanel/caddy/releases/download/v2.11.1/caddy-v2.11.1-windows-amd64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "HTTP",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://github.com/caddyserver/caddy?tab=Apache-2.0-1-ov-file#readme",
+                "license_type": "Apache-2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "2.11.1",
+                "http_engine": "yes"
+            }
+        },
+        "Mailpit":
+        {
+            "docs":
+            {
+                "English": "https://mailpit.axllent.org/docs/"
+            },
+            "DownloadUrl": "https://github.com/axllent/mailpit/releases/download/v1.29.3/mailpit-windows-amd64.zip",
+            "help": "-h",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Mail",
+                "exclusive": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://raw.githubusercontent.com/axllent/mailpit/refs/heads/develop/LICENSE",
+                "license_type": "MIT license",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "1.29.3"
+            }
+        },
+        "MariaDB-10.11":
+        {
+            "docs":
+            {
+                "English": "https://mariadb.com/kb/en/documentation/"
+            },
+            "DownloadUrl": "https://archive.mariadb.org/mariadb-10.11.15/winx64-packages/mariadb-10.11.15-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MariaDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://mariadb.com/kb/en/mariadb-license/",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "10.11.15"
+            }
+        },
+        "MariaDB-10.4":
+        {
+            "docs":
+            {
+                "English": "https://mariadb.com/kb/en/documentation/"
+            },
+            "DownloadUrl": "https://archive.mariadb.org/mariadb-10.4.34/winx64-packages/mariadb-10.4.34-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MariaDB",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://mariadb.com/kb/en/mariadb-license/",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "10.4.34"
+            }
+        },
+        "MariaDB-10.5":
+        {
+            "docs":
+            {
+                "English": "https://mariadb.com/kb/en/documentation/"
+            },
+            "DownloadUrl": "https://archive.mariadb.org/mariadb-10.5.29/winx64-packages/mariadb-10.5.29-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MariaDB",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://mariadb.com/kb/en/mariadb-license/",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "10.5.29"
+            }
+        },
+        "MariaDB-10.6":
+        {
+            "docs":
+            {
+                "English": "https://mariadb.com/kb/en/documentation/"
+            },
+            "DownloadUrl": "https://archive.mariadb.org/mariadb-10.6.25/winx64-packages/mariadb-10.6.25-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MariaDB",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://mariadb.com/kb/en/mariadb-license/",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "10.6.25"
+            }
+        },
+        "MariaDB-11.4":
+        {
+            "docs":
+            {
+                "English": "https://mariadb.com/kb/en/documentation/"
+            },
+            "DownloadUrl": "https://archive.mariadb.org/mariadb-11.4.10/winx64-packages/mariadb-11.4.10-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MariaDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://mariadb.com/kb/en/mariadb-license/",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "11.4.10"
+            }
+        },
+        "MariaDB-11.8":
+        {
+            "docs":
+            {
+                "English": "https://mariadb.com/kb/en/documentation/"
+            },
+            "DownloadUrl": "https://archive.mariadb.org/mariadb-11.8.6/winx64-packages/mariadb-11.8.6-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MariaDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://mariadb.com/kb/en/mariadb-license/",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "11.8.6"
+            }
+        },
+        "Memcached":
+        {
+            "docs":
+            {
+                "English": "https://github.com/memcached/memcached/wiki"
+            },
+            "DownloadUrl": "https://github.com/jefyt/memcached-windows/releases/download/1.6.8_mingw/memcached-1.6.8-win64-mingw.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Memcached",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://raw.githubusercontent.com/memcached/memcached/master/LICENSE",
+                "license_type": "BSD License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "1.6.8"
+            }
+        },
+        "MongoDB-4.0":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v4.0/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/dist/MongoDB-4.0.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "4.0.28"
+            }
+        },
+        "MongoDB-4.2":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v4.2/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/dist/MongoDB-4.2.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "4.2.25"
+            }
+        },
+        "MongoDB-4.4":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v4.4/"
+            },
+            "DownloadUrl": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.30.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "4.4.30"
+            }
+        },
+        "MongoDB-5.0":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v5.0/"
+            },
+            "DownloadUrl": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.32.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "5.0.32"
+            }
+        },
+        "MongoDB-6.0":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v6.0/"
+            },
+            "DownloadUrl": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-6.0.27.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "6.0.27"
+            }
+        },
+        "MongoDB-7.0":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v7.0/"
+            },
+            "DownloadUrl": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-7.0.30.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "7.0.30"
+            }
+        },
+        "MongoDB-8.0":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v8.0/"
+            },
+            "DownloadUrl": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.19.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "8.0.19"
+            }
+        },
+        "MongoDB-8.2":
+        {
+            "docs":
+            {
+                "English": "https://docs.mongodb.com/v8.2/"
+            },
+            "DownloadUrl": "https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.2.5.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MongoDB",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.mongodb.com/community/licensing",
+                "license_type": "SSPL v1.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "8.2.5"
+            }
+        },
+        "MySQL-5.7":
+        {
+            "docs":
+            {
+                "English": "https://dev.mysql.com/doc/refman/5.7/en/"
+            },
+            "DownloadUrl": "https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.44-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MySQL",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://downloads.mysql.com/docs/licenses/mysqld-5.7-gpl-en.pdf",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "5.7.44"
+            }
+        },
+        "MySQL-8.0":
+        {
+            "docs":
+            {
+                "English": "https://dev.mysql.com/doc/refman/8.0/en/"
+            },
+            "DownloadUrl": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.45-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MySQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://downloads.mysql.com/docs/licenses/mysqld-8.0-gpl-en.pdf",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "8.0.45"
+            }
+        },
+        "MySQL-8.4":
+        {
+            "docs":
+            {
+                "English": "https://dev.mysql.com/doc/refman/8.4/en/"
+            },
+            "DownloadUrl": "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.8-winx64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "MySQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://downloads.mysql.com/docs/licenses/mysqld-8.4-gpl-en.pdf",
+                "license_type": "GNU GPLv2",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "8.4.8"
+            }
+        },
+        "Nginx":
+        {
+            "docs":
+            {
+                "English": "https://nginx.org/en/docs/",
+                "Russian": "https://nginx.org/ru/docs/"
+            },
+            "DownloadUrl": "https://github.com/OSPanel/nginx/releases/download/release-1.29.5/nginx-1.29.5.zip",
+            "help": "-h",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "HTTP",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://nginx.org/LICENSE",
+                "license_type": "FreeBSD License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "1.29.5",
+                "http_engine": "yes"
+            }
+        },
+        "Pebble":
+        {
+            "docs":
+            {
+                "English": "https://github.com/letsencrypt/pebble"
+            },
+            "DownloadUrl": "https://github.com/OSPanel/pebble/releases/download/v2.9.0/pebble-exes-v2.9.0.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Pebble",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://github.com/letsencrypt/pebble/blob/main/LICENSE",
+                "license_type": "Mozilla Public License 2.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "2.9.0"
+            }
+        },
+        "PHP-7.2":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-7.2.34-nts-Win32-vc15-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-7.2.34-nts-Win32-vc15-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-7.2-nts-Win32-vc15-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "7.2.34"
+            }
+        },
+        "PHP-7.3":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-7.3.33-nts-Win32-vc15-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-7.3.33-nts-Win32-vc15-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-7.3-nts-Win32-vc15-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "7.3.33"
+            }
+        },
+        "PHP-7.4":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-7.4.33-nts-Win32-vc15-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-7.4.33-nts-Win32-vc15-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-7.4-nts-Win32-vc15-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "7.4.33"
+            }
+        },
+        "PHP-8.0":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-8.0.30-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-8.0.30-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-8.0-nts-Win32-vs16-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "8.0.30"
+            }
+        },
+        "PHP-8.1":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-8.1.34-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-8.1.34-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-8.1-nts-Win32-vs16-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "8.1.34"
+            }
+        },
+        "PHP-8.2":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-8.2.30-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-8.2.30-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-8.2-nts-Win32-vs16-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "8.2.30"
+            }
+        },
+        "PHP-8.3":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-8.3.30-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-8.3.30-nts-Win32-vs16-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-8.3-nts-Win32-vs16-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "8.3.30"
+            }
+        },
+        "PHP-8.4":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-8.4.19-nts-Win32-vs17-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-8.4.19-nts-Win32-vs17-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-8.4-nts-Win32-vs17-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "8.4.19"
+            }
+        },
+        "PHP-8.5":
+        {
+            "docs":
+            {
+                "English": "https://www.php.net/manual/en/",
+                "Russian": "https://www.php.net/manual/ru/"
+            },
+            "DownloadUrl": "https://files.ospanel.io/~windows/releases/php-8.5.4-nts-Win32-vs17-x64.zip",
+            "DownloadUrl_bin": "https://files.ospanel.io/~windows/releases/php-bin-pack-8.5.4-nts-Win32-vs17-x64.zip",
+            "DownloadUrl_ext": "https://github.com/OSPanel/php-windows-builder/releases/download/ext-pack/php-ext-pack-8.5-nts-Win32-vs17-x64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PHP",
+                "fast_stop": "yes",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://www.php.net/license/3_01.txt",
+                "license_type": "PHP License 3.01",
+                "min_windows_ver": "10.0.10240",
+                "php_engine": "yes",
+                "timestamp": "1651770000",
+                "version": "8.5.4"
+            }
+        },
+        "PocketBase":
+        {
+            "docs":
+            {
+                "English": "https://pocketbase.io/docs/"
+            },
+            "DownloadUrl": "https://github.com/pocketbase/pocketbase/releases/download/v0.36.7/pocketbase_0.36.7_windows_amd64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PocketBase",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://raw.githubusercontent.com/pocketbase/pocketbase/refs/heads/master/LICENSE.md",
+                "license_type": "MIT License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "0.36.7"
+            }
+        },
+        "PostgreSQL-11":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/11/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/11/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1258670",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "11.21"
+            }
+        },
+        "PostgreSQL-12":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/12/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/12/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1259241",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "12.22"
+            }
+        },
+        "PostgreSQL-13":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/13/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/13/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1259854",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "13.23"
+            }
+        },
+        "PostgreSQL-14":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/14/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/14/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1260051",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "14.22"
+            }
+        },
+        "PostgreSQL-15":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/15/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/15/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1260050",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "15.17"
+            }
+        },
+        "PostgreSQL-16":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/16/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/16/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1260047",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "16.13"
+            }
+        },
+        "PostgreSQL-17":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/17/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/17/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1260042",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "17.9"
+            }
+        },
+        "PostgreSQL-18":
+        {
+            "docs":
+            {
+                "English": "https://www.postgresql.org/docs/17/index.html",
+                "Russian": "https://postgrespro.ru/docs/postgresql/17/index?lang=ru"
+            },
+            "DownloadUrl": "https://sbp.enterprisedb.com/getfile.jsp?fileid=1260040",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "PostgreSQL",
+                "ip_separator": ",",
+                "ipv6_support": "yes",
+                "license": "https://www.postgresql.org/about/licence/",
+                "license_type": "PostgreSQL License",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "18.3"
+            }
+        },
+        "RabbitMQ-3.13":
+        {
+            "docs":
+            {
+                "English": "https://www.rabbitmq.com/docs"
+            },
+            "DownloadUrl": "https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.13.7/rabbitmq-server-windows-3.13.7.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "RabbitMQ",
+                "exclusive": "yes",
+                "fast_stop": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "kill_names": "epmd.exe",
+                "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+                "license_type": "MPL License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "3.13.7"
+            }
+        },
+        "RabbitMQ-4.0":
+        {
+            "docs":
+            {
+                "English": "https://www.rabbitmq.com/docs"
+            },
+            "DownloadUrl": "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.0.9/rabbitmq-server-windows-4.0.9.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "RabbitMQ",
+                "exclusive": "yes",
+                "fast_stop": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "kill_names": "epmd.exe",
+                "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+                "license_type": "MPL License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "4.0.9"
+            }
+        },
+        "RabbitMQ-4.1":
+        {
+            "docs":
+            {
+                "English": "https://www.rabbitmq.com/docs"
+            },
+            "DownloadUrl": "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.1.8/rabbitmq-server-windows-4.1.8.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "RabbitMQ",
+                "exclusive": "yes",
+                "fast_stop": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "kill_names": "epmd.exe",
+                "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+                "license_type": "MPL License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "4.1.8"
+            }
+        },
+        "RabbitMQ-4.2":
+        {
+            "docs":
+            {
+                "English": "https://www.rabbitmq.com/docs"
+            },
+            "DownloadUrl": "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.5/rabbitmq-server-windows-4.2.5.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "RabbitMQ",
+                "exclusive": "yes",
+                "fast_stop": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "kill_names": "epmd.exe",
+                "license": "https://www.mozilla.org/en-US/MPL/2.0/",
+                "license_type": "MPL License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "4.2.5"
+            }
+        },
+        "Redis":
+        {
+            "docs":
+            {
+                "English": "https://redis.io/docs/"
+            },
+            "DownloadUrl": "https://github.com/zkteco-home/redis-windows/archive/refs/tags/8.6.1.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Redis",
+                "ip_separator": "",
+                "ipv6_support": "yes",
+                "license": "https://redis.io/docs/about/license/",
+                "license_type": "BSD License 2.0",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "8.6.1"
+            }
+        },
+        "SFTPGo":
+        {
+            "docs":
+            {
+                "English": "https://docs.sftpgo.com/2.7/"
+            },
+            "DownloadUrl": "https://github.com/drakkan/sftpgo/releases/download/v2.7.1/sftpgo_v2.7.1_windows_portable.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "SFTP",
+                "exclusive": "no",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://raw.githubusercontent.com/drakkan/sftpgo/refs/heads/main/LICENSE",
+                "license_type": "AGPL-3.0 license",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "2.7.1"
+            }
+        },
+        "Smtp4dev":
+        {
+            "docs":
+            {
+                "English": "https://github.com/rnwood/smtp4dev/wiki"
+            },
+            "DownloadUrl": "https://github.com/rnwood/smtp4dev/releases/download/3.15.0/Rnwood.Smtp4dev-win-x64-3.15.0.zip",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Mail",
+                "exclusive": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://raw.githubusercontent.com/rnwood/smtp4dev/refs/heads/master/LICENSE.md",
+                "license_type": "BSD-3-Clause license",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "3.15.0"
+            }
+        },
+        "Unbound":
+        {
+            "docs":
+            {
+                "English": "https://unbound.docs.nlnetlabs.nl/en/latest/"
+            },
+            "DownloadUrl": "https://nlnetlabs.nl/downloads/unbound/unbound-1.24.2.zip",
+            "help": "-h",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "DNS",
+                "exclusive": "yes",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://github.com/NLnetLabs/unbound/blob/master/LICENSE",
+                "license_type": "BSD License 2.0",
+                "min_windows_ver": "6.1.7601",
+                "timestamp": "1651770000",
+                "version": "1.24.2"
+            }
+        },
+        "Vault":
+        {
+            "docs":
+            {
+                "English": "https://developer.hashicorp.com/vault/docs"
+            },
+            "DownloadUrl": "https://releases.hashicorp.com/vault/1.21.4/vault_1.21.4_windows_amd64.zip",
+            "help": "--help",
+            "main":
+            {
+                "architecture": "x64",
+                "category": "Vault",
+                "ip_separator": "no",
+                "ipv6_support": "yes",
+                "license": "https://raw.githubusercontent.com/hashicorp/vault/refs/heads/main/LICENSE",
+                "license_type": "Business Source License 1.1",
+                "min_windows_ver": "10.0.10240",
+                "timestamp": "1651770000",
+                "version": "1.21.4"
+            }
+        }
+    }
+}

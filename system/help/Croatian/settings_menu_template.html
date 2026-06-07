@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Stvaranje vlastitih stavki izbornika</h2>
+    <ol>
+        <li>Dodajte novu sekciju s jedinstvenim identifikatorom [ID]</li>
+        <li>Rasporedite sekcije željenim redoslijedom — to će odrediti redoslijed stavki u izborniku</li>
+        <li>Spremite promjene i ponovno pokrenite Open Server Panel za primjenu promjena</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Važne informacije</h3>
+        Prilikom stvaranja vlastitih stavki izbornika pazite da se identifikatori sekcija ne ponavljaju. To može dovesti do sukoba u radu izbornika.
+    </div>
+    <h2>Postavke stavki izbornika</h2>
+    <p><strong>Redoslijed sortiranja:</strong> Stavke izbornika sortiraju se istim redoslijedom kojim su raspoređene odgovarajuće sekcije u predlošku.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Naslov stavke izbornika. Podržava jezične konstante u formatu {lang_xxx}.<br><br>
+                    Zadano: nije postavljeno
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Određuje položaj stavke izbornika u hijerarhiji. Podržava jednu razinu ugniježđenja (npr. "Moje Zabilješke\Posao").</p>
+                    <p>Posebne kategorije:</p>
+                    <ul>
+                        <li>projects, modules, addons - dodaje stavku u odgovarajući izbornik radnji</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - dodaje stavku za određeni element</li>
+                    </ul>
+                    <p>Ako kategorija nije navedena, stavka se stvara u korijenskom izborniku.</p>
+                    Zadano: nije postavljeno
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Naredba za izvršenje pri aktivaciji stavke izbornika. Stavke bez naredbe se ignoriraju.<br><br>
+                    Zadano: nije postavljeno
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Uključuje/isključuje prikaz stavke izbornika.<br><br>
+                    Zadano: on | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Upravlja vidljivošću prozora pozvane aplikacije. Ne utječe na podređene procese.<br><br>
+                    Zadano: off | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Dodaje vodoravni razdjelnik nakon stavke izbornika.<br><br>
+                    Zadano: off | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Dodaje vodoravni razdjelnik prije stavke izbornika.<br><br>
+                    Zadano: off | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Ikona iz skupa Font Awesome Free (Solid/Regular/Brands).<br><br>
+                    Zadano: nije postavljeno
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Prikazuje stavku izbornika samo za domenski alias. U predlošku izbornika može postojati samo jedna stavka s need_alias=on!<br>
+                    Primjenjivo za kategorije: projects<br><br>
+                    Zadano: nije postavljeno | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Ograničava prikaz stavke izbornika na module/dodatke određene kategorije.</p>
+                    <p>Podržani formati:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Zadano: nije postavljeno
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Prikazuje stavku izbornika ovisno o prisutnosti shell/cli u nadređenom modulu.<br>
+                    Primjenjivo za kategorije: modules, modules\<имя_модуля><br><br>
+                        Zadano: nije postavljeno | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Prikazuje stavku izbornika ovisno o stanju nadređenog modula.<br>
+                    Primjenjivo za kategorije: modules, modules\<имя_модуля><br><br>
+                        Zadano: nije postavljeno | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Prikazuje stavku izbornika ako postoji naredba pokretanja u postavkama projekta.<br>
+                    Primjenjivo za kategorije: projects, projects\<имя_домена><br><br>
+                        Zadano: nije postavljeno | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Prikazuje stavku izbornika ovisno o postavci korištenja Windows Terminal u Open Server Panel.<br><br>
+                    Zadano: nije postavljeno | Vrijednosti: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Radni direktorij za izvršavanje naredbe. Može se mijenjati tijekom izvođenja naredbi.<br><br>
+                    Zadano: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Predlošci varijabli</h2>
+    U parametrima "command" i "work_directory" mogu se koristiti sljedeće predloške varijable:
+    <h3>Opće varijable</h3>
+    <table>
+        <tr>
+            <th>Varijabla</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Trenutni datum/vrijeme (varijabla je dostupna samo za parametar "command")</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Korijenski direktorij Open Server Panel (puna putanja)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Disk korijenskog direktorija</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Put do korijenskog direktorija Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL adresa web-sučelja</td>
+        </tr>
+    </table>
+    <h3>Posebne varijable (samo za projects i projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Varijabla</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Osnovni direktorij projekta</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Naziv domene (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Vidljivo ime domene (bez Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Shema zahtjeva prema projektu ("http" ili "https", ovisi o parametru TLS u postavkama projekta)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Port zahtjeva prema projektu putem HTTP protokola</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Port zahtjeva prema projektu putem HTTPS protokola</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Naslov stavke izbornika (samo za kategoriju projects s need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP engine</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js engine</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP engine</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Korijenski direktorij projekta</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>URL projekta</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Javni direktorij projekta</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Port zahtjeva prema projektu (":{http_port}" ili ":{https_port}", ovisi o parametru TLS u postavkama projekta). Ako {http_port} ili {https_port} ima standardnu vrijednost 80 ili 443, tada {scheme_port} će biti prazan.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Naredba za pokretanje aplikacije projekta (ako je postavljena)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodna stranica konzole</td>
+        </tr>
+    </table>
+    <h3>Posebne varijable (samo za addons i addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Varijabla</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Naziv dodatka</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodna stranica konzole</td>
+        </tr>
+    </table>
+    <h3>Posebne varijable (samo za modules i modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Varijabla</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP adresa modula</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Razina zapisivanja grešaka</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Naziv modula</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Port modula</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Naziv trenutačnog profila postavki modula</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Razina zapisivanja upita</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Naredba pokretanja shell/cli ljuske modula (ako je postavljena)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodna stranica konzole</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Vremenska zona</td>
+        </tr>
+    </table>
+    <h3>Posebne vrijednosti naredbi</h3>
+    <table>
+        <tr>
+            <th>Naredba</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Otvoriti prozor za pregled dnevnika</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>Otvoriti IDN pretvarač</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Otvoriti prozor postavki programa</td>
+        </tr>
+    </table>
+    <p>Osim predložaka varijabli, mogu se koristiti bilo koje Windows varijable okruženja, na primjer: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% itd.</p>
+    <h3>Primjer uporabe</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Moje Zabilješke\Pretraživači
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>Opcije CMD.EXE</h3>
+    <ul>
+        <li>/c: Izvršiti naredbu i zatvoriti terminal.</li>
+        <li>/k: Izvršiti naredbu i ostaviti terminal otvorenim.</li>
+    </ul>
+</body>
+
+</html>

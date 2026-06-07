@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Setările programului</h2>
+    <table>
+        <tr>
+            <th>Pornește împreună cu Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Activează auto-pornirea Open Server Panel la încărcarea sistemului de operare.</td>
+        </tr>
+        <tr>
+            <th>Întârziere</th>
+        </tr>
+        <tr>
+            <td>
+                Întârzierea pornirii programului (în secunde, de la 0 la 60).<br><br>Permite amânarea startului aplicației în timpul încărcării împreună cu Windows, pentru a reduce încărcarea generală a sistemului. Este util în special dacă este nevoie să așteptați inițializarea completă a serviciilor terțe sau a interfețelor de rețea.</td>
+        </tr>
+        <tr>
+            <th>Verifică existența noilor versiuni</th>
+        </tr>
+        <tr>
+            <td>
+                Activează verificarea actualizărilor Open Server Panel (este necesară conexiune la Internet).</td>
+        </tr>
+        <tr>
+            <th>Activează Planificatorul de sarcini</th>
+        </tr>
+        <tr>
+            <td>
+                Activează planificatorul de sarcini integrat. Dacă parametrul este dezactivat, nicio sarcină programată nu va fi executată, indiferent de statusul acesteia.</td>
+        </tr>
+        <tr>
+            <th>Folosește fișierul HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Activează scrierea numelor de domeniu în fișierul HOSTS.<br><br>
+                <strong>Recomandări în cazul accesului limitat la fișierul HOSTS în organizație:</strong><br><br>
+                1. Configurați toate modulele și proiectele necesare.<br>
+                2. Contactați administratorul de sistem pentru deblocarea HOSTS și fixarea stării acestuia.<br>
+                3. După fixarea modificărilor de către administrator, puteți dezactiva această opțiune.<br><br>
+                <strong>Important:</strong> Nu dezactivați acest parametru dacă nu sunteți sigur de consecințe!</td>
+        </tr>
+        <tr>
+            <th>Pornește modulele cu profilul proiectului</th>
+        </tr>
+        <tr>
+            <td>Pornește modulele cu activarea simultană a profilului care coincide cu numele proiectului.<br><br>Se utilizează la selectarea elementului de meniu „Activează modulele proiectului”, pentru a activa automat profilul cu același nume ca al proiectului curent, dacă există.</td>
+        </tr>
+        <tr>
+            <th>Nu opri modulele proiectelor ascunse</th>
+        </tr>
+        <tr>
+            <td>Nu opri modulele proiectelor ascunse la selectarea elementului de meniu „Oprește toate modulele”. Prin „ascunse” se înțeleg acele proiecte pentru care este setată categoria „hidden”.<br><br>În mod implicit, comanda „Oprește toate modulele” oprește funcționarea absolut tuturor modulelor, inclusiv pe cele utilizate de proiectele de serviciu ascunse (de exemplu, PHPMyAdmin). Această opțiune permite menținerea funcționării proiectelor de serviciu ascunse, fără a dezactiva modulele necesare pentru ele, în timp ce toate celelalte module vor fi oprite.</td>
+        </tr>
+        <tr>
+            <th>Limba interfeței</th>
+        </tr>
+        <tr>
+            <td>
+                Limba interfeței utilizator Open Server Panel.<br><br>
+                Dacă fișierul de localizare lipsește sau conține erori, va fi utilizată limba engleză.</td>
+        </tr>
+        <tr>
+            <th>Domeniul API</th>
+        </tr>
+        <tr>
+            <td>
+                Domeniul local pentru API și interfața web (în dezvoltare)<br><br>
+                <strong>Recomandare:</strong> Dacă se utilizează VPN sau proxy, adăugați acest domeniu la excepții.</td>
+        </tr>
+        <tr>
+            <th>Adresa IP a API</th>
+        </tr>
+        <tr>
+            <td>
+                Adresa IPv4 pentru API și interfața web (în dezvoltare).<br><br>
+                <strong>Recomandare:</strong> Dacă se utilizează VPN sau proxy, adăugați această adresă IP la excepții.</td>
+        </tr>
+        <tr>
+            <th>Portul API</th>
+        </tr>
+        <tr>
+            <td>
+                Portul utilizat pentru API și interfața web (în dezvoltare). Open Server Panel nu va putea porni dacă portul specificat este deja utilizat de o altă aplicație.</td>
+        </tr>
+        <tr>
+            <th>Folosește Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Activează utilizarea Windows Terminal în locul interfeței standard de comandă.<br><br>
+                <strong>Cerințe:</strong> Windows Terminal trebuie să fie instalat în sistem și prezent în variabila de mediu PATH.<br><br>
+                <strong>Windows Terminal ca cmd.exe:</strong> Windows Terminal poate înlocui cmd.exe și poate fi setat în variabila de mediu %COMSPEC% în versiunile noi de Windows. Dacă este cazul, lăsați această opțiune activată.<br><br>
+                <strong>Instanțe noi Windows Terminal:</strong> Dacă Windows Terminal deschide ferestre noi în loc de file, configurați-l astfel: Settings&rarr;Startup&rarr;New instance behavior&rarr;Attach to the most recently used window.</td>
+        </tr>
+        <tr>
+            <th>Titlu scurt al proiectului</th>
+        </tr>
+        <tr>
+            <td>
+                La activarea acestei opțiuni, în titlul ferestrei terminalului va fi afișat doar numele proiectului în locul descrierii detaliate a mediului.</td>
+        </tr>
+        <tr>
+            <th>Include mediul sistemului în mediul proiectului</th>
+        </tr>
+        <tr>
+            <td>Utilizează mediul sistemului (System) în terminal, chiar dacă nu este setat în setările proiectului. Mediul sistemului permite utilizarea programelor instalate în sistem (de exemplu, git.exe sau ssh.exe).<br><br>Dezactivați această opțiune doar în cazul apariției conflictelor cu software-ul de sistem.</td>
+        </tr>
+        <tr>
+            <th>Suport ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Activează suportul pentru codurile ANSI pentru controlul culorilor în terminal.<br><br>
+                Modul „Automat” (implicit):<br>
+                - Corecția se aplică doar pentru Windows 10 până la versiunea 1903 inclusiv. În versiunile mai noi de Windows suportul pentru codurile ANSI este deja integrat.<br>
+                - Corecția nu se aplică pentru terminalele care suportă ANSI în mod implicit (de exemplu, Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Directoare pentru căutarea proiectelor</th>
+        </tr>
+        <tr>
+            <td>
+                Lista de directoare în care Open Server Panel va căuta proiecte. Separați căile cu punct și virgulă (;).<br><br>
+                <strong>Excepții:</strong> Subdirectoarele node_modules și vendor sunt ignorate.</td>
+        </tr>
+        <tr>
+            <th>Adâncime</th>
+        </tr>
+        <tr>
+            <td>
+                Adâncimea maximă de imbricare a directoarelor la căutarea proiectelor.<br><br>
+                Creșterea acestei valori poate încetini pornirea Open Server Panel, dacă în directoarele indicate există un număr mare de subdirectoare.</td>
+        </tr>
+        <tr>
+            <th>Dimensiunea maximă a fișierului jurnal</th>
+        </tr>
+        <tr>
+            <td>
+                Dimensiunea maximă a fișierului jurnal în megabytes. La depășirea valorii specificate, fișierul de log va fi recreat la următoarea pornire a programului.<br><br>
+                Setați valoarea 0 pentru a curăța jurnalele la fiecare pornire a programului.<br><br>
+                Setați valoarea 100 MB pentru a dezactiva complet curățarea jurnalelor.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Eigene Menüpunkte erstellen</h2>
+    <ol>
+        <li>Fügen Sie einen neuen Abschnitt mit einer eindeutigen Kennung [ID] hinzu</li>
+        <li>Ordnen Sie die Abschnitte in der gewünschten Reihenfolge an – dies bestimmt die Reihenfolge der Punkte im Menü</li>
+        <li>Speichern Sie die Änderungen und starten Sie Open Server Panel neu, um die Änderungen anzuwenden</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>Wichtige Information</h3>
+        Achten Sie beim Erstellen eigener Menüpunkte darauf, dass sich die Abschnittskennungen nicht wiederholen. Dies kann zu Konflikten in der Menüfunktion führen.
+    </div>
+    <h2>Menüpunkt-Einstellungen</h2>
+    <p><strong>Sortierreihenfolge:</strong> Die Menüpunkte werden in derselben Reihenfolge sortiert, in der die entsprechenden Abschnitte in der Vorlage angeordnet sind.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    Titel des Menüpunktes. Unterstützt Sprachkonstanten im Format {lang_xxx}.<br><br>
+                    Standard: nicht festgelegt
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>Bestimmt die Position des Menüpunktes in der Hierarchie. Unterstützt eine Ebene der Verschachtelung (z. B. "Meine Lesezeichen\Arbeit").</p>
+                    <p>Spezielle Kategorien:</p>
+                    <ul>
+                        <li>projects, modules, addons - fügt den Punkt zum entsprechenden Aktionsmenü hinzu</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - fügt einen Punkt für ein konkretes Element hinzu</li>
+                    </ul>
+                    <p>Wenn keine Kategorie angegeben ist, wird der Punkt im Hauptmenü erstellt.</p>
+                    Standard: nicht festgelegt
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    Befehl, der bei Aktivierung des Menüpunktes ausgeführt wird. Punkte ohne Befehl werden ignoriert.<br><br>
+                    Standard: nicht festgelegt
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    Aktiviert/deaktiviert die Anzeige des Menüpunktes.<br><br>
+                    Standard: on | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    Steuert die Sichtbarkeit des Fensters der aufgerufenen Anwendung. Beeinflusst keine untergeordneten Prozesse.<br><br>
+                    Standard: off | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    Fügt nach dem Menüpunkt einen horizontalen Trenner hinzu.<br><br>
+                    Standard: off | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    Fügt vor dem Menüpunkt einen horizontalen Trenner hinzu.<br><br>
+                    Standard: off | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Icon aus dem Font Awesome Free (Solid/Regular/Brands) Set.<br><br>
+                    Standard: nicht festgelegt
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    Zeigt den Menüpunkt nur für einen Domain-Alias an. In der Menüvorlage darf es nur einen Punkt mit need_alias=on geben!<br>
+                    Anwendbar für Kategorien: projects<br><br>
+                    Standard: nicht festgelegt | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>Begrenzt die Anzeige des Menüpunktes auf Module/Addons einer bestimmten Kategorie.</p>
+                    <p>Unterstützte Formate:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    Standard: nicht festgelegt
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    Zeigt den Menüpunkt abhängig von der Verfügbarkeit einer shell/cli des übergeordneten Moduls an.<br>
+                    Anwendbar für Kategorien: modules, modules\<имя_модуля><br><br>
+                        Standard: nicht festgelegt | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    Zeigt den Menüpunkt abhängig vom Zustand des übergeordneten Moduls an.<br>
+                    Anwendbar für Kategorien: modules, modules\<имя_модуля><br><br>
+                        Standard: nicht festgelegt | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    Zeigt den Menüpunkt an, wenn in den Projekteinstellungen ein Startbefehl vorhanden ist.<br>
+                    Anwendbar für Kategorien: projects, projects\<имя_домена><br><br>
+                        Standard: nicht festgelegt | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Zeigt den Menüpunkt abhängig von der Einstellung zur Verwendung von Windows Terminal in Open Server Panel an.<br><br>
+                    Standard: nicht festgelegt | Werte: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    Arbeitsverzeichnis für die Befehlsausführung. Kann während der Befehlsausführung geändert werden.<br><br>
+                    Standard: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Template-Variablen</h2>
+    In den Parametern "command" und "work_directory" können die folgenden Template-Variablen verwendet werden:
+    <h3>Allgemeine Variablen</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>Aktuelles Datum/Uhrzeit (Variable ist nur für den Parameter "command" verfügbar)</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Stammverzeichnis von Open Server Panel (vollständiger Pfad)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Laufwerk des Stammverzeichnisses</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Pfad zum Stammverzeichnis von Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>URL-Adresse der Weboberfläche</td>
+        </tr>
+    </table>
+    <h3>Spezielle Variablen (nur für projects und projects\&lt;имя_домена&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>Basisverzeichnis des Projekts</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>Domainname (Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>Sichtbarer Domainname (ohne Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>Abfrageschema zum Projekt ("http" oder "https", abhängig vom TLS-Parameter in den Projekteinstellungen)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>Abfrageport zum Projekt über HTTP</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>Abfrageport zum Projekt über HTTPS</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>Menüpunkt-Titel (nur für die Kategorie projects mit need_alias=ON)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP-Engine</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js-Engine</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP-Engine</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>Projektstammverzeichnis</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>Projekt-URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>Öffentliches Verzeichnis des Projekts</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>Abfrageport zum Projekt (":{http_port}" oder ":{https_port}", abhängig vom TLS-Parameter in den Projekteinstellungen). Wenn {http_port} oder {https_port} den Standardwert 80 bzw. 443 hat, ist {scheme_port} leer.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>Startbefehl der Projektanwendung (falls konfiguriert)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolencodierung</td>
+        </tr>
+    </table>
+    <h3>Spezielle Variablen (nur für addons und addons\&lt;имя_дополнения&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>Name des Add-ons</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolencodierung</td>
+        </tr>
+    </table>
+    <h3>Spezielle Variablen (nur für modules und modules\&lt;имя_модуля&gt;)</h3>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>IP-Adresse des Moduls</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>Fehlerprotokollierungsstufe</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>Name des Moduls</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>Port des Moduls</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>Name des aktuellen Modul-Einstellungsprofils</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>Abfrageprotokollierungsstufe</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>Startbefehl der shell/cli des Moduls (falls konfiguriert)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Konsolencodierung</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Zeitzone</td>
+        </tr>
+    </table>
+    <h3>Spezielle Befehlswerte</h3>
+    <table>
+        <tr>
+            <th>Befehl</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>Protokollanzeige öffnen</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN-Konverter öffnen</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>Einstellungsfenster des Programms öffnen</td>
+        </tr>
+    </table>
+    <p>Neben den Template-Variablen können beliebige Windows-Umgebungsvariablen verwendet werden, z. B.: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% usw.</p>
+    <h3>Beispiel</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = Meine Lesezeichen\Suchmaschinen
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE-Optionen</h3>
+    <ul>
+        <li>/c: Befehl ausführen und Terminal schließen.</li>
+        <li>/k: Befehl ausführen und Terminal geöffnet lassen.</li>
+    </ul>
+</body>
+
+</html>

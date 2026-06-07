@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">모듈 환경의 전역 변수</h2>
+    <p>이 섹션에서는 모듈을 위한 전역 환경 변수를 설정할 수 있습니다.<br><br>이 변수들은 모듈 환경에서만 적용되며 시스템 변수나 프로젝트 환경에는 영향을 주지 않습니다.<br><br>값에는 템플릿 변수를 사용할 수 있습니다.</p>
+    <p>변수가 시스템 환경에 존재하지만 모듈 환경에서는 사용되면 안 되는 경우, 전용 필터를 사용하세요(참조: 모듈&rarr;허용된 시스템 변수) 또는 값을 비워 환경에서 변수를 제거하세요.</p>
+    <h2>템플릿 변수</h2>
+    <table>
+        <tr>
+            <th>변수</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel의 루트 디렉터리(전체 경로)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>루트 디렉터리가 위치한 드라이브</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel의 루트 디렉터리 경로</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>터미널 인코딩(참조: 모듈&rarr;터미널 인코딩)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Etc/GMT 형식의 시간대(참조: 모듈&rarr;시간대)</td>
+        </tr>
+    </table>
+    <p>템플릿 변수 외에도 Windows의 임의의 환경 변수를 사용할 수 있습니다. 예: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% 등.</p>
+</body>
+
+</html>

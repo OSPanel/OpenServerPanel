@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">ตัวแปรสภาพแวดล้อมแบบโกลบอลของโมดูล</h2>
+    <p>ในส่วนนี้คุณสามารถกำหนดตัวแปรสภาพแวดล้อมแบบโกลบอลสำหรับโมดูลได้<br><br>ตัวแปรเหล่านี้มีผลเฉพาะในสภาพแวดล้อมของโมดูล และไม่ส่งผลต่อระบบหรือสภาพแวดล้อมของโปรเจ็กต์<br><br>สามารถใช้ตัวแปรแม่แบบในค่าได้</p>
+    <p>หากตัวแปรมีอยู่ในสภาพแวดล้อมของระบบ แต่ไม่ควรถูกใช้ในสภาพแวดล้อมของโมดูล ให้ใช้ตัวกรองพิเศษ (ดูที่ โมดูล&rarr;ตัวแปรระบบที่อนุญาต) หรือเอาตัวแปรออกจากสภาพแวดล้อมโดยกำหนดค่าเป็นค่าว่าง</p>
+    <h2>ตัวแปรแม่แบบ</h2>
+    <table>
+        <tr>
+            <th>ตัวแปร</th>
+            <th>คำอธิบาย</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>ไดเรกทอรีรากของ Open Server Panel (พาธแบบเต็ม)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>ไดรฟ์ของไดเรกทอรีราก</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>พาธไปยังไดเรกทอรีรากของ Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>การเข้ารหัสในเทอร์มินัล (ดูที่ โมดูล&rarr;การเข้ารหัสในเทอร์มินัล)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>โซนเวลาในรูปแบบ Etc/GMT (ดูที่ โมดูล&rarr;โซนเวลา)</td>
+        </tr>
+    </table>
+    <p>นอกเหนือจากตัวแปรแม่แบบแล้ว ยังสามารถใช้ตัวแปรสภาพแวดล้อมของ Windows ใดๆ ได้ เช่น: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% เป็นต้น</p>
+</body>
+
+</html>

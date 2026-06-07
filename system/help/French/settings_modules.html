@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Paramètres globaux des modules</h2>
+    <p>Les paramètres définis dans cette section s’appliquent lorsque, dans les réglages d’un module spécifique, l’option correspondante est définie sur auto (par défaut).</p>
+    <table>
+        <tr>
+            <th>Mode silencieux</th>
+        </tr>
+        <tr>
+            <td>
+                Désactive les fenêtres contextuelles d’erreurs de Windows Error Reporting et du module lui-même.<br><br>
+                <strong>Recommandation :</strong> Désactivez ce mode uniquement si nécessaire pour diagnostiquer des problèmes de fonctionnement du module.</td>
+        </tr>
+        <tr>
+            <th>Ajouter un en-tête au fichier journal</th>
+        </tr>
+        <tr>
+            <td>
+                Active l’ajout automatique d’un en-tête dans le fichier journal à chaque démarrage du module. Utile lorsque le nettoyage automatique des logs est désactivé pour séparer les sessions de travail.</td>
+        </tr>
+        <tr>
+            <th>Nombre maximal de démarrages infructueux</th>
+        </tr>
+        <tr>
+            <td>
+                Détermine combien de démarrages consécutifs infructueux du module sont autorisés avant qu’il ne passe à l’état « Erreur ».</td>
+        </tr>
+        <tr>
+            <th>Temps de vérification de la santé du module</th>
+        </tr>
+        <tr>
+            <td>Définit la période de test de bon fonctionnement du module après son démarrage réussi.<br><br>
+                <strong>Début du décompte :</strong> À partir du moment du démarrage réussi du module.<br><br>
+                <strong>Passage à l’état « Erreur » :</strong> Si le module se termine de manière anormale durant la période d’essai, il ne sera pas relancé automatiquement et passera à l’état « Erreur ». Cela s’applique également aux cas où le module ne parvient pas à se lancer au niveau du système.<br><br>
+                <strong>Désactivation de la vérification :</strong> La valeur 0 désactive la période d’essai, et le module sera toujours redémarré en cas de défaillance.<br><br>
+                <strong>Recommandation :</strong> N’indiquez pas la valeur 0 ni une période trop courte (moins de 30 secondes), car cela peut entraîner des boucles de redémarrage infinies.</td>
+        </tr>
+        <tr>
+            <th>Temps d’attente de l’arrêt du module</th>
+        </tr>
+        <tr>
+            <td>Définit la durée maximale pendant laquelle le module est autorisé à terminer son travail.<br><br>
+                <strong>Arrêt forcé :</strong> Si le module ne se termine pas dans le délai indiqué, il sera arrêté de force.<br><br>
+                <strong>Désactivation de l’attente :</strong> La valeur 0 désactive la période d’attente. Le programme attendra la fin du module pendant une durée illimitée.<br><br>
+                <strong>Avertissement :</strong> Forcer l’arrêt du module peut entraîner des dommages aux données, une perte de modifications non enregistrées ou une terminaison incorrecte des processus. Utilisez ce réglage avec prudence.</td>
+        </tr>
+        <tr>
+            <th>Taille maximale du fichier journal</th>
+        </tr>
+        <tr>
+            <td>
+                Taille maximale du fichier journal en mégaoctets. En cas de dépassement de la valeur indiquée, le fichier log sera recréé au prochain démarrage du module.<br><br>
+                Définissez la valeur 0 pour nettoyer les journaux à chaque démarrage du module.<br><br>
+                Définissez la valeur 100 Mo pour désactiver complètement le nettoyage des journaux.</td>
+        </tr>
+        <tr>
+            <th>Encodage du terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Encodage du terminal lors du travail avec l’environnement du module.<br><br>
+                <strong>Valeurs spéciales :</strong><br>
+                - system: Utilise l’encodage du système.</td>
+        </tr>
+        <tr>
+            <th>Fuseau horaire</th>
+        </tr>
+        <tr>
+            <td>
+                Définit le fuseau horaire du module au format Etc/GMT (par exemple, Etc/GMT-3).<br><br>
+                <strong>Valeurs spéciales :</strong><br>
+                - system: Utilise le fuseau horaire du système.<br><br>
+                <strong>Important :</strong> Le format Etc/GMT a un décalage inversé par rapport à l’UTC (par exemple, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Environnements d’extensions utilisés</th>
+        </tr>
+        <tr>
+            <td>
+                Définit la liste des extensions (indiquées séparées par des espaces) dont les environnements (le cas échéant) sont joints à l’environnement du module. Les indicateurs d’information dans le terminal n’affichent pas ces environnements supplémentaires.<br><br>
+                <strong>Avertissement :</strong> Utilisez cette option uniquement en comprenant pleinement son objet.</td>
+        </tr>
+        <tr>
+            <th>Variables système autorisées</th>
+        </tr>
+        <tr>
+            <td>
+                Définit la liste des variables d’environnement Windows (indiquées séparées par des espaces) qui sont transmises à l’environnement du module.<br><br>
+                <strong>But :</strong> Permet d’isoler l’environnement de travail du module d’un logiciel similaire installé sur le système.<br><br>
+                <strong>Avertissement :</strong> Modifier cette liste sans en comprendre pleinement l’impact peut entraîner un fonctionnement instable du module.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globalne promenljive okruženja modula</h2>
+    <p>U ovom odeljku možete zadati globalne promenljive okruženja za module.<br><br>Ove promenljive važe samo u okruženju modula i ne utiču na sistemske promenljive ili okruženje projekata.<br><br>U vrednostima je dozvoljena upotreba šablonskih promenljivih.</p>
+    <p>Ako je promenljiva prisutna u sistemskom okruženju, ali ne bi trebalo da se koristi u okruženju modula, koristite poseban filter (vidi Moduli&rarr;Dozvoljene sistemske promenljive) ili uklonite promenljivu iz okruženja tako što ćete joj dodeliti praznu vrednost.</p>
+    <h2>Šablonske promenljive</h2>
+    <table>
+        <tr>
+            <th>Promenljiva</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Koren direktorijum Open Server Panel (puna putanja)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Disk korenog direktorijuma</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Putanja do korenog direktorijuma Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodna stranica u terminalu (vidi Moduli&rarr;Kodiranje u terminalu)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Vremenska zona u formatu Etc/GMT (vidi Moduli&rarr;Vremenska zona)</td>
+        </tr>
+    </table>
+    <p>Pored šablonskih promenljivih, možete koristiti bilo koje Windows promenljive okruženja, na primer: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% itd.</p>
+</body>
+
+</html>

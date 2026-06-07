@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout-info {
+        background-color: rgb(236, 244, 251);
+        border-color: rgb(198, 219, 238);
+    }
+    .bs-callout-info h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(198, 219, 238);
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    .code {
+        background: #F6F8FA;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 100%;
+        font-family: "Consolas", "Monaco", monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">사용자 지정 메뉴 항목 만들기</h2>
+    <ol>
+        <li>고유 식별자 [ID]를 가진 새 섹션을 추가하세요</li>
+        <li>원하는 순서로 섹션을 배치하세요 — 이것이 메뉴 항목의 순서를 결정합니다</li>
+        <li>변경 사항을 저장하고 변경 사항을 적용하려면 Open Server Panel을 다시 시작하세요</li>
+    </ol>
+    <div class="bs-callout bs-callout-info">
+        <h3>중요한 정보</h3>
+        사용자 지정 메뉴 항목을 만들 때 섹션 식별자가 중복되지 않도록 하세요. 이는 메뉴 동작에 충돌을 일으킬 수 있습니다.
+    </div>
+    <h2>메뉴 항목 설정</h2>
+    <p><strong>정렬 순서:</strong> 메뉴 항목은 템플릿에서 해당 섹션이 배치된 순서와 동일하게 정렬됩니다.</p>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>caption</th>
+                <td>
+                    메뉴 항목의 제목. {lang_xxx} 형식의 언어 상수를 지원합니다.<br><br>
+                    기본값: 설정되지 않음
+                </td>
+            </tr>
+            <tr>
+                <th>category</th>
+                <td>
+                    <p>메뉴 항목의 계층 구조 내 위치를 결정합니다. 한 단계의 중첩만 지원합니다(예: "나의 북마크\업무").</p>
+                    <p>특수 카테고리:</p>
+                    <ul>
+                        <li>projects, modules, addons - 해당 작업 메뉴에 항목을 추가합니다</li>
+                        <li>projects\<имя_домена>, modules\<имя_модуля>, addons\<имя_дополнения> - 특정 항목에 대해 항목을 추가합니다</li>
+                    </ul>
+                    <p>카테고리가 지정되지 않으면 항목은 루트 메뉴에 생성됩니다.</p>
+                    기본값: 설정되지 않음
+                </td>
+            </tr>
+            <tr>
+                <th>command</th>
+                <td>
+                    메뉴 항목이 활성화될 때 실행할 명령. 명령이 없는 항목은 무시됩니다.<br><br>
+                    기본값: 설정되지 않음
+                </td>
+            </tr>
+            <tr>
+                <th>enabled</th>
+                <td>
+                    메뉴 항목 표시를 켜거나 끕니다.<br><br>
+                    기본값: on | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hide</th>
+                <td>
+                    호출된 애플리케이션 창의 가시성을 제어합니다. 하위 프로세스에는 영향을 주지 않습니다.<br><br>
+                    기본값: off | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_after</th>
+                <td>
+                    메뉴 항목 뒤에 가로 구분선을 추가합니다.<br><br>
+                    기본값: off | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>hr_before</th>
+                <td>
+                    메뉴 항목 앞에 가로 구분선을 추가합니다.<br><br>
+                    기본값: off | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>icon</th>
+                <td>
+                    Font Awesome Free (Solid/Regular/Brands) 아이콘입니다.<br><br>
+                    기본값: 설정되지 않음
+                </td>
+            </tr>
+            <tr>
+                <th>need_alias</th>
+                <td>
+                    도메인 별칭에 대해서만 메뉴 항목을 표시합니다. 템플릿 메뉴에는 need_alias=on인 항목이 하나만 있어야 합니다!<br>
+                    적용 범주: projects<br><br>
+                    기본값: 설정되지 않음 | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_category</th>
+                <td>
+                    <p>특정 카테고리의 모듈/애드온에 대해 메뉴 항목 표시를 제한합니다.</p>
+                    <p>지원 형식:</p>
+                    <ul>
+                        <li>modules, addons</li>
+                        <li>modules\<имя_модуля>, addons\<имя_дополнения>
+                        </li>
+                    </ul>
+                    기본값: 설정되지 않음
+                </td>
+            </tr>
+            <tr>
+                <th>need_module_shell</th>
+                <td>
+                    상위 모듈에 shell/cli가 있는지 여부에 따라 메뉴 항목을 표시합니다.<br>
+                    적용 범주: modules, modules\<имя_модуля><br><br>
+                        기본값: 설정되지 않음 | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_state</th>
+                <td>
+                    상위 모듈의 상태에 따라 메뉴 항목을 표시합니다.<br>
+                    적용 범주: modules, modules\<имя_модуля><br><br>
+                        기본값: 설정되지 않음 | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_start_cmd</th>
+                <td>
+                    프로젝트 설정에 시작 명령이 있는 경우에 메뉴 항목을 표시합니다.<br>
+                    적용 범주: projects, projects\<имя_домена><br><br>
+                        기본값: 설정되지 않음 | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>need_use_wt</th>
+                <td>
+                    Open Server Panel에서 Windows Terminal 사용 설정 여부에 따라 메뉴 항목을 표시합니다.<br><br>
+                    기본값: 설정되지 않음 | 값: on, off
+                </td>
+            </tr>
+            <tr>
+                <th>work_directory</th>
+                <td>
+                    명령 실행을 위한 작업 디렉터리. 명령 실행 중에 변경될 수 있습니다.<br><br>
+                    기본값: {root_dir}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>템플릿 변수</h2>
+    "command" 및 "work_directory" 매개변수에서 다음 템플릿 변수를 사용할 수 있습니다:
+    <h3>일반 변수</h3>
+    <table>
+        <tr>
+            <th>변수</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>{date_time}</td>
+            <td>현재 날짜/시간(변수는 "command" 매개변수에만 사용 가능)</td>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Open Server Panel의 루트 디렉터리(전체 경로)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>루트 디렉터리의 드라이브</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Open Server Panel의 루트 디렉터리 경로</td>
+        </tr>
+        <tr>
+            <td>{web_panel_url}</td>
+            <td>웹 인터페이스의 URL 주소</td>
+        </tr>
+    </table>
+    <h3>특수 변수 (projects 및 projects\&lt;имя_домена&gt; 전용)</h3>
+    <table>
+        <tr>
+            <th>변수</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>{base_dir}</td>
+            <td>프로젝트의 기준 디렉터리</td>
+        </tr>
+        <tr>
+            <td>{host}</td>
+            <td>도메인 이름(Punycode)</td>
+        </tr>
+        <tr>
+            <td>{host_decoded}</td>
+            <td>보이는 도메인 이름(Punycode 제외)</td>
+        </tr>
+        <tr>
+            <td>{host_scheme}</td>
+            <td>프로젝트 요청 스킴("http" 또는 "https", 프로젝트 설정의 TLS 매개변수에 따라 다름)</td>
+        </tr>
+        <tr>
+            <td>{http_port}</td>
+            <td>HTTP 프로토콜로 프로젝트에 요청하는 포트</td>
+        </tr>
+        <tr>
+            <td>{https_port}</td>
+            <td>HTTPS 프로토콜로 프로젝트에 요청하는 포트</td>
+        </tr>
+        <tr>
+            <td>{menu_caption}</td>
+            <td>메뉴 항목 제목(projects 카테고리에서 need_alias=ON인 경우에만)</td>
+        </tr>
+        <tr>
+            <td>{http_engine}</td>
+            <td>HTTP 엔진</td>
+        </tr>
+        <tr>
+            <td>{node_engine}</td>
+            <td>Node.js 엔진</td>
+        </tr>
+        <tr>
+            <td>{php_engine}</td>
+            <td>PHP 엔진</td>
+        </tr>
+        <tr>
+            <td>{project_root}</td>
+            <td>프로젝트의 루트 디렉터리</td>
+        </tr>
+        <tr>
+            <td>{base_url}</td>
+            <td>프로젝트 URL</td>
+        </tr>
+        <tr>
+            <td>{web_root}</td>
+            <td>프로젝트의 공개 디렉터리</td>
+        </tr>
+        <tr>
+            <td>{scheme_port}</td>
+            <td>프로젝트 요청 포트(":{http_port}" 또는 ":{https_port}", 프로젝트 설정의 TLS 매개변수에 따라 다름). {http_port} 또는 {https_port}가 표준 값 80 또는 443인 경우 {scheme_port}는 비어 있습니다.</td>
+        </tr>
+        <tr>
+            <td>{app_start_command}</td>
+            <td>프로젝트 애플리케이션의 시작 명령(설정된 경우)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>콘솔 인코딩</td>
+        </tr>
+    </table>
+    <h3>특수 변수 (addons 및 addons\&lt;имя_дополнения&gt; 전용)</h3>
+    <table>
+        <tr>
+            <th>변수</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>{addon_name}</td>
+            <td>애드온 이름</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>콘솔 인코딩</td>
+        </tr>
+    </table>
+    <h3>특수 변수 (modules 및 modules\&lt;имя_модуля&gt; 전용)</h3>
+    <table>
+        <tr>
+            <th>변수</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>{ip}</td>
+            <td>모듈의 IP 주소</td>
+        </tr>
+        <tr>
+            <td>{log_level}</td>
+            <td>오류 로깅 수준</td>
+        </tr>
+        <tr>
+            <td>{module_name}</td>
+            <td>모듈 이름</td>
+        </tr>
+        <tr>
+            <td>{port}</td>
+            <td>모듈 포트</td>
+        </tr>
+        <tr>
+            <td>{profile_name}</td>
+            <td>모듈의 현재 설정 프로필 이름</td>
+        </tr>
+        <tr>
+            <td>{query_log_level}</td>
+            <td>요청 로깅 수준</td>
+        </tr>
+        <tr>
+            <td>{shell_command}</td>
+            <td>모듈의 shell/cli 셸 시작 명령(설정된 경우)</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>콘솔 인코딩</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>시간대</td>
+        </tr>
+    </table>
+    <h3>특수 명령 값</h3>
+    <table>
+        <tr>
+            <th>명령</th>
+            <th>설명</th>
+        </tr>
+        <tr>
+            <td>command_open_logs_viewer</td>
+            <td>로그 뷰어 창 열기</td>
+        </tr>
+        <tr>
+            <td>command_open_idn_converter</td>
+            <td>IDN 변환기 열기</td>
+        </tr>
+        <tr>
+            <td>command_open_options</td>
+            <td>프로그램 설정 창 열기</td>
+        </tr>
+    </table>
+    <p>템플릿 변수 외에도 %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% 등과 같은 모든 Windows 환경 변수를 사용할 수 있습니다.</p>
+    <h3>사용 예시</h3>
+    <pre class="code">
+[bookmark_1]
+
+caption  = Google
+category = 나의 북마크\검색 엔진
+command  = cmd.exe /c "start "" "https://google.com""
+hide     = on
+icon     = bookmark</pre>
+    <h3>CMD.EXE 옵션</h3>
+    <ul>
+        <li>/c: 명령을 실행하고 터미널을 닫습니다.</li>
+        <li>/k: 명령을 실행하고 터미널을 열린 상태로 둡니다.</li>
+    </ul>
+</body>
+
+</html>

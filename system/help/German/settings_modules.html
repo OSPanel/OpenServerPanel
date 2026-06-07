@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale Moduleinstellungen</h2>
+    <p>Die in diesem Abschnitt festgelegten Parameter werden angewendet, wenn in den Einstellungen eines bestimmten Moduls für die entsprechende Option der Wert auto (standardmäßig) gesetzt ist.</p>
+    <table>
+        <tr>
+            <th>Leiser Betriebsmodus</th>
+        </tr>
+        <tr>
+            <td>
+                Deaktiviert Popup-Fehlermeldungen von Windows Error Reporting und vom Modul selbst.<br><br>
+                <strong>Empfehlung:</strong> Deaktivieren Sie diesen Modus nur, wenn es für die Fehlerdiagnose des Moduls erforderlich ist.</td>
+        </tr>
+        <tr>
+            <th>Überschrift zur Protokolldatei hinzufügen</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiviert das automatische Hinzufügen einer Überschrift zur Protokolldatei bei jedem Start des Moduls. Nützlich bei deaktivierter automatischer Protokollbereinigung zur Trennung von Arbeitssitzungen.</td>
+        </tr>
+        <tr>
+            <th>Maximale Anzahl fehlgeschlagener Starts</th>
+        </tr>
+        <tr>
+            <td>
+                Legt fest, wie viele aufeinanderfolgende fehlgeschlagene Starts des Moduls zulässig sind, bevor es in den Zustand „Fehler“ wechselt.</td>
+        </tr>
+        <tr>
+            <th>Zeit für die Funktionsprüfung des Moduls</th>
+        </tr>
+        <tr>
+            <td>Legt den Zeitraum für die Funktionsprüfung des Moduls nach seinem erfolgreichen Start fest.<br><br>
+                <strong>Beginn der Frist:</strong> Ab dem Zeitpunkt des erfolgreichen Modulstarts.<br><br>
+                <strong>Übergang in den Zustand „Fehler“:</strong> Wenn das Modul während der Prüfzeit abstürzt, wird es nicht automatisch neu gestartet und wechselt in den Zustand „Fehler“. Dies gilt auch für Fälle, in denen das Modul auf Systemebene nicht gestartet werden kann.<br><br>
+                <strong>Deaktivierung der Prüfung:</strong> Der Wert 0 deaktiviert die Prüfzeit, und das Modul wird bei einem Ausfall stets neu gestartet.<br><br>
+                <strong>Empfehlung:</strong> Setzen Sie nicht den Wert 0 oder einen zu kurzen Zeitraum (weniger als 30 Sekunden), da dies zu endlosen Neustartschleifen führen kann.</td>
+        </tr>
+        <tr>
+            <th>Wartezeit für das Beenden des Moduls</th>
+        </tr>
+        <tr>
+            <td>Legt die maximale Zeit fest, die dem Modul zum ordnungsgemäßen Beenden gewährt wird.<br><br>
+                <strong>Erzwungenes Beenden:</strong> Wenn das Modul innerhalb der angegebenen Zeit nicht beendet, wird es zwangsweise gestoppt.<br><br>
+                <strong>Wartezeit deaktivieren:</strong> Der Wert 0 deaktiviert die Wartezeit. Das Programm wartet unbegrenzt auf das Beenden des Moduls.<br><br>
+                <strong>Warnung:</strong> Das erzwungene Stoppen des Moduls kann zu Datenbeschädigung, Verlust nicht gespeicherter Änderungen oder fehlerhaftem Abschluss von Prozessen führen. Verwenden Sie diese Einstellung mit Vorsicht.</td>
+        </tr>
+        <tr>
+            <th>Maximale Größe der Protokolldatei</th>
+        </tr>
+        <tr>
+            <td>
+                Die maximale Größe der Protokolldatei in Megabyte. Bei Überschreitung des angegebenen Werts wird die Logdatei beim nächsten Start des Moduls neu erstellt.<br><br>
+                Setzen Sie den Wert 0, um die Protokolle bei jedem Modulstart zu löschen.<br><br>
+                Setzen Sie den Wert 100 MB, um die Protokollbereinigung vollständig zu deaktivieren.</td>
+        </tr>
+        <tr>
+            <th>Terminal-Kodierung</th>
+        </tr>
+        <tr>
+            <td>
+                Terminal-Kodierung bei der Arbeit mit der Modulumgebung.<br><br>
+                <strong>Spezielle Werte:</strong><br>
+                - system: Es wird die Systemkodierung verwendet.</td>
+        </tr>
+        <tr>
+            <th>Zeitzone</th>
+        </tr>
+        <tr>
+            <td>
+                Legt die Zeitzone des Moduls im Format Etc/GMT fest (z. B. Etc/GMT-3).<br><br>
+                <strong>Spezielle Werte:</strong><br>
+                - system: Es wird die Systemzeitzone verwendet.<br><br>
+                <strong>Wichtig:</strong> Das Format Etc/GMT hat eine umgekehrte Verschiebung relativ zu UTC (z. B. Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Verwendete Add-on-Umgebungen</th>
+        </tr>
+        <tr>
+            <td>
+                Legt eine Liste der Add-ons fest (durch Leerzeichen getrennt), deren Umgebungen (falls vorhanden) an die Umgebung des Moduls angehängt werden. Informationsindikatoren im Terminal zeigen diese zusätzlichen Umgebungen nicht an.<br><br>
+                <strong>Warnung:</strong> Verwenden Sie diese Option nur bei vollständigem Verständnis ihres Zwecks.</td>
+        </tr>
+        <tr>
+            <th>Zulässige Systemvariablen</th>
+        </tr>
+        <tr>
+            <td>
+                Legt die Liste der Windows-Umgebungsvariablen fest (durch Leerzeichen getrennt), die an die Modulumgebung übergeben werden.<br><br>
+                <strong>Zweck:</strong> Ermöglicht die Isolierung der Arbeitsumgebung des Moduls von ähnlich installierter Software im System.<br><br>
+                <strong>Warnung:</strong> Das Ändern dieser Liste ohne vollständiges Verständnis ihrer Auswirkungen kann zu einem instabilen Modulbetrieb führen.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

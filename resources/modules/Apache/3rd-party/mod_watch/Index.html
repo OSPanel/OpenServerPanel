@@ -1,0 +1,496 @@
+<html>
+<head>
+<title>
+mod_watch/4.3 for Apache 2
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Apache module,mod_watch">
+<meta name="description" content="An Apache 2 module that monitors the number of bytes
+passed to and from a virtual host or local user..">
+<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body  bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000080" alink="#ff00ff">
+<center>
+<!-- MARGINS -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td rowspan="2" width="120">&nbsp;</td>
+
+	<td>
+		<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="title">mod_watch/4.3-P</span></center>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	</td>
+	<td rowspan="2" valign="top" align="right" width="60">&nbsp;</td>
+</tr><tr>
+	<td colspan="2">
+
+
+<h2 align="center">Per Vhost Monitoring Interface</h2>
+
+
+<p>
+This module will watch and collect the bytes, requests, and documents in &amp; out per virtual
+host, file owner, remote-ip address, directory or location, and the web server as a whole. This
+module can be for used with <a href="http://www.mrtg.org/">MRTG</a>,
+which will make nice graphical representations of the data, but is general
+enough that it can be applied to other purposes, as the raw data is accessed by a URL.
+</p>
+
+
+
+<a name="Configuration"></a>
+<h3>Configuration</h3>
+
+<p>
+The directives below can be added to the general Apache configuration file,
+<code>httpd.conf</code>.
+</p>
+
+<dl>
+<a name="WatchFlush"></a>
+<dt><span class="syntax">SetHandler <b>watch-flush</b></span></dt>
+<dd><span class="normal">Context: global, &lt;Directory&gt;, &lt;Location&gt;, &lt;VirtualHost&gt;</span>
+<p>
+This handler allows a remote script to request that the
+shared hash table be flushed and saved to disk for the purpose of backing up the data, without
+having to restart Apache. This handler is not required for normal operation. It should only be made
+available when required and protected by Apache access directives to allow only the localhost to
+make this request.
+</p>
+<ul>
+<blockquote>
+<pre>&lt;Location /watch-flush&gt;
+SetHandler watch-flush
+Order deny,allow
+Deny from all
+Allow from 127.0.0.1
+&lt;/Location&gt;
+</pre>
+</blockquote>
+</ul>
+</dd>
+
+
+<a name="WatchInfo"></a>
+<dt><span class="syntax">SetHandler <b>watch-info</b></span></dt>
+<dd><span class="normal">Context: global, &lt;Directory&gt;, &lt;Location&gt;, &lt;VirtualHost&gt;</span>
+<p>
+This handler is used to display a line of plain text containing the
+following space separated fields:
+</p>
+<ul>
+<blockquote>
+<tt>ifName ifUptime ifInOctets ifOutOctets ifRequests ifDocuments ifActive ifOutRate</tt>
+</blockquote>
+</ul>
+<p>
+The <tt>ifName</tt> is the target name of the request made in a URL.
+The remaining fields are all numerical.  <tt>ifUptime</tt> is the
+web server's uptime in seconds. The following is <b>required</b>
+in the global context of the httpd.conf file in order for MRTG
+to function:
+</p>
+<ul>
+<blockquote>
+<pre>&lt;Location /watch-info&gt;
+SetHandler watch-info
+&lt;/Location&gt;
+
+&lt;LocationMatch "^/~.+/watch-info$"&gt;
+SetHandler watch-info
+&lt;/LocationMatch&gt;
+</pre>
+</blockquote>
+</ul>
+<p>
+This will permit the following URL forms to get the virtual-host, file-owner, server,
+<a href="#WatchStateFile">spool-file</a>, and IP address data respectively:
+</p>
+<ul>
+<blockquote>
+<a href="http://www.apachelounge.com/watch-info">http://www.apachelounge.com/watch-info</a>
+<br><a href="http://www.apachelounge.com/~SERVER/watch-info">http://www.apachelounge.com/~SERVER/watch-info</a>
+</blockquote>
+</ul>
+<p>
+The string between the tilde (~) and "/watch-info" can be the name of
+any key that appears in the <a href="#WatchTable">watch-table</a> list and is the
+only way to obtain an entry when watching <a href="#WatchWhat">by-port</a>.
+</p>
+</dd>
+
+<a name="WatchList"></a>
+<dt><span class="syntax">SetHandler <b>watch-list</b></span></dt>
+<dd><span class="normal">Context: global, &lt;Directory&gt;, &lt;Location&gt;, &lt;VirtualHost&gt;</span>
+<p>
+This handler is similar to <a href="#WatchInfo">watch-info</a>, but presents a
+plain text list of all the entries that would appear in <a href="#WatchTable">watch-table</a>.
+</p>
+<ul>
+<blockquote>
+<pre>&lt;Location /watch-list&gt;
+SetHandler watch-list
+&lt;/Location&gt;
+</pre>
+</blockquote>
+</ul>
+</dd>
+
+
+<a name="WatchTable"></a>
+<dt><span class="syntax">SetHandler <b>watch-table</b></span></dt>
+<dd><span class="normal">Context: global, &lt;Directory&gt;, &lt;Location&gt;, &lt;VirtualHost&gt;</span>
+<p>
+This handler is intended for realtime analysis of the shared memory hash table
+performance and weenie files:
+</p>
+<ul>
+<blockquote>
+<pre>&lt;Location /watch-table&gt;
+SetHandler watch-table
+&lt;/Location&gt;
+</pre>
+</blockquote>
+</ul>
+</dd>
+
+<a name="WatchDocuments"></a>
+<dt><span class="syntax">WatchDocuments <span class="param">mime-type ...</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>
+A list of MIME types considered to be documents, for the purpose of counting.
+For example "text/html" would be considered a document, which loads page elements
+such as images, style sheets, audio files, etc. which are not documents, but
+elements of one.  An asterisk in the mime-type string will act as a wildcard
+for zero or more of anything. This directive will override the default list:
+</p>
+
+<ul><blockquote>
+<table border="0" cellspacing="3" cellpadding="0">
+<tr>
+	<td>application/*word</td>
+	<td rowspan="3">&nbsp;&nbsp;&nbsp;</td>
+	<td>application/*excel</td>
+	<td rowspan="3">&nbsp;&nbsp;&nbsp;</td>
+	<td>application/pdf</td>
+</tr>
+<tr>
+	<td>application/postscript</td>
+	<td>application/rtf</td>
+	<td>text/enriched</td>
+</tr>
+<tr>
+	<td>text/html</td>
+	<td>text/plain</td>
+	<td>text/richtext</td>
+</tr>
+<tr>
+	<td colspan="3">text/xml</td>
+</tr>
+</table>
+</blockquote></ul>
+</dd>
+
+<a name="WatchDynamicVirtualHost"></a>
+<dt><span class="syntax">WatchDynamicVirtualHost <span class="param">boolean</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>Enable this flag for dynamic virtual host support (mod_vhost_alias, mod_vd, etc.) in addition
+to the static &lt;VirtualHost&gt; blocks defined in httpd.conf. This flag is disabled by default,
+unless mod_vhost_alias or mod_vd are present. If you use some other dynamic virtual host module,
+which mod_watch doesn't know how to detect, you should enable this flag.
+</p>
+</dd>
+
+<a name="WatchHashTableSize"></a>
+<dt><span class="syntax">WatchHashTableSize <span class="param">size</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>
+A positive number specifying the size of the shared memory hash table used.
+The default is <code>991 (a prime number, but not necessary to be so)</code>.
+</p>
+</dd>
+
+<a name="WatchLogAll"></a>
+<dt><span class="syntax">WatchLogAll <span class="param">boolean</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>
+Unsing with MRTG can result
+in a significant number of uninteresting entries concerning <a href="#WatchInfo">watch-info</a>
+to appear in the access log. By default we chose NOT to count nor log any of the
+watch handlers.
+Enabling this option will generate more log data.
+</p>
+<p>
+A better way to achive the similar behaviour would be to alter the
+httpd.conf file with something like the following:
+</p>
+<ul><blockquote>
+<pre>
+SetEnvIf Request_URI "/watch-info$" IGNORE
+CustomLog /dev/null common env=IGNORE
+CustomLog logs/access_log common env=!IGNORE
+</pre>
+</blockquote></ul>
+</dd>
+
+<a name="WatchNetwork"></a>
+<dt><span class="syntax">WatchNetwork exclude <span class="param">ip/mask ...</span></span></dt>
+<dt><span class="syntax">WatchNetwork include <span class="param">ip/mask ...</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>
+Add one or more network IP/mask pairs to either the exclusion or inclusion list.
+Requests coming from a network or host that is a member of the exclusion list
+and is not a member of the inclusion list are <i>not</i> counted. Otherwise the requests
+will be counted as outlined in <a href="#WatchStorage">WatchStorage</a>.
+</p>
+<p>
+The <span class="param">ip/mask</span> can be specified in one of several ways
+and is the same as for Apache's Allow or Deny directives (domain or host
+name strings are not supported):
+</p>
+<p>
+<ul><blockquote>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr align="left">
+	<th>Form</th>
+	<td rowspan="7">&nbsp;&nbsp;&nbsp;</td>
+	<th>Example</th>
+	<td rowspan="7">&nbsp;&nbsp;&nbsp;</td>
+	<th>Equivalent</th>
+</tr>
+<tr valign="top">
+	<td>a</td><td>10</td><td>10.0.0.0/8</td>
+</tr>
+<tr valign="top">
+	<td>a.b</td><td>169.254</td><td>169.254.0.0/16</td>
+</tr>
+<tr valign="top">
+	<td>a.b.c</td><td>192.168.1</td><td>192.168.1.0/24</td>
+</tr>
+<tr valign="top">
+	<td>a.b.c.d</td><td>127.0.0.1</td><td>127.0.0.1/32</td>
+</tr>
+<tr valign="top">
+	<td>a.b.c.d/n</td><td>192.168.1.0/24</td><td>192.168.1</td>
+</tr>
+<tr valign="top">
+	<td>a.b.c.d/A.B.C.D</td><td>192.168.1.0/255.255.255.0</td><td>192.168.1.0/24</td>
+</tr>
+</table>
+
+</blockquote></ul>
+</p>
+
+<p class="warn">
+Note that support for IPv6 is present and has been implemented using the Apache APR. It should be
+considered experimental.
+</p>
+
+</dd>
+
+<a name="WatchStateFile"></a>
+<dt><span class="syntax">WatchStateFile <span class="param">filename</span></span></dt>
+<dd><span class="normal">Context: &lt;Directory&gt;, &lt;Location&gt;</span>
+<p>
+Used to watch by directory or location. Each <span class="param">filename</span>
+must be unique amongst all the virtual hosts, file owners, IP addresses, and other
+<span class="syntax">WatchStateFile</span> directives, otherwise the behaviour is unspecified.
+The <span class="param">filename</span> is used to store runtime data about
+a location within the <a href="#WatchStateDirectory">WatchStateDirectory</a> and is used
+to extract this data using a URL of the form:
+</p>
+<ul><blockquote>
+<tt>http://www.apachelounge.com/~<span class="param">filename</span>/watch-info</tt>
+</blockquote></ul>
+<p>
+The <span class="param">filename</span> will also appear as an entry in the
+<a href="#WatchTable">watch-table</a> list.
+</dd>
+
+<a name="WatchStateDirectory"></a>
+<br><br>
+<dt><span class="syntax">WatchStateDirectory <span class="param">directory</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>
+An absolute or server-root relative path to a directory where support and the
+"weenie" text files will be kept. This directory must be readable and writeable by the Apache child
+processes. If the directory does not exist, mod_watch will create it with the
+necessary permissions. The default is <code>/var/spool/mod_watch</code>.
+</p>
+
+<p>
+The filename of each "weenie" text file stored here is either the
+virtual host name, file owner (login ID), the remote-IP address,
+or the string "SERVER". The contents of each text file is a
+string of ASCII text containing several space separated numerical fields given below.
+</p>
+
+<p>
+<ul><blockquote>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr align="left">
+	<th>Name</th>
+	<td rowspan="9">&nbsp;&nbsp;&nbsp;</td>
+	<th>Type</th>
+	<td rowspan="9">&nbsp;&nbsp;&nbsp;</td>
+	<th>Description</th>
+</tr>
+<tr>
+	<td>ifInOctets</td><td>32-bit Counter</td><td>bytes received from requests (except chunked input)</td>
+</tr>
+<tr>
+	<td>ifOutOctets</td><td>32-bit Counter</td><td>bytes sent in response to requests</td>
+</tr>
+<tr>
+	<td>ifRequests</td><td>32-bit Counter</td><td>number of requests (raw hits) received</td>
+</tr>
+<tr>
+	<td>ifDocuments</td><td>32-bit Counter</td><td>number of documents sent</td>
+</tr>
+<tr>
+	<td>ifActive</td><td>16-bit Signed</td><td>number of active (concurrent) connections</td>
+</tr>
+<tr>
+	<td>ifOutRate</td><td>Float</td><td>approx. 5 minute average of bytes sent per second</td>
+</tr>
+<tr>
+	<td>periodOctets</td><td>32-bit Unsigned</td><td>bytes sent during the current 5 minute period</td>
+</tr>
+<tr>
+	<td>periodMarker</td><td>32-bit Unsigned</td><td>start <code>time()</code> of the current 5 minute period</td>
+</tr>
+</table>
+</blockquote></ul>
+</p>
+
+<p>
+When updating a set of counters, they are first looked up in the shared memory
+hash table otherwise in the <span class="syntax">WatchStateDirectory</span>. The
+number of octets in and out for a request are added
+to the current counters, and the number of requests is incremented by one.
+The number of documents is incremented by one, if the response MIME type
+matches one of the MIME types specified for the <a href="#WatchDocuments">
+WatchDocuments</a> directive. The number of active connections is incremented
+at tne start of a request and decremented at the end of the same request.
+The counters are then stored in the shared memory hash table, which may result
+in collisions being flushed to disk if the probe length is exceeded.
+</p>
+<p>
+Note that the counters, ifInOctets, ifOutOctets, ifRequest, ifDocuments, mimick SNMP
+style counters in that they are allowed to roll over.
+</p>
+
+<p>
+The ifOutRate, periodOctets, and periodMarker are experimental fields and
+may change in future versions. The ifOutRate value is computed on the first
+request after a minimum 5 minute wait period. The periodOctets counts the
+number of octets sent for each period. The periodMarker is the
+the value returned from <code>time()</code> and marks the start of the current
+period.  Note that for very active sites, this value should be fairly accurate
+since the rate calculation will be triggered more or less every 5 minutes, but
+for low volume sites the calculation may be calculated hours after the last
+request when someone new comes along.
+</p>
+
+</dd>
+
+
+
+<a name="WatchWhat"></a>
+<dt><span class="syntax">WatchWhat <span class="param">item ...</span></span></dt>
+<dd><span class="normal">Context: global</span>
+<p>
+mod_watch, by default, will collect information for the virtual host, file owner, and
+the server as a whole for each request made. For performance reasons,
+it might not be necessary to watch all these things. Specify one or more of the
+following to select which items to watch:
+</p>
+<ul><blockquote>
+<table border="0" cellspacing="3" cellpadding="0">
+<tr>
+	<td>all</td>
+	<td rowspan="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td>nothing</td>
+</tr>
+<tr>
+	<td>virtual-host</td>
+	<td>virtual-host-by-port</td>
+</tr>
+<tr>
+	<td>file-owner</td>
+	<td>file-owner-by-port</td>
+</tr>
+<tr>
+	<td>remote-ip</td>
+	<td>remote-ip-by-port</td>
+</tr>
+<tr>
+	<td>server</td>
+	<td>server-by-port</td>
+</tr>
+<tr>
+	<td>headers-in <span style="color: #ff0000;">*</span></td>
+	<td>headers-out <span style="color: #ff0000;">*</span></td>
+</tr>
+<tr>
+	<td>content-length<span style="color: #ff0000;">*</span></td>
+	<td>&nbsp;</td>
+</tr>
+</table>
+</blockquote></ul>
+<p>
+The <span class="param">by-port</span> variants collect and separate the information
+according to the port number, instead of grouping all requests regardless of port.
+
+For example, <span class="param">virtual-host-by-port</span> would consider requests for
+http://www.apachelounge.com/ different from https://www.apachelounge.com/ and so would
+separate the information into "www.apachelounge.com:80" and "www.apachelounge.com:443".
+This also holds true if Apache is listening on other ports. Specifying both variants
+is allowed and would provide both a break down by port and the sum on all ports.
+</p>
+
+<p>
+Specifying <span class="param">all</span>, <span class="param">remote-ip</span>, or
+<span class="param">remote-ip-by-port</span> should
+be used with care as monitoring remote-IP addresses can generate large volumes of data
+and impact web server performance.  Note that the values of ifInOctets and ifOutOctets
+reflect data received from and sent to the remote-IP address.
+</p>
+
+<p>
+<span style="color: #ff0000;">[</span>
+Specifying <span class="param">headers-in</span> or <span class="param">headers-out</span>
+will add the length of the headers of the request and response to the
+ifInOctets and ifOutOctets counters repectively. These are not on by default,
+because Apache does not count them in the access log and may skew comparisions
+made between web log analysis tools and the MRTG data.
+<span style="color: #ff0000;">] *</span>
+</p>
+
+<p>
+<span style="color: #ff0000;">[</span>
+Specifying <span class="param">content-length</span> will count the value of
+the Content-Length header on POST requests.  Note however that this value can be
+falsified by malicious people in order to deliberately skew the graphs and
+so its value is suspect. There is no way to guarantee that a CGI or module
+actually read the input data.
+<span style="color: #ff0000;">] *</span>
+</p>
+
+
+</dd>
+</dl>
+
+
+
+
+	</td>
+</tr>
+</table>
+
+<!-- END MARGINS -->
+
+</body>
+</html>

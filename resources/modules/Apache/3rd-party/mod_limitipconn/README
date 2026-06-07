@@ -1,0 +1,109 @@
+mod_limitipconn.c
+David Jao <djao@dominia.org>
+
+This is an Apache 2.4/2.2/2.0 C module whose purpose is to limit the
+maximum number of simultaneous connections per IP address. It supports
+IPv4 and IPv6 connections. The module allows inclusion and exclusion of
+files based on MIME type.
+
+This module is not designed to prevent denial-of-service attacks. Its
+function is only to deny users the ability to use large numbers of
+simultaneous connections.
+
+Tested with httpd-2.4.2 and httpd-2.2.17. Should work with httpd-2.0 but
+has not been tested.
+
+Example configuration:
+
+---------------------------------------------------------------------------
+
+# This command is always needed
+ExtendedStatus On
+
+# Only needed if the module is compiled as a DSO
+LoadModule limitipconn_module lib/apache/mod_limitipconn.so
+
+<IfModule mod_limitipconn.c>
+
+    # Set a server-wide limit of 10 simultaneous downloads per IP,
+    # no matter what.
+    MaxConnPerIP 10
+    <Location /somewhere>
+	# This section affects all files under http://your.server/somewhere
+	MaxConnPerIP 3
+	# exempting images from the connection limit is often a good
+	# idea if your web page has lots of inline images, since these
+	# pages often generate a flurry of concurrent image requests
+	NoIPLimit image/*
+    </Location>
+
+    <Directory /home/*/public_html>
+	# This section affects all files under /home/*/public_html
+	MaxConnPerIP 1
+	# In this case, all MIME types other than audio/mpeg and video*
+	# are exempt from the limit check
+	OnlyIPLimit audio/mpeg video
+    </Directory>
+</IfModule>
+
+---------------------------------------------------------------------------
+
+Notes:
+
+1) This module will not function unless mod_status is loaded and the
+   "ExtendedStatus On" directive is set.
+
+2) Server-wide access restrictions and per-directory access restrictions
+   are computed separately.  In the above example, if someone is
+   downloading 11 images from http://your.server/somewhere
+   simultaneously, they WILL be denied on the 11th download, because the
+   server-wide limit of 10 downloads is not affected by the per-directory
+   NoIPLimit.  If you want to set global settings which can be overruled
+   by per-directory settings, you will need something like
+
+	<Location />
+	# global per-directory settings here
+
+		<Location /somewhere>
+		# local per-directory settings here
+
+		</Location>
+
+	</Location>
+
+3) If you are using any module based upon a quick handler hook (such as
+   mod_cache), mod_limitipconn will not be able to process any
+   per-directory configuration directives in time to affect the return
+   result of the other module.  This is a technical limitation imposed
+   by Apache.  In such a situation, you will have to use server-wide
+   configuration directives only.
+
+   Versions of mod_limitipconn prior to 0.23 did not allow any
+   server-wide configuration directives, and hence could not be used
+   with mod_cache at all.
+
+4) The limits defined by mod_limitipconn.c apply to all IP addresses
+   connecting to your Apache server. Currently there is no way to set
+   different limits for different IP addresses. One workaround is to set
+   up two different URIs for the same content and use access control to
+   restrict which IP addresses can access which URIs.
+
+5) Connections in excess of the limit result in a stock 503 Service
+   Temporarily Unavailable response. The job of returning a more useful
+   error message to the client is left as an exercise for the reader.
+
+6) mod_limitipconn sets the LIMITIP environment variable to 1 whenever a
+   download is denied on the basis of too high an IP count. You can use
+   this variable to distinguish accesses that have been denied by this
+   module. For example, a line like
+
+      CustomLog /var/log/httpd/access_log common env=!LIMITIP
+
+   in httpd.conf can be used to suppress logging of denied connections
+   from /var/log/httpd/access_log. (Note that, if you really want to
+   suppress logging, you'll probably also want to comment out the
+   ap_log_rerror lines from mod_limitipconn.c as well.)
+
+7) By default, all clients behind a proxy are treated as coming from the
+   proxy server's IP address. If you wish to alter this behavior,
+   use the mod_remoteip module included in Apache 2.4.

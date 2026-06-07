@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globale projektindstillinger</h2>
+    <p>De parametre, der er angivet i dette afsnit, bruges, hvis der ikke er angivet andre værdier i projektindstillingerne.</p>
+    <table>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer den webservermodul, der bruges til projekter.</td>
+        </tr>
+        <tr>
+            <th>NODE</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver Node.js-motoren til at køre Node.js-applikationer.<br><br>
+                <strong>Installation af Node.js:</strong> Installer på forhånd den ønskede version af Node.js med kommandoen <b>osp node &lt;latest|lts|номер&gt;</b>.</td>
+        </tr>
+        <tr>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer det anvendte PHP-modul til behandling af PHP-filer.</td>
+        </tr>
+        <tr>
+            <th>Aktivér</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer projektets standardtilstand (aktiveret eller deaktiveret).</td>
+        </tr>
+        <tr>
+            <th>Terminalkodning</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalens kodning ved arbejde med projektmiljøet.<br><br>
+                <strong>Specielle værdier:</strong><br>
+                - system: Systemkodning bruges.<br><br>
+                <strong>Vigtigt:</strong> Hvis værdien ikke er angivet, vil terminalkodningen ved dannelsen af projektets endelige miljø blive sat af det sidst tilkoblede miljø, hvor den er angivet, for eksempel PHP-modulets miljø.</td>
+        </tr>
+        <tr>
+            <th>IP</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver den IP-adresse(r), der bruges af alle projekter uden individuelle indstillinger.<br><br>
+                <strong>Begrænsning:</strong> Projekter, der bruger den samme IP-adresse, skal køre på den samme version af PHP.<br><br>
+                <strong>Understøttelse af flere IP'er:</strong> Du kan angive flere IP-adresser adskilt af mellemrum, inklusive IPv6. I HOSTS-filen vil domæner få tildelt den første angivne IP.<br><br>
+                <strong>Automatisk tildeling:</strong> Hvis feltet efterlades tomt, tildeles IP-adressen automatisk.<br><br>
+                <strong>Anbefalinger:</strong>
+                <ul>
+                    <li>Automatisk håndtering af IP-adresser anbefales for de fleste brugere.</li>
+                    <li>Manuel angivelse af IP-adresse bør kun bruges ved specifikke krav til netværkskonfiguration.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>HTTP</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer porten til forbindelser via HTTP.</td>
+        </tr>
+        <tr>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer porten til forbindelser via HTTPS.</td>
+        </tr>
+        <tr>
+            <th>TLS</th>
+        </tr>
+        <tr>
+            <td>
+                Aktiverer eller deaktiverer understøttelse af TLS.</td>
+        </tr>
+        
+        <tr>
+            <th>Certifikatfil</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver stien til TLS-certifikatfilen. Der kan bruges skabelonvariabler.<br><br>
+                <strong>Tilladte tegn:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Anbefaling:</strong> Lad feltet være tomt for automatisk generering af certifikater.</td>
+        </tr>
+        <tr>
+            <th>Nøglefil</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver stien til TLS-nøglefilen. Der kan bruges skabelonvariabler.<br><br>
+                <strong>Tilladte tegn:</strong> A-Za-z0-9-+_.\:<br><br>
+                <strong>Anbefaling:</strong> Lad feltet være tomt for automatisk generering af nøglen.</td>
+        </tr>
+        <tr>
+            <th>IP-adresse (backend)</th>
+        </tr>
+        <tr>
+            <td>Angiver IP-adressen, som forbindelsen til serverdelen (Backend) oprettes over.</td>
+        </tr>
+        <tr>
+            <th>Port (backend)</th>
+        </tr>
+        <tr>
+            <td>Bestemmer portnummeret til forbindelse til serverdelen (Backend).</td>
+        </tr>
+        <tr>
+            <th>Aktivér (backend)</th>
+        </tr>
+        <tr>
+            <td>Gør det muligt automatisk at omdirigere al indgående trafik (HTTP og HTTPS) for projektet til serverdelen (Backend). Nyttigt til test eller udvikling, når frontend og backend er adskilt.</td>
+        </tr>
+        <tr>
+            <th>Projektdirectory</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver projektets rodmappe. Skift til denne mappe udføres med kommandoen <strong>osp project &lt;DOMAIN&gt;</strong> samtidig med aktivering af projektmiljøet. Der kan bruges skabelonvariabler.<br><br>
+                <strong>Tilladte tegn:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Offentlig mappe</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer projektets offentlige mappe. Der kan bruges skabelonvariabler.<br><br>
+                <strong>Tilladte tegn:</strong> A-Za-z0-9-+_.\:</td>
+        </tr>
+        <tr>
+            <th>Aliasser</th>
+        </tr>
+        <tr>
+            <td>
+                Angiver yderligere domænenavne (aliasser) for projektet (adskilt af mellemrum). Der kan bruges skabelonvariabler.<br><br>
+                <strong>Begrænsning:</strong> Tegnet "*" understøttes ikke i Windows-filen HOSTS og kræver DNS-konfiguration.</td>
+        </tr>
+        <tr>
+            <th>Projektmiljø</th>
+        </tr>
+        <tr>
+            <td>
+                Liste over tilføjelser og moduler (adskilt af mellemrum), der danner projektets miljø.<br><br>
+                <strong>HTTP, NODE og PHP:</strong> Miljøerne for disse motorer tilsluttes altid (hvis angivet for domænet) og kræver ikke angivelse i denne parameter.</td>
+        </tr>
+        <tr>
+            <th>Projektets startkommando</th>
+        </tr>
+        <tr>
+            <td>
+                Bestemmer kommandoen til at starte projektet (for eksempel <strong>nodemon app.js</strong>). Der kan bruges skabelonvariabler.</td>
+        </tr>
+        <tr>
+            <th>Projektets URL</th>
+        </tr>
+        <tr>
+            <td>
+                URL, der bruges ved åbning af projektet via <strong>Menu&rarr;Projekt&rarr;Åbn i browser</strong>, samt ved åbning af projektets domænealiasser. Der kan bruges skabelonvariabler.<br><br>
+                <strong>Anvendelse:</strong> Du kan angive URL'en til CMS'ets administrationspanel.</td>
+        </tr>
+    </table>
+    <h2>Skabelonvariabler</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variabel</th>
+                <th>Beskrivelse</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{backend_ip}</td>
+                <td>IP-adresse til forbindelse til serverdelen (Backend)</td>
+            </tr>
+            <tr>
+                <td>{backend_port}</td>
+                <td>Port til forbindelse til serverdelen (Backend)</td>
+            </tr>
+            <tr>
+                <td>{base_dir}</td>
+                <td>Projektets rodmappe (hvor mappen .osp befinder sig)</td>
+            </tr>
+            <tr>
+                <td>{date_time}</td>
+                <td>Nuværende dato/tid (variablen er kun tilgængelig for kommandoen til at starte projektets applikation)</td>
+            </tr>
+            <tr>
+                <td>{host}</td>
+                <td>Domænenavn (for internationaliserede domæner bruges Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_decoded}</td>
+                <td>Synligt domænenavn (uden Punycode)</td>
+            </tr>
+            <tr>
+                <td>{host_scheme}</td>
+                <td>Forespørgslens skema til projektet ("http" eller "https", afhænger af TLS-parameteren i projektindstillingerne)</td>
+            </tr>
+            <tr>
+                <td>{http_port}</td>
+                <td>Forespørgselsport til projektet via HTTP-protokollen</td>
+            </tr>
+            <tr>
+                <td>{https_port}</td>
+                <td>Forespørgselsport til projektet via HTTPS-protokollen</td>
+            </tr>
+            <tr>
+                <td>{http_engine}</td>
+                <td>HTTP-motor</td>
+            </tr>
+            <tr>
+                <td>{node_engine}</td>
+                <td>NODE-motor</td>
+            </tr>
+            <tr>
+                <td>{php_engine}</td>
+                <td>PHP-motor</td>
+            </tr>
+            <tr>
+                <td>{project_root}</td>
+                <td>Projektets rodmappe</td>
+            </tr>
+            <tr>
+                <td>{web_root}</td>
+                <td>Projektets offentlige mappe</td>
+            </tr>
+            <tr>
+                <td>{scheme_port}</td>
+                <td>Forespørgselsport til projektet (":{http_port}" eller ":{https_port}", afhænger af TLS-parameteren i projektindstillingerne).<br><br>Hvis {http_port} eller {https_port} har standardværdien 80 eller 443, vil {scheme_port} være tom.</td>
+            </tr>
+            <tr>
+                <td>{root_dir}</td>
+                <td>Open Server Panels rodmappe (fuld sti)</td>
+            </tr>
+            <tr>
+                <td>{root_drive}</td>
+                <td>Drevet for rodmappen</td>
+            </tr>
+            <tr>
+                <td>{root_path}</td>
+                <td>Stien til Open Server Panels rodmappe</td>
+            </tr>
+            <tr>
+                <td>{terminal_codepage}</td>
+                <td>Konsolkodning</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

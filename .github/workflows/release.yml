@@ -1,0 +1,90 @@
+name: Build Open Server Panel
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version (e.g. 6.4.0)'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout repo with LFS
+        uses: actions/checkout@v6
+
+      - name: Remove old Inno Setup (if exists)
+        shell: pwsh
+        run: |
+          if (Test-Path "C:\Program Files (x86)\Inno Setup 6") {
+            Remove-Item "C:\Program Files (x86)\Inno Setup 6" -Recurse -Force
+          }
+
+      - name: Download and install Inno Setup 6
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "innosetup.exe"
+          Start-Process .\innosetup.exe -ArgumentList "/VERYSILENT", "/SUPPRESSMSGBOXES", "/NORESTART" -Wait
+
+      - name: Set version in OpenServerPanel.iss
+        shell: pwsh
+        run: |
+          $ver = "${{ inputs.version }}"
+          if ([string]::IsNullOrWhiteSpace($ver)) {
+            Write-Error "Version input is empty."
+            exit 1
+          }
+          if ($ver -notmatch '^\d+(\.\d+)*$') {
+            Write-Error "Version must look like 6.4.0"
+            exit 1
+          }
+          $verUnderscore = $ver -replace '\.', '_'
+
+          $issPath = "OpenServerPanel.iss"
+          if (-not (Test-Path $issPath)) {
+            Write-Error "OpenServerPanel.iss not found at $issPath"
+            exit 1
+          }
+
+          $content = Get-Content -Raw -Path $issPath
+          $content = $content -replace '(?m)^\#define\s+AppVersion\s+.*$', "#define AppVersion      `"$ver`""
+          $content = $content -replace '(?m)^\#define\s+AppVersion_\s+.*$', "#define AppVersion_     `"$verUnderscore`""
+          Set-Content -Path $issPath -Value $content -Encoding UTF8
+
+          Write-Host "Set AppVersion to $ver and AppVersion_ to $verUnderscore in OpenServerPanel.iss"
+
+      - name: Run generators (genall.ps1 and gendb.bat)
+        shell: pwsh
+        env:
+          TMP:  D:\a\_temp
+          TEMP: D:\a\_temp
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (-not (Test-Path $env:TEMP)) { New-Item -ItemType Directory -Force -Path $env:TEMP | Out-Null }
+
+          Set-Location generate
+          # genall.ps1 использует $CacheDir = "..\cache" — это указывает на корневую папку cache
+          .\genall.ps1
+          # gendb.bat — инициализация БД
+          cmd /c gendb.bat
+          Set-Location ..
+
+      - name: Compile installer (OpenServerPanel.iss)
+        shell: pwsh
+        run: |
+          $iscc = "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) {
+            Write-Error "Inno Setup ISCC.exe not found at $iscc"
+            exit 1
+          }
+          & $iscc "OpenServerPanel.iss"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: open-server-panel-setup
+          path: release/*.exe
+  

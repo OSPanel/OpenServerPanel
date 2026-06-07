@@ -1,0 +1,1 @@
+GeoIPv6.dat can now be queried with IPv4 mapped addresses (e.g. ::ffff:1.1.1.1)

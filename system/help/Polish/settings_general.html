@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Ustawienia programu</h2>
+    <table>
+        <tr>
+            <th>Uruchamiaj razem z Windows</th>
+        </tr>
+        <tr>
+            <td>
+                Włącz autostart Open Server Panel podczas ładowania systemu operacyjnego.</td>
+        </tr>
+        <tr>
+            <th>Opóźnienie</th>
+        </tr>
+        <tr>
+            <td>
+                Opóźnienie uruchomienia programu (w sekundach, od 0 do 60).<br><br>Pozwala odłożyć start aplikacji podczas ładowania razem z Windows, aby zmniejszyć ogólne obciążenie systemu. Jest to szczególnie przydatne, jeśli trzeba poczekać na pełną inicjalizację zewnętrznych usług lub interfejsów sieciowych.</td>
+        </tr>
+        <tr>
+            <th>Sprawdzaj dostępność nowych wersji</th>
+        </tr>
+        <tr>
+            <td>
+                Włącz sprawdzanie aktualizacji Open Server Panel (wymagane połączenie z Internetem).</td>
+        </tr>
+        <tr>
+            <th>Włącz harmonogram zadań</th>
+        </tr>
+        <tr>
+            <td>
+                Aktywuj wbudowany harmonogram zadań. Jeśli parametr jest wyłączony, żadne zaplanowane zadania nie będą wykonywane, niezależnie od ich statusu.</td>
+        </tr>
+        <tr>
+            <th>Używaj pliku HOSTS</th>
+        </tr>
+        <tr>
+            <td>
+                Włącz zapisywanie nazw domen do pliku HOSTS.<br><br>
+                <strong>Zalecenia przy ograniczonym dostępie do pliku HOSTS w organizacji:</strong><br><br>
+                1. Skonfiguruj wszystkie niezbędne moduły i projekty.<br>
+                2. Skontaktuj się z administratorem systemu w celu odblokowania HOSTS i utrwalenia jego stanu.<br>
+                3. Po utrwaleniu zmian przez administratora można wyłączyć tę opcję.<br><br>
+                <strong>Ważne:</strong> Nie wyłączaj tego parametru, jeśli nie jesteś pewien konsekwencji!</td>
+        </tr>
+        <tr>
+            <th>Uruchamiaj moduły z profilem projektu</th>
+        </tr>
+        <tr>
+            <td>Uruchamiaj moduły z jednoczesną aktywacją profilu odpowiadającego nazwie projektu.<br><br>Używane przy wyborze pozycji menu «Włącz moduły projektu», aby automatycznie aktywować profil o tej samej nazwie co bieżący projekt, jeśli taki istnieje.</td>
+        </tr>
+        <tr>
+            <th>Nie wyłączaj modułów ukrytych projektów</th>
+        </tr>
+        <tr>
+            <td>Nie wyłączaj modułów ukrytych projektów przy wyborze pozycji menu «Wyłącz wszystkie moduły». Pod "ukrytymi" rozumiane są te projekty, dla których ustawiono kategorię "hidden".<br><br>Domyślnie polecenie «Wyłącz wszystkie moduły» zatrzymuje działanie absolutnie wszystkich modułów, w tym tych używanych przez ukryte projekty systemowe (na przykład PHPMyAdmin). Ta opcja pozwala zachować działanie ukrytych projektów systemowych, nie wyłączając niezbędnych dla nich modułów, podczas gdy wszystkie pozostałe moduły zostaną wyłączone.</td>
+        </tr>
+        <tr>
+            <th>Język interfejsu</th>
+        </tr>
+        <tr>
+            <td>
+                Język interfejsu użytkownika Open Server Panel.<br><br>
+                Jeśli plik lokalizacji jest nieobecny lub zawiera błędy, użyty zostanie język angielski.</td>
+        </tr>
+        <tr>
+            <th>Domena API</th>
+        </tr>
+        <tr>
+            <td>
+                Lokalna domena dla API i interfejsu webowego (w trakcie opracowania)<br><br>
+                <strong>Zalecenie:</strong> Jeśli używany jest VPN lub proxy, dodaj tę domenę do wyjątków.</td>
+        </tr>
+        <tr>
+            <th>Adres IP API</th>
+        </tr>
+        <tr>
+            <td>
+                Adres IPv4 dla API i interfejsu webowego (w trakcie opracowania).<br><br>
+                <strong>Zalecenie:</strong> Jeśli używany jest VPN lub proxy, dodaj ten adres IP do wyjątków.</td>
+        </tr>
+        <tr>
+            <th>Port API</th>
+        </tr>
+        <tr>
+            <td>
+                Port używany dla API i interfejsu webowego (w trakcie opracowania). Open Server Panel nie będzie mógł się uruchomić, jeśli wskazany port jest już używany przez inny program.</td>
+        </tr>
+        <tr>
+            <th>Używaj Windows Terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Włącz użycie Windows Terminal zamiast standardowego interfejsu wiersza poleceń.<br><br>
+                <strong>Wymagania:</strong> Windows Terminal musi być zainstalowany w systemie i wpisany w zmiennej środowiskowej PATH.<br><br>
+                <strong>Windows Terminal jako cmd.exe:</strong> Windows Terminal może zastępować cmd.exe i być wpisany w zmiennej środowiskowej %COMSPEC% w nowych wersjach Windows. Jeśli tak jest, pozostaw tę opcję włączoną.<br><br>
+                <strong>Nowe instancje Windows Terminal:</strong> Jeśli Windows Terminal otwiera nowe okna zamiast kart, skonfiguruj go tak: Ustawienia&rarr;Uruchamianie&rarr;Zachowanie nowej instancji&rarr;Dołącz do ostatnio używanego okna.</td>
+        </tr>
+        <tr>
+            <th>Krótki tytuł projektu</th>
+        </tr>
+        <tr>
+            <td>
+                Po aktywowaniu tej opcji w tytule okna terminala będzie wyświetlana tylko nazwa projektu zamiast szczegółowego opisu środowiska.</td>
+        </tr>
+        <tr>
+            <th>Dołącz systemowe środowisko do środowiska projektu</th>
+        </tr>
+        <tr>
+            <td>Używaj środowiska systemu (System) w terminalu, nawet jeśli nie jest ono zadane w ustawieniach projektu. Systemowe środowisko pozwala używać programów zainstalowanych w systemie (na przykład git.exe lub ssh.exe).<br><br>Wyłączaj tę opcję tylko w przypadku konfliktów z oprogramowaniem systemowym.</td>
+        </tr>
+        <tr>
+            <th>Obsługa ANSI</th>
+        </tr>
+        <tr>
+            <td>
+                Włącz obsługę kodów ANSI do zarządzania kolorami w terminalu.<br><br>
+                Tryb "Automatycznie" (domyślnie):<br>
+                - Poprawka stosowana jest tylko do Windows 10 do wersji 1903 włącznie. W nowszych wersjach Windows obsługa kodów ANSI jest już wbudowana.<br>
+                - Poprawka nie jest stosowana dla terminali domyślnie wspierających ANSI (na przykład Windows Terminal).
+            </td>
+        </tr>
+        <tr>
+            <th>Katalogi do wyszukiwania projektów</th>
+        </tr>
+        <tr>
+            <td>
+                Lista katalogów, w których Open Server Panel będzie wyszukiwać projekty. Ścieżki oddzielaj średnikiem (;).<br><br>
+                <strong>Wyjątki:</strong> Podkatalogi node_modules i vendor są ignorowane.</td>
+        </tr>
+        <tr>
+            <th>Głębokość</th>
+        </tr>
+        <tr>
+            <td>
+                Maksymalna głębokość zagnieżdżenia katalogów podczas wyszukiwania projektów.<br><br>
+                Zwiększenie tej wartości może spowolnić uruchamianie Open Server Panel, jeśli w podanych katalogach znajduje się duża liczba podkatalogów.</td>
+        </tr>
+        <tr>
+            <th>Maksymalny rozmiar pliku dziennika</th>
+        </tr>
+        <tr>
+            <td>
+                Maksymalny rozmiar pliku dziennika w megabajtach. Po przekroczeniu wskazanej wartości plik logu zostanie utworzony ponownie przy następnym uruchomieniu programu.<br><br>
+                Ustaw wartość 0, aby czyścić dzienniki przy każdym uruchomieniu programu.<br><br>
+                Ustaw wartość 100 MB, aby całkowicie wyłączyć czyszczenie dzienników.</td>
+        </tr>
+    </table>
+</body>
+
+</html>

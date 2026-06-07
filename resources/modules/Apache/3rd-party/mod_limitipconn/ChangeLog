@@ -1,0 +1,47 @@
+* Version 0.24 - 2012/04/25
+- Patch by Jan Kaluza <jkaluza@redhat.com> and Joe Orton
+  <jorton@redhat.com> to fix compilation with httpd-2.4
+  (https://bugzilla.redhat.com/show_bug.cgi?id=809730)
+
+* Version 0.23 - 2008/03/02
+- Changed the licensing terms to the Apache 2.0 License
+- Added a new quick handler routine, which runs before mod_cache.
+- Per-server directives are now supported, and handled by the quick handler.
+  Per-directory directives are handled as before by the normal handler.
+- When running as a quick handler we don't go through the entire lookup
+  phase (resolve path, stat file, etc) before we get the possibility
+  to block a request. This gives a clear performance enhancement.
+- Don't do subrequest to lookup MIME type if we don't have mime-type
+  specific config.
+- Count connections in closing and logging state too; we don't want to
+  be DOS'd by clients behind buggy firewalls and so on.
+- Added debug messages for easy debugging.
+- Reduced loglevel from ERR to INFO for reject-logging.
+- Removed proxy tracking feature, which is obsoleted by mod_extract_forwarded
+
+* Version 0.22 - 2002/07/29
+- reintroduced proxy tracking feature
+
+* Version 0.21 - 2002/07/25
+- win32 portability fixes
+
+* Version 0.20 - 2002/07/24
+- Ported to Apache 2.0
+- Proxy tracking feature removed (it could not be ported to 2.0)
+
+* Version 0.04 - 2002/04/12
+- Re-diff'd the proxy tracking patch against Apache 1.3.24
+- Incorporated the 403 -> 503 patch from debian
+- mod_limitipconn now sets the LIMITIP environment variable to 1 when it
+  denies a download
+- Added this ChangeLog
+
+* Version 0.03 - 2001/03/27
+- Added Jon Miner's proxy tracking patch
+
+* Version 0.02 - 2000/10/08
+- Fixed a dereferencing of null pointer bug that could cause httpd to
+  segfault
+
+* Version 0.01 - 2000/09/27
+- Initial public release

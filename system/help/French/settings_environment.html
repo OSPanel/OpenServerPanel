@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Variables d’environnement globales des modules</h2>
+    <p>Dans cette section, vous pouvez définir des variables d’environnement globales pour les modules.<br><br>Ces variables ne s’appliquent que dans l’environnement des modules et n’affectent pas les variables système ni l’environnement des projets.<br><br>L’utilisation de variables modèles est autorisée dans les valeurs.</p>
+    <p>Si une variable est présente dans l’environnement système mais ne doit pas être utilisée dans l’environnement des modules, utilisez le filtre spécial (voir Modules&rarr;Variables système autorisées) ou supprimez la variable de l’environnement en lui attribuant une valeur vide.</p>
+    <h2>Variables modèles</h2>
+    <table>
+        <tr>
+            <th>Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Répertoire racine de Open Server Panel (chemin complet)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Lecteur du répertoire racine</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Chemin vers le répertoire racine de Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Encodage dans le terminal (voir Modules&rarr;Encodage dans le terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Fuseau horaire au format Etc/GMT (voir Modules&rarr;Fuseau horaire)</td>
+        </tr>
+    </table>
+    <p>En plus des variables modèles, vous pouvez utiliser n’importe quelles variables d’environnement Windows, par exemple : %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH%, etc.</p>
+</body>
+
+</html>

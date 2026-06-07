@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Variabili d'ambiente globali dei moduli</h2>
+    <p>In questa sezione è possibile impostare le variabili d'ambiente globali per i moduli.<br><br>Queste variabili sono valide solo nell'ambiente dei moduli e non influiscono sulle variabili di sistema o sull'ambiente dei progetti.<br><br>Nei valori è consentito l'uso di variabili template.</p>
+    <p>Se una variabile è presente nell'ambiente di sistema ma non deve essere utilizzata nell'ambiente dei moduli, utilizzare un filtro speciale (vedi Moduli&rarr;Variabili di sistema consentite) oppure rimuovere la variabile dall'ambiente assegnandole un valore vuoto.</p>
+    <h2>Variabili template</h2>
+    <table>
+        <tr>
+            <th>Variabile</th>
+            <th>Descrizione</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Directory radice di Open Server Panel (percorso completo)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Unità della directory radice</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Percorso alla directory radice di Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Codifica nel terminale (vedi Moduli&rarr;Codifica nel terminale)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Fuso orario nel formato Etc/GMT (vedi Moduli&rarr;Fuso orario)</td>
+        </tr>
+    </table>
+    <p>Oltre alle variabili template, è possibile utilizzare qualsiasi variabile d'ambiente di Windows, ad esempio: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% ecc.</p>
+</body>
+
+</html>

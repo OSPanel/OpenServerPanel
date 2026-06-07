@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Globalne varijable okruženja modula</h2>
+    <p>U ovom odjeljku možete postaviti globalne varijable okruženja za module.<br><br>Te varijable vrijede samo u okruženju modula i ne utječu na sistemske varijable ili okruženje projekata.<br><br>U vrijednostima je dopuštena uporaba predložaka varijabli.</p>
+    <p>Ako je varijabla prisutna u sistemskom okruženju, ali se ne smije koristiti u okruženju modula, upotrijebite poseban filtar (vidi Moduli&rarr;Dopuštene sistemske varijable) ili uklonite varijablu iz okruženja tako da joj dodijelite praznu vrijednost.</p>
+    <h2>Predlošci varijabli</h2>
+    <table>
+        <tr>
+            <th>Varijabla</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Korni direktorij Open Server Panel (puna putanja)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Disk korijenskog direktorija</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Pute do korijenskog direktorija Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Kodna stranica u terminalu (vidi Moduli&rarr;Kodiranje u terminalu)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Vremenska zona u formatu Etc/GMT (vidi Moduli&rarr;Vremenska zona)</td>
+        </tr>
+    </table>
+    <p>Osim predložaka varijabli, možete koristiti bilo koje varijable okruženja Windows, na primjer: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% itd.</p>
+</body>
+
+</html>

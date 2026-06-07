@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Cài đặt toàn cục của các mô-đun</h2>
+    <p>Các tham số được đặt trong phần này được áp dụng trong các trường hợp mà trong cài đặt của mô-đun cụ thể, tùy chọn tương ứng có giá trị auto (mặc định).</p>
+    <table>
+        <tr>
+            <th>Chế độ hoạt động yên lặng</th>
+        </tr>
+        <tr>
+            <td>
+                Tắt các thông báo bật lên về lỗi từ Windows Error Reporting và từ chính mô-đun.<br><br>
+                <strong>Khuyến nghị:</strong> Chỉ tắt chế độ này khi cần chẩn đoán sự cố trong hoạt động của mô-đun.</td>
+        </tr>
+        <tr>
+            <th>Thêm tiêu đề vào tệp nhật ký</th>
+        </tr>
+        <tr>
+            <td>
+                Bật tự động thêm tiêu đề vào tệp nhật ký mỗi khi mô-đun khởi chạy. Hữu ích khi tắt tự động dọn dẹp log để phân tách các phiên làm việc.</td>
+        </tr>
+        <tr>
+            <th>Số lần khởi chạy không thành công tối đa</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định số lần khởi chạy mô-đun liên tiếp không thành công được phép trước khi nó chuyển sang trạng thái “Lỗi”.</td>
+        </tr>
+        <tr>
+            <th>Thời gian kiểm tra tính ổn định của mô-đun</th>
+        </tr>
+        <tr>
+            <td>Xác định khoảng thời gian kiểm tra tính ổn định của mô-đun sau khi khởi chạy thành công.<br><br>
+                <strong>Thời điểm bắt đầu đếm:</strong> Từ thời điểm mô-đun khởi chạy thành công.<br><br>
+                <strong>Chuyển sang trạng thái “Lỗi”:</strong> Nếu mô-đun dừng đột ngột trong thời gian thử nghiệm, nó sẽ không được tự động khởi động lại và chuyển sang trạng thái “Lỗi”. Điều này cũng áp dụng cho các trường hợp mô-đun không thể khởi chạy ở cấp độ hệ thống.<br><br>
+                <strong>Tắt kiểm tra:</strong> Giá trị 0 tắt thời gian thử nghiệm, và mô-đun sẽ luôn được khởi động lại khi xảy ra sự cố.<br><br>
+                <strong>Khuyến nghị:</strong> Không đặt giá trị 0 hoặc khoảng thời gian quá ngắn (dưới 30 giây), vì có thể dẫn đến vòng lặp khởi động lại vô tận.</td>
+        </tr>
+        <tr>
+            <th>Thời gian chờ mô-đun kết thúc hoạt động</th>
+        </tr>
+        <tr>
+            <td>Xác định thời gian tối đa mà mô-đun được phép để kết thúc hoạt động của mình.<br><br>
+                <strong>Buộc kết thúc:</strong> Nếu mô-đun không kết thúc trong thời gian chỉ định, nó sẽ bị dừng cưỡng bức.<br><br>
+                <strong>Tắt thời gian chờ:</strong> Giá trị 0 tắt khoảng thời gian chờ. Chương trình sẽ chờ mô-đun kết thúc trong thời gian không giới hạn.<br><br>
+                <strong>Cảnh báo:</strong> Dừng cưỡng bức mô-đun có thể dẫn đến hỏng dữ liệu, mất thay đổi chưa lưu hoặc kết thúc tiến trình không đúng cách. Sử dụng cài đặt này một cách thận trọng.</td>
+        </tr>
+        <tr>
+            <th>Kích thước tối đa của tệp nhật ký</th>
+        </tr>
+        <tr>
+            <td>
+                Kích thước tối đa của tệp nhật ký tính bằng megabyte. Khi vượt quá giá trị chỉ định, tệp log sẽ được tạo lại khi mô-đun khởi chạy tiếp theo.<br><br>
+                Đặt giá trị 0 để dọn dẹp nhật ký mỗi lần mô-đun khởi chạy.<br><br>
+                Đặt giá trị 100 MB để tắt hoàn toàn việc dọn dẹp nhật ký.</td>
+        </tr>
+        <tr>
+            <th>Bảng mã terminal</th>
+        </tr>
+        <tr>
+            <td>
+                Bảng mã terminal khi làm việc với môi trường của mô-đun.<br><br>
+                <strong>Giá trị đặc biệt:</strong><br>
+                - system: Sử dụng bảng mã hệ thống.</td>
+        </tr>
+        <tr>
+            <th>Múi giờ</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định múi giờ của mô-đun theo định dạng Etc/GMT (ví dụ, Etc/GMT-3).<br><br>
+                <strong>Giá trị đặc biệt:</strong><br>
+                - system: Sử dụng múi giờ hệ thống.<br><br>
+                <strong>Quan trọng:</strong> Định dạng Etc/GMT có độ lệch ngược so với UTC (ví dụ, Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Các môi trường tiện ích mở rộng được sử dụng</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định danh sách tiện ích mở rộng (liệt kê cách nhau bằng khoảng trắng), các môi trường của chúng (nếu có) sẽ được gắn vào môi trường của mô-đun. Các chỉ báo thông tin trong terminal không hiển thị các môi trường bổ sung này.<br><br>
+                <strong>Cảnh báo:</strong> Chỉ sử dụng tùy chọn này khi bạn hiểu rõ hoàn toàn mục đích của nó.</td>
+        </tr>
+        <tr>
+            <th>Các biến hệ thống được phép</th>
+        </tr>
+        <tr>
+            <td>
+                Xác định danh sách các biến môi trường Windows (liệt kê cách nhau bằng khoảng trắng) được truyền vào môi trường của mô-đun.<br><br>
+                <strong>Mục đích:</strong> Cho phép cô lập môi trường làm việc của mô-đun khỏi phần mềm tương tự được cài đặt trong hệ thống.<br><br>
+                <strong>Cảnh báo:</strong> Thay đổi danh sách này nếu không hiểu đầy đủ tác động của nó có thể dẫn đến hoạt động không ổn định của mô-đun.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

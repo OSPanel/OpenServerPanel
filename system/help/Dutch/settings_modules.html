@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .file-path {
+        font-family: monospace;
+        background-color: #f8f9fa;
+    }
+
+    .bs-callout-danger {
+        background-color: #FEEFEF;
+        border-color: #F8CBCB;
+    }
+    .bs-callout {
+        margin: 0 0 1.25em 0;
+        padding: 0.67em 1em;
+        border: 0.09em solid #eee;
+        border-radius: 4px;
+    }
+    .bs-callout-danger h3 {
+        padding-bottom: 0.67em;
+        border-bottom: 0.09em solid #F8CBCB;
+    }
+    .bs-callout h3 {
+        margin-top: 0;
+        margin-bottom: 0.67em
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Algemene module-instellingen</h2>
+    <p>De parameters die in deze sectie zijn opgegeven, worden toegepast wanneer in de instellingen van een specifieke module voor de betreffende optie de waarde auto (standaard) is ingesteld.</p>
+    <table>
+        <tr>
+            <th>Stille modus</th>
+        </tr>
+        <tr>
+            <td>
+                Schakelt pop-up foutmeldingen uit van Windows Error Reporting en van de module zelf.<br><br>
+                <strong>Aanbeveling:</strong> Schakel deze modus alleen uit wanneer diagnose van moduleproblemen nodig is.</td>
+        </tr>
+        <tr>
+            <th>Kop toevoegen aan logbestand</th>
+        </tr>
+        <tr>
+            <td>
+                Schakelt het automatisch toevoegen van een kop in het logbestand in bij elke start van de module. Handig wanneer automatische logopschoning is uitgeschakeld om werksessies te scheiden.</td>
+        </tr>
+        <tr>
+            <th>Maximaal aantal mislukte starts</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt hoeveel opeenvolgende mislukte starts van de module zijn toegestaan voordat deze naar de status "Fout" gaat.</td>
+        </tr>
+        <tr>
+            <th>Tijdsduur voor healthcheck van de module</th>
+        </tr>
+        <tr>
+            <td>Bepaalt de periode voor het testen van de werking van de module na een succesvolle start.<br><br>
+                <strong>Start van de telling:</strong> Vanaf het moment van succesvolle start van de module.<br><br>
+                <strong>Overgang naar status "Fout":</strong> Als de module binnen de proeftijd onverwacht wordt beëindigd, wordt hij niet automatisch opnieuw gestart en gaat hij naar de status "Fout". Dit geldt ook wanneer de module niet op systeemniveau kan worden gestart.<br><br>
+                <strong>Healthcheck uitschakelen:</strong> Waarde 0 schakelt de proeftijd uit en de module wordt altijd opnieuw gestart bij een crash.<br><br>
+                <strong>Aanbeveling:</strong> Stel geen waarde 0 of een te korte periode (minder dan 30 seconden) in, omdat dit kan leiden tot oneindige herstartloops.</td>
+        </tr>
+        <tr>
+            <th>Wachttijd voor het beëindigen van de module</th>
+        </tr>
+        <tr>
+            <td>Bepaalt de maximale tijd waarbinnen de module zijn werk mag beëindigen.<br><br>
+                <strong>Geforceerde beëindiging:</strong> Als de module binnen de opgegeven tijd niet stopt, wordt deze geforceerd gestopt.<br><br>
+                <strong>Wachttijd uitschakelen:</strong> Waarde 0 schakelt de wachttijd uit. Het programma wacht onbeperkt op het beëindigen van de module.<br><br>
+                <strong>Waarschuwing:</strong> Geforceerd stoppen van de module kan leiden tot gegevensbeschadiging, verlies van niet-opgeslagen wijzigingen of onjuiste beëindiging van processen. Gebruik deze instelling voorzichtig.</td>
+        </tr>
+        <tr>
+            <th>Maximale grootte van het logbestand</th>
+        </tr>
+        <tr>
+            <td>
+                Maximale grootte van het logbestand in megabytes. Bij overschrijding van de opgegeven waarde wordt het logbestand bij de volgende start van de module opnieuw aangemaakt.<br><br>
+                Stel de waarde 0 in om logs bij elke start van de module te wissen.<br><br>
+                Stel de waarde 100 MB in om het wissen van logs volledig uit te schakelen.</td>
+        </tr>
+        <tr>
+            <th>Terminalcodering</th>
+        </tr>
+        <tr>
+            <td>
+                Terminalcodering bij het werken met de omgeving van de module.<br><br>
+                <strong>Speciale waarden:</strong><br>
+                - system: De systeemcodering wordt gebruikt.</td>
+        </tr>
+        <tr>
+            <th>Tijdzone</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de tijdzone van de module in het formaat Etc/GMT (bijvoorbeeld Etc/GMT-3).<br><br>
+                <strong>Speciale waarden:</strong><br>
+                - system: De systeemtijdzone wordt gebruikt.<br><br>
+                <strong>Belangrijk:</strong> Het Etc/GMT-formaat heeft een omgekeerde offset ten opzichte van UTC (bijvoorbeeld Etc/GMT-3 = UTC/GMT+3 = UTC+03:00 = Europe/Moscow).</td>
+        </tr>
+        <tr>
+            <th>Gebruikte add-on omgevingen</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de lijst met add-ons (opgegeven gescheiden door spaties) waarvan de omgevingen (indien aanwezig) worden gekoppeld aan de omgeving van de module. Informatieve indicatoren in de terminal tonen deze extra omgevingen niet.<br><br>
+                <strong>Waarschuwing:</strong> Gebruik deze optie alleen als u het doel volledig begrijpt.</td>
+        </tr>
+        <tr>
+            <th>Toegestane systeemvariabelen</th>
+        </tr>
+        <tr>
+            <td>
+                Bepaalt de lijst met Windows-omgevingsvariabelen (opgegeven gescheiden door spaties) die worden doorgegeven aan de omgeving van de module.<br><br>
+                <strong>Doel:</strong> Hiermee kunt u de werkomgeving van de module isoleren van vergelijkbare software die in het systeem is geïnstalleerd.<br><br>
+                <strong>Waarschuwing:</strong> Het wijzigen van deze lijst zonder volledig begrip van de gevolgen kan leiden tot instabiele werking van de module.
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

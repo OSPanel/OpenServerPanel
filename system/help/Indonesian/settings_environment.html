@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">Variabel lingkungan global modul</h2>
+    <p>Di bagian ini Anda dapat menetapkan variabel lingkungan global untuk modul.<br><br>Variabel ini hanya berlaku di lingkungan modul dan tidak memengaruhi variabel sistem atau lingkungan proyek.<br><br>Dalam nilai diperbolehkan penggunaan variabel templat.</p>
+    <p>Jika variabel ada di lingkungan sistem tetapi tidak boleh digunakan di lingkungan modul, gunakan filter khusus (lihat Modul&rarr;Variabel sistem yang diizinkan) atau hapus variabel dari lingkungan dengan memberinya nilai kosong.</p>
+    <h2>Variabel templat</h2>
+    <table>
+        <tr>
+            <th>Variabel</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td>{root_dir}</td>
+            <td>Direktori root Open Server Panel (jalur lengkap)</td>
+        </tr>
+        <tr>
+            <td>{root_drive}</td>
+            <td>Drive direktori root</td>
+        </tr>
+        <tr>
+            <td>{root_path}</td>
+            <td>Jalur ke direktori root Open Server Panel</td>
+        </tr>
+        <tr>
+            <td>{terminal_codepage}</td>
+            <td>Pengodean di terminal (lihat Modul&rarr;Pengodean di terminal)</td>
+        </tr>
+        <tr>
+            <td>{time_zone}</td>
+            <td>Zona waktu dalam format Etc/GMT (lihat Modul&rarr;Zona waktu)</td>
+        </tr>
+    </table>
+    <p>Selain variabel templat, Anda dapat menggunakan variabel lingkungan Windows apa pun, misalnya: %SYSTEMROOT%, %SYSTEMDRIVE%, %USERNAME%, %PATH% dan lain-lain.</p>
+</body>
+
+</html>

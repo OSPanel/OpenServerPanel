@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0 auto;
+        padding: 0.50em 1.41em 0 1.41em;
+    }
+    h2 {
+        color: #1F2328;
+        border-bottom: 0.09em solid #DCDCDC;
+        padding: 0 0 0.42em 0;
+    }
+    ul {
+        padding-left: 1.67em;
+    }
+    li {
+        margin: 0.84em 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.25em 0;
+    }
+    th {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.42em 0.67em;
+        text-align: left;
+    }
+    td {
+        border: 0.09em solid #DCDCDC;
+        padding: 0.67em;
+        text-align: left;
+    }
+    th {
+        background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    </style>
+</head>
+
+<body>
+    <h2 style="margin-top: 0.33em">프로그램 설정</h2>
+    <table>
+        <tr>
+            <th>Windows와 함께 시작</th>
+        </tr>
+        <tr>
+            <td>
+                운영체제 부팅 시 Open Server Panel 자동 실행을 활성화합니다.</td>
+        </tr>
+        <tr>
+            <th>지연</th>
+        </tr>
+        <tr>
+            <td>
+                프로그램 시작 지연(초, 0~60).<br><br>Windows와 함께 부팅될 때 앱 시작을 지연하여 시스템 전체 부하를 줄일 수 있습니다. 특히 서드파티 서비스나 네트워크 인터페이스의 완전한 초기화를 기다려야 하는 경우에 유용합니다.</td>
+        </tr>
+        <tr>
+            <th>새 버전 확인</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel 업데이트 확인을 활성화합니다(인터넷 연결 필요).</td>
+        </tr>
+        <tr>
+            <th>작업 스케줄러 활성화</th>
+        </tr>
+        <tr>
+            <td>
+                내장 작업 스케줄러를 활성화합니다. 이 옵션이 비활성화되면 상태와 관계없이 예약된 작업은 실행되지 않습니다.</td>
+        </tr>
+        <tr>
+            <th>HOSTS 파일 사용</th>
+        </tr>
+        <tr>
+            <td>
+                도메인 이름을 HOSTS 파일에 기록하도록 활성화합니다.<br><br>
+                <strong>조직에서 HOSTS 파일 접근이 제한된 경우 권장 사항:</strong><br><br>
+                1. 필요한 모든 모듈과 프로젝트를 설정합니다.<br>
+                2. 시스템 관리자에게 문의하여 HOSTS를 잠금 해제하고 상태를 고정하도록 요청합니다.<br>
+                3. 관리자가 변경 사항을 고정한 후 이 옵션을 비활성화해도 됩니다.<br><br>
+                <strong>중요:</strong> 결과에 확신이 없다면 이 옵션을 비활성화하지 마세요!</td>
+        </tr>
+        <tr>
+            <th>프로젝트 프로필로 모듈 실행</th>
+        </tr>
+        <tr>
+            <td>프로젝트 이름과 동일한 프로필을 동시에 활성화하여 모듈을 실행합니다.<br><br>메뉴의 «프로젝트 모듈 켜기»를 선택할 때, 현재 프로젝트와 동일한 이름의 프로필이 존재하면 자동으로 활성화하는 데 사용됩니다.</td>
+        </tr>
+        <tr>
+            <th>숨김 프로젝트의 모듈 끄지 않기</th>
+        </tr>
+        <tr>
+            <td>메뉴의 «모든 모듈 끄기»를 선택할 때 숨김 프로젝트의 모듈은 끄지 않습니다. 여기서 "숨김"이란 카테고리가 "hidden"으로 지정된 프로젝트를 의미합니다.<br><br>기본적으로 «모든 모듈 끄기» 명령은 숨김 서비스형 프로젝트(예: PHPMyAdmin)에서 사용하는 모듈을 포함해 모든 모듈의 동작을 중지합니다. 이 옵션을 통해 필요한 모듈을 끄지 않고도 숨김 서비스형 프로젝트의 동작을 유지하는 동시에 나머지 모든 모듈은 끌 수 있습니다.</td>
+        </tr>
+        <tr>
+            <th>인터페이스 언어</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel의 사용자 인터페이스 언어입니다.<br><br>
+                로컬라이제이션 파일이 없거나 오류가 있는 경우 영어가 사용됩니다.</td>
+        </tr>
+        <tr>
+            <th>API 도메인</th>
+        </tr>
+        <tr>
+            <td>
+                API 및 웹 인터페이스를 위한 로컬 도메인(개발 중)<br><br>
+                <strong>권장:</strong> VPN 또는 프록시를 사용하는 경우 이 도메인을 예외 목록에 추가하세요.</td>
+        </tr>
+        <tr>
+            <th>API IP 주소</th>
+        </tr>
+        <tr>
+            <td>
+                API 및 웹 인터페이스를 위한 IPv4 주소(개발 중).<br><br>
+                <strong>권장:</strong> VPN 또는 프록시를 사용하는 경우 이 IP 주소를 예외 목록에 추가하세요.</td>
+        </tr>
+        <tr>
+            <th>API 포트</th>
+        </tr>
+        <tr>
+            <td>
+                API 및 웹 인터페이스(개발 중)에 사용되는 포트입니다. 지정한 포트가 다른 애플리케이션에서 이미 사용 중이면 Open Server Panel은 시작할 수 없습니다.</td>
+        </tr>
+        <tr>
+            <th>Windows Terminal 사용</th>
+        </tr>
+        <tr>
+            <td>
+                기본 명령 인터페이스 대신 Windows Terminal 사용을 활성화합니다.<br><br>
+                <strong>요구 사항:</strong> Windows Terminal이 시스템에 설치되어 있고 환경 변수 PATH에 등록되어 있어야 합니다.<br><br>
+                <strong>cmd.exe로서의 Windows Terminal:</strong> Windows Terminal은 cmd.exe를 대체하고 최신 Windows 버전에서 환경 변수 %COMSPEC%에 등록될 수 있습니다. 이 경우 이 옵션을 활성화 상태로 두세요.<br><br>
+                <strong>Windows Terminal의 새 인스턴스:</strong> Windows Terminal이 탭 대신 새 창을 연다면 다음과 같이 설정하세요: 설정&rarr;시작&rarr;새 인스턴스 동작&rarr;마지막으로 사용한 창에 연결.</td>
+        </tr>
+        <tr>
+            <th>짧은 프로젝트 제목</th>
+        </tr>
+        <tr>
+            <td>
+                이 옵션을 활성화하면 터미널 창 제목에 환경의 상세 설명 대신 프로젝트 이름만 표시됩니다.</td>
+        </tr>
+        <tr>
+            <th>프로젝트 환경에 시스템 환경 포함</th>
+        </tr>
+        <tr>
+            <td>프로젝트 설정에 지정되지 않았더라도 터미널에서 시스템(System) 환경을 사용합니다. 시스템 환경을 통해 시스템에 설치된 프로그램(예: git.exe 또는 ssh.exe)을 사용할 수 있습니다.<br><br>시스템 소프트웨어와 충돌이 발생하는 경우에만 이 옵션을 비활성화하세요.</td>
+        </tr>
+        <tr>
+            <th>ANSI 지원</th>
+        </tr>
+        <tr>
+            <td>
+                터미널에서 색상 제어를 위한 ANSI 코드 지원을 활성화합니다.<br><br>
+                "자동" 모드(기본값):<br>
+                - 수정은 Windows 10 버전 1903까지에만 적용됩니다. 더 최신 버전의 Windows에서는 ANSI 코드 지원이 이미 내장되어 있습니다.<br>
+                - 기본적으로 ANSI를 지원하는 터미널(예: Windows Terminal)에는 수정이 적용되지 않습니다.
+            </td>
+        </tr>
+        <tr>
+            <th>프로젝트 검색용 디렉터리</th>
+        </tr>
+        <tr>
+            <td>
+                Open Server Panel이 프로젝트를 찾을 디렉터리 목록입니다. 경로는 세미콜론(;)으로 구분하세요.<br><br>
+                <strong>예외:</strong> 하위 디렉터리 node_modules 및 vendor는 무시됩니다.</td>
+        </tr>
+        <tr>
+            <th>깊이</th>
+        </tr>
+        <tr>
+            <td>
+                프로젝트 검색 시 디렉터리 중첩의 최대 깊이입니다.<br><br>
+                이 값을 늘리면 지정된 디렉터리에 많은 하위 디렉터리가 포함된 경우 Open Server Panel의 시작 속도가 느려질 수 있습니다.</td>
+        </tr>
+        <tr>
+            <th>로그 파일 최대 크기</th>
+        </tr>
+        <tr>
+            <td>
+                로그 파일의 최대 크기(메가바이트). 지정한 값을 초과하면 다음 프로그램 시작 시 로그 파일이 재생성됩니다.<br><br>
+                매번 프로그램 시작 시 로그를 지우려면 값 0을 설정하세요.<br><br>
+                로그 정리를 완전히 비활성화하려면 값 100 MB를 설정하세요.</td>
+        </tr>
+    </table>
+</body>
+
+</html>
