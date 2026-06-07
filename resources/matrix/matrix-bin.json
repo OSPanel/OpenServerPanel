@@ -2,10 +2,11 @@
     "tools": [
     {
         "name": "7za",
-        "url": "https://files.ospanel.io/dist/7za.25.01.zip",
+        "url": "https://files.ospanel.io/dist/7za.26.01.zip",
         "extract_path": "",
         "files": ["7za.exe", "7za.dll", "7zxa.dll"],
-        "help_command": ["7za.exe", "--help"]
+        "help_command": ["7za.exe", "--help"],
+        "home_page": "https://7-zip.de/download.html"
     },
     {
         "name": "age",
@@ -28,57 +29,65 @@
         {
             "command": ["age-plugin-batchpass.exe", "--help"],
             "output": "age-plugin-batchpass.txt"
-        }]
+        }],
+        "home_page": "https://github.com/FiloSottile/age"
     },
     {
         "name": "aria2c",
         "url": "https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0-win-64bit-build1.zip",
         "extract_path": "aria2-*",
         "files": ["aria2c.exe"],
-        "help_command": ["aria2c.exe", "--help"]
+        "help_command": ["aria2c.exe", "--help"],
+        "home_page": "https://github.com/aria2/aria2"
     },
     {
         "name": "dart-sass",
-        "url": "https://github.com/sass/dart-sass/releases/download/1.98.0/dart-sass-1.98.0-windows-x64.zip",
+        "url": "https://github.com/sass/dart-sass/releases/download/1.99.0/dart-sass-1.99.0-windows-x64.zip",
         "extract_path": "dart*\\src",
         "files": ["dart.exe", "sass.snapshot"],
         "copy_files": ["..\\resources\\dist\\sass.bat"],
-        "help_command": ["dart.exe", "--help"]
+        "help_command": ["dart.exe", "--help"],
+        "home_page": "https://github.com/sass/dart-sass"
     },
     {
         "name": "bat",
         "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-pc-windows-msvc.zip",
         "extract_path": "bat*",
         "files": ["bat.exe"],
-        "help_command": ["bat.exe", "--help"]
+        "help_command": ["bat.exe", "--help"],
+        "home_page": "https://github.com/sharkdp/bat"
     },
     {
         "name": "brotli",
         "url": "https://github.com/google/brotli/releases/download/v1.2.0/brotli-x64-windows-static.zip",
         "extract_path": "",
         "files": ["brotli.exe"],
-        "help_command": ["brotli.exe", "--help"]
+        "help_command": ["brotli.exe", "--help"],
+        "home_page": "https://github.com/google/brotli"
     },
     {
         "name": "curl",
-        "url": "https://curl.se/windows/dl-8.19.0_1/curl-8.19.0_1-win64-mingw.zip",
+        "url": "https://curl.se/windows/dl-8.20.0_2/curl-8.20.0_2-win64-mingw.zip",
         "extract_path": "curl*\\bin",
         "files": ["curl.exe", "libcurl-x64.dll"],
-        "help_command": ["curl.exe", "--help"]
+        "help_command": ["curl.exe", "--help"],
+        "home_page": "https://github.com/curl/curl"
     },
     {
         "name": "dust",
-        "url": "https://github.com/bootandy/dust/releases/download/v1.2.3/dust-v1.2.3-x86_64-pc-windows-msvc.zip",
+        "url": "https://github.com/bootandy/dust/releases/download/v1.2.4/dust-v1.2.4-x86_64-pc-windows-msvc.zip",
         "extract_path": "dust*",
         "files": ["dust.exe"],
-        "help_command": ["dust.exe", "--help"]
+        "help_command": ["dust.exe", "--help"],
+        "home_page": "https://github.com/bootandy/dust"
     },
     {
         "name": "fd",
         "url": "https://github.com/sharkdp/fd/releases/download/v10.4.2/fd-v10.4.2-x86_64-pc-windows-msvc.zip",
         "extract_path": "fd*",
         "files": ["fd.exe"],
-        "help_command": ["fd.exe", "--help"]
+        "help_command": ["fd.exe", "--help"],
+        "home_page": "https://github.com/sharkdp/fd"
     },
     {
         "name": "geoiplookup",
@@ -93,67 +102,76 @@
         {
             "command": ["geoiplookup6.exe", "-h"],
             "output": "geoiplookup6.txt"
-        }]
+        }],
+        "home_page": "https://github.com/maxmind/geoip-api-c"
     },
     {
         "name": "jq",
         "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-windows-amd64.exe",
         "direct_download": true,
         "target_name": "jq.exe",
-        "help_command": ["jq.exe", "--help"]
+        "help_command": ["jq.exe", "--help"],
+        "home_page": "https://github.com/jqlang/jq"
     },
     {
         "name": "lazygit",
         "url": "https://github.com/jesseduffield/lazygit/releases/download/v0.61.1/lazygit_0.61.1_windows_x86_64.zip",
         "extract_path": "",
         "files": ["lazygit.exe"],
-        "help_command": ["lazygit.exe", "--help"]
+        "help_command": ["lazygit.exe", "--help"],
+        "home_page": "https://github.com/jesseduffield/lazygit"
     },
     {
         "name": "lego",
-        "url": "https://github.com/go-acme/lego/releases/download/v4.32.0/lego_v4.32.0_windows_amd64.zip",
+        "url": "https://github.com/go-acme/lego/releases/download/v4.35.2/lego_v4.35.2_windows_amd64.zip",
         "extract_path": "",
         "files": ["lego.exe"],
-        "help_command": ["lego.exe", "--help"]
+        "help_command": ["lego.exe", "--help"],
+        "home_page": "https://github.com/go-acme/lego"
     },
     {
         "name": "mago",
         "url": "https://github.com/carthage-software/mago/releases/download/1.26.0/mago-1.26.0-x86_64-pc-windows-msvc.zip",
         "extract_path": "mago*",
         "files": ["mago.exe"],
-        "help_command": ["mago.exe", "--help"]
+        "help_command": ["mago.exe", "--help"],
+        "home_page": "https://github.com/carthage-software/mago"
     },
     {
         "name": "mmdbinspect",
         "url": "https://github.com/maxmind/mmdbinspect/releases/download/v2.0.0/mmdbinspect_2.0.0_windows_amd64.zip",
         "extract_path": "mmdbinspect*",
         "files": ["mmdbinspect.exe"],
-        "help_command": ["mmdbinspect.exe", "--help"]
+        "help_command": ["mmdbinspect.exe", "--help"],
+        "home_page": "https://github.com/maxmind/mmdbinspect"
     },
     {
         "name": "oha",
         "url": "https://github.com/hatoo/oha/releases/download/v1.14.0/oha-windows-amd64-pgo.exe",
         "direct_download": true,
         "target_name": "oha.exe",
-        "help_command": ["oha.exe", "--help"]
+        "help_command": ["oha.exe", "--help"],
+        "home_page": "https://github.com/hatoo/oha"
     },
     {
         "name": "opa",
-        "url": "https://github.com/open-policy-agent/opa/releases/download/v1.14.1/opa_windows_amd64.exe",
+        "url": "https://github.com/open-policy-agent/opa/releases/download/v1.16.1/opa_windows_amd64.exe",
         "direct_download": true,
         "target_name": "opa.exe",
-        "help_command": ["opa.exe", "--help"]
+        "help_command": ["opa.exe", "--help"],
+        "home_page": "https://github.com/open-policy-agent/opa"
     },
     {
         "name": "sd",
         "url": "https://github.com/chmln/sd/releases/download/v1.1.0/sd-v1.1.0-x86_64-pc-windows-msvc.zip",
         "extract_path": "sd*",
         "files": ["sd.exe"],
-        "help_command": ["sd.exe", "--help"]
+        "help_command": ["sd.exe", "--help"],
+        "home_page": "https://github.com/chmln/sd"
     },
     {
         "name": "sqlite3",
-        "url": "https://www.sqlite.org/2025/sqlite-tools-win-x64-3500400.zip",
+        "url": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3530100.zip",
         "extract_path": "",
         "files": ["sqlite3.exe", "sqlite3_analyzer.exe", "sqlite3_rsync.exe", "sqldiff.exe"],
         "help_commands": [
@@ -172,26 +190,30 @@
         {
             "command": ["sqldiff.exe", "--help"],
             "output": "sqldiff.txt"
-        }]
+        }],
+        "home_page": "https://github.com/sqlite/sqlite"
     },
     {
         "name": "xh",
         "url": "https://github.com/ducaale/xh/releases/download/v0.25.3/xh-v0.25.3-x86_64-pc-windows-msvc.zip",
         "extract_path": "xh*",
         "files": ["xh.exe"],
-        "help_command": ["xh.exe", "--help"]
+        "help_command": ["xh.exe", "--help"],
+        "home_page": "https://github.com/ducaale/xh"
     },
     {
         "name": "wget",
         "url": "https://eternallybored.org/misc/wget/releases/wget-1.21.4-win64.zip",
         "extract_path": "",
         "files": ["wget.exe"],
-        "help_command": ["wget.exe", "--help"]
+        "help_command": ["wget.exe", "--help"],
+        "home_page": "https://github.com/mirror/wget"
     },
     {
         "name": "ospanel_sys_prep_tool",
         "url": "https://github.com/OSPanel/SystemPreparationTool/releases/latest/download/ospanel_sys_prep_tool.exe",
         "direct_download": true,
-        "target_name": "ospanel_sys_prep_tool.exe"
+        "target_name": "ospanel_sys_prep_tool.exe",
+        "home_page": "https://github.com/OSPanel/SystemPreparationTool"
     }]
 }
