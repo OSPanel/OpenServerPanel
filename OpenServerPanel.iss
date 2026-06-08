@@ -208,11 +208,17 @@ Name: "modules\vault";                 Description: "Vault 1.21";            Typ
 
 [Dirs]
 
-Name: "{app}\home\full-example.local\.osp\backup";                Flags: uninsneveruninstall;                     Components: core; Permissions: users-full
-Name: "{app}\system\skeleton_full\backup";                        Flags: uninsneveruninstall;                     Components: core; Permissions: users-full
-Name: "{app}\system\skeleton_full\apache";                        Flags: uninsneveruninstall;                     Components: core; Permissions: users-full
-Name: "{app}\system\skeleton_full\nginx";                         Flags: uninsneveruninstall;                     Components: core; Permissions: users-full
-Name: "{app}\system\skeleton_full\caddy";                         Flags: uninsneveruninstall;                     Components: core; Permissions: users-full 
+Name: "{app}\home\full-example.local\.osp\backup";                Components: core;      Permissions: users-full; Flags: uninsneveruninstall
+Name: "{app}\system\skeleton_full\backup";                        Components: core;      Permissions: users-full
+Name: "{app}\system\skeleton_full\apache";                        Components: core;      Permissions: users-full
+Name: "{app}\system\skeleton_full\nginx";                         Components: core;      Permissions: users-full
+Name: "{app}\system\skeleton_full\caddy";                         Components: core;      Permissions: users-full
+Name: "{app}\addons\Go\workspace";                                Components: addons\go; Permissions: users-full; Flags: uninsneveruninstall                   
+Name: "{app}\addons\Go\workspace\pkg";                            Components: addons\go; Permissions: users-full; Flags: uninsneveruninstall
+Name: "{app}\addons\Go\workspace\pkg\mod";                        Components: addons\go; Permissions: users-full
+Name: "{app}\addons\Go\workspace\bin";                            Components: addons\go; Permissions: users-full; Flags: uninsneveruninstall
+Name: "{app}\addons\Go\workspace\src";                            Components: addons\go; Permissions: users-full; Flags: uninsneveruninstall
+Name: "{app}\addons\Go\workspace\cache";                          Components: addons\go; Permissions: users-full
 
 [Files]
 
