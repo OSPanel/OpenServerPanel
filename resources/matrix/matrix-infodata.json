@@ -261,10 +261,10 @@
             },
             "environment":
             {
-                "GOROOT": "{root_dir}\\addons\\{addon_name}",
-                "GOPATH": "{root_dir}\\addons\\{addon_name}\\workspace",
                 "GOCACHE": "{root_dir}\\addons\\{addon_name}\\workspace\\cache",
                 "GOMODCACHE": "{root_dir}\\addons\\{addon_name}\\workspace\\pkg\\mod",
+                "GOROOT": "{root_dir}\\addons\\{addon_name}",
+                "GOPATH": "{root_dir}\\addons\\{addon_name}\\workspace",
                 "GOTMPDIR": "{root_dir}\\temp",
                 "PATH": "{root_dir}\\addons\\{addon_name}\\bin;{root_dir}\\addons\\{addon_name}\\workspace\\bin;%PATH%"
             },
